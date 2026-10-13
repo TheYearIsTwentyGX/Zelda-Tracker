@@ -103,13 +103,11 @@ fun ArmorListScreen(
         }
         for (group in groups) {
             // Titled groups render as one card (header + rows) so it's clear where each set ends.
-            // Standalone runs sit outside any card under a caption.
+            // Standalone runs sit on the plain background outside any card.
             val carded = group.title != null
-            item(key = "h_${group.key}") {
-                if (carded) {
+            if (carded) {
+                item(key = "h_${group.key}") {
                     GroupHeader(group, group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) })
-                } else {
-                    StandaloneCaption()
                 }
             }
             itemsIndexed(group.pieces, key = { _, piece -> piece.id }) { i, piece ->
@@ -218,16 +216,6 @@ private val CardInset = 12.dp
 private val GroupGap = 12.dp
 private val CardTop = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
 private val CardBottom = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp)
-
-@Composable
-private fun StandaloneCaption() {
-    Text(
-        "Not part of a set",
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.fillMaxWidth().padding(start = CardInset + 16.dp, end = 16.dp, bottom = 4.dp),
-    )
-}
 
 @Composable
 private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?) {
