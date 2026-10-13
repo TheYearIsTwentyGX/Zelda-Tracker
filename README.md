@@ -34,8 +34,10 @@ Requires JDK 17+ and the Android SDK (set `sdk.dir` in `local.properties`).
 
 ### TGXCode buttons
 
-`.tgxcode/commands.json` declares two buttons:
+`.tgxcode/commands.json` declares these buttons:
 
+- **Build** / **Rebuild** (`scripts/build.sh`, `--clean` for Rebuild) assemble the debug APK,
+  finding the SDK even without a `local.properties`.
 - **Install on phone** (`scripts/install-wireless.sh`) finds the phone over Wireless Debugging
   (it uses adb's mDNS discovery and connects if needed), installs the debug build and opens it.
   Pair the phone once by hand first; the script prints the `adb pair` command if it can't find one.
