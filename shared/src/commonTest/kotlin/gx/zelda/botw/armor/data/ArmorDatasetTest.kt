@@ -5,6 +5,7 @@ import gx.zelda.botw.armor.model.ArmorCatalog
 import gx.zelda.botw.armor.model.MaterialCost
 import gx.zelda.botw.armor.model.Slot
 import gx.zelda.botw.armor.model.Source
+import gx.zelda.botw.armor.ui.armorIcon
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -39,6 +40,12 @@ class ArmorDatasetTest {
             }
         }
         c.sets.forEach { assertTrue(c.piecesIn(it.id).isNotEmpty(), "set ${it.id} has no pieces") }
+    }
+
+    @Test
+    fun everyPieceHasAnIcon() = withCatalog { c ->
+        val missing = c.pieces.filter { armorIcon(it.id) == null }.map { it.id }
+        assertTrue(missing.isEmpty(), "no icon for $missing; run scripts/fetch-armor-icons.py")
     }
 
     @Test

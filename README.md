@@ -7,6 +7,7 @@ iOS port is mostly a matter of adding the iOS targets.
 
 **Breath of the Wild: Armor Progress**
 - All 107 armor pieces: base game, The Master Trials, The Champions' Ballad and amiibo.
+- In-game inventory icon for every piece, in the list and on its detail page.
 - Mark pieces as collected and set each one's upgrade level (★0–★4).
 - Defense at every level, piece effects, and set bonuses with live active/inactive status.
 - Materials for every remaining upgrade on each piece.
@@ -26,6 +27,7 @@ iOS port is mostly a matter of adding the iOS targets.
 shared/       Kotlin Multiplatform module: models, logic, Compose UI, armor dataset
   src/commonMain/composeResources/files/botw/armor.json   ← BotW armor data
   src/commonMain/composeResources/files/botw/fairies.json ← BotW Great Fairy Fountains
+  src/commonMain/composeResources/drawable/armor_<id>.png ← BotW armor icons
 androidApp/   Android application shell
 ```
 
@@ -55,3 +57,8 @@ Requires JDK 17+ and the Android SDK (set `sdk.dir` in `local.properties`).
 
 Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
 Where sources disagreed, the majority value was used.
+
+Armor icons are the in-game inventory icons, downloaded from Zelda Wiki
+(`File:BotW <name> Icon.png`) by `scripts/fetch-armor-icons.py`. Run it after adding a piece to
+`armor.json`; it fetches only the icons that are missing (`--force` re-downloads all of them), and
+`ArmorDatasetTest` fails if any piece has no icon.
