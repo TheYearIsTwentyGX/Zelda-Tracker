@@ -1,0 +1,73 @@
+{
+  "upgradeFees": [
+    10,
+    50,
+    200,
+    500
+  ],
+  "fairies": [
+    {
+      "id": "tera",
+      "name": "Tera",
+      "region": "Great Hyrule Forest",
+      "location": "North/north-west of Woodland Stable, at the edge of the Military Training Camp, about halfway to the Lost Woods.",
+      "directions": "From Woodland Stable, follow the road west and then north toward the Lost Woods; the giant flower bud is beside the road at the edge of the Military Training Camp, roughly halfway between the stable and the Lost Woods. You tow the Stable Trotters' wagon (Breezer) there by horse. The Ekochiu Shrine is nearby and makes a good warp point.",
+      "nearby": [
+        "Woodland Stable",
+        "Military Training Camp",
+        "Lost Woods",
+        "Ekochiu Shrine"
+      ],
+      "unlockQuest": "Serenade to a Great Fairy",
+      "notes": "Must be done first: it is the only serenade available initially and the other three Serenade quests follow from it. Given by Penn at Woodland Stable, so first accept 'Potential Princess Sightings!' at the Lucky Clover Gazette (Tabantha Frontier, on the road to Rito Village) so Penn starts appearing at stables. Band members present: leader Mastro and violinist Violynne; no missing member to find. Repair Breezer's wheels with Ultrahand, then hitch it to a horse wearing a Towing Harness (a stable Pony Points reward) and drive to the bud. Tera then marks the other three buds on your map."
+    },
+    {
+      "id": "mija",
+      "name": "Mija",
+      "region": "Tabantha Tundra",
+      "location": "North of Snowfield Stable, on the foothills of Mount Drena's northern peak.",
+      "directions": "From Snowfield Stable, head north up the snowy slope; the bud sits on the lower slope of the mountain, a short ride from the stable. The nearest Skyview Tower is Pikida Stonegrove (Hebra Mountains). It is very cold, so bring cold resistance, and expect mounted Bokoblins on the route.",
+      "nearby": [
+        "Snowfield Stable",
+        "Mount Drena",
+        "Hebra Mountains",
+        "Pikida Stonegrove Skyview Tower",
+        "Orochium Shrine"
+      ],
+      "unlockQuest": "Serenade to Mija",
+      "notes": "Given by Mastro at Snowfield Stable after 'Serenade to a Great Fairy'. The hornist Eustus is missing: find him in a hole in the Tabantha Frontier, along the road near the Tabantha Great Bridge (south of Rito Village), which starts 'The Hornist's Dramatic Escape'. Lift his wagon out (Ultrahand + a Balloon/Flame Emitter or a ramp); he rewards 3 Courser Bee Honey, which is exactly what Beetz wants for Cotera's quest. Back at the stable, Ultrahand the two biggest boards into a roof for Breezer, then tow it north with a horse in a Towing Harness. Reward: a silver rupee (100 Rupees)."
+    },
+    {
+      "id": "kaysa",
+      "name": "Kaysa",
+      "region": "Hyrule Field",
+      "location": "On the hill/ridge directly above (west to north-west of) Outskirt Stable in south-west Hyrule Field.",
+      "directions": "Outskirt Stable is in the south-west corner of Hyrule Field, north of the Great Plateau and before the bridge toward Gerudo. The bud is up the steep hill just behind the stable. Fallen sky debris blocks the road, so you can't take a horse; you drive a Zonai cart up the slope instead.",
+      "nearby": [
+        "Outskirt Stable",
+        "Nephra Hill",
+        "Great Plateau",
+        "Tsutsu-um Shrine"
+      ],
+      "unlockQuest": "Serenade to Kaysa",
+      "notes": "Given by Mastro at Outskirt Stable after 'Serenade to a Great Fairy'. The flautist Pyper is missing: he is up a tree just north of Highland Stable in Faron, which starts 'The Flute Player's Plan' (bring him 10 Sunset Fireflies, then bring Haite to the tree at night; rewards a Big Hearty Truffle). Back at Outskirt Stable, attach the missing fourth wheel and a Steering Stick to the stone cart, attach the wagon, choose 'Get in, I'll handle it' and drive slowly up the hill (the band complains if it tips). Reward 100 Rupees."
+    },
+    {
+      "id": "cotera",
+      "name": "Cotera",
+      "region": "West Necluda",
+      "location": "South of Dueling Peaks Stable by the river, next to the Little Twin Bridge, just east of the Dueling Peaks.",
+      "directions": "From Dueling Peaks Stable, go south toward the split peaks; the bud sits on a small cliffside by a waterfall on the far side of the river, near the Little Twin Bridge. The bridge is broken, so the band's wagon has to be floated across the river as a boat. You can also come down from Kakariko Village.",
+      "nearby": [
+        "Dueling Peaks Stable",
+        "Dueling Peaks",
+        "Little Twin Bridge",
+        "Squabble River",
+        "Kakariko Village",
+        "Eshos Shrine"
+      ],
+      "unlockQuest": "Serenade to Cotera",
+      "notes": "Given by Mastro at Dueling Peaks Stable after 'Serenade to a Great Fairy'. The drummer Beetz is missing: he is on the road south of Bonooru's Stand near Kakariko Village. Finding him starts 'Honey, Bee Mine' (give him 3 Courser Bee Honey from the hives near the Kakariko Village chasm, or use the 3 that Eustus gives you). Then build a boat (plank + Zonai fans + control stick), attach Breezer, tell Mastro to hop in and drive across the river. No horse needed. Reward 100 Rupees."
+    }
+  ]
+}

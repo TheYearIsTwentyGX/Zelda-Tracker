@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
-Download the BotW inventory icon for every armor piece from Zelda Wiki.
+Download the inventory icon for every armor piece, in every game, from Zelda Wiki.
 
     scripts/fetch-armor-icons.py            fetch icons that aren't bundled yet
     scripts/fetch-armor-icons.py --force    re-download every icon
 
-Each piece's icon is the wiki file "BotW <name> Icon.png" (144x144). It is saved as
-shared/src/commonMain/composeResources/drawable/armor_<id>.png, which the app looks up
-by piece id. Exits non-zero if any piece has no icon on the wiki.
+Each piece's icon is the wiki file "<game> <name> Icon.png" (e.g. "BotW Hylian Hood Icon.png").
+It is saved as shared/src/commonMain/composeResources/drawable/armor_<id>.png, which the app
+looks up by piece id. Icons are shared between games: a piece whose id is in an earlier game in
+GAMES uses that game's icon, so TotK only fetches pieces BotW doesn't have. Exits non-zero if any
+piece has no icon on the wiki.
 """
 
 import json
@@ -17,7 +19,9 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CATALOG = ROOT / "shared/src/commonMain/composeResources/files/botw/armor.json"
+FILES = ROOT / "shared/src/commonMain/composeResources/files"
+# (data directory, wiki file prefix), in order of precedence for shared pieces.
+GAMES = [("botw", "BotW"), ("totk", "TotK")]
 OUT_DIR = ROOT / "shared/src/commonMain/composeResources/drawable"
 API = "https://zeldawiki.wiki/w/api.php"
 HEADERS = {"User-Agent": "ZeldaGX armor icon fetcher (github.com/TheYearIsTwentyGX/Zelda-Tracker)"}
@@ -28,11 +32,11 @@ def get(url: str) -> bytes:
         return r.read()
 
 
-def icon_urls(names: list[str]) -> dict[str, str | None]:
+def icon_urls(prefix: str, names: list[str]) -> dict[str, str | None]:
     """Wiki file title for each name → its download URL, or None when the file doesn't exist."""
     urls: dict[str, str | None] = {}
     for i in range(0, len(names), 50):
-        titles = [f"File:BotW {n} Icon.png" for n in names[i:i + 50]]
+        titles = [f"File:{prefix} {n} Icon.png" for n in names[i:i + 50]]
         query = urllib.parse.urlencode({
             "action": "query", "titles": "|".join(titles),
             "prop": "imageinfo", "iiprop": "url", "format": "json",
@@ -47,27 +51,38 @@ def icon_urls(names: list[str]) -> dict[str, str | None]:
     return urls
 
 
-def main() -> int:
-    force = "--force" in sys.argv[1:]
-    pieces = json.loads(CATALOG.read_text())["pieces"]
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+def fetch_game(game: str, prefix: str, force: bool, claimed: set[str]) -> list[str]:
+    """Fetches [game]'s icons that no earlier game supplies; returns the names with no wiki icon."""
+    pieces = json.loads((FILES / game / "armor.json").read_text())["pieces"]
+    own = [p for p in pieces if p["id"] not in claimed]
+    claimed.update(p["id"] for p in pieces)
+    shared = len(pieces) - len(own)
 
-    todo = [p for p in pieces if force or not (OUT_DIR / f"armor_{p['id']}.png").exists()]
+    todo = [p for p in own if force or not (OUT_DIR / f"armor_{p['id']}.png").exists()]
     if not todo:
-        print(f"All {len(pieces)} icons already present.")
-        return 0
+        print(f"{prefix}: all {len(own)} icons already present ({shared} shared with an earlier game).")
+        return []
 
-    urls = icon_urls([p["name"] for p in todo])
+    urls = icon_urls(prefix, [p["name"] for p in todo])
     missing = []
     for p in todo:
-        url = urls.get(f"File:BotW {p['name']} Icon.png")
+        url = urls.get(f"File:{prefix} {p['name']} Icon.png")
         if url is None:
-            missing.append(p["name"])
+            missing.append(f"{p['name']} ({prefix})")
             continue
         (OUT_DIR / f"armor_{p['id']}.png").write_bytes(get(url))
         print(f"  {p['id']}")
 
-    print(f"Fetched {len(todo) - len(missing)} of {len(todo)} icons.")
+    print(f"{prefix}: fetched {len(todo) - len(missing)} of {len(todo)} icons ({shared} shared with an earlier game).")
+    return missing
+
+
+def main() -> int:
+    force = "--force" in sys.argv[1:]
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    claimed: set[str] = set()
+    missing = [name for game, prefix in GAMES for name in fetch_game(game, prefix, force, claimed)]
     if missing:
         print("No wiki icon for: " + ", ".join(missing), file=sys.stderr)
         return 1
