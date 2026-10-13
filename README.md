@@ -7,6 +7,7 @@ iOS port is mostly a matter of adding the iOS targets.
 
 **Breath of the Wild: Armor Progress**
 - All 107 armor pieces: base game, The Master Trials, The Champions' Ballad and amiibo.
+- In-game inventory icon for every piece, in the list and on its detail page.
 - Mark pieces as collected and set each one's upgrade level (★0–★4).
 - Defense at every level, piece effects, and set bonuses with live active/inactive status.
 - Materials for every remaining upgrade on each piece.
@@ -43,6 +44,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
+  src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
 
@@ -79,3 +81,10 @@ TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against
 Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
 from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
 Zelda Wiki only.
+
+Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
+`scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
+(same id, e.g. `hylian_hood`) shares one image, taken from BotW (`File:BotW <name> Icon.png`).
+Pieces only in TotK use `File:TotK <name> Icon.png`. Run the script after adding a piece to any
+game's `armor.json`; it fetches only the icons that are missing (`--force` re-downloads all of
+them), and each game's armor dataset test fails if any piece has no icon.
