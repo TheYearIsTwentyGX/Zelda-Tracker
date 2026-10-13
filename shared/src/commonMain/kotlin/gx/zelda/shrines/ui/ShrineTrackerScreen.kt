@@ -259,8 +259,7 @@ private fun ShrineRow(
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.weight(1f, fill = false),
                     )
-                    // The trial name already says "Test of Strength"; tag only what it doesn't.
-                    if (shrine.type == TrialType.BLESSING && !shrine.trial.contains("Blessing")) Tag(shrine.type.label)
+                    typeTag(shrine)?.let { Tag(it) }
                     if (shrine.dlc) Tag("DLC")
                 }
                 shrine.quest?.let {
@@ -281,6 +280,16 @@ private fun ShrineRow(
             HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
         }
     }
+}
+
+/**
+ * Puzzles go untagged, and most trial names already say "Test of Strength" or "Blessing";
+ * tag a fight or a blessing only when its name doesn't.
+ */
+private fun typeTag(shrine: Shrine): String? = when (shrine.type) {
+    TrialType.PUZZLE -> null
+    TrialType.COMBAT -> shrine.type.label.takeUnless { "Test of Strength" in shrine.trial }
+    TrialType.BLESSING -> shrine.type.label.takeUnless { "Blessing" in shrine.trial }
 }
 
 private val CardInset = 12.dp

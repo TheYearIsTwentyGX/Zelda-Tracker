@@ -83,8 +83,9 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
                 )
             }
             Text(
-                "Every ${up.orbsPerUpgrade} orbs buy one upgrade. Each base-game shrine gives one orb; " +
-                    "Champions' Ballad shrines give none. Divine Beast Heart Containers aren't tracked here.",
+                "Every ${up.orbsPerUpgrade} orbs buy one upgrade. Each base-game shrine gives one orb, and so do " +
+                    "the Champions' Ballad's four Great Plateau shrines; its other twelve give an emblem instead. " +
+                    "Divine Beast Heart Containers aren't tracked here.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

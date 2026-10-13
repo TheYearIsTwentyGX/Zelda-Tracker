@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 enum class TrialType(val label: String) {
     @SerialName("puzzle") PUZZLE("Puzzle"),
-    /** A Test of Strength (or, in DLC shrines, another fight) against a Guardian Scout. */
+    /** A Test of Strength, or another fight such as Ta'loh Naeg's combat lesson. */
     @SerialName("combat") COMBAT("Combat"),
     /** No trial inside, just the monk: the challenge was finding or reaching the shrine. */
     @SerialName("blessing") BLESSING("Blessing"),
@@ -20,18 +20,21 @@ data class Shrine(
     val name: String,
     /** The Sheikah Tower region the shrine sits in; one of [ShrineCatalog.regions]. */
     val region: String,
-    /** The subtitle shown on entering, e.g. "Magnesis Trial" or "Major Test of Strength". */
+    /** The subtitle shown on entering, e.g. "Magnesis Trial" or "A Major Test of Strength". */
     val trial: String,
     val type: TrialType,
     /** The Shrine Quest that reveals or opens it, if any. */
     val quest: String? = null,
-    /** The Champions' Ballad's shrines; they give treasure but no Spirit Orb. */
+    /** The Champions' Ballad's shrines. */
     val dlc: Boolean = false,
+    /**
+     * Whether completing it gives a Spirit Orb. Every base-game shrine does, and so do the four
+     * Champions' Ballad shrines on the Great Plateau; the DLC's other twelve give an emblem instead.
+     */
+    val orb: Boolean = true,
     /** Where it is, in one line. */
     val location: String,
-) {
-    val monk: String get() = name
-}
+)
 
 /** What Spirit Orbs buy at a Goddess Statue, and the limits on both. */
 @Serializable
@@ -63,8 +66,8 @@ data class ShrineCatalog(
     val base: List<Shrine> get() = shrines.filterNot { it.dlc }
     val dlc: List<Shrine> get() = shrines.filter { it.dlc }
 
-    /** Spirit Orbs earned on a save with [completed] done: one per base-game shrine. */
-    fun orbsEarned(completed: Set<String>): Int = base.count { it.id in completed }
+    /** How many base-game shrines are in [completed]. */
+    fun baseCompleted(completed: Set<String>): Int = base.count { it.id in completed }
 
     /** How many of [ids] are shrines in this catalog. */
     fun completedCount(ids: Set<String>): Int = shrines.count { it.id in ids }

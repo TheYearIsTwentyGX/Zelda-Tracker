@@ -42,7 +42,7 @@ data class ShrineUiState(
     val saveFiles: List<ShrineSaveSummary>,
     val filters: ShrineFilters,
 ) {
-    val orbs: OrbPlan get() = OrbPlan.of(catalog, progress)
+    val orbs: OrbPlan get() = OrbPlan.of(catalog, progress, includeDlc = prefs.showDlc)
 
     /** Shrines the DLC filter allows, before search and the other filters. */
     val shown: List<Shrine> get() = if (prefs.showDlc) catalog.shrines else catalog.base
@@ -91,7 +91,7 @@ class ShrineViewModel(
             progress = progress,
             prefs = prefs,
             saveFile = file,
-            saveFiles = byFile.map { (f, p) -> ShrineSaveSummary(f, catalog.orbsEarned(p.completed)) },
+            saveFiles = byFile.map { (f, p) -> ShrineSaveSummary(f, catalog.baseCompleted(p.completed)) },
             filters = filters,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)

@@ -15,18 +15,32 @@ class OrbPlanTest {
         bossHearts = 4,
     )
 
-    private fun shrine(id: String, dlc: Boolean = false) =
-        Shrine(id, id, "Region", "Trial", TrialType.PUZZLE, dlc = dlc, location = "Somewhere")
+    private fun shrine(id: String, dlc: Boolean = false, orb: Boolean = true) =
+        Shrine(id, id, "Region", "Trial", TrialType.PUZZLE, dlc = dlc, orb = orb, location = "Somewhere")
 
     private fun plan(earned: Int, hearts: Int = 0, stamina: Int = 0) = OrbPlan(upgrades, earned, 120, hearts, stamina)
 
+    private val catalog = ShrineCatalog(
+        listOf("Region"),
+        upgrades,
+        listOf(shrine("a"), shrine("b"), shrine("plateau_dlc", dlc = true), shrine("emblem_dlc", dlc = true, orb = false)),
+    )
+
     @Test
-    fun onlyBaseGameShrinesGiveOrbs() {
-        val catalog = ShrineCatalog(listOf("Region"), upgrades, listOf(shrine("a"), shrine("b"), shrine("c", dlc = true)))
-        val plan = OrbPlan.of(catalog, ShrineProgress(completed = setOf("a", "c", "not_a_shrine")))
+    fun orbsComeFromShrinesThatGiveThem() {
+        val progress = ShrineProgress(completed = setOf("a", "plateau_dlc", "emblem_dlc", "not_a_shrine"))
+        val plan = OrbPlan.of(catalog, progress, includeDlc = true)
+        assertEquals(2, plan.earned, "an emblem shrine gives no orb")
+        assertEquals(3, plan.total)
+        assertEquals(1, catalog.baseCompleted(progress.completed))
+        assertEquals(3, catalog.completedCount(progress.completed))
+    }
+
+    @Test
+    fun hidingTheDlcDropsItsOrbs() {
+        val plan = OrbPlan.of(catalog, ShrineProgress(completed = setOf("a", "plateau_dlc")), includeDlc = false)
         assertEquals(1, plan.earned)
         assertEquals(2, plan.total)
-        assertEquals(2, catalog.completedCount(setOf("a", "c", "not_a_shrine")))
     }
 
     @Test

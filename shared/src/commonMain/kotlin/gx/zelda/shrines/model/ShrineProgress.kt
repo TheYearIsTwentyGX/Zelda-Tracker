@@ -19,14 +19,14 @@ data class ShrinePrefs(
 )
 
 /**
- * The Spirit Orb arithmetic for one save file. Orbs come from completed base-game shrines;
- * how they were spent is what the user entered, since the app can't see the save.
+ * The Spirit Orb arithmetic for one save file. Orbs come from completed shrines with an
+ * [Shrine.orb]; how they were spent is what the user entered, since the app can't see the save.
  */
 data class OrbPlan(
     val upgrades: OrbUpgrades,
     /** Orbs earned so far. */
     val earned: Int,
-    /** Orbs the game holds in total: one per base-game shrine. */
+    /** Orbs the game holds in total: 120 in the base game, 124 with the Champions' Ballad. */
     val total: Int,
     val heartsBought: Int,
     val staminaBought: Int,
@@ -59,17 +59,22 @@ data class OrbPlan(
 
     /**
      * Upgrades needed to max both hearts and stamina, with every boss heart collected. In BotW
-     * that's 23 + 10 = 33 against 30 bought with every orb, so both can't be maxed at once.
+     * that's 23 + 10 = 33 against 30 bought with every orb (31 with the DLC), so both can't be
+     * maxed at once.
      */
     val upgradesToMaxBoth: Int get() = upgrades.maxHeartsBought - upgrades.bossHearts + upgrades.maxStaminaVessels
 
     companion object {
-        fun of(catalog: ShrineCatalog, progress: ShrineProgress) = OrbPlan(
-            upgrades = catalog.upgrades,
-            earned = catalog.orbsEarned(progress.completed),
-            total = catalog.base.size,
-            heartsBought = progress.heartsBought,
-            staminaBought = progress.staminaBought,
-        )
+        /** [includeDlc] counts the DLC shrines' orbs; off when the DLC is hidden. */
+        fun of(catalog: ShrineCatalog, progress: ShrineProgress, includeDlc: Boolean): OrbPlan {
+            val orbShrines = catalog.shrines.filter { it.orb && (includeDlc || !it.dlc) }
+            return OrbPlan(
+                upgrades = catalog.upgrades,
+                earned = orbShrines.count { it.id in progress.completed },
+                total = orbShrines.size,
+                heartsBought = progress.heartsBought,
+                staminaBought = progress.staminaBought,
+            )
+        }
     }
 }
