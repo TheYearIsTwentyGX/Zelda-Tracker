@@ -6,6 +6,7 @@ import gx.zelda.botw.armor.data.ArmorRepository
 import gx.zelda.botw.armor.logic.TotalsMode
 import gx.zelda.botw.armor.model.ArmorCatalog
 import gx.zelda.botw.armor.model.ArmorProgress
+import gx.zelda.botw.armor.model.ArmorSort
 import gx.zelda.core.JsonStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -52,6 +53,8 @@ class ArmorViewModel(
     fun setShowDlc(show: Boolean) = edit { it.copy(showDlc = show) }
 
     fun setShowAmiibo(show: Boolean) = edit { it.copy(showAmiibo = show) }
+
+    fun setSort(sort: ArmorSort) = edit { it.copy(sort = sort) }
 
     fun setTotalsMode(mode: TotalsMode) { totalsMode.value = mode }
 

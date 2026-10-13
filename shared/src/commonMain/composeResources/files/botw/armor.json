@@ -626,7 +626,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 21,
+      "setOrder": 51
     },
     {
       "id": "vah_medoh_divine_helm",
@@ -683,7 +685,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 43,
+      "setOrder": 101
     },
     {
       "id": "vah_naboris_divine_helm",
@@ -740,7 +744,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 45,
+      "setOrder": 103
     },
     {
       "id": "vah_rudania_divine_helm",
@@ -797,7 +803,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 44,
+      "setOrder": 102
     },
     {
       "id": "vah_ruta_divine_helm",
@@ -854,7 +862,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 42,
+      "setOrder": 100
     },
     {
       "id": "ancient_cuirass",
@@ -911,7 +921,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 63,
+      "setOrder": 52
     },
     {
       "id": "ancient_greaves",
@@ -968,7 +980,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 92,
+      "setOrder": 53
     },
     {
       "id": "barbarian_helm",
@@ -1021,7 +1035,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 17,
+      "setOrder": 41
     },
     {
       "id": "barbarian_armor",
@@ -1074,7 +1090,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 60,
+      "setOrder": 42
     },
     {
       "id": "barbarian_leg_wraps",
@@ -1127,7 +1145,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 89,
+      "setOrder": 43
     },
     {
       "id": "climbers_bandanna",
@@ -1184,7 +1204,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 16,
+      "setOrder": 38
     },
     {
       "id": "climbing_gear",
@@ -1241,7 +1263,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 59,
+      "setOrder": 39
     },
     {
       "id": "climbing_boots",
@@ -1298,7 +1322,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 88,
+      "setOrder": 40
     },
     {
       "id": "dark_hood",
@@ -1310,7 +1336,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 26,
+      "setOrder": 60
     },
     {
       "id": "dark_tunic",
@@ -1322,7 +1350,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 64,
+      "setOrder": 61
     },
     {
       "id": "dark_trousers",
@@ -1334,7 +1364,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 95,
+      "setOrder": 62
     },
     {
       "id": "desert_voe_headband",
@@ -1387,7 +1419,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 6,
+      "setOrder": 16
     },
     {
       "id": "desert_voe_spaulder",
@@ -1440,7 +1474,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 53,
+      "setOrder": 17
     },
     {
       "id": "desert_voe_trousers",
@@ -1493,7 +1529,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 82,
+      "setOrder": 18
     },
     {
       "id": "fierce_deity_mask",
@@ -1550,7 +1588,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 18,
+      "setOrder": 44
     },
     {
       "id": "fierce_deity_armor",
@@ -1607,7 +1647,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 61,
+      "setOrder": 45
     },
     {
       "id": "fierce_deity_boots",
@@ -1664,7 +1706,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 90,
+      "setOrder": 46
     },
     {
       "id": "flamebreaker_helm",
@@ -1721,7 +1765,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 10,
+      "setOrder": 26
     },
     {
       "id": "flamebreaker_armor",
@@ -1778,7 +1824,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 56,
+      "setOrder": 27
     },
     {
       "id": "flamebreaker_boots",
@@ -1835,7 +1883,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 85,
+      "setOrder": 28
     },
     {
       "id": "gerudo_veil",
@@ -1847,7 +1897,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 7,
+      "setOrder": 19
     },
     {
       "id": "gerudo_top",
@@ -1859,7 +1911,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 54,
+      "setOrder": 20
     },
     {
       "id": "gerudo_sirwal",
@@ -1871,7 +1925,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 83,
+      "setOrder": 21
     },
     {
       "id": "cap_of_the_sky",
@@ -1928,7 +1984,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 30,
+      "setOrder": 72
     },
     {
       "id": "tunic_of_the_sky",
@@ -1985,7 +2043,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 68,
+      "setOrder": 73
     },
     {
       "id": "trousers_of_the_sky",
@@ -2042,7 +2102,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 99,
+      "setOrder": 74
     },
     {
       "id": "cap_of_the_wild",
@@ -2099,7 +2161,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 32,
+      "setOrder": 78
     },
     {
       "id": "tunic_of_the_wild",
@@ -2156,7 +2220,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 70,
+      "setOrder": 79
     },
     {
       "id": "trousers_of_the_wild",
@@ -2213,7 +2279,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 101,
+      "setOrder": 80
     },
     {
       "id": "cap_of_time",
@@ -2270,7 +2338,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 27,
+      "setOrder": 63
     },
     {
       "id": "tunic_of_time",
@@ -2327,7 +2397,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 65,
+      "setOrder": 64
     },
     {
       "id": "trousers_of_time",
@@ -2384,7 +2456,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 96,
+      "setOrder": 65
     },
     {
       "id": "cap_of_twilight",
@@ -2441,7 +2515,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 29,
+      "setOrder": 69
     },
     {
       "id": "tunic_of_twilight",
@@ -2498,7 +2574,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 67,
+      "setOrder": 70
     },
     {
       "id": "trousers_of_twilight",
@@ -2555,7 +2633,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 98,
+      "setOrder": 71
     },
     {
       "id": "cap_of_the_wind",
@@ -2612,7 +2692,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 28,
+      "setOrder": 66
     },
     {
       "id": "tunic_of_the_wind",
@@ -2669,7 +2751,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 66,
+      "setOrder": 67
     },
     {
       "id": "trousers_of_the_wind",
@@ -2726,7 +2810,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 97,
+      "setOrder": 68
     },
     {
       "id": "cap_of_the_hero",
@@ -2783,7 +2869,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 31,
+      "setOrder": 75
     },
     {
       "id": "tunic_of_the_hero",
@@ -2840,7 +2928,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 69,
+      "setOrder": 76
     },
     {
       "id": "trousers_of_the_hero",
@@ -2897,7 +2987,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 100,
+      "setOrder": 77
     },
     {
       "id": "hylian_hood",
@@ -2950,7 +3042,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 0,
+      "setOrder": 3
     },
     {
       "id": "hylian_tunic",
@@ -3003,7 +3097,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 49,
+      "setOrder": 4
     },
     {
       "id": "hylian_trousers",
@@ -3056,7 +3152,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 79,
+      "setOrder": 5
     },
     {
       "id": "phantom_ganon_skull",
@@ -3068,7 +3166,9 @@
       "defense": [
         4
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 41,
+      "setOrder": 97
     },
     {
       "id": "phantom_ganon_armor",
@@ -3080,7 +3180,9 @@
       "defense": [
         4
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 76,
+      "setOrder": 98
     },
     {
       "id": "phantom_ganon_greaves",
@@ -3092,7 +3194,9 @@
       "defense": [
         4
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 105,
+      "setOrder": 99
     },
     {
       "id": "phantom_helmet",
@@ -3104,7 +3208,9 @@
       "defense": [
         8
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 37,
+      "setOrder": 88
     },
     {
       "id": "phantom_armor",
@@ -3116,7 +3222,9 @@
       "defense": [
         8
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 73,
+      "setOrder": 89
     },
     {
       "id": "phantom_greaves",
@@ -3128,7 +3236,9 @@
       "defense": [
         8
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 103,
+      "setOrder": 90
     },
     {
       "id": "radiant_mask",
@@ -3185,7 +3295,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 19,
+      "setOrder": 47
     },
     {
       "id": "radiant_shirt",
@@ -3242,7 +3354,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 62,
+      "setOrder": 48
     },
     {
       "id": "radiant_tights",
@@ -3299,7 +3413,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 91,
+      "setOrder": 49
     },
     {
       "id": "royal_guard_cap",
@@ -3311,7 +3427,9 @@
       "defense": [
         4
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 40,
+      "setOrder": 94
     },
     {
       "id": "royal_guard_uniform",
@@ -3323,7 +3441,9 @@
       "defense": [
         4
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 75,
+      "setOrder": 95
     },
     {
       "id": "royal_guard_boots",
@@ -3335,7 +3455,9 @@
       "defense": [
         4
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 104,
+      "setOrder": 96
     },
     {
       "id": "rubber_helm",
@@ -3388,7 +3510,9 @@
             "qty": 10
           }
         ]
-      ]
+      ],
+      "typeOrder": 9,
+      "setOrder": 23
     },
     {
       "id": "rubber_armor",
@@ -3441,7 +3565,9 @@
             "qty": 10
           }
         ]
-      ]
+      ],
+      "typeOrder": 55,
+      "setOrder": 24
     },
     {
       "id": "rubber_tights",
@@ -3494,7 +3620,9 @@
             "qty": 10
           }
         ]
-      ]
+      ],
+      "typeOrder": 84,
+      "setOrder": 25
     },
     {
       "id": "salvager_headwear",
@@ -3506,7 +3634,9 @@
       "defense": [
         5
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 46,
+      "setOrder": 104
     },
     {
       "id": "salvager_vest",
@@ -3518,7 +3648,9 @@
       "defense": [
         5
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 77,
+      "setOrder": 105
     },
     {
       "id": "salvager_trousers",
@@ -3530,7 +3662,9 @@
       "defense": [
         5
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 106,
+      "setOrder": 106
     },
     {
       "id": "snowquill_headdress",
@@ -3583,7 +3717,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 4,
+      "setOrder": 12
     },
     {
       "id": "snowquill_tunic",
@@ -3636,7 +3772,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 52,
+      "setOrder": 13
     },
     {
       "id": "snowquill_trousers",
@@ -3689,7 +3827,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 81,
+      "setOrder": 14
     },
     {
       "id": "soldiers_helm",
@@ -3746,7 +3886,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 1,
+      "setOrder": 6
     },
     {
       "id": "soldiers_armor",
@@ -3803,7 +3945,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 50,
+      "setOrder": 7
     },
     {
       "id": "soldiers_greaves",
@@ -3860,7 +4004,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 80,
+      "setOrder": 8
     },
     {
       "id": "stealth_mask",
@@ -3913,7 +4059,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 13,
+      "setOrder": 33
     },
     {
       "id": "stealth_chest_guard",
@@ -3966,7 +4114,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 58,
+      "setOrder": 34
     },
     {
       "id": "stealth_tights",
@@ -4019,7 +4169,9 @@
             "qty": 5
           }
         ]
-      ]
+      ],
+      "typeOrder": 87,
+      "setOrder": 35
     },
     {
       "id": "tingles_hood",
@@ -4031,7 +4183,9 @@
       "defense": [
         2
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 35,
+      "setOrder": 84
     },
     {
       "id": "tingles_shirt",
@@ -4043,7 +4197,9 @@
       "defense": [
         2
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 72,
+      "setOrder": 85
     },
     {
       "id": "tingles_tights",
@@ -4055,7 +4211,9 @@
       "defense": [
         2
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 102,
+      "setOrder": 86
     },
     {
       "id": "old_shirt",
@@ -4067,7 +4225,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 47,
+      "setOrder": 0
     },
     {
       "id": "well_worn_trousers",
@@ -4079,7 +4239,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 78,
+      "setOrder": 1
     },
     {
       "id": "zora_helm",
@@ -4132,7 +4294,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 12,
+      "setOrder": 30
     },
     {
       "id": "zora_armor",
@@ -4185,7 +4349,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 57,
+      "setOrder": 31
     },
     {
       "id": "zora_greaves",
@@ -4238,7 +4404,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 86,
+      "setOrder": 32
     },
     {
       "id": "amber_earrings",
@@ -4295,7 +4463,9 @@
             "qty": 3
           }
         ]
-      ]
+      ],
+      "typeOrder": 2,
+      "setOrder": 9
     },
     {
       "id": "bokoblin_mask",
@@ -4307,7 +4477,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 22,
+      "setOrder": 56
     },
     {
       "id": "diamond_circlet",
@@ -4364,7 +4536,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 20,
+      "setOrder": 50
     },
     {
       "id": "korok_mask",
@@ -4376,7 +4550,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 33,
+      "setOrder": 82
     },
     {
       "id": "lizalfos_mask",
@@ -4388,7 +4564,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 24,
+      "setOrder": 58
     },
     {
       "id": "lynel_mask",
@@ -4400,7 +4578,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 25,
+      "setOrder": 59
     },
     {
       "id": "majoras_mask",
@@ -4412,7 +4592,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 34,
+      "setOrder": 83
     },
     {
       "id": "midnas_helmet",
@@ -4424,7 +4606,9 @@
       "defense": [
         7
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 36,
+      "setOrder": 87
     },
     {
       "id": "moblin_mask",
@@ -4436,7 +4620,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 23,
+      "setOrder": 57
     },
     {
       "id": "opal_earrings",
@@ -4493,7 +4679,9 @@
             "qty": 3
           }
         ]
-      ]
+      ],
+      "typeOrder": 11,
+      "setOrder": 29
     },
     {
       "id": "ravios_hood",
@@ -4505,7 +4693,9 @@
       "defense": [
         2
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 38,
+      "setOrder": 92
     },
     {
       "id": "ruby_circlet",
@@ -4562,7 +4752,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 3,
+      "setOrder": 11
     },
     {
       "id": "sapphire_circlet",
@@ -4619,7 +4811,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 5,
+      "setOrder": 15
     },
     {
       "id": "sheiks_mask",
@@ -4676,7 +4870,9 @@
             "qty": 4
           }
         ]
-      ]
+      ],
+      "typeOrder": 14,
+      "setOrder": 36
     },
     {
       "id": "thunder_helm",
@@ -4688,7 +4884,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 15,
+      "setOrder": 37
     },
     {
       "id": "topaz_earrings",
@@ -4745,7 +4943,9 @@
             "qty": 1
           }
         ]
-      ]
+      ],
+      "typeOrder": 8,
+      "setOrder": 22
     },
     {
       "id": "zants_helmet",
@@ -4757,7 +4957,9 @@
       "defense": [
         3
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 39,
+      "setOrder": 93
     },
     {
       "id": "champions_tunic",
@@ -4810,7 +5012,9 @@
             "qty": 2
           }
         ]
-      ]
+      ],
+      "typeOrder": 48,
+      "setOrder": 2
     },
     {
       "id": "island_lobster_shirt",
@@ -4822,7 +5026,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 74,
+      "setOrder": 91
     },
     {
       "id": "nintendo_switch_shirt",
@@ -4834,7 +5040,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 71,
+      "setOrder": 81
     },
     {
       "id": "warm_doublet",
@@ -4846,7 +5054,9 @@
       "defense": [
         1
       ],
-      "upgrades": []
+      "upgrades": [],
+      "typeOrder": 51,
+      "setOrder": 10
     },
     {
       "id": "sand_boots",
@@ -4903,7 +5113,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 93,
+      "setOrder": 54
     },
     {
       "id": "snow_boots",
@@ -4960,7 +5172,9 @@
             "qty": 15
           }
         ]
-      ]
+      ],
+      "typeOrder": 94,
+      "setOrder": 55
     }
   ]
 }

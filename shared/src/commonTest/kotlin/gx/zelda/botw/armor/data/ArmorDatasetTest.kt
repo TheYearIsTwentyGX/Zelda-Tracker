@@ -56,6 +56,24 @@ class ArmorDatasetTest {
     }
 
     @Test
+    fun inGameSortOrdersCoverEveryPieceOnce() = withCatalog { c ->
+        listOf(c.pieces.map { it.typeOrder }, c.pieces.map { it.setOrder }).forEach { orders ->
+            assertTrue(orders.all { it != null }, "piece missing a sort position")
+            assertEquals(c.pieces.size, orders.toSet().size, "sort positions must be unique")
+        }
+        // Anchors from the game's sort keys: Old Shirt and Well-Worn Trousers come first by set,
+        // then Champion's Tunic, then the Hylian set; Hylian Hood leads the head slot by type.
+        assertEquals(
+            listOf("old_shirt", "well_worn_trousers", "champions_tunic", "hylian_hood", "hylian_tunic", "hylian_trousers"),
+            c.pieces.sortedBy { it.setOrder }.take(6).map { it.id },
+        )
+        assertEquals(
+            listOf("hylian_hood", "soldiers_helm", "amber_earrings"),
+            c.pieces.filter { it.slot == Slot.HEAD }.sortedBy { it.typeOrder }.take(3).map { it.id },
+        )
+    }
+
+    @Test
     fun spotChecks() = withCatalog { c ->
         val climbingBandanna = c.pieces.first { it.name == "Climber's Bandanna" }
         assertEquals("Climb Speed Up", climbingBandanna.effect)

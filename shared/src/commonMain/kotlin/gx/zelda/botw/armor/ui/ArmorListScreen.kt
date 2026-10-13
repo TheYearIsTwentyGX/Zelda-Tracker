@@ -2,20 +2,26 @@ package gx.zelda.botw.armor.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -27,28 +33,27 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import gx.zelda.botw.armor.logic.ArmorCalculator
+import gx.zelda.botw.armor.logic.ArmorGroup
+import gx.zelda.botw.armor.logic.ArmorGrouping
 import gx.zelda.botw.armor.logic.SetBonusStatus
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.botw.armor.model.ArmorProgress
+import gx.zelda.botw.armor.model.ArmorSort
 import gx.zelda.botw.armor.model.Source
 import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Tag
-
-private data class ArmorGroup(
-    val key: String,
-    val title: String,
-    val source: Source?,
-    val bonus: SetBonusStatus?,
-    val pieces: List<ArmorPiece>,
-)
 
 @Composable
 fun ArmorListScreen(
@@ -75,16 +80,9 @@ fun ArmorListScreen(
             val setName = catalog.set(piece.setId)?.name.orEmpty()
             ownershipOk && (q.isEmpty() || piece.name.contains(q, true) || setName.contains(q, true))
         }
-        val bySet = matching.filter { it.setId != null }.groupBy { it.setId!! }
-        val setGroups = catalog.sets.mapNotNull { set ->
-            val pieces = bySet[set.id] ?: return@mapNotNull null
-            ArmorGroup(set.id, set.name, set.source, ArmorCalculator.setBonusStatus(catalog, set, progress), pieces)
-        }
-        val singles = matching.filter { it.setId == null }
-        setGroups + listOfNotNull(
-            singles.takeIf { it.isNotEmpty() }?.let { ArmorGroup("_singles", "Other armor", null, null, it) },
-        )
+        ArmorGrouping.group(catalog, matching, progress.sort)
     }
+    val showSetOnRows = progress.sort == ArmorSort.BODY_PART
 
     LazyColumn(contentPadding = contentPadding, modifier = Modifier.fillMaxWidth()) {
         item(key = "_filters") {
@@ -101,9 +99,12 @@ fun ArmorListScreen(
             }
         }
         for (group in groups) {
-            item(key = "h_${group.key}") { GroupHeader(group) }
+            item(key = "h_${group.key}") {
+                GroupHeader(group, group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) })
+            }
             items(group.pieces, key = { it.id }) { piece ->
-                PieceRow(piece, progress, viewModel, onClick = { onOpenPiece(piece.id) })
+                val subtitle = if (showSetOnRows) catalog.set(piece.setId)?.name else piece.slot.label
+                PieceRow(piece, subtitle, progress, viewModel, onClick = { onOpenPiece(piece.id) })
             }
         }
     }
@@ -138,11 +139,35 @@ private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, owned: 
             }
         }
         SourceFilterChips(state.progress, viewModel)
-        Text(
-            "$owned / $total collected",
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                "$owned / $total collected",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.weight(1f),
+            )
+            SortMenu(state.progress.sort, viewModel::setSort)
+        }
+    }
+}
+
+@Composable
+private fun SortMenu(current: ArmorSort, onSelect: (ArmorSort) -> Unit) {
+    var open by remember { mutableStateOf(false) }
+    Box {
+        TextButton(onClick = { open = true }) {
+            Text("Sort: ${current.label}")
+            Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            ArmorSort.entries.forEach { sort ->
+                DropdownMenuItem(
+                    text = { Text(sort.label) },
+                    onClick = { onSelect(sort); open = false },
+                    trailingIcon = { if (sort == current) Icon(Icons.Filled.Check, contentDescription = "Selected") },
+                )
+            }
+        }
     }
 }
 
@@ -163,7 +188,12 @@ fun SourceFilterChips(progress: ArmorProgress, viewModel: ArmorViewModel) {
 }
 
 @Composable
-private fun GroupHeader(group: ArmorGroup) {
+private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?) {
+    if (group.title == null) {
+        // Standalone pieces between sets: just a gap, like the game shows them.
+        Spacer(Modifier.height(8.dp))
+        return
+    }
     Surface(color = MaterialTheme.colorScheme.surfaceContainer, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
         Column(Modifier.padding(horizontal = 16.dp, vertical = 10.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -173,9 +203,9 @@ private fun GroupHeader(group: ArmorGroup) {
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.weight(1f),
                 )
-                if (group.source != null && group.source != Source.BASE) Tag(group.source.label)
+                val source = group.set?.source
+                if (source != null && source != Source.BASE) Tag(source.label)
             }
-            val bonus = group.bonus
             if (bonus != null && bonus.hasBonus) {
                 Spacer(Modifier.padding(top = 4.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -206,7 +236,13 @@ fun SetBonusBadge(status: SetBonusStatus) {
 }
 
 @Composable
-private fun PieceRow(piece: ArmorPiece, progress: ArmorProgress, viewModel: ArmorViewModel, onClick: () -> Unit) {
+private fun PieceRow(
+    piece: ArmorPiece,
+    subtitle: String?,
+    progress: ArmorProgress,
+    viewModel: ArmorViewModel,
+    onClick: () -> Unit,
+) {
     val owned = progress.of(piece.id).owned
     val level = ArmorCalculator.level(piece, progress)
     Column {
@@ -222,11 +258,9 @@ private fun PieceRow(piece: ArmorPiece, progress: ArmorProgress, viewModel: Armo
                     color = if (owned) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(
-                        piece.slot.label,
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    subtitle?.let {
+                        Text(it, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
                     piece.effect?.let {
                         Text(it, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
                     }

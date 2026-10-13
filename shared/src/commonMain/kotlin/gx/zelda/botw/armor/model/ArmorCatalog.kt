@@ -56,6 +56,10 @@ data class ArmorPiece(
     val upgrades: List<List<MaterialCost>> = emptyList(),
     /** Who upgrades this piece when it isn't a Great Fairy. */
     val upgradeNote: String? = null,
+    /** Position in the game's sort-by-body-part order (within its slot). */
+    val typeOrder: Int? = null,
+    /** Position in the game's sort-by-set order. */
+    val setOrder: Int? = null,
 ) {
     val maxLevel: Int get() = upgrades.size
     val isUpgradable: Boolean get() = upgrades.isNotEmpty()
