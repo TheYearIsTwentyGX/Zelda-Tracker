@@ -61,7 +61,7 @@ fun MaterialTotalsScreen(
                             onClick = { viewModel.setTotalsMode(mode) },
                             shape = SegmentedButtonDefaults.itemShape(i, TotalsMode.entries.size),
                             icon = {},
-                        ) { Text(mode.label, textAlign = TextAlign.Center, style = MaterialTheme.typography.labelMedium) }
+                        ) { Text(mode.label, textAlign = TextAlign.Center, style = MaterialTheme.typography.labelMedium, minLines = 2) }
                     }
                 }
                 SourceFilterChips(state.progress, viewModel)

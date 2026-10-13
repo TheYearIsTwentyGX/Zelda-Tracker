@@ -213,7 +213,12 @@ private fun SetBonusCard(catalog: ArmorCatalog, piece: ArmorPiece, state: ArmorU
                     fontWeight = if (p.id == piece.id) FontWeight.SemiBold else FontWeight.Normal,
                     modifier = Modifier.weight(1f),
                 )
-                if (pOwned) Stars(ArmorCalculator.level(p, state.progress), p.maxLevel) else Tag("Missing")
+                when {
+                    pOwned -> Stars(ArmorCalculator.level(p, state.progress), p.maxLevel)
+                    // Another piece already fills this slot, so this one isn't needed for the bonus.
+                    status.slots.any { it.slot == p.slot && it.owned } -> Tag("Not collected")
+                    else -> Tag("Missing")
+                }
             }
         }
     }
