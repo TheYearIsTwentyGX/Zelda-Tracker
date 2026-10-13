@@ -103,7 +103,8 @@ private fun SummaryCard(state: FairyUiState) {
                 "Every fountain is open, so armor can be upgraded all the way to ★$total."
             } else {
                 "The next fountain you open costs ${rupees(next)}; opening all the rest costs " +
-                    "${rupees(catalog.remainingCost(open))}. Armor upgrades currently stop at ★$open."
+                    "${rupees(catalog.remainingCost(open))}. " +
+                    if (open == 0) "Armor can't be upgraded until one is open." else "Armor upgrades currently stop at ★$open."
             },
             style = MaterialTheme.typography.bodyMedium,
         )
