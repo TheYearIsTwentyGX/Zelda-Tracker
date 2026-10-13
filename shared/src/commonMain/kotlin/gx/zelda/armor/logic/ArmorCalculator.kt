@@ -51,7 +51,7 @@ data class MaterialTotals(
 }
 
 object ArmorCalculator {
-    /** In BotW a set bonus switches on once every piece of the set is upgraded to ★2. */
+    /** In BotW and TotK a set bonus switches on once every piece of the set is upgraded to ★2. */
     const val SET_BONUS_LEVEL = 2
 
     /** The level that counts for stats: 0 for unowned pieces, clamped to what the piece supports. */

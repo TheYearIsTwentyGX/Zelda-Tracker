@@ -39,7 +39,13 @@ data class ArmorUiState(
     val totalsMode: TotalsMode,
     val ownershipFilter: OwnershipFilter,
     val query: String,
-)
+) {
+    /** The orders this game's data supports. */
+    val orders: List<ArmorOrder> get() = if (catalog.hasGameOrder) ArmorOrder.entries else listOf(ArmorOrder.ALPHABETICAL)
+
+    /** The saved order, or A–Z when the game has no in-game sort data. */
+    val order: ArmorOrder get() = progress.order.takeIf { it in orders } ?: ArmorOrder.ALPHABETICAL
+}
 
 private data class ViewOptions(val totalsMode: TotalsMode, val ownershipFilter: OwnershipFilter, val query: String)
 

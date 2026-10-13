@@ -116,6 +116,9 @@ data class ArmorCatalog(
     val hasDlc: Boolean by lazy { pieces.any { it.source.isDlc } }
     val hasAmiibo: Boolean by lazy { pieces.any { it.source == Source.AMIIBO } }
 
+    /** Whether the pieces carry the game's own sort positions; without them only A–Z ordering is offered. */
+    val hasGameOrder: Boolean by lazy { pieces.all { it.typeOrder != null && it.setOrder != null } }
+
     fun material(id: String): Material = materialsById[id] ?: Material(id, id)
     fun set(id: String?): ArmorSet? = id?.let { setsById[it] }
     fun piece(id: String): ArmorPiece? = piecesById[id]

@@ -82,7 +82,7 @@ fun ArmorListScreen(
             val setName = catalog.set(piece.setId)?.name.orEmpty()
             ownershipOk && (q.isEmpty() || piece.name.contains(q, true) || setName.contains(q, true))
         }
-        ArmorGrouping.group(catalog, matching, progress.order, progress.group)
+        ArmorGrouping.group(catalog, matching, state.order, progress.group)
     }
     // Without set headers, each row names its set alongside its slot.
     val showSetOnRows = progress.group == ArmorGroupBy.NONE
@@ -189,12 +189,12 @@ private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, owned: 
             )
             val progress = state.progress
             SortMenu(
-                summary = "${progress.order.label} · ${progress.group.label}",
-                sections = listOf(
+                summary = "${state.order.label} · ${progress.group.label}",
+                sections = listOfNotNull(
                     SortSection(
                         "Order",
-                        ArmorOrder.entries.map { SortOption(it.label, it == progress.order) { viewModel.setOrder(it) } },
-                    ),
+                        state.orders.map { SortOption(it.label, it == state.order) { viewModel.setOrder(it) } },
+                    ).takeIf { state.orders.size > 1 },
                     SortSection(
                         "Group",
                         ArmorGroupBy.entries.map { SortOption(it.label, it == progress.group) { viewModel.setGroup(it) } },
