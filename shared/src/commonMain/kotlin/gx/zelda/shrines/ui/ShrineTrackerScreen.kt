@@ -106,12 +106,15 @@ private fun ShrineList(state: ShrineUiState, viewModel: ShrineViewModel, content
     val groups = state.catalog.byRegion(state.matching)
 
     LazyColumn(contentPadding = contentPadding, modifier = Modifier.fillMaxWidth()) {
-        item(key = "_orbs") {
-            SpiritOrbCard(
-                state.orbs,
-                onBoughtChange = viewModel::setBought,
-                modifier = Modifier.padding(horizontal = CardInset).padding(top = 8.dp),
-            )
+        // While searching, the orb card would push the results down under the keyboard.
+        if (state.filters.query.isBlank()) {
+            item(key = "_orbs") {
+                SpiritOrbCard(
+                    state.orbs,
+                    onBoughtChange = viewModel::setBought,
+                    modifier = Modifier.padding(horizontal = CardInset).padding(top = 8.dp),
+                )
+            }
         }
         item(key = "_filters") { ShrineFilterBar(state, viewModel) }
         if (groups.isEmpty()) {
