@@ -14,12 +14,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import gx.zelda.botw.armor.model.ArmorProgress
+import gx.zelda.botw.armor.data.ArmorStorage
 import gx.zelda.botw.armor.ui.ArmorDetailScreen
 import gx.zelda.botw.armor.ui.ArmorTrackerScreen
 import gx.zelda.botw.armor.ui.ArmorViewModel
 import gx.zelda.core.Games
-import gx.zelda.core.JsonStore
 import gx.zelda.core.ui.HomeScreen
 import gx.zelda.core.ui.ZeldaTheme
 import kotlinx.serialization.Serializable
@@ -73,6 +72,6 @@ private fun armorViewModel(
 ): ArmorViewModel {
     val graphEntry = remember(entry) { nav.getBackStackEntry<BotwArmorGraph>() }
     return viewModel(graphEntry) {
-        ArmorViewModel(JsonStore(dataStore, "botw_armor_progress", ArmorProgress.serializer(), ArmorProgress()))
+        ArmorViewModel(ArmorStorage(dataStore))
     }
 }

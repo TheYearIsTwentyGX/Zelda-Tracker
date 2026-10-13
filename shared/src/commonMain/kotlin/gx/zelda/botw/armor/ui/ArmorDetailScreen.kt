@@ -29,6 +29,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -53,7 +54,16 @@ fun ArmorDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(piece?.name ?: "Unknown armor") },
+                title = {
+                    Column {
+                        Text(piece?.name ?: "Unknown armor", maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        Text(
+                            state.saveFile.label,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")

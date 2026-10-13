@@ -1,6 +1,7 @@
 package gx.zelda.botw.armor.ui
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -23,6 +24,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
+import gx.zelda.core.ui.SaveFileOption
+import gx.zelda.core.ui.SaveFilePicker
 
 private enum class ArmorTab(val label: String, val title: String) {
     ARMOR("Armor", "Armor Progress"),
@@ -42,7 +46,20 @@ fun ArmorTrackerScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(tab.title) },
+                title = {
+                    Column {
+                        Text(tab.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        if (state != null) {
+                            SaveFilePicker(
+                                current = state.saveFile,
+                                options = state.saveFiles.map {
+                                    SaveFileOption(it.file, "${it.collected} / ${state.catalog.pieces.size} armor collected")
+                                },
+                                onSelect = viewModel::setSaveFile,
+                            )
+                        }
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
