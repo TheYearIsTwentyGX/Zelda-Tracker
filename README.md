@@ -33,6 +33,19 @@ iOS port is mostly a matter of adding the iOS targets.
   save file picker shows all three.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Shrines**
+- All 120 shrines plus the 16 from The Champions' Ballad, grouped by tower region with counts per
+  region and overall (e.g. 87 / 120).
+- Each shrine's trial, whether it's a Puzzle, Test of Strength or Blessing, its Shrine Quest if it
+  has one, and a one-line location hint.
+- Search by shrine, trial, quest or region; filter to incomplete shrines or Shrine Quests, and
+  hide the DLC.
+- **Spirit Orbs**: orbs earned from completed shrines, what you've spent on Heart Containers and
+  Stamina Vessels, and what's left. 120 orbs in the base game; the Champions' Ballad's four Great
+  Plateau shrines add 4 more (its other twelve give emblems). Purchases are entered by hand.
+  Divine Beast Heart Containers aren't tracked.
+- Shares the active save file with the other BotW trackers.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -56,8 +69,10 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW only for now)
+  src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker and Spirit Orb planner
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
+  src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
@@ -101,6 +116,12 @@ TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against
 Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
 from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
 Zelda Wiki only.
+
+BotW shrine data (names, trials, Shrine Quests, locations) comes from Zelda Wiki and Zelda Fandom.
+Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the wikis use
+geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
+under a different region there. Trial names keep the in-game wording, including the "A" in
+"A Minor Test of Strength".
 
 Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 `scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
