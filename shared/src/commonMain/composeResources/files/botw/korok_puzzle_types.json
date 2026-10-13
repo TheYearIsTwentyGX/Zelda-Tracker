@@ -1,0 +1,364 @@
+{
+  "groups": ["Hidden rocks", "Patterns", "Sparkles", "Flowers", "Archery", "Movement", "Other"],
+  "types": [
+    {
+      "id": "lift_rock",
+      "name": "Lone rock",
+      "group": "Hidden rocks",
+      "description": "A single small grey rock sits somewhere it doesn't belong: on a peak, in a tree, on a ledge, under a bridge, at the end of a tunnel. Pick it up (or knock it off with Stasis, a bomb or Magnesis-carried metal) and the Korok is underneath.",
+      "rules": [
+        "Counts: one liftable rock on its own, with nothing covering it and no other rocks arranged around it. The hard part is getting to it, not uncovering it.",
+        "Not this if the rock is under a boulder, slab, metal plate, leaf pile, breakable rubble or behind a cracked wall: use the matching rock_under_* / rock_behind_cracked_wall type.",
+        "Not this if other rocks form a shape with a gap the rock belongs in: that is rock_pattern.",
+        "Not this if you throw a rock into a ring of rocks standing in water: that is rock_circle."
+      ],
+      "internalTypes": ["Rock Lift"],
+      "examples": ["P17", "D51"]
+    },
+    {
+      "id": "rock_under_boulder",
+      "name": "Rock under a boulder",
+      "group": "Hidden rocks",
+      "description": "A large round boulder sits in a small dip or hole. Move the boulder (Stasis and hit it, an Octo Balloon, a bomb, or just push it) and lift the rock that was hidden beneath.",
+      "rules": [
+        "Counts: a pushable boulder covering a liftable rock; the seed comes from lifting the rock.",
+        "Not this if the boulder itself has to go into a hole: that is boulder_in_hole.",
+        "Not this if the cover is a flat stone slab (rock_under_slab) or breakable rocks (rock_under_rubble)."
+      ],
+      "internalTypes": ["Rock Lift (Boulder)"],
+      "examples": ["D22", "A03"]
+    },
+    {
+      "id": "rock_under_slab",
+      "name": "Rock under a stone slab",
+      "group": "Hidden rocks",
+      "description": "A large flat stone slab lies over a hollow, often on top of a pillar or ruin. Knock it off with Stasis (freeze, then hit) or lift it with Octo Balloons, then pick up the rock beneath.",
+      "rules": [
+        "Counts: a flat stone cover (game actor Obj_RockCover) over a liftable rock.",
+        "Not this if the cover is metal (rock_under_metal_plate), round (rock_under_boulder) or can be smashed (rock_under_rubble)."
+      ],
+      "internalTypes": ["Rock Lift (Slab)"],
+      "examples": ["P16", "L14"]
+    },
+    {
+      "id": "rock_under_metal_plate",
+      "name": "Rock under a metal plate",
+      "group": "Hidden rocks",
+      "description": "A rusty iron plate or hatch covers a small pit. Pull it away with Magnesis and lift the rock inside.",
+      "rules": [
+        "Counts: a metal board (Obj_BoardIron) covering a liftable rock; Magnesis is the intended tool.",
+        "Not this if a metal ball on a chain has to be put somewhere (ball_and_chain) or metal crates form a pattern (rock_pattern)."
+      ],
+      "internalTypes": ["Rock Lift (Door)"],
+      "examples": ["P12", "P13"]
+    },
+    {
+      "id": "rock_under_leaves",
+      "name": "Rock under a pile of leaves",
+      "group": "Hidden rocks",
+      "description": "A heap of leaves, usually in a tree hollow or a corner, hides a rock. Burn the leaves (or blow them away with a Korok Leaf or bomb) and lift the rock.",
+      "rules": [
+        "Counts: burnable leaves (Obj_Plant_IvyBurn) on top of a liftable rock.",
+        "Not this if burning leaves reveals the Korok directly with no rock to lift: that is other (one case, F41)."
+      ],
+      "internalTypes": ["Rock Lift (Leaves)"],
+      "examples": ["C76"]
+    },
+    {
+      "id": "rock_under_rubble",
+      "name": "Rock under breakable rocks",
+      "group": "Hidden rocks",
+      "description": "A pile of cracked, breakable boulders hides a rock. Smash them with a bomb or a blunt weapon, then lift the rock.",
+      "rules": [
+        "Counts: a breakable rock pile (Obj_RockBroken) covering a liftable rock.",
+        "Not this if the rock is behind a cracked cliff face or cave wall: that is rock_behind_cracked_wall.",
+        "Not this for ore deposits, which never hide Koroks."
+      ],
+      "internalTypes": ["Rock Lift (Rock Pile) with Obj_RockBroken_A_02"],
+      "examples": ["Z28", "N27"]
+    },
+    {
+      "id": "rock_behind_cracked_wall",
+      "name": "Rock behind a cracked wall",
+      "group": "Hidden rocks",
+      "description": "A cracked patch of rock wall seals a small alcove. Blow it open with a bomb and lift the rock inside.",
+      "rules": [
+        "Counts: a bombable cracked wall (WallCrack) in front of a liftable rock, including the one that also hides a treasure chest.",
+        "Not this if the rocks are a loose breakable pile rather than part of a wall: that is rock_under_rubble."
+      ],
+      "internalTypes": ["Rock Lift (Rock Pile) with WallCrack"],
+      "examples": ["F18", "L13"]
+    },
+    {
+      "id": "rock_pattern",
+      "name": "Rock pattern",
+      "group": "Patterns",
+      "description": "Rocks are laid out on the ground in a deliberate shape (a ring, a line, matching shapes on both sides of something) and one spot is empty. Find the spare rock nearby, usually in the direction the gap points, and put it in the gap.",
+      "rules": [
+        "Counts: a land-based arrangement of liftable rocks with one missing; you place a rock to complete it. A ring of rocks on land with one gap is a rock_pattern.",
+        "Also counts: the same idea with other objects, e.g. a pattern of metal crates with one missing.",
+        "Not this if the rocks stand in water and you throw a rock into the middle of the ring: that is rock_circle.",
+        "Not this if the shape is built from stone cubes that slot together: that is cube_pattern.",
+        "Not this if fruit on trees is the pattern: that is matching_trees."
+      ],
+      "internalTypes": ["Rock Pattern"],
+      "examples": ["P15", "F36"]
+    },
+    {
+      "id": "rock_circle",
+      "name": "Rock circle in water",
+      "group": "Patterns",
+      "description": "A ring of boulders juts out of a lake or river with open water in the middle. Throw (or Magnesis or Stasis-launch) any rock into the centre of the ring.",
+      "rules": [
+        "Counts: a ring of rocks standing in water; the target is the water inside the ring, and any rock dropped there works.",
+        "Not this if the ring is on dry land with one rock missing: that is rock_pattern.",
+        "Not this if the ring is made of lily pads or floating plants and you dive through it: that is dive."
+      ],
+      "internalTypes": ["Circle of Rocks"],
+      "examples": ["D20", "L09"]
+    },
+    {
+      "id": "cube_pattern",
+      "name": "Cube pattern",
+      "group": "Patterns",
+      "description": "Two shapes built from mossy stone cubes stand near each other; one has a cube the other lacks, or a loose cube lies nearby. Use Magnesis to move the loose cube so the two shapes match.",
+      "rules": [
+        "Counts: Korok stone cubes (FldObj_KorokStone) that you rearrange with Magnesis.",
+        "Not this if the pieces are ordinary liftable rocks or metal crates: that is rock_pattern."
+      ],
+      "internalTypes": ["Cube Puzzle"],
+      "examples": ["P14", "L38"]
+    },
+    {
+      "id": "boulder_in_hole",
+      "name": "Boulder into a hole",
+      "group": "Patterns",
+      "description": "A boulder (sometimes a snowball or a metal ball) rests near a hole or hollow. Roll, push, Stasis-launch or bomb it so it drops into the hole.",
+      "rules": [
+        "Counts: the solution is getting a large round object into a specific hole or depression.",
+        "Not this if the boulder hides a rock you then lift: that is rock_under_boulder.",
+        "Not this if the object is a chained metal ball: that is ball_and_chain."
+      ],
+      "internalTypes": ["Roll a Boulder"],
+      "examples": ["L16"]
+    },
+    {
+      "id": "ball_and_chain",
+      "name": "Ball and chain",
+      "group": "Patterns",
+      "description": "An iron ball is chained to a post next to a stone cup or hole. Lift the ball with Magnesis and drop it into the hole.",
+      "rules": [
+        "Counts: a chained metal ball (Obj_KorokIronRock) that has to be placed in a hole.",
+        "Not this if the thing on the chain is an acorn you shoot: that is hanging_acorn."
+      ],
+      "internalTypes": ["Ball and Chain"],
+      "examples": ["P02"]
+    },
+    {
+      "id": "offering",
+      "name": "Offering",
+      "group": "Patterns",
+      "description": "Several small statues or plates each hold an item (usually an apple) but one is empty. Drop the same item into the empty spot.",
+      "rules": [
+        "Counts: a set of offering spots where one is missing an item you supply, whatever the item (apple, banana, pepper, egg, rusty shield).",
+        "Not this if you remove fruit from trees so they match: that is matching_trees."
+      ],
+      "internalTypes": ["Offering Plate"],
+      "examples": ["D03", "D30"]
+    },
+    {
+      "id": "matching_trees",
+      "name": "Matching trees",
+      "group": "Patterns",
+      "description": "Three trees of the same kind stand together, carrying fruit in the same places except one, which has extra. Knock off or pick the extra fruit so all the trees match.",
+      "rules": [
+        "Counts: a group of fruit trees (apple, Voltfruit cactus, durian) where you remove fruit to make them identical.",
+        "Not this if you put an item down: that is offering."
+      ],
+      "internalTypes": ["Matching Trees"],
+      "examples": ["D46", "N50"]
+    },
+    {
+      "id": "sparkle",
+      "name": "Sparkle",
+      "group": "Sparkles",
+      "description": "A small cluster of glittering leaves (fairy dust) hangs in one place, often on a summit, a flagpole, a treetop or behind a waterfall. Reach it and press A to examine it.",
+      "rules": [
+        "Counts: a stationary sparkle you touch. The challenge is reaching it.",
+        "Not this if the sparkle moves along a path: that is moving_sparkle.",
+        "Not this if you first have to melt ice to free it: that is melt_ice."
+      ],
+      "internalTypes": ["Stationary Lights"],
+      "examples": ["P11", "L27"]
+    },
+    {
+      "id": "moving_sparkle",
+      "name": "Moving sparkle",
+      "group": "Sparkles",
+      "description": "A sparkle flits along a set route, often looping around a hill, pond or ruin. Chase or intercept it and examine it.",
+      "rules": [
+        "Counts: a sparkle that travels along a fixed route (it has a rail in the game data).",
+        "Not this if it stays put (sparkle) or appears only after a race start (race)."
+      ],
+      "internalTypes": ["Moving Lights"],
+      "examples": ["C82"]
+    },
+    {
+      "id": "melt_ice",
+      "name": "Melt the ice block",
+      "group": "Sparkles",
+      "description": "In a cold area, a large block of ice sits somewhere conspicuous. Melt it with fire (Fire Arrow, a torch, a fire weapon, a lit campfire) to reveal the Korok.",
+      "rules": [
+        "Counts: a meltable ice block (IceWall) hiding the Korok.",
+        "Not this for ice you merely have to cross or climb to reach a rock or sparkle; classify by what you finally touch."
+      ],
+      "internalTypes": ["Melt Ice Block"],
+      "examples": ["P07"]
+    },
+    {
+      "id": "flower_trail",
+      "name": "Flower trail",
+      "group": "Flowers",
+      "description": "A lone yellow flower vanishes when you approach and reappears a little way off. Keep following it until you touch the last (white) flower.",
+      "rules": [
+        "Counts: one flower at a time that hops ahead of you.",
+        "Not this if several groups of flowers are all visible at once and you touch them in order of size: that is flower_order."
+      ],
+      "internalTypes": ["Flower Trail"],
+      "examples": ["F45", "A38"]
+    },
+    {
+      "id": "flower_order",
+      "name": "Flower groups in order",
+      "group": "Flowers",
+      "description": "Fifteen flowers grow in five clumps of one, two, three, four and five. Touch the clumps in rising order (1, 2, 3, 4, 5).",
+      "rules": [
+        "Counts: several flower clumps visible at once that must be touched in order of size.",
+        "Not this if a single flower leads you along: that is flower_trail."
+      ],
+      "internalTypes": ["Flower Order"],
+      "examples": ["D43", "R46"]
+    },
+    {
+      "id": "balloon",
+      "name": "Hidden balloon",
+      "group": "Archery",
+      "description": "A single Korok balloon floats somewhere tucked away: under a bridge, inside a cave, behind rocks, high on a cliff. Pop it with an arrow.",
+      "rules": [
+        "Counts: one balloon that is always there, with no pinwheel nearby.",
+        "Not this if the balloons appear when you stand by a pinwheel: that is pinwheel_balloons."
+      ],
+      "internalTypes": ["Stationary Balloon"],
+      "examples": ["T14", "L15"]
+    },
+    {
+      "id": "pinwheel_balloons",
+      "name": "Pinwheel balloons",
+      "group": "Archery",
+      "description": "Stand next to a lone pinwheel and one or more balloons appear, some moving. Shoot them all before the timer runs out without leaving the pinwheel.",
+      "rules": [
+        "Counts: a pinwheel that summons balloons.",
+        "Not this if the pinwheel summons acorns: that is pinwheel_acorns.",
+        "Not this if there is a pinwheel but no targets (a sparkle by a pinwheel): classify by what you touch."
+      ],
+      "internalTypes": ["Pinwheel Balloons"],
+      "examples": ["L33", "C83"]
+    },
+    {
+      "id": "pinwheel_acorns",
+      "name": "Pinwheel acorns",
+      "group": "Archery",
+      "description": "Stand next to a pinwheel and a ring of acorns appears around a nearby tree or pillar. Shoot every acorn before time runs out.",
+      "rules": [
+        "Counts: a pinwheel that summons acorns (Obj_KorokPot) on a timer.",
+        "Not this if the acorn is always there: that is acorn_in_hollow or hanging_acorn."
+      ],
+      "internalTypes": ["Pinwheel Acorns"],
+      "examples": ["N34", "D58"]
+    },
+    {
+      "id": "acorn_in_hollow",
+      "name": "Acorn in a hollow",
+      "group": "Archery",
+      "description": "An acorn jar is wedged into a tree hollow, a hollow log, a rock crevice or a chimney. Shoot or bomb it.",
+      "rules": [
+        "Counts: a single acorn jar fixed in place (not hanging).",
+        "Not this if it dangles from a chain: that is hanging_acorn. Not this if a pinwheel spawns it: that is pinwheel_acorns."
+      ],
+      "internalTypes": ["Acorn in a Hole"],
+      "examples": ["L40", "C16"]
+    },
+    {
+      "id": "hanging_acorn",
+      "name": "Hanging acorn",
+      "group": "Archery",
+      "description": "An acorn jar hangs on a chain from a branch, bridge or overhang. Shoot it down.",
+      "rules": [
+        "Counts: an acorn jar on a chain.",
+        "Not this if the chained object is an iron ball you place: that is ball_and_chain."
+      ],
+      "internalTypes": ["Hanging Acorn"],
+      "examples": ["C49"]
+    },
+    {
+      "id": "shoot_target",
+      "name": "Shoot the target",
+      "group": "Archery",
+      "description": "Shoot a fixed mark that isn't a balloon or an acorn: a crest or emblem painted high on a wall or structure, or a set of archery targets.",
+      "rules": [
+        "Counts: an arrow hit on a fixed emblem or target board triggers the Korok.",
+        "Not this for balloons (balloon, pinwheel_balloons) or acorns (acorn_in_hollow, hanging_acorn, pinwheel_acorns)."
+      ],
+      "internalTypes": ["Shoot the Crest", "Shoot the Targets"],
+      "examples": ["D05", "N45"]
+    },
+    {
+      "id": "race",
+      "name": "Race to the ring",
+      "group": "Movement",
+      "description": "Step on a tree stump with a leaf symbol; a ring of light appears some distance away and a timer starts. Reach the ring (run, glide, shield-surf) before it disappears.",
+      "rules": [
+        "Counts: a starting stump plus a timed goal ring.",
+        "Not this if you dive into a ring of plants on water: that is dive."
+      ],
+      "internalTypes": ["Goal Ring (Race)"],
+      "examples": ["L08", "L47"]
+    },
+    {
+      "id": "dive",
+      "name": "Dive through the ring",
+      "group": "Movement",
+      "description": "A ring of lily pads or floating plants sits on water below a ledge or platform. Jump off the ledge and drop into the water through the middle of the ring; paragliding down into it doesn't count.",
+      "rules": [
+        "Counts: a floating plant ring you enter by diving.",
+        "Not this if the ring is made of rocks and you throw something in: that is rock_circle."
+      ],
+      "internalTypes": ["Dive"],
+      "examples": ["D02", "L10"]
+    },
+    {
+      "id": "horse_hurdles",
+      "name": "Horse hurdles",
+      "group": "Movement",
+      "description": "A course of wooden fences stands in an open field. Ride a horse over every fence in sequence without missing one.",
+      "rules": [
+        "Counts: a line of jumpable fences cleared on horseback. Only two exist."
+      ],
+      "internalTypes": ["Jump the Fences"],
+      "examples": ["K17", "D25"]
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "group": "Other",
+      "description": "One-off puzzles that don't fit any other type, such as lighting an unlit torch, pulling out a stick, taking a Luminous Stone or burning leaves off a Korok face.",
+      "rules": [
+        "Use only after checking every other type: if the action is lifting a rock, shooting a balloon or acorn, touching a sparkle, placing an item, or filling a gap in a pattern, use that type even if the setting is unusual.",
+        "Counts: the action itself is unique, and there are at most two or three seeds like it in the game.",
+        "When you use this, say what the action is in the seed's notes so it can be promoted to a new type if more turn up."
+      ],
+      "internalTypes": ["Light Torch", "Take the Stick", "Remove Luminous Stone", "Burn the Leaves (Goatee)", "Take Apple from Palm Tree"],
+      "examples": ["L26", "D54"]
+    }
+  ]
+}

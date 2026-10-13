@@ -89,3 +89,8 @@ Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 Pieces only in TotK use `File:TotK <name> Icon.png`. Run the script after adding a piece to any
 game's `armor.json`; it fetches only the icons that are missing (`--force` re-downloads all of
 them), and each game's armor dataset test fails if any piece has no icon.
+
+BotW Korok Seed data (`files/botw/koroks.json`, `files/botw/korok_puzzle_types.json`; no UI yet)
+comes from objmap.zeldamods.org and its radar backend: ids, positions, tower regions and each seed's
+datamined `korok_type`. The puzzle-type taxonomy and descriptions follow Zelda Wiki. See
+`docs/korok-puzzle-types.md` for the fields, the coordinate system and the classification rules.
