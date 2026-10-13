@@ -1,0 +1,6592 @@
+{
+  "materials": [
+    {
+      "id": "acorn",
+      "name": "Acorn",
+      "category": "Plant",
+      "gameOrder": 11
+    },
+    {
+      "id": "amber",
+      "name": "Amber",
+      "category": "Mineral",
+      "gameOrder": 36
+    },
+    {
+      "id": "ancient_core",
+      "name": "Ancient Core",
+      "category": "Monster Part",
+      "gameOrder": 79
+    },
+    {
+      "id": "ancient_gear",
+      "name": "Ancient Gear",
+      "category": "Monster Part",
+      "gameOrder": 77
+    },
+    {
+      "id": "ancient_screw",
+      "name": "Ancient Screw",
+      "category": "Monster Part",
+      "gameOrder": 75
+    },
+    {
+      "id": "ancient_shaft",
+      "name": "Ancient Shaft",
+      "category": "Monster Part",
+      "gameOrder": 78
+    },
+    {
+      "id": "ancient_spring",
+      "name": "Ancient Spring",
+      "category": "Monster Part",
+      "gameOrder": 76
+    },
+    {
+      "id": "blue_nightshade",
+      "name": "Blue Nightshade",
+      "category": "Plant",
+      "gameOrder": 8
+    },
+    {
+      "id": "bokoblin_fang",
+      "name": "Bokoblin Fang",
+      "category": "Monster Part",
+      "gameOrder": 44
+    },
+    {
+      "id": "bokoblin_guts",
+      "name": "Bokoblin Guts",
+      "category": "Monster Part",
+      "gameOrder": 45
+    },
+    {
+      "id": "bokoblin_horn",
+      "name": "Bokoblin Horn",
+      "category": "Monster Part",
+      "gameOrder": 43
+    },
+    {
+      "id": "chuchu_jelly",
+      "name": "Chuchu Jelly",
+      "category": "Monster Part",
+      "gameOrder": 58
+    },
+    {
+      "id": "courser_bee_honey",
+      "name": "Courser Bee Honey",
+      "category": "Other",
+      "gameOrder": 10
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "category": "Mineral",
+      "gameOrder": 42
+    },
+    {
+      "id": "dinraals_claw",
+      "name": "Dinraal's Claw",
+      "category": "Dragon Part",
+      "gameOrder": 14
+    },
+    {
+      "id": "dinraals_scale",
+      "name": "Dinraal's Scale",
+      "category": "Dragon Part",
+      "gameOrder": 13
+    },
+    {
+      "id": "electric_keese_wing",
+      "name": "Electric Keese Wing",
+      "category": "Monster Part",
+      "gameOrder": 65
+    },
+    {
+      "id": "energetic_rhino_beetle",
+      "name": "Energetic Rhino Beetle",
+      "category": "Creature",
+      "gameOrder": 30
+    },
+    {
+      "id": "faroshs_claw",
+      "name": "Farosh's Claw",
+      "category": "Dragon Part",
+      "gameOrder": 22
+    },
+    {
+      "id": "faroshs_scale",
+      "name": "Farosh's Scale",
+      "category": "Dragon Part",
+      "gameOrder": 21
+    },
+    {
+      "id": "fire_keese_wing",
+      "name": "Fire Keese Wing",
+      "category": "Monster Part",
+      "gameOrder": 64
+    },
+    {
+      "id": "fireproof_lizard",
+      "name": "Fireproof Lizard",
+      "category": "Creature",
+      "gameOrder": 34
+    },
+    {
+      "id": "flint",
+      "name": "Flint",
+      "category": "Mineral",
+      "gameOrder": 35
+    },
+    {
+      "id": "giant_ancient_core",
+      "name": "Giant Ancient Core",
+      "category": "Monster Part",
+      "gameOrder": 80
+    },
+    {
+      "id": "hearty_bass",
+      "name": "Hearty Bass",
+      "category": "Creature",
+      "gameOrder": 25
+    },
+    {
+      "id": "hightail_lizard",
+      "name": "Hightail Lizard",
+      "category": "Creature",
+      "gameOrder": 33
+    },
+    {
+      "id": "hinox_guts",
+      "name": "Hinox Guts",
+      "category": "Monster Part",
+      "gameOrder": 74
+    },
+    {
+      "id": "hinox_toenail",
+      "name": "Hinox Toenail",
+      "category": "Monster Part",
+      "gameOrder": 72
+    },
+    {
+      "id": "hinox_tooth",
+      "name": "Hinox Tooth",
+      "category": "Monster Part",
+      "gameOrder": 73
+    },
+    {
+      "id": "hot_footed_frog",
+      "name": "Hot-Footed Frog",
+      "category": "Creature",
+      "gameOrder": 32
+    },
+    {
+      "id": "hyrule_bass",
+      "name": "Hyrule Bass",
+      "category": "Creature",
+      "gameOrder": 26
+    },
+    {
+      "id": "ice_keese_wing",
+      "name": "Ice Keese Wing",
+      "category": "Monster Part",
+      "gameOrder": 63
+    },
+    {
+      "id": "icy_lizalfos_tail",
+      "name": "Icy Lizalfos Tail",
+      "category": "Monster Part",
+      "gameOrder": 52
+    },
+    {
+      "id": "keese_eyeball",
+      "name": "Keese Eyeball",
+      "category": "Monster Part",
+      "gameOrder": 66
+    },
+    {
+      "id": "keese_wing",
+      "name": "Keese Wing",
+      "category": "Monster Part",
+      "gameOrder": 62
+    },
+    {
+      "id": "lizalfos_horn",
+      "name": "Lizalfos Horn",
+      "category": "Monster Part",
+      "gameOrder": 49
+    },
+    {
+      "id": "lizalfos_tail",
+      "name": "Lizalfos Tail",
+      "category": "Monster Part",
+      "gameOrder": 51
+    },
+    {
+      "id": "lizalfos_talon",
+      "name": "Lizalfos Talon",
+      "category": "Monster Part",
+      "gameOrder": 50
+    },
+    {
+      "id": "luminous_stone",
+      "name": "Luminous Stone",
+      "category": "Mineral",
+      "gameOrder": 38
+    },
+    {
+      "id": "lynel_guts",
+      "name": "Lynel Guts",
+      "category": "Monster Part",
+      "gameOrder": 57
+    },
+    {
+      "id": "lynel_hoof",
+      "name": "Lynel Hoof",
+      "category": "Monster Part",
+      "gameOrder": 56
+    },
+    {
+      "id": "lynel_horn",
+      "name": "Lynel Horn",
+      "category": "Monster Part",
+      "gameOrder": 55
+    },
+    {
+      "id": "moblin_fang",
+      "name": "Moblin Fang",
+      "category": "Monster Part",
+      "gameOrder": 47
+    },
+    {
+      "id": "moblin_guts",
+      "name": "Moblin Guts",
+      "category": "Monster Part",
+      "gameOrder": 48
+    },
+    {
+      "id": "moblin_horn",
+      "name": "Moblin Horn",
+      "category": "Monster Part",
+      "gameOrder": 46
+    },
+    {
+      "id": "molduga_fin",
+      "name": "Molduga Fin",
+      "category": "Monster Part",
+      "gameOrder": 70
+    },
+    {
+      "id": "molduga_guts",
+      "name": "Molduga Guts",
+      "category": "Monster Part",
+      "gameOrder": 71
+    },
+    {
+      "id": "naydras_claw",
+      "name": "Naydra's Claw",
+      "category": "Dragon Part",
+      "gameOrder": 18
+    },
+    {
+      "id": "naydras_scale",
+      "name": "Naydra's Scale",
+      "category": "Dragon Part",
+      "gameOrder": 17
+    },
+    {
+      "id": "octo_balloon",
+      "name": "Octo Balloon",
+      "category": "Monster Part",
+      "gameOrder": 69
+    },
+    {
+      "id": "octorok_eyeball",
+      "name": "Octorok Eyeball",
+      "category": "Monster Part",
+      "gameOrder": 68
+    },
+    {
+      "id": "octorok_tentacle",
+      "name": "Octorok Tentacle",
+      "category": "Monster Part",
+      "gameOrder": 67
+    },
+    {
+      "id": "opal",
+      "name": "Opal",
+      "category": "Mineral",
+      "gameOrder": 37
+    },
+    {
+      "id": "red_chuchu_jelly",
+      "name": "Red Chuchu Jelly",
+      "category": "Monster Part",
+      "gameOrder": 60
+    },
+    {
+      "id": "red_lizalfos_tail",
+      "name": "Red Lizalfos Tail",
+      "category": "Monster Part",
+      "gameOrder": 53
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "category": "Mineral",
+      "gameOrder": 40
+    },
+    {
+      "id": "rushroom",
+      "name": "Rushroom",
+      "category": "Plant",
+      "gameOrder": 3
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "category": "Mineral",
+      "gameOrder": 41
+    },
+    {
+      "id": "shard_of_dinraals_fang",
+      "name": "Shard of Dinraal's Fang",
+      "category": "Dragon Part",
+      "gameOrder": 15
+    },
+    {
+      "id": "shard_of_dinraals_horn",
+      "name": "Shard of Dinraal's Horn",
+      "category": "Dragon Part",
+      "gameOrder": 16
+    },
+    {
+      "id": "shard_of_faroshs_fang",
+      "name": "Shard of Farosh's Fang",
+      "category": "Dragon Part",
+      "gameOrder": 23
+    },
+    {
+      "id": "shard_of_faroshs_horn",
+      "name": "Shard of Farosh's Horn",
+      "category": "Dragon Part",
+      "gameOrder": 24
+    },
+    {
+      "id": "shard_of_naydras_fang",
+      "name": "Shard of Naydra's Fang",
+      "category": "Dragon Part",
+      "gameOrder": 19
+    },
+    {
+      "id": "shard_of_naydras_horn",
+      "name": "Shard of Naydra's Horn",
+      "category": "Dragon Part",
+      "gameOrder": 20
+    },
+    {
+      "id": "silent_princess",
+      "name": "Silent Princess",
+      "category": "Plant",
+      "gameOrder": 9
+    },
+    {
+      "id": "silent_shroom",
+      "name": "Silent Shroom",
+      "category": "Plant",
+      "gameOrder": 4
+    },
+    {
+      "id": "smotherwing_butterfly",
+      "name": "Smotherwing Butterfly",
+      "category": "Creature",
+      "gameOrder": 29
+    },
+    {
+      "id": "sneaky_river_snail",
+      "name": "Sneaky River Snail",
+      "category": "Creature",
+      "gameOrder": 28
+    },
+    {
+      "id": "star_fragment",
+      "name": "Star Fragment",
+      "category": "Other",
+      "gameOrder": 12
+    },
+    {
+      "id": "stealthfin_trout",
+      "name": "Stealthfin Trout",
+      "category": "Creature",
+      "gameOrder": 27
+    },
+    {
+      "id": "sunset_firefly",
+      "name": "Sunset Firefly",
+      "category": "Creature",
+      "gameOrder": 31
+    },
+    {
+      "id": "sunshroom",
+      "name": "Sunshroom",
+      "category": "Plant",
+      "gameOrder": 1
+    },
+    {
+      "id": "swift_carrot",
+      "name": "Swift Carrot",
+      "category": "Plant",
+      "gameOrder": 5
+    },
+    {
+      "id": "swift_violet",
+      "name": "Swift Violet",
+      "category": "Plant",
+      "gameOrder": 7
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "category": "Mineral",
+      "gameOrder": 39
+    },
+    {
+      "id": "voltfruit",
+      "name": "Voltfruit",
+      "category": "Plant",
+      "gameOrder": 0
+    },
+    {
+      "id": "warm_safflina",
+      "name": "Warm Safflina",
+      "category": "Plant",
+      "gameOrder": 6
+    },
+    {
+      "id": "white_chuchu_jelly",
+      "name": "White Chuchu Jelly",
+      "category": "Monster Part",
+      "gameOrder": 59
+    },
+    {
+      "id": "yellow_chuchu_jelly",
+      "name": "Yellow Chuchu Jelly",
+      "category": "Monster Part",
+      "gameOrder": 61
+    },
+    {
+      "id": "yellow_lizalfos_tail",
+      "name": "Yellow Lizalfos Tail",
+      "category": "Monster Part",
+      "gameOrder": 54
+    },
+    {
+      "id": "zapshroom",
+      "name": "Zapshroom",
+      "category": "Plant",
+      "gameOrder": 2
+    }
+  ],
+  "sets": [
+    {
+      "id": "ancient_set",
+      "name": "Ancient Set",
+      "bonus": "Ancient Proficiency",
+      "source": "BASE"
+    },
+    {
+      "id": "barbarian_set",
+      "name": "Barbarian Set",
+      "bonus": "Charge Atk. Stamina Up",
+      "source": "BASE"
+    },
+    {
+      "id": "climbing_set",
+      "name": "Climbing Set",
+      "bonus": "Climb Jump Stamina Up",
+      "source": "BASE"
+    },
+    {
+      "id": "dark_set",
+      "name": "Dark Set",
+      "bonus": "Night Speed Up",
+      "source": "BASE"
+    },
+    {
+      "id": "desert_voe_set",
+      "name": "Desert Voe Set",
+      "bonus": "Shock Damage Resist",
+      "source": "BASE"
+    },
+    {
+      "id": "fierce_deity_set",
+      "name": "Fierce Deity Set",
+      "bonus": "Charge Atk. Stamina Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "flamebreaker_set",
+      "name": "Flamebreaker Set",
+      "bonus": "Fireproof",
+      "source": "BASE"
+    },
+    {
+      "id": "gerudo_set",
+      "name": "Gerudo Set",
+      "bonus": "Heat-Resistant",
+      "source": "BASE"
+    },
+    {
+      "id": "hero_set",
+      "name": "Hero Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_time_set",
+      "name": "Hero of Time Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_twilight_set",
+      "name": "Hero of Twilight Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_winds_set",
+      "name": "Hero of Winds Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_the_sky_set",
+      "name": "Hero of the Sky Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_the_wild_set",
+      "name": "Hero of the Wild Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "BASE"
+    },
+    {
+      "id": "hylian_set",
+      "name": "Hylian Set",
+      "bonus": null,
+      "source": "BASE"
+    },
+    {
+      "id": "phantom_ganon_set",
+      "name": "Phantom Ganon Set",
+      "bonus": "Bone Atk. Up, Stal Disguise",
+      "source": "DLC2"
+    },
+    {
+      "id": "phantom_set",
+      "name": "Phantom Set",
+      "bonus": null,
+      "source": "DLC1"
+    },
+    {
+      "id": "radiant_set",
+      "name": "Radiant Set",
+      "bonus": "Bone Atk. Up, Stal Disguise",
+      "source": "BASE"
+    },
+    {
+      "id": "royal_guard_set",
+      "name": "Royal Guard Set",
+      "bonus": "Charge Atk. Stamina Up",
+      "source": "DLC2"
+    },
+    {
+      "id": "rubber_set",
+      "name": "Rubber Set",
+      "bonus": "Unshockable",
+      "source": "BASE"
+    },
+    {
+      "id": "salvager_set",
+      "name": "Salvager Set",
+      "bonus": "Swim Dash Stamina Up",
+      "source": "BASE"
+    },
+    {
+      "id": "snowquill_set",
+      "name": "Snowquill Set",
+      "bonus": "Unfreezable",
+      "source": "BASE"
+    },
+    {
+      "id": "soldiers_set",
+      "name": "Soldier's Set",
+      "bonus": null,
+      "source": "BASE"
+    },
+    {
+      "id": "stealth_set",
+      "name": "Stealth Set",
+      "bonus": "Night Speed Up",
+      "source": "BASE"
+    },
+    {
+      "id": "tingles_set",
+      "name": "Tingle's Set",
+      "bonus": "Night Speed Up",
+      "source": "DLC1"
+    },
+    {
+      "id": "well_worn_set",
+      "name": "Well-Worn Outfit",
+      "bonus": null,
+      "source": "BASE"
+    },
+    {
+      "id": "zora_set",
+      "name": "Zora Set",
+      "bonus": "Swim Dash Stamina Up",
+      "source": "BASE"
+    }
+  ],
+  "pieces": [
+    {
+      "id": "ancient_helm",
+      "name": "Ancient Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 21,
+      "setOrder": 51,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Akkala Ancient Tech Lab",
+          "detail": "Buy it from Cherry, the Ancient Oven at the Akkala Ancient Tech Lab, after relighting the lab's furnace during the Robbie's Research side quest.",
+          "cost": {
+            "rupees": 2000,
+            "materials": [
+              {
+                "material": "ancient_gear",
+                "qty": 20
+              },
+              {
+                "material": "ancient_shaft",
+                "qty": 5
+              },
+              {
+                "material": "ancient_core",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "vah_medoh_divine_helm",
+      "name": "Vah Medoh Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Cold Resistance, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 43,
+      "setOrder": 101,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Revali amiibo",
+          "detail": "Scan the Revali amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "vah_naboris_divine_helm",
+      "name": "Vah Naboris Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Shock Resistance, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 45,
+      "setOrder": 103,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Urbosa amiibo",
+          "detail": "Scan the Urbosa amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "vah_rudania_divine_helm",
+      "name": "Vah Rudania Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Flame Guard, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 44,
+      "setOrder": 102,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Daruk amiibo",
+          "detail": "Scan the Daruk amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "vah_ruta_divine_helm",
+      "name": "Vah Ruta Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Swim Speed Up, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 42,
+      "setOrder": 100,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Mipha amiibo",
+          "detail": "Scan the Mipha amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "ancient_cuirass",
+      "name": "Ancient Cuirass",
+      "setId": "ancient_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 63,
+      "setOrder": 52,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Akkala Ancient Tech Lab",
+          "detail": "Buy it from Cherry, the Ancient Oven at the Akkala Ancient Tech Lab, after relighting the lab's furnace during the Robbie's Research side quest.",
+          "cost": {
+            "rupees": 2000,
+            "materials": [
+              {
+                "material": "ancient_gear",
+                "qty": 20
+              },
+              {
+                "material": "ancient_screw",
+                "qty": 5
+              },
+              {
+                "material": "ancient_core",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ancient_greaves",
+      "name": "Ancient Greaves",
+      "setId": "ancient_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 92,
+      "setOrder": 53,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Akkala Ancient Tech Lab",
+          "detail": "Buy it from Cherry, the Ancient Oven at the Akkala Ancient Tech Lab, after relighting the lab's furnace during the Robbie's Research side quest.",
+          "cost": {
+            "rupees": 2000,
+            "materials": [
+              {
+                "material": "ancient_gear",
+                "qty": 20
+              },
+              {
+                "material": "ancient_spring",
+                "qty": 5
+              },
+              {
+                "material": "ancient_core",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "barbarian_helm",
+      "name": "Barbarian Helm",
+      "setId": "barbarian_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 3
+          },
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 4
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 17,
+      "setOrder": 41,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Tu Ka'loh Shrine, Lomei Labyrinth Island",
+          "detail": "Make your way through the Lomei Labyrinth Island maze off the coast of Akkala to reach Tu Ka'loh Shrine; the helm is in the chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "barbarian_armor",
+      "name": "Barbarian Armor",
+      "setId": "barbarian_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 3
+          },
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 4
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 60,
+      "setOrder": 42,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Dila Maag Shrine, South Lomei Labyrinth",
+          "detail": "Make your way through the South Lomei Labyrinth in the Gerudo Desert to reach Dila Maag Shrine; the armor is in the chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "barbarian_leg_wraps",
+      "name": "Barbarian Leg Wraps",
+      "setId": "barbarian_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 3
+          },
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 4
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 89,
+      "setOrder": 43,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Qaza Tokki Shrine, North Lomei Labyrinth",
+          "detail": "Make your way to the center of the North Lomei Labyrinth to reach Qaza Tokki Shrine; the leg wraps are in the chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "climbers_bandanna",
+      "name": "Climber's Bandanna",
+      "setId": "climbing_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Climb Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "keese_wing",
+            "qty": 3
+          },
+          {
+            "material": "rushroom",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "electric_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hot_footed_frog",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 16,
+      "setOrder": 38,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Ree Dahee Shrine, Dueling Peaks",
+          "detail": "Found in a treasure chest inside Ree Dahee Shrine, between the Dueling Peaks."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "climbing_gear",
+      "name": "Climbing Gear",
+      "setId": "climbing_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Climb Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "keese_wing",
+            "qty": 3
+          },
+          {
+            "material": "rushroom",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "electric_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hot_footed_frog",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 59,
+      "setOrder": 39,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Chaas Qeta Shrine, Tenoko Island",
+          "detail": "Found in a treasure chest inside Chaas Qeta Shrine on Tenoko Island, off the coast of East Necluda."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "climbing_boots",
+      "name": "Climbing Boots",
+      "setId": "climbing_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Climb Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "keese_wing",
+            "qty": 3
+          },
+          {
+            "material": "rushroom",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "electric_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hot_footed_frog",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 88,
+      "setOrder": 40,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Tahno O'ah Shrine, Mount Lanayru area",
+          "detail": "Found in a treasure chest inside Tahno O'ah Shrine, revealed by the Secret of the Cedars shrine quest northeast of Hateno Village."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "dark_hood",
+      "name": "Dark Hood",
+      "setId": "dark_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 26,
+      "setOrder": 60,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after all four Divine Beasts are freed.",
+          "cost": {
+            "mon": 1999
+          }
+        }
+      ]
+    },
+    {
+      "id": "dark_tunic",
+      "name": "Dark Tunic",
+      "setId": "dark_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 64,
+      "setOrder": 61,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after all four Divine Beasts are freed.",
+          "cost": {
+            "mon": 999
+          }
+        }
+      ]
+    },
+    {
+      "id": "dark_trousers",
+      "name": "Dark Trousers",
+      "setId": "dark_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 95,
+      "setOrder": 62,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after all four Divine Beasts are freed.",
+          "cost": {
+            "mon": 999
+          }
+        }
+      ]
+    },
+    {
+      "id": "desert_voe_headband",
+      "name": "Desert Voe Headband",
+      "setId": "desert_voe_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "ice_keese_wing",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "sapphire",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 6,
+      "setOrder": 16,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦).",
+          "cost": {
+            "rupees": 450
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Rhondson Armor Boutique, Tarrey Town",
+          "detail": "Sold at Rhondson Armor Boutique in Tarrey Town once the From the Ground Up side quest is complete.",
+          "cost": {
+            "rupees": 450
+          }
+        }
+      ]
+    },
+    {
+      "id": "desert_voe_spaulder",
+      "name": "Desert Voe Spaulder",
+      "setId": "desert_voe_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "ice_keese_wing",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "sapphire",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 53,
+      "setOrder": 17,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦).",
+          "cost": {
+            "rupees": 1300
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Rhondson Armor Boutique, Tarrey Town",
+          "detail": "Sold at Rhondson Armor Boutique in Tarrey Town once the From the Ground Up side quest is complete.",
+          "cost": {
+            "rupees": 1300
+          }
+        }
+      ]
+    },
+    {
+      "id": "desert_voe_trousers",
+      "name": "Desert Voe Trousers",
+      "setId": "desert_voe_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "ice_keese_wing",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "sapphire",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 82,
+      "setOrder": 18,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦).",
+          "cost": {
+            "rupees": 650
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Rhondson Armor Boutique, Tarrey Town",
+          "detail": "Sold at Rhondson Armor Boutique in Tarrey Town once the From the Ground Up side quest is complete.",
+          "cost": {
+            "rupees": 650
+          }
+        }
+      ]
+    },
+    {
+      "id": "fierce_deity_mask",
+      "name": "Fierce Deity Mask",
+      "setId": "fierce_deity_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "hinox_toenail",
+            "qty": 5
+          },
+          {
+            "material": "dinraals_scale",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_tooth",
+            "qty": 5
+          },
+          {
+            "material": "dinraals_claw",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_dinraals_fang",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 18,
+      "setOrder": 44,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Majora's Mask) amiibo",
+          "detail": "Scan the Link (Majora's Mask) amiibo with the amiibo rune. This piece is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "fierce_deity_armor",
+      "name": "Fierce Deity Armor",
+      "setId": "fierce_deity_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "hinox_toenail",
+            "qty": 5
+          },
+          {
+            "material": "naydras_scale",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_tooth",
+            "qty": 5
+          },
+          {
+            "material": "naydras_claw",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_naydras_fang",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 61,
+      "setOrder": 45,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Majora's Mask) amiibo",
+          "detail": "Scan the Link (Majora's Mask) amiibo with the amiibo rune. This piece is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "fierce_deity_boots",
+      "name": "Fierce Deity Boots",
+      "setId": "fierce_deity_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "hinox_toenail",
+            "qty": 5
+          },
+          {
+            "material": "faroshs_scale",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_tooth",
+            "qty": 5
+          },
+          {
+            "material": "faroshs_claw",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_faroshs_fang",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 90,
+      "setOrder": 46,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Majora's Mask) amiibo",
+          "detail": "Scan the Link (Majora's Mask) amiibo with the amiibo rune. This piece is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "flamebreaker_helm",
+      "name": "Flamebreaker Helm",
+      "setId": "flamebreaker_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Flame Guard",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 1
+          },
+          {
+            "material": "moblin_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 3
+          },
+          {
+            "material": "moblin_fang",
+            "qty": 4
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 5
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 10,
+      "setOrder": 26,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ripped and Shredded, Goron City",
+          "detail": "Sold at Ripped and Shredded in Goron City.",
+          "cost": {
+            "rupees": 2000
+          }
+        }
+      ]
+    },
+    {
+      "id": "flamebreaker_armor",
+      "name": "Flamebreaker Armor",
+      "setId": "flamebreaker_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Flame Guard",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 1
+          },
+          {
+            "material": "moblin_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 3
+          },
+          {
+            "material": "moblin_fang",
+            "qty": 4
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 5
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 56,
+      "setOrder": 27,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ripped and Shredded, Goron City",
+          "detail": "Sold at Ripped and Shredded in Goron City.",
+          "cost": {
+            "rupees": 600
+          }
+        },
+        {
+          "method": "QUEST",
+          "title": "Side quest: Fireproof Lizard Roundup",
+          "detail": "Talk to Kima at the Southern Mine on Death Mountain and bring him 10 Fireproof Lizards; he gives you the Flamebreaker Armor."
+        }
+      ]
+    },
+    {
+      "id": "flamebreaker_boots",
+      "name": "Flamebreaker Boots",
+      "setId": "flamebreaker_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Flame Guard",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 1
+          },
+          {
+            "material": "moblin_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 3
+          },
+          {
+            "material": "moblin_fang",
+            "qty": 4
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 5
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 85,
+      "setOrder": 28,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ripped and Shredded, Goron City",
+          "detail": "Sold at Ripped and Shredded in Goron City.",
+          "cost": {
+            "rupees": 700
+          }
+        }
+      ]
+    },
+    {
+      "id": "gerudo_veil",
+      "name": "Gerudo Veil",
+      "setId": "gerudo_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 7,
+      "setOrder": 19,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Vilia, Kara Kara Bazaar",
+          "detail": "During the Forbidden City Entry main quest, climb to the roof of the Kara Kara Bazaar inn and talk to Vilia. She sells the veil, top and sirwal together for 600 rupees."
+        },
+        {
+          "method": "SHOP",
+          "title": "Fashion Passion, Gerudo Town",
+          "detail": "Sold individually by Saula at Fashion Passion in Gerudo Town (white versions). You must already be disguised to enter town.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
+    },
+    {
+      "id": "gerudo_top",
+      "name": "Gerudo Top",
+      "setId": "gerudo_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 54,
+      "setOrder": 20,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Vilia, Kara Kara Bazaar",
+          "detail": "During the Forbidden City Entry main quest, climb to the roof of the Kara Kara Bazaar inn and talk to Vilia. She sells the veil, top and sirwal together for 600 rupees."
+        },
+        {
+          "method": "SHOP",
+          "title": "Fashion Passion, Gerudo Town",
+          "detail": "Sold individually by Saula at Fashion Passion in Gerudo Town (white versions). You must already be disguised to enter town.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
+    },
+    {
+      "id": "gerudo_sirwal",
+      "name": "Gerudo Sirwal",
+      "setId": "gerudo_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 83,
+      "setOrder": 21,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Vilia, Kara Kara Bazaar",
+          "detail": "During the Forbidden City Entry main quest, climb to the roof of the Kara Kara Bazaar inn and talk to Vilia. She sells the veil, top and sirwal together for 600 rupees."
+        },
+        {
+          "method": "SHOP",
+          "title": "Fashion Passion, Gerudo Town",
+          "detail": "Sold individually by Saula at Fashion Passion in Gerudo Town (white versions). You must already be disguised to enter town.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
+    },
+    {
+      "id": "cap_of_the_sky",
+      "name": "Cap of the Sky",
+      "setId": "hero_of_the_sky_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 30,
+      "setOrder": 72,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Skyward Sword) amiibo",
+          "detail": "Scan the Link (Skyward Sword) amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "tunic_of_the_sky",
+      "name": "Tunic of the Sky",
+      "setId": "hero_of_the_sky_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 68,
+      "setOrder": 73,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Skyward Sword) amiibo",
+          "detail": "Scan the Link (Skyward Sword) amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "trousers_of_the_sky",
+      "name": "Trousers of the Sky",
+      "setId": "hero_of_the_sky_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 99,
+      "setOrder": 74,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Skyward Sword) amiibo",
+          "detail": "Scan the Link (Skyward Sword) amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "cap_of_the_wild",
+      "name": "Cap of the Wild",
+      "setId": "hero_of_the_wild_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "acorn",
+            "qty": 10
+          },
+          {
+            "material": "faroshs_scale",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "courser_bee_honey",
+            "qty": 5
+          },
+          {
+            "material": "faroshs_claw",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "energetic_rhino_beetle",
+            "qty": 5
+          },
+          {
+            "material": "shard_of_faroshs_fang",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 32,
+      "setOrder": 78,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: A Gift from the Monks",
+          "detail": "Complete all 120 shrines of the base game, then go to the Forgotten Temple. The set is in the three chests in front of the Goddess Statue at the back of the temple."
+        }
+      ]
+    },
+    {
+      "id": "tunic_of_the_wild",
+      "name": "Tunic of the Wild",
+      "setId": "hero_of_the_wild_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "acorn",
+            "qty": 10
+          },
+          {
+            "material": "naydras_scale",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "courser_bee_honey",
+            "qty": 5
+          },
+          {
+            "material": "naydras_claw",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "energetic_rhino_beetle",
+            "qty": 5
+          },
+          {
+            "material": "shard_of_naydras_fang",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 70,
+      "setOrder": 79,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: A Gift from the Monks",
+          "detail": "Complete all 120 shrines of the base game, then go to the Forgotten Temple. The set is in the three chests in front of the Goddess Statue at the back of the temple."
+        }
+      ]
+    },
+    {
+      "id": "trousers_of_the_wild",
+      "name": "Trousers of the Wild",
+      "setId": "hero_of_the_wild_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "acorn",
+            "qty": 10
+          },
+          {
+            "material": "dinraals_scale",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "courser_bee_honey",
+            "qty": 5
+          },
+          {
+            "material": "dinraals_claw",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "energetic_rhino_beetle",
+            "qty": 5
+          },
+          {
+            "material": "shard_of_dinraals_fang",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 101,
+      "setOrder": 80,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: A Gift from the Monks",
+          "detail": "Complete all 120 shrines of the base game, then go to the Forgotten Temple. The set is in the three chests in front of the Goddess Statue at the back of the temple."
+        }
+      ]
+    },
+    {
+      "id": "cap_of_time",
+      "name": "Cap of Time",
+      "setId": "hero_of_time_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 27,
+      "setOrder": 63,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Ocarina of Time) amiibo",
+          "detail": "Scan the Link (Ocarina of Time) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "tunic_of_time",
+      "name": "Tunic of Time",
+      "setId": "hero_of_time_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 65,
+      "setOrder": 64,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Ocarina of Time) amiibo",
+          "detail": "Scan the Link (Ocarina of Time) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "trousers_of_time",
+      "name": "Trousers of Time",
+      "setId": "hero_of_time_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 96,
+      "setOrder": 65,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Ocarina of Time) amiibo",
+          "detail": "Scan the Link (Ocarina of Time) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "cap_of_twilight",
+      "name": "Cap of Twilight",
+      "setId": "hero_of_twilight_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 29,
+      "setOrder": 69,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Twilight Princess) or Smash Bros. Link amiibo",
+          "detail": "Scan the Link (Twilight Princess) amiibo or the Super Smash Bros. series Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "tunic_of_twilight",
+      "name": "Tunic of Twilight",
+      "setId": "hero_of_twilight_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 67,
+      "setOrder": 70,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Twilight Princess) or Smash Bros. Link amiibo",
+          "detail": "Scan the Link (Twilight Princess) amiibo or the Super Smash Bros. series Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "trousers_of_twilight",
+      "name": "Trousers of Twilight",
+      "setId": "hero_of_twilight_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 98,
+      "setOrder": 71,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Twilight Princess) or Smash Bros. Link amiibo",
+          "detail": "Scan the Link (Twilight Princess) amiibo or the Super Smash Bros. series Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "cap_of_the_wind",
+      "name": "Cap of the Wind",
+      "setId": "hero_of_winds_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 28,
+      "setOrder": 66,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Toon Link amiibo",
+          "detail": "Scan the Toon Link (The Wind Waker) amiibo or the Super Smash Bros. series Toon Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "tunic_of_the_wind",
+      "name": "Tunic of the Wind",
+      "setId": "hero_of_winds_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 66,
+      "setOrder": 67,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Toon Link amiibo",
+          "detail": "Scan the Toon Link (The Wind Waker) amiibo or the Super Smash Bros. series Toon Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "trousers_of_the_wind",
+      "name": "Trousers of the Wind",
+      "setId": "hero_of_winds_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 97,
+      "setOrder": 68,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Toon Link amiibo",
+          "detail": "Scan the Toon Link (The Wind Waker) amiibo or the Super Smash Bros. series Toon Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "cap_of_the_hero",
+      "name": "Cap of the Hero",
+      "setId": "hero_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 31,
+      "setOrder": 75,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "8-bit Link amiibo",
+          "detail": "Scan the 8-bit Link (The Legend of Zelda) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "tunic_of_the_hero",
+      "name": "Tunic of the Hero",
+      "setId": "hero_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 69,
+      "setOrder": 76,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "8-bit Link amiibo",
+          "detail": "Scan the 8-bit Link (The Legend of Zelda) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "trousers_of_the_hero",
+      "name": "Trousers of the Hero",
+      "setId": "hero_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 100,
+      "setOrder": 77,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "8-bit Link amiibo",
+          "detail": "Scan the 8-bit Link (The Legend of Zelda) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "hylian_hood",
+      "name": "Hylian Hood",
+      "setId": "hylian_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 8
+          },
+          {
+            "material": "bokoblin_fang",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_fang",
+            "qty": 10
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_guts",
+            "qty": 15
+          },
+          {
+            "material": "amber",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 0,
+      "setOrder": 3,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 60
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "hylian_tunic",
+      "name": "Hylian Tunic",
+      "setId": "hylian_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 8
+          },
+          {
+            "material": "bokoblin_fang",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_fang",
+            "qty": 10
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_guts",
+            "qty": 15
+          },
+          {
+            "material": "amber",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 49,
+      "setOrder": 4,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 120
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 120
+          }
+        }
+      ]
+    },
+    {
+      "id": "hylian_trousers",
+      "name": "Hylian Trousers",
+      "setId": "hylian_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 8
+          },
+          {
+            "material": "bokoblin_fang",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_fang",
+            "qty": 10
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_guts",
+            "qty": 15
+          },
+          {
+            "material": "amber",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 79,
+      "setOrder": 5,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest near the Temple of Time",
+          "detail": "On the Great Plateau, look in the ruins of a building in front of the Temple of Time for a chest."
+        },
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 90
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 90
+          }
+        }
+      ]
+    },
+    {
+      "id": "phantom_ganon_skull",
+      "name": "Phantom Ganon Skull",
+      "setId": "phantom_ganon_set",
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": "Stealth Up",
+      "defense": [
+        4
+      ],
+      "upgrades": [],
+      "typeOrder": 41,
+      "setOrder": 97,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest below the Corta Lake waterfall",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. In Faron, find the highest of the three waterfalls running from Corta Lake down toward Lake Floria and pull the chest from its base with Magnesis. Quest: EX Treasure: Dark Armor."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "phantom_ganon_armor",
+      "name": "Phantom Ganon Armor",
+      "setId": "phantom_ganon_set",
+      "slot": "BODY",
+      "source": "DLC2",
+      "effect": "Stealth Up",
+      "defense": [
+        4
+      ],
+      "upgrades": [],
+      "typeOrder": 76,
+      "setOrder": 98,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest under Sarjon Bridge",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. The chest is in Floria River under Sarjon Bridge, between two small waterfalls west of Faron Tower; pull it out with Magnesis. Quest: EX Treasure: Dark Armor."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "phantom_ganon_greaves",
+      "name": "Phantom Ganon Greaves",
+      "setId": "phantom_ganon_set",
+      "slot": "LEGS",
+      "source": "DLC2",
+      "effect": "Stealth Up",
+      "defense": [
+        4
+      ],
+      "upgrades": [],
+      "typeOrder": 105,
+      "setOrder": 99,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest at the broken bird statue, Ebara Forest",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. In Ebara Forest, east of Lakeside Stable, use Magnesis on the chest buried behind the bird statue with the broken head. Quest: EX Treasure: Dark Armor."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "phantom_helmet",
+      "name": "Phantom Helmet",
+      "setId": "phantom_set",
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": "Attack Up",
+      "defense": [
+        8
+      ],
+      "upgrades": [],
+      "typeOrder": 37,
+      "setOrder": 88,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Coliseum Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to dig up the chest near a wall on the ground floor of the Coliseum Ruins (a Lynel guards the arena). Quest: EX Treasure: Phantasma."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "phantom_armor",
+      "name": "Phantom Armor",
+      "setId": "phantom_set",
+      "slot": "BODY",
+      "source": "DLC1",
+      "effect": "Attack Up",
+      "defense": [
+        8
+      ],
+      "upgrades": [],
+      "typeOrder": 73,
+      "setOrder": 89,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Sacred Ground Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to pull the chest out of the rubble on the southeast side of the Sacred Ground Ruins, south of Hyrule Castle. Quest: EX Treasure: Phantasma."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "phantom_greaves",
+      "name": "Phantom Greaves",
+      "setId": "phantom_set",
+      "slot": "LEGS",
+      "source": "DLC1",
+      "effect": "Attack Up",
+      "defense": [
+        8
+      ],
+      "upgrades": [],
+      "typeOrder": 103,
+      "setOrder": 90,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Hyrule Garrison Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis on the chest buried by a ruined Guardian on the southeast side of the Hyrule Garrison Ruins. Quest: EX Treasure: Phantasma."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "radiant_mask",
+      "name": "Radiant Mask",
+      "setId": "radiant_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Stal Lure",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 8
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 10
+          },
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 20
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 19,
+      "setOrder": 47,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦). Each piece also costs 3 Luminous Stones.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "luminous_stone",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "radiant_shirt",
+      "name": "Radiant Shirt",
+      "setId": "radiant_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Stal Lure",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 8
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 10
+          },
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 20
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 62,
+      "setOrder": 48,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦). Each piece also costs 3 Luminous Stones.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "luminous_stone",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "radiant_tights",
+      "name": "Radiant Tights",
+      "setId": "radiant_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Stal Lure",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 8
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 10
+          },
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 20
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 91,
+      "setOrder": 49,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦). Each piece also costs 3 Luminous Stones.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "luminous_stone",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "royal_guard_cap",
+      "name": "Royal Guard Cap",
+      "setId": "royal_guard_set",
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": null,
+      "defense": [
+        4
+      ],
+      "upgrades": [],
+      "typeOrder": 40,
+      "setOrder": 94,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest in the Champions' Hall, Hyrule Castle",
+          "detail": "Read the Super Rumor Mill at the Riverside Stable to start EX Royal Guard Rumors. The cap is in a chest in the Champions' Hall on the second floor of the Sanctum in Hyrule Castle."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "royal_guard_uniform",
+      "name": "Royal Guard Uniform",
+      "setId": "royal_guard_set",
+      "slot": "BODY",
+      "source": "DLC2",
+      "effect": null,
+      "defense": [
+        4
+      ],
+      "upgrades": [],
+      "typeOrder": 75,
+      "setOrder": 95,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Hidden chest near the Dining Hall, Hyrule Castle",
+          "detail": "Read the Super Rumor Mill at the Riverside Stable to start EX Royal Guard Rumors. In the corridor past the Dining Hall, bomb the cracked wall at the end on the left; the chest is inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "royal_guard_boots",
+      "name": "Royal Guard Boots",
+      "setId": "royal_guard_set",
+      "slot": "LEGS",
+      "source": "DLC2",
+      "effect": null,
+      "defense": [
+        4
+      ],
+      "upgrades": [],
+      "typeOrder": 104,
+      "setOrder": 96,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest in the Guards' Chamber, Hyrule Castle",
+          "detail": "Read the Super Rumor Mill at the Riverside Stable to start EX Royal Guard Rumors. The boots are in a chest in the Guards' Chamber, guarded by Lizalfos."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "rubber_helm",
+      "name": "Rubber Helm",
+      "setId": "rubber_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "voltfruit",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "zapshroom",
+            "qty": 5
+          },
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "topaz",
+            "qty": 10
+          }
+        ]
+      ],
+      "typeOrder": 9,
+      "setOrder": 23,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Thunder Magnet",
+          "detail": "Talk to Cima at the Lakeside Stable in Faron, who asks you to investigate the lightning strikes there, and complete the Thunder Magnet side quest to receive the helm."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "rubber_armor",
+      "name": "Rubber Armor",
+      "setId": "rubber_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "voltfruit",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "zapshroom",
+            "qty": 5
+          },
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "topaz",
+            "qty": 10
+          }
+        ]
+      ],
+      "typeOrder": 55,
+      "setOrder": 24,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Toh Yahsa Shrine, Thundra Plateau",
+          "detail": "Solve the Trial of Thunder shrine quest on the Thundra Plateau, west of Ridgeland Tower, to reveal Toh Yahsa Shrine; the armor is in a chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "rubber_tights",
+      "name": "Rubber Tights",
+      "setId": "rubber_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "voltfruit",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "zapshroom",
+            "qty": 5
+          },
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "topaz",
+            "qty": 10
+          }
+        ]
+      ],
+      "typeOrder": 84,
+      "setOrder": 25,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Qukah Nata Shrine, Calora Lake",
+          "detail": "Talk to Kass at Calora Lake in Faron to start the A Song of Storms shrine quest; once Qukah Nata Shrine appears, the tights are in a chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
+    },
+    {
+      "id": "salvager_headwear",
+      "name": "Salvager Headwear",
+      "setId": "salvager_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        5
+      ],
+      "upgrades": [],
+      "typeOrder": 46,
+      "setOrder": 104,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Xenoblade Chronicles 2",
+          "detail": "Part of the free Xenoblade Chronicles 2 side quest. At night, stand in the middle of the Bridge of Hylia and look at the southern sky; a falling star drops a chest with the headwear near the south shore of Lake Hylia."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "salvager_vest",
+      "name": "Salvager Vest",
+      "setId": "salvager_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        5
+      ],
+      "upgrades": [],
+      "typeOrder": 77,
+      "setOrder": 105,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Xenoblade Chronicles 2",
+          "detail": "Part of the free Xenoblade Chronicles 2 side quest. At night, stand on the left eye of Skull Lake in Akkala and look at the eastern sky; a falling star drops a chest with the vest in the Akkala Wilds."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "salvager_trousers",
+      "name": "Salvager Trousers",
+      "setId": "salvager_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        5
+      ],
+      "upgrades": [],
+      "typeOrder": 106,
+      "setOrder": 106,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Xenoblade Chronicles 2",
+          "detail": "Part of the free Xenoblade Chronicles 2 side quest. At night, stand on Hebra Peak and look at the southeastern sky; a falling star drops a chest with the trousers on a plateau of Hebra East Summit."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "snowquill_headdress",
+      "name": "Snowquill Headdress",
+      "setId": "snowquill_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "warm_safflina",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "sunshroom",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "red_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "ruby",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 4,
+      "setOrder": 12,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Brazen Beak, Rito Village",
+          "detail": "Sold at the Brazen Beak in Rito Village.",
+          "cost": {
+            "rupees": 1000
+          }
+        }
+      ]
+    },
+    {
+      "id": "snowquill_tunic",
+      "name": "Snowquill Tunic",
+      "setId": "snowquill_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "warm_safflina",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "sunshroom",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "red_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "ruby",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 52,
+      "setOrder": 13,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Brazen Beak, Rito Village",
+          "detail": "Sold at the Brazen Beak in Rito Village.",
+          "cost": {
+            "rupees": 600
+          }
+        }
+      ]
+    },
+    {
+      "id": "snowquill_trousers",
+      "name": "Snowquill Trousers",
+      "setId": "snowquill_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "warm_safflina",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "sunshroom",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "red_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "ruby",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 81,
+      "setOrder": 14,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Brazen Beak, Rito Village",
+          "detail": "Sold at the Brazen Beak in Rito Village.",
+          "cost": {
+            "rupees": 550
+          }
+        }
+      ]
+    },
+    {
+      "id": "soldiers_helm",
+      "name": "Soldier's Helm",
+      "setId": "soldiers_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "keese_eyeball",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 2
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 1,
+      "setOrder": 6,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
+    },
+    {
+      "id": "soldiers_armor",
+      "name": "Soldier's Armor",
+      "setId": "soldiers_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "keese_eyeball",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 3
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 50,
+      "setOrder": 7,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 250
+          }
+        }
+      ]
+    },
+    {
+      "id": "soldiers_greaves",
+      "name": "Soldier's Greaves",
+      "setId": "soldiers_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "keese_eyeball",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 3
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 80,
+      "setOrder": 8,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "stealth_mask",
+      "name": "Stealth Mask",
+      "setId": "stealth_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 5
+          },
+          {
+            "material": "sunset_firefly",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "silent_shroom",
+            "qty": 8
+          },
+          {
+            "material": "sneaky_river_snail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "stealthfin_trout",
+            "qty": 10
+          },
+          {
+            "material": "silent_princess",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 13,
+      "setOrder": 33,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 500
+          }
+        }
+      ]
+    },
+    {
+      "id": "stealth_chest_guard",
+      "name": "Stealth Chest Guard",
+      "setId": "stealth_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 5
+          },
+          {
+            "material": "sunset_firefly",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "silent_shroom",
+            "qty": 8
+          },
+          {
+            "material": "sneaky_river_snail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "stealthfin_trout",
+            "qty": 10
+          },
+          {
+            "material": "silent_princess",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 58,
+      "setOrder": 34,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 700
+          }
+        }
+      ]
+    },
+    {
+      "id": "stealth_tights",
+      "name": "Stealth Tights",
+      "setId": "stealth_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 5
+          },
+          {
+            "material": "sunset_firefly",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "silent_shroom",
+            "qty": 8
+          },
+          {
+            "material": "sneaky_river_snail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "stealthfin_trout",
+            "qty": 10
+          },
+          {
+            "material": "silent_princess",
+            "qty": 5
+          }
+        ]
+      ],
+      "typeOrder": 87,
+      "setOrder": 35,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 600
+          }
+        }
+      ]
+    },
+    {
+      "id": "tingles_hood",
+      "name": "Tingle's Hood",
+      "setId": "tingles_set",
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        2
+      ],
+      "upgrades": [],
+      "typeOrder": 35,
+      "setOrder": 84,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Exchange Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to pull the partly buried chest out of the ground at the Exchange Ruins in Hyrule Field. Quest: EX Treasure: Fairy Clothes."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "tingles_shirt",
+      "name": "Tingle's Shirt",
+      "setId": "tingles_set",
+      "slot": "BODY",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        2
+      ],
+      "upgrades": [],
+      "typeOrder": 72,
+      "setOrder": 85,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Castle Town Prison",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to lift the buried chest at the Castle Town Prison ruins in Hyrule Castle Town. Quest: EX Treasure: Fairy Clothes."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "tingles_tights",
+      "name": "Tingle's Tights",
+      "setId": "tingles_set",
+      "slot": "LEGS",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        2
+      ],
+      "upgrades": [],
+      "typeOrder": 102,
+      "setOrder": 86,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Mabe Village Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to lift the buried chest at the Mabe Village Ruins in Hyrule Field. Quest: EX Treasure: Fairy Clothes."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "old_shirt",
+      "name": "Old Shirt",
+      "setId": "well_worn_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 47,
+      "setOrder": 0,
+      "acquire": [
+        {
+          "method": "STARTING",
+          "title": "Shrine of Resurrection",
+          "detail": "Found in a treasure chest inside the Shrine of Resurrection at the very start of the game."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "well_worn_trousers",
+      "name": "Well-Worn Trousers",
+      "setId": "well_worn_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 78,
+      "setOrder": 1,
+      "acquire": [
+        {
+          "method": "STARTING",
+          "title": "Shrine of Resurrection",
+          "detail": "Found in a treasure chest inside the Shrine of Resurrection at the very start of the game."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "zora_helm",
+      "name": "Zora Helm",
+      "setId": "zora_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Swim Speed Up, Spin Attack",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lizalfos_horn",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_talon",
+            "qty": 5
+          },
+          {
+            "material": "hyrule_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 5
+          },
+          {
+            "material": "hearty_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "opal",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 12,
+      "setOrder": 30,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest in Toto Lake",
+          "detail": "North of Zora's Domain, swim up the waterfalls to Toto Lake and pull the chest out of the water with Magnesis. One of the Zora Stone Monuments hints at this spot."
+        }
+      ]
+    },
+    {
+      "id": "zora_armor",
+      "name": "Zora Armor",
+      "setId": "zora_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lizalfos_horn",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_talon",
+            "qty": 5
+          },
+          {
+            "material": "hyrule_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 5
+          },
+          {
+            "material": "hearty_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "opal",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 57,
+      "setOrder": 31,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Main quest: Divine Beast Vah Ruta",
+          "detail": "King Dorephan gives you the Zora Armor when you first meet him in Zora's Domain during the Divine Beast Vah Ruta main quest."
+        }
+      ]
+    },
+    {
+      "id": "zora_greaves",
+      "name": "Zora Greaves",
+      "setId": "zora_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lizalfos_horn",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_talon",
+            "qty": 5
+          },
+          {
+            "material": "hyrule_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 5
+          },
+          {
+            "material": "hearty_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "opal",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 86,
+      "setOrder": 32,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Lynel Safari",
+          "detail": "Talk to Laflat in Zora's Domain and show her a photo of a Red-Maned Lynel (the nearest is on Ploymus Mountain); she gives you the greaves."
+        }
+      ]
+    },
+    {
+      "id": "amber_earrings",
+      "name": "Amber Earrings",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 20
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 30
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ]
+      ],
+      "typeOrder": 2,
+      "setOrder": 9,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 100,
+            "materials": [
+              {
+                "material": "amber",
+                "qty": 10
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bokoblin_mask",
+      "name": "Bokoblin Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Bokoblin Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 22,
+      "setOrder": 56,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Available from the start.",
+          "cost": {
+            "mon": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "diamond_circlet",
+      "name": "Diamond Circlet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "diamond",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "diamond",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "diamond",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "diamond",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 20,
+      "setOrder": 50,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest under Lomei Labyrinth Island",
+          "detail": "After completing Tu Ka'loh Shrine, drop into the new opening outside to reach a chamber with a chest. Opening it wakes the Decayed Guardians around it."
+        },
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 1500,
+            "materials": [
+              {
+                "material": "diamond",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "korok_mask",
+      "name": "Korok Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 33,
+      "setOrder": 82,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Hollow tree in the Lost Woods",
+          "detail": "Read the Super Rumor Mill at the Woodland Stable to start EX Strange Mask Rumors. From the two torches at the Lost Woods entrance, keep heading the same way to an Ogre Tree and pull the chest from its mouth with Magnesis."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "lizalfos_mask",
+      "name": "Lizalfos Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Lizalfos Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 24,
+      "setOrder": 58,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after two Divine Beasts are freed.",
+          "cost": {
+            "mon": 299
+          }
+        }
+      ]
+    },
+    {
+      "id": "lynel_mask",
+      "name": "Lynel Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Lynel Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 25,
+      "setOrder": 59,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after three Divine Beasts are freed.",
+          "cost": {
+            "mon": 999
+          }
+        }
+      ]
+    },
+    {
+      "id": "majoras_mask",
+      "name": "Majora's Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": "Bokoblin Disguise, Moblin Disguise, Lizalfos Disguise, Lynel Disguise",
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 34,
+      "setOrder": 83,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Kolomo Garrison Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. The mask is in a partly buried chest at the Kolomo Garrison Ruins in Hyrule Field; pull it out with Magnesis. Quest: EX Treasure: Ancient Mask."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "midnas_helmet",
+      "name": "Midna's Helmet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        7
+      ],
+      "upgrades": [],
+      "typeOrder": 36,
+      "setOrder": 87,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Sage Temple Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to unearth the chest at the Sage Temple Ruins in Hyrule Field. Quest: EX Treasure: Twilight Relic."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "moblin_mask",
+      "name": "Moblin Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Moblin Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 23,
+      "setOrder": 57,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after one Divine Beast is freed.",
+          "cost": {
+            "mon": 199
+          }
+        }
+      ]
+    },
+    {
+      "id": "opal_earrings",
+      "name": "Opal Earrings",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 8
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 16
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 20
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ]
+      ],
+      "typeOrder": 11,
+      "setOrder": 29,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 200,
+            "materials": [
+              {
+                "material": "opal",
+                "qty": 8
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ravios_hood",
+      "name": "Ravio's Hood",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": "Climb Speed Up",
+      "defense": [
+        2
+      ],
+      "upgrades": [],
+      "typeOrder": 38,
+      "setOrder": 92,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest at the Spring of Courage",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. At the Spring of Courage in Faron (Shae Katha Shrine), use Magnesis on the chest under the right claw of the dragon statue. Quest: EX Treasure: Merchant Hood."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "ruby_circlet",
+      "name": "Ruby Circlet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 3,
+      "setOrder": 11,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 500,
+            "materials": [
+              {
+                "material": "ruby",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sapphire_circlet",
+      "name": "Sapphire Circlet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 5,
+      "setOrder": 15,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "sapphire",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sheiks_mask",
+      "name": "Sheik's Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "silent_princess",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 4
+          },
+          {
+            "material": "star_fragment",
+            "qty": 4
+          }
+        ]
+      ],
+      "typeOrder": 14,
+      "setOrder": 36,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Sheik amiibo",
+          "detail": "Scan the Super Smash Bros. series Sheik amiibo with the amiibo rune. The mask is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
+    },
+    {
+      "id": "thunder_helm",
+      "name": "Thunder Helm",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Lightning Proof",
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 15,
+      "setOrder": 37,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: The Thunder Helm",
+          "detail": "After freeing Divine Beast Vah Naboris, examine the helm beside Riju's throne in Gerudo Town. Complete Tools of the Trade, The Mystery Polluter, Medicinal Molduga and The Search for Barta, then return to Riju, who lends you the helm."
+        }
+      ]
+    },
+    {
+      "id": "topaz_earrings",
+      "name": "Topaz Earrings",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        18
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ],
+      "typeOrder": 8,
+      "setOrder": 22,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 500,
+            "materials": [
+              {
+                "material": "topaz",
+                "qty": 5
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "zants_helmet",
+      "name": "Zant's Helmet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": "Unfreezable",
+      "defense": [
+        3
+      ],
+      "upgrades": [],
+      "typeOrder": 39,
+      "setOrder": 93,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in Tobio's Hollow",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. In Tobio's Hollow, south of the Dueling Peaks, glide to the island between two dead trees in the bog and pull the chest out with Magnesis. Quest: EX Treasure: Usurper King."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "champions_tunic",
+      "name": "Champion's Tunic",
+      "setId": null,
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "See Enemy HP",
+      "defense": [
+        5,
+        8,
+        14,
+        22,
+        32
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          },
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          },
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 10
+          },
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 2
+          }
+        ]
+      ],
+      "typeOrder": 48,
+      "setOrder": 2,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Main quest: Captured Memories",
+          "detail": "Recover at least one of the memories from the photos on the Sheikah Slate, then return to Impa in Kakariko Village; she gives you the tunic."
+        }
+      ]
+    },
+    {
+      "id": "island_lobster_shirt",
+      "name": "Island Lobster Shirt",
+      "setId": null,
+      "slot": "BODY",
+      "source": "DLC2",
+      "effect": "Heat Resistance",
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 74,
+      "setOrder": 91,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest at Cora Lake",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. At Cora Lake, the source of the Menoat River south of Lake Tower, use Magnesis on the chest in the water at the west end of the lake. Quest: EX Treasure: Garb of Winds."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "nintendo_switch_shirt",
+      "name": "Nintendo Switch Shirt",
+      "setId": null,
+      "slot": "BODY",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 71,
+      "setOrder": 81,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest at the Eastern Abbey, Great Plateau",
+          "detail": "With the Expansion Pass installed, a chest appears on top of a wall at the Eastern Abbey, beside Ja Baij Shrine on the Great Plateau."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "warm_doublet",
+      "name": "Warm Doublet",
+      "setId": null,
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        1
+      ],
+      "upgrades": [],
+      "typeOrder": 51,
+      "setOrder": 10,
+      "acquire": [
+        {
+          "method": "REWARD",
+          "title": "Gift from the Old Man, Great Plateau",
+          "detail": "Cook the Old Man's recipe (Spicy Meat and Seafood Fry: Raw Meat, Hyrule Bass and a Spicy Pepper) and tell him, or meet him at the summit of Mount Hylia. If you leave the plateau without it, it is waiting in a chest in his cabin."
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "sand_boots",
+      "name": "Sand Boots",
+      "setId": null,
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Sand Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "molduga_fin",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "molduga_fin",
+            "qty": 10
+          },
+          {
+            "material": "swift_carrot",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          },
+          {
+            "material": "rushroom",
+            "qty": 15
+          }
+        ],
+        [
+          {
+            "material": "molduga_guts",
+            "qty": 4
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 93,
+      "setOrder": 54,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: The Eighth Heroine",
+          "detail": "Wearing the full Gerudo outfit, talk to Bozai near Gerudo Town. Photograph the Statue of the Eighth Heroine in the Gerudo Highlands and show him to receive the Sand Boots."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 800
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow_boots",
+      "name": "Snow Boots",
+      "setId": null,
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Snow Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "octorok_tentacle",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "octo_balloon",
+            "qty": 5
+          },
+          {
+            "material": "swift_carrot",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "octorok_eyeball",
+            "qty": 5
+          },
+          {
+            "material": "rushroom",
+            "qty": 15
+          }
+        ],
+        [
+          {
+            "material": "naydras_scale",
+            "qty": 2
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ],
+      "typeOrder": 94,
+      "setOrder": 55,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: The Forgotten Sword",
+          "detail": "Bozai lends you the Snow Boots during The Eighth Heroine and takes them back at the end. Talk to him again and complete The Forgotten Sword to keep them."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 800
+          }
+        }
+      ]
+    }
+  ]
+}
