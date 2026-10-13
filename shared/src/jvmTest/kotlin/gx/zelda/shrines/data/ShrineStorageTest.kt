@@ -4,12 +4,16 @@ import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.core.Games
 import gx.zelda.core.createDataStore
 import gx.zelda.fairies.data.FairyStorage
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import gx.zelda.shrines.model.ShrineProgress
+import gx.zelda.shrines.model.ShrineState
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import java.nio.file.Files
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class ShrineStorageTest {
@@ -35,7 +39,10 @@ class ShrineStorageTest {
         storage.setBought("normal_2", hearts = 5, stamina = 2)
         storage.setBought("master", hearts = -1, stamina = 3)
 
-        assertEquals(ShrineProgress(setOf("oman_au"), heartsBought = 5, staminaBought = 2), storage.progress("normal_2").first())
+        assertEquals(
+            ShrineProgress(setOf("oman_au"), found = setOf("oman_au"), heartsBought = 5, staminaBought = 2),
+            storage.progress("normal_2").first(),
+        )
         assertEquals(ShrineProgress(heartsBought = 0, staminaBought = 3), storage.progress("master").first())
         assertEquals(ShrineProgress(), storage.progress("normal_1").first())
     }
@@ -49,6 +56,40 @@ class ShrineStorageTest {
         storage.updatePrefs { it.copy(showDlc = false) }
         storage.setActiveSaveFile("master")
         assertEquals(false, ShrineStorage(dataStore, Games.BOTW).prefs.first().showDlc)
+    }
+
+    @Test
+    fun savesFromBeforeFoundExistedReadAsCompleted() = runTest {
+        val dataStore = newDataStore()
+        dataStore.edit {
+            it[stringPreferencesKey("botw_shrines@normal_1")] = """{"completed":["oman_au","ja_baij"],"heartsBought":2}"""
+        }
+        val storage = ShrineStorage(dataStore, Games.BOTW)
+        val old = storage.progress("normal_1").first()
+        assertEquals(ShrineState.COMPLETED, old.state("oman_au"))
+        assertEquals(ShrineState.UNDISCOVERED, old.state("keh_namut"))
+        assertTrue(old.isFound("ja_baij"))
+        assertEquals(2, old.heartsBought)
+
+        storage.setCompleted("normal_1", "oman_au", false)
+        storage.setState("normal_1", "keh_namut", ShrineState.FOUND)
+        val now = storage.progress("normal_1").first()
+        assertEquals(ShrineState.FOUND, now.state("oman_au"), "unticking an old completion leaves it found")
+        assertEquals(ShrineState.COMPLETED, now.state("ja_baij"))
+        assertEquals(ShrineState.FOUND, now.state("keh_namut"))
+    }
+
+    @Test
+    fun hideUndiscoveredIsOffByDefaultAndPersists() = runTest {
+        val dataStore = newDataStore()
+        val storage = ShrineStorage(dataStore, Games.BOTW)
+        assertFalse(storage.prefs.first().hideUndiscovered)
+
+        storage.updatePrefs { it.copy(hideUndiscovered = true) }
+        storage.setActiveSaveFile("master")
+        val reopened = ShrineStorage(dataStore, Games.BOTW).prefs.first()
+        assertTrue(reopened.hideUndiscovered, "the setting is the same on every save file and survives a restart")
+        assertTrue(reopened.showDlc)
     }
 
     @Test

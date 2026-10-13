@@ -24,6 +24,11 @@ iOS port is mostly a matter of adding the iOS targets.
 **Breath of the Wild: Shrines**
 - All 120 shrines plus the 16 from The Champions' Ballad, grouped by tower region with counts per
   region and overall (e.g. 87 / 120).
+- Each shrine is Undiscovered, Found or Completed: tick a row to complete it, and use its pin
+  to mark it found. Completing implies found; unticking leaves it found.
+- **Hide undiscovered shrines** (top-bar menu, off by default, same for every save file): an
+  undiscovered shrine's row shows only "Undiscovered shrine" under its region until you tap to
+  reveal it for the session or mark it found. Search only matches such rows by region.
 - Each shrine's trial, whether it's a Puzzle, Test of Strength or Blessing, its Shrine Quest if it
   has one, and a one-line location hint.
 - Search by shrine, trial, quest or region; filter to incomplete shrines or Shrine Quests, and

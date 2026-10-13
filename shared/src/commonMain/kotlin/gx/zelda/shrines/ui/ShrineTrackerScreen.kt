@@ -11,20 +11,28 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -32,6 +40,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,6 +57,7 @@ import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
 import gx.zelda.shrines.model.Shrine
+import gx.zelda.shrines.model.ShrineState
 import gx.zelda.shrines.model.TrialType
 
 /** Shrines by tower region, which are complete on the active save file, and the Spirit Orb planner. */
@@ -78,6 +91,9 @@ fun ShrineTrackerScreen(
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
+                actions = {
+                    if (state != null) ShrineMenu(state, viewModel)
+                },
             )
         },
     ) { padding ->
@@ -100,8 +116,26 @@ fun ShrineTrackerScreen(
 }
 
 @Composable
+private fun ShrineMenu(state: ShrineUiState, viewModel: ShrineViewModel) {
+    var open by remember { mutableStateOf(false) }
+    IconButton(onClick = { open = true }) {
+        Icon(Icons.Filled.MoreVert, contentDescription = "More options")
+    }
+    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+        DropdownMenuItem(
+            text = { Text("Hide undiscovered shrines") },
+            trailingIcon = { Checkbox(checked = state.prefs.hideUndiscovered, onCheckedChange = null) },
+            onClick = {
+                viewModel.setHideUndiscovered(!state.prefs.hideUndiscovered)
+                open = false
+            },
+        )
+    }
+}
+
+@Composable
 private fun ShrineList(state: ShrineUiState, viewModel: ShrineViewModel, contentPadding: PaddingValues) {
-    val completed = state.progress.completed
+    val progress = state.progress
     val shownByRegion = state.catalog.byRegion(state.shown).toMap()
     val groups = state.catalog.byRegion(state.matching)
 
@@ -131,21 +165,36 @@ private fun ShrineList(state: ShrineUiState, viewModel: ShrineViewModel, content
             // The header counts the whole region, not just the shrines the filters leave showing.
             val inRegion = shownByRegion[region].orEmpty()
             item(key = "h_$region") {
-                RegionHeader(region, done = inRegion.count { it.id in completed }, total = inRegion.size)
+                RegionHeader(
+                    region,
+                    found = inRegion.count { progress.isFound(it.id) },
+                    done = inRegion.count { it.id in progress.completed },
+                    total = inRegion.size,
+                )
             }
             itemsIndexed(shrines, key = { _, shrine -> shrine.id }) { i, shrine ->
                 val last = i == shrines.lastIndex
-                ShrineRow(
-                    shrine,
-                    completed = shrine.id in completed,
-                    onCompletedChange = { viewModel.setCompleted(shrine.id, it) },
-                    showDivider = !last,
-                    modifier = Modifier
-                        .padding(bottom = if (last) GroupGap else 0.dp)
-                        .padding(horizontal = CardInset)
-                        .clip(if (last) CardBottom else RectangleShape)
-                        .background(MaterialTheme.colorScheme.surfaceContainer),
-                )
+                val modifier = Modifier
+                    .padding(bottom = if (last) GroupGap else 0.dp)
+                    .padding(horizontal = CardInset)
+                    .clip(if (last) CardBottom else RectangleShape)
+                    .background(MaterialTheme.colorScheme.surfaceContainer)
+                if (state.isHidden(shrine)) {
+                    HiddenShrineRow(
+                        onReveal = { viewModel.reveal(shrine.id) },
+                        onFound = { viewModel.setState(shrine.id, ShrineState.FOUND) },
+                        showDivider = !last,
+                        modifier = modifier,
+                    )
+                } else {
+                    ShrineRow(
+                        shrine,
+                        shrineState = progress.state(shrine.id),
+                        onStateChange = { viewModel.setState(shrine.id, it) },
+                        showDivider = !last,
+                        modifier = modifier,
+                    )
+                }
             }
         }
     }
@@ -154,7 +203,7 @@ private fun ShrineList(state: ShrineUiState, viewModel: ShrineViewModel, content
 @Composable
 private fun ShrineFilterBar(state: ShrineUiState, viewModel: ShrineViewModel) {
     val filters = state.filters
-    val completed = state.progress.completed
+    val progress = state.progress
     val catalog = state.catalog
     Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         OutlinedTextField(
@@ -194,9 +243,10 @@ private fun ShrineFilterBar(state: ShrineUiState, viewModel: ShrineViewModel) {
         }
         Text(
             buildString {
-                append("${catalog.base.count { it.id in completed }} / ${catalog.base.size} shrines complete")
+                append("${catalog.base.count { it.id in progress.completed }} / ${catalog.base.size} shrines complete")
+                append(" · ${catalog.base.count { progress.isFound(it.id) }} found")
                 if (state.prefs.showDlc && catalog.dlc.isNotEmpty()) {
-                    append(" · DLC ${catalog.dlc.count { it.id in completed }} / ${catalog.dlc.size}")
+                    append(" · DLC ${catalog.dlc.count { it.id in progress.completed }} / ${catalog.dlc.size}")
                 }
             },
             style = MaterialTheme.typography.labelLarge,
@@ -206,7 +256,7 @@ private fun ShrineFilterBar(state: ShrineUiState, viewModel: ShrineViewModel) {
 }
 
 @Composable
-private fun RegionHeader(region: String, done: Int, total: Int) {
+private fun RegionHeader(region: String, found: Int, done: Int, total: Int) {
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         shape = CardTop,
@@ -218,6 +268,12 @@ private fun RegionHeader(region: String, done: Int, total: Int) {
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.weight(1f),
+            )
+            Text(
+                "Found $found",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(end = 8.dp),
             )
             if (done == total) {
                 Tag(
@@ -235,18 +291,22 @@ private fun RegionHeader(region: String, done: Int, total: Int) {
 @Composable
 private fun ShrineRow(
     shrine: Shrine,
-    completed: Boolean,
-    onCompletedChange: (Boolean) -> Unit,
+    shrineState: ShrineState,
+    onStateChange: (ShrineState) -> Unit,
     showDivider: Boolean,
     modifier: Modifier = Modifier,
 ) {
+    val completed = shrineState == ShrineState.COMPLETED
     Column(modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .toggleable(value = completed, role = Role.Checkbox, onValueChange = onCompletedChange)
-                .padding(start = 4.dp, end = 16.dp, top = 6.dp, bottom = 6.dp),
+                // Unticking a completed shrine leaves it found.
+                .toggleable(value = completed, role = Role.Checkbox) {
+                    onStateChange(if (it) ShrineState.COMPLETED else ShrineState.FOUND)
+                }
+                .padding(start = 4.dp, end = 4.dp, top = 6.dp, bottom = 6.dp),
         ) {
             Checkbox(checked = completed, onCheckedChange = null, modifier = Modifier.padding(12.dp))
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
@@ -278,6 +338,64 @@ private fun ShrineRow(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            FoundToggle(shrineState, onStateChange)
+        }
+        if (showDivider) {
+            HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
+        }
+    }
+}
+
+/**
+ * Marks a shrine found or undiscovered. A completed shrine is always found, so the button is
+ * disabled until it's unticked.
+ */
+@Composable
+private fun FoundToggle(shrineState: ShrineState, onStateChange: (ShrineState) -> Unit) {
+    val found = shrineState != ShrineState.UNDISCOVERED
+    IconToggleButton(
+        checked = found,
+        enabled = shrineState != ShrineState.COMPLETED,
+        onCheckedChange = { onStateChange(if (it) ShrineState.FOUND else ShrineState.UNDISCOVERED) },
+    ) {
+        Icon(
+            if (found) Icons.Filled.LocationOn else Icons.Outlined.LocationOn,
+            contentDescription = if (found) "Found" else "Mark found",
+            tint = if (found) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+/** An undiscovered shrine with spoilers hidden: tap to see it, or mark it found. */
+@Composable
+private fun HiddenShrineRow(onReveal: () -> Unit, onFound: () -> Unit, showDivider: Boolean, modifier: Modifier = Modifier) {
+    Column(modifier) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClickLabel = "Reveal", onClick = onReveal)
+                .padding(start = 4.dp, end = 4.dp, top = 6.dp, bottom = 6.dp),
+        ) {
+            Icon(
+                Icons.Filled.Lock,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(12.dp),
+            )
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(
+                    "Undiscovered shrine",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Text(
+                    "Tap to reveal",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            FoundToggle(ShrineState.UNDISCOVERED) { onFound() }
         }
         if (showDivider) {
             HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
