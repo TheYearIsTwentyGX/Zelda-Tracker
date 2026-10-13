@@ -24,6 +24,7 @@ iOS port is mostly a matter of adding the iOS targets.
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
+- Inventory icon for every piece; pieces that are also in BotW share its icon.
 - Prices in Poes (Bargainer Statues) and Bubbul Gems (Koltin) as well as rupees.
 - No DLC, and every amiibo piece can also be found in the world, so there are no source filters.
   The list sorts A–Z only, because the in-game sort orders haven't been verified yet.
