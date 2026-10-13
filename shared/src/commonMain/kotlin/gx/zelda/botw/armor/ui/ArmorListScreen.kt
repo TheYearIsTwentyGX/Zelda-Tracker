@@ -1,5 +1,6 @@
 package gx.zelda.botw.armor.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,11 +9,11 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -41,6 +42,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -99,12 +102,36 @@ fun ArmorListScreen(
             }
         }
         for (group in groups) {
+            // Titled groups render as one card (header + rows) so it's clear where each set ends.
+            // Standalone runs sit outside any card under a caption.
+            val carded = group.title != null
             item(key = "h_${group.key}") {
-                GroupHeader(group, group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) })
+                if (carded) {
+                    GroupHeader(group, group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) })
+                } else {
+                    StandaloneCaption()
+                }
             }
-            items(group.pieces, key = { it.id }) { piece ->
+            itemsIndexed(group.pieces, key = { _, piece -> piece.id }) { i, piece ->
+                val last = i == group.pieces.lastIndex
                 val subtitle = if (showSetOnRows) catalog.set(piece.setId)?.name else piece.slot.label
-                PieceRow(piece, subtitle, progress, viewModel, onClick = { onOpenPiece(piece.id) })
+                PieceRow(
+                    piece, subtitle, progress, viewModel,
+                    onClick = { onOpenPiece(piece.id) },
+                    showDivider = !last,
+                    modifier = Modifier
+                        .padding(bottom = if (last) GroupGap else 0.dp)
+                        .padding(horizontal = CardInset)
+                        .then(
+                            if (carded) {
+                                Modifier
+                                    .clip(if (last) CardBottom else RectangleShape)
+                                    .background(MaterialTheme.colorScheme.surfaceContainer)
+                            } else {
+                                Modifier
+                            },
+                        ),
+                )
             }
         }
     }
@@ -187,18 +214,33 @@ fun SourceFilterChips(progress: ArmorProgress, viewModel: ArmorViewModel) {
     }
 }
 
+private val CardInset = 12.dp
+private val GroupGap = 12.dp
+private val CardTop = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
+private val CardBottom = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp)
+
+@Composable
+private fun StandaloneCaption() {
+    Text(
+        "Not part of a set",
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.fillMaxWidth().padding(start = CardInset + 16.dp, end = 16.dp, bottom = 4.dp),
+    )
+}
+
 @Composable
 private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?) {
-    if (group.title == null) {
-        // Standalone pieces between sets: just a gap, like the game shows them.
-        Spacer(Modifier.height(8.dp))
-        return
-    }
-    Surface(color = MaterialTheme.colorScheme.surfaceContainer, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
+    val title = group.title ?: return
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+        shape = CardTop,
+        modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
+    ) {
         Column(Modifier.padding(horizontal = 16.dp, vertical = 10.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    group.title,
+                    title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.weight(1f),
@@ -242,10 +284,12 @@ private fun PieceRow(
     progress: ArmorProgress,
     viewModel: ArmorViewModel,
     onClick: () -> Unit,
+    showDivider: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     val owned = progress.of(piece.id).owned
     val level = ArmorCalculator.level(piece, progress)
-    Column {
+    Column(modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth().clickable(onClick = onClick).padding(start = 4.dp, end = 16.dp, top = 4.dp, bottom = 4.dp),
@@ -279,6 +323,8 @@ private fun PieceRow(
             }
             Spacer(Modifier.width(4.dp))
         }
-        HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
+        if (showDivider) {
+            HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
+        }
     }
 }
