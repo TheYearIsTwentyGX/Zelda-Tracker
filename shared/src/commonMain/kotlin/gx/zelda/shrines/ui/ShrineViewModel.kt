@@ -10,6 +10,7 @@ import gx.zelda.shrines.model.Shrine
 import gx.zelda.shrines.model.ShrineCatalog
 import gx.zelda.shrines.model.ShrinePrefs
 import gx.zelda.shrines.model.ShrineProgress
+import gx.zelda.shrines.model.ShrineState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,6 +32,8 @@ data class ShrineFilters(
     val query: String = "",
     val incompleteOnly: Boolean = false,
     val questsOnly: Boolean = false,
+    /** Undiscovered shrines the user tapped to see while spoilers are hidden. */
+    val revealed: Set<String> = emptySet(),
 )
 
 data class ShrineUiState(
@@ -47,14 +50,26 @@ data class ShrineUiState(
     /** Shrines the DLC filter allows, before search and the other filters. */
     val shown: List<Shrine> get() = if (prefs.showDlc) catalog.shrines else catalog.base
 
-    /** [shown] narrowed by search and filters. */
+    /**
+     * True when [shrine]'s row shows only its region: spoilers are hidden, it hasn't been found
+     * and the user hasn't tapped to reveal it.
+     */
+    fun isHidden(shrine: Shrine): Boolean =
+        prefs.hideUndiscovered && !progress.isFound(shrine.id) && shrine.id !in filters.revealed
+
+    /**
+     * [shown] narrowed by search and filters. A hidden shrine only matches on its region and never
+     * on the Shrine Quests filter, so neither can leak what the row hides.
+     */
     val matching: List<Shrine>
         get() {
             val q = filters.query.trim()
             return shown.filter { shrine ->
+                val hidden = isHidden(shrine)
+                val searchable = if (hidden) listOf(shrine.region) else listOfNotNull(shrine.name, shrine.trial, shrine.quest, shrine.region)
                 (!filters.incompleteOnly || shrine.id !in progress.completed) &&
-                    (!filters.questsOnly || shrine.quest != null) &&
-                    (q.isEmpty() || listOfNotNull(shrine.name, shrine.trial, shrine.quest, shrine.region).any { it.contains(q, true) })
+                    (!filters.questsOnly || (!hidden && shrine.quest != null)) &&
+                    (q.isEmpty() || searchable.any { it.contains(q, true) })
             }
         }
 }
@@ -110,6 +125,11 @@ class ShrineViewModel(
         viewModelScope.launch { storage.setCompleted(file, shrineId, completed) }
     }
 
+    fun setState(shrineId: String, shrineState: ShrineState) {
+        val file = state.value?.saveFile?.id ?: return
+        viewModelScope.launch { storage.setState(file, shrineId, shrineState) }
+    }
+
     fun setBought(hearts: Int, stamina: Int) {
         val file = state.value?.saveFile?.id ?: return
         viewModelScope.launch { storage.setBought(file, hearts, stamina) }
@@ -118,6 +138,13 @@ class ShrineViewModel(
     fun setShowDlc(show: Boolean) {
         viewModelScope.launch { storage.updatePrefs { it.copy(showDlc = show) } }
     }
+
+    fun setHideUndiscovered(hide: Boolean) {
+        viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
+    }
+
+    /** Shows one undiscovered shrine's row until the tracker is closed; nothing is saved. */
+    fun reveal(shrineId: String) = filters.update { it.copy(revealed = it.revealed + shrineId) }
 
     fun setSaveFile(id: String) {
         viewModelScope.launch { storage.setActiveSaveFile(id) }

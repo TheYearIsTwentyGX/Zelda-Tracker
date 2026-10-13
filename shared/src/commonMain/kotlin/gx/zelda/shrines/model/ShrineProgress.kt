@@ -2,20 +2,48 @@ package gx.zelda.shrines.model
 
 import kotlinx.serialization.Serializable
 
+/** Where a save file stands with one shrine. Completing a shrine implies having found it. */
+enum class ShrineState(val label: String) {
+    UNDISCOVERED("Undiscovered"),
+    FOUND("Found"),
+    COMPLETED("Completed"),
+}
+
 /** One save file's shrines, plus what its Spirit Orbs have been spent on. */
 @Serializable
 data class ShrineProgress(
     val completed: Set<String> = emptySet(),
+    /**
+     * Shrines found on this save file, completed or not. Saves from before this field existed
+     * only have [completed]; those shrines count as found too, so read [state] rather than this.
+     */
+    val found: Set<String> = emptySet(),
     /** Heart Containers bought at Goddess Statues, as entered by the user. */
     val heartsBought: Int = 0,
     /** Stamina Vessels bought at Goddess Statues, as entered by the user. */
     val staminaBought: Int = 0,
-)
+) {
+    fun state(shrineId: String): ShrineState = when (shrineId) {
+        in completed -> ShrineState.COMPLETED
+        in found -> ShrineState.FOUND
+        else -> ShrineState.UNDISCOVERED
+    }
+
+    fun isFound(shrineId: String): Boolean = shrineId in found || shrineId in completed
+
+    fun withState(shrineId: String, state: ShrineState): ShrineProgress = when (state) {
+        ShrineState.UNDISCOVERED -> copy(completed = completed - shrineId, found = found - shrineId)
+        ShrineState.FOUND -> copy(completed = completed - shrineId, found = found + shrineId)
+        ShrineState.COMPLETED -> copy(completed = completed + shrineId, found = found + shrineId)
+    }
+}
 
 /** Viewing preferences, shared by every save file. */
 @Serializable
 data class ShrinePrefs(
     val showDlc: Boolean = true,
+    /** Spoiler-safe mode: an undiscovered shrine's row shows only its region until revealed. */
+    val hideUndiscovered: Boolean = false,
 )
 
 /**

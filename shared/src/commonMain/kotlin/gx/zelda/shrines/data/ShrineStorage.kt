@@ -7,11 +7,12 @@ import gx.zelda.core.JsonStore
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.shrines.model.ShrinePrefs
 import gx.zelda.shrines.model.ShrineProgress
+import gx.zelda.shrines.model.ShrineState
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Persistence for a game's shrine tracker: completed shrines and Spirit Orb purchases per save
- * file, plus viewing preferences shared across files. The active save file is the one the
+ * Persistence for a game's shrine tracker: found and completed shrines and Spirit Orb purchases
+ * per save file, plus viewing preferences shared across files. The active save file is the one the
  * game's other trackers use too.
  */
 class ShrineStorage(dataStore: DataStore<Preferences>, val game: Game) {
@@ -28,8 +29,12 @@ class ShrineStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setActiveSaveFile(id: String) = activeStore.update { game.saveFile(id).id }
 
+    suspend fun setState(saveFileId: String, shrineId: String, state: ShrineState) =
+        updateProgress(saveFileId) { it.withState(shrineId, state) }
+
+    /** Unticking a completed shrine leaves it found. */
     suspend fun setCompleted(saveFileId: String, shrineId: String, completed: Boolean) =
-        updateProgress(saveFileId) { it.copy(completed = if (completed) it.completed + shrineId else it.completed - shrineId) }
+        setState(saveFileId, shrineId, if (completed) ShrineState.COMPLETED else ShrineState.FOUND)
 
     /** Purchases are stored as entered, never below zero. */
     suspend fun setBought(saveFileId: String, hearts: Int, stamina: Int) =
