@@ -1,12 +1,12 @@
 package gx.zelda.botw.armor.logic
 
 import gx.zelda.botw.armor.model.ArmorCatalog
+import gx.zelda.botw.armor.model.ArmorGroupBy
+import gx.zelda.botw.armor.model.ArmorOrder
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.botw.armor.model.ArmorSet
-import gx.zelda.botw.armor.model.ArmorSort
-import gx.zelda.botw.armor.model.Slot
 
-/** A run of pieces shown under one header. [title] is null for pieces that belong to no set. */
+/** A run of pieces shown under one header. [title] is null for pieces shown without a header. */
 data class ArmorGroup(
     val key: String,
     val title: String?,
@@ -15,15 +15,33 @@ data class ArmorGroup(
 )
 
 object ArmorGrouping {
-    /** Groups [pieces] (already filtered) for display in the armor list. */
-    fun group(catalog: ArmorCatalog, pieces: List<ArmorPiece>, sort: ArmorSort): List<ArmorGroup> = when (sort) {
-        ArmorSort.ALPHABETICAL -> alphabetical(catalog, pieces)
-        ArmorSort.BODY_PART -> byBodyPart(pieces)
-        ArmorSort.SET -> bySet(catalog, pieces)
-    }
+    /**
+     * Lays out [pieces] (already filtered) for the armor list.
+     *
+     * In-game order uses the game's two armor sorts: grouped by set, it follows the game's set
+     * order; ungrouped, it follows the game's body-part order (head, body, legs).
+     */
+    fun group(catalog: ArmorCatalog, pieces: List<ArmorPiece>, order: ArmorOrder, groupBy: ArmorGroupBy): List<ArmorGroup> =
+        when (groupBy) {
+            ArmorGroupBy.SET -> when (order) {
+                ArmorOrder.ALPHABETICAL -> setsAlphabetical(catalog, pieces)
+                ArmorOrder.IN_GAME -> setsInGame(catalog, pieces)
+            }
+            ArmorGroupBy.NONE -> {
+                val sorted = when (order) {
+                    ArmorOrder.ALPHABETICAL -> pieces.sortedBy { it.name }
+                    ArmorOrder.IN_GAME -> pieces.sortedWith(
+                        compareBy<ArmorPiece> { it.slot.ordinal }
+                            .thenBy(nullsLast()) { it.typeOrder }
+                            .thenBy { it.name },
+                    )
+                }
+                listOfNotNull(sorted.takeIf { it.isNotEmpty() }?.let { ArmorGroup("_all", null, null, it) })
+            }
+        }
 
     /** Sets A–Z, pieces in catalog order within each, standalone pieces last. */
-    private fun alphabetical(catalog: ArmorCatalog, pieces: List<ArmorPiece>): List<ArmorGroup> {
+    private fun setsAlphabetical(catalog: ArmorCatalog, pieces: List<ArmorPiece>): List<ArmorGroup> {
         val bySet = pieces.filter { it.setId != null }.groupBy { it.setId!! }
         val sets = catalog.sets.sortedBy { it.name }.mapNotNull { set ->
             bySet[set.id]?.let { ArmorGroup(set.id, set.name, set, it) }
@@ -32,20 +50,11 @@ object ArmorGrouping {
         return sets + listOfNotNull(singles.takeIf { it.isNotEmpty() }?.let { ArmorGroup("_singles", "Other armor", null, it) })
     }
 
-    /** In-game "by body part" order: one group per slot, pieces by the game's type sort key. */
-    private fun byBodyPart(pieces: List<ArmorPiece>): List<ArmorGroup> =
-        Slot.entries.mapNotNull { slot ->
-            pieces.filter { it.slot == slot }
-                .sortedWith(compareBy<ArmorPiece, Int?>(nullsLast()) { it.typeOrder }.thenBy { it.name })
-                .takeIf { it.isNotEmpty() }
-                ?.let { ArmorGroup("slot_${slot.name}", slot.label, null, it) }
-        }
-
     /**
-     * In-game "by set" order. Each run of consecutive pieces from the same set becomes a group,
+     * The game's set order. Each run of consecutive pieces from the same set becomes a group,
      * so standalone pieces keep whatever position the game gives them.
      */
-    private fun bySet(catalog: ArmorCatalog, pieces: List<ArmorPiece>): List<ArmorGroup> {
+    private fun setsInGame(catalog: ArmorCatalog, pieces: List<ArmorPiece>): List<ArmorGroup> {
         val ordered = pieces.sortedWith(compareBy<ArmorPiece, Int?>(nullsLast()) { it.setOrder }.thenBy { it.name })
         val groups = mutableListOf<ArmorGroup>()
         var run = mutableListOf<ArmorPiece>()

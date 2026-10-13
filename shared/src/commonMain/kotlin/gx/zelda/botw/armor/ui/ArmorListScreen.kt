@@ -45,9 +45,12 @@ import gx.zelda.botw.armor.logic.SetBonusStatus
 import gx.zelda.botw.armor.logic.SetUpgrade
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.botw.armor.model.ArmorProgress
-import gx.zelda.botw.armor.model.ArmorSort
+import gx.zelda.botw.armor.model.ArmorGroupBy
+import gx.zelda.botw.armor.model.ArmorOrder
 import gx.zelda.botw.armor.model.Source
 import gx.zelda.core.ui.SortMenu
+import gx.zelda.core.ui.SortOption
+import gx.zelda.core.ui.SortSection
 import gx.zelda.core.ui.StarButton
 import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Tag
@@ -78,9 +81,10 @@ fun ArmorListScreen(
             val setName = catalog.set(piece.setId)?.name.orEmpty()
             ownershipOk && (q.isEmpty() || piece.name.contains(q, true) || setName.contains(q, true))
         }
-        ArmorGrouping.group(catalog, matching, progress.sort)
+        ArmorGrouping.group(catalog, matching, progress.order, progress.group)
     }
-    val showSetOnRows = progress.sort == ArmorSort.BODY_PART
+    // Without set headers, each row names its set alongside its slot.
+    val showSetOnRows = progress.group == ArmorGroupBy.NONE
 
     LazyColumn(contentPadding = contentPadding, modifier = Modifier.fillMaxWidth()) {
         item(key = "_filters") {
@@ -119,7 +123,11 @@ fun ArmorListScreen(
             }
             itemsIndexed(group.pieces, key = { _, piece -> piece.id }) { i, piece ->
                 val last = i == group.pieces.lastIndex
-                val subtitle = if (showSetOnRows) catalog.set(piece.setId)?.name else piece.slot.label
+                val subtitle = if (showSetOnRows) {
+                    listOfNotNull(piece.slot.label, catalog.set(piece.setId)?.name).joinToString(" · ")
+                } else {
+                    piece.slot.label
+                }
                 PieceRow(
                     piece, subtitle, progress, viewModel,
                     onClick = { onOpenPiece(piece.id) },
@@ -178,7 +186,20 @@ private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, owned: 
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.weight(1f),
             )
-            SortMenu(state.progress.sort, ArmorSort.entries, { it.label }, viewModel::setSort)
+            val progress = state.progress
+            SortMenu(
+                summary = "${progress.order.label} · ${progress.group.label}",
+                sections = listOf(
+                    SortSection(
+                        "Order",
+                        ArmorOrder.entries.map { SortOption(it.label, it == progress.order) { viewModel.setOrder(it) } },
+                    ),
+                    SortSection(
+                        "Group",
+                        ArmorGroupBy.entries.map { SortOption(it.label, it == progress.group) { viewModel.setGroup(it) } },
+                    ),
+                ),
+            )
         }
     }
 }

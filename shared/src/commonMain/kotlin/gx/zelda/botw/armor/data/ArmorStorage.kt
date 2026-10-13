@@ -10,6 +10,7 @@ import gx.zelda.core.Game
 import gx.zelda.core.Games
 import gx.zelda.core.JsonStore
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
 
@@ -32,13 +33,14 @@ class ArmorStorage(private val dataStore: DataStore<Preferences>, val game: Game
     private val legacyStore = JsonStore(dataStore, "botw_armor_progress", ArmorProgress.serializer(), ArmorProgress())
 
     val activeSaveFile: Flow<String> = activeStore.data
-    val prefs: Flow<ArmorPrefs> = prefsStore.data
+    val prefs: Flow<ArmorPrefs> = prefsStore.data.map { it.normalized() }
 
     fun pieces(saveFileId: String): Flow<Pieces> = store(saveFileId).data
 
     suspend fun setActiveSaveFile(id: String) = activeStore.update { game.saveFile(id).id }
 
-    suspend fun updatePrefs(transform: (ArmorPrefs) -> ArmorPrefs) = prefsStore.update(transform)
+    suspend fun updatePrefs(transform: (ArmorPrefs) -> ArmorPrefs) =
+        prefsStore.update { transform(it.normalized()).normalized() }
 
     suspend fun updatePieces(saveFileId: String, transform: (Pieces) -> Pieces) = store(saveFileId).update(transform)
 
@@ -52,7 +54,7 @@ class ArmorStorage(private val dataStore: DataStore<Preferences>, val game: Game
             val legacy = legacyStore.read(prefs)
             val target = store(LEGACY_SAVE_FILE)
             if (!target.has(prefs)) target.write(prefs, legacy.pieces)
-            if (!prefsStore.has(prefs)) prefsStore.write(prefs, legacy.prefs)
+            if (!prefsStore.has(prefs)) prefsStore.write(prefs, legacy.prefs.normalized())
             activeStore.write(prefs, LEGACY_SAVE_FILE)
             legacyStore.remove(prefs)
         }

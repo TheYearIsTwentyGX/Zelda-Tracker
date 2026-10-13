@@ -2,8 +2,9 @@ package gx.zelda.botw.armor.data
 
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
+import gx.zelda.botw.armor.model.ArmorGroupBy
+import gx.zelda.botw.armor.model.ArmorOrder
 import gx.zelda.botw.armor.model.ArmorPrefs
-import gx.zelda.botw.armor.model.ArmorSort
 import gx.zelda.botw.armor.model.PieceProgress
 import gx.zelda.core.createDataStore
 import kotlinx.coroutines.flow.first
@@ -32,7 +33,10 @@ class ArmorStorageTest {
         assertEquals("master", storage.activeSaveFile.first())
         assertEquals(mapOf("climbers_bandanna" to PieceProgress(true, 2)), storage.pieces("master").first())
         assertEquals(emptyMap(), storage.pieces("normal_1").first())
-        assertEquals(ArmorPrefs(showDlc = true, showAmiibo = false, sort = ArmorSort.SET), storage.prefs.first())
+        assertEquals(
+            ArmorPrefs(showDlc = true, showAmiibo = false, order = ArmorOrder.IN_GAME, group = ArmorGroupBy.SET),
+            storage.prefs.first(),
+        )
         assertFalse(legacyKey in dataStore.data.first(), "legacy key should be removed")
     }
 
@@ -59,13 +63,37 @@ class ArmorStorageTest {
     fun saveFilesAreIndependentAndPrefsAreShared() = runTest {
         val storage = ArmorStorage(newDataStore())
         storage.updatePieces("normal_1") { it + ("hylian_hood" to PieceProgress(true, 3)) }
-        storage.updatePrefs { it.copy(sort = ArmorSort.BODY_PART) }
+        storage.updatePrefs { it.copy(order = ArmorOrder.IN_GAME, group = ArmorGroupBy.NONE) }
         storage.setActiveSaveFile("normal_2")
 
         assertTrue(storage.pieces("normal_2").first().isEmpty())
         assertEquals(PieceProgress(true, 3), storage.pieces("normal_1").first()["hylian_hood"])
-        assertEquals(ArmorSort.BODY_PART, storage.prefs.first().sort)
+        assertEquals(ArmorGroupBy.NONE, storage.prefs.first().group)
         assertEquals("normal_2", storage.activeSaveFile.first())
+    }
+
+    @Test
+    fun oldSingleSortSettingConvertsToOrderAndGroup() = runTest {
+        val expected = mapOf(
+            "ALPHABETICAL" to (ArmorOrder.ALPHABETICAL to ArmorGroupBy.SET),
+            "BODY_PART" to (ArmorOrder.IN_GAME to ArmorGroupBy.NONE),
+            "SET" to (ArmorOrder.IN_GAME to ArmorGroupBy.SET),
+        )
+        for ((old, converted) in expected) {
+            val dataStore = newDataStore()
+            dataStore.edit { it[stringPreferencesKey("botw_armor_prefs")] = """{"showDlc":false,"sort":"$old"}""" }
+            val storage = ArmorStorage(dataStore)
+
+            val prefs = storage.prefs.first()
+            assertEquals(converted, prefs.order to prefs.group, "converting $old")
+            assertFalse(prefs.showDlc, "other prefs survive the conversion")
+
+            // The next write stores the converted value and drops the old field.
+            storage.updatePrefs { it.copy(showAmiibo = false) }
+            val raw = dataStore.data.first()[stringPreferencesKey("botw_armor_prefs")]!!
+            assertFalse("\"sort\"" in raw, "old field should be gone after a write: $raw")
+            assertEquals(converted, storage.prefs.first().let { it.order to it.group })
+        }
     }
 
     @Test

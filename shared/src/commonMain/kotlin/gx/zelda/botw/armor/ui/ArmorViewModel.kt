@@ -8,7 +8,8 @@ import gx.zelda.botw.armor.logic.TotalsMode
 import gx.zelda.botw.armor.model.ArmorCatalog
 import gx.zelda.botw.armor.model.ArmorPrefs
 import gx.zelda.botw.armor.model.ArmorProgress
-import gx.zelda.botw.armor.model.ArmorSort
+import gx.zelda.botw.armor.model.ArmorGroupBy
+import gx.zelda.botw.armor.model.ArmorOrder
 import gx.zelda.botw.armor.model.MaterialSort
 import gx.zelda.botw.armor.model.PieceProgress
 import gx.zelda.core.SaveFile
@@ -107,7 +108,9 @@ class ArmorViewModel(
 
     fun setShowAmiibo(show: Boolean) = editPrefs { it.copy(showAmiibo = show) }
 
-    fun setSort(sort: ArmorSort) = editPrefs { it.copy(sort = sort) }
+    fun setOrder(order: ArmorOrder) = editPrefs { it.copy(order = order) }
+
+    fun setGroup(group: ArmorGroupBy) = editPrefs { it.copy(group = group) }
 
     fun setMaterialSort(sort: MaterialSort) = editPrefs { it.copy(materialSort = sort) }
 
