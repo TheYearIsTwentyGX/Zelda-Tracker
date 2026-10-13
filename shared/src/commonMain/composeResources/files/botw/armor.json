@@ -709,7 +709,31 @@
         ]
       ],
       "typeOrder": 21,
-      "setOrder": 51
+      "setOrder": 51,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Akkala Ancient Tech Lab",
+          "detail": "Buy it from Cherry, the Ancient Oven at the Akkala Ancient Tech Lab, after relighting the lab's furnace during the Robbie's Research side quest.",
+          "cost": {
+            "rupees": 2000,
+            "materials": [
+              {
+                "material": "ancient_gear",
+                "qty": 20
+              },
+              {
+                "material": "ancient_shaft",
+                "qty": 5
+              },
+              {
+                "material": "ancient_core",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "vah_medoh_divine_helm",
@@ -768,7 +792,14 @@
         ]
       ],
       "typeOrder": 43,
-      "setOrder": 101
+      "setOrder": 101,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Revali amiibo",
+          "detail": "Scan the Revali amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "vah_naboris_divine_helm",
@@ -827,7 +858,14 @@
         ]
       ],
       "typeOrder": 45,
-      "setOrder": 103
+      "setOrder": 103,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Urbosa amiibo",
+          "detail": "Scan the Urbosa amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "vah_rudania_divine_helm",
@@ -886,7 +924,14 @@
         ]
       ],
       "typeOrder": 44,
-      "setOrder": 102
+      "setOrder": 102,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Daruk amiibo",
+          "detail": "Scan the Daruk amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "vah_ruta_divine_helm",
@@ -945,7 +990,14 @@
         ]
       ],
       "typeOrder": 42,
-      "setOrder": 100
+      "setOrder": 100,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Mipha amiibo",
+          "detail": "Scan the Mipha amiibo with the amiibo rune. The helm is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "ancient_cuirass",
@@ -1004,7 +1056,31 @@
         ]
       ],
       "typeOrder": 63,
-      "setOrder": 52
+      "setOrder": 52,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Akkala Ancient Tech Lab",
+          "detail": "Buy it from Cherry, the Ancient Oven at the Akkala Ancient Tech Lab, after relighting the lab's furnace during the Robbie's Research side quest.",
+          "cost": {
+            "rupees": 2000,
+            "materials": [
+              {
+                "material": "ancient_gear",
+                "qty": 20
+              },
+              {
+                "material": "ancient_screw",
+                "qty": 5
+              },
+              {
+                "material": "ancient_core",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "ancient_greaves",
@@ -1063,7 +1139,31 @@
         ]
       ],
       "typeOrder": 92,
-      "setOrder": 53
+      "setOrder": 53,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Akkala Ancient Tech Lab",
+          "detail": "Buy it from Cherry, the Ancient Oven at the Akkala Ancient Tech Lab, after relighting the lab's furnace during the Robbie's Research side quest.",
+          "cost": {
+            "rupees": 2000,
+            "materials": [
+              {
+                "material": "ancient_gear",
+                "qty": 20
+              },
+              {
+                "material": "ancient_spring",
+                "qty": 5
+              },
+              {
+                "material": "ancient_core",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "barbarian_helm",
@@ -1118,7 +1218,22 @@
         ]
       ],
       "typeOrder": 17,
-      "setOrder": 41
+      "setOrder": 41,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Tu Ka'loh Shrine, Lomei Labyrinth Island",
+          "detail": "Make your way through the Lomei Labyrinth Island maze off the coast of Akkala to reach Tu Ka'loh Shrine; the helm is in the chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "barbarian_armor",
@@ -1173,7 +1288,22 @@
         ]
       ],
       "typeOrder": 60,
-      "setOrder": 42
+      "setOrder": 42,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Dila Maag Shrine, South Lomei Labyrinth",
+          "detail": "Make your way through the South Lomei Labyrinth in the Gerudo Desert to reach Dila Maag Shrine; the armor is in the chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "barbarian_leg_wraps",
@@ -1228,7 +1358,22 @@
         ]
       ],
       "typeOrder": 89,
-      "setOrder": 43
+      "setOrder": 43,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Qaza Tokki Shrine, North Lomei Labyrinth",
+          "detail": "Make your way to the center of the North Lomei Labyrinth to reach Qaza Tokki Shrine; the leg wraps are in the chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "climbers_bandanna",
@@ -1287,7 +1432,22 @@
         ]
       ],
       "typeOrder": 16,
-      "setOrder": 38
+      "setOrder": 38,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Ree Dahee Shrine, Dueling Peaks",
+          "detail": "Found in a treasure chest inside Ree Dahee Shrine, between the Dueling Peaks."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "climbing_gear",
@@ -1346,7 +1506,22 @@
         ]
       ],
       "typeOrder": 59,
-      "setOrder": 39
+      "setOrder": 39,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Chaas Qeta Shrine, Tenoko Island",
+          "detail": "Found in a treasure chest inside Chaas Qeta Shrine on Tenoko Island, off the coast of East Necluda."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "climbing_boots",
@@ -1405,7 +1580,22 @@
         ]
       ],
       "typeOrder": 88,
-      "setOrder": 40
+      "setOrder": 40,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Tahno O'ah Shrine, Mount Lanayru area",
+          "detail": "Found in a treasure chest inside Tahno O'ah Shrine, revealed by the Secret of the Cedars shrine quest northeast of Hateno Village."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "dark_hood",
@@ -1419,7 +1609,17 @@
       ],
       "upgrades": [],
       "typeOrder": 26,
-      "setOrder": 60
+      "setOrder": 60,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after all four Divine Beasts are freed.",
+          "cost": {
+            "mon": 1999
+          }
+        }
+      ]
     },
     {
       "id": "dark_tunic",
@@ -1433,7 +1633,17 @@
       ],
       "upgrades": [],
       "typeOrder": 64,
-      "setOrder": 61
+      "setOrder": 61,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after all four Divine Beasts are freed.",
+          "cost": {
+            "mon": 999
+          }
+        }
+      ]
     },
     {
       "id": "dark_trousers",
@@ -1447,7 +1657,17 @@
       ],
       "upgrades": [],
       "typeOrder": 95,
-      "setOrder": 62
+      "setOrder": 62,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after all four Divine Beasts are freed.",
+          "cost": {
+            "mon": 999
+          }
+        }
+      ]
     },
     {
       "id": "desert_voe_headband",
@@ -1502,7 +1722,25 @@
         ]
       ],
       "typeOrder": 6,
-      "setOrder": 16
+      "setOrder": 16,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦).",
+          "cost": {
+            "rupees": 450
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Rhondson Armor Boutique, Tarrey Town",
+          "detail": "Sold at Rhondson Armor Boutique in Tarrey Town once the From the Ground Up side quest is complete.",
+          "cost": {
+            "rupees": 450
+          }
+        }
+      ]
     },
     {
       "id": "desert_voe_spaulder",
@@ -1557,7 +1795,25 @@
         ]
       ],
       "typeOrder": 53,
-      "setOrder": 17
+      "setOrder": 17,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦).",
+          "cost": {
+            "rupees": 1300
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Rhondson Armor Boutique, Tarrey Town",
+          "detail": "Sold at Rhondson Armor Boutique in Tarrey Town once the From the Ground Up side quest is complete.",
+          "cost": {
+            "rupees": 1300
+          }
+        }
+      ]
     },
     {
       "id": "desert_voe_trousers",
@@ -1612,7 +1868,25 @@
         ]
       ],
       "typeOrder": 82,
-      "setOrder": 18
+      "setOrder": 18,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦).",
+          "cost": {
+            "rupees": 650
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Rhondson Armor Boutique, Tarrey Town",
+          "detail": "Sold at Rhondson Armor Boutique in Tarrey Town once the From the Ground Up side quest is complete.",
+          "cost": {
+            "rupees": 650
+          }
+        }
+      ]
     },
     {
       "id": "fierce_deity_mask",
@@ -1671,7 +1945,14 @@
         ]
       ],
       "typeOrder": 18,
-      "setOrder": 44
+      "setOrder": 44,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Majora's Mask) amiibo",
+          "detail": "Scan the Link (Majora's Mask) amiibo with the amiibo rune. This piece is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "fierce_deity_armor",
@@ -1730,7 +2011,14 @@
         ]
       ],
       "typeOrder": 61,
-      "setOrder": 45
+      "setOrder": 45,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Majora's Mask) amiibo",
+          "detail": "Scan the Link (Majora's Mask) amiibo with the amiibo rune. This piece is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "fierce_deity_boots",
@@ -1789,7 +2077,14 @@
         ]
       ],
       "typeOrder": 90,
-      "setOrder": 46
+      "setOrder": 46,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Majora's Mask) amiibo",
+          "detail": "Scan the Link (Majora's Mask) amiibo with the amiibo rune. This piece is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "flamebreaker_helm",
@@ -1848,7 +2143,17 @@
         ]
       ],
       "typeOrder": 10,
-      "setOrder": 26
+      "setOrder": 26,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ripped and Shredded, Goron City",
+          "detail": "Sold at Ripped and Shredded in Goron City.",
+          "cost": {
+            "rupees": 2000
+          }
+        }
+      ]
     },
     {
       "id": "flamebreaker_armor",
@@ -1907,7 +2212,22 @@
         ]
       ],
       "typeOrder": 56,
-      "setOrder": 27
+      "setOrder": 27,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ripped and Shredded, Goron City",
+          "detail": "Sold at Ripped and Shredded in Goron City.",
+          "cost": {
+            "rupees": 600
+          }
+        },
+        {
+          "method": "QUEST",
+          "title": "Side quest: Fireproof Lizard Roundup",
+          "detail": "Talk to Kima at the Southern Mine on Death Mountain and bring him 10 Fireproof Lizards; he gives you the Flamebreaker Armor."
+        }
+      ]
     },
     {
       "id": "flamebreaker_boots",
@@ -1966,7 +2286,17 @@
         ]
       ],
       "typeOrder": 85,
-      "setOrder": 28
+      "setOrder": 28,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ripped and Shredded, Goron City",
+          "detail": "Sold at Ripped and Shredded in Goron City.",
+          "cost": {
+            "rupees": 700
+          }
+        }
+      ]
     },
     {
       "id": "gerudo_veil",
@@ -1980,7 +2310,22 @@
       ],
       "upgrades": [],
       "typeOrder": 7,
-      "setOrder": 19
+      "setOrder": 19,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Vilia, Kara Kara Bazaar",
+          "detail": "During the Forbidden City Entry main quest, climb to the roof of the Kara Kara Bazaar inn and talk to Vilia. She sells the veil, top and sirwal together for 600 rupees."
+        },
+        {
+          "method": "SHOP",
+          "title": "Fashion Passion, Gerudo Town",
+          "detail": "Sold individually by Saula at Fashion Passion in Gerudo Town (white versions). You must already be disguised to enter town.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
     },
     {
       "id": "gerudo_top",
@@ -1994,7 +2339,22 @@
       ],
       "upgrades": [],
       "typeOrder": 54,
-      "setOrder": 20
+      "setOrder": 20,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Vilia, Kara Kara Bazaar",
+          "detail": "During the Forbidden City Entry main quest, climb to the roof of the Kara Kara Bazaar inn and talk to Vilia. She sells the veil, top and sirwal together for 600 rupees."
+        },
+        {
+          "method": "SHOP",
+          "title": "Fashion Passion, Gerudo Town",
+          "detail": "Sold individually by Saula at Fashion Passion in Gerudo Town (white versions). You must already be disguised to enter town.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
     },
     {
       "id": "gerudo_sirwal",
@@ -2008,7 +2368,22 @@
       ],
       "upgrades": [],
       "typeOrder": 83,
-      "setOrder": 21
+      "setOrder": 21,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Vilia, Kara Kara Bazaar",
+          "detail": "During the Forbidden City Entry main quest, climb to the roof of the Kara Kara Bazaar inn and talk to Vilia. She sells the veil, top and sirwal together for 600 rupees."
+        },
+        {
+          "method": "SHOP",
+          "title": "Fashion Passion, Gerudo Town",
+          "detail": "Sold individually by Saula at Fashion Passion in Gerudo Town (white versions). You must already be disguised to enter town.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
     },
     {
       "id": "cap_of_the_sky",
@@ -2067,7 +2442,14 @@
         ]
       ],
       "typeOrder": 30,
-      "setOrder": 72
+      "setOrder": 72,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Skyward Sword) amiibo",
+          "detail": "Scan the Link (Skyward Sword) amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "tunic_of_the_sky",
@@ -2126,7 +2508,14 @@
         ]
       ],
       "typeOrder": 68,
-      "setOrder": 73
+      "setOrder": 73,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Skyward Sword) amiibo",
+          "detail": "Scan the Link (Skyward Sword) amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "trousers_of_the_sky",
@@ -2185,7 +2574,14 @@
         ]
       ],
       "typeOrder": 99,
-      "setOrder": 74
+      "setOrder": 74,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Skyward Sword) amiibo",
+          "detail": "Scan the Link (Skyward Sword) amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "cap_of_the_wild",
@@ -2244,7 +2640,14 @@
         ]
       ],
       "typeOrder": 32,
-      "setOrder": 78
+      "setOrder": 78,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: A Gift from the Monks",
+          "detail": "Complete all 120 shrines of the base game, then go to the Forgotten Temple. The set is in the three chests in front of the Goddess Statue at the back of the temple."
+        }
+      ]
     },
     {
       "id": "tunic_of_the_wild",
@@ -2303,7 +2706,14 @@
         ]
       ],
       "typeOrder": 70,
-      "setOrder": 79
+      "setOrder": 79,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: A Gift from the Monks",
+          "detail": "Complete all 120 shrines of the base game, then go to the Forgotten Temple. The set is in the three chests in front of the Goddess Statue at the back of the temple."
+        }
+      ]
     },
     {
       "id": "trousers_of_the_wild",
@@ -2362,7 +2772,14 @@
         ]
       ],
       "typeOrder": 101,
-      "setOrder": 80
+      "setOrder": 80,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: A Gift from the Monks",
+          "detail": "Complete all 120 shrines of the base game, then go to the Forgotten Temple. The set is in the three chests in front of the Goddess Statue at the back of the temple."
+        }
+      ]
     },
     {
       "id": "cap_of_time",
@@ -2421,7 +2838,14 @@
         ]
       ],
       "typeOrder": 27,
-      "setOrder": 63
+      "setOrder": 63,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Ocarina of Time) amiibo",
+          "detail": "Scan the Link (Ocarina of Time) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "tunic_of_time",
@@ -2480,7 +2904,14 @@
         ]
       ],
       "typeOrder": 65,
-      "setOrder": 64
+      "setOrder": 64,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Ocarina of Time) amiibo",
+          "detail": "Scan the Link (Ocarina of Time) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "trousers_of_time",
@@ -2539,7 +2970,14 @@
         ]
       ],
       "typeOrder": 96,
-      "setOrder": 65
+      "setOrder": 65,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Ocarina of Time) amiibo",
+          "detail": "Scan the Link (Ocarina of Time) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "cap_of_twilight",
@@ -2598,7 +3036,14 @@
         ]
       ],
       "typeOrder": 29,
-      "setOrder": 69
+      "setOrder": 69,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Twilight Princess) or Smash Bros. Link amiibo",
+          "detail": "Scan the Link (Twilight Princess) amiibo or the Super Smash Bros. series Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "tunic_of_twilight",
@@ -2657,7 +3102,14 @@
         ]
       ],
       "typeOrder": 67,
-      "setOrder": 70
+      "setOrder": 70,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Twilight Princess) or Smash Bros. Link amiibo",
+          "detail": "Scan the Link (Twilight Princess) amiibo or the Super Smash Bros. series Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "trousers_of_twilight",
@@ -2716,7 +3168,14 @@
         ]
       ],
       "typeOrder": 98,
-      "setOrder": 71
+      "setOrder": 71,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Link (Twilight Princess) or Smash Bros. Link amiibo",
+          "detail": "Scan the Link (Twilight Princess) amiibo or the Super Smash Bros. series Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "cap_of_the_wind",
@@ -2775,7 +3234,14 @@
         ]
       ],
       "typeOrder": 28,
-      "setOrder": 66
+      "setOrder": 66,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Toon Link amiibo",
+          "detail": "Scan the Toon Link (The Wind Waker) amiibo or the Super Smash Bros. series Toon Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "tunic_of_the_wind",
@@ -2834,7 +3300,14 @@
         ]
       ],
       "typeOrder": 66,
-      "setOrder": 67
+      "setOrder": 67,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Toon Link amiibo",
+          "detail": "Scan the Toon Link (The Wind Waker) amiibo or the Super Smash Bros. series Toon Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "trousers_of_the_wind",
@@ -2893,7 +3366,14 @@
         ]
       ],
       "typeOrder": 97,
-      "setOrder": 68
+      "setOrder": 68,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Toon Link amiibo",
+          "detail": "Scan the Toon Link (The Wind Waker) amiibo or the Super Smash Bros. series Toon Link amiibo with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "cap_of_the_hero",
@@ -2952,7 +3432,14 @@
         ]
       ],
       "typeOrder": 31,
-      "setOrder": 75
+      "setOrder": 75,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "8-bit Link amiibo",
+          "detail": "Scan the 8-bit Link (The Legend of Zelda) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "tunic_of_the_hero",
@@ -3011,7 +3498,14 @@
         ]
       ],
       "typeOrder": 69,
-      "setOrder": 76
+      "setOrder": 76,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "8-bit Link amiibo",
+          "detail": "Scan the 8-bit Link (The Legend of Zelda) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "trousers_of_the_hero",
@@ -3070,7 +3564,14 @@
         ]
       ],
       "typeOrder": 100,
-      "setOrder": 77
+      "setOrder": 77,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "8-bit Link amiibo",
+          "detail": "Scan the 8-bit Link (The Legend of Zelda) amiibo from the 30th Anniversary series with the amiibo rune. This piece is a random, fairly rare drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "hylian_hood",
@@ -3125,7 +3626,25 @@
         ]
       ],
       "typeOrder": 0,
-      "setOrder": 3
+      "setOrder": 3,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 60
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 60
+          }
+        }
+      ]
     },
     {
       "id": "hylian_tunic",
@@ -3180,7 +3699,25 @@
         ]
       ],
       "typeOrder": 49,
-      "setOrder": 4
+      "setOrder": 4,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 120
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 120
+          }
+        }
+      ]
     },
     {
       "id": "hylian_trousers",
@@ -3235,7 +3772,30 @@
         ]
       ],
       "typeOrder": 79,
-      "setOrder": 5
+      "setOrder": 5,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest near the Temple of Time",
+          "detail": "On the Great Plateau, look in the ruins of a building in front of the Temple of Time for a chest."
+        },
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 90
+          }
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 90
+          }
+        }
+      ]
     },
     {
       "id": "phantom_ganon_skull",
@@ -3249,7 +3809,22 @@
       ],
       "upgrades": [],
       "typeOrder": 41,
-      "setOrder": 97
+      "setOrder": 97,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest below the Corta Lake waterfall",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. In Faron, find the highest of the three waterfalls running from Corta Lake down toward Lake Floria and pull the chest from its base with Magnesis. Quest: EX Treasure: Dark Armor."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "phantom_ganon_armor",
@@ -3263,7 +3838,22 @@
       ],
       "upgrades": [],
       "typeOrder": 76,
-      "setOrder": 98
+      "setOrder": 98,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest under Sarjon Bridge",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. The chest is in Floria River under Sarjon Bridge, between two small waterfalls west of Faron Tower; pull it out with Magnesis. Quest: EX Treasure: Dark Armor."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "phantom_ganon_greaves",
@@ -3277,7 +3867,22 @@
       ],
       "upgrades": [],
       "typeOrder": 105,
-      "setOrder": 99
+      "setOrder": 99,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest at the broken bird statue, Ebara Forest",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. In Ebara Forest, east of Lakeside Stable, use Magnesis on the chest buried behind the bird statue with the broken head. Quest: EX Treasure: Dark Armor."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "phantom_helmet",
@@ -3291,7 +3896,22 @@
       ],
       "upgrades": [],
       "typeOrder": 37,
-      "setOrder": 88
+      "setOrder": 88,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Coliseum Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to dig up the chest near a wall on the ground floor of the Coliseum Ruins (a Lynel guards the arena). Quest: EX Treasure: Phantasma."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "phantom_armor",
@@ -3305,7 +3925,22 @@
       ],
       "upgrades": [],
       "typeOrder": 73,
-      "setOrder": 89
+      "setOrder": 89,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Sacred Ground Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to pull the chest out of the rubble on the southeast side of the Sacred Ground Ruins, south of Hyrule Castle. Quest: EX Treasure: Phantasma."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "phantom_greaves",
@@ -3319,7 +3954,22 @@
       ],
       "upgrades": [],
       "typeOrder": 103,
-      "setOrder": 90
+      "setOrder": 90,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Hyrule Garrison Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis on the chest buried by a ruined Guardian on the southeast side of the Hyrule Garrison Ruins. Quest: EX Treasure: Phantasma."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "radiant_mask",
@@ -3378,7 +4028,23 @@
         ]
       ],
       "typeOrder": 19,
-      "setOrder": 47
+      "setOrder": 47,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦). Each piece also costs 3 Luminous Stones.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "luminous_stone",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "radiant_shirt",
@@ -3437,7 +4103,23 @@
         ]
       ],
       "typeOrder": 62,
-      "setOrder": 48
+      "setOrder": 48,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦). Each piece also costs 3 Luminous Stones.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "luminous_stone",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "radiant_tights",
@@ -3496,7 +4178,23 @@
         ]
       ],
       "typeOrder": 91,
-      "setOrder": 49
+      "setOrder": 49,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Gerudo Secret Club, Gerudo Town",
+          "detail": "Sold at the Gerudo Secret Club in Gerudo Town, behind a side door of Fashion Passion. Complete The Secret Club's Secret side quest to learn the password (GSC♦). Each piece also costs 3 Luminous Stones.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "luminous_stone",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "royal_guard_cap",
@@ -3510,7 +4208,22 @@
       ],
       "upgrades": [],
       "typeOrder": 40,
-      "setOrder": 94
+      "setOrder": 94,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest in the Champions' Hall, Hyrule Castle",
+          "detail": "Read the Super Rumor Mill at the Riverside Stable to start EX Royal Guard Rumors. The cap is in a chest in the Champions' Hall on the second floor of the Sanctum in Hyrule Castle."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "royal_guard_uniform",
@@ -3524,7 +4237,22 @@
       ],
       "upgrades": [],
       "typeOrder": 75,
-      "setOrder": 95
+      "setOrder": 95,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Hidden chest near the Dining Hall, Hyrule Castle",
+          "detail": "Read the Super Rumor Mill at the Riverside Stable to start EX Royal Guard Rumors. In the corridor past the Dining Hall, bomb the cracked wall at the end on the left; the chest is inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "royal_guard_boots",
@@ -3538,7 +4266,22 @@
       ],
       "upgrades": [],
       "typeOrder": 104,
-      "setOrder": 96
+      "setOrder": 96,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest in the Guards' Chamber, Hyrule Castle",
+          "detail": "Read the Super Rumor Mill at the Riverside Stable to start EX Royal Guard Rumors. The boots are in a chest in the Guards' Chamber, guarded by Lizalfos."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "rubber_helm",
@@ -3593,7 +4336,22 @@
         ]
       ],
       "typeOrder": 9,
-      "setOrder": 23
+      "setOrder": 23,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Thunder Magnet",
+          "detail": "Talk to Cima at the Lakeside Stable in Faron, who asks you to investigate the lightning strikes there, and complete the Thunder Magnet side quest to receive the helm."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "rubber_armor",
@@ -3648,7 +4406,22 @@
         ]
       ],
       "typeOrder": 55,
-      "setOrder": 24
+      "setOrder": 24,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Toh Yahsa Shrine, Thundra Plateau",
+          "detail": "Solve the Trial of Thunder shrine quest on the Thundra Plateau, west of Ridgeland Tower, to reveal Toh Yahsa Shrine; the armor is in a chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "rubber_tights",
@@ -3703,7 +4476,22 @@
         ]
       ],
       "typeOrder": 84,
-      "setOrder": 25
+      "setOrder": 25,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Qukah Nata Shrine, Calora Lake",
+          "detail": "Talk to Kass at Calora Lake in Faron to start the A Song of Storms shrine quest; once Qukah Nata Shrine appears, the tights are in a chest inside."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 4000
+          }
+        }
+      ]
     },
     {
       "id": "salvager_headwear",
@@ -3717,7 +4505,22 @@
       ],
       "upgrades": [],
       "typeOrder": 46,
-      "setOrder": 104
+      "setOrder": 104,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Xenoblade Chronicles 2",
+          "detail": "Part of the free Xenoblade Chronicles 2 side quest. At night, stand in the middle of the Bridge of Hylia and look at the southern sky; a falling star drops a chest with the headwear near the south shore of Lake Hylia."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "salvager_vest",
@@ -3731,7 +4534,22 @@
       ],
       "upgrades": [],
       "typeOrder": 77,
-      "setOrder": 105
+      "setOrder": 105,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Xenoblade Chronicles 2",
+          "detail": "Part of the free Xenoblade Chronicles 2 side quest. At night, stand on the left eye of Skull Lake in Akkala and look at the eastern sky; a falling star drops a chest with the vest in the Akkala Wilds."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "salvager_trousers",
@@ -3745,7 +4563,22 @@
       ],
       "upgrades": [],
       "typeOrder": 106,
-      "setOrder": 106
+      "setOrder": 106,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Xenoblade Chronicles 2",
+          "detail": "Part of the free Xenoblade Chronicles 2 side quest. At night, stand on Hebra Peak and look at the southeastern sky; a falling star drops a chest with the trousers on a plateau of Hebra East Summit."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "snowquill_headdress",
@@ -3800,7 +4633,17 @@
         ]
       ],
       "typeOrder": 4,
-      "setOrder": 12
+      "setOrder": 12,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Brazen Beak, Rito Village",
+          "detail": "Sold at the Brazen Beak in Rito Village.",
+          "cost": {
+            "rupees": 1000
+          }
+        }
+      ]
     },
     {
       "id": "snowquill_tunic",
@@ -3855,7 +4698,17 @@
         ]
       ],
       "typeOrder": 52,
-      "setOrder": 13
+      "setOrder": 13,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Brazen Beak, Rito Village",
+          "detail": "Sold at the Brazen Beak in Rito Village.",
+          "cost": {
+            "rupees": 600
+          }
+        }
+      ]
     },
     {
       "id": "snowquill_trousers",
@@ -3910,7 +4763,17 @@
         ]
       ],
       "typeOrder": 81,
-      "setOrder": 14
+      "setOrder": 14,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Brazen Beak, Rito Village",
+          "detail": "Sold at the Brazen Beak in Rito Village.",
+          "cost": {
+            "rupees": 550
+          }
+        }
+      ]
     },
     {
       "id": "soldiers_helm",
@@ -3969,7 +4832,17 @@
         ]
       ],
       "typeOrder": 1,
-      "setOrder": 6
+      "setOrder": 6,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 180
+          }
+        }
+      ]
     },
     {
       "id": "soldiers_armor",
@@ -4028,7 +4901,17 @@
         ]
       ],
       "typeOrder": 50,
-      "setOrder": 7
+      "setOrder": 7,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 250
+          }
+        }
+      ]
     },
     {
       "id": "soldiers_greaves",
@@ -4087,7 +4970,17 @@
         ]
       ],
       "typeOrder": 80,
-      "setOrder": 8
+      "setOrder": 8,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 200
+          }
+        }
+      ]
     },
     {
       "id": "stealth_mask",
@@ -4142,7 +5035,17 @@
         ]
       ],
       "typeOrder": 13,
-      "setOrder": 33
+      "setOrder": 33,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 500
+          }
+        }
+      ]
     },
     {
       "id": "stealth_chest_guard",
@@ -4197,7 +5100,17 @@
         ]
       ],
       "typeOrder": 58,
-      "setOrder": 34
+      "setOrder": 34,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 700
+          }
+        }
+      ]
     },
     {
       "id": "stealth_tights",
@@ -4252,7 +5165,17 @@
         ]
       ],
       "typeOrder": 87,
-      "setOrder": 35
+      "setOrder": 35,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Enchanted, Kakariko Village",
+          "detail": "Sold at Enchanted in Kakariko Village.",
+          "cost": {
+            "rupees": 600
+          }
+        }
+      ]
     },
     {
       "id": "tingles_hood",
@@ -4266,7 +5189,22 @@
       ],
       "upgrades": [],
       "typeOrder": 35,
-      "setOrder": 84
+      "setOrder": 84,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Exchange Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to pull the partly buried chest out of the ground at the Exchange Ruins in Hyrule Field. Quest: EX Treasure: Fairy Clothes."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "tingles_shirt",
@@ -4280,7 +5218,22 @@
       ],
       "upgrades": [],
       "typeOrder": 72,
-      "setOrder": 85
+      "setOrder": 85,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Castle Town Prison",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to lift the buried chest at the Castle Town Prison ruins in Hyrule Castle Town. Quest: EX Treasure: Fairy Clothes."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "tingles_tights",
@@ -4294,7 +5247,22 @@
       ],
       "upgrades": [],
       "typeOrder": 102,
-      "setOrder": 86
+      "setOrder": 86,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Mabe Village Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to lift the buried chest at the Mabe Village Ruins in Hyrule Field. Quest: EX Treasure: Fairy Clothes."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "old_shirt",
@@ -4308,7 +5276,22 @@
       ],
       "upgrades": [],
       "typeOrder": 47,
-      "setOrder": 0
+      "setOrder": 0,
+      "acquire": [
+        {
+          "method": "STARTING",
+          "title": "Shrine of Resurrection",
+          "detail": "Found in a treasure chest inside the Shrine of Resurrection at the very start of the game."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "well_worn_trousers",
@@ -4322,7 +5305,22 @@
       ],
       "upgrades": [],
       "typeOrder": 78,
-      "setOrder": 1
+      "setOrder": 1,
+      "acquire": [
+        {
+          "method": "STARTING",
+          "title": "Shrine of Resurrection",
+          "detail": "Found in a treasure chest inside the Shrine of Resurrection at the very start of the game."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "zora_helm",
@@ -4377,7 +5375,14 @@
         ]
       ],
       "typeOrder": 12,
-      "setOrder": 30
+      "setOrder": 30,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest in Toto Lake",
+          "detail": "North of Zora's Domain, swim up the waterfalls to Toto Lake and pull the chest out of the water with Magnesis. One of the Zora Stone Monuments hints at this spot."
+        }
+      ]
     },
     {
       "id": "zora_armor",
@@ -4432,7 +5437,14 @@
         ]
       ],
       "typeOrder": 57,
-      "setOrder": 31
+      "setOrder": 31,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Main quest: Divine Beast Vah Ruta",
+          "detail": "King Dorephan gives you the Zora Armor when you first meet him in Zora's Domain during the Divine Beast Vah Ruta main quest."
+        }
+      ]
     },
     {
       "id": "zora_greaves",
@@ -4487,7 +5499,14 @@
         ]
       ],
       "typeOrder": 86,
-      "setOrder": 32
+      "setOrder": 32,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: Lynel Safari",
+          "detail": "Talk to Laflat in Zora's Domain and show her a photo of a Red-Maned Lynel (the nearest is on Ploymus Mountain); she gives you the greaves."
+        }
+      ]
     },
     {
       "id": "amber_earrings",
@@ -4546,7 +5565,23 @@
         ]
       ],
       "typeOrder": 2,
-      "setOrder": 9
+      "setOrder": 9,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 100,
+            "materials": [
+              {
+                "material": "amber",
+                "qty": 10
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "bokoblin_mask",
@@ -4560,7 +5595,17 @@
       ],
       "upgrades": [],
       "typeOrder": 22,
-      "setOrder": 56
+      "setOrder": 56,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Available from the start.",
+          "cost": {
+            "mon": 99
+          }
+        }
+      ]
     },
     {
       "id": "diamond_circlet",
@@ -4619,7 +5664,28 @@
         ]
       ],
       "typeOrder": 20,
-      "setOrder": 50
+      "setOrder": 50,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest under Lomei Labyrinth Island",
+          "detail": "After completing Tu Ka'loh Shrine, drop into the new opening outside to reach a chamber with a chest. Opening it wakes the Decayed Guardians around it."
+        },
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 1500,
+            "materials": [
+              {
+                "material": "diamond",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "korok_mask",
@@ -4633,7 +5699,22 @@
       ],
       "upgrades": [],
       "typeOrder": 33,
-      "setOrder": 82
+      "setOrder": 82,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Hollow tree in the Lost Woods",
+          "detail": "Read the Super Rumor Mill at the Woodland Stable to start EX Strange Mask Rumors. From the two torches at the Lost Woods entrance, keep heading the same way to an Ogre Tree and pull the chest from its mouth with Magnesis."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "lizalfos_mask",
@@ -4647,7 +5728,17 @@
       ],
       "upgrades": [],
       "typeOrder": 24,
-      "setOrder": 58
+      "setOrder": 58,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after two Divine Beasts are freed.",
+          "cost": {
+            "mon": 299
+          }
+        }
+      ]
     },
     {
       "id": "lynel_mask",
@@ -4661,7 +5752,17 @@
       ],
       "upgrades": [],
       "typeOrder": 25,
-      "setOrder": 59
+      "setOrder": 59,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after three Divine Beasts are freed.",
+          "cost": {
+            "mon": 999
+          }
+        }
+      ]
     },
     {
       "id": "majoras_mask",
@@ -4675,7 +5776,22 @@
       ],
       "upgrades": [],
       "typeOrder": 34,
-      "setOrder": 83
+      "setOrder": 83,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Kolomo Garrison Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. The mask is in a partly buried chest at the Kolomo Garrison Ruins in Hyrule Field; pull it out with Magnesis. Quest: EX Treasure: Ancient Mask."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "midnas_helmet",
@@ -4689,7 +5805,22 @@
       ],
       "upgrades": [],
       "typeOrder": 36,
-      "setOrder": 87
+      "setOrder": 87,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in the Sage Temple Ruins",
+          "detail": "Read Misko's EX Journal at the Outpost Ruins in Hyrule Field to start the quest. Use Magnesis to unearth the chest at the Sage Temple Ruins in Hyrule Field. Quest: EX Treasure: Twilight Relic."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "moblin_mask",
@@ -4703,7 +5834,17 @@
       ],
       "upgrades": [],
       "typeOrder": 23,
-      "setOrder": 57
+      "setOrder": 57,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Fang and Bone (Kilton)",
+          "detail": "Sold by Kilton at the Fang and Bone. He first appears at night at Skull Lake in Akkala, then near most towns from 9:00 PM to 5:00 AM. Trade him monster parts for Mon. Stocked after one Divine Beast is freed.",
+          "cost": {
+            "mon": 199
+          }
+        }
+      ]
     },
     {
       "id": "opal_earrings",
@@ -4762,7 +5903,23 @@
         ]
       ],
       "typeOrder": 11,
-      "setOrder": 29
+      "setOrder": 29,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 200,
+            "materials": [
+              {
+                "material": "opal",
+                "qty": 8
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "ravios_hood",
@@ -4776,7 +5933,22 @@
       ],
       "upgrades": [],
       "typeOrder": 38,
-      "setOrder": 92
+      "setOrder": 92,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest at the Spring of Courage",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. At the Spring of Courage in Faron (Shae Katha Shrine), use Magnesis on the chest under the right claw of the dragon statue. Quest: EX Treasure: Merchant Hood."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "ruby_circlet",
@@ -4835,7 +6007,23 @@
         ]
       ],
       "typeOrder": 3,
-      "setOrder": 11
+      "setOrder": 11,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 500,
+            "materials": [
+              {
+                "material": "ruby",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "sapphire_circlet",
@@ -4894,7 +6082,23 @@
         ]
       ],
       "typeOrder": 5,
-      "setOrder": 15
+      "setOrder": 15,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 800,
+            "materials": [
+              {
+                "material": "sapphire",
+                "qty": 3
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "sheiks_mask",
@@ -4953,7 +6157,14 @@
         ]
       ],
       "typeOrder": 14,
-      "setOrder": 36
+      "setOrder": 36,
+      "acquire": [
+        {
+          "method": "AMIIBO",
+          "title": "Sheik amiibo",
+          "detail": "Scan the Super Smash Bros. series Sheik amiibo with the amiibo rune. The mask is a random drop from the chest that appears, and each amiibo can only be scanned once per day."
+        }
+      ]
     },
     {
       "id": "thunder_helm",
@@ -4967,7 +6178,14 @@
       ],
       "upgrades": [],
       "typeOrder": 15,
-      "setOrder": 37
+      "setOrder": 37,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: The Thunder Helm",
+          "detail": "After freeing Divine Beast Vah Naboris, examine the helm beside Riju's throne in Gerudo Town. Complete Tools of the Trade, The Mystery Polluter, Medicinal Molduga and The Search for Barta, then return to Riju, who lends you the helm."
+        }
+      ]
     },
     {
       "id": "topaz_earrings",
@@ -5026,7 +6244,23 @@
         ]
       ],
       "typeOrder": 8,
-      "setOrder": 22
+      "setOrder": 22,
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Starlight Memories, Gerudo Town",
+          "detail": "Sold at Starlight Memories, the jeweler in Gerudo Town. The shop opens after you bring Isha 10 Flint in the Tools of the Trade side quest. You must supply the gems as part of the price.",
+          "cost": {
+            "rupees": 500,
+            "materials": [
+              {
+                "material": "topaz",
+                "qty": 5
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "zants_helmet",
@@ -5040,7 +6274,22 @@
       ],
       "upgrades": [],
       "typeOrder": 39,
-      "setOrder": 93
+      "setOrder": 93,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Buried chest in Tobio's Hollow",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. In Tobio's Hollow, south of the Dueling Peaks, glide to the island between two dead trees in the bog and pull the chest out with Magnesis. Quest: EX Treasure: Usurper King."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "champions_tunic",
@@ -5095,7 +6344,14 @@
         ]
       ],
       "typeOrder": 48,
-      "setOrder": 2
+      "setOrder": 2,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Main quest: Captured Memories",
+          "detail": "Recover at least one of the memories from the photos on the Sheikah Slate, then return to Impa in Kakariko Village; she gives you the tunic."
+        }
+      ]
     },
     {
       "id": "island_lobster_shirt",
@@ -5109,7 +6365,22 @@
       ],
       "upgrades": [],
       "typeOrder": 74,
-      "setOrder": 91
+      "setOrder": 91,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Underwater chest at Cora Lake",
+          "detail": "Read Misko's EX Journal 2 at the Deya Village Ruins to start the quest. At Cora Lake, the source of the Menoat River south of Lake Tower, use Magnesis on the chest in the water at the west end of the lake. Quest: EX Treasure: Garb of Winds."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "nintendo_switch_shirt",
@@ -5123,7 +6394,22 @@
       ],
       "upgrades": [],
       "typeOrder": 71,
-      "setOrder": 81
+      "setOrder": 81,
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Treasure chest at the Eastern Abbey, Great Plateau",
+          "detail": "With the Expansion Pass installed, a chest appears on top of a wall at the Eastern Abbey, beside Ja Baij Shrine on the Great Plateau."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
     },
     {
       "id": "warm_doublet",
@@ -5137,7 +6423,22 @@
       ],
       "upgrades": [],
       "typeOrder": 51,
-      "setOrder": 10
+      "setOrder": 10,
+      "acquire": [
+        {
+          "method": "REWARD",
+          "title": "Gift from the Old Man, Great Plateau",
+          "detail": "Cook the Old Man's recipe (Spicy Meat and Seafood Fry: Raw Meat, Hyrule Bass and a Spicy Pepper) and tell him, or meet him at the summit of Mount Hylia. If you leave the plateau without it, it is waiting in a chest in his cabin."
+        },
+        {
+          "method": "SHOP",
+          "title": "Ventest Clothing Boutique, Hateno Village",
+          "detail": "Sold at the Ventest Clothing Boutique in Hateno Village.",
+          "cost": {
+            "rupees": 80
+          }
+        }
+      ]
     },
     {
       "id": "sand_boots",
@@ -5196,7 +6497,22 @@
         ]
       ],
       "typeOrder": 93,
-      "setOrder": 54
+      "setOrder": 54,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: The Eighth Heroine",
+          "detail": "Wearing the full Gerudo outfit, talk to Bozai near Gerudo Town. Photograph the Statue of the Eighth Heroine in the Gerudo Highlands and show him to receive the Sand Boots."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 800
+          }
+        }
+      ]
     },
     {
       "id": "snow_boots",
@@ -5255,7 +6571,22 @@
         ]
       ],
       "typeOrder": 94,
-      "setOrder": 55
+      "setOrder": 55,
+      "acquire": [
+        {
+          "method": "QUEST",
+          "title": "Side quest: The Forgotten Sword",
+          "detail": "Bozai lends you the Snow Boots during The Eighth Heroine and takes them back at the end. Talk to him again and complete The Forgotten Sword to keep them."
+        },
+        {
+          "method": "SHOP",
+          "title": "Granté, Tarrey Town",
+          "detail": "Granté sells it from the balcony of his house in Tarrey Town once the From the Ground Up side quest is complete. He only stocks pieces you have already obtained at least once.",
+          "cost": {
+            "rupees": 800
+          }
+        }
+      ]
     }
   ]
 }

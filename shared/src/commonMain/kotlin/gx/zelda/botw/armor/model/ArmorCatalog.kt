@@ -36,6 +36,38 @@ data class MaterialCost(
 )
 
 @Serializable
+enum class AcquireMethod(val label: String) {
+    SHOP("Shop"),
+    CHEST("Chest"),
+    QUEST("Quest"),
+    REWARD("Reward"),
+    AMIIBO("amiibo"),
+    STARTING("Starting gear"),
+    OTHER("Other"),
+}
+
+/** One way to obtain a piece. */
+@Serializable
+data class Acquisition(
+    val method: AcquireMethod,
+    val title: String,
+    val detail: String,
+    /** What it costs, when it's bought or traded for. */
+    val cost: Cost? = null,
+)
+
+/**
+ * A price can mix currencies and items: the Ancient set costs rupees plus Ancient parts,
+ * and Kilton sells his masks for Mon.
+ */
+@Serializable
+data class Cost(
+    val rupees: Int? = null,
+    val mon: Int? = null,
+    val materials: List<MaterialCost> = emptyList(),
+)
+
+@Serializable
 data class ArmorSet(
     val id: String,
     val name: String,
@@ -62,6 +94,8 @@ data class ArmorPiece(
     val typeOrder: Int? = null,
     /** Position in the game's sort-by-set order. */
     val setOrder: Int? = null,
+    /** Ways to obtain the piece; several when it's e.g. both sold and found in a chest. */
+    val acquire: List<Acquisition> = emptyList(),
 ) {
     val maxLevel: Int get() = upgrades.size
     val isUpgradable: Boolean get() = upgrades.isNotEmpty()

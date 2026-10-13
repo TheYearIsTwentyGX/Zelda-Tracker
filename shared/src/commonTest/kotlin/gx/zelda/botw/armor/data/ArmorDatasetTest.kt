@@ -1,6 +1,8 @@
 package gx.zelda.botw.armor.data
 
+import gx.zelda.botw.armor.model.AcquireMethod
 import gx.zelda.botw.armor.model.ArmorCatalog
+import gx.zelda.botw.armor.model.MaterialCost
 import gx.zelda.botw.armor.model.Slot
 import gx.zelda.botw.armor.model.Source
 import kotlinx.coroutines.test.runTest
@@ -85,6 +87,37 @@ class ArmorDatasetTest {
         assertEquals(listOf("voltfruit", "sunshroom", "zapshroom", "rushroom", "silent_shroom", "swift_carrot"), ordered.take(6))
         assertTrue(ordered.indexOf("star_fragment") < ordered.indexOf("hearty_bass"))
         assertEquals("giant_ancient_core", ordered.last())
+    }
+
+    @Test
+    fun everyPieceSaysHowToGetIt() = withCatalog { c ->
+        val materialIds = c.materials.map { it.id }.toSet()
+        for (piece in c.pieces) {
+            assertTrue(piece.acquire.isNotEmpty(), "${piece.id} has no acquisition info")
+            for (way in piece.acquire) {
+                assertTrue(way.title.isNotBlank() && way.detail.isNotBlank(), "${piece.id}: blank acquisition text")
+                way.cost?.materials?.forEach {
+                    assertTrue(it.material in materialIds, "${piece.id}: unknown cost material ${it.material}")
+                }
+            }
+        }
+    }
+
+    @Test
+    fun purchaseCostsThatAreMoreThanRupees() = withCatalog { c ->
+        fun shopCost(id: String) = c.piece(id)!!.acquire.first { it.method == AcquireMethod.SHOP }.cost!!
+
+        val radiant = shopCost("radiant_mask")
+        assertEquals(800, radiant.rupees)
+        assertEquals(listOf(MaterialCost("luminous_stone", 3)), radiant.materials)
+
+        val ancient = shopCost("ancient_helm")
+        assertEquals(2000, ancient.rupees)
+        assertTrue(MaterialCost("ancient_core", 3) in ancient.materials)
+
+        val lynel = shopCost("lynel_mask")
+        assertEquals(999, lynel.mon)
+        assertEquals(null, lynel.rupees)
     }
 
     @Test

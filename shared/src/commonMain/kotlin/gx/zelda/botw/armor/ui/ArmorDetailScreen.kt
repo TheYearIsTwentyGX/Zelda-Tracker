@@ -16,6 +16,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import gx.zelda.botw.armor.logic.ArmorCalculator
 import gx.zelda.botw.armor.logic.UpgradeTier
+import gx.zelda.botw.armor.model.Acquisition
 import gx.zelda.botw.armor.model.ArmorCatalog
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.core.ui.StarGold
@@ -130,6 +132,15 @@ private fun PieceDetail(state: ArmorUiState, piece: ArmorPiece, viewModel: Armor
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+    }
+
+    if (piece.acquire.isNotEmpty()) {
+        SectionCard(title = "How to get") {
+            piece.acquire.forEachIndexed { i, way ->
+                if (i > 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+                AcquisitionEntry(state.catalog, way)
+            }
         }
     }
 
@@ -260,6 +271,40 @@ private fun TierCosts(catalog: ArmorCatalog, tier: UpgradeTier, maxLevel: Int) {
         }
     }
 }
+
+@Composable
+private fun AcquisitionEntry(catalog: ArmorCatalog, way: Acquisition) {
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Tag(way.method.label)
+            way.cost?.rupees?.let { PriceTag("$it rupees") }
+            way.cost?.mon?.let { PriceTag("$it Mon") }
+        }
+        Text(way.title, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
+        Text(way.detail, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        val materials = way.cost?.materials.orEmpty()
+        if (materials.isNotEmpty()) {
+            Text(
+                if (way.cost?.rupees != null || way.cost?.mon != null) "Also costs" else "Costs",
+                style = MaterialTheme.typography.labelLarge,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+            materials.forEach { cost ->
+                Row {
+                    Text(catalog.material(cost.material).name, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
+                    Text("×${cost.qty}", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PriceTag(text: String) = Tag(
+    text,
+    container = MaterialTheme.colorScheme.secondaryContainer,
+    content = MaterialTheme.colorScheme.onSecondaryContainer,
+)
 
 @Composable
 private fun SectionCard(title: String? = null, content: @Composable () -> Unit) {
