@@ -8,29 +8,28 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import gx.zelda.botw.armor.data.ArmorStorage
-import gx.zelda.botw.armor.ui.ArmorDetailScreen
-import gx.zelda.botw.armor.ui.ArmorTrackerScreen
-import gx.zelda.botw.armor.ui.ArmorViewModel
-import gx.zelda.botw.fairies.data.FairyStorage
-import gx.zelda.botw.fairies.ui.FairyTrackerScreen
-import gx.zelda.botw.fairies.ui.FairyViewModel
+import gx.zelda.armor.data.ArmorStorage
+import gx.zelda.armor.ui.ArmorDetailScreen
+import gx.zelda.armor.ui.ArmorTrackerScreen
+import gx.zelda.armor.ui.ArmorViewModel
+import gx.zelda.core.Game
 import gx.zelda.core.Games
+import gx.zelda.core.TrackerKind
 import gx.zelda.core.ui.HomeScreen
 import gx.zelda.core.ui.ZeldaTheme
+import gx.zelda.fairies.data.FairyStorage
+import gx.zelda.fairies.ui.FairyTrackerScreen
+import gx.zelda.fairies.ui.FairyViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable private data object Home
-@Serializable private data object BotwArmorGraph
-@Serializable private data object BotwArmorTracker
-@Serializable private data class BotwArmorDetail(val pieceId: String)
-@Serializable private data object BotwFairies
+@Serializable private data class ArmorTracker(val gameId: String)
+@Serializable private data class ArmorDetail(val gameId: String, val pieceId: String)
+@Serializable private data class Fairies(val gameId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -38,50 +37,50 @@ fun App(dataStore: DataStore<Preferences>) {
         val nav = rememberNavController()
         NavHost(navController = nav, startDestination = Home) {
             composable<Home> {
-                HomeScreen(onOpenTracker = { id ->
-                    when (id) {
-                        Games.BOTW_ARMOR -> nav.navigate(BotwArmorGraph)
-                        Games.BOTW_FAIRIES -> nav.navigate(BotwFairies)
+                HomeScreen(onOpenTracker = { game, kind ->
+                    when (kind) {
+                        TrackerKind.ARMOR -> nav.navigate(ArmorTracker(game.id))
+                        TrackerKind.FAIRIES -> nav.navigate(Fairies(game.id))
                     }
                 })
             }
-            composable<BotwFairies> {
-                val vm = viewModel { FairyViewModel(FairyStorage(dataStore)) }
+            composable<Fairies> { entry ->
+                val game = Games.byId(entry.toRoute<Fairies>().gameId)
+                val vm = viewModel(key = game.id) { FairyViewModel(FairyStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 FairyTrackerScreen(state, vm, onBack = { nav.popBackStack() })
             }
-            navigation<BotwArmorGraph>(startDestination = BotwArmorTracker) {
-                composable<BotwArmorTracker> { entry ->
-                    val vm = armorViewModel(nav, entry, dataStore)
-                    val state by vm.state.collectAsStateWithLifecycle()
-                    ArmorTrackerScreen(
-                        state = state,
-                        viewModel = vm,
-                        onOpenPiece = { nav.navigate(BotwArmorDetail(it)) },
-                        onBack = { nav.popBackStack() },
-                    )
-                }
-                composable<BotwArmorDetail> { entry ->
-                    val vm = armorViewModel(nav, entry, dataStore)
-                    val state by vm.state.collectAsStateWithLifecycle()
-                    state?.let {
-                        ArmorDetailScreen(it, entry.toRoute<BotwArmorDetail>().pieceId, vm, onBack = { nav.popBackStack() })
-                    }
+            composable<ArmorTracker> { entry ->
+                val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
+                val vm = armorViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                ArmorTrackerScreen(
+                    state = state,
+                    viewModel = vm,
+                    onOpenPiece = { nav.navigate(ArmorDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<ArmorDetail> { entry ->
+                val route = entry.toRoute<ArmorDetail>()
+                val trackerEntry = remember(entry) { nav.getBackStackEntry<ArmorTracker>() }
+                val vm = armorViewModel(trackerEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    ArmorDetailScreen(it, route.pieceId, vm, onBack = { nav.popBackStack() })
                 }
             }
         }
     }
 }
 
-/** One [ArmorViewModel] shared by every screen inside the BotW armor graph. */
+/**
+ * The [ArmorViewModel] for [game], owned by the armor list's back stack entry so the detail
+ * screen opened on top of it shares the same one.
+ */
 @Composable
 private fun armorViewModel(
-    nav: NavHostController,
-    entry: NavBackStackEntry,
+    owner: NavBackStackEntry,
     dataStore: DataStore<Preferences>,
-): ArmorViewModel {
-    val graphEntry = remember(entry) { nav.getBackStackEntry<BotwArmorGraph>() }
-    return viewModel(graphEntry) {
-        ArmorViewModel(ArmorStorage(dataStore))
-    }
-}
+    game: Game,
+): ArmorViewModel = viewModel(owner, key = game.id) { ArmorViewModel(ArmorStorage(dataStore, game)) }

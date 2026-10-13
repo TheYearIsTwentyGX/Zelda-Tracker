@@ -26,10 +26,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.Game
 import gx.zelda.core.Games
+import gx.zelda.core.TrackerKind
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(onOpenTracker: (String) -> Unit) {
+fun HomeScreen(onOpenTracker: (Game, TrackerKind) -> Unit) {
     Scaffold(
         topBar = { LargeTopAppBar(title = { Text("ZeldaGX", fontWeight = FontWeight.Bold) }) },
     ) { padding ->
@@ -44,7 +45,7 @@ fun HomeScreen(onOpenTracker: (String) -> Unit) {
 }
 
 @Composable
-private fun GameCard(game: Game, onOpenTracker: (String) -> Unit) {
+private fun GameCard(game: Game, onOpenTracker: (Game, TrackerKind) -> Unit) {
     val available = game.trackers.isNotEmpty()
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
@@ -60,7 +61,7 @@ private fun GameCard(game: Game, onOpenTracker: (String) -> Unit) {
             }
             game.trackers.forEach { tracker ->
                 Card(
-                    onClick = { onOpenTracker(tracker.id) },
+                    onClick = { onOpenTracker(game, tracker.kind) },
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
                     modifier = Modifier.fillMaxWidth(),
                 ) {
