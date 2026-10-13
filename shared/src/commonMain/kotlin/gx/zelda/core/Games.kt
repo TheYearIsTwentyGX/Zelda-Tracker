@@ -12,7 +12,12 @@ data class Game(
     fun saveFile(id: String?): SaveFile = saveFiles.firstOrNull { it.id == id } ?: saveFiles.first()
 }
 
-data class SaveFile(val id: String, val label: String)
+data class SaveFile(
+    val id: String,
+    val label: String,
+    /** A Master Mode file, which some trackers show differently (e.g. extra Compendium entries). */
+    val masterMode: Boolean = false,
+)
 
 /** The kinds of tracker a game can offer; each kind has one set of screens shared by every game. */
 enum class TrackerKind { ARMOR, FAIRIES }
@@ -28,7 +33,7 @@ object Games {
         saveFiles = listOf(
             SaveFile("normal_1", "Save File 1"),
             SaveFile("normal_2", "Save File 2"),
-            SaveFile("master", "Master Mode"),
+            SaveFile("master", "Master Mode", masterMode = true),
         ),
         trackers = listOf(
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
