@@ -9,6 +9,7 @@ import gx.zelda.botw.armor.model.PieceProgress
 import gx.zelda.core.Game
 import gx.zelda.core.Games
 import gx.zelda.core.JsonStore
+import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.builtins.MapSerializer
@@ -27,7 +28,7 @@ class ArmorStorage(private val dataStore: DataStore<Preferences>, val game: Game
         file.id to JsonStore<Pieces>(dataStore, "botw_armor_pieces@${file.id}", piecesSerializer, emptyMap())
     }
     private val prefsStore = JsonStore(dataStore, "botw_armor_prefs", ArmorPrefs.serializer(), ArmorPrefs())
-    private val activeStore = JsonStore(dataStore, "botw_active_save_file", String.serializer(), game.saveFiles.first().id)
+    private val activeStore = activeSaveFileStore(dataStore, game)
 
     /** Before save files existed everything lived under this key. */
     private val legacyStore = JsonStore(dataStore, "botw_armor_progress", ArmorProgress.serializer(), ArmorProgress())

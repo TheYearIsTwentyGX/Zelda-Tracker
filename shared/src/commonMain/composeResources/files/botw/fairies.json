@@ -1,0 +1,41 @@
+{
+  "unlockCosts": [100, 500, 1000, 10000],
+  "fairies": [
+    {
+      "id": "cotera",
+      "name": "Cotera",
+      "region": "West Necluda",
+      "location": "Wooded hilltop just above Kakariko Village, past Ta'loh Naeg Shrine.",
+      "directions": "From Kakariko Village, take the path up the hill on the village's north side to Ta'loh Naeg Shrine. Keep going past the shrine into the small forest and take the left fork; Blupees often appear along this path. The fountain is the giant flower bud at the top of a short flight of steps in the clearing.",
+      "nearby": ["Kakariko Village", "Ta'loh Naeg Shrine"],
+      "notes": "Main quest \"Find the Fairy Fountain\": once you have the Camera rune, Pikango the painter in Kakariko Village asks you to photograph the fountain. You don't have to pay her to finish the quest. She's usually the first fountain opened, so usually 100 rupees."
+    },
+    {
+      "id": "kaysa",
+      "name": "Kaysa",
+      "region": "Tabantha Frontier",
+      "location": "At the foot of Piper Ridge, just south of Tabantha Tower on Nero Hill.",
+      "directions": "Climb or warp to Tabantha Tower on Nero Hill, face south, and paraglide down to the fountain in a rocky hollow at the base of Piper Ridge. On foot, follow the road from the Tabantha Great Bridge and climb the cliffs of Piper Ridge.",
+      "nearby": ["Tabantha Tower", "Nero Hill", "Tabantha Great Bridge", "Tabantha Bridge Stable"],
+      "notes": "Side quest \"A Gift for the Great Fairy\": Toren at Tabantha Bridge Stable gives you 500 rupees to offer to Kaysa, with the hint to follow Tabantha Tower's afternoon shadow. Report back to him to finish. If she isn't your first or second fountain, his 500 won't cover the whole price."
+    },
+    {
+      "id": "mija",
+      "name": "Mija",
+      "region": "Akkala Highlands",
+      "location": "Small grove of red and orange trees east of Akkala Tower, on the bank above Lake Akkala, near Dah Hesho Shrine.",
+      "directions": "Climb or warp to Akkala Tower and paraglide east toward Lake Akkala; the fountain sits in a small patch of autumn-colored trees on the lower ground. If Dah Hesho Shrine is unlocked, warp there and glide down. From Akkala Citadel Ruins, look east to spot the grove.",
+      "nearby": ["Akkala Tower", "Dah Hesho Shrine", "Lake Akkala", "Tarrey Town"],
+      "notes": null
+    },
+    {
+      "id": "tera",
+      "name": "Tera",
+      "region": "Gerudo Desert",
+      "location": "Far southwest corner of the Gerudo Desert, beneath the tail end of the Gerudo Great Skeleton in Dragon's Exile, near Hawa Koth Shrine.",
+      "directions": "Head to the far southwest edge of the desert, or warp to Hawa Koth Shrine if it's unlocked, and look for the huge dragon skeleton in Dragon's Exile. The fountain is tucked under the skeleton near the tip of its tail. Bring heat protection, and pin the spot before you set out, because sandstorms on the way can knock out the map. A sand seal makes the trip faster.",
+      "nearby": ["Hawa Koth Shrine", "Gerudo Great Skeleton", "Dragon's Exile"],
+      "notes": "Usually the last fountain opened, so usually 10,000 rupees, but the price still goes by how many you've already opened."
+    }
+  ]
+}
