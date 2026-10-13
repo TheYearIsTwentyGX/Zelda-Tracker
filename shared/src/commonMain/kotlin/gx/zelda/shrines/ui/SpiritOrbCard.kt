@@ -44,11 +44,11 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
             Text(
                 when {
                     !plan.isConsistent ->
-                        "That's more upgrades than ${plan.earned} orbs pay for. Check the shrines marked complete, or the numbers below."
+                        "That's more upgrades than ${orbCount(plan.earned)} pay for. Check the shrines marked complete, or the numbers below."
                     plan.readyToBuy > 0 ->
-                        "${plan.inHand} orbs in hand: enough for ${upgradeCount(plan.readyToBuy)} at a Goddess Statue."
+                        "${orbCount(plan.inHand)} in hand: enough for ${upgradeCount(plan.readyToBuy)} at a Goddess Statue."
                     plan.unearned == 0 -> "Every orb is spent."
-                    else -> "${plan.inHand} orbs in hand; ${plan.toNext} more for the next upgrade."
+                    else -> "${orbCount(plan.inHand)} in hand; ${plan.toNext} more for the next upgrade."
                 },
                 style = MaterialTheme.typography.bodyMedium,
                 color = if (plan.isConsistent) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.error,
@@ -68,7 +68,7 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
                 onValueChange = { onBoughtChange(plan.heartsBought, it) },
             )
             Text(
-                "${plan.unearned} orbs are still in unfinished shrines; ${upgradeCount(plan.upgradesLeft)} left to buy in all.",
+                "${orbCount(plan.unearned)} still in unfinished shrines; ${upgradeCount(plan.upgradesLeft)} left to buy in all.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -116,6 +116,8 @@ private fun Stepper(label: String, detail: String, value: Int, max: Int, onValue
 }
 
 private fun upgradeCount(n: Int) = if (n == 1) "1 upgrade" else "$n upgrades"
+
+private fun orbCount(n: Int) = if (n == 1) "1 orb" else "$n orbs"
 
 /** Stamina wheels after [vessels]: 1 + 7 vessels → "2⅖". */
 private fun wheels(up: OrbUpgrades, vessels: Int): String {

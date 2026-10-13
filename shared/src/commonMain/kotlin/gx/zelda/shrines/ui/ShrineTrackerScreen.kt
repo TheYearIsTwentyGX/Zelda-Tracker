@@ -50,7 +50,12 @@ import gx.zelda.shrines.model.TrialType
 /** Shrines by tower region, which are complete on the active save file, and the Spirit Orb planner. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShrineTrackerScreen(state: ShrineUiState?, viewModel: ShrineViewModel, onBack: () -> Unit) {
+fun ShrineTrackerScreen(
+    state: ShrineUiState?,
+    loadFailed: Boolean,
+    viewModel: ShrineViewModel,
+    onBack: () -> Unit,
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -77,8 +82,16 @@ fun ShrineTrackerScreen(state: ShrineUiState?, viewModel: ShrineViewModel, onBac
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
+            Box(Modifier.fillMaxSize().padding(padding).padding(24.dp), contentAlignment = Alignment.Center) {
+                if (loadFailed) {
+                    Text(
+                        "The shrine list couldn't be loaded.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.error,
+                    )
+                } else {
+                    CircularProgressIndicator()
+                }
             }
             return@Scaffold
         }

@@ -65,6 +65,10 @@ class ShrineViewModel(
     private val loadCatalog: suspend () -> ShrineCatalog = { ShrineRepository.load(storage.game) },
 ) : ViewModel() {
     private val catalog = MutableStateFlow<ShrineCatalog?>(null)
+    private val _loadFailed = MutableStateFlow(false)
+
+    /** True when the bundled dataset is missing or unreadable; [state] then stays null. */
+    val loadFailed: StateFlow<Boolean> = _loadFailed
     private val filters = MutableStateFlow(ShrineFilters())
 
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
@@ -93,7 +97,11 @@ class ShrineViewModel(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
     init {
-        viewModelScope.launch { catalog.value = loadCatalog() }
+        viewModelScope.launch {
+            runCatching { loadCatalog() }
+                .onSuccess { catalog.value = it }
+                .onFailure { _loadFailed.value = true }
+        }
     }
 
     /** Edits always target the file that was on screen when the user acted. */

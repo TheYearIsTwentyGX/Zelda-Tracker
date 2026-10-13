@@ -59,7 +59,8 @@ fun App(dataStore: DataStore<Preferences>) {
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)
                 val vm = viewModel(key = game.id) { ShrineViewModel(ShrineStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
-                ShrineTrackerScreen(state, vm, onBack = { nav.popBackStack() })
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                ShrineTrackerScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
