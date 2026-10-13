@@ -1,0 +1,4966 @@
+{
+  "materials": [
+    {
+      "id": "acorn",
+      "name": "Acorn",
+      "category": "Plant"
+    },
+    {
+      "id": "amber",
+      "name": "Amber",
+      "category": "Mineral"
+    },
+    {
+      "id": "ancient_core",
+      "name": "Ancient Core",
+      "category": "Monster Part"
+    },
+    {
+      "id": "ancient_gear",
+      "name": "Ancient Gear",
+      "category": "Monster Part"
+    },
+    {
+      "id": "ancient_screw",
+      "name": "Ancient Screw",
+      "category": "Monster Part"
+    },
+    {
+      "id": "ancient_shaft",
+      "name": "Ancient Shaft",
+      "category": "Monster Part"
+    },
+    {
+      "id": "ancient_spring",
+      "name": "Ancient Spring",
+      "category": "Monster Part"
+    },
+    {
+      "id": "blue_nightshade",
+      "name": "Blue Nightshade",
+      "category": "Plant"
+    },
+    {
+      "id": "bokoblin_fang",
+      "name": "Bokoblin Fang",
+      "category": "Monster Part"
+    },
+    {
+      "id": "bokoblin_guts",
+      "name": "Bokoblin Guts",
+      "category": "Monster Part"
+    },
+    {
+      "id": "bokoblin_horn",
+      "name": "Bokoblin Horn",
+      "category": "Monster Part"
+    },
+    {
+      "id": "chuchu_jelly",
+      "name": "Chuchu Jelly",
+      "category": "Monster Part"
+    },
+    {
+      "id": "courser_bee_honey",
+      "name": "Courser Bee Honey",
+      "category": "Other"
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "category": "Mineral"
+    },
+    {
+      "id": "dinraals_claw",
+      "name": "Dinraal's Claw",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "dinraals_scale",
+      "name": "Dinraal's Scale",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "electric_keese_wing",
+      "name": "Electric Keese Wing",
+      "category": "Monster Part"
+    },
+    {
+      "id": "energetic_rhino_beetle",
+      "name": "Energetic Rhino Beetle",
+      "category": "Creature"
+    },
+    {
+      "id": "faroshs_claw",
+      "name": "Farosh's Claw",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "faroshs_scale",
+      "name": "Farosh's Scale",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "fire_keese_wing",
+      "name": "Fire Keese Wing",
+      "category": "Monster Part"
+    },
+    {
+      "id": "fireproof_lizard",
+      "name": "Fireproof Lizard",
+      "category": "Creature"
+    },
+    {
+      "id": "flint",
+      "name": "Flint",
+      "category": "Mineral"
+    },
+    {
+      "id": "giant_ancient_core",
+      "name": "Giant Ancient Core",
+      "category": "Monster Part"
+    },
+    {
+      "id": "hearty_bass",
+      "name": "Hearty Bass",
+      "category": "Creature"
+    },
+    {
+      "id": "hightail_lizard",
+      "name": "Hightail Lizard",
+      "category": "Creature"
+    },
+    {
+      "id": "hinox_guts",
+      "name": "Hinox Guts",
+      "category": "Monster Part"
+    },
+    {
+      "id": "hinox_toenail",
+      "name": "Hinox Toenail",
+      "category": "Monster Part"
+    },
+    {
+      "id": "hinox_tooth",
+      "name": "Hinox Tooth",
+      "category": "Monster Part"
+    },
+    {
+      "id": "hot_footed_frog",
+      "name": "Hot-Footed Frog",
+      "category": "Creature"
+    },
+    {
+      "id": "hyrule_bass",
+      "name": "Hyrule Bass",
+      "category": "Creature"
+    },
+    {
+      "id": "ice_keese_wing",
+      "name": "Ice Keese Wing",
+      "category": "Monster Part"
+    },
+    {
+      "id": "icy_lizalfos_tail",
+      "name": "Icy Lizalfos Tail",
+      "category": "Monster Part"
+    },
+    {
+      "id": "keese_eyeball",
+      "name": "Keese Eyeball",
+      "category": "Monster Part"
+    },
+    {
+      "id": "keese_wing",
+      "name": "Keese Wing",
+      "category": "Monster Part"
+    },
+    {
+      "id": "lizalfos_horn",
+      "name": "Lizalfos Horn",
+      "category": "Monster Part"
+    },
+    {
+      "id": "lizalfos_tail",
+      "name": "Lizalfos Tail",
+      "category": "Monster Part"
+    },
+    {
+      "id": "lizalfos_talon",
+      "name": "Lizalfos Talon",
+      "category": "Monster Part"
+    },
+    {
+      "id": "luminous_stone",
+      "name": "Luminous Stone",
+      "category": "Mineral"
+    },
+    {
+      "id": "lynel_guts",
+      "name": "Lynel Guts",
+      "category": "Monster Part"
+    },
+    {
+      "id": "lynel_hoof",
+      "name": "Lynel Hoof",
+      "category": "Monster Part"
+    },
+    {
+      "id": "lynel_horn",
+      "name": "Lynel Horn",
+      "category": "Monster Part"
+    },
+    {
+      "id": "moblin_fang",
+      "name": "Moblin Fang",
+      "category": "Monster Part"
+    },
+    {
+      "id": "moblin_guts",
+      "name": "Moblin Guts",
+      "category": "Monster Part"
+    },
+    {
+      "id": "moblin_horn",
+      "name": "Moblin Horn",
+      "category": "Monster Part"
+    },
+    {
+      "id": "molduga_fin",
+      "name": "Molduga Fin",
+      "category": "Monster Part"
+    },
+    {
+      "id": "molduga_guts",
+      "name": "Molduga Guts",
+      "category": "Monster Part"
+    },
+    {
+      "id": "naydras_claw",
+      "name": "Naydra's Claw",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "naydras_scale",
+      "name": "Naydra's Scale",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "octo_balloon",
+      "name": "Octo Balloon",
+      "category": "Monster Part"
+    },
+    {
+      "id": "octorok_eyeball",
+      "name": "Octorok Eyeball",
+      "category": "Monster Part"
+    },
+    {
+      "id": "octorok_tentacle",
+      "name": "Octorok Tentacle",
+      "category": "Monster Part"
+    },
+    {
+      "id": "opal",
+      "name": "Opal",
+      "category": "Mineral"
+    },
+    {
+      "id": "red_chuchu_jelly",
+      "name": "Red Chuchu Jelly",
+      "category": "Monster Part"
+    },
+    {
+      "id": "red_lizalfos_tail",
+      "name": "Red Lizalfos Tail",
+      "category": "Monster Part"
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "category": "Mineral"
+    },
+    {
+      "id": "rushroom",
+      "name": "Rushroom",
+      "category": "Plant"
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "category": "Mineral"
+    },
+    {
+      "id": "shard_of_dinraals_fang",
+      "name": "Shard of Dinraal's Fang",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "shard_of_dinraals_horn",
+      "name": "Shard of Dinraal's Horn",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "shard_of_faroshs_fang",
+      "name": "Shard of Farosh's Fang",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "shard_of_faroshs_horn",
+      "name": "Shard of Farosh's Horn",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "shard_of_naydras_fang",
+      "name": "Shard of Naydra's Fang",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "shard_of_naydras_horn",
+      "name": "Shard of Naydra's Horn",
+      "category": "Dragon Part"
+    },
+    {
+      "id": "silent_princess",
+      "name": "Silent Princess",
+      "category": "Plant"
+    },
+    {
+      "id": "silent_shroom",
+      "name": "Silent Shroom",
+      "category": "Plant"
+    },
+    {
+      "id": "smotherwing_butterfly",
+      "name": "Smotherwing Butterfly",
+      "category": "Creature"
+    },
+    {
+      "id": "sneaky_river_snail",
+      "name": "Sneaky River Snail",
+      "category": "Creature"
+    },
+    {
+      "id": "star_fragment",
+      "name": "Star Fragment",
+      "category": "Other"
+    },
+    {
+      "id": "stealthfin_trout",
+      "name": "Stealthfin Trout",
+      "category": "Creature"
+    },
+    {
+      "id": "sunset_firefly",
+      "name": "Sunset Firefly",
+      "category": "Creature"
+    },
+    {
+      "id": "sunshroom",
+      "name": "Sunshroom",
+      "category": "Plant"
+    },
+    {
+      "id": "swift_carrot",
+      "name": "Swift Carrot",
+      "category": "Plant"
+    },
+    {
+      "id": "swift_violet",
+      "name": "Swift Violet",
+      "category": "Plant"
+    },
+    {
+      "id": "topaz",
+      "name": "Topaz",
+      "category": "Mineral"
+    },
+    {
+      "id": "voltfruit",
+      "name": "Voltfruit",
+      "category": "Plant"
+    },
+    {
+      "id": "warm_safflina",
+      "name": "Warm Safflina",
+      "category": "Plant"
+    },
+    {
+      "id": "white_chuchu_jelly",
+      "name": "White Chuchu Jelly",
+      "category": "Monster Part"
+    },
+    {
+      "id": "yellow_chuchu_jelly",
+      "name": "Yellow Chuchu Jelly",
+      "category": "Monster Part"
+    },
+    {
+      "id": "yellow_lizalfos_tail",
+      "name": "Yellow Lizalfos Tail",
+      "category": "Monster Part"
+    },
+    {
+      "id": "zapshroom",
+      "name": "Zapshroom",
+      "category": "Plant"
+    }
+  ],
+  "sets": [
+    {
+      "id": "ancient_set",
+      "name": "Ancient Set",
+      "bonus": "Ancient Proficiency",
+      "source": "BASE"
+    },
+    {
+      "id": "barbarian_set",
+      "name": "Barbarian Set",
+      "bonus": "Charge Atk. Stamina Up",
+      "source": "BASE"
+    },
+    {
+      "id": "climbing_set",
+      "name": "Climbing Set",
+      "bonus": "Climb Jump Stamina Up",
+      "source": "BASE"
+    },
+    {
+      "id": "dark_set",
+      "name": "Dark Set",
+      "bonus": "Night Speed Up",
+      "source": "BASE"
+    },
+    {
+      "id": "desert_voe_set",
+      "name": "Desert Voe Set",
+      "bonus": "Shock Damage Resist",
+      "source": "BASE"
+    },
+    {
+      "id": "fierce_deity_set",
+      "name": "Fierce Deity Set",
+      "bonus": "Charge Atk. Stamina Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "flamebreaker_set",
+      "name": "Flamebreaker Set",
+      "bonus": "Fireproof",
+      "source": "BASE"
+    },
+    {
+      "id": "gerudo_set",
+      "name": "Gerudo Set",
+      "bonus": "Heat-Resistant",
+      "source": "BASE"
+    },
+    {
+      "id": "hero_set",
+      "name": "Hero Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_time_set",
+      "name": "Hero of Time Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_twilight_set",
+      "name": "Hero of Twilight Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_winds_set",
+      "name": "Hero of Winds Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_the_sky_set",
+      "name": "Hero of the Sky Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "AMIIBO"
+    },
+    {
+      "id": "hero_of_the_wild_set",
+      "name": "Hero of the Wild Set",
+      "bonus": "Master Sword Beam Up",
+      "source": "BASE"
+    },
+    {
+      "id": "hylian_set",
+      "name": "Hylian Set",
+      "bonus": null,
+      "source": "BASE"
+    },
+    {
+      "id": "phantom_ganon_set",
+      "name": "Phantom Ganon Set",
+      "bonus": "Bone Atk. Up, Stal Disguise",
+      "source": "DLC2"
+    },
+    {
+      "id": "phantom_set",
+      "name": "Phantom Set",
+      "bonus": null,
+      "source": "DLC1"
+    },
+    {
+      "id": "radiant_set",
+      "name": "Radiant Set",
+      "bonus": "Bone Atk. Up, Stal Disguise",
+      "source": "BASE"
+    },
+    {
+      "id": "royal_guard_set",
+      "name": "Royal Guard Set",
+      "bonus": "Charge Atk. Stamina Up",
+      "source": "DLC2"
+    },
+    {
+      "id": "rubber_set",
+      "name": "Rubber Set",
+      "bonus": "Unshockable",
+      "source": "BASE"
+    },
+    {
+      "id": "salvager_set",
+      "name": "Salvager Set",
+      "bonus": "Swim Dash Stamina Up",
+      "source": "BASE"
+    },
+    {
+      "id": "snowquill_set",
+      "name": "Snowquill Set",
+      "bonus": "Unfreezable",
+      "source": "BASE"
+    },
+    {
+      "id": "soldiers_set",
+      "name": "Soldier's Set",
+      "bonus": null,
+      "source": "BASE"
+    },
+    {
+      "id": "stealth_set",
+      "name": "Stealth Set",
+      "bonus": "Night Speed Up",
+      "source": "BASE"
+    },
+    {
+      "id": "tingles_set",
+      "name": "Tingle's Set",
+      "bonus": "Night Speed Up",
+      "source": "DLC1"
+    },
+    {
+      "id": "well_worn_set",
+      "name": "Well-Worn Outfit",
+      "bonus": null,
+      "source": "BASE"
+    },
+    {
+      "id": "zora_set",
+      "name": "Zora Set",
+      "bonus": "Swim Dash Stamina Up",
+      "source": "BASE"
+    }
+  ],
+  "pieces": [
+    {
+      "id": "ancient_helm",
+      "name": "Ancient Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "vah_medoh_divine_helm",
+      "name": "Vah Medoh Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Cold Resistance, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "vah_naboris_divine_helm",
+      "name": "Vah Naboris Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Shock Resistance, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "vah_rudania_divine_helm",
+      "name": "Vah Rudania Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Flame Guard, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "vah_ruta_divine_helm",
+      "name": "Vah Ruta Divine Helm",
+      "setId": "ancient_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Swim Speed Up, See Enemy HP",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "ancient_cuirass",
+      "name": "Ancient Cuirass",
+      "setId": "ancient_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "ancient_greaves",
+      "name": "Ancient Greaves",
+      "setId": "ancient_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ancient_screw",
+            "qty": 5
+          },
+          {
+            "material": "ancient_spring",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ancient_spring",
+            "qty": 15
+          },
+          {
+            "material": "ancient_gear",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "ancient_shaft",
+            "qty": 15
+          },
+          {
+            "material": "ancient_core",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "star_fragment",
+            "qty": 1
+          },
+          {
+            "material": "giant_ancient_core",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "barbarian_helm",
+      "name": "Barbarian Helm",
+      "setId": "barbarian_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 3
+          },
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 4
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "barbarian_armor",
+      "name": "Barbarian Armor",
+      "setId": "barbarian_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 3
+          },
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 4
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "barbarian_leg_wraps",
+      "name": "Barbarian Leg Wraps",
+      "setId": "barbarian_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_horn",
+            "qty": 3
+          },
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 4
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "climbers_bandanna",
+      "name": "Climber's Bandanna",
+      "setId": "climbing_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Climb Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "keese_wing",
+            "qty": 3
+          },
+          {
+            "material": "rushroom",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "electric_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hot_footed_frog",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "climbing_gear",
+      "name": "Climbing Gear",
+      "setId": "climbing_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Climb Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "keese_wing",
+            "qty": 3
+          },
+          {
+            "material": "rushroom",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "electric_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hot_footed_frog",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "climbing_boots",
+      "name": "Climbing Boots",
+      "setId": "climbing_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Climb Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "keese_wing",
+            "qty": 3
+          },
+          {
+            "material": "rushroom",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "electric_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "hot_footed_frog",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 5
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "dark_hood",
+      "name": "Dark Hood",
+      "setId": "dark_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "dark_tunic",
+      "name": "Dark Tunic",
+      "setId": "dark_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "dark_trousers",
+      "name": "Dark Trousers",
+      "setId": "dark_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "desert_voe_headband",
+      "name": "Desert Voe Headband",
+      "setId": "desert_voe_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "ice_keese_wing",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "sapphire",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "desert_voe_spaulder",
+      "name": "Desert Voe Spaulder",
+      "setId": "desert_voe_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "ice_keese_wing",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "sapphire",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "desert_voe_trousers",
+      "name": "Desert Voe Trousers",
+      "setId": "desert_voe_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "white_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "ice_keese_wing",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ice_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "icy_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "sapphire",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "fierce_deity_mask",
+      "name": "Fierce Deity Mask",
+      "setId": "fierce_deity_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "hinox_toenail",
+            "qty": 5
+          },
+          {
+            "material": "dinraals_scale",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_tooth",
+            "qty": 5
+          },
+          {
+            "material": "dinraals_claw",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_dinraals_fang",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "fierce_deity_armor",
+      "name": "Fierce Deity Armor",
+      "setId": "fierce_deity_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "hinox_toenail",
+            "qty": 5
+          },
+          {
+            "material": "naydras_scale",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_tooth",
+            "qty": 5
+          },
+          {
+            "material": "naydras_claw",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_naydras_fang",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "fierce_deity_boots",
+      "name": "Fierce Deity Boots",
+      "setId": "fierce_deity_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": "Attack Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "hinox_toenail",
+            "qty": 5
+          },
+          {
+            "material": "faroshs_scale",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_tooth",
+            "qty": 5
+          },
+          {
+            "material": "faroshs_claw",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_faroshs_fang",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          },
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "flamebreaker_helm",
+      "name": "Flamebreaker Helm",
+      "setId": "flamebreaker_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Flame Guard",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 1
+          },
+          {
+            "material": "moblin_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 3
+          },
+          {
+            "material": "moblin_fang",
+            "qty": 4
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 5
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "flamebreaker_armor",
+      "name": "Flamebreaker Armor",
+      "setId": "flamebreaker_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Flame Guard",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 1
+          },
+          {
+            "material": "moblin_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 3
+          },
+          {
+            "material": "moblin_fang",
+            "qty": 4
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 5
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "flamebreaker_boots",
+      "name": "Flamebreaker Boots",
+      "setId": "flamebreaker_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Flame Guard",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 1
+          },
+          {
+            "material": "moblin_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "fireproof_lizard",
+            "qty": 3
+          },
+          {
+            "material": "moblin_fang",
+            "qty": 4
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "smotherwing_butterfly",
+            "qty": 5
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "gerudo_veil",
+      "name": "Gerudo Veil",
+      "setId": "gerudo_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "gerudo_top",
+      "name": "Gerudo Top",
+      "setId": "gerudo_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "gerudo_sirwal",
+      "name": "Gerudo Sirwal",
+      "setId": "gerudo_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "cap_of_the_sky",
+      "name": "Cap of the Sky",
+      "setId": "hero_of_the_sky_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tunic_of_the_sky",
+      "name": "Tunic of the Sky",
+      "setId": "hero_of_the_sky_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "trousers_of_the_sky",
+      "name": "Trousers of the Sky",
+      "setId": "hero_of_the_sky_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cap_of_the_wild",
+      "name": "Cap of the Wild",
+      "setId": "hero_of_the_wild_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "acorn",
+            "qty": 10
+          },
+          {
+            "material": "faroshs_scale",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "courser_bee_honey",
+            "qty": 5
+          },
+          {
+            "material": "faroshs_claw",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "energetic_rhino_beetle",
+            "qty": 5
+          },
+          {
+            "material": "shard_of_faroshs_fang",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tunic_of_the_wild",
+      "name": "Tunic of the Wild",
+      "setId": "hero_of_the_wild_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "acorn",
+            "qty": 10
+          },
+          {
+            "material": "naydras_scale",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "courser_bee_honey",
+            "qty": 5
+          },
+          {
+            "material": "naydras_claw",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "energetic_rhino_beetle",
+            "qty": 5
+          },
+          {
+            "material": "shard_of_naydras_fang",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "trousers_of_the_wild",
+      "name": "Trousers of the Wild",
+      "setId": "hero_of_the_wild_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "acorn",
+            "qty": 10
+          },
+          {
+            "material": "dinraals_scale",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "courser_bee_honey",
+            "qty": 5
+          },
+          {
+            "material": "dinraals_claw",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "energetic_rhino_beetle",
+            "qty": 5
+          },
+          {
+            "material": "shard_of_dinraals_fang",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cap_of_time",
+      "name": "Cap of Time",
+      "setId": "hero_of_time_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tunic_of_time",
+      "name": "Tunic of Time",
+      "setId": "hero_of_time_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "trousers_of_time",
+      "name": "Trousers of Time",
+      "setId": "hero_of_time_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cap_of_twilight",
+      "name": "Cap of Twilight",
+      "setId": "hero_of_twilight_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tunic_of_twilight",
+      "name": "Tunic of Twilight",
+      "setId": "hero_of_twilight_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "trousers_of_twilight",
+      "name": "Trousers of Twilight",
+      "setId": "hero_of_twilight_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cap_of_the_wind",
+      "name": "Cap of the Wind",
+      "setId": "hero_of_winds_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tunic_of_the_wind",
+      "name": "Tunic of the Wind",
+      "setId": "hero_of_winds_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "trousers_of_the_wind",
+      "name": "Trousers of the Wind",
+      "setId": "hero_of_winds_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cap_of_the_hero",
+      "name": "Cap of the Hero",
+      "setId": "hero_set",
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tunic_of_the_hero",
+      "name": "Tunic of the Hero",
+      "setId": "hero_set",
+      "slot": "BODY",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "trousers_of_the_hero",
+      "name": "Trousers of the Hero",
+      "setId": "hero_set",
+      "slot": "LEGS",
+      "source": "AMIIBO",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 5
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "hylian_hood",
+      "name": "Hylian Hood",
+      "setId": "hylian_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 8
+          },
+          {
+            "material": "bokoblin_fang",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_fang",
+            "qty": 10
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_guts",
+            "qty": 15
+          },
+          {
+            "material": "amber",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "hylian_tunic",
+      "name": "Hylian Tunic",
+      "setId": "hylian_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 8
+          },
+          {
+            "material": "bokoblin_fang",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_fang",
+            "qty": 10
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_guts",
+            "qty": 15
+          },
+          {
+            "material": "amber",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "hylian_trousers",
+      "name": "Hylian Trousers",
+      "setId": "hylian_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_horn",
+            "qty": 8
+          },
+          {
+            "material": "bokoblin_fang",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_fang",
+            "qty": 10
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "bokoblin_guts",
+            "qty": 15
+          },
+          {
+            "material": "amber",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "phantom_ganon_skull",
+      "name": "Phantom Ganon Skull",
+      "setId": "phantom_ganon_set",
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": "Stealth Up",
+      "defense": [
+        4
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "phantom_ganon_armor",
+      "name": "Phantom Ganon Armor",
+      "setId": "phantom_ganon_set",
+      "slot": "BODY",
+      "source": "DLC2",
+      "effect": "Stealth Up",
+      "defense": [
+        4
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "phantom_ganon_greaves",
+      "name": "Phantom Ganon Greaves",
+      "setId": "phantom_ganon_set",
+      "slot": "LEGS",
+      "source": "DLC2",
+      "effect": "Stealth Up",
+      "defense": [
+        4
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "phantom_helmet",
+      "name": "Phantom Helmet",
+      "setId": "phantom_set",
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": "Attack Up",
+      "defense": [
+        8
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "phantom_armor",
+      "name": "Phantom Armor",
+      "setId": "phantom_set",
+      "slot": "BODY",
+      "source": "DLC1",
+      "effect": "Attack Up",
+      "defense": [
+        8
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "phantom_greaves",
+      "name": "Phantom Greaves",
+      "setId": "phantom_set",
+      "slot": "LEGS",
+      "source": "DLC1",
+      "effect": "Attack Up",
+      "defense": [
+        8
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "radiant_mask",
+      "name": "Radiant Mask",
+      "setId": "radiant_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Stal Lure",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 8
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 10
+          },
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 20
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "radiant_shirt",
+      "name": "Radiant Shirt",
+      "setId": "radiant_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Stal Lure",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 8
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 10
+          },
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 20
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "radiant_tights",
+      "name": "Radiant Tights",
+      "setId": "radiant_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Stal Lure",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 8
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 10
+          },
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "luminous_stone",
+            "qty": 20
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "royal_guard_cap",
+      "name": "Royal Guard Cap",
+      "setId": "royal_guard_set",
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": null,
+      "defense": [
+        4
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "royal_guard_uniform",
+      "name": "Royal Guard Uniform",
+      "setId": "royal_guard_set",
+      "slot": "BODY",
+      "source": "DLC2",
+      "effect": null,
+      "defense": [
+        4
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "royal_guard_boots",
+      "name": "Royal Guard Boots",
+      "setId": "royal_guard_set",
+      "slot": "LEGS",
+      "source": "DLC2",
+      "effect": null,
+      "defense": [
+        4
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "rubber_helm",
+      "name": "Rubber Helm",
+      "setId": "rubber_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "voltfruit",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "zapshroom",
+            "qty": 5
+          },
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "topaz",
+            "qty": 10
+          }
+        ]
+      ]
+    },
+    {
+      "id": "rubber_armor",
+      "name": "Rubber Armor",
+      "setId": "rubber_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "voltfruit",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "zapshroom",
+            "qty": 5
+          },
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "topaz",
+            "qty": 10
+          }
+        ]
+      ]
+    },
+    {
+      "id": "rubber_tights",
+      "name": "Rubber Tights",
+      "setId": "rubber_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "yellow_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "voltfruit",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "zapshroom",
+            "qty": 5
+          },
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "yellow_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "topaz",
+            "qty": 10
+          }
+        ]
+      ]
+    },
+    {
+      "id": "salvager_headwear",
+      "name": "Salvager Headwear",
+      "setId": "salvager_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        5
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "salvager_vest",
+      "name": "Salvager Vest",
+      "setId": "salvager_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        5
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "salvager_trousers",
+      "name": "Salvager Trousers",
+      "setId": "salvager_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        5
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "snowquill_headdress",
+      "name": "Snowquill Headdress",
+      "setId": "snowquill_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "warm_safflina",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "sunshroom",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "red_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "ruby",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "snowquill_tunic",
+      "name": "Snowquill Tunic",
+      "setId": "snowquill_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "warm_safflina",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "sunshroom",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "red_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "ruby",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "snowquill_trousers",
+      "name": "Snowquill Trousers",
+      "setId": "snowquill_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "red_chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "warm_safflina",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "fire_keese_wing",
+            "qty": 8
+          },
+          {
+            "material": "sunshroom",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "red_lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "ruby",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "soldiers_helm",
+      "name": "Soldier's Helm",
+      "setId": "soldiers_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "keese_eyeball",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 2
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "soldiers_armor",
+      "name": "Soldier's Armor",
+      "setId": "soldiers_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "keese_eyeball",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 3
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "soldiers_greaves",
+      "name": "Soldier's Greaves",
+      "setId": "soldiers_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "chuchu_jelly",
+            "qty": 5
+          },
+          {
+            "material": "bokoblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "keese_eyeball",
+            "qty": 3
+          },
+          {
+            "material": "moblin_guts",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 3
+          },
+          {
+            "material": "hinox_guts",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "lynel_hoof",
+            "qty": 2
+          },
+          {
+            "material": "lynel_guts",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "stealth_mask",
+      "name": "Stealth Mask",
+      "setId": "stealth_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 5
+          },
+          {
+            "material": "sunset_firefly",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "silent_shroom",
+            "qty": 8
+          },
+          {
+            "material": "sneaky_river_snail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "stealthfin_trout",
+            "qty": 10
+          },
+          {
+            "material": "silent_princess",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "stealth_chest_guard",
+      "name": "Stealth Chest Guard",
+      "setId": "stealth_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 5
+          },
+          {
+            "material": "sunset_firefly",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "silent_shroom",
+            "qty": 8
+          },
+          {
+            "material": "sneaky_river_snail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "stealthfin_trout",
+            "qty": 10
+          },
+          {
+            "material": "silent_princess",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "stealth_tights",
+      "name": "Stealth Tights",
+      "setId": "stealth_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "blue_nightshade",
+            "qty": 5
+          },
+          {
+            "material": "sunset_firefly",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "silent_shroom",
+            "qty": 8
+          },
+          {
+            "material": "sneaky_river_snail",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "stealthfin_trout",
+            "qty": 10
+          },
+          {
+            "material": "silent_princess",
+            "qty": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "tingles_hood",
+      "name": "Tingle's Hood",
+      "setId": "tingles_set",
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        2
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "tingles_shirt",
+      "name": "Tingle's Shirt",
+      "setId": "tingles_set",
+      "slot": "BODY",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        2
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "tingles_tights",
+      "name": "Tingle's Tights",
+      "setId": "tingles_set",
+      "slot": "LEGS",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        2
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "old_shirt",
+      "name": "Old Shirt",
+      "setId": "well_worn_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "well_worn_trousers",
+      "name": "Well-Worn Trousers",
+      "setId": "well_worn_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "zora_helm",
+      "name": "Zora Helm",
+      "setId": "zora_set",
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Swim Speed Up, Spin Attack",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lizalfos_horn",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_talon",
+            "qty": 5
+          },
+          {
+            "material": "hyrule_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 5
+          },
+          {
+            "material": "hearty_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "opal",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "zora_armor",
+      "name": "Zora Armor",
+      "setId": "zora_set",
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lizalfos_horn",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_talon",
+            "qty": 5
+          },
+          {
+            "material": "hyrule_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 5
+          },
+          {
+            "material": "hearty_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "opal",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "zora_greaves",
+      "name": "Zora Greaves",
+      "setId": "zora_set",
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "lizalfos_horn",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_talon",
+            "qty": 5
+          },
+          {
+            "material": "hyrule_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 5
+          },
+          {
+            "material": "hearty_bass",
+            "qty": 5
+          }
+        ],
+        [
+          {
+            "material": "lizalfos_tail",
+            "qty": 10
+          },
+          {
+            "material": "opal",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "amber_earrings",
+      "name": "Amber Earrings",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": null,
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "amber",
+            "qty": 5
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 10
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 20
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "amber",
+            "qty": 30
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ]
+      ]
+    },
+    {
+      "id": "bokoblin_mask",
+      "name": "Bokoblin Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Bokoblin Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "diamond_circlet",
+      "name": "Diamond Circlet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        4,
+        7,
+        12,
+        18,
+        28
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "diamond",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "diamond",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "diamond",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "diamond",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "korok_mask",
+      "name": "Korok Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "lizalfos_mask",
+      "name": "Lizalfos Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Lizalfos Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "lynel_mask",
+      "name": "Lynel Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Lynel Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "majoras_mask",
+      "name": "Majora's Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": "Bokoblin Disguise, Moblin Disguise, Lizalfos Disguise, Lynel Disguise",
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "midnas_helmet",
+      "name": "Midna's Helmet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC1",
+      "effect": "Guardian Resist Up",
+      "defense": [
+        7
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "moblin_mask",
+      "name": "Moblin Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Moblin Disguise",
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "opal_earrings",
+      "name": "Opal Earrings",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Swim Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "opal",
+            "qty": 5
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 8
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 16
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "opal",
+            "qty": 20
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ]
+      ]
+    },
+    {
+      "id": "ravios_hood",
+      "name": "Ravio's Hood",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": "Climb Speed Up",
+      "defense": [
+        2
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "ruby_circlet",
+      "name": "Ruby Circlet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "ruby",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "ruby",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "sapphire_circlet",
+      "name": "Sapphire Circlet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Heat Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "sapphire",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "sapphire",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "sheiks_mask",
+      "name": "Sheik's Mask",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "AMIIBO",
+      "effect": "Stealth Up",
+      "defense": [
+        2,
+        4,
+        6,
+        9,
+        16
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "silent_princess",
+            "qty": 1
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 2
+          },
+          {
+            "material": "star_fragment",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          },
+          {
+            "material": "star_fragment",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 4
+          },
+          {
+            "material": "star_fragment",
+            "qty": 4
+          }
+        ]
+      ]
+    },
+    {
+      "id": "thunder_helm",
+      "name": "Thunder Helm",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Lightning Proof",
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "topaz_earrings",
+      "name": "Topaz Earrings",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "BASE",
+      "effect": "Shock Resistance",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        18
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "topaz",
+            "qty": 2
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 4
+          },
+          {
+            "material": "flint",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 6
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ],
+        [
+          {
+            "material": "topaz",
+            "qty": 10
+          },
+          {
+            "material": "star_fragment",
+            "qty": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "zants_helmet",
+      "name": "Zant's Helmet",
+      "setId": null,
+      "slot": "HEAD",
+      "source": "DLC2",
+      "effect": "Unfreezable",
+      "defense": [
+        3
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "champions_tunic",
+      "name": "Champion's Tunic",
+      "setId": null,
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "See Enemy HP",
+      "defense": [
+        5,
+        8,
+        14,
+        22,
+        32
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          },
+          {
+            "material": "shard_of_faroshs_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 3
+          },
+          {
+            "material": "shard_of_naydras_horn",
+            "qty": 2
+          }
+        ],
+        [
+          {
+            "material": "silent_princess",
+            "qty": 10
+          },
+          {
+            "material": "shard_of_dinraals_horn",
+            "qty": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "island_lobster_shirt",
+      "name": "Island Lobster Shirt",
+      "setId": null,
+      "slot": "BODY",
+      "source": "DLC2",
+      "effect": "Heat Resistance",
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "nintendo_switch_shirt",
+      "name": "Nintendo Switch Shirt",
+      "setId": null,
+      "slot": "BODY",
+      "source": "DLC1",
+      "effect": null,
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "warm_doublet",
+      "name": "Warm Doublet",
+      "setId": null,
+      "slot": "BODY",
+      "source": "BASE",
+      "effect": "Cold Resistance",
+      "defense": [
+        1
+      ],
+      "upgrades": []
+    },
+    {
+      "id": "sand_boots",
+      "name": "Sand Boots",
+      "setId": null,
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Sand Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "molduga_fin",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "molduga_fin",
+            "qty": 10
+          },
+          {
+            "material": "swift_carrot",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "molduga_guts",
+            "qty": 2
+          },
+          {
+            "material": "rushroom",
+            "qty": 15
+          }
+        ],
+        [
+          {
+            "material": "molduga_guts",
+            "qty": 4
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ]
+    },
+    {
+      "id": "snow_boots",
+      "name": "Snow Boots",
+      "setId": null,
+      "slot": "LEGS",
+      "source": "BASE",
+      "effect": "Snow Speed Up",
+      "defense": [
+        3,
+        5,
+        8,
+        12,
+        20
+      ],
+      "upgrades": [
+        [
+          {
+            "material": "octorok_tentacle",
+            "qty": 5
+          },
+          {
+            "material": "hightail_lizard",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "octo_balloon",
+            "qty": 5
+          },
+          {
+            "material": "swift_carrot",
+            "qty": 10
+          }
+        ],
+        [
+          {
+            "material": "octorok_eyeball",
+            "qty": 5
+          },
+          {
+            "material": "rushroom",
+            "qty": 15
+          }
+        ],
+        [
+          {
+            "material": "naydras_scale",
+            "qty": 2
+          },
+          {
+            "material": "swift_violet",
+            "qty": 15
+          }
+        ]
+      ]
+    }
+  ]
+}
