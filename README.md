@@ -21,6 +21,18 @@ iOS port is mostly a matter of adding the iOS targets.
   10,000 rupees, by how many are already open) and how far armor can be upgraded.
 - Shares the active save file with the armor tracker.
 
+**Breath of the Wild: Hyrule Compendium**
+- All 389 entries (385 base game + 4 from The Champions' Ballad) in the in-game order and
+  numbering, and Master Mode's 394, with its five extra entries and its own numbers, on the
+  Master Mode file.
+- A tab per category with photographed counts; Creatures is split into animals and food (048–083,
+  the entries that show hearts recovered rather than materials). Search by name, number, location
+  or drop, and a *Missing only* filter.
+- Each entry's common locations and drops, and how to buy its picture from Symin if you can't
+  take it (Elite Enemy Pictures only after Dark Beast Ganon). Entries that can only be
+  photographed at certain times — bosses, DLC trials — are marked *Limited*.
+- Tracks Save File 1, Save File 2 and Master Mode separately, sharing the active file.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -43,8 +55,10 @@ Both TotK trackers track **Save File 1** and **Save File 2** separately and shar
 shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
+  src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
+  src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
@@ -82,6 +96,13 @@ TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against
 Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
 from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
 Zelda Wiki only.
+
+BotW Compendium numbering is from Zelda Wiki's *Hyrule Compendium Items in Breath of the Wild*
+(Normal and Master Mode, with and without The Champions' Ballad). Common locations and drops are
+the in-game text, from the Hyrule Compendium API (api.hyrule-compendium.com) checked against
+Zelda Wiki's `Data:Hyrule Compendium/BotW`, which also supplied the drops the API got wrong.
+Locations for entries the game lists as unknown, Symin's picture sales and the *Limited* notes
+come from Zelda Wiki and Zelda Fandom.
 
 Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 `scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
