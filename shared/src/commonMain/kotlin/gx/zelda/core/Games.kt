@@ -15,7 +15,11 @@ data class Game(
 data class SaveFile(val id: String, val label: String)
 
 /** The kinds of tracker a game can offer; each kind has one set of screens shared by every game. */
-enum class TrackerKind { ARMOR, FAIRIES }
+enum class TrackerKind {
+    ARMOR,
+    FAIRIES,
+    SHRINES,
+}
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
 
@@ -33,6 +37,7 @@ object Games {
         trackers = listOf(
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
             Tracker(TrackerKind.FAIRIES, "Great Fairy Fountains", "Where to find each Great Fairy and what opening her fountain costs"),
+            Tracker(TrackerKind.SHRINES, "Shrines", "Shrines by region, Shrine Quests and a Spirit Orb planner"),
         ),
     )
 
