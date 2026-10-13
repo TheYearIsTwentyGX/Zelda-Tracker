@@ -1,0 +1,1281 @@
+{
+  "regions": [
+    "Great Plateau",
+    "Dueling Peaks",
+    "Hateno",
+    "Lanayru",
+    "Faron",
+    "Lake",
+    "Central",
+    "Ridgeland",
+    "Tabantha",
+    "Hebra",
+    "Woodland",
+    "Eldin",
+    "Akkala",
+    "Wasteland",
+    "Gerudo"
+  ],
+  "upgrades": {
+    "orbsPerUpgrade": 4,
+    "startingHearts": 3,
+    "maxHearts": 30,
+    "startingStaminaWheels": 1,
+    "maxStaminaVessels": 10,
+    "bossHearts": 4
+  },
+  "shrines": [
+    {
+      "id": "ja_baij",
+      "name": "Ja Baij",
+      "region": "Great Plateau",
+      "trial": "Bomb Trial",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Inside the walled ruins of the Eastern Abbey, guarded by a Decayed Guardian."
+    },
+    {
+      "id": "keh_namut",
+      "name": "Keh Namut",
+      "region": "Great Plateau",
+      "trial": "Cryonis Trial",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Atop snowy Mount Hylia on the Great Plateau; bring cold protection."
+    },
+    {
+      "id": "oman_au",
+      "name": "Oman Au",
+      "region": "Great Plateau",
+      "trial": "Magnesis Trial",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Across the small lake near the base of the Great Plateau Tower."
+    },
+    {
+      "id": "owa_daim",
+      "name": "Owa Daim",
+      "region": "Great Plateau",
+      "trial": "Stasis Trial",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Atop a climbable rock precipice just off the southern edge of the Great Plateau."
+    },
+    {
+      "id": "bosh_kala",
+      "name": "Bosh Kala",
+      "region": "Dueling Peaks",
+      "trial": "The Wind Guides You",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In Hyrule Field between the East Post Ruins and Proxim Bridge."
+    },
+    {
+      "id": "ha_dahamar",
+      "name": "Ha Dahamar",
+      "region": "Dueling Peaks",
+      "trial": "The Water Guides",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In a spike-ringed pool beside Dueling Peaks Stable, east end of the Dueling Peaks."
+    },
+    {
+      "id": "hila_rao",
+      "name": "Hila Rao",
+      "region": "Dueling Peaks",
+      "trial": "Drifting",
+      "type": "puzzle",
+      "quest": "Watch Out for the Flowers",
+      "location": "On Floret Sandbar, northeast of Riverside Stable; don't trample Magda's flowers."
+    },
+    {
+      "id": "lakna_rokee",
+      "name": "Lakna Rokee",
+      "region": "Dueling Peaks",
+      "trial": "Lakna Rokee's Blessing",
+      "type": "blessing",
+      "quest": "The Stolen Heirloom",
+      "location": "Hidden underground on the East Hill above Kakariko Village; opened with the Sheikah Heirloom."
+    },
+    {
+      "id": "ree_dahee",
+      "name": "Ree Dahee",
+      "region": "Dueling Peaks",
+      "trial": "Timing Is Critical",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a low ledge of the northern Dueling Peak, in the valley between the two peaks."
+    },
+    {
+      "id": "shee_vaneer",
+      "name": "Shee Vaneer",
+      "region": "Dueling Peaks",
+      "trial": "Twin Memories",
+      "type": "puzzle",
+      "quest": null,
+      "location": "At the summit of the southern Dueling Peak."
+    },
+    {
+      "id": "shee_venath",
+      "name": "Shee Venath",
+      "region": "Dueling Peaks",
+      "trial": "Twin Memories",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a ledge just below the summit of the northern Dueling Peak."
+    },
+    {
+      "id": "taloh_naeg",
+      "name": "Ta'loh Naeg",
+      "region": "Dueling Peaks",
+      "trial": "Ta'loh Naeg's Teaching",
+      "type": "combat",
+      "quest": null,
+      "location": "On the East Hill overlooking Kakariko Village."
+    },
+    {
+      "id": "toto_sah",
+      "name": "Toto Sah",
+      "region": "Dueling Peaks",
+      "trial": "Toto Sah Apparatus",
+      "type": "puzzle",
+      "quest": null,
+      "location": "South of Hickaly Woods along the river, behind a bombable wall."
+    },
+    {
+      "id": "chaas_qeta",
+      "name": "Chaas Qeta",
+      "region": "Hateno",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "On Tenoko Island in the Necluda Sea."
+    },
+    {
+      "id": "dow_naeh",
+      "name": "Dow Na'eh",
+      "region": "Hateno",
+      "trial": "Three Boxes",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In the cave behind the waterfall on the Lanayru Promenade, north of Hateno Village."
+    },
+    {
+      "id": "jitan_sami",
+      "name": "Jitan Sa'mi",
+      "region": "Hateno",
+      "trial": "Jitan Sa'mi's Blessing",
+      "type": "blessing",
+      "quest": "The Spring of Wisdom",
+      "location": "Behind the Spring of Wisdom atop snowy Mount Lanayru; needs strong cold resistance."
+    },
+    {
+      "id": "kam_urog",
+      "name": "Kam Urog",
+      "region": "Hateno",
+      "trial": "Trial of Passage",
+      "type": "puzzle",
+      "quest": "The Cursed Statue",
+      "location": "Buried northeast of Fort Hateno; shoot the statue's glowing eyes to raise it."
+    },
+    {
+      "id": "mezza_lo",
+      "name": "Mezza Lo",
+      "region": "Hateno",
+      "trial": "Ancient Trifecta",
+      "type": "puzzle",
+      "quest": "The Crowned Beast",
+      "location": "Buried on Rabia Plain; ride a Mountain Buck onto the pedestal to raise it."
+    },
+    {
+      "id": "myahm_agana",
+      "name": "Myahm Agana",
+      "region": "Hateno",
+      "trial": "Myahm Agana Apparatus",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Inside Hateno Village."
+    },
+    {
+      "id": "tahno_oah",
+      "name": "Tahno O'ah",
+      "region": "Hateno",
+      "trial": "Tahno O'ah's Blessing",
+      "type": "blessing",
+      "quest": "Secret of the Cedars",
+      "location": "At the base of Madorna Mountain on Mount Lanayru; bomb the rocks blocking it."
+    },
+    {
+      "id": "dagah_keek",
+      "name": "Dagah Keek",
+      "region": "Lanayru",
+      "trial": "Dagah Keek's Blessing",
+      "type": "blessing",
+      "quest": "The Ceremonial Song",
+      "location": "Buried by the pool at the bottom of Veiled Falls, Lanayru Great Spring."
+    },
+    {
+      "id": "daka_tuss",
+      "name": "Daka Tuss",
+      "region": "Lanayru",
+      "trial": "Sunken Scoop",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On Shrine Island in the Lanayru Wetlands, north of Kakariko Village."
+    },
+    {
+      "id": "kah_mael",
+      "name": "Kah Mael",
+      "region": "Lanayru",
+      "trial": "Drop and Rise",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On Tingel Island, in a hole beneath a large rock slab."
+    },
+    {
+      "id": "kaya_wan",
+      "name": "Kaya Wan",
+      "region": "Lanayru",
+      "trial": "Shields from Water",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Right beside the west side of Wetland Stable, Lanayru Wetlands."
+    },
+    {
+      "id": "neez_yohma",
+      "name": "Ne'ez Yohma",
+      "region": "Lanayru",
+      "trial": "Pushing Power",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In the middle of Zora's Domain, below King Dorephan's throne room."
+    },
+    {
+      "id": "rucco_maag",
+      "name": "Rucco Maag",
+      "region": "Lanayru",
+      "trial": "Five Flames",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On Samasa Plain in the Lanayru Great Spring, ringed by spikes."
+    },
+    {
+      "id": "shai_yota",
+      "name": "Shai Yota",
+      "region": "Lanayru",
+      "trial": "Shai Yota's Blessing",
+      "type": "blessing",
+      "quest": "Master of the Wind",
+      "location": "Buried on an island in Horon Lagoon; paraglide onto the pedestal to raise it."
+    },
+    {
+      "id": "sheh_rata",
+      "name": "Sheh Rata",
+      "region": "Lanayru",
+      "trial": "Speed of Light",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a thorny islet hill in the Hylia River, east of Crenel Peak."
+    },
+    {
+      "id": "soh_kofi",
+      "name": "Soh Kofi",
+      "region": "Lanayru",
+      "trial": "A Minor Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "West of Inogo Bridge on the north bank of the Zora River."
+    },
+    {
+      "id": "kah_yah",
+      "name": "Kah Yah",
+      "region": "Faron",
+      "trial": "Quick Thinking",
+      "type": "puzzle",
+      "quest": "A Fragmented Monument",
+      "location": "Buried at the Palmorae Ruins; photograph the monument shards for Garini."
+    },
+    {
+      "id": "korgu_chideh",
+      "name": "Korgu Chideh",
+      "region": "Faron",
+      "trial": "Korgu Chideh's Blessing",
+      "type": "blessing",
+      "quest": "Stranded on Eventide",
+      "location": "Atop Koholit Rock on Eventide Island; you arrive stripped of all gear."
+    },
+    {
+      "id": "muwo_jeem",
+      "name": "Muwo Jeem",
+      "region": "Faron",
+      "trial": "A Modest Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Atop Cape Cales, overlooking the Necluda Sea."
+    },
+    {
+      "id": "qukah_nata",
+      "name": "Qukah Nata",
+      "region": "Faron",
+      "trial": "Qukah Nata's Blessing",
+      "type": "blessing",
+      "quest": "A Song of Storms",
+      "location": "In a mound atop a hill at the southeast edge of Calora Lake (constant thunderstorm)."
+    },
+    {
+      "id": "shai_utoh",
+      "name": "Shai Utoh",
+      "region": "Faron",
+      "trial": "Halt the Tilt",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In a cave behind Lakeside Stable; bomb the blocked entrance."
+    },
+    {
+      "id": "shoda_sah",
+      "name": "Shoda Sah",
+      "region": "Faron",
+      "trial": "Impeccable Timing",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Behind the highest waterfall of Floria Falls, below Riola Spring."
+    },
+    {
+      "id": "tawa_jinn",
+      "name": "Tawa Jinn",
+      "region": "Faron",
+      "trial": "Tawa Jinn's Blessing",
+      "type": "blessing",
+      "quest": "The Three Giant Brothers",
+      "location": "Buried atop the east side of Mount Taran; take orbs from the three Hinox brothers."
+    },
+    {
+      "id": "yah_rin",
+      "name": "Yah Rin",
+      "region": "Faron",
+      "trial": "A Weighty Decision",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On the northwestern outskirts of Lurelin Village."
+    },
+    {
+      "id": "ishto_soh",
+      "name": "Ishto Soh",
+      "region": "Lake",
+      "trial": "Bravery's Grasp",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Among garbage piles on the slopes west of Oseira Plains, Gerudo Highlands."
+    },
+    {
+      "id": "kao_makagh",
+      "name": "Ka'o Makagh",
+      "region": "Lake",
+      "trial": "Metal Doors Open the Way",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a ledge above Highland Stable."
+    },
+    {
+      "id": "pumaag_nitae",
+      "name": "Pumaag Nitae",
+      "region": "Lake",
+      "trial": "A Minor Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Where Pagos Woods (Faron Grasslands) meets Finra Woods (West Necluda)."
+    },
+    {
+      "id": "shae_katha",
+      "name": "Shae Katha",
+      "region": "Lake",
+      "trial": "Shae Katha's Blessing",
+      "type": "blessing",
+      "quest": "The Serpent's Jaws",
+      "location": "Behind the Goddess Statue at the Spring of Courage; drop a Farosh scale in the spring."
+    },
+    {
+      "id": "shoqa_tatone",
+      "name": "Shoqa Tatone",
+      "region": "Lake",
+      "trial": "A Modest Test of Strength",
+      "type": "combat",
+      "quest": "Guardian Slideshow",
+      "location": "Buried on Puffer Beach; show Loone a Guardian Skywatcher photo to get the orb."
+    },
+    {
+      "id": "ya_naga",
+      "name": "Ya Naga",
+      "region": "Lake",
+      "trial": "Shatter the Heavens",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In a dry hollow among rocks at the center of Hylia Island, Lake Hylia."
+    },
+    {
+      "id": "dah_kaso",
+      "name": "Dah Kaso",
+      "region": "Central",
+      "trial": "A Minor Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Under the Digdogg Suspension Bridge in Hyrule Field."
+    },
+    {
+      "id": "kaam_yatak",
+      "name": "Kaam Ya'tak",
+      "region": "Central",
+      "trial": "Trial of Power",
+      "type": "puzzle",
+      "quest": null,
+      "location": "At the southern base of Mount Daphnes in Hyrule Field."
+    },
+    {
+      "id": "katah_chuki",
+      "name": "Katah Chuki",
+      "region": "Central",
+      "trial": "A Minor Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Among the rocky outcrops of the Quarry Ruins in Hyrule Field."
+    },
+    {
+      "id": "namika_ozz",
+      "name": "Namika Ozz",
+      "region": "Central",
+      "trial": "A Modest Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Inside a huge hollow tree stump on the Crenel Hills, eastern Hyrule Field."
+    },
+    {
+      "id": "noya_neha",
+      "name": "Noya Neha",
+      "region": "Central",
+      "trial": "A Minor Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "In a thorn-blocked cave at the far end of Hyrule Castle West; burn the thorns."
+    },
+    {
+      "id": "rota_ooh",
+      "name": "Rota Ooh",
+      "region": "Central",
+      "trial": "Passing of the Gates",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a hill just west of Outskirt Stable."
+    },
+    {
+      "id": "saas_kosah",
+      "name": "Saas Ko'sah",
+      "region": "Central",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Buried at Hyrule Castle's Docks; light the big central torch to raise it."
+    },
+    {
+      "id": "wahgo_katta",
+      "name": "Wahgo Katta",
+      "region": "Central",
+      "trial": "Metal Connections",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Northwest of Riverside Stable, on the west bank of the Hylia River."
+    },
+    {
+      "id": "maag_norah",
+      "name": "Maag No'rah",
+      "region": "Ridgeland",
+      "trial": "Maag No'rah's Blessing",
+      "type": "blessing",
+      "quest": null,
+      "location": "In a bombable cliff-face cave on Upland Lindor, near the Maritta Exchange Ruins."
+    },
+    {
+      "id": "mijah_rokee",
+      "name": "Mijah Rokee",
+      "region": "Ridgeland",
+      "trial": "A Modest Test of Strength",
+      "type": "combat",
+      "quest": "Under a Red Moon",
+      "location": "Buried at Washa's Bluff; stand on the pedestal wearing no armor under a Blood Moon."
+    },
+    {
+      "id": "mogg_latan",
+      "name": "Mogg Latan",
+      "region": "Ridgeland",
+      "trial": "Synced Swing",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Near the peak of Satori Mountain."
+    },
+    {
+      "id": "shae_loya",
+      "name": "Shae Loya",
+      "region": "Ridgeland",
+      "trial": "Aim for the Moment",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a ridge just south of Tabantha Bridge Stable."
+    },
+    {
+      "id": "sheem_dagoze",
+      "name": "Sheem Dagoze",
+      "region": "Ridgeland",
+      "trial": "Moving in Parallel",
+      "type": "puzzle",
+      "quest": "The Two Rings",
+      "location": "Buried in the West Hyrule Plains; shoot an arrow through both stone rings."
+    },
+    {
+      "id": "toh_yahsa",
+      "name": "Toh Yahsa",
+      "region": "Ridgeland",
+      "trial": "Buried Secrets",
+      "type": "puzzle",
+      "quest": "Trial of Thunder",
+      "location": "Buried on the stormy Thundra Plateau; place the four spheres to raise it."
+    },
+    {
+      "id": "zalta_wa",
+      "name": "Zalta Wa",
+      "region": "Ridgeland",
+      "trial": "Two Orbs to Guide You",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In the Breach of Demise, southeast of Ridgeland Tower."
+    },
+    {
+      "id": "akh_vaquot",
+      "name": "Akh Va'quot",
+      "region": "Tabantha",
+      "trial": "Windmills",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Inside Rito Village, southwest of the Brazen Beak shop."
+    },
+    {
+      "id": "bareeda_naag",
+      "name": "Bareeda Naag",
+      "region": "Tabantha",
+      "trial": "Cannon",
+      "type": "puzzle",
+      "quest": "The Ancient Rito Song",
+      "location": "Lake Totori South, just south of Rito Village; raised via Bedoli's quest after Vah Medoh."
+    },
+    {
+      "id": "kah_okeo",
+      "name": "Kah Okeo",
+      "region": "Tabantha",
+      "trial": "Wind Guide",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In a cave west of the Rayne Highlands; move the stone slab with Stasis or Octo Balloons."
+    },
+    {
+      "id": "sha_warvo",
+      "name": "Sha Warvo",
+      "region": "Tabantha",
+      "trial": "Path of Hidden Winds",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On Dronoc's Pass, south of the Flight Range."
+    },
+    {
+      "id": "tena_kosah",
+      "name": "Tena Ko'sah",
+      "region": "Tabantha",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Among the Ancient Columns on the Tabantha Frontier, south of Tabantha Tower."
+    },
+    {
+      "id": "voo_lota",
+      "name": "Voo Lota",
+      "region": "Tabantha",
+      "trial": "The Winding Route",
+      "type": "puzzle",
+      "quest": "Recital at Warbler's Nest",
+      "location": "At Warbler's Nest west of Rito Village; appears via Kheel's recital after Vah Medoh."
+    },
+    {
+      "id": "dunba_taag",
+      "name": "Dunba Taag",
+      "region": "Hebra",
+      "trial": "Build and Release",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Inside Tanagar Canyon, along its border with the Tabantha Frontier."
+    },
+    {
+      "id": "gee_harah",
+      "name": "Gee Ha'rah",
+      "region": "Hebra",
+      "trial": "Tandem",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Kopeeki Drifts Cave; roll a big snowball down Kopeeki Drifts to break the stone door."
+    },
+    {
+      "id": "goma_asaagh",
+      "name": "Goma Asaagh",
+      "region": "Hebra",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Directly beneath Hebra Peak, encased in ice that must be melted or climbed over."
+    },
+    {
+      "id": "hia_miu",
+      "name": "Hia Miu",
+      "region": "Hebra",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "On the Icefall Foothills in the far northwest corner of the Hebra Mountains."
+    },
+    {
+      "id": "lanno_kooh",
+      "name": "Lanno Kooh",
+      "region": "Hebra",
+      "trial": "Lanno Kooh's Blessing",
+      "type": "blessing",
+      "quest": null,
+      "location": "Under a rock arch downriver of Hebra Falls; ride a felled log down the icy river."
+    },
+    {
+      "id": "maka_rah",
+      "name": "Maka Rah",
+      "region": "Hebra",
+      "trial": "Steady Thy Heart",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In a cave on the west edge of Lake Kilsie; entrance is in the cliff further northeast."
+    },
+    {
+      "id": "mozo_shenno",
+      "name": "Mozo Shenno",
+      "region": "Hebra",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": "The Bird in the Mountains",
+      "location": "Below the Biron Snowshelf; start via Molli in Rito Village."
+    },
+    {
+      "id": "qaza_tokki",
+      "name": "Qaza Tokki",
+      "region": "Hebra",
+      "trial": "Qaza Tokki's Blessing",
+      "type": "blessing",
+      "quest": "Trial on the Cliff",
+      "location": "At the center of the North Lomei Labyrinth, northeast Hebra Mountains."
+    },
+    {
+      "id": "rin_oyaa",
+      "name": "Rin Oyaa",
+      "region": "Hebra",
+      "trial": "Directing the Wind",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Beside Snowfield Stable in the southwest Tabantha Tundra."
+    },
+    {
+      "id": "rok_uwog",
+      "name": "Rok Uwog",
+      "region": "Hebra",
+      "trial": "Power of Reach",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Under a rocky canopy in the northwest of Pikida Stonegrove."
+    },
+    {
+      "id": "sha_gehma",
+      "name": "Sha Gehma",
+      "region": "Hebra",
+      "trial": "Shift and Lock",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Near the northern edge of N. Tabantha Snowfield."
+    },
+    {
+      "id": "shada_naw",
+      "name": "Shada Naw",
+      "region": "Hebra",
+      "trial": "Red Giveaway",
+      "type": "puzzle",
+      "quest": null,
+      "location": "North of Selmie's Spot in the Hebra Mountains."
+    },
+    {
+      "id": "to_quomo",
+      "name": "To Quomo",
+      "region": "Hebra",
+      "trial": "To Quomo's Blessing",
+      "type": "blessing",
+      "quest": null,
+      "location": "Ice cave under the Hebra Great Skeleton; snowball the stone door SE of Hebra North Summit."
+    },
+    {
+      "id": "daag_chokah",
+      "name": "Daag Chokah",
+      "region": "Woodland",
+      "trial": "Daag Chokah's Blessing",
+      "type": "blessing",
+      "quest": "The Lost Pilgrimage",
+      "location": "Northwest Great Hyrule Forest; follow Oaki after talking to Tasho at Korok Forest."
+    },
+    {
+      "id": "keo_ruug",
+      "name": "Keo Ruug",
+      "region": "Woodland",
+      "trial": "Fateful Stars",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In Korok Forest, east of the Great Deku Tree."
+    },
+    {
+      "id": "ketoh_wawai",
+      "name": "Ketoh Wawai",
+      "region": "Woodland",
+      "trial": "Ketoh Wawai's Blessing",
+      "type": "blessing",
+      "quest": "Shrouded Shrine",
+      "location": "Northeast corner of the pitch-dark Thyphlo Ruins."
+    },
+    {
+      "id": "kuhn_sidajj",
+      "name": "Kuhn Sidajj",
+      "region": "Woodland",
+      "trial": "Kuhn Sidajj's Blessing",
+      "type": "blessing",
+      "quest": "Trial of Second Sight",
+      "location": "On the shore of Lake Saria, southwest Lost Woods; quest from Zooki at Korok Forest."
+    },
+    {
+      "id": "maag_halan",
+      "name": "Maag Halan",
+      "region": "Woodland",
+      "trial": "Maag Halan's Blessing",
+      "type": "blessing",
+      "quest": "The Test of Wood",
+      "location": "In Mido Swamp, northeast Great Hyrule Forest; quest from Damia at Korok Forest."
+    },
+    {
+      "id": "mirro_shaz",
+      "name": "Mirro Shaz",
+      "region": "Woodland",
+      "trial": "Tempered Power",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In plain sight just north of Pico Pond, near Woodland Stable."
+    },
+    {
+      "id": "monya_toma",
+      "name": "Monya Toma",
+      "region": "Woodland",
+      "trial": "Drawing Parabolas",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On Salari Hill, east of the Hilltop High Road."
+    },
+    {
+      "id": "rona_kachta",
+      "name": "Rona Kachta",
+      "region": "Woodland",
+      "trial": "Rona Kachta's Blessing",
+      "type": "blessing",
+      "quest": null,
+      "location": "At the Goddess Statue at the back of the Forgotten Temple, guarded by Decayed Guardians."
+    },
+    {
+      "id": "daqa_koh",
+      "name": "Daqa Koh",
+      "region": "Eldin",
+      "trial": "Stalled Flight",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Off the Death Mountain road shortly before the Bridge of Eldin, between two rock faces."
+    },
+    {
+      "id": "gorae_torr",
+      "name": "Gorae Torr",
+      "region": "Eldin",
+      "trial": "Gorae Torr's Blessing",
+      "type": "blessing",
+      "quest": "The Gut Check Challenge",
+      "location": "On top of Gut Check Rock in northeast Eldin; Bayge blocks it until the challenge."
+    },
+    {
+      "id": "kayra_mah",
+      "name": "Kayra Mah",
+      "region": "Eldin",
+      "trial": "Greedy Hill",
+      "type": "puzzle",
+      "quest": "A Brother's Roast",
+      "location": "Inside Gorko Tunnel, blocked by rubble; quest from Bladon in Goron City."
+    },
+    {
+      "id": "moa_keet",
+      "name": "Mo'a Keet",
+      "region": "Eldin",
+      "trial": "Metal Makes a Path",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Atop a cliff east of Foothill Stable."
+    },
+    {
+      "id": "qua_raym",
+      "name": "Qua Raym",
+      "region": "Eldin",
+      "trial": "A Balanced Approach",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On an islet in Goronbi Lake; bridge the lava with iron crates via Magnesis."
+    },
+    {
+      "id": "sah_dahaj",
+      "name": "Sah Dahaj",
+      "region": "Eldin",
+      "trial": "Power of Fire",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In a gorge directly north of Cephla Lake."
+    },
+    {
+      "id": "shae_mosah",
+      "name": "Shae Mo'sah",
+      "region": "Eldin",
+      "trial": "Swinging Flames",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a cliff in northern Goron City, up the path from the Boss's House."
+    },
+    {
+      "id": "shora_hah",
+      "name": "Shora Hah",
+      "region": "Eldin",
+      "trial": "Blue Flame",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In the crag of the Isle of Rabac; ride the mine cart from the Abandoned North Mine."
+    },
+    {
+      "id": "tah_muhl",
+      "name": "Tah Muhl",
+      "region": "Eldin",
+      "trial": "Passing the Flame",
+      "type": "puzzle",
+      "quest": "A Landscape of a Stable",
+      "location": "In a crag in Trilby Valley; quest from Mayro at Foothill Stable."
+    },
+    {
+      "id": "dah_hesho",
+      "name": "Dah Hesho",
+      "region": "Akkala",
+      "trial": "A Minor Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "On a cliff south of Tarrey Town, overlooking Lake Akkala."
+    },
+    {
+      "id": "katosa_aug",
+      "name": "Katosa Aug",
+      "region": "Akkala",
+      "trial": "Katosa Aug Apparatus",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Across from East Akkala Stable."
+    },
+    {
+      "id": "kenai_shakah",
+      "name": "Ke'nai Shakah",
+      "region": "Akkala",
+      "trial": "A Modest Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "Cave behind cracked rocks in Ulria Grotto; blow them open (e.g. bomb arrows)."
+    },
+    {
+      "id": "ritaag_zumo",
+      "name": "Ritaag Zumo",
+      "region": "Akkala",
+      "trial": "Ritaag Zumo's Blessing",
+      "type": "blessing",
+      "quest": "Into the Vortex",
+      "location": "Buried at the center of the Rist Peninsula, next to a pedestal."
+    },
+    {
+      "id": "tu_kaloh",
+      "name": "Tu Ka'loh",
+      "region": "Akkala",
+      "trial": "Tu Ka'loh's Blessing",
+      "type": "blessing",
+      "quest": "Trial of the Labyrinth",
+      "location": "Atop the Lomei Labyrinth Island maze in the northern Akkala Sea."
+    },
+    {
+      "id": "tutsuwa_nima",
+      "name": "Tutsuwa Nima",
+      "region": "Akkala",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": "The Spring of Power",
+      "location": "Behind the Spring of Power; quest from Nobo at East Akkala Stable."
+    },
+    {
+      "id": "ze_kasho",
+      "name": "Ze Kasho",
+      "region": "Akkala",
+      "trial": "Ze Kasho Apparatus",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a ridge above South Akkala Stable."
+    },
+    {
+      "id": "zuna_kai",
+      "name": "Zuna Kai",
+      "region": "Akkala",
+      "trial": "Zuna Kai's Blessing",
+      "type": "blessing",
+      "quest": "The Skull's Eye",
+      "location": "In the Left Eye of Skull Lake; quest from Jerrin at the Akkala Ancient Tech Lab."
+    },
+    {
+      "id": "dako_tah",
+      "name": "Dako Tah",
+      "region": "Wasteland",
+      "trial": "Electric Path",
+      "type": "puzzle",
+      "quest": "The Eye of the Sandstorm",
+      "location": "Inside the Great Cliffs sandstorm; it calms 9 PM-4 AM. Quest from Nobiro at Kara Kara Bazaar."
+    },
+    {
+      "id": "daqo_chisay",
+      "name": "Daqo Chisay",
+      "region": "Wasteland",
+      "trial": "The Whole Picture",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Right outside Gerudo Town."
+    },
+    {
+      "id": "dila_maag",
+      "name": "Dila Maag",
+      "region": "Wasteland",
+      "trial": "Dila Maag's Blessing",
+      "type": "blessing",
+      "quest": "The Desert Labyrinth",
+      "location": "At the center of the South Lomei Labyrinth."
+    },
+    {
+      "id": "hawa_koth",
+      "name": "Hawa Koth",
+      "region": "Wasteland",
+      "trial": "The Current Solution",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Inside the Gerudo Great Skeleton, southwest Gerudo Desert."
+    },
+    {
+      "id": "jee_noh",
+      "name": "Jee Noh",
+      "region": "Wasteland",
+      "trial": "On the Move",
+      "type": "puzzle",
+      "quest": null,
+      "location": "In plain sight in the Gerudo Canyon Pass."
+    },
+    {
+      "id": "kay_noh",
+      "name": "Kay Noh",
+      "region": "Wasteland",
+      "trial": "Power of Electricity",
+      "type": "puzzle",
+      "quest": null,
+      "location": "On a small cliff right next to Gerudo Canyon Stable."
+    },
+    {
+      "id": "kema_zoos",
+      "name": "Kema Zoos",
+      "region": "Wasteland",
+      "trial": "A Delayed Puzzle",
+      "type": "puzzle",
+      "quest": "The Silent Swordswomen",
+      "location": "In the West Barrens sandstorm; follow the swordswoman statues (quest from Laine)."
+    },
+    {
+      "id": "korsh_ohu",
+      "name": "Korsh O'hu",
+      "region": "Wasteland",
+      "trial": "Korsh O'hu's Blessing",
+      "type": "blessing",
+      "quest": "The Seven Heroines",
+      "location": "Buried in the East Gerudo Ruins; quest from Rotana in Gerudo Town."
+    },
+    {
+      "id": "misae_suma",
+      "name": "Misae Suma",
+      "region": "Wasteland",
+      "trial": "Misae Suma's Blessing",
+      "type": "blessing",
+      "quest": "The Perfect Drink",
+      "location": "In the East Barrens, where Pokki leans on the terminal."
+    },
+    {
+      "id": "raqa_zunzo",
+      "name": "Raqa Zunzo",
+      "region": "Wasteland",
+      "trial": "Raqa Zunzo's Blessing",
+      "type": "blessing",
+      "quest": "The Undefeated Champ",
+      "location": "Buried at the Sand-Seal Rally; beat Tali's sand-seal race time for the Grand Trophy orb."
+    },
+    {
+      "id": "suma_sahma",
+      "name": "Suma Sahma",
+      "region": "Wasteland",
+      "trial": "Suma Sahma's Blessing",
+      "type": "blessing",
+      "quest": "Secret of the Snowy Peaks",
+      "location": "Buried atop Mount Granajh; cast a cold shadow on the glowing pedestal at 4 PM."
+    },
+    {
+      "id": "tho_kayu",
+      "name": "Tho Kayu",
+      "region": "Wasteland",
+      "trial": "Tho Kayu's Blessing",
+      "type": "blessing",
+      "quest": null,
+      "location": "Buried in the Toruma Dunes; light the four surrounding torches."
+    },
+    {
+      "id": "joloo_nah",
+      "name": "Joloo Nah",
+      "region": "Gerudo",
+      "trial": "Joloo Nah Apparatus",
+      "type": "puzzle",
+      "quest": "Test of Will",
+      "location": "Buried on Mount Nabooru; survive the Goron Blood Brothers' endurance contest in the ring."
+    },
+    {
+      "id": "keeha_yoog",
+      "name": "Keeha Yoog",
+      "region": "Gerudo",
+      "trial": "Keeha Yoog's Blessing",
+      "type": "blessing",
+      "quest": "Cliffside Etchings",
+      "location": "Buried on the east side of Gerudo Summit; quest from Geggle at Tabantha Bridge Stable."
+    },
+    {
+      "id": "kema_kosassa",
+      "name": "Kema Kosassa",
+      "region": "Gerudo",
+      "trial": "A Major Test of Strength",
+      "type": "combat",
+      "quest": null,
+      "location": "On the Risoka Snowfield in the Gerudo Highlands."
+    },
+    {
+      "id": "kuh_takkar",
+      "name": "Kuh Takkar",
+      "region": "Gerudo",
+      "trial": "Melting Ice Hazard",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Frozen in ice on Vatorsa Snowfield at the base of Laparoh Mesa."
+    },
+    {
+      "id": "sasa_kai",
+      "name": "Sasa Kai",
+      "region": "Gerudo",
+      "trial": "A Modest Test of Strength",
+      "type": "combat",
+      "quest": "Sign of the Shadow",
+      "location": "Buried right next to Gerudo Tower; Kass's song at the tower top."
+    },
+    {
+      "id": "sho_dantu",
+      "name": "Sho Dantu",
+      "region": "Gerudo",
+      "trial": "Two Bombs",
+      "type": "puzzle",
+      "quest": null,
+      "location": "Buried along the Karusa Valley path; place a Luminous Stone on the nearby pedestal."
+    },
+    {
+      "id": "etsu_korima",
+      "name": "Etsu Korima",
+      "region": "Great Plateau",
+      "trial": "Path of Light",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "location": "Atop Mount Hylia; rises after its monster camp is cleared in EX The Champions' Ballad."
+    },
+    {
+      "id": "rohta_chigah",
+      "name": "Rohta Chigah",
+      "region": "Great Plateau",
+      "trial": "Stop to Start",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "location": "Between Great Plateau Tower and the Eastern Abbey; EX The Champions' Ballad."
+    },
+    {
+      "id": "ruvo_korbah",
+      "name": "Ruvo Korbah",
+      "region": "Great Plateau",
+      "trial": "A Major Test of Strength+",
+      "type": "combat",
+      "quest": null,
+      "dlc": true,
+      "location": "South of the Temple of Time; EX The Champions' Ballad."
+    },
+    {
+      "id": "yowaka_ita",
+      "name": "Yowaka Ita",
+      "region": "Great Plateau",
+      "trial": "Collected Soul",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "location": "In the Forest of Spirits; EX The Champions' Ballad."
+    },
+    {
+      "id": "kiah_toza",
+      "name": "Kiah Toza",
+      "region": "Hebra",
+      "trial": "Master the Orb",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "At Pikida Stonegrove; shield-surf the rings. EX Champion Revali's Song."
+    },
+    {
+      "id": "noe_rajee",
+      "name": "Noe Rajee",
+      "region": "Tabantha",
+      "trial": "The Four Winds",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "At the bottom of the Flight Range; hit its targets in time. EX Champion Revali's Song."
+    },
+    {
+      "id": "shira_gomar",
+      "name": "Shira Gomar",
+      "region": "Ridgeland",
+      "trial": "Aim for Stillness",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "On Upland Lindor above Tanagar Canyon; shoot Dinraal's horn. EX Champion Revali's Song."
+    },
+    {
+      "id": "kee_dafunia",
+      "name": "Kee Dafunia",
+      "region": "Lanayru",
+      "trial": "The Melting Point",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "In the Lanayru Sea just past Ankel Island; rings at dawn. EX Champion Mipha's Song."
+    },
+    {
+      "id": "mah_eliya",
+      "name": "Mah Eliya",
+      "region": "Lanayru",
+      "trial": "Secret Stairway",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "Buried on Ploymus Mountain; swim up through the rings in time. EX Champion Mipha's Song."
+    },
+    {
+      "id": "sato_koda",
+      "name": "Sato Koda",
+      "region": "Lanayru",
+      "trial": "Support and Guidance",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "Buried atop Upland Zorana; defeat the nearby Guardians. EX Champion Mipha's Song."
+    },
+    {
+      "id": "kamia_omuna",
+      "name": "Kamia Omuna",
+      "region": "Eldin",
+      "trial": "Moving Targets",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "North shore of Lake Darman; defeat the Igneo Talus. EX Champion Daruk's Song."
+    },
+    {
+      "id": "rinu_honika",
+      "name": "Rinu Honika",
+      "region": "Eldin",
+      "trial": "Block the Blaze",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "South of Darb Pond; stand on the glowing cube in the pond. EX Champion Daruk's Song."
+    },
+    {
+      "id": "sharo_lun",
+      "name": "Sharo Lun",
+      "region": "Eldin",
+      "trial": "Blind Spots",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "Southeast of Death Mountain; pass through all the rings in time. EX Champion Daruk's Song."
+    },
+    {
+      "id": "keive_tala",
+      "name": "Keive Tala",
+      "region": "Wasteland",
+      "trial": "Big or Small",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "In the East Barrens; defeat the Molduking. EX Champion Urbosa's Song."
+    },
+    {
+      "id": "kihiro_moh",
+      "name": "Kihiro Moh",
+      "region": "Wasteland",
+      "trial": "Inside the Box",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "At the Yiga Clan Hideout; drop the orb into Kohga's chasm. EX Champion Urbosa's Song."
+    },
+    {
+      "id": "takama_shiri",
+      "name": "Takama Shiri",
+      "region": "Wasteland",
+      "trial": "Dual Purpose",
+      "type": "puzzle",
+      "quest": null,
+      "dlc": true,
+      "orb": false,
+      "location": "Buried in the West Barrens; sand-seal through the rings from Gerudo Town. EX Champion Urbosa's Song."
+    }
+  ]
+}
