@@ -59,7 +59,7 @@
       "description": "A heap of leaves, usually in a tree hollow or a corner, hides a rock. Burn the leaves (or blow them away with a Korok Leaf or bomb) and lift the rock.",
       "rules": [
         "Counts: burnable leaves (Obj_Plant_IvyBurn) on top of a liftable rock.",
-        "Not this if burning leaves reveals the Korok directly with no rock to lift: that is other (one case, F41)."
+        "Not this if burning leaves reveals the Korok directly with no rock to lift: objmap calls that one Burn the Leaves (Goatee), and it is other."
       ],
       "internalTypes": ["Rock Lift (Leaves)"],
       "examples": ["C76"]
@@ -353,9 +353,8 @@
       "group": "Other",
       "description": "One-off puzzles that don't fit any other type, such as lighting an unlit torch, pulling out a stick, taking a Luminous Stone or burning leaves off a Korok face.",
       "rules": [
-        "Use only after checking every other type: if the action is lifting a rock, shooting a balloon or acorn, touching a sparkle, placing an item, or filling a gap in a pattern, use that type even if the setting is unusual.",
-        "Counts: the action itself is unique, and there are at most two or three seeds like it in the game.",
-        "When you use this, say what the action is in the seed's notes so it can be promoted to a new type if more turn up."
+        "Counts: the five seeds objmap gives a one-off type (Light Torch, Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree). Each seed keeps objmap's name in internalType, which the UI can show as a subtitle.",
+        "Not this for anything objmap puts in a shared type, however unusual the setting: lifting a rock, shooting a balloon or acorn, touching a sparkle, placing an item or filling a gap in a pattern all have their own types."
       ],
       "internalTypes": ["Light Torch", "Take the Stick", "Remove Luminous Stone", "Burn the Leaves (Goatee)", "Take Apple from Palm Tree"],
       "examples": ["L26", "D54"]

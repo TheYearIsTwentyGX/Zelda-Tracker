@@ -6,8 +6,6 @@ import gx.zelda.koroks.model.KorokPuzzleTypes
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
-import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /** Structural checks on the bundled BotW koroks.json and korok_puzzle_types.json. */
@@ -81,20 +79,17 @@ class BotwKorokDatasetTest {
     }
 
     @Test
-    fun classificationsUseKnownTypes() = withData { c, t ->
+    fun everyKorokHasAPuzzleType() = withData { c, t ->
         val ids = t.types.map { it.id }.toSet()
         for (k in c.koroks) {
-            if (k.puzzleType == null) {
-                assertNull(k.typeSource, "${k.id} has a source but no type")
-            } else {
-                assertTrue(k.puzzleType in ids, "${k.id}: unknown puzzle type ${k.puzzleType}")
-                assertNotNull(k.typeSource, "${k.id} has a type but no source")
-            }
+            assertTrue(k.puzzleType in ids, "${k.id}: unknown puzzle type ${k.puzzleType}")
+            assertEquals("internal", k.typeSource, k.id)
         }
-        // Every example shows its own type once classified.
+        // Every type is used, and every example shows its own type.
+        assertEquals(ids, c.koroks.mapNotNull { it.puzzleType }.toSet())
         val byId = c.koroks.associateBy { it.id }
         for (type in t.types) {
-            type.examples.forEach { ex -> byId.getValue(ex).puzzleType?.let { assertEquals(type.id, it, "example $ex") } }
+            type.examples.forEach { ex -> assertEquals(type.id, byId.getValue(ex).puzzleType, "example $ex") }
         }
     }
 
@@ -108,6 +103,9 @@ class BotwKorokDatasetTest {
         }
         assertEquals("Central", korok("X25").region, "Hyrule Castle is in the Central tower region")
         assertEquals("rock_behind_cracked_wall", korok("F18").puzzleType)
-        assertNull(korok("L26").puzzleType, "one-off puzzles are left for review")
+        with(korok("L26")) {
+            assertEquals("other", puzzleType)
+            assertEquals("Take the Stick", internalType, "one-offs keep objmap's name")
+        }
     }
 }

@@ -18,13 +18,13 @@ data class Korok(
     val z: Double,
     /** Nearest named place on the map, as a location hint. */
     val nearestPlace: String,
-    /** objmap/radar's `korok_type` for this Korok. */
+    /** objmap/radar's `korok_type` for this Korok; for [puzzleType] `other` it names the one-off puzzle. */
     val internalType: String,
     /** The puzzle's game actors, minus the Korok itself and logic tags. */
     val actors: List<String> = emptyList(),
-    /** A [KorokPuzzleType] id, or null while unclassified. */
+    /** A [KorokPuzzleType] id, mapped from [internalType]. */
     val puzzleType: String? = null,
-    /** How [puzzleType] was decided: `internal` when it follows mechanically from [internalType] and [actors]. */
+    /** Where [puzzleType] came from: `internal` when it is mapped from objmap's [internalType]. */
     val typeSource: String? = null,
 )
 

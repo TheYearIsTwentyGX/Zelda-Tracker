@@ -5,7 +5,7 @@ Two datasets back the Breath of the Wild Korok Seed feature:
 - `shared/src/commonMain/composeResources/files/botw/koroks.json`: all 900 seeds, with position, tower region,
   a location hint and puzzle type.
 - `shared/src/commonMain/composeResources/files/botw/korok_puzzle_types.json`: the 29 puzzle types seeds are
-  sorted into, with player-facing descriptions and classification rules.
+  sorted into, with player-facing names, descriptions and the rules that tell them apart.
 
 `BotwKorokDatasetTest` checks both files.
 
@@ -51,10 +51,10 @@ Nothing is fetched at runtime; the JSON was built offline by scripts that are no
 | `region` | One of the 15 Sheikah Tower regions, spelled as in `shrines.json` (`Great Plateau`, `Dueling Peaks`, `Hateno`, `Lanayru`, `Faron`, `Lake`, `Central`, `Ridgeland`, `Tabantha`, `Hebra`, `Woodland`, `Eldin`, `Akkala`, `Wasteland`, `Gerudo`). |
 | `x`, `y`, `z` | World position (see below). |
 | `nearestPlace` | Location hint: the closest named map location, shrine, tower or settlement, measured flat on the map. Inside Hyrule Castle it is the castle room name from radar instead (`Lockup`, `Zelda's Room`…). It names what is closest, not what the puzzle is "at", so it may name a shrine or a place across a river. |
-| `internalType` | radar's `korok_type` (33 values; see the report). |
+| `internalType` | radar's `korok_type` (33 values; see the report). For seeds of type `other` it is the only name that says what the puzzle is (e.g. `Take the Stick`), so the UI can show it as a subtitle. |
 | `actors` | The puzzle's game actors, without the Korok itself and the logic tags (`Area`, `LinkTag*`, `ActorObserverTag`…). Evidence for classifying; e.g. `WallCrack` means a bombable wall. |
-| `puzzleType` | A type id from `korok_puzzle_types.json`, or `null` while unclassified. |
-| `typeSource` | `"internal"` when `puzzleType` was filled in mechanically from `internalType` + `actors` (see below), `null` when unclassified. Phase-2 workers should use another value (e.g. `"review"`) for seeds they decide. |
+| `puzzleType` | A type id from `korok_puzzle_types.json`. Never null: every seed's type comes from its objmap `korok_type` (see [Puzzle types](#puzzle-types)). |
+| `typeSource` | `"internal"` on every seed: the type comes from objmap's datamined `korok_type`. A later override from another source should use a different value. |
 
 The file is ordered by region (tower order, as in `shrines.json`) then id.
 
@@ -81,11 +81,19 @@ the usual guide counts have it (Lake 92, Dueling Peaks 59).
 
 ## Puzzle types
 
-29 types in 7 groups. radar's internal types are the backbone. Most map one-to-one, and the changes are these:
+**objmap is the source of truth.** Every seed's type comes from its objmap `korok_type` through the fixed mapping
+below, with no judgement calls. objmap's types come from the game files, so where Zelda Wiki disagrees, objmap wins.
+Our 29 types are a presentation layer on top: friendlier names, player-facing descriptions and grouping. The only
+place they refine objmap is splitting `Rock Lift (Rock Pile)` by actor, and that split also comes from game data.
 
-- **Split:** `Rock Lift (Rock Pile)` → `rock_under_rubble` (a breakable `Obj_RockBroken` pile) and
-  `rock_behind_cracked_wall` (`WallCrack`, needs bombs). They look different in the world and need different tools.
-- **Merged:** `Shoot the Crest` + `Shoot the Targets` → `shoot_target`; the one-of-a-kind internal types → `other`.
+How the 29 types relate to radar's 33:
+
+- **Split:** `Rock Lift (Rock Pile)` → `rock_behind_cracked_wall` when the puzzle includes a `WallCrack` (a bombable
+  wall), and `rock_under_rubble` when it includes an `Obj_RockBroken_A_02` (a breakable rock pile). Every Rock Pile
+  seed has exactly one of the two.
+- **Merged:** `Shoot the Crest` + `Shoot the Targets` → `shoot_target`. objmap's five one-of-a-kind types (Light Torch,
+  Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree) → `other`, keeping
+  objmap's name in `internalType`.
 - **Renamed** to what the player sees (Zelda Wiki's names where it has them): `Rock Lift` → *Lone rock*,
   `Stationary Lights` → *Sparkle* (Zelda Wiki: "Fairy Dust (Fixed Position)"), `Cube Puzzle` → *Cube pattern*,
   `Rock Lift (Door)` → *Rock under a metal plate*, `Acorn in a Hole` → *Acorn in a hollow*, and so on.
@@ -95,12 +103,10 @@ ring of boulders standing *in water*, and you throw any rock into the middle (Ze
 same as radar's `Circle of Rocks`). A ring of rocks on dry land with one gap is a `rock_pattern`. A lone rock with
 nothing around it is `lift_rock`.
 
-**How to classify a seed:** decide by **the action that makes the Korok appear**, not by where the puzzle is. A rock
-on a mountaintop is `lift_rock` and a sparkle at the end of a race is still a `race`. If a seed seems to fit two
-types, the more specific one wins: `rock_under_*` over `lift_rock`, `pinwheel_*` over `balloon`/acorn. Use `other`
-only when no rule fits.
+The rules under each type explain what the type means and how it differs from look-alikes. They are for describing
+puzzles to players and for checking objmap's data. They don't override it.
 
-| id | Name | Group | objmap `korok_type` | Pre-classified |
+| id | Name | Group | objmap `korok_type` | Seeds |
 |---|---|---|---|---|
 | `lift_rock` | Lone rock | Hidden rocks | Rock Lift | 174 |
 | `rock_under_boulder` | Rock under a boulder | Hidden rocks | Rock Lift (Boulder) | 6 |
@@ -109,14 +115,14 @@ only when no rule fits.
 | `rock_under_leaves` | Rock under a pile of leaves | Hidden rocks | Rock Lift (Leaves) | 19 |
 | `rock_under_rubble` | Rock under breakable rocks | Hidden rocks | Rock Lift (Rock Pile) with Obj_RockBroken_A_02 | 16 |
 | `rock_behind_cracked_wall` | Rock behind a cracked wall | Hidden rocks | Rock Lift (Rock Pile) with WallCrack | 25 |
-| `rock_pattern` | Rock pattern | Patterns | Rock Pattern | 72 |
+| `rock_pattern` | Rock pattern | Patterns | Rock Pattern | 73 |
 | `rock_circle` | Rock circle in water | Patterns | Circle of Rocks | 20 |
 | `cube_pattern` | Cube pattern | Patterns | Cube Puzzle | 66 |
-| `boulder_in_hole` | Boulder into a hole | Patterns | Roll a Boulder | 25 |
-| `ball_and_chain` | Ball and chain | Patterns | Ball and Chain | 15 |
-| `offering` | Offering | Patterns | Offering Plate | 24 |
+| `boulder_in_hole` | Boulder into a hole | Patterns | Roll a Boulder | 31 |
+| `ball_and_chain` | Ball and chain | Patterns | Ball and Chain | 16 |
+| `offering` | Offering | Patterns | Offering Plate | 28 |
 | `matching_trees` | Matching trees | Patterns | Matching Trees | 20 |
-| `sparkle` | Sparkle | Sparkles | Stationary Lights | 45 |
+| `sparkle` | Sparkle | Sparkles | Stationary Lights | 51 |
 | `moving_sparkle` | Moving sparkle | Sparkles | Moving Lights | 39 |
 | `melt_ice` | Melt the ice block | Sparkles | Melt Ice Block | 18 |
 | `flower_trail` | Flower trail | Flowers | Flower Trail | 46 |
@@ -130,7 +136,7 @@ only when no rule fits.
 | `race` | Race to the ring | Movement | Goal Ring (Race) | 51 |
 | `dive` | Dive through the ring | Movement | Dive | 35 |
 | `horse_hurdles` | Horse hurdles | Movement | Jump the Fences | 2 |
-| `other` | Other | Other | Light Torch, Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree | 0 |
+| `other` | Other | Other | Light Torch, Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree | 5 |
 
 ### Hidden rocks
 
@@ -178,7 +184,7 @@ Examples: P12 (Great Plateau, near Ja Baij Shrine); P13 (Great Plateau, near Ja 
 A heap of leaves, usually in a tree hollow or a corner, hides a rock. Burn the leaves (or blow them away with a Korok Leaf or bomb) and lift the rock.
 
 - Counts: burnable leaves (Obj_Plant_IvyBurn) on top of a liftable rock.
-- Not this if burning leaves reveals the Korok directly with no rock to lift: that is other (one case, F41).
+- Not this if burning leaves reveals the Korok directly with no rock to lift: objmap calls that one Burn the Leaves (Goatee), and it is other.
 
 Examples: C76 (Central, near Kolomo Garrison Ruins).
 
@@ -412,9 +418,8 @@ Examples: K17 (Woodland, near Rowan Plain); D25 (Dueling Peaks, near South Nabi 
 
 One-off puzzles that don't fit any other type, such as lighting an unlit torch, pulling out a stick, taking a Luminous Stone or burning leaves off a Korok face.
 
-- Use only after checking every other type: if the action is lifting a rock, shooting a balloon or acorn, touching a sparkle, placing an item, or filling a gap in a pattern, use that type even if the setting is unusual.
-- Counts: the action itself is unique, and there are at most two or three seeds like it in the game.
-- When you use this, say what the action is in the seed's notes so it can be promoted to a new type if more turn up.
+- Counts: the five seeds objmap gives a one-off type (Light Torch, Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree). Each seed keeps objmap's name in internalType, which the UI can show as a subtitle.
+- Not this for anything objmap puts in a shared type, however unusual the setting: lifting a rock, shooting a balloon or acorn, touching a sparkle, placing an item or filling a gap in a pattern all have their own types.
 
 Examples: L26 (Lake, near Bridge of Hylia); D54 (Dueling Peaks, near Lake Hylia).
 
@@ -422,129 +427,93 @@ Examples: L26 (Lake, near Bridge of Hylia); D54 (Dueling Peaks, near Lake Hylia)
 
 ### Seeds per region
 
-| Region | Seeds | Unclassified |
-|---|---:|---:|
-| Central (incl. 25 in Hyrule Castle) | 114 | 1 |
-| Lake | 92 | 5 |
-| Ridgeland | 80 | 1 |
-| Hebra | 73 | 0 |
-| Wasteland | 68 | 2 |
-| Hateno | 66 | 1 |
-| Lanayru | 62 | 0 |
-| Dueling Peaks | 59 | 5 |
-| Faron | 58 | 6 |
-| Akkala | 57 | 0 |
-| Eldin | 45 | 2 |
-| Tabantha | 37 | 0 |
-| Gerudo | 36 | 0 |
-| Woodland | 35 | 0 |
-| Great Plateau | 18 | 0 |
-| **Total** | **900** | **23** |
-
-Central and Lake are the heaviest regions; Great Plateau is the lightest by far.
+| Region | Seeds |
+|---|---:|
+| Central (incl. 25 in Hyrule Castle) | 114 |
+| Lake | 92 |
+| Ridgeland | 80 |
+| Hebra | 73 |
+| Wasteland | 68 |
+| Hateno | 66 |
+| Lanayru | 62 |
+| Dueling Peaks | 59 |
+| Faron | 58 |
+| Akkala | 57 |
+| Eldin | 45 |
+| Tabantha | 37 |
+| Gerudo | 36 |
+| Woodland | 35 |
+| Great Plateau | 18 |
+| **Total** | **900** |
 
 ### Seeds per internal type
 
-| objmap `korok_type` | Seeds | → puzzle type | Mechanical |
-|---|---:|---|---:|
-| Rock Lift | 174 | `lift_rock` | 174 |
-| Rock Pattern | 73 | `rock_pattern` | 72 |
-| Cube Puzzle | 66 | `cube_pattern` | 66 |
-| Stationary Lights | 51 | `sparkle` | 45 |
-| Goal Ring (Race) | 51 | `race` | 51 |
-| Flower Trail | 46 | `flower_trail` | 46 |
-| Pinwheel Balloons | 44 | `pinwheel_balloons` | 44 |
-| Rock Lift (Rock Pile) | 41 | `rock_behind_cracked_wall` (25), `rock_under_rubble` (16) | 41 |
-| Moving Lights | 39 | `moving_sparkle` | 39 |
-| Dive | 35 | `dive` | 35 |
-| Roll a Boulder | 31 | `boulder_in_hole` | 25 |
-| Acorn in a Hole | 29 | `acorn_in_hollow` | 29 |
-| Offering Plate | 28 | `offering` | 24 |
-| Stationary Balloon | 26 | `balloon` | 26 |
-| Matching Trees | 20 | `matching_trees` | 20 |
-| Circle of Rocks | 20 | `rock_circle` | 20 |
-| Rock Lift (Leaves) | 19 | `rock_under_leaves` | 19 |
-| Melt Ice Block | 18 | `melt_ice` | 18 |
-| Ball and Chain | 16 | `ball_and_chain` | 15 |
-| Hanging Acorn | 14 | `hanging_acorn` | 14 |
-| Rock Lift (Slab) | 12 | `rock_under_slab` | 12 |
-| Flower Order | 11 | `flower_order` | 11 |
-| Pinwheel Acorns | 10 | `pinwheel_acorns` | 10 |
-| Rock Lift (Door) | 8 | `rock_under_metal_plate` | 8 |
-| Rock Lift (Boulder) | 6 | `rock_under_boulder` | 6 |
-| Shoot the Crest | 4 | `shoot_target` | 4 |
-| Jump the Fences | 2 | `horse_hurdles` | 2 |
-| Shoot the Targets | 1 | `shoot_target` | 1 |
-| Light Torch, Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree | 1 each | `other`? | 0 |
+| objmap `korok_type` | Seeds | → puzzle type |
+|---|---:|---|
+| Rock Lift | 174 | `lift_rock` |
+| Rock Pattern | 73 | `rock_pattern` |
+| Cube Puzzle | 66 | `cube_pattern` |
+| Stationary Lights | 51 | `sparkle` |
+| Goal Ring (Race) | 51 | `race` |
+| Flower Trail | 46 | `flower_trail` |
+| Pinwheel Balloons | 44 | `pinwheel_balloons` |
+| Rock Lift (Rock Pile) | 41 | `rock_behind_cracked_wall` (25), `rock_under_rubble` (16) |
+| Moving Lights | 39 | `moving_sparkle` |
+| Dive | 35 | `dive` |
+| Roll a Boulder | 31 | `boulder_in_hole` |
+| Acorn in a Hole | 29 | `acorn_in_hollow` |
+| Offering Plate | 28 | `offering` |
+| Stationary Balloon | 26 | `balloon` |
+| Matching Trees | 20 | `matching_trees` |
+| Circle of Rocks | 20 | `rock_circle` |
+| Rock Lift (Leaves) | 19 | `rock_under_leaves` |
+| Melt Ice Block | 18 | `melt_ice` |
+| Ball and Chain | 16 | `ball_and_chain` |
+| Hanging Acorn | 14 | `hanging_acorn` |
+| Rock Lift (Slab) | 12 | `rock_under_slab` |
+| Flower Order | 11 | `flower_order` |
+| Pinwheel Acorns | 10 | `pinwheel_acorns` |
+| Rock Lift (Door) | 8 | `rock_under_metal_plate` |
+| Rock Lift (Boulder) | 6 | `rock_under_boulder` |
+| Shoot the Crest | 4 | `shoot_target` |
+| Jump the Fences | 2 | `horse_hurdles` |
+| Shoot the Targets | 1 | `shoot_target` |
+| Light Torch, Take the Stick, Remove Luminous Stone, Burn the Leaves (Goatee), Take Apple from Palm Tree | 1 each | `other` |
 
-### What was pre-classified
+**All 900 seeds have a `puzzleType`** with `typeSource: "internal"`. None are left open, so no further classification
+pass is needed.
 
-**877 of 900 seeds (97.4%)** have `puzzleType` set with `typeSource: "internal"`. A seed is pre-classified only
-when its internal type maps to exactly one puzzle type **and** its actor group contains the object the puzzle is
-built from, so the internal type isn't standing alone. For example, `Roll a Boulder` counts only with a
-boulder/snowball actor present, `Offering Plate` only with an `Obj_KorokPlate`, and `Stationary Lights` only for a
-floating (`Air`) Korok with no other objects. The full rule set (the build script isn't committed):
+### How strongly each type is backed
 
-- These internal types map one-to-one whatever the actors: Rock Lift, Rock Lift (Boulder/Slab/Door/Leaves), Circle
-  of Rocks, Cube Puzzle, Moving Lights, Melt Ice Block, Flower Trail, Flower Order, Stationary Balloon, Pinwheel
-  Balloons, Pinwheel Acorns, Acorn in a Hole, Hanging Acorn, Shoot the Crest, Shoot the Targets, Goal Ring (Race),
-  Dive, Jump the Fences, Matching Trees.
-- Rock Lift (Rock Pile): `WallCrack` → `rock_behind_cracked_wall`, else `Obj_RockBroken_A_02` → `rock_under_rubble`.
-- Rock Pattern: only when an `Obj_LiftRock*_Korok_A_01` (pattern rock) is present.
-- Roll a Boulder: only with `FldObj_PushRock_A_M_01`, `FldObj_PushRock_Korok`, `FldObj_PushRockIron_A_M_01` or
-  `BrokenSnowBall`.
-- Ball and Chain: only with `Obj_KorokIronRock_A_01`. Offering Plate: only with `Obj_KorokPlate_A_01`.
-- Stationary Lights: only when `actors` is empty and the Korok is `Npc_HiddenKorokFly` (placement `Air`).
-- Everything else stays `null`.
+This doesn't change any data. It records how radar reached each type, in case a seed ever looks wrong in the game.
 
-How much to trust each pre-classified bucket:
+- **A puzzle-specific object is in the puzzle's group**, which covers most seeds: cube, race, flowers, pinwheels,
+  balloons, acorns, ice, all hidden-rock types, matching trees, hurdles, archery targets, and nearly all rock
+  patterns, boulders, balls and offerings.
+- **Only the shape of the logic tags**, with no puzzle object in the group: most `sparkle` (51), `moving_sparkle` (39,
+  which do have a movement rail), `dive` (35), `rock_circle` (20) and the 4 crests in `shoot_target`. radar's
+  authors matched these patterns by hand. Zelda Wiki lists exactly 35 dives and 20 rock circles.
+- **Seeds where the expected object is missing from the group**, though objmap's type stands:
+  - 6 `Roll a Boulder` with no boulder (D24, D31, L42, L44, L74, E26) and 1 `Ball and Chain` with no ball (R66).
+  - 6 `Stationary Lights` that are ground Koroks (D45, N47, E16, W09) or sit by a pinwheel with nothing to shoot
+    (D42, W18).
+  - 4 `Offering Plate` without a Korok plate (F25, F39, F48, X13). Zelda Wiki lists all four as offerings.
+  - L32, a `Rock Pattern` made of metal crates under water.
 
-- **Backed by a puzzle-specific actor** (the bulk): cube, race, flowers, pinwheels, balloons, acorns, ball and chain,
-  offering, matching trees, ice, all hidden-rock types, rock pattern, boulder, hurdles, archery targets. Zelda Wiki's
-  lists agree: Cube Pattern 66 = 66 and Offering Spot 28 = 28 (including the four left open below).
-- **Backed only by the shape of the logic tags**, because no puzzle object is in the group: `sparkle` (45),
-  `moving_sparkle` (39, which do have a movement rail), `dive` (35), `rock_circle` (20) and the 4 crests in
-  `shoot_target`. radar's authors matched these patterns by hand. Cross-checks: Zelda Wiki lists exactly 35 dives and
-  20 rock circles. It lists 68 fixed fairy dust (ice-melting ones included) against our 45 + 18 + the 6 open
-  "Stationary Lights", and 37 moving against our 39; the wiki's lists may simply be short.
-- **Known mismatches worth a look:** `rock_pattern` 72 (+1 open) vs Zelda Wiki's 69 Rock Patterns, and
-  `flower_trail` + `flower_order` 57 vs the wiki's 56 Flower Trails.
+### Differences from Zelda Wiki
 
-### The 23 that need judgement
+objmap comes from the game files, so where the two disagree the data follows objmap and is unchanged:
 
-| Id | Region | Internal type | Why it's open | Likely answer |
-|---|---|---|---|---|
-| D24, D31 | Dueling Peaks | Roll a Boulder | No boulder in the group; matched by tag pattern only | `boulder_in_hole`; confirm the boulder |
-| L42, L44, L74 | Lake | Roll a Boulder | Same | `boulder_in_hole` |
-| E26 | Eldin | Roll a Boulder | Same | `boulder_in_hole` |
-| R66 | Ridgeland | Ball and Chain | No ball in the group; tag pattern only | `ball_and_chain` |
-| D45, N47, E16, W09 | Dueling Peaks, Hateno, Eldin, Wasteland | Stationary Lights | Korok comes out of the ground, not a floating sparkle; nothing else in the group | Probably `sparkle`; check what triggers it |
-| D42, W18 | Dueling Peaks, Wasteland | Stationary Lights | A pinwheel but no balloons or acorns | `sparkle` (by the pinwheel) or `other` |
-| F25, F39, F48 | Faron | Offering Plate | Uses a stone pavement instead of a Korok plate | `offering` (Zelda Wiki's 28 Offering Spots include them) |
-| X13 | Central (Hyrule Castle, West Passage) | Offering Plate | No plate actor | `offering`: Zelda Wiki lists it, a Hard-Boiled Egg |
-| L32 | Lake | Rock Pattern | Metal crates under water instead of rocks | `rock_pattern` (its rule covers non-rock pieces) |
-| F44 | Faron | Take Apple from Palm Tree | An apple among palm fruit by a fishing house | `matching_trees` or `other` |
-| D54 | Dueling Peaks | Light Torch | One-off | `other` |
-| L26 | Lake | Take the Stick | One-off | `other` |
-| F35 | Faron | Remove Luminous Stone | One-off | `other` |
-| F41 | Faron | Burn the Leaves (Goatee) | Burning reveals the Korok directly, no rock | `other` |
+- **Rock patterns:** objmap has 73 (`Rock Pattern`, including the metal-crate one), Zelda Wiki lists 69.
+- **Flowers:** objmap has 57 (46 `Flower Trail` + 11 `Flower Order`), Zelda Wiki's Flower Trail page lists 56.
+- **Fairy dust:** Zelda Wiki lists 68 fixed (ice-melting ones included) against objmap's 51 `Stationary Lights` + 18
+  `Melt Ice Block` = 69, and 37 moving against objmap's 39 `Moving Lights`.
+- **Matches:** cube patterns 66 = 66, offerings 28 = 28, dives 35 = 35, rock circles 20 = 20.
 
-By region: Faron 6, Dueling Peaks 5, Lake 5, Eldin 2, Wasteland 2, Hateno 1, Central 1, Ridgeland 1. Most of them
-are in the south.
+### Region weights for later per-seed work
 
-### Splitting phase 2
-
-Only 23 seeds still need a type, so splitting **classification** by region gives most workers almost nothing. Two
-workers are enough:
-
-1. **Open seeds:** the 23 above, researched one at a time (Zelda Wiki location pages, objmap's
-   `gen_group` view via `mapSection` + `hashId`). Set `typeSource: "review"`.
-2. **Audit:** sample the tag-shape buckets (`sparkle`, `moving_sparkle`, `dive`, `rock_circle`, crests) and reconcile
-   the `rock_pattern` (72 vs 69) and flower (57 vs 56) counts against Zelda Wiki. Change a pre-classified seed only
-   with evidence, and mark it `typeSource: "review"`.
-
-If phase 2 should instead **review every seed** (e.g. to write per-seed directions), split by contiguous regions,
-heaviest first:
+Classification is finished. If a later pass writes something for every seed (directions, screenshots), these groups of
+neighbouring regions are balanced:
 
 | Worker | Regions | Seeds |
 |---|---|---:|
@@ -552,7 +521,3 @@ heaviest first:
 | 2 | Lake, Dueling Peaks, Faron | 209 |
 | 3 | Hateno, Lanayru, Akkala, Eldin | 230 |
 | 4 | Hebra, Tabantha, Woodland, Wasteland, Gerudo | 249 |
-
-For three workers: (Central, Lake, Dueling Peaks, Great Plateau) 283 with 11 open seeds; (Faron, Hateno, Lanayru,
-Akkala, Eldin) 288 with 9; (Ridgeland, Hebra, Tabantha, Woodland, Wasteland, Gerudo) 329 with 3. The third share is
-the largest, but it has the fewest open seeds.
