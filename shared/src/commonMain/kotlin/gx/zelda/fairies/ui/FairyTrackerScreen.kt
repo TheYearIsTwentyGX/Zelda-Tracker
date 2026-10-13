@@ -103,13 +103,13 @@ private fun SummaryCard(state: FairyUiState) {
             Text("$open / $total ${catalog.openedWord}", style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
             Stars(open, total, modifier = Modifier.semantics { contentDescription = "Armor upgradable to $open stars" })
         }
-        if (catalog.isPaid) PaidSummary(catalog, open, total) else QuestSummary(open, total)
+        if (catalog.isPaid) PaidSummary(catalog, open, total) else QuestSummary(catalog, open, total)
     }
 }
 
 /** TotK: fairies are freed by escorting a Stable Trotters musician, not bought. */
 @Composable
-private fun QuestSummary(open: Int, total: Int) {
+private fun QuestSummary(catalog: FairyCatalog, open: Int, total: Int) {
     Text(
         when (open) {
             total -> "Every Great Fairy is free, so armor can be upgraded all the way to ★$total."
@@ -119,11 +119,19 @@ private fun QuestSummary(open: Int, total: Int) {
         style = MaterialTheme.typography.bodyMedium,
     )
     Text(
-        "Each fountain is sealed until you bring a member of the Stable Trotters to play for her. " +
-            "Every Great Fairy you free lets the fairies upgrade armor one star higher, whichever one it is.",
+        "Each fountain stays sealed until the Stable Trotters play for her. Freeing one costs nothing, " +
+            "and every Great Fairy you free lets the fairies upgrade armor one star higher, whichever one it is.",
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
     )
+    if (catalog.upgradeFees.isNotEmpty()) {
+        Text(
+            "Each upgrade costs rupees as well as materials: " +
+                catalog.upgradeFees.withIndex().joinToString(" · ") { (i, fee) -> "★${i + 1} ${rupees(fee)}" } + ".",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
 }
 
 /** BotW: each fountain costs more rupees than the last. */

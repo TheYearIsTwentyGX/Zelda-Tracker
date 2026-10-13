@@ -26,6 +26,8 @@ data class FairyCatalog(
      * `unlockCosts[0]` whichever fairy it is. Empty when fairies are freed by quest instead (TotK).
      */
     val unlockCosts: List<Int> = emptyList(),
+    /** Rupees a Great Fairy charges per upgrade, on top of materials; `upgradeFees[0]` is ★0→★1. Empty when upgrades are free. */
+    val upgradeFees: List<Int> = emptyList(),
     val fairies: List<GreatFairy>,
 ) {
     /** Whether fountains are bought with rupees (BotW) rather than freed by quest (TotK). */
