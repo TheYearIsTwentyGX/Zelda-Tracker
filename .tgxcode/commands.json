@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "commands": [
+    {
+      "id": "build",
+      "label": "Build",
+      "run": "bash scripts/build.sh"
+    },
+    {
+      "id": "rebuild",
+      "label": "Rebuild",
+      "run": "bash scripts/build.sh --clean"
+    },
+    {
+      "id": "install",
+      "label": "Install on phone",
+      "run": "bash scripts/install-wireless.sh"
+    },
+    {
+      "id": "land",
+      "label": "Land",
+      "run": "bash scripts/land.sh"
+    }
+  ]
+}
