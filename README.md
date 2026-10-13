@@ -14,11 +14,18 @@ iOS port is mostly a matter of adding the iOS targets.
   *All Armor (Including Uncollected)*. Tap a material to see which pieces need it.
 - DLC and amiibo filters for both the list and the totals.
 
+**Breath of the Wild: Great Fairy Fountains**
+- Where to find Cotera, Kaysa, Mija and Tera: region, directions and nearby landmarks.
+- Mark each fountain as open. The screen shows what the next one costs (100 / 500 / 1,000 /
+  10,000 rupees, by how many are already open) and how far armor can be upgraded.
+- Shares the active save file with the armor tracker.
+
 ## Layout
 
 ```
 shared/       Kotlin Multiplatform module: models, logic, Compose UI, armor dataset
   src/commonMain/composeResources/files/botw/armor.json   ← BotW armor data
+  src/commonMain/composeResources/files/botw/fairies.json ← BotW Great Fairy Fountains
 androidApp/   Android application shell
 ```
 

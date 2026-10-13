@@ -18,6 +18,9 @@ import gx.zelda.botw.armor.data.ArmorStorage
 import gx.zelda.botw.armor.ui.ArmorDetailScreen
 import gx.zelda.botw.armor.ui.ArmorTrackerScreen
 import gx.zelda.botw.armor.ui.ArmorViewModel
+import gx.zelda.botw.fairies.data.FairyStorage
+import gx.zelda.botw.fairies.ui.FairyTrackerScreen
+import gx.zelda.botw.fairies.ui.FairyViewModel
 import gx.zelda.core.Games
 import gx.zelda.core.ui.HomeScreen
 import gx.zelda.core.ui.ZeldaTheme
@@ -27,6 +30,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data object BotwArmorGraph
 @Serializable private data object BotwArmorTracker
 @Serializable private data class BotwArmorDetail(val pieceId: String)
+@Serializable private data object BotwFairies
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -37,8 +41,14 @@ fun App(dataStore: DataStore<Preferences>) {
                 HomeScreen(onOpenTracker = { id ->
                     when (id) {
                         Games.BOTW_ARMOR -> nav.navigate(BotwArmorGraph)
+                        Games.BOTW_FAIRIES -> nav.navigate(BotwFairies)
                     }
                 })
+            }
+            composable<BotwFairies> {
+                val vm = viewModel { FairyViewModel(FairyStorage(dataStore)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                FairyTrackerScreen(state, vm, onBack = { nav.popBackStack() })
             }
             navigation<BotwArmorGraph>(startDestination = BotwArmorTracker) {
                 composable<BotwArmorTracker> { entry ->

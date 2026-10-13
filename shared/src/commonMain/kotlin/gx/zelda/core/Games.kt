@@ -18,6 +18,7 @@ data class Tracker(val id: String, val title: String, val description: String)
 
 object Games {
     const val BOTW_ARMOR = "botw_armor"
+    const val BOTW_FAIRIES = "botw_fairies"
 
     /** Switch 2 Edition: two Normal Mode files, plus Master Mode's own separate file. */
     val BOTW = Game(
@@ -31,6 +32,7 @@ object Games {
         ),
         trackers = listOf(
             Tracker(BOTW_ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
+            Tracker(BOTW_FAIRIES, "Great Fairy Fountains", "Where to find each Great Fairy and what opening her fountain costs"),
         ),
     )
 
