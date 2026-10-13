@@ -95,6 +95,10 @@ private fun PieceDetail(state: ArmorUiState, piece: ArmorPiece, viewModel: Armor
     val owned = progress.of(piece.id).owned
     val level = ArmorCalculator.level(piece, progress)
 
+    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        ArmorIcon(piece, size = 96.dp)
+    }
+
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         Tag(piece.slot.label)
         Tag(piece.source.label)
