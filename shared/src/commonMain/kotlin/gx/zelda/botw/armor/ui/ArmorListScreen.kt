@@ -39,7 +39,7 @@ import gx.zelda.botw.armor.logic.SetBonusStatus
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.botw.armor.model.ArmorProgress
 import gx.zelda.botw.armor.model.Source
-import gx.zelda.core.ui.Stars
+import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Tag
 
 private data class ArmorGroup(
@@ -233,7 +233,10 @@ private fun PieceRow(piece: ArmorPiece, progress: ArmorProgress, viewModel: Armo
                 }
             }
             Column(horizontalAlignment = Alignment.End) {
-                Stars(level, piece.maxLevel)
+                // Setting a level marks the piece collected, so tapping an uncollected piece's stars collects it at ★1.
+                if (piece.isUpgradable) {
+                    StarLevelButton(level, piece.maxLevel, onLevelChange = { viewModel.setLevel(piece.id, it) })
+                }
                 Text(
                     "${ArmorCalculator.defenseAt(piece, level)} def",
                     style = MaterialTheme.typography.labelMedium,

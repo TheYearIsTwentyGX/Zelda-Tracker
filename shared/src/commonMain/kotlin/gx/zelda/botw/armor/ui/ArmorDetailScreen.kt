@@ -37,6 +37,7 @@ import gx.zelda.botw.armor.logic.UpgradeTier
 import gx.zelda.botw.armor.model.ArmorCatalog
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.core.ui.StarGold
+import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Stars
 import gx.zelda.core.ui.Tag
 
@@ -130,7 +131,7 @@ private fun PieceDetail(state: ArmorUiState, piece: ArmorPiece, viewModel: Armor
         }
     }
 
-    SetBonusCard(state.catalog, piece, state)
+    SetBonusCard(state.catalog, piece, state, viewModel)
 
     val remaining = ArmorCalculator.remainingUpgrades(piece, progress)
     if (piece.isUpgradable) {
@@ -179,7 +180,7 @@ private fun DefenseTable(piece: ArmorPiece, current: Int?) {
 }
 
 @Composable
-private fun SetBonusCard(catalog: ArmorCatalog, piece: ArmorPiece, state: ArmorUiState) {
+private fun SetBonusCard(catalog: ArmorCatalog, piece: ArmorPiece, state: ArmorUiState, viewModel: ArmorViewModel) {
     val set = catalog.set(piece.setId) ?: return
     val status = ArmorCalculator.setBonusStatus(catalog, set, state.progress)
     SectionCard(title = set.name) {
@@ -214,7 +215,12 @@ private fun SetBonusCard(catalog: ArmorCatalog, piece: ArmorPiece, state: ArmorU
                     modifier = Modifier.weight(1f),
                 )
                 when {
-                    pOwned -> Stars(ArmorCalculator.level(p, state.progress), p.maxLevel)
+                    pOwned && p.isUpgradable -> StarLevelButton(
+                        ArmorCalculator.level(p, state.progress),
+                        p.maxLevel,
+                        onLevelChange = { viewModel.setLevel(p.id, it) },
+                    )
+                    pOwned -> Tag("Collected")
                     // Another piece already fills this slot, so this one isn't needed for the bonus.
                     status.slots.any { it.slot == p.slot && it.owned } -> Tag("Not collected")
                     else -> Tag("Missing")
