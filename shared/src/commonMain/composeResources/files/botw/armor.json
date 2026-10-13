@@ -3,407 +3,488 @@
     {
       "id": "acorn",
       "name": "Acorn",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 11
     },
     {
       "id": "amber",
       "name": "Amber",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 36
     },
     {
       "id": "ancient_core",
       "name": "Ancient Core",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 79
     },
     {
       "id": "ancient_gear",
       "name": "Ancient Gear",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 77
     },
     {
       "id": "ancient_screw",
       "name": "Ancient Screw",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 75
     },
     {
       "id": "ancient_shaft",
       "name": "Ancient Shaft",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 78
     },
     {
       "id": "ancient_spring",
       "name": "Ancient Spring",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 76
     },
     {
       "id": "blue_nightshade",
       "name": "Blue Nightshade",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 8
     },
     {
       "id": "bokoblin_fang",
       "name": "Bokoblin Fang",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 44
     },
     {
       "id": "bokoblin_guts",
       "name": "Bokoblin Guts",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 45
     },
     {
       "id": "bokoblin_horn",
       "name": "Bokoblin Horn",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 43
     },
     {
       "id": "chuchu_jelly",
       "name": "Chuchu Jelly",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 58
     },
     {
       "id": "courser_bee_honey",
       "name": "Courser Bee Honey",
-      "category": "Other"
+      "category": "Other",
+      "gameOrder": 10
     },
     {
       "id": "diamond",
       "name": "Diamond",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 42
     },
     {
       "id": "dinraals_claw",
       "name": "Dinraal's Claw",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 14
     },
     {
       "id": "dinraals_scale",
       "name": "Dinraal's Scale",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 13
     },
     {
       "id": "electric_keese_wing",
       "name": "Electric Keese Wing",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 65
     },
     {
       "id": "energetic_rhino_beetle",
       "name": "Energetic Rhino Beetle",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 30
     },
     {
       "id": "faroshs_claw",
       "name": "Farosh's Claw",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 22
     },
     {
       "id": "faroshs_scale",
       "name": "Farosh's Scale",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 21
     },
     {
       "id": "fire_keese_wing",
       "name": "Fire Keese Wing",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 64
     },
     {
       "id": "fireproof_lizard",
       "name": "Fireproof Lizard",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 34
     },
     {
       "id": "flint",
       "name": "Flint",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 35
     },
     {
       "id": "giant_ancient_core",
       "name": "Giant Ancient Core",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 80
     },
     {
       "id": "hearty_bass",
       "name": "Hearty Bass",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 25
     },
     {
       "id": "hightail_lizard",
       "name": "Hightail Lizard",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 33
     },
     {
       "id": "hinox_guts",
       "name": "Hinox Guts",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 74
     },
     {
       "id": "hinox_toenail",
       "name": "Hinox Toenail",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 72
     },
     {
       "id": "hinox_tooth",
       "name": "Hinox Tooth",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 73
     },
     {
       "id": "hot_footed_frog",
       "name": "Hot-Footed Frog",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 32
     },
     {
       "id": "hyrule_bass",
       "name": "Hyrule Bass",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 26
     },
     {
       "id": "ice_keese_wing",
       "name": "Ice Keese Wing",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 63
     },
     {
       "id": "icy_lizalfos_tail",
       "name": "Icy Lizalfos Tail",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 52
     },
     {
       "id": "keese_eyeball",
       "name": "Keese Eyeball",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 66
     },
     {
       "id": "keese_wing",
       "name": "Keese Wing",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 62
     },
     {
       "id": "lizalfos_horn",
       "name": "Lizalfos Horn",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 49
     },
     {
       "id": "lizalfos_tail",
       "name": "Lizalfos Tail",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 51
     },
     {
       "id": "lizalfos_talon",
       "name": "Lizalfos Talon",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 50
     },
     {
       "id": "luminous_stone",
       "name": "Luminous Stone",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 38
     },
     {
       "id": "lynel_guts",
       "name": "Lynel Guts",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 57
     },
     {
       "id": "lynel_hoof",
       "name": "Lynel Hoof",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 56
     },
     {
       "id": "lynel_horn",
       "name": "Lynel Horn",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 55
     },
     {
       "id": "moblin_fang",
       "name": "Moblin Fang",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 47
     },
     {
       "id": "moblin_guts",
       "name": "Moblin Guts",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 48
     },
     {
       "id": "moblin_horn",
       "name": "Moblin Horn",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 46
     },
     {
       "id": "molduga_fin",
       "name": "Molduga Fin",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 70
     },
     {
       "id": "molduga_guts",
       "name": "Molduga Guts",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 71
     },
     {
       "id": "naydras_claw",
       "name": "Naydra's Claw",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 18
     },
     {
       "id": "naydras_scale",
       "name": "Naydra's Scale",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 17
     },
     {
       "id": "octo_balloon",
       "name": "Octo Balloon",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 69
     },
     {
       "id": "octorok_eyeball",
       "name": "Octorok Eyeball",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 68
     },
     {
       "id": "octorok_tentacle",
       "name": "Octorok Tentacle",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 67
     },
     {
       "id": "opal",
       "name": "Opal",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 37
     },
     {
       "id": "red_chuchu_jelly",
       "name": "Red Chuchu Jelly",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 60
     },
     {
       "id": "red_lizalfos_tail",
       "name": "Red Lizalfos Tail",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 53
     },
     {
       "id": "ruby",
       "name": "Ruby",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 40
     },
     {
       "id": "rushroom",
       "name": "Rushroom",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 3
     },
     {
       "id": "sapphire",
       "name": "Sapphire",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 41
     },
     {
       "id": "shard_of_dinraals_fang",
       "name": "Shard of Dinraal's Fang",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 15
     },
     {
       "id": "shard_of_dinraals_horn",
       "name": "Shard of Dinraal's Horn",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 16
     },
     {
       "id": "shard_of_faroshs_fang",
       "name": "Shard of Farosh's Fang",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 23
     },
     {
       "id": "shard_of_faroshs_horn",
       "name": "Shard of Farosh's Horn",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 24
     },
     {
       "id": "shard_of_naydras_fang",
       "name": "Shard of Naydra's Fang",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 19
     },
     {
       "id": "shard_of_naydras_horn",
       "name": "Shard of Naydra's Horn",
-      "category": "Dragon Part"
+      "category": "Dragon Part",
+      "gameOrder": 20
     },
     {
       "id": "silent_princess",
       "name": "Silent Princess",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 9
     },
     {
       "id": "silent_shroom",
       "name": "Silent Shroom",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 4
     },
     {
       "id": "smotherwing_butterfly",
       "name": "Smotherwing Butterfly",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 29
     },
     {
       "id": "sneaky_river_snail",
       "name": "Sneaky River Snail",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 28
     },
     {
       "id": "star_fragment",
       "name": "Star Fragment",
-      "category": "Other"
+      "category": "Other",
+      "gameOrder": 12
     },
     {
       "id": "stealthfin_trout",
       "name": "Stealthfin Trout",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 27
     },
     {
       "id": "sunset_firefly",
       "name": "Sunset Firefly",
-      "category": "Creature"
+      "category": "Creature",
+      "gameOrder": 31
     },
     {
       "id": "sunshroom",
       "name": "Sunshroom",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 1
     },
     {
       "id": "swift_carrot",
       "name": "Swift Carrot",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 5
     },
     {
       "id": "swift_violet",
       "name": "Swift Violet",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 7
     },
     {
       "id": "topaz",
       "name": "Topaz",
-      "category": "Mineral"
+      "category": "Mineral",
+      "gameOrder": 39
     },
     {
       "id": "voltfruit",
       "name": "Voltfruit",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 0
     },
     {
       "id": "warm_safflina",
       "name": "Warm Safflina",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 6
     },
     {
       "id": "white_chuchu_jelly",
       "name": "White Chuchu Jelly",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 59
     },
     {
       "id": "yellow_chuchu_jelly",
       "name": "Yellow Chuchu Jelly",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 61
     },
     {
       "id": "yellow_lizalfos_tail",
       "name": "Yellow Lizalfos Tail",
-      "category": "Monster Part"
+      "category": "Monster Part",
+      "gameOrder": 54
     },
     {
       "id": "zapshroom",
       "name": "Zapshroom",
-      "category": "Plant"
+      "category": "Plant",
+      "gameOrder": 2
     }
   ],
   "sets": [

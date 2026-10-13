@@ -74,6 +74,20 @@ class ArmorDatasetTest {
     }
 
     @Test
+    fun inGameMaterialOrderCoversEveryMaterialOnce() = withCatalog { c ->
+        val orders = c.materials.map { it.gameOrder }
+        assertTrue(orders.all { it != null }, "material missing a game order")
+        assertEquals(c.materials.size, orders.toSet().size, "game order positions must be unique")
+
+        // Anchors from the game's Materials pouch sort: cooking group first (fruit, mushrooms, plants…),
+        // with Star Fragment and dragon parts grouped as spices ahead of fish; Ancient parts last.
+        val ordered = c.materials.sortedBy { it.gameOrder }.map { it.id }
+        assertEquals(listOf("voltfruit", "sunshroom", "zapshroom", "rushroom", "silent_shroom", "swift_carrot"), ordered.take(6))
+        assertTrue(ordered.indexOf("star_fragment") < ordered.indexOf("hearty_bass"))
+        assertEquals("giant_ancient_core", ordered.last())
+    }
+
+    @Test
     fun spotChecks() = withCatalog { c ->
         val climbingBandanna = c.pieces.first { it.name == "Climber's Bandanna" }
         assertEquals("Climb Speed Up", climbingBandanna.effect)

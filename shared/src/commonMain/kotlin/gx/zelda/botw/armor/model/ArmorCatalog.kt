@@ -25,6 +25,8 @@ data class Material(
     val id: String,
     val name: String,
     val category: String? = null,
+    /** Position in the game's Materials pouch sort order. */
+    val gameOrder: Int? = null,
 )
 
 @Serializable

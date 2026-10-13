@@ -9,6 +9,7 @@ import gx.zelda.botw.armor.model.ArmorCatalog
 import gx.zelda.botw.armor.model.ArmorPrefs
 import gx.zelda.botw.armor.model.ArmorProgress
 import gx.zelda.botw.armor.model.ArmorSort
+import gx.zelda.botw.armor.model.MaterialSort
 import gx.zelda.botw.armor.model.PieceProgress
 import gx.zelda.core.SaveFile
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -107,6 +108,8 @@ class ArmorViewModel(
     fun setShowAmiibo(show: Boolean) = editPrefs { it.copy(showAmiibo = show) }
 
     fun setSort(sort: ArmorSort) = editPrefs { it.copy(sort = sort) }
+
+    fun setMaterialSort(sort: MaterialSort) = editPrefs { it.copy(materialSort = sort) }
 
     fun setSaveFile(id: String) {
         viewModelScope.launch { storage.setActiveSaveFile(id) }

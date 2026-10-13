@@ -20,7 +20,6 @@ import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +34,8 @@ import androidx.compose.ui.unit.dp
 import gx.zelda.botw.armor.logic.ArmorCalculator
 import gx.zelda.botw.armor.logic.MaterialTotal
 import gx.zelda.botw.armor.logic.TotalsMode
+import gx.zelda.botw.armor.model.MaterialSort
+import gx.zelda.core.ui.SortMenu
 import gx.zelda.core.ui.Stars
 
 @Composable
@@ -47,9 +48,9 @@ fun MaterialTotalsScreen(
     val totals = remember(state.catalog, state.progress, state.totalsMode) {
         ArmorCalculator.totals(state.catalog, state.progress, state.totalsMode)
     }
-    var sortByName by rememberSaveable { mutableStateOf(false) }
     var expanded by rememberSaveable { mutableStateOf<String?>(null) }
-    val lines = if (sortByName) totals.lines.sortedBy { it.material.name } else totals.lines
+    val materialSort = state.progress.materialSort
+    val lines = remember(totals, materialSort) { totals.sorted(materialSort) }
 
     LazyColumn(contentPadding = contentPadding, modifier = Modifier.fillMaxWidth()) {
         item(key = "_controls") {
@@ -72,9 +73,7 @@ fun MaterialTotalsScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.weight(1f),
                     )
-                    TextButton(onClick = { sortByName = !sortByName }) {
-                        Text(if (sortByName) "Sort: A–Z" else "Sort: Most needed")
-                    }
+                    SortMenu(materialSort, MaterialSort.entries, { it.label }, viewModel::setMaterialSort)
                 }
             }
         }

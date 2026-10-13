@@ -3,7 +3,6 @@ package gx.zelda.botw.armor.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,13 +15,9 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -34,12 +29,8 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -56,6 +47,7 @@ import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.botw.armor.model.ArmorProgress
 import gx.zelda.botw.armor.model.ArmorSort
 import gx.zelda.botw.armor.model.Source
+import gx.zelda.core.ui.SortMenu
 import gx.zelda.core.ui.StarButton
 import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Tag
@@ -186,27 +178,7 @@ private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, owned: 
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.weight(1f),
             )
-            SortMenu(state.progress.sort, viewModel::setSort)
-        }
-    }
-}
-
-@Composable
-private fun SortMenu(current: ArmorSort, onSelect: (ArmorSort) -> Unit) {
-    var open by remember { mutableStateOf(false) }
-    Box {
-        TextButton(onClick = { open = true }) {
-            Text("Sort: ${current.label}")
-            Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
-        }
-        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-            ArmorSort.entries.forEach { sort ->
-                DropdownMenuItem(
-                    text = { Text(sort.label) },
-                    onClick = { onSelect(sort); open = false },
-                    trailingIcon = { if (sort == current) Icon(Icons.Filled.Check, contentDescription = "Selected") },
-                )
-            }
+            SortMenu(state.progress.sort, ArmorSort.entries, { it.label }, viewModel::setSort)
         }
     }
 }

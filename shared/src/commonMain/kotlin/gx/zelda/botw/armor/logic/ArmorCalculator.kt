@@ -6,6 +6,7 @@ import gx.zelda.botw.armor.model.ArmorProgress
 import gx.zelda.botw.armor.model.ArmorSet
 import gx.zelda.botw.armor.model.Material
 import gx.zelda.botw.armor.model.MaterialCost
+import gx.zelda.botw.armor.model.MaterialSort
 import gx.zelda.botw.armor.model.Slot
 
 /** One upgrade step: the materials needed to take a piece to [toLevel]. */
@@ -39,7 +40,15 @@ data class MaterialTotals(
     val lines: List<MaterialTotal>,
     val piecesCounted: Int,
     val tiersRemaining: Int,
-)
+) {
+    fun sorted(sort: MaterialSort): List<MaterialTotal> = when (sort) {
+        MaterialSort.MOST_NEEDED -> lines.sortedWith(compareByDescending<MaterialTotal> { it.qty }.thenBy { it.material.name })
+        MaterialSort.ALPHABETICAL -> lines.sortedBy { it.material.name }
+        MaterialSort.IN_GAME -> lines.sortedWith(
+            compareBy<MaterialTotal, Int?>(nullsLast()) { it.material.gameOrder }.thenBy { it.material.name },
+        )
+    }
+}
 
 object ArmorCalculator {
     /** In BotW a set bonus switches on once every piece of the set is upgraded to ★2. */
