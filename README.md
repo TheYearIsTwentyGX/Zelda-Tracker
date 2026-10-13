@@ -46,6 +46,18 @@ iOS port is mostly a matter of adding the iOS targets.
   Divine Beast Heart Containers aren't tracked.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Hyrule Compendium**
+- All 389 entries (385 base game + 4 from The Champions' Ballad) in the in-game order and
+  numbering, and Master Mode's 394, with its five extra entries and its own numbers, on the
+  Master Mode file.
+- A tab per category with photographed counts; Creatures is split into animals and food (048–083,
+  the entries that show hearts recovered rather than materials). Search by name, number, location
+  or drop, and a *Missing only* filter.
+- Each entry's common locations and drops, and how to buy its picture from Symin if you can't
+  take it (Elite Enemy Pictures only after Dark Beast Ganon). Entries that can only be
+  photographed at certain times — bosses, DLC trials — are marked *Limited*.
+- Tracks Save File 1, Save File 2 and Master Mode separately, sharing the active file.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -70,10 +82,12 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW only for now)
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker and Spirit Orb planner
+  src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
+  src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
@@ -122,6 +136,13 @@ Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the 
 geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
 under a different region there. Trial names keep the in-game wording, including the "A" in
 "A Minor Test of Strength".
+
+BotW Compendium numbering is from Zelda Wiki's *Hyrule Compendium Items in Breath of the Wild*
+(Normal and Master Mode, with and without The Champions' Ballad). Common locations and drops are
+the in-game text, from the Hyrule Compendium API (api.hyrule-compendium.com) checked against
+Zelda Wiki's `Data:Hyrule Compendium/BotW`, which also supplied the drops the API got wrong.
+Locations for entries the game lists as unknown, Symin's picture sales and the *Limited* notes
+come from Zelda Wiki and Zelda Fandom.
 
 Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 `scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
