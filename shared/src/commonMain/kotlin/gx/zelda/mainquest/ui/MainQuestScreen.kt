@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -30,10 +33,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
@@ -48,6 +48,7 @@ import gx.zelda.mainquest.model.DivineBeast
 import gx.zelda.mainquest.model.MainQuestSection
 import gx.zelda.mainquest.model.Memory
 import gx.zelda.mainquest.model.SheikahTower
+import kotlinx.coroutines.launch
 
 private val MainQuestSection.label: String
     get() = when (this) {
@@ -74,12 +75,17 @@ private val MainQuestSection.shortNoun: String
 
 /**
  * Main quest progress: Sheikah Towers, Divine Beasts and Recovered Memories on the active save
- * file. The tab row doubles as the summary, with each checklist's count under its name.
+ * file. The tab row doubles as the summary, with each checklist's count under its name; swipe
+ * between the checklists or tap a tab to jump to one.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainQuestScreen(state: MainQuestUiState?, viewModel: MainQuestViewModel, onBack: () -> Unit) {
-    var section by rememberSaveable { mutableStateOf(MainQuestSection.TOWERS) }
+    val sections = MainQuestSection.entries
+    val pager = rememberPagerState { sections.size }
+    // Hoisted so each checklist keeps its scroll position while its page is off screen.
+    val listStates = sections.map { rememberLazyListState() }
+    val scope = rememberCoroutineScope()
     Scaffold(
         topBar = {
             TopAppBar(
@@ -117,11 +123,11 @@ fun MainQuestScreen(state: MainQuestUiState?, viewModel: MainQuestViewModel, onB
             return@Scaffold
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
-            PrimaryTabRow(selectedTabIndex = section.ordinal) {
-                MainQuestSection.entries.forEach { s ->
+            PrimaryTabRow(selectedTabIndex = pager.targetPage) {
+                sections.forEach { s ->
                     Tab(
-                        selected = section == s,
-                        onClick = { section = s },
+                        selected = pager.targetPage == s.ordinal,
+                        onClick = { scope.launch { pager.animateScrollToPage(s.ordinal) } },
                         text = {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(s.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
@@ -135,21 +141,25 @@ fun MainQuestScreen(state: MainQuestUiState?, viewModel: MainQuestViewModel, onB
                     )
                 }
             }
-            LazyColumn(
-                contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                item(key = "summary_$section") { SummaryCard(state, section) }
-                when (section) {
-                    MainQuestSection.TOWERS -> items(state.catalog.towers, key = { it.id }) { tower ->
-                        TowerCard(tower, state.isDone(section, tower.id)) { viewModel.setDone(section, tower.id, it) }
-                    }
-                    MainQuestSection.DIVINE_BEASTS -> items(state.catalog.divineBeasts, key = { it.id }) { beast ->
-                        BeastCard(beast, state.isDone(section, beast.id)) { viewModel.setDone(section, beast.id, it) }
-                    }
-                    MainQuestSection.MEMORIES -> items(state.catalog.memories, key = { it.id }) { memory ->
-                        MemoryCard(memory, state.isDone(section, memory.id)) { viewModel.setDone(section, memory.id, it) }
+            HorizontalPager(pager, modifier = Modifier.fillMaxSize()) { page ->
+                val section = sections[page]
+                LazyColumn(
+                    state = listStates[page],
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    modifier = Modifier.fillMaxSize(),
+                ) {
+                    item(key = "summary") { SummaryCard(state, section) }
+                    when (section) {
+                        MainQuestSection.TOWERS -> items(state.catalog.towers, key = { it.id }) { tower ->
+                            TowerCard(tower, state.isDone(section, tower.id)) { viewModel.setDone(section, tower.id, it) }
+                        }
+                        MainQuestSection.DIVINE_BEASTS -> items(state.catalog.divineBeasts, key = { it.id }) { beast ->
+                            BeastCard(beast, state.isDone(section, beast.id)) { viewModel.setDone(section, beast.id, it) }
+                        }
+                        MainQuestSection.MEMORIES -> items(state.catalog.memories, key = { it.id }) { memory ->
+                            MemoryCard(memory, state.isDone(section, memory.id)) { viewModel.setDone(section, memory.id, it) }
+                        }
                     }
                 }
             }
