@@ -32,6 +32,16 @@ Requires JDK 17+ and the Android SDK (set `sdk.dir` in `local.properties`).
 ./gradlew :androidApp:installDebug   # install on a connected device/emulator
 ```
 
+### TGXCode buttons
+
+`.tgxcode/commands.json` declares two buttons:
+
+- **Install on phone** (`scripts/install-wireless.sh`) finds the phone over Wireless Debugging
+  (it uses adb's mDNS discovery and connects if needed), installs the debug build and opens it.
+  Pair the phone once by hand first; the script prints the `adb pair` command if it can't find one.
+- **Land** (`scripts/land.sh`) merges the current worktree's PR and fast-forwards the main
+  checkout. `--status` and `--dry-run` show what it would do.
+
 ## Data sources
 
 Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
