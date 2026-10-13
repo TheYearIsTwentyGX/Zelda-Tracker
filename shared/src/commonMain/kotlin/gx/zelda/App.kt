@@ -16,6 +16,10 @@ import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.ui.ArmorDetailScreen
 import gx.zelda.armor.ui.ArmorTrackerScreen
 import gx.zelda.armor.ui.ArmorViewModel
+import gx.zelda.compendium.data.CompendiumStorage
+import gx.zelda.compendium.ui.CompendiumDetailScreen
+import gx.zelda.compendium.ui.CompendiumTrackerScreen
+import gx.zelda.compendium.ui.CompendiumViewModel
 import gx.zelda.core.Game
 import gx.zelda.core.Games
 import gx.zelda.core.TrackerKind
@@ -30,6 +34,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class ArmorTracker(val gameId: String)
 @Serializable private data class ArmorDetail(val gameId: String, val pieceId: String)
 @Serializable private data class Fairies(val gameId: String)
+@Serializable private data class Compendium(val gameId: String)
+@Serializable private data class CompendiumDetail(val gameId: String, val entryId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -41,6 +47,7 @@ fun App(dataStore: DataStore<Preferences>) {
                     when (kind) {
                         TrackerKind.ARMOR -> nav.navigate(ArmorTracker(game.id))
                         TrackerKind.FAIRIES -> nav.navigate(Fairies(game.id))
+                        TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
                     }
                 })
             }
@@ -49,6 +56,26 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = viewModel(key = game.id) { FairyViewModel(FairyStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 FairyTrackerScreen(state, vm, onBack = { nav.popBackStack() })
+            }
+            composable<Compendium> { entry ->
+                val game = Games.byId(entry.toRoute<Compendium>().gameId)
+                val vm = compendiumViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                CompendiumTrackerScreen(
+                    state = state,
+                    viewModel = vm,
+                    onOpenEntry = { nav.navigate(CompendiumDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<CompendiumDetail> { entry ->
+                val route = entry.toRoute<CompendiumDetail>()
+                val trackerEntry = remember(entry) { nav.getBackStackEntry<Compendium>() }
+                val vm = compendiumViewModel(trackerEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    CompendiumDetailScreen(it, route.entryId, vm, onBack = { nav.popBackStack() })
+                }
             }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
@@ -84,3 +111,11 @@ private fun armorViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): ArmorViewModel = viewModel(owner, key = game.id) { ArmorViewModel(ArmorStorage(dataStore, game)) }
+
+/** The [CompendiumViewModel] for [game], owned by the Compendium list's back stack entry so its detail screen shares it. */
+@Composable
+private fun compendiumViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): CompendiumViewModel = viewModel(owner, key = game.id) { CompendiumViewModel(CompendiumStorage(dataStore, game)) }
