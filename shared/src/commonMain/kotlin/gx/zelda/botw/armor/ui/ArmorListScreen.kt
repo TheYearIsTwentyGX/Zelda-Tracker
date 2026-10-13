@@ -51,12 +51,15 @@ import gx.zelda.botw.armor.logic.ArmorCalculator
 import gx.zelda.botw.armor.logic.ArmorGroup
 import gx.zelda.botw.armor.logic.ArmorGrouping
 import gx.zelda.botw.armor.logic.SetBonusStatus
+import gx.zelda.botw.armor.logic.SetUpgrade
 import gx.zelda.botw.armor.model.ArmorPiece
 import gx.zelda.botw.armor.model.ArmorProgress
 import gx.zelda.botw.armor.model.ArmorSort
 import gx.zelda.botw.armor.model.Source
+import gx.zelda.core.ui.StarButton
 import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Tag
+import kotlin.math.roundToInt
 
 @Composable
 fun ArmorListScreen(
@@ -107,7 +110,19 @@ fun ArmorListScreen(
             val carded = group.title != null
             if (carded) {
                 item(key = "h_${group.key}") {
-                    GroupHeader(group, group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) })
+                    GroupHeader(
+                        group,
+                        bonus = group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) },
+                        setStars = group.set?.let {
+                            SetUpgrade.targets(group.pieces, progress).takeIf { t -> t.isNotEmpty() }
+                        }?.let { targets ->
+                            SetStars(
+                                average = SetUpgrade.averageLevel(targets, progress),
+                                max = targets.maxOf { it.maxLevel },
+                                onTap = { viewModel.setLevels(SetUpgrade.nextLevels(targets, progress)) },
+                            )
+                        },
+                    )
                 }
             }
             itemsIndexed(group.pieces, key = { _, piece -> piece.id }) { i, piece ->
@@ -217,8 +232,17 @@ private val GroupGap = 12.dp
 private val CardTop = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
 private val CardBottom = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp)
 
+/** The star counter on a set's header: average level of the set's pieces, tapping upgrades the lowest. */
+private class SetStars(val average: Float, val max: Int, val onTap: () -> Unit)
+
+/** 1.3333 → "1.33", 2.0 → "2". */
+private fun formatLevel(value: Float): String {
+    val hundredths = (value * 100).roundToInt()
+    return if (hundredths % 100 == 0) "${hundredths / 100}" else "${hundredths / 100.0}"
+}
+
 @Composable
-private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?) {
+private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?, setStars: SetStars?) {
     val title = group.title ?: return
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
@@ -235,6 +259,17 @@ private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?) {
                 )
                 val source = group.set?.source
                 if (source != null && source != Source.BASE) Tag(source.label)
+                setStars?.let {
+                    val average = formatLevel(it.average)
+                    StarButton(
+                        value = it.average,
+                        max = it.max,
+                        description = "Set upgrade level $average of ${it.max}",
+                        clickLabel = "Upgrade the least upgraded pieces",
+                        onClick = it.onTap,
+                        modifier = Modifier.padding(start = 8.dp),
+                    )
+                }
             }
             if (bonus != null && bonus.hasBonus) {
                 Spacer(Modifier.padding(top = 4.dp))

@@ -90,7 +90,17 @@ class ArmorViewModel(
 
     fun setOwned(pieceId: String, owned: Boolean) = editPiece(pieceId) { it.copy(owned = owned) }
 
-    fun setLevel(pieceId: String, level: Int) = editPiece(pieceId) { it.copy(owned = true, level = level) }
+    fun setLevel(pieceId: String, level: Int) = setLevels(mapOf(pieceId to level))
+
+    /** Sets several pieces' levels in one write (collecting them), e.g. a whole set from its header. */
+    fun setLevels(levels: Map<String, Int>) {
+        val file = state.value?.saveFile?.id ?: return
+        viewModelScope.launch {
+            storage.updatePieces(file) { pieces ->
+                pieces + levels.mapValues { (id, level) -> (pieces[id] ?: PieceProgress()).copy(owned = true, level = level) }
+            }
+        }
+    }
 
     fun setShowDlc(show: Boolean) = editPrefs { it.copy(showDlc = show) }
 
