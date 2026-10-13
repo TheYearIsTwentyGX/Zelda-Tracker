@@ -20,14 +20,33 @@ iOS port is mostly a matter of adding the iOS targets.
   10,000 rupees, by how many are already open) and how far armor can be upgraded.
 - Shares the active save file with the armor tracker.
 
+**Tears of the Kingdom: Armor Progress**
+- All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
+  bonus and material-totals features as BotW.
+- Prices in Poes (Bargainer Statues) and Bubbul Gems (Koltin) as well as rupees.
+- No DLC, and every amiibo piece can also be found in the world, so there are no source filters.
+  The list sorts A–Z only, because the in-game sort orders haven't been verified yet.
+
+**Tears of the Kingdom: Great Fairy Fountains**
+- Where to find Tera, Mija, Kaysa and Cotera, and the Stable Trotters side adventure that frees
+  each one (Tera first; she unlocks the other three).
+- Mark each fairy as freed; the screen shows how far armor can be upgraded and the per-upgrade
+  rupee fee (10 / 50 / 200 / 500).
+
+Both TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
+
 ## Layout
 
 ```
-shared/       Kotlin Multiplatform module: models, logic, Compose UI, armor dataset
-  src/commonMain/composeResources/files/botw/armor.json   ← BotW armor data
-  src/commonMain/composeResources/files/botw/fairies.json ← BotW Great Fairy Fountains
+shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
+  src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
+  src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
+  src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
+  src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
 androidApp/   Android application shell
 ```
+
+Each game's trackers are listed in `core/Games.kt`; storage keys are prefixed with the game id.
 
 ## Building
 
@@ -55,3 +74,8 @@ Requires JDK 17+ and the Android SDK (set `sdk.dir` in `local.properties`).
 
 Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
 Where sources disagreed, the majority value was used.
+
+TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against Game8,
+Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
+from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
+Zelda Wiki only.
