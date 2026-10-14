@@ -12,13 +12,21 @@ data class Game(
     fun saveFile(id: String?): SaveFile = saveFiles.firstOrNull { it.id == id } ?: saveFiles.first()
 }
 
-data class SaveFile(val id: String, val label: String)
+data class SaveFile(
+    val id: String,
+    val label: String,
+    /** A Master Mode file, which some trackers show differently (e.g. extra Compendium entries). */
+    val masterMode: Boolean = false,
+)
 
 /** The kinds of tracker a game can offer; each kind has one set of screens shared by every game. */
 enum class TrackerKind {
     ARMOR,
     FAIRIES,
+    MAIN_QUEST,
     SHRINES,
+    COMPENDIUM,
+    KOROKS,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -32,12 +40,15 @@ object Games {
         saveFiles = listOf(
             SaveFile("normal_1", "Save File 1"),
             SaveFile("normal_2", "Save File 2"),
-            SaveFile("master", "Master Mode"),
+            SaveFile("master", "Master Mode", masterMode = true),
         ),
         trackers = listOf(
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
             Tracker(TrackerKind.FAIRIES, "Great Fairy Fountains", "Where to find each Great Fairy and what opening her fountain costs"),
+            Tracker(TrackerKind.MAIN_QUEST, "Main Quest Progress", "Sheikah Towers, Divine Beasts and Recovered Memories"),
             Tracker(TrackerKind.SHRINES, "Shrines", "Shrines by region, Shrine Quests and a Spirit Orb planner"),
+            Tracker(TrackerKind.COMPENDIUM, "Hyrule Compendium", "Every entry photographed, by category, with where to find what's missing"),
+            Tracker(TrackerKind.KOROKS, "Korok Seeds", "All 900 seeds by region and puzzle type, and Hestu's upgrades"),
         ),
     )
 

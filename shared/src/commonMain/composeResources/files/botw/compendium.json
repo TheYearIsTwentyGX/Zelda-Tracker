@@ -1,0 +1,4944 @@
+{
+  "entries": [
+    {
+      "id": "horse",
+      "number": 1,
+      "masterNumber": 1,
+      "name": "Horse",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "giant_horse",
+      "number": 2,
+      "masterNumber": 2,
+      "name": "Giant Horse",
+      "category": "CREATURES",
+      "locations": [
+        "Taobab Grassland (Faron Grasslands)"
+      ]
+    },
+    {
+      "id": "white_horse",
+      "number": 3,
+      "masterNumber": 3,
+      "name": "White Horse",
+      "category": "CREATURES",
+      "locations": [
+        "Safula Hill"
+      ]
+    },
+    {
+      "id": "lord_of_the_mountain",
+      "number": 4,
+      "masterNumber": 4,
+      "name": "Lord of the Mountain",
+      "category": "CREATURES",
+      "locations": [
+        "Satori Mountain"
+      ],
+      "limited": true,
+      "note": "Appears on Satori Mountain only on some nights (waxing crescent moon; the mountain glows). Gone after about a day, or if Link enters a shrine or reloads."
+    },
+    {
+      "id": "stalhorse",
+      "number": 5,
+      "masterNumber": 5,
+      "name": "Stalhorse",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "donkey",
+      "number": 6,
+      "masterNumber": 6,
+      "name": "Donkey",
+      "category": "CREATURES",
+      "locations": [
+        "Greater Hyrule"
+      ]
+    },
+    {
+      "id": "sand_seal",
+      "number": 7,
+      "masterNumber": 7,
+      "name": "Sand Seal",
+      "category": "CREATURES",
+      "locations": [
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "patricia",
+      "number": 8,
+      "masterNumber": 8,
+      "name": "Patricia",
+      "category": "CREATURES",
+      "locations": [
+        "Gerudo Desert"
+      ],
+      "note": "Lives in the Palace Courtyard inside Gerudo Town, which only admits women; Link must first get in via the 'Forbidden City Entry' quest."
+    },
+    {
+      "id": "bushy_tailed_squirrel",
+      "number": 9,
+      "masterNumber": 9,
+      "name": "Bushy-Tailed Squirrel",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Hyrule Ridge"
+      ],
+      "drops": [
+        "Acorn"
+      ]
+    },
+    {
+      "id": "woodland_boar",
+      "number": 10,
+      "masterNumber": 10,
+      "name": "Woodland Boar",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ],
+      "drops": [
+        "Raw Meat"
+      ]
+    },
+    {
+      "id": "red_tusked_boar",
+      "number": 11,
+      "masterNumber": 11,
+      "name": "Red-Tusked Boar",
+      "category": "CREATURES",
+      "locations": [
+        "Akkala Highlands",
+        "Deep Akkala"
+      ],
+      "drops": [
+        "Raw Prime Meat"
+      ]
+    },
+    {
+      "id": "mountain_goat",
+      "number": 12,
+      "masterNumber": 12,
+      "name": "Mountain Goat",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Ridge",
+        "Great Hyrule Forest"
+      ],
+      "drops": [
+        "Raw Meat"
+      ]
+    },
+    {
+      "id": "white_goat",
+      "number": 13,
+      "masterNumber": 13,
+      "name": "White Goat",
+      "category": "CREATURES",
+      "locations": [
+        "West Necluda",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "mountain_buck",
+      "number": 14,
+      "masterNumber": 14,
+      "name": "Mountain Buck",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ],
+      "drops": [
+        "Raw Prime Meat"
+      ]
+    },
+    {
+      "id": "mountain_doe",
+      "number": 15,
+      "masterNumber": 15,
+      "name": "Mountain Doe",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ],
+      "drops": [
+        "Raw Prime Meat"
+      ]
+    },
+    {
+      "id": "water_buffalo",
+      "number": 16,
+      "masterNumber": 16,
+      "name": "Water Buffalo",
+      "category": "CREATURES",
+      "locations": [
+        "Lanayru Wetlands",
+        "Akkala Highlands"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "hateno_cow",
+      "number": 17,
+      "masterNumber": 17,
+      "name": "Hateno Cow",
+      "category": "CREATURES",
+      "locations": [
+        "East Necluda",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "highland_sheep",
+      "number": 18,
+      "masterNumber": 18,
+      "name": "Highland Sheep",
+      "category": "CREATURES",
+      "locations": [
+        "East Necluda",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "grassland_fox",
+      "number": 19,
+      "masterNumber": 19,
+      "name": "Grassland Fox",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ],
+      "drops": [
+        "Raw Meat"
+      ]
+    },
+    {
+      "id": "snowcoat_fox",
+      "number": 20,
+      "masterNumber": 20,
+      "name": "Snowcoat Fox",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Tabantha Frontier"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "maraudo_wolf",
+      "number": 21,
+      "masterNumber": 21,
+      "name": "Maraudo Wolf",
+      "category": "CREATURES",
+      "locations": [
+        "Tabantha Frontier",
+        "Great Hyrule Forest"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "wasteland_coyote",
+      "number": 22,
+      "masterNumber": 22,
+      "name": "Wasteland Coyote",
+      "category": "CREATURES",
+      "locations": [
+        "Gerudo Desert",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "cold_footed_wolf",
+      "number": 23,
+      "masterNumber": 23,
+      "name": "Cold-Footed Wolf",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "tabantha_moose",
+      "number": 24,
+      "masterNumber": 24,
+      "name": "Tabantha Moose",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "great_horned_rhinoceros",
+      "number": 25,
+      "masterNumber": 25,
+      "name": "Great-Horned Rhinoceros",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "honeyvore_bear",
+      "number": 26,
+      "masterNumber": 26,
+      "name": "Honeyvore Bear",
+      "category": "CREATURES",
+      "locations": [
+        "Tabantha Frontier",
+        "Akkala Highlands",
+        "Crenel Peak"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat"
+      ]
+    },
+    {
+      "id": "grizzlemaw_bear",
+      "number": 27,
+      "masterNumber": 27,
+      "name": "Grizzlemaw Bear",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Raw Prime Meat",
+        "Raw Gourmet Meat",
+        "Hearty Salmon"
+      ]
+    },
+    {
+      "id": "hylian_retriever",
+      "number": 28,
+      "masterNumber": 28,
+      "name": "Hylian Retriever",
+      "category": "CREATURES",
+      "locations": [
+        "Akkala Highlands",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "blupee",
+      "number": 29,
+      "masterNumber": 29,
+      "name": "Blupee",
+      "category": "CREATURES",
+      "locations": [
+        "Satori Mountain"
+      ],
+      "note": "Skittish: flees and vanishes in a flash of light once it notices Link, so approach with stealth. Several gather on Satori Mountain when the Lord of the Mountain appears."
+    },
+    {
+      "id": "common_sparrow",
+      "number": 30,
+      "masterNumber": 30,
+      "name": "Common Sparrow",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Hyrule Ridge"
+      ],
+      "drops": [
+        "Chickaloo Tree Nut"
+      ]
+    },
+    {
+      "id": "red_sparrow",
+      "number": 31,
+      "masterNumber": 31,
+      "name": "Red Sparrow",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Tabantha Frontier",
+        "Rito Stable"
+      ],
+      "drops": [
+        "Chickaloo Tree Nut"
+      ]
+    },
+    {
+      "id": "blue_sparrow",
+      "number": 32,
+      "masterNumber": 32,
+      "name": "Blue Sparrow",
+      "category": "CREATURES",
+      "locations": [
+        "Lanayru Great Spring",
+        "Great Hyrule Forest"
+      ],
+      "drops": [
+        "Chickaloo Tree Nut"
+      ]
+    },
+    {
+      "id": "rainbow_sparrow",
+      "number": 33,
+      "masterNumber": 33,
+      "name": "Rainbow Sparrow",
+      "category": "CREATURES",
+      "locations": [
+        "Faron Grasslands",
+        "West Necluda",
+        "Floria Bridge"
+      ],
+      "drops": [
+        "Chickaloo Tree Nut"
+      ]
+    },
+    {
+      "id": "sand_sparrow",
+      "number": 34,
+      "masterNumber": 34,
+      "name": "Sand Sparrow",
+      "category": "CREATURES",
+      "locations": [
+        "Gerudo Desert"
+      ],
+      "drops": [
+        "Chickaloo Tree Nut"
+      ]
+    },
+    {
+      "id": "golden_sparrow",
+      "number": 35,
+      "masterNumber": 35,
+      "name": "Golden Sparrow",
+      "category": "CREATURES",
+      "locations": [
+        "Great Hyrule Forest",
+        "Eldin Canyon"
+      ],
+      "drops": [
+        "Chickaloo Tree Nut"
+      ]
+    },
+    {
+      "id": "wood_pigeon",
+      "number": 36,
+      "masterNumber": 36,
+      "name": "Wood Pigeon",
+      "category": "CREATURES",
+      "locations": [
+        "Great Hyrule Forest",
+        "Hyrule Ridge"
+      ],
+      "drops": [
+        "Raw Bird Drumstick"
+      ]
+    },
+    {
+      "id": "rainbow_pigeon",
+      "number": 37,
+      "masterNumber": 37,
+      "name": "Rainbow Pigeon",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Ridge",
+        "Great Hyrule Forest",
+        "Seres Scablands"
+      ],
+      "drops": [
+        "Raw Bird Thigh"
+      ]
+    },
+    {
+      "id": "hotfeather_pigeon",
+      "number": 38,
+      "masterNumber": 38,
+      "name": "Hotfeather Pigeon",
+      "category": "CREATURES",
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ],
+      "drops": [
+        "Raw Bird Thigh"
+      ]
+    },
+    {
+      "id": "white_pigeon",
+      "number": 39,
+      "masterNumber": 39,
+      "name": "White Pigeon",
+      "category": "CREATURES",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Raw Bird Thigh",
+        "Raw Whole Bird"
+      ]
+    },
+    {
+      "id": "mountain_crow",
+      "number": 40,
+      "masterNumber": 40,
+      "name": "Mountain Crow",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Ridge",
+        "Great Hyrule Forest"
+      ],
+      "drops": [
+        "Raw Bird Drumstick"
+      ]
+    },
+    {
+      "id": "bright_chested_duck",
+      "number": 41,
+      "masterNumber": 41,
+      "name": "Bright-Chested Duck",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Ridge",
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Raw Bird Drumstick"
+      ]
+    },
+    {
+      "id": "blue_winged_heron",
+      "number": 42,
+      "masterNumber": 42,
+      "name": "Blue-Winged Heron",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Ridge",
+        "Faron Grasslands"
+      ],
+      "drops": [
+        "Raw Bird Drumstick"
+      ]
+    },
+    {
+      "id": "pink_heron",
+      "number": 43,
+      "masterNumber": 43,
+      "name": "Pink Heron",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Ridge",
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Raw Bird Drumstick"
+      ]
+    },
+    {
+      "id": "islander_hawk",
+      "number": 44,
+      "masterNumber": 44,
+      "name": "Islander Hawk",
+      "category": "CREATURES",
+      "locations": [
+        "Hyrule Field",
+        "Hyrule Ridge"
+      ],
+      "drops": [
+        "Raw Bird Thigh"
+      ]
+    },
+    {
+      "id": "seagull",
+      "number": 45,
+      "masterNumber": 45,
+      "name": "Seagull",
+      "category": "CREATURES",
+      "locations": [
+        "Necluda Sea",
+        "Akkala Sea"
+      ],
+      "drops": [
+        "Raw Bird Drumstick"
+      ]
+    },
+    {
+      "id": "eldin_ostrich",
+      "number": 46,
+      "masterNumber": 46,
+      "name": "Eldin Ostrich",
+      "category": "CREATURES",
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ],
+      "drops": [
+        "Raw Bird Thigh",
+        "Raw Whole Bird"
+      ]
+    },
+    {
+      "id": "cucco",
+      "number": 47,
+      "masterNumber": 47,
+      "name": "Cucco",
+      "category": "CREATURES",
+      "locations": [
+        "West Necluda",
+        "East Necluda"
+      ],
+      "drops": [
+        "Bird Egg"
+      ]
+    },
+    {
+      "id": "hyrule_bass",
+      "number": 48,
+      "masterNumber": 48,
+      "name": "Hyrule Bass",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "hearty_bass",
+      "number": 49,
+      "masterNumber": 49,
+      "name": "Hearty Bass",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "West Necluda",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "staminoka_bass",
+      "number": 50,
+      "masterNumber": 50,
+      "name": "Staminoka Bass",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "hearty_salmon",
+      "number": 51,
+      "masterNumber": 51,
+      "name": "Hearty Salmon",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Tabantha Frontier",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "chillfin_trout",
+      "number": 52,
+      "masterNumber": 52,
+      "name": "Chillfin Trout",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Tabantha Frontier",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "sizzlefin_trout",
+      "number": 53,
+      "masterNumber": 53,
+      "name": "Sizzlefin Trout",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "voltfin_trout",
+      "number": 54,
+      "masterNumber": 54,
+      "name": "Voltfin Trout",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Tabantha Frontier",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "stealthfin_trout",
+      "number": 55,
+      "masterNumber": 55,
+      "name": "Stealthfin Trout",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Great Hyrule Forest",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "mighty_carp",
+      "number": 56,
+      "masterNumber": 56,
+      "name": "Mighty Carp",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Akkala Highlands",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "armored_carp",
+      "number": 57,
+      "masterNumber": 57,
+      "name": "Armored Carp",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Lanayru Great Spring",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "sanke_carp",
+      "number": 58,
+      "masterNumber": 58,
+      "name": "Sanke Carp",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "mighty_porgy",
+      "number": 59,
+      "masterNumber": 59,
+      "name": "Mighty Porgy",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Necluda Sea",
+        "Lanayru Sea"
+      ]
+    },
+    {
+      "id": "armored_porgy",
+      "number": 60,
+      "masterNumber": 60,
+      "name": "Armored Porgy",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Necluda Sea",
+        "Lanayru Sea"
+      ]
+    },
+    {
+      "id": "sneaky_river_snail",
+      "number": 61,
+      "masterNumber": 61,
+      "name": "Sneaky River Snail",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "West Necluda",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "hearty_blueshell_snail",
+      "number": 62,
+      "masterNumber": 62,
+      "name": "Hearty Blueshell Snail",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Lanayru Sea",
+        "Necluda Sea"
+      ]
+    },
+    {
+      "id": "razorclaw_crab",
+      "number": 63,
+      "masterNumber": 63,
+      "name": "Razorclaw Crab",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Necluda Sea",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "ironshell_crab",
+      "number": 64,
+      "masterNumber": 64,
+      "name": "Ironshell Crab",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Necluda Sea",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "bright_eyed_crab",
+      "number": 65,
+      "masterNumber": 65,
+      "name": "Bright-Eyed Crab",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Lanayru Great Spring",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "fairy",
+      "number": 66,
+      "masterNumber": 66,
+      "name": "Fairy",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Greater Hyrule"
+      ]
+    },
+    {
+      "id": "winterwing_butterfly",
+      "number": 67,
+      "masterNumber": 67,
+      "name": "Winterwing Butterfly",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Ridge",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "summerwing_butterfly",
+      "number": 68,
+      "masterNumber": 68,
+      "name": "Summerwing Butterfly",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Great Hyrule Forest",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "thunderwing_butterfly",
+      "number": 69,
+      "masterNumber": 69,
+      "name": "Thunderwing Butterfly",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Ridge",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "smotherwing_butterfly",
+      "number": 70,
+      "masterNumber": 70,
+      "name": "Smotherwing Butterfly",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Eldin Canyon",
+        "Death Mountain"
+      ]
+    },
+    {
+      "id": "cold_darner",
+      "number": 71,
+      "masterNumber": 71,
+      "name": "Cold Darner",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Tabantha Frontier",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "warm_darner",
+      "number": 72,
+      "masterNumber": 72,
+      "name": "Warm Darner",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Akkala Highlands",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "electric_darner",
+      "number": 73,
+      "masterNumber": 73,
+      "name": "Electric Darner",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Ridge",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "restless_cricket",
+      "number": 74,
+      "masterNumber": 74,
+      "name": "Restless Cricket",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "bladed_rhino_beetle",
+      "number": 75,
+      "masterNumber": 75,
+      "name": "Bladed Rhino Beetle",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "West Necluda",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "rugged_rhino_beetle",
+      "number": 76,
+      "masterNumber": 76,
+      "name": "Rugged Rhino Beetle",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Hyrule Field",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "energetic_rhino_beetle",
+      "number": 77,
+      "masterNumber": 77,
+      "name": "Energetic Rhino Beetle",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Akkala Highlands",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "sunset_firefly",
+      "number": 78,
+      "masterNumber": 78,
+      "name": "Sunset Firefly",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "West Necluda",
+        "Great Hyrule Forest"
+      ]
+    },
+    {
+      "id": "hot_footed_frog",
+      "number": 79,
+      "masterNumber": 79,
+      "name": "Hot-Footed Frog",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Lanayru Great Spring",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "tireless_frog",
+      "number": 80,
+      "masterNumber": 80,
+      "name": "Tireless Frog",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Lanayru Great Spring",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "hightail_lizard",
+      "number": 81,
+      "masterNumber": 81,
+      "name": "Hightail Lizard",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "West Necluda",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "hearty_lizard",
+      "number": 82,
+      "masterNumber": 82,
+      "name": "Hearty Lizard",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Gerudo Desert",
+        "Necluda Sea"
+      ]
+    },
+    {
+      "id": "fireproof_lizard",
+      "number": 83,
+      "masterNumber": 83,
+      "name": "Fireproof Lizard",
+      "category": "CREATURES",
+      "food": true,
+      "locations": [
+        "Eldin Canyon",
+        "Death Mountain"
+      ]
+    },
+    {
+      "id": "chuchu",
+      "number": 84,
+      "masterNumber": 84,
+      "name": "Chuchu",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ],
+      "drops": [
+        "Chuchu Jelly"
+      ]
+    },
+    {
+      "id": "fire_chuchu",
+      "number": 85,
+      "masterNumber": 85,
+      "name": "Fire Chuchu",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ],
+      "drops": [
+        "Red Chuchu Jelly"
+      ]
+    },
+    {
+      "id": "ice_chuchu",
+      "number": 86,
+      "masterNumber": 86,
+      "name": "Ice Chuchu",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ],
+      "drops": [
+        "White Chuchu Jelly"
+      ]
+    },
+    {
+      "id": "electric_chuchu",
+      "number": 87,
+      "masterNumber": 87,
+      "name": "Electric Chuchu",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "East Necluda"
+      ],
+      "drops": [
+        "Yellow Chuchu Jelly"
+      ]
+    },
+    {
+      "id": "keese",
+      "number": 88,
+      "masterNumber": 88,
+      "name": "Keese",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ],
+      "drops": [
+        "Keese Wing",
+        "Keese Eyeball"
+      ]
+    },
+    {
+      "id": "fire_keese",
+      "number": 89,
+      "masterNumber": 89,
+      "name": "Fire Keese",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ],
+      "drops": [
+        "Fire Keese Wing",
+        "Keese Eyeball"
+      ]
+    },
+    {
+      "id": "ice_keese",
+      "number": 90,
+      "masterNumber": 90,
+      "name": "Ice Keese",
+      "category": "MONSTERS",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Ice Keese Wing",
+        "Keese Eyeball"
+      ]
+    },
+    {
+      "id": "electric_keese",
+      "number": 91,
+      "masterNumber": 91,
+      "name": "Electric Keese",
+      "category": "MONSTERS",
+      "locations": [
+        "Lanayru Great Spring",
+        "East Necluda"
+      ],
+      "drops": [
+        "Electric Keese Wing",
+        "Keese Eyeball"
+      ]
+    },
+    {
+      "id": "water_octorok",
+      "number": 92,
+      "masterNumber": 92,
+      "name": "Water Octorok",
+      "category": "MONSTERS",
+      "locations": [
+        "West Necluda",
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Octorok Tentacle",
+        "Octo Balloon",
+        "Octorok Eyeball"
+      ]
+    },
+    {
+      "id": "forest_octorok",
+      "number": 93,
+      "masterNumber": 93,
+      "name": "Forest Octorok",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Ridge",
+        "Deep Akkala"
+      ],
+      "drops": [
+        "Octorok Tentacle",
+        "Octo Balloon",
+        "Octorok Eyeball"
+      ]
+    },
+    {
+      "id": "rock_octorok",
+      "number": 94,
+      "masterNumber": 94,
+      "name": "Rock Octorok",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Canyon",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Octorok Tentacle",
+        "Octo Balloon",
+        "Octorok Eyeball"
+      ]
+    },
+    {
+      "id": "snow_octorok",
+      "number": 95,
+      "masterNumber": 95,
+      "name": "Snow Octorok",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "Tabantha Frontier"
+      ],
+      "drops": [
+        "Octorok Tentacle",
+        "Octo Balloon",
+        "Octorok Eyeball"
+      ]
+    },
+    {
+      "id": "treasure_octorok",
+      "number": 96,
+      "masterNumber": 96,
+      "name": "Treasure Octorok",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "Gerudo Desert"
+      ],
+      "drops": [
+        "Octorok Tentacle",
+        "Octo Balloon",
+        "Octorok Eyeball",
+        "Green Rupee",
+        "Blue Rupee",
+        "Red Rupee",
+        "Purple Rupee",
+        "Silver Rupee"
+      ]
+    },
+    {
+      "id": "sky_octorok",
+      "masterNumber": 97,
+      "name": "Sky Octorok",
+      "category": "MONSTERS",
+      "source": "MASTER_MODE",
+      "locations": [
+        "Near bridges and Sheikah Towers",
+        "Over lakes and rivers"
+      ],
+      "note": "Master Mode only. Hold up floating platforms; one arrow downs them. They drop no materials."
+    },
+    {
+      "id": "fire_wizzrobe",
+      "number": 97,
+      "masterNumber": 98,
+      "name": "Fire Wizzrobe",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Great Hyrule Forest"
+      ]
+    },
+    {
+      "id": "ice_wizzrobe",
+      "number": 98,
+      "masterNumber": 99,
+      "name": "Ice Wizzrobe",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "electric_wizzrobe",
+      "number": 99,
+      "masterNumber": 100,
+      "name": "Electric Wizzrobe",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Ridge",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "meteo_wizzrobe",
+      "number": 100,
+      "masterNumber": 101,
+      "name": "Meteo Wizzrobe",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "blizzrobe",
+      "number": 101,
+      "masterNumber": 102,
+      "name": "Blizzrobe",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "thunder_wizzrobe",
+      "number": 102,
+      "masterNumber": 103,
+      "name": "Thunder Wizzrobe",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "bokoblin",
+      "number": 103,
+      "masterNumber": 104,
+      "name": "Bokoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ],
+      "drops": [
+        "Bokoblin Horn",
+        "Bokoblin Fang"
+      ]
+    },
+    {
+      "id": "blue_bokoblin",
+      "number": 104,
+      "masterNumber": 105,
+      "name": "Blue Bokoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Desert",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Bokoblin Horn",
+        "Bokoblin Fang",
+        "Bokoblin Guts"
+      ]
+    },
+    {
+      "id": "black_bokoblin",
+      "number": 105,
+      "masterNumber": 106,
+      "name": "Black Bokoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Bokoblin Horn",
+        "Bokoblin Fang",
+        "Bokoblin Guts"
+      ]
+    },
+    {
+      "id": "stalkoblin",
+      "number": 106,
+      "masterNumber": 107,
+      "name": "Stalkoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Great Hyrule Forest"
+      ],
+      "drops": [
+        "Bokoblin Horn",
+        "Bokoblin Fang"
+      ]
+    },
+    {
+      "id": "silver_bokoblin",
+      "number": 107,
+      "masterNumber": 108,
+      "name": "Silver Bokoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Across Hyrule (high World Level)"
+      ],
+      "drops": [
+        "Bokoblin Horn",
+        "Bokoblin Fang",
+        "Bokoblin Guts",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "picture": "ELITE",
+      "note": "Only appears once enemy scaling (World Level) has upgraded enemies far enough; not present early in a playthrough."
+    },
+    {
+      "id": "golden_bokoblin",
+      "masterNumber": 109,
+      "name": "Golden Bokoblin",
+      "category": "MONSTERS",
+      "source": "MASTER_MODE",
+      "locations": [
+        "Across Hyrule (Master Mode, late)"
+      ],
+      "drops": [
+        "Bokoblin Horn",
+        "Bokoblin Fang",
+        "Bokoblin Guts",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "picture": "ELITE",
+      "note": "Master Mode only; appears once enemy scaling reaches its final tier. Fallback: Symin's 500-rupee Elite Enemy Picture after Dark Beast Ganon (Master Mode)."
+    },
+    {
+      "id": "moblin",
+      "number": 108,
+      "masterNumber": 110,
+      "name": "Moblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ],
+      "drops": [
+        "Moblin Horn",
+        "Moblin Fang"
+      ]
+    },
+    {
+      "id": "blue_moblin",
+      "number": 109,
+      "masterNumber": 111,
+      "name": "Blue Moblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Deep Akkala"
+      ],
+      "drops": [
+        "Moblin Horn",
+        "Moblin Fang",
+        "Moblin Guts"
+      ]
+    },
+    {
+      "id": "black_moblin",
+      "number": 110,
+      "masterNumber": 112,
+      "name": "Black Moblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ],
+      "drops": [
+        "Moblin Horn",
+        "Moblin Fang",
+        "Moblin Guts"
+      ]
+    },
+    {
+      "id": "stalmoblin",
+      "number": 111,
+      "masterNumber": 113,
+      "name": "Stalmoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Great Hyrule Forest",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Moblin Horn",
+        "Moblin Fang"
+      ]
+    },
+    {
+      "id": "silver_moblin",
+      "number": 112,
+      "masterNumber": 114,
+      "name": "Silver Moblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Across Hyrule (high World Level)"
+      ],
+      "drops": [
+        "Moblin Horn",
+        "Moblin Fang",
+        "Moblin Guts",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "picture": "ELITE",
+      "note": "Only appears once enemy scaling (World Level) has upgraded enemies far enough; not present early in a playthrough."
+    },
+    {
+      "id": "golden_moblin",
+      "masterNumber": 115,
+      "name": "Golden Moblin",
+      "category": "MONSTERS",
+      "source": "MASTER_MODE",
+      "locations": [
+        "Across Hyrule (Master Mode, late)"
+      ],
+      "drops": [
+        "Moblin Horn",
+        "Moblin Fang",
+        "Moblin Guts",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "picture": "ELITE",
+      "note": "Master Mode only; appears once enemy scaling reaches its final tier. Fallback: Symin's 500-rupee Elite Enemy Picture after Dark Beast Ganon (Master Mode)."
+    },
+    {
+      "id": "lizalfos",
+      "number": 113,
+      "masterNumber": 116,
+      "name": "Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Lanayru Great Spring",
+        "Gerudo Desert"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon"
+      ]
+    },
+    {
+      "id": "blue_lizalfos",
+      "number": 114,
+      "masterNumber": 117,
+      "name": "Blue Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Tabantha Frontier",
+        "Gerudo Desert"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Lizalfos Tail"
+      ]
+    },
+    {
+      "id": "black_lizalfos",
+      "number": 115,
+      "masterNumber": 118,
+      "name": "Black Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Lizalfos Tail"
+      ]
+    },
+    {
+      "id": "stalizalfos",
+      "number": 116,
+      "masterNumber": 119,
+      "name": "Stalizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Desert",
+        "Hyrule Ridge"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon"
+      ]
+    },
+    {
+      "id": "fire_breath_lizalfos",
+      "number": 117,
+      "masterNumber": 120,
+      "name": "Fire-Breath Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Canyon",
+        "Gerudo Desert"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Red Lizalfos Tail"
+      ]
+    },
+    {
+      "id": "ice_breath_lizalfos",
+      "number": 118,
+      "masterNumber": 121,
+      "name": "Ice-Breath Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Icy Lizalfos Tail"
+      ]
+    },
+    {
+      "id": "electric_lizalfos",
+      "number": 119,
+      "masterNumber": 122,
+      "name": "Electric Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Desert",
+        "Hyrule Ridge"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Yellow Lizalfos Tail"
+      ]
+    },
+    {
+      "id": "silver_lizalfos",
+      "number": 120,
+      "masterNumber": 123,
+      "name": "Silver Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Across Hyrule (high World Level)"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Lizalfos Tail",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "picture": "ELITE",
+      "note": "Only appears once enemy scaling (World Level) has upgraded enemies far enough; not present early in a playthrough."
+    },
+    {
+      "id": "golden_lizalfos",
+      "masterNumber": 124,
+      "name": "Golden Lizalfos",
+      "category": "MONSTERS",
+      "source": "MASTER_MODE",
+      "locations": [
+        "Across Hyrule (Master Mode, late)"
+      ],
+      "drops": [
+        "Lizalfos Horn",
+        "Lizalfos Talon",
+        "Lizalfos Tail",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "picture": "ELITE",
+      "note": "Master Mode only; appears once enemy scaling reaches its final tier. Fallback: Symin's 500-rupee Elite Enemy Picture after Dark Beast Ganon (Master Mode)."
+    },
+    {
+      "id": "lynel",
+      "number": 121,
+      "masterNumber": 125,
+      "name": "Lynel",
+      "category": "MONSTERS",
+      "locations": [
+        "Lanayru Great Spring",
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ]
+    },
+    {
+      "id": "blue_maned_lynel",
+      "number": 122,
+      "masterNumber": 126,
+      "name": "Blue-Maned Lynel",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Deep Akkala"
+      ],
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ]
+    },
+    {
+      "id": "white_maned_lynel",
+      "number": 123,
+      "masterNumber": 127,
+      "name": "White-Maned Lynel",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ],
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ]
+    },
+    {
+      "id": "silver_lynel",
+      "number": 124,
+      "masterNumber": 128,
+      "name": "Silver Lynel",
+      "category": "MONSTERS",
+      "locations": [
+        "Across Hyrule (high World Level)"
+      ],
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond",
+        "Star Fragment"
+      ],
+      "picture": "ELITE",
+      "note": "Only appears once enemy scaling (World Level) has upgraded enemies far enough; not present early in a playthrough."
+    },
+    {
+      "id": "golden_lynel",
+      "masterNumber": 129,
+      "name": "Golden Lynel",
+      "category": "MONSTERS",
+      "source": "MASTER_MODE",
+      "locations": [
+        "Across Hyrule (Master Mode, late)"
+      ],
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond",
+        "Star Fragment"
+      ],
+      "picture": "ELITE",
+      "note": "Master Mode only; appears once enemy scaling reaches its final tier. Fallback: Symin's 500-rupee Elite Enemy Picture after Dark Beast Ganon (Master Mode)."
+    },
+    {
+      "id": "guardian_stalker",
+      "number": 125,
+      "masterNumber": 130,
+      "name": "Guardian Stalker",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft",
+        "Ancient Core",
+        "Giant Ancient Core"
+      ]
+    },
+    {
+      "id": "guardian_skywatcher",
+      "number": 126,
+      "masterNumber": 131,
+      "name": "Guardian Skywatcher",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Akkala Highlands"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft",
+        "Ancient Core",
+        "Giant Ancient Core"
+      ]
+    },
+    {
+      "id": "guardian_turret",
+      "number": 127,
+      "masterNumber": 132,
+      "name": "Guardian Turret",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Castle"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft",
+        "Ancient Core",
+        "Giant Ancient Core"
+      ]
+    },
+    {
+      "id": "sentry",
+      "number": 128,
+      "masterNumber": 133,
+      "name": "Sentry",
+      "category": "MONSTERS",
+      "locations": [
+        "Death Mountain"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft",
+        "Ancient Core"
+      ]
+    },
+    {
+      "id": "decayed_guardian",
+      "number": 129,
+      "masterNumber": 134,
+      "name": "Decayed Guardian",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Hyrule Castle"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft"
+      ]
+    },
+    {
+      "id": "guardian_scout_i",
+      "number": 130,
+      "masterNumber": 135,
+      "name": "Guardian Scout I",
+      "category": "MONSTERS",
+      "locations": [
+        "Combat shrines",
+        "Divine Beasts"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring"
+      ]
+    },
+    {
+      "id": "guardian_scout_ii",
+      "number": 131,
+      "masterNumber": 136,
+      "name": "Guardian Scout II",
+      "category": "MONSTERS",
+      "locations": [
+        "Minor Test of Strength shrines",
+        "Divine Beasts"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft"
+      ]
+    },
+    {
+      "id": "guardian_scout_iii",
+      "number": 132,
+      "masterNumber": 137,
+      "name": "Guardian Scout III",
+      "category": "MONSTERS",
+      "locations": [
+        "Modest Test of Strength shrines"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft",
+        "Ancient Core"
+      ]
+    },
+    {
+      "id": "guardian_scout_iv",
+      "number": 133,
+      "masterNumber": 138,
+      "name": "Guardian Scout IV",
+      "category": "MONSTERS",
+      "locations": [
+        "Major Test of Strength shrines"
+      ],
+      "drops": [
+        "Ancient Screw",
+        "Ancient Spring",
+        "Ancient Gear",
+        "Ancient Shaft",
+        "Ancient Core"
+      ]
+    },
+    {
+      "id": "yiga_footsoldier",
+      "number": 134,
+      "masterNumber": 139,
+      "name": "Yiga Footsoldier",
+      "category": "MONSTERS",
+      "locations": [
+        "Disguised as travelers",
+        "Yiga Clan Hideout"
+      ],
+      "drops": [
+        "Green Rupee",
+        "Blue Rupee",
+        "Red Rupee",
+        "Purple Rupee",
+        "Mighty Bananas"
+      ]
+    },
+    {
+      "id": "yiga_blademaster",
+      "number": 135,
+      "masterNumber": 140,
+      "name": "Yiga Blademaster",
+      "category": "MONSTERS",
+      "locations": [
+        "Yiga Clan Hideout",
+        "Ambushes after Master Kohga"
+      ],
+      "drops": [
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Mighty Bananas"
+      ]
+    },
+    {
+      "id": "master_kohga",
+      "number": 136,
+      "masterNumber": 141,
+      "name": "Master Kohga",
+      "category": "MONSTERS",
+      "locations": [
+        "Yiga Clan Hideout"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Fought only in the one boss battle at the Yiga Clan Hideout (Vah Naboris quest); he falls into the chasm. Fallback: Elite Enemy Picture after Dark Beast Ganon."
+    },
+    {
+      "id": "monk_maz_koshia",
+      "number": 137,
+      "masterNumber": 142,
+      "name": "Monk Maz Koshia",
+      "category": "MONSTERS",
+      "source": "DLC2",
+      "locations": [
+        "Final Trial (Shrine of Resurrection)"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Champions' Ballad: fought at the end of the Final Trial under the Shrine of Resurrection. Afterwards he can be challenged again from his pedestal."
+    },
+    {
+      "id": "stone_talus",
+      "number": 138,
+      "masterNumber": 143,
+      "name": "Stone Talus",
+      "category": "MONSTERS",
+      "locations": [
+        "West Necluda",
+        "East Necluda"
+      ],
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "id": "stone_talus_luminous",
+      "number": 139,
+      "masterNumber": 144,
+      "name": "Stone Talus (Luminous)",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "id": "stone_talus_rare",
+      "number": 140,
+      "masterNumber": 145,
+      "name": "Stone Talus (Rare)",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Tabantha Frontier"
+      ],
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "id": "igneo_talus",
+      "number": 141,
+      "masterNumber": 146,
+      "name": "Igneo Talus",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Canyon"
+      ],
+      "drops": [
+        "Flint",
+        "Opal",
+        "Ruby",
+        "Diamond"
+      ]
+    },
+    {
+      "id": "frost_talus",
+      "number": 142,
+      "masterNumber": 147,
+      "name": "Frost Talus",
+      "category": "MONSTERS",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Flint",
+        "Opal",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "id": "stone_pebblit",
+      "number": 143,
+      "masterNumber": 148,
+      "name": "Stone Pebblit",
+      "category": "MONSTERS",
+      "locations": [
+        "Greater Hyrule"
+      ],
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal"
+      ]
+    },
+    {
+      "id": "igneo_pebblit",
+      "number": 144,
+      "masterNumber": 149,
+      "name": "Igneo Pebblit",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ],
+      "drops": [
+        "Flint",
+        "Amber",
+        "Ruby"
+      ]
+    },
+    {
+      "id": "frost_pebblit",
+      "number": 145,
+      "masterNumber": 150,
+      "name": "Frost Pebblit",
+      "category": "MONSTERS",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ],
+      "drops": [
+        "Flint",
+        "Amber",
+        "Sapphire"
+      ]
+    },
+    {
+      "id": "igneo_talus_titan",
+      "number": 146,
+      "masterNumber": 151,
+      "name": "Igneo Talus Titan",
+      "category": "MONSTERS",
+      "source": "DLC2",
+      "locations": [
+        "Lake Darman (Eldin)"
+      ],
+      "limited": true,
+      "note": "Champions' Ballad: fought at the north shore of Lake Darman during 'EX Champion Daruk's Song'."
+    },
+    {
+      "id": "hinox",
+      "number": 147,
+      "masterNumber": 152,
+      "name": "Hinox",
+      "category": "MONSTERS",
+      "locations": [
+        "East Necluda",
+        "West Necluda"
+      ],
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "id": "blue_hinox",
+      "number": 148,
+      "masterNumber": 153,
+      "name": "Blue Hinox",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ],
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "id": "black_hinox",
+      "number": 149,
+      "masterNumber": 154,
+      "name": "Black Hinox",
+      "category": "MONSTERS",
+      "locations": [
+        "East Necluda",
+        "Hyrule Field"
+      ],
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "id": "stalnox",
+      "number": 150,
+      "masterNumber": 155,
+      "name": "Stalnox",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ],
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "id": "molduga",
+      "number": 151,
+      "masterNumber": 156,
+      "name": "Molduga",
+      "category": "MONSTERS",
+      "locations": [
+        "Gerudo Desert"
+      ],
+      "drops": [
+        "Molduga Fin",
+        "Molduga Guts"
+      ]
+    },
+    {
+      "id": "molduking",
+      "number": 152,
+      "masterNumber": 157,
+      "name": "Molduking",
+      "category": "MONSTERS",
+      "source": "DLC2",
+      "locations": [
+        "East Barrens (Gerudo Desert)"
+      ],
+      "drops": [
+        "Treasures"
+      ],
+      "note": "Champions' Ballad: appears in the East Barrens for 'EX Champion Urbosa's Song'; once defeated it returns after every Blood Moon."
+    },
+    {
+      "id": "dinraal",
+      "number": 153,
+      "masterNumber": 158,
+      "name": "Dinraal",
+      "category": "MONSTERS",
+      "locations": [
+        "Eldin Mountains",
+        "Tabantha Frontier"
+      ],
+      "drops": [
+        "Dinraal's Scale",
+        "Dinraal's Claw",
+        "Shard of Dinraal's Fang",
+        "Shard of Dinraal's Horn"
+      ]
+    },
+    {
+      "id": "naydra",
+      "number": 154,
+      "masterNumber": 159,
+      "name": "Naydra",
+      "category": "MONSTERS",
+      "locations": [
+        "Mount Lanayru"
+      ],
+      "drops": [
+        "Naydra's Scale",
+        "Naydra's Claw",
+        "Shard of Naydra's Fang",
+        "Shard of Naydra's Horn"
+      ]
+    },
+    {
+      "id": "farosh",
+      "number": 155,
+      "masterNumber": 160,
+      "name": "Farosh",
+      "category": "MONSTERS",
+      "locations": [
+        "Lake Hylia",
+        "Lake Floria"
+      ],
+      "drops": [
+        "Farosh's Scale",
+        "Farosh's Claw",
+        "Shard of Farosh's Fang",
+        "Shard of Farosh's Horn"
+      ]
+    },
+    {
+      "id": "cursed_bokoblin",
+      "number": 156,
+      "masterNumber": 161,
+      "name": "Cursed Bokoblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beasts",
+        "Hyrule Castle"
+      ],
+      "limited": true,
+      "note": "Only spawned by Malice eyes inside the four Divine Beasts and Hyrule Castle; never in the open world."
+    },
+    {
+      "id": "cursed_moblin",
+      "number": 157,
+      "masterNumber": 162,
+      "name": "Cursed Moblin",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beasts",
+        "Hyrule Castle"
+      ],
+      "limited": true,
+      "note": "Only spawned by Malice eyes inside the four Divine Beasts and Hyrule Castle; never in the open world."
+    },
+    {
+      "id": "cursed_lizalfos",
+      "number": 158,
+      "masterNumber": 163,
+      "name": "Cursed Lizalfos",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beasts",
+        "Hyrule Castle"
+      ],
+      "limited": true,
+      "note": "Only spawned by Malice eyes inside the four Divine Beasts and Hyrule Castle; never in the open world."
+    },
+    {
+      "id": "thunderblight_ganon",
+      "number": 159,
+      "masterNumber": 164,
+      "name": "Thunderblight Ganon",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beast Vah Naboris"
+      ],
+      "drops": [
+        "Heart Container"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Fought in its Divine Beast, or in Hyrule Castle if that Beast is still unfreed. The Champions' Ballad DLC adds repeatable rematches in the Illusory Realm."
+    },
+    {
+      "id": "fireblight_ganon",
+      "number": 160,
+      "masterNumber": 165,
+      "name": "Fireblight Ganon",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beast Vah Rudania"
+      ],
+      "drops": [
+        "Heart Container"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Fought in its Divine Beast, or in Hyrule Castle if that Beast is still unfreed. The Champions' Ballad DLC adds repeatable rematches in the Illusory Realm."
+    },
+    {
+      "id": "waterblight_ganon",
+      "number": 161,
+      "masterNumber": 166,
+      "name": "Waterblight Ganon",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beast Vah Ruta"
+      ],
+      "drops": [
+        "Heart Container"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Fought in its Divine Beast, or in Hyrule Castle if that Beast is still unfreed. The Champions' Ballad DLC adds repeatable rematches in the Illusory Realm."
+    },
+    {
+      "id": "windblight_ganon",
+      "number": 162,
+      "masterNumber": 167,
+      "name": "Windblight Ganon",
+      "category": "MONSTERS",
+      "locations": [
+        "Divine Beast Vah Medoh"
+      ],
+      "drops": [
+        "Heart Container"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Fought in its Divine Beast, or in Hyrule Castle if that Beast is still unfreed. The Champions' Ballad DLC adds repeatable rematches in the Illusory Realm."
+    },
+    {
+      "id": "calamity_ganon",
+      "number": 163,
+      "masterNumber": 168,
+      "name": "Calamity Ganon",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Castle"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Final boss in Hyrule Castle's Sanctum. After the credits the save reloads just before the final battle, so it can be fought and photographed again."
+    },
+    {
+      "id": "dark_beast_ganon",
+      "number": 164,
+      "masterNumber": 169,
+      "name": "Dark Beast Ganon",
+      "category": "MONSTERS",
+      "locations": [
+        "Hyrule Field"
+      ],
+      "picture": "ELITE",
+      "limited": true,
+      "note": "Fought in Hyrule Field right after Calamity Ganon. Beating the game reloads the save before the final battle, so it can be refought."
+    },
+    {
+      "id": "apple",
+      "number": 165,
+      "masterNumber": 170,
+      "name": "Apple",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "palm_fruit",
+      "number": 166,
+      "masterNumber": 171,
+      "name": "Palm Fruit",
+      "category": "MATERIALS",
+      "locations": [
+        "East Necluda",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "wildberry",
+      "number": 167,
+      "masterNumber": 172,
+      "name": "Wildberry",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "hearty_durian",
+      "number": 168,
+      "masterNumber": 173,
+      "name": "Hearty Durian",
+      "category": "MATERIALS",
+      "locations": [
+        "West Necluda",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "hydromelon",
+      "number": 169,
+      "masterNumber": 174,
+      "name": "Hydromelon",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Desert",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "spicy_pepper",
+      "number": 170,
+      "masterNumber": 175,
+      "name": "Spicy Pepper",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Desert",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "voltfruit",
+      "number": 171,
+      "masterNumber": 176,
+      "name": "Voltfruit",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Desert",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "fleet_lotus_seeds",
+      "number": 172,
+      "masterNumber": 177,
+      "name": "Fleet-Lotus Seeds",
+      "category": "MATERIALS",
+      "locations": [
+        "Lanayru Wetlands",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "mighty_bananas",
+      "number": 173,
+      "masterNumber": 178,
+      "name": "Mighty Bananas",
+      "category": "MATERIALS",
+      "locations": [
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "hylian_shroom",
+      "number": 174,
+      "masterNumber": 179,
+      "name": "Hylian Shroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "endura_shroom",
+      "number": 175,
+      "masterNumber": 180,
+      "name": "Endura Shroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Ridge",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "stamella_shroom",
+      "number": 176,
+      "masterNumber": 181,
+      "name": "Stamella Shroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Ridge",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "hearty_truffle",
+      "number": 177,
+      "masterNumber": 182,
+      "name": "Hearty Truffle",
+      "category": "MATERIALS",
+      "locations": [
+        "Great Hyrule Forest",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "big_hearty_truffle",
+      "number": 178,
+      "masterNumber": 183,
+      "name": "Big Hearty Truffle",
+      "category": "MATERIALS",
+      "locations": [
+        "Hebra Mountains",
+        "Great Hyrule Forest"
+      ]
+    },
+    {
+      "id": "chillshroom",
+      "number": 179,
+      "masterNumber": 184,
+      "name": "Chillshroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Hebra Mountains",
+        "Mount Lanayru"
+      ]
+    },
+    {
+      "id": "sunshroom",
+      "number": 180,
+      "masterNumber": 185,
+      "name": "Sunshroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Eldin Canyon",
+        "Gerudo Highlands"
+      ],
+      "picture": "NONE",
+      "note": "Symin never sells this picture: photographing a Sunshroom is step one of 'Sunshroom Sensing'. Grows near trees in Eldin Canyon and Gerudo Highlands."
+    },
+    {
+      "id": "zapshroom",
+      "number": 181,
+      "masterNumber": 186,
+      "name": "Zapshroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Deep Akkala",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "rushroom",
+      "number": 182,
+      "masterNumber": 187,
+      "name": "Rushroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "razorshroom",
+      "number": 183,
+      "masterNumber": 188,
+      "name": "Razorshroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Great Hyrule Forest",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "ironshroom",
+      "number": 184,
+      "masterNumber": 189,
+      "name": "Ironshroom",
+      "category": "MATERIALS",
+      "locations": [
+        "West Necluda",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "silent_shroom",
+      "number": 185,
+      "masterNumber": 190,
+      "name": "Silent Shroom",
+      "category": "MATERIALS",
+      "locations": [
+        "Lanayru Great Spring",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "hyrule_herb",
+      "number": 186,
+      "masterNumber": 191,
+      "name": "Hyrule Herb",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Field",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "hearty_radish",
+      "number": 187,
+      "masterNumber": 192,
+      "name": "Hearty Radish",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Ridge",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "big_hearty_radish",
+      "number": 188,
+      "masterNumber": 193,
+      "name": "Big Hearty Radish",
+      "category": "MATERIALS",
+      "locations": [
+        "Akkala Highlands",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "cool_safflina",
+      "number": 189,
+      "masterNumber": 194,
+      "name": "Cool Safflina",
+      "category": "MATERIALS",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "warm_safflina",
+      "number": 190,
+      "masterNumber": 195,
+      "name": "Warm Safflina",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Desert",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "electric_safflina",
+      "number": 191,
+      "masterNumber": 196,
+      "name": "Electric Safflina",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Desert",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "swift_carrot",
+      "number": 192,
+      "masterNumber": 197,
+      "name": "Swift Carrot",
+      "category": "MATERIALS",
+      "locations": [
+        "Kakariko Village"
+      ]
+    },
+    {
+      "id": "endura_carrot",
+      "number": 193,
+      "masterNumber": 198,
+      "name": "Endura Carrot",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Ridge",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "fortified_pumpkin",
+      "number": 194,
+      "masterNumber": 199,
+      "name": "Fortified Pumpkin",
+      "category": "MATERIALS",
+      "locations": [
+        "Kakariko Village"
+      ]
+    },
+    {
+      "id": "swift_violet",
+      "number": 195,
+      "masterNumber": 200,
+      "name": "Swift Violet",
+      "category": "MATERIALS",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "mighty_thistle",
+      "number": 196,
+      "masterNumber": 201,
+      "name": "Mighty Thistle",
+      "category": "MATERIALS",
+      "locations": [
+        "West Necluda",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "armoranth",
+      "number": 197,
+      "masterNumber": 202,
+      "name": "Armoranth",
+      "category": "MATERIALS",
+      "locations": [
+        "Akkala Highlands",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "blue_nightshade",
+      "number": 198,
+      "masterNumber": 203,
+      "name": "Blue Nightshade",
+      "category": "MATERIALS",
+      "locations": [
+        "West Necluda",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "silent_princess",
+      "number": 199,
+      "masterNumber": 204,
+      "name": "Silent Princess",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Ridge",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "courser_bee_honey",
+      "number": 200,
+      "masterNumber": 205,
+      "name": "Courser Bee Honey",
+      "category": "MATERIALS",
+      "locations": [
+        "Hyrule Field",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "master_sword",
+      "number": 201,
+      "masterNumber": 206,
+      "name": "Master Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Korok Forest (Lost Woods)"
+      ],
+      "note": "Rests on its pedestal in Korok Forest; Link needs 13 Hearts to draw it."
+    },
+    {
+      "id": "tree_branch",
+      "number": 202,
+      "masterNumber": 207,
+      "name": "Tree Branch",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "torch",
+      "number": 203,
+      "masterNumber": 208,
+      "name": "Torch",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Great Hyrule Forest",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "soup_ladle",
+      "number": 204,
+      "masterNumber": 209,
+      "name": "Soup Ladle",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "boomerang",
+      "number": 205,
+      "masterNumber": 210,
+      "name": "Boomerang",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "spring_loaded_hammer",
+      "number": 206,
+      "masterNumber": 211,
+      "name": "Spring-Loaded Hammer",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Kilton's shop (Fang and Bone)"
+      ],
+      "note": "Sold by Kilton for 199 mon, only after at least one Divine Beast has been freed."
+    },
+    {
+      "id": "travelers_sword",
+      "number": 207,
+      "masterNumber": 212,
+      "name": "Traveler's Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "soldiers_broadsword",
+      "number": 208,
+      "masterNumber": 213,
+      "name": "Soldier's Broadsword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "knights_broadsword",
+      "number": 209,
+      "masterNumber": 214,
+      "name": "Knight's Broadsword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "royal_broadsword",
+      "number": 210,
+      "masterNumber": 215,
+      "name": "Royal Broadsword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "forest_dwellers_sword",
+      "number": 211,
+      "masterNumber": 216,
+      "name": "Forest Dweller's Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Great Hyrule Forest",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "zora_sword",
+      "number": 212,
+      "masterNumber": 217,
+      "name": "Zora Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "feathered_edge",
+      "number": 213,
+      "masterNumber": 218,
+      "name": "Feathered Edge",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "gerudo_scimitar",
+      "number": 214,
+      "masterNumber": 219,
+      "name": "Gerudo Scimitar",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "moonlight_scimitar",
+      "number": 215,
+      "masterNumber": 220,
+      "name": "Moonlight Scimitar",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "scimitar_of_the_seven",
+      "number": 216,
+      "masterNumber": 221,
+      "name": "Scimitar of the Seven",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Town"
+      ]
+    },
+    {
+      "id": "eightfold_blade",
+      "number": 217,
+      "masterNumber": 222,
+      "name": "Eightfold Blade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Lake Hylia"
+      ]
+    },
+    {
+      "id": "ancient_short_sword",
+      "number": 218,
+      "masterNumber": 223,
+      "name": "Ancient Short Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Ancient Tech Lab (crafted)"
+      ]
+    },
+    {
+      "id": "rusty_broadsword",
+      "number": 219,
+      "masterNumber": 224,
+      "name": "Rusty Broadsword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "royal_guards_sword",
+      "number": 220,
+      "masterNumber": 225,
+      "name": "Royal Guard's Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Castle"
+      ]
+    },
+    {
+      "id": "flameblade",
+      "number": 221,
+      "masterNumber": 226,
+      "name": "Flameblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "frostblade",
+      "number": 222,
+      "masterNumber": 227,
+      "name": "Frostblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "thunderblade",
+      "number": 223,
+      "masterNumber": 228,
+      "name": "Thunderblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "boko_club",
+      "number": 224,
+      "masterNumber": 229,
+      "name": "Boko Club",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "spiked_boko_club",
+      "number": 225,
+      "masterNumber": 230,
+      "name": "Spiked Boko Club",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Faron Grasslands",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "dragonbone_boko_club",
+      "number": 226,
+      "masterNumber": 231,
+      "name": "Dragonbone Boko Club",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Ridge",
+        "Necluda Sea"
+      ]
+    },
+    {
+      "id": "lizal_boomerang",
+      "number": 227,
+      "masterNumber": 232,
+      "name": "Lizal Boomerang",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lake Hylia",
+        "Lanayru Wetlands"
+      ]
+    },
+    {
+      "id": "lizal_forked_boomerang",
+      "number": 228,
+      "masterNumber": 233,
+      "name": "Lizal Forked Boomerang",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "lizal_tri_boomerang",
+      "number": 229,
+      "masterNumber": 234,
+      "name": "Lizal Tri-Boomerang",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "guardian_sword",
+      "number": 230,
+      "masterNumber": 235,
+      "name": "Guardian Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "guardian_sword_plus",
+      "number": 231,
+      "masterNumber": 236,
+      "name": "Guardian Sword+",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "guardian_sword_plus_plus",
+      "number": 232,
+      "masterNumber": 237,
+      "name": "Guardian Sword++",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "lynel_sword",
+      "number": 233,
+      "masterNumber": 238,
+      "name": "Lynel Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "mighty_lynel_sword",
+      "number": 234,
+      "masterNumber": 239,
+      "name": "Mighty Lynel Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "savage_lynel_sword",
+      "number": 235,
+      "masterNumber": 240,
+      "name": "Savage Lynel Sword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "fire_rod",
+      "number": 236,
+      "masterNumber": 241,
+      "name": "Fire Rod",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "meteor_rod",
+      "number": 237,
+      "masterNumber": 242,
+      "name": "Meteor Rod",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "ice_rod",
+      "number": 238,
+      "masterNumber": 243,
+      "name": "Ice Rod",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "blizzard_rod",
+      "number": 239,
+      "masterNumber": 244,
+      "name": "Blizzard Rod",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "lightning_rod",
+      "number": 240,
+      "masterNumber": 245,
+      "name": "Lightning Rod",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "thunderstorm_rod",
+      "number": 241,
+      "masterNumber": 246,
+      "name": "Thunderstorm Rod",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "vicious_sickle",
+      "number": 242,
+      "masterNumber": 247,
+      "name": "Vicious Sickle",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "demon_carver",
+      "number": 243,
+      "masterNumber": 248,
+      "name": "Demon Carver",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Yiga Footsoldier ambushes"
+      ],
+      "note": "Only carried by Yiga Footsoldiers that ambush Link after Master Kohga is defeated."
+    },
+    {
+      "id": "one_hit_obliterator",
+      "number": 244,
+      "masterNumber": 249,
+      "name": "One-Hit Obliterator",
+      "category": "EQUIPMENT",
+      "source": "DLC2",
+      "locations": [
+        "Shrine of Resurrection"
+      ],
+      "limited": true,
+      "note": "Champions' Ballad: taken from the Shrine of Resurrection; usable only on the Great Plateau during that trial, then it stays on its pedestal."
+    },
+    {
+      "id": "bokoblin_arm",
+      "number": 245,
+      "masterNumber": 250,
+      "name": "Bokoblin Arm",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Greater Hyrule"
+      ]
+    },
+    {
+      "id": "lizalfos_arm",
+      "number": 246,
+      "masterNumber": 251,
+      "name": "Lizalfos Arm",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Greater Hyrule"
+      ]
+    },
+    {
+      "id": "korok_leaf",
+      "number": 247,
+      "masterNumber": 252,
+      "name": "Korok Leaf",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "farming_hoe",
+      "number": 248,
+      "masterNumber": 253,
+      "name": "Farming Hoe",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "boat_oar",
+      "number": 249,
+      "masterNumber": 254,
+      "name": "Boat Oar",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Necluda Sea"
+      ]
+    },
+    {
+      "id": "woodcutters_axe",
+      "number": 250,
+      "masterNumber": 255,
+      "name": "Woodcutter's Axe",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "double_axe",
+      "number": 251,
+      "masterNumber": 256,
+      "name": "Double Axe",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "iron_sledgehammer",
+      "number": 252,
+      "masterNumber": 257,
+      "name": "Iron Sledgehammer",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "giant_boomerang",
+      "number": 253,
+      "masterNumber": 258,
+      "name": "Giant Boomerang",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "travelers_claymore",
+      "number": 254,
+      "masterNumber": 259,
+      "name": "Traveler's Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "soldiers_claymore",
+      "number": 255,
+      "masterNumber": 260,
+      "name": "Soldier's Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "knights_claymore",
+      "number": 256,
+      "masterNumber": 261,
+      "name": "Knight's Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "royal_claymore",
+      "number": 257,
+      "masterNumber": 262,
+      "name": "Royal Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "silver_longsword",
+      "number": 258,
+      "masterNumber": 263,
+      "name": "Silver Longsword",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Lanayru Wetlands"
+      ]
+    },
+    {
+      "id": "cobble_crusher",
+      "number": 259,
+      "masterNumber": 264,
+      "name": "Cobble Crusher",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "stone_smasher",
+      "number": 260,
+      "masterNumber": 265,
+      "name": "Stone Smasher",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "boulder_breaker",
+      "number": 261,
+      "masterNumber": 266,
+      "name": "Boulder Breaker",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "golden_claymore",
+      "number": 262,
+      "masterNumber": 267,
+      "name": "Golden Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "eightfold_longblade",
+      "number": 263,
+      "masterNumber": 268,
+      "name": "Eightfold Longblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "edge_of_duality",
+      "number": 264,
+      "masterNumber": 269,
+      "name": "Edge of Duality",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "ancient_bladesaw",
+      "number": 265,
+      "masterNumber": 270,
+      "name": "Ancient Bladesaw",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Ancient Tech Lab (crafted)"
+      ]
+    },
+    {
+      "id": "rusty_claymore",
+      "number": 266,
+      "masterNumber": 271,
+      "name": "Rusty Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "royal_guards_claymore",
+      "number": 267,
+      "masterNumber": 272,
+      "name": "Royal Guard's Claymore",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Castle"
+      ]
+    },
+    {
+      "id": "great_flameblade",
+      "number": 268,
+      "masterNumber": 273,
+      "name": "Great Flameblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "great_frostblade",
+      "number": 269,
+      "masterNumber": 274,
+      "name": "Great Frostblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "great_thunderblade",
+      "number": 270,
+      "masterNumber": 275,
+      "name": "Great Thunderblade",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "boko_bat",
+      "number": 271,
+      "masterNumber": 276,
+      "name": "Boko Bat",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "spiked_boko_bat",
+      "number": 272,
+      "masterNumber": 277,
+      "name": "Spiked Boko Bat",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Faron Grasslands",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "dragonbone_boko_bat",
+      "number": 273,
+      "masterNumber": 278,
+      "name": "Dragonbone Boko Bat",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Ridge",
+        "Necluda Sea"
+      ]
+    },
+    {
+      "id": "moblin_club",
+      "number": 274,
+      "masterNumber": 279,
+      "name": "Moblin Club",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "spiked_moblin_club",
+      "number": 275,
+      "masterNumber": 280,
+      "name": "Spiked Moblin Club",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "dragonbone_moblin_club",
+      "number": 276,
+      "masterNumber": 281,
+      "name": "Dragonbone Moblin Club",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "ancient_battle_axe",
+      "number": 277,
+      "masterNumber": 282,
+      "name": "Ancient Battle Axe",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "ancient_battle_axe_plus",
+      "number": 278,
+      "masterNumber": 283,
+      "name": "Ancient Battle Axe+",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Highlands",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "ancient_battle_axe_plus_plus",
+      "number": 279,
+      "masterNumber": 284,
+      "name": "Ancient Battle Axe++",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "lynel_crusher",
+      "number": 280,
+      "masterNumber": 285,
+      "name": "Lynel Crusher",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "mighty_lynel_crusher",
+      "number": 281,
+      "masterNumber": 286,
+      "name": "Mighty Lynel Crusher",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "savage_lynel_crusher",
+      "number": 282,
+      "masterNumber": 287,
+      "name": "Savage Lynel Crusher",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "windcleaver",
+      "number": 283,
+      "masterNumber": 288,
+      "name": "Windcleaver",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "moblin_arm",
+      "number": 284,
+      "masterNumber": 289,
+      "name": "Moblin Arm",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Greater Hyrule"
+      ]
+    },
+    {
+      "id": "wooden_mop",
+      "number": 285,
+      "masterNumber": 290,
+      "name": "Wooden Mop",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "farmers_pitchfork",
+      "number": 286,
+      "masterNumber": 291,
+      "name": "Farmer's Pitchfork",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "fishing_harpoon",
+      "number": 287,
+      "masterNumber": 292,
+      "name": "Fishing Harpoon",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Lake Hylia"
+      ]
+    },
+    {
+      "id": "throwing_spear",
+      "number": 288,
+      "masterNumber": 293,
+      "name": "Throwing Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "travelers_spear",
+      "number": 289,
+      "masterNumber": 294,
+      "name": "Traveler's Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "soldiers_spear",
+      "number": 290,
+      "masterNumber": 295,
+      "name": "Soldier's Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "knights_halberd",
+      "number": 291,
+      "masterNumber": 296,
+      "name": "Knight's Halberd",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "royal_halberd",
+      "number": 292,
+      "masterNumber": 297,
+      "name": "Royal Halberd",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "forest_dwellers_spear",
+      "number": 293,
+      "masterNumber": 298,
+      "name": "Forest Dweller's Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Great Hyrule Forest",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "zora_spear",
+      "number": 294,
+      "masterNumber": 299,
+      "name": "Zora Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Lake Hylia"
+      ]
+    },
+    {
+      "id": "silverscale_spear",
+      "number": 295,
+      "masterNumber": 300,
+      "name": "Silverscale Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Highlands",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "ceremonial_trident",
+      "number": 296,
+      "masterNumber": 301,
+      "name": "Ceremonial Trident",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "lightscale_trident",
+      "number": 297,
+      "masterNumber": 302,
+      "name": "Lightscale Trident",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "drillshaft",
+      "number": 298,
+      "masterNumber": 303,
+      "name": "Drillshaft",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "feathered_spear",
+      "number": 299,
+      "masterNumber": 304,
+      "name": "Feathered Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "gerudo_spear",
+      "number": 300,
+      "masterNumber": 305,
+      "name": "Gerudo Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "serpentine_spear",
+      "number": 301,
+      "masterNumber": 306,
+      "name": "Serpentine Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "ancient_spear",
+      "number": 302,
+      "masterNumber": 307,
+      "name": "Ancient Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Ancient Tech Lab (crafted)"
+      ]
+    },
+    {
+      "id": "rusty_halberd",
+      "number": 303,
+      "masterNumber": 308,
+      "name": "Rusty Halberd",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Great Hyrule Forest"
+      ]
+    },
+    {
+      "id": "royal_guards_spear",
+      "number": 304,
+      "masterNumber": 309,
+      "name": "Royal Guard's Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Castle"
+      ]
+    },
+    {
+      "id": "flamespear",
+      "number": 305,
+      "masterNumber": 310,
+      "name": "Flamespear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "frostspear",
+      "number": 306,
+      "masterNumber": 311,
+      "name": "Frostspear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "thunderspear",
+      "number": 307,
+      "masterNumber": 312,
+      "name": "Thunderspear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Ridge",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "boko_spear",
+      "number": 308,
+      "masterNumber": 313,
+      "name": "Boko Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "spiked_boko_spear",
+      "number": 309,
+      "masterNumber": 314,
+      "name": "Spiked Boko Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Faron Grasslands",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "dragonbone_boko_spear",
+      "number": 310,
+      "masterNumber": 315,
+      "name": "Dragonbone Boko Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Necluda Sea",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "moblin_spear",
+      "number": 311,
+      "masterNumber": 316,
+      "name": "Moblin Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Faron Grasslands",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "spiked_moblin_spear",
+      "number": 312,
+      "masterNumber": 317,
+      "name": "Spiked Moblin Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "dragonbone_moblin_spear",
+      "number": 313,
+      "masterNumber": 318,
+      "name": "Dragonbone Moblin Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "lizal_spear",
+      "number": 314,
+      "masterNumber": 319,
+      "name": "Lizal Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Wetlands",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "enhanced_lizal_spear",
+      "number": 315,
+      "masterNumber": 320,
+      "name": "Enhanced Lizal Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "forked_lizal_spear",
+      "number": 316,
+      "masterNumber": 321,
+      "name": "Forked Lizal Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Eldin Canyon",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "guardian_spear",
+      "number": 317,
+      "masterNumber": 322,
+      "name": "Guardian Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "guardian_spear_plus",
+      "number": 318,
+      "masterNumber": 323,
+      "name": "Guardian Spear+",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "guardian_spear_plus_plus",
+      "number": 319,
+      "masterNumber": 324,
+      "name": "Guardian Spear++",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "lynel_spear",
+      "number": 320,
+      "masterNumber": 325,
+      "name": "Lynel Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "mighty_lynel_spear",
+      "number": 321,
+      "masterNumber": 326,
+      "name": "Mighty Lynel Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Great Hyrule Forest",
+        "Deep Akkala"
+      ]
+    },
+    {
+      "id": "savage_lynel_spear",
+      "number": 322,
+      "masterNumber": 327,
+      "name": "Savage Lynel Spear",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "bow_of_light",
+      "number": 323,
+      "masterNumber": 328,
+      "name": "Bow of Light",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Dark Beast Ganon fight"
+      ],
+      "limited": true,
+      "note": "Only held during the Dark Beast Ganon fight, where Zelda gives it to Link; it is not kept afterwards. Symin also sells its Weapon Picture."
+    },
+    {
+      "id": "wooden_bow",
+      "number": 324,
+      "masterNumber": 329,
+      "name": "Wooden Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "travelers_bow",
+      "number": 325,
+      "masterNumber": 330,
+      "name": "Traveler's Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "soldiers_bow",
+      "number": 326,
+      "masterNumber": 331,
+      "name": "Soldier's Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "knights_bow",
+      "number": 327,
+      "masterNumber": 332,
+      "name": "Knight's Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "royal_bow",
+      "number": 328,
+      "masterNumber": 333,
+      "name": "Royal Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "forest_dwellers_bow",
+      "number": 329,
+      "masterNumber": 334,
+      "name": "Forest Dweller's Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hyrule Ridge"
+      ]
+    },
+    {
+      "id": "silver_bow",
+      "number": 330,
+      "masterNumber": 335,
+      "name": "Silver Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "swallow_bow",
+      "number": 331,
+      "masterNumber": 336,
+      "name": "Swallow Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "falcon_bow",
+      "number": 332,
+      "masterNumber": 337,
+      "name": "Falcon Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "great_eagle_bow",
+      "number": 333,
+      "masterNumber": 338,
+      "name": "Great Eagle Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "golden_bow",
+      "number": 334,
+      "masterNumber": 339,
+      "name": "Golden Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "phrenic_bow",
+      "number": 335,
+      "masterNumber": 340,
+      "name": "Phrenic Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Lake Hylia"
+      ]
+    },
+    {
+      "id": "ancient_bow",
+      "number": 336,
+      "masterNumber": 341,
+      "name": "Ancient Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Ancient Tech Lab (crafted)"
+      ]
+    },
+    {
+      "id": "royal_guards_bow",
+      "number": 337,
+      "masterNumber": 342,
+      "name": "Royal Guard's Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Castle"
+      ]
+    },
+    {
+      "id": "boko_bow",
+      "number": 338,
+      "masterNumber": 343,
+      "name": "Boko Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "spiked_boko_bow",
+      "number": 339,
+      "masterNumber": 344,
+      "name": "Spiked Boko Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Faron Grasslands",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "dragon_bone_boko_bow",
+      "number": 340,
+      "masterNumber": 345,
+      "name": "Dragon Bone Boko Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Ridge",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "lizal_bow",
+      "number": 341,
+      "masterNumber": 346,
+      "name": "Lizal Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Lanayru Wetlands"
+      ]
+    },
+    {
+      "id": "strengthened_lizal_bow",
+      "number": 342,
+      "masterNumber": 347,
+      "name": "Strengthened Lizal Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "steel_lizal_bow",
+      "number": 343,
+      "masterNumber": 348,
+      "name": "Steel Lizal Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "lynel_bow",
+      "number": 344,
+      "masterNumber": 349,
+      "name": "Lynel Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "mighty_lynel_bow",
+      "number": 345,
+      "masterNumber": 350,
+      "name": "Mighty Lynel Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Deep Akkala"
+      ]
+    },
+    {
+      "id": "savage_lynel_bow",
+      "number": 346,
+      "masterNumber": 351,
+      "name": "Savage Lynel Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "duplex_bow",
+      "number": 347,
+      "masterNumber": 352,
+      "name": "Duplex Bow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "arrow",
+      "number": 348,
+      "masterNumber": 353,
+      "name": "Arrow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "fire_arrow",
+      "number": 349,
+      "masterNumber": 354,
+      "name": "Fire Arrow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Eldin Canyon"
+      ]
+    },
+    {
+      "id": "ice_arrow",
+      "number": 350,
+      "masterNumber": 355,
+      "name": "Ice Arrow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "shock_arrow",
+      "number": 351,
+      "masterNumber": 356,
+      "name": "Shock Arrow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "bomb_arrow",
+      "number": 352,
+      "masterNumber": 357,
+      "name": "Bomb Arrow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "ancient_arrow",
+      "number": 353,
+      "masterNumber": 358,
+      "name": "Ancient Arrow",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "hylian_shield",
+      "number": 354,
+      "masterNumber": 359,
+      "name": "Hylian Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Castle (Lockup)"
+      ],
+      "note": "In a chest in Hyrule Castle's Lockup guarded by a Stalnox. Once found, Granté in Tarrey Town resells it for 3,000 rupees if Link has none."
+    },
+    {
+      "id": "pot_lid",
+      "number": 355,
+      "masterNumber": 360,
+      "name": "Pot Lid",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "wooden_shield",
+      "number": 356,
+      "masterNumber": 361,
+      "name": "Wooden Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "emblazoned_shield",
+      "number": 357,
+      "masterNumber": 362,
+      "name": "Emblazoned Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "hunters_shield",
+      "number": 358,
+      "masterNumber": 363,
+      "name": "Hunter's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Lanayru Wetlands"
+      ]
+    },
+    {
+      "id": "fishermans_shield",
+      "number": 359,
+      "masterNumber": 364,
+      "name": "Fisherman's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "travelers_shield",
+      "number": 360,
+      "masterNumber": 365,
+      "name": "Traveler's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "soldiers_shield",
+      "number": 361,
+      "masterNumber": 366,
+      "name": "Soldier's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "knights_shield",
+      "number": 362,
+      "masterNumber": 367,
+      "name": "Knight's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Eldin Mountains"
+      ]
+    },
+    {
+      "id": "royal_shield",
+      "number": 363,
+      "masterNumber": 368,
+      "name": "Royal Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "forest_dwellers_shield",
+      "number": 364,
+      "masterNumber": 369,
+      "name": "Forest Dweller's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Great Hyrule Forest"
+      ]
+    },
+    {
+      "id": "silver_shield",
+      "number": 365,
+      "masterNumber": 370,
+      "name": "Silver Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Lake Hylia"
+      ]
+    },
+    {
+      "id": "kite_shield",
+      "number": 366,
+      "masterNumber": 371,
+      "name": "Kite Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Tabantha Frontier"
+      ]
+    },
+    {
+      "id": "gerudo_shield",
+      "number": 367,
+      "masterNumber": 372,
+      "name": "Gerudo Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "radiant_shield",
+      "number": 368,
+      "masterNumber": 373,
+      "name": "Radiant Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert",
+        "Gerudo Highlands"
+      ]
+    },
+    {
+      "id": "daybreaker",
+      "number": 369,
+      "masterNumber": 374,
+      "name": "Daybreaker",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "shield_of_the_minds_eye",
+      "number": 370,
+      "masterNumber": 375,
+      "name": "Shield of the Mind's Eye",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "ancient_shield",
+      "number": 371,
+      "masterNumber": 376,
+      "name": "Ancient Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Akkala Ancient Tech Lab (crafted)"
+      ]
+    },
+    {
+      "id": "rusty_shield",
+      "number": 372,
+      "masterNumber": 377,
+      "name": "Rusty Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "royal_guards_shield",
+      "number": 373,
+      "masterNumber": 378,
+      "name": "Royal Guard's Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Castle"
+      ]
+    },
+    {
+      "id": "boko_shield",
+      "number": 374,
+      "masterNumber": 379,
+      "name": "Boko Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "West Necluda"
+      ]
+    },
+    {
+      "id": "spiked_boko_shield",
+      "number": 375,
+      "masterNumber": 380,
+      "name": "Spiked Boko Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Faron Grasslands",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "dragonbone_boko_shield",
+      "number": 376,
+      "masterNumber": 381,
+      "name": "Dragonbone Boko Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Ridge",
+        "Necluda Sea"
+      ]
+    },
+    {
+      "id": "lizal_shield",
+      "number": 377,
+      "masterNumber": 382,
+      "name": "Lizal Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lake Hylia",
+        "East Necluda"
+      ]
+    },
+    {
+      "id": "reinforced_lizal_shield",
+      "number": 378,
+      "masterNumber": 383,
+      "name": "Reinforced Lizal Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Tabantha Frontier",
+        "Gerudo Desert"
+      ]
+    },
+    {
+      "id": "steel_lizal_shield",
+      "number": 379,
+      "masterNumber": 384,
+      "name": "Steel Lizal Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hebra Mountains",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "guardian_shield",
+      "number": 380,
+      "masterNumber": 385,
+      "name": "Guardian Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "West Necluda",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "guardian_shield_plus",
+      "number": 381,
+      "masterNumber": 386,
+      "name": "Guardian Shield+",
+      "category": "EQUIPMENT",
+      "locations": [
+        "East Necluda",
+        "Faron Grasslands"
+      ]
+    },
+    {
+      "id": "guardian_shield_plus_plus",
+      "number": 382,
+      "masterNumber": 387,
+      "name": "Guardian Shield++",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Gerudo Highlands",
+        "Akkala Highlands"
+      ]
+    },
+    {
+      "id": "lynel_shield",
+      "number": 383,
+      "masterNumber": 388,
+      "name": "Lynel Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Lanayru Great Spring",
+        "Hyrule Field"
+      ]
+    },
+    {
+      "id": "mighty_lynel_shield",
+      "number": 384,
+      "masterNumber": 389,
+      "name": "Mighty Lynel Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Lanayru Great Spring"
+      ]
+    },
+    {
+      "id": "savage_lynel_shield",
+      "number": 385,
+      "masterNumber": 390,
+      "name": "Savage Lynel Shield",
+      "category": "EQUIPMENT",
+      "locations": [
+        "Hyrule Field",
+        "Hebra Mountains"
+      ]
+    },
+    {
+      "id": "treasure_chest",
+      "number": 386,
+      "masterNumber": 391,
+      "name": "Treasure Chest",
+      "category": "TREASURE",
+      "locations": [
+        "Greater Hyrule"
+      ],
+      "drops": [
+        "Treasures"
+      ]
+    },
+    {
+      "id": "ore_deposit",
+      "number": 387,
+      "masterNumber": 392,
+      "name": "Ore Deposit",
+      "category": "TREASURE",
+      "locations": [
+        "Greater Hyrule"
+      ],
+      "drops": [
+        "Ruby",
+        "Diamond",
+        "Amber",
+        "Sapphire",
+        "Topaz",
+        "Opal",
+        "Rock Salt",
+        "Flint"
+      ]
+    },
+    {
+      "id": "rare_ore_deposit",
+      "number": 388,
+      "masterNumber": 393,
+      "name": "Rare Ore Deposit",
+      "category": "TREASURE",
+      "locations": [
+        "Greater Hyrule"
+      ],
+      "drops": [
+        "Ruby",
+        "Sapphire",
+        "Diamond",
+        "Amber",
+        "Topaz",
+        "Flint"
+      ]
+    },
+    {
+      "id": "luminous_stone_deposit",
+      "number": 389,
+      "masterNumber": 394,
+      "name": "Luminous Stone Deposit",
+      "category": "TREASURE",
+      "locations": [
+        "Greater Hyrule"
+      ],
+      "drops": [
+        "Luminous Stone",
+        "Flint"
+      ]
+    }
+  ]
+}
