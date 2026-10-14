@@ -31,6 +31,10 @@ import gx.zelda.core.ui.ZeldaTheme
 import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.ui.FairyTrackerScreen
 import gx.zelda.fairies.ui.FairyViewModel
+import gx.zelda.koroks.data.KorokStorage
+import gx.zelda.koroks.ui.KorokDetailScreen
+import gx.zelda.koroks.ui.KorokTrackerScreen
+import gx.zelda.koroks.ui.KorokViewModel
 import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.ui.MainQuestScreen
 import gx.zelda.mainquest.ui.MainQuestViewModel
@@ -47,6 +51,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Shrines(val gameId: String)
 @Serializable private data class Compendium(val gameId: String)
 @Serializable private data class CompendiumDetail(val gameId: String, val entryId: String)
+@Serializable private data class Koroks(val gameId: String)
+@Serializable private data class KorokDetail(val gameId: String, val korokId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -64,6 +70,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.MAIN_QUEST -> nav.navigate(MainQuest(game.id))
                         TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
                         TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
+                        TrackerKind.KOROKS -> nav.navigate(Koroks(game.id))
                     }
                 })
             }
@@ -104,6 +111,28 @@ fun App(dataStore: DataStore<Preferences>) {
                 val state by vm.state.collectAsStateWithLifecycle()
                 state?.let {
                     CompendiumDetailScreen(it, route.entryId, vm, onBack = { nav.popBackStack() })
+                }
+            }
+            composable<Koroks> { entry ->
+                val game = Games.byId(entry.toRoute<Koroks>().gameId)
+                val vm = korokViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                KorokTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenKorok = { nav.navigate(KorokDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<KorokDetail> { entry ->
+                val route = entry.toRoute<KorokDetail>()
+                val listEntry = remember(entry) { nav.getBackStackEntry<Koroks>() }
+                val vm = korokViewModel(listEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    KorokDetailScreen(it, route.korokId, vm, onBack = { nav.popBackStack() })
                 }
             }
             composable<ArmorTracker> { entry ->
@@ -148,3 +177,11 @@ private fun compendiumViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): CompendiumViewModel = viewModel(owner, key = game.id) { CompendiumViewModel(CompendiumStorage(dataStore, game)) }
+
+/** The [KorokViewModel] for [game], owned by the Korok list's entry so the detail screen shares it. */
+@Composable
+private fun korokViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): KorokViewModel = viewModel(owner, key = game.id) { KorokViewModel(KorokStorage(dataStore, game)) }
