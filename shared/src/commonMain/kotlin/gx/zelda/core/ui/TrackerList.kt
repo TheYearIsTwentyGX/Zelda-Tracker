@@ -1,0 +1,160 @@
+package gx.zelda.core.ui
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.LocationOn
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconToggleButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.unit.dp
+import gx.zelda.core.DiscoveryState
+
+/*
+ * Building blocks shared by the region-grouped trackers (Shrines, Koroks): each region is a card
+ * made of a header and its rows, and each row can be found, completed, or hidden as a spoiler.
+ */
+
+val CardInset = 12.dp
+private val GroupGap = 12.dp
+private val CardTop = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
+private val CardBottom = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp)
+
+/** Places a row inside its region's card; the [last] row closes the card and leaves a gap below. */
+@Composable
+fun Modifier.groupRow(last: Boolean): Modifier = this
+    .padding(bottom = if (last) GroupGap else 0.dp)
+    .padding(horizontal = CardInset)
+    .clip(if (last) CardBottom else RectangleShape)
+    .background(MaterialTheme.colorScheme.surfaceContainer)
+
+/** The top of a region's card: "<region> Tower", how many are found, and done / total. */
+@Composable
+fun RegionHeader(region: String, found: Int, done: Int, total: Int) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+        shape = CardTop,
+        modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
+    ) {
+        Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                "$region Tower",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.weight(1f),
+            )
+            Text(
+                "Found $found",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(end = 8.dp),
+            )
+            if (done == total) {
+                Tag(
+                    "$done / $total",
+                    container = MaterialTheme.colorScheme.primaryContainer,
+                    content = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+            } else {
+                Tag("$done / $total")
+            }
+        }
+    }
+}
+
+/** The divider between rows of a region card, indented past the checkbox. */
+@Composable
+fun RowDivider() {
+    HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
+}
+
+/**
+ * Marks an entry found or undiscovered. A completed entry is always found, so the button is
+ * disabled until it's unticked.
+ */
+@Composable
+fun FoundToggle(state: DiscoveryState, onStateChange: (DiscoveryState) -> Unit) {
+    val found = state != DiscoveryState.UNDISCOVERED
+    IconToggleButton(
+        checked = found,
+        enabled = state != DiscoveryState.COMPLETED,
+        onCheckedChange = { onStateChange(if (it) DiscoveryState.FOUND else DiscoveryState.UNDISCOVERED) },
+    ) {
+        Icon(
+            if (found) Icons.Filled.LocationOn else Icons.Outlined.LocationOn,
+            contentDescription = if (found) "Found" else "Mark found",
+            tint = if (found) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+/** An undiscovered entry with spoilers hidden: tap to see it, or mark it found. */
+@Composable
+fun HiddenRow(title: String, onReveal: () -> Unit, onFound: () -> Unit, showDivider: Boolean, modifier: Modifier = Modifier) {
+    Column(modifier) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClickLabel = "Reveal", onClick = onReveal)
+                .padding(start = 4.dp, end = 4.dp, top = 6.dp, bottom = 6.dp),
+        ) {
+            Icon(
+                Icons.Filled.Lock,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(12.dp),
+            )
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(title, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text("Tap to reveal", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            FoundToggle(DiscoveryState.UNDISCOVERED) { onFound() }
+        }
+        if (showDivider) RowDivider()
+    }
+}
+
+/** The search box above a tracker's list; the keyboard's action key reads "Search". */
+@Composable
+fun SearchField(query: String, onQueryChange: (String) -> Unit, placeholder: String, modifier: Modifier = Modifier) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChange,
+        placeholder = { Text(placeholder) },
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        trailingIcon = {
+            if (query.isNotEmpty()) {
+                IconButton(onClick = { onQueryChange("") }) {
+                    Icon(Icons.Filled.Clear, contentDescription = "Clear search")
+                }
+            }
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+        modifier = modifier.fillMaxWidth(),
+    )
+}

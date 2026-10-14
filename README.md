@@ -63,6 +63,24 @@ iOS port is mostly a matter of adding the iOS targets.
   photographed at certain times — bosses, DLC trials — are marked *Limited*.
 - Tracks Save File 1, Save File 2 and Master Mode separately, sharing the active file.
 
+**Breath of the Wild: Korok Seeds**
+- All 900 seeds grouped by tower region, with counts per region and overall (e.g. 312 / 900).
+- Each row shows the puzzle type (Lone rock, Race to the ring, Pinwheel balloons… 29 in all), the
+  nearest named place and objmap's id; one-off puzzles also show objmap's own name for them.
+- Undiscovered, Found or Collected per seed, like shrines: tick a row to collect it, use its pin to
+  mark it found.
+- **Hide undiscovered Koroks** (top-bar menu): the same spoiler-safe mode as shrines, but a
+  separate setting, so one can be on without the other. Hidden rows only match a search by region
+  and never match a puzzle-type filter.
+- Search by place, puzzle type, region or id; filter to incomplete seeds or to any mix of puzzle
+  types (bottom sheet, with how many seeds each type has).
+- Tap › for a seed's page: how to solve its puzzle type, region, nearest place, coordinates, and
+  **Open in objmap**, which opens objmap.zeldamods.org centred on that Korok with its game data.
+- **Hestu**: seeds collected against the weapon, bow and shield upgrades you've bought from him
+  (entered by hand), what the seeds in hand buy cheapest-first, and what's left. Maxing every
+  pouch takes 441 seeds; the rest only count toward Hestu's Gift for all 900.
+- Shares the active save file with the other BotW trackers.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -88,9 +106,13 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW only for now)
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker and Spirit Orb planner
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
+  src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
+  src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
+  src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
+  src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
@@ -155,3 +177,10 @@ Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 Pieces only in TotK use `File:TotK <name> Icon.png`. Run the script after adding a piece to any
 game's `armor.json`; it fetches only the icons that are missing (`--force` re-downloads all of
 them), and each game's armor dataset test fails if any piece has no icon.
+
+BotW Korok Seed data (`files/botw/koroks.json`, `files/botw/korok_puzzle_types.json`) comes
+from objmap.zeldamods.org and its radar backend: ids, positions, tower regions and each seed's
+datamined `korok_type`, which decides its puzzle type. The puzzle-type names and descriptions
+follow Zelda Wiki. See `docs/korok-puzzle-types.md` for the fields, the coordinate system and how
+the types map. Hestu's per-upgrade seed costs are from Zelda Wiki's Korok Seed page
+(208 + 73 + 160 = 441).
