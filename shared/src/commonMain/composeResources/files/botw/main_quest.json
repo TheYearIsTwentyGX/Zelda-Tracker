@@ -1,0 +1,313 @@
+{
+  "towers": [
+    {
+      "id": "great_plateau",
+      "name": "Great Plateau Tower",
+      "region": "Great Plateau",
+      "location": "Northeast of the Great Plateau, by the Shrine of Resurrection.",
+      "tip": "Rises out of the ground when you place the Sheikah Slate on its pedestal at the start of the game, and activating it is part of the opening quest. Nothing guards the climb."
+    },
+    {
+      "id": "dueling_peaks",
+      "name": "Dueling Peaks Tower",
+      "region": "West Necluda",
+      "location": "In the Squabble River at the foot of the Dueling Peaks, on the road from the Great Plateau to Kakariko Village.",
+      "tip": "Its base sits in the river, ringed by rock pillars. Climb one of the pillars and glide across to the tower. Nothing guards the climb."
+    },
+    {
+      "id": "hateno",
+      "name": "Hateno Tower",
+      "region": "East Necluda",
+      "location": "In the hills of East Necluda, west of Hateno Village.",
+      "tip": "Thorny vines cover the base. Burn them with a fire arrow or a lit weapon, then climb, resting on each ledge."
+    },
+    {
+      "id": "lanayru",
+      "name": "Lanayru Tower",
+      "region": "Lanayru Wetlands",
+      "location": "On a multi-level hill in the Lanayru Wetlands, north of Kakariko Village, on the way to Zora's Domain.",
+      "tip": "A monster camp surrounds the hill and the wetlands around it are mostly water. Climb the camp's lookout ladder on the northwest side and glide from the platform onto the tower. Gruve is stranded at the top."
+    },
+    {
+      "id": "faron",
+      "name": "Faron Tower",
+      "region": "West Necluda",
+      "location": "South of the Dueling Peaks, near the river on the east side of the Faron Grasslands.",
+      "tip": "There are no resting ledges near the bottom, so bring stamina, and it often rains here, which makes the walls slippery. Move the stone slabs around the base with Stasis to uncover an updraft, or glide in from one of the cliffs around it."
+    },
+    {
+      "id": "lake",
+      "name": "Lake Tower",
+      "region": "Faron Grasslands",
+      "location": "On a fractured hill just south of Lake Hylia and the Bridge of Hylia.",
+      "tip": "Sunken paths through the hill are lined with spiked barricades and guarded by Bokoblins and Lizalfos. Clear them or go round them to reach the tower."
+    },
+    {
+      "id": "central",
+      "name": "Central Tower",
+      "region": "Hyrule Field",
+      "location": "In the Hyrule Garrison Ruins in the middle of Hyrule Field, southwest of Hyrule Castle.",
+      "tip": "Guardian Stalkers roam Hyrule Field on the way in, and Stalmoblins rise from the ruins at night. Approach from the south. Most Guardians in the ruins at its base are decayed."
+    },
+    {
+      "id": "ridgeland",
+      "name": "Ridgeland Tower",
+      "region": "Hyrule Ridge",
+      "location": "On the northeast edge of Hyrule Ridge, west of Hyrule Castle.",
+      "tip": "It stands in a small lake guarded by Electric Lizalfos and Electric Wizzrobes. A shock while you're swimming makes you drop your weapon and shield, so thin them out with arrows from the shore first. Branli is stranded at the top."
+    },
+    {
+      "id": "woodland",
+      "name": "Woodland Tower",
+      "region": "Great Hyrule Forest",
+      "location": "In the Military Training Camp, east of Korok Forest.",
+      "tip": "Monsters (including Wizzrobes) guard the ruined wooden towers and the bog around it. Fight your way up one of the smaller towers nearby and glide across, or cross the bog on Cryonis blocks."
+    },
+    {
+      "id": "eldin",
+      "name": "Eldin Tower",
+      "region": "Eldin Canyon",
+      "location": "On a peak south of Death Mountain, above Lake Ferona.",
+      "tip": "Nothing guards it, but it's very tall and has only two resting ledges. Glide in from a nearby rock ledge to cut down the climb."
+    },
+    {
+      "id": "akkala",
+      "name": "Akkala Tower",
+      "region": "Akkala Highlands",
+      "location": "In the middle of the Akkala Citadel Ruins.",
+      "tip": "Malice surrounds the base and creeps up the tower. Shoot the glowing eyeball beside the tower to free a metal slab, then use Magnesis to lay it as a bridge across the Malice. It's freezing at the top, so bring cold resistance."
+    },
+    {
+      "id": "tabantha",
+      "name": "Tabantha Tower",
+      "region": "Tabantha Frontier",
+      "location": "On Nero Hill, south of Rito Village.",
+      "tip": "Malice blocks the way up. Climb the rock pillar just west of the tower and shoot the Malice eyeball to the north; the pillar falls against the tower as a ramp."
+    },
+    {
+      "id": "hebra",
+      "name": "Hebra Tower",
+      "region": "Tabantha Frontier",
+      "location": "In the snowy mountains east of Rito Village, west of Korok Forest.",
+      "tip": "It's well below freezing here, so bring cold resistance (warm clothes or spicy food). Ice crystals encase the base: melt them with a fire arrow, a fire weapon or a campfire (wood bundle plus flint), or skip them with Revali's Gale."
+    },
+    {
+      "id": "gerudo",
+      "name": "Gerudo Tower",
+      "region": "Gerudo Highlands",
+      "location": "In the Birida Lookout Chasm in the Gerudo Highlands, north of Gerudo Town.",
+      "tip": "Exceptionally tall. Glide to it from high ground (the plateau to the northeast, reached from Karusa Valley) rather than climbing from the bottom. Kass plays at the top."
+    },
+    {
+      "id": "wasteland",
+      "name": "Wasteland Tower",
+      "region": "Gerudo Highlands",
+      "location": "On the northernmost peak of Spectacle Rock, at the edge of the Gerudo Desert.",
+      "tip": "It stands in a bottomless bog that swallows you and costs a heart if you fall in. Cross on Cryonis blocks or glide in from above."
+    }
+  ],
+  "divineBeasts": [
+    {
+      "id": "vah_ruta",
+      "name": "Vah Ruta",
+      "champion": "Mipha",
+      "race": "Zora",
+      "region": "Lanayru",
+      "location": "East Reservoir Lake, above Zora's Domain.",
+      "quest": "Divine Beast Vah Ruta",
+      "start": "Follow Sidon to Zora's Domain (\"Reach Zora's Domain\") and speak to King Dorephan in the throne room.",
+      "prep": [
+        "Zora Armor, which King Dorephan gives you, for swimming up waterfalls.",
+        "At least 20 Shock Arrows. The Lynel on Shatterback Point (Ploymus Mountain) fires them; sneak in to collect them or defeat it.",
+        "It rains constantly while Vah Ruta rampages, so expect slippery climbing."
+      ],
+      "boss": "Waterblight Ganon",
+      "ability": "Mipha's Grace",
+      "abilityEffect": "Revives you with full hearts when you would otherwise fall, then recharges.",
+      "rewards": ["Mipha's Grace", "Heart Container", "Lightscale Trident"]
+    },
+    {
+      "id": "vah_rudania",
+      "name": "Vah Rudania",
+      "champion": "Daruk",
+      "race": "Goron",
+      "region": "Eldin",
+      "location": "Death Mountain, above Goron City.",
+      "quest": "Divine Beast Vah Rudania",
+      "start": "Speak to Bludo in Goron City, then rescue Yunobo from the Abandoned North Mine.",
+      "prep": [
+        "Flame Guard for Death Mountain: Fireproof Elixirs (Bludo gives you three after you rescue Yunobo) or the Flamebreaker set. The mine needs two levels.",
+        "Ice arrows or frost weapons for Fireblight Ganon."
+      ],
+      "boss": "Fireblight Ganon",
+      "ability": "Daruk's Protection",
+      "abilityEffect": "Raising your shield throws up a barrier that blocks any attack. It takes three hits before recharging.",
+      "rewards": ["Daruk's Protection", "Heart Container", "Boulder Breaker"]
+    },
+    {
+      "id": "vah_medoh",
+      "name": "Vah Medoh",
+      "champion": "Revali",
+      "race": "Rito",
+      "region": "Tabantha",
+      "location": "The skies over Rito Village.",
+      "quest": "Divine Beast Vah Medoh",
+      "start": "Speak to Kaneli in Rito Village, then find Teba at the Flight Range.",
+      "prep": [
+        "Cold resistance for the flight: the Snowquill set from Rito Village, warm clothes or spicy food.",
+        "A bow you're comfortable aiming in the air. You must hit five targets within three minutes at the Flight Range, and Teba gives you 20 Bomb Arrows for Medoh's cannons."
+      ],
+      "boss": "Windblight Ganon",
+      "ability": "Revali's Gale",
+      "abilityEffect": "Summons an updraft that launches you high into the air for gliding. Three uses before recharging.",
+      "rewards": ["Revali's Gale", "Heart Container", "Great Eagle Bow"]
+    },
+    {
+      "id": "vah_naboris",
+      "name": "Vah Naboris",
+      "champion": "Urbosa",
+      "race": "Gerudo",
+      "region": "Gerudo",
+      "location": "The sandstorm in the Gerudo Desert, east of Gerudo Town.",
+      "quest": "Divine Beast Vah Naboris",
+      "start": "Get into Gerudo Town (\"Forbidden City Entry\": buy the Gerudo outfit from Vilia at Kara Kara Bazaar), speak to Riju, then recover the Thunder Helm from the Yiga Clan Hideout in Karusa Valley.",
+      "prep": [
+        "Heat resistance by day and cold resistance by night in the desert.",
+        "Shock resistance (the Rubber set) for Thunderblight Ganon, and non-metal weapons and shields, which won't attract lightning.",
+        "Bomb Arrows: shoot each of Naboris's four feet twice while riding a sand seal, sheltering beside Riju's Thunder Helm when it charges lightning."
+      ],
+      "boss": "Thunderblight Ganon",
+      "ability": "Urbosa's Fury",
+      "abilityEffect": "A charged attack calls down lightning on nearby enemies. Three uses before recharging.",
+      "rewards": ["Urbosa's Fury", "Heart Container", "Scimitar of the Seven", "Daybreaker"]
+    }
+  ],
+  "memories": [
+    {
+      "number": 1,
+      "title": "Subdued Ceremony",
+      "location": "Sacred Ground Ruins",
+      "photo": 1,
+      "hint": "Directly south of Hyrule Castle: stand on the round stone stage at the centre of the ruins, where knighting ceremonies were held. Guardians patrol the area. Pikango at Woodland Stable recognises it."
+    },
+    {
+      "number": 2,
+      "title": "Revali's Flap",
+      "location": "Revali's Landing, Rito Village",
+      "quest": "Divine Beast Vah Medoh",
+      "hint": "Saki sends you to the Flight Range by way of Revali's Landing; looking at Revali's memorial there triggers this memory."
+    },
+    {
+      "number": 3,
+      "title": "Resolve and Grief",
+      "location": "Lake Kolomo, Hyrule Field",
+      "photo": 2,
+      "hint": "On the wooded west shore of Lake Kolomo, just north of the Great Plateau (warp to Oman Au Shrine and head north), looking east over the lake. Pikango at Riverside Stable recognises it."
+    },
+    {
+      "number": 4,
+      "title": "Daruk's Mettle",
+      "location": "Goron City",
+      "quest": "Divine Beast Vah Rudania",
+      "hint": "After you rescue Yunobo, Bludo points out Daruk's statue, the Goron Stone Memorial above Goron City; looking at it triggers this memory."
+    },
+    {
+      "number": 5,
+      "title": "Zelda's Resentment",
+      "location": "Ancient Columns",
+      "photo": 3,
+      "hint": "Cross the Tabantha Great Bridge and climb the large cliff to the south. The memory is among the ruined columns just outside Tena Ko'sah Shrine. Pikango at Tabantha Bridge Stable recognises it."
+    },
+    {
+      "number": 6,
+      "title": "Urbosa's Hand",
+      "location": "Royal Palace, Gerudo Town",
+      "quest": "Divine Beast Vah Naboris",
+      "hint": "Bring the Thunder Helm back to Riju in her bedroom in the Royal Palace; when she tries it on, this memory triggers."
+    },
+    {
+      "number": 7,
+      "title": "Blades of the Yiga",
+      "location": "Kara Kara Bazaar",
+      "photo": 4,
+      "hint": "The oasis just outside Gerudo Town, southwest of Gerudo Canyon Stable. The memory is on the northeast side of the oasis, overlooking the bazaar. Pikango at Gerudo Canyon Stable recognises it."
+    },
+    {
+      "number": 8,
+      "title": "A Premonition",
+      "location": "Eldin Canyon",
+      "photo": 5,
+      "hint": "East of Woodland Tower, on a flat clearing in the hills with a ring of rocks, looking down on the Great Hyrule Forest from the southeast with Hyrule Castle in the distance. North of Pico Pond, west of Goronbi Lake. Pikango at Goron City recognises it."
+    },
+    {
+      "number": 9,
+      "title": "Silent Princess",
+      "location": "Irch Plain",
+      "photo": 6,
+      "hint": "Just north of Hyrule Castle, across the moat, near Monya Toma Shrine and a couple of small ponds; southeast of Serenne Stable. Pikango at Serenne Stable recognises it."
+    },
+    {
+      "number": 10,
+      "title": "Mipha's Touch",
+      "location": "Zora's Domain Square",
+      "quest": "Divine Beast Vah Ruta",
+      "hint": "When Muzu and Sidon argue about Mipha in the square, Link looks up at Mipha's statue and this memory triggers."
+    },
+    {
+      "number": 11,
+      "title": "Shelter from the Storm",
+      "location": "Hills of Baumer",
+      "photo": 7,
+      "hint": "Just east of Scout's Hill on the northeast shore of Lake Hylia: the tree beside two tiny stone statues, with the Bridge of Hylia in the distance. Pikango at Highland Stable recognises it."
+    },
+    {
+      "number": 12,
+      "title": "Father and Daughter",
+      "location": "Hyrule Castle",
+      "photo": 8,
+      "hint": "On the castle's west side, on the walkway outside Princess Zelda's Study. Swim up the moat's waterfalls in Zora Armor and climb, watching out for Guardian turrets. Pikango at Lurelin Village recognises it."
+    },
+    {
+      "number": 13,
+      "title": "Slumbering Power",
+      "location": "Spring of Power",
+      "photo": 9,
+      "hint": "In Deep Akkala, west of East Akkala Stable: go through the tunnel from Ordorac Quarry to the spring with the Goddess Statue. Pikango at East Akkala Stable recognises it."
+    },
+    {
+      "number": 14,
+      "title": "To Mount Lanayru",
+      "location": "Sanidin Park Ruins",
+      "photo": 10,
+      "hint": "On Safula Hill, northwest of Outskirt Stable: the horseshoe-shaped park ruins with a horse statue. The memory is on the path through it. Pikango at Outskirt Stable recognises it."
+    },
+    {
+      "number": 15,
+      "title": "Return of Calamity Ganon",
+      "location": "Lanayru Road - East Gate",
+      "photo": 11,
+      "hint": "Follow Lanayru Road east from Kakariko Village to the big gate at the foot of Mount Lanayru, on the west side of Naydra Snowfield. Pikango in Kakariko Village recognises it."
+    },
+    {
+      "number": 16,
+      "title": "Despair",
+      "location": "Hyrule Field",
+      "photo": 12,
+      "hint": "The small wood on the east bank of the Hylia River, northeast of the Bottomless Swamp and south of Wetland Stable. Pikango at Wetland Stable recognises it."
+    },
+    {
+      "number": 17,
+      "title": "Zelda's Awakening",
+      "location": "Ash Swamp",
+      "finalPicture": true,
+      "hint": "Impa shows you this last picture, which hangs in her house, once all 12 album memories are recovered. Ash Swamp is east of Dueling Peaks Stable and Ha Dahamar Shrine, about half a day from Kakariko Village. The memory is among the fallen Guardians in the south of the swamp."
+    },
+    {
+      "number": 18,
+      "title": "The Master Sword",
+      "location": "Korok Forest",
+      "quest": "The Hero's Sword",
+      "hint": "Draw the Master Sword from its pedestal in Korok Forest (you need 13 heart containers); the memory plays as soon as you pull it free."
+    }
+  ]
+}
