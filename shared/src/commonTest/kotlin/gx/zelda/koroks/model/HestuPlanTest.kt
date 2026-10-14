@@ -7,9 +7,9 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class HestuPlanTest {
-    private val weapon = HestuPouch("weapon", "Weapons", 8, listOf(1, 2, 3, 5, 8, 12, 17, 25, 35, 45, 55))
-    private val bow = HestuPouch("bow", "Bows", 5, listOf(1, 2, 3, 5, 8, 12, 17, 25))
-    private val shield = HestuPouch("shield", "Shields", 4, listOf(1, 2, 3, 4, 5, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 20))
+    private val weapon = HestuPouch("weapon", "Weapon", 8, listOf(1, 2, 3, 5, 8, 12, 17, 25, 35, 45, 55))
+    private val bow = HestuPouch("bow", "Bow", 5, listOf(1, 2, 3, 5, 8, 12, 17, 25))
+    private val shield = HestuPouch("shield", "Shield", 4, listOf(1, 2, 3, 4, 5, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 20))
     private val costs = HestuCosts(listOf(weapon, bow, shield))
 
     private fun plan(collected: Int, vararg bought: Pair<String, Int>) = HestuPlan(costs, collected, 900, bought.toMap())
