@@ -21,6 +21,18 @@ iOS port is mostly a matter of adding the iOS targets.
   10,000 rupees, by how many are already open) and how far armor can be upgraded.
 - Shares the active save file with the armor tracker.
 
+**Breath of the Wild: Main Quest Progress**
+- **Sheikah Towers**: all 15, with where each one stands and what's in the way of the climb.
+- **Divine Beasts**: Vah Ruta, Rudania, Medoh and Naboris, with the Champion, the main quest that
+  frees each one and how it starts, what to prepare, the Blight boss and the rewards.
+- **Recovered Memories**: all 18 in Adventure Log order. The 12 album pictures carry their photo
+  number, the location and a hint (including which stable Pikango recognises it at). The final
+  picture (#17) unlocks once the 12 are found, and the 5 quest-triggered memories say which quest
+  triggers them.
+- Mark towers activated, beasts freed and memories recovered. Each tab shows its count, and the
+  save file picker shows all three.
+- Shares the active save file with the other BotW trackers.
+
 **Breath of the Wild: Shrines**
 - All 120 shrines plus the 16 from The Champions' Ballad, grouped by tower region with counts per
   region and overall (e.g. 87 / 120).
@@ -38,6 +50,18 @@ iOS port is mostly a matter of adding the iOS targets.
   Plateau shrines add 4 more (its other twelve give emblems). Purchases are entered by hand.
   Divine Beast Heart Containers aren't tracked.
 - Shares the active save file with the other BotW trackers.
+
+**Breath of the Wild: Hyrule Compendium**
+- All 389 entries (385 base game + 4 from The Champions' Ballad) in the in-game order and
+  numbering, and Master Mode's 394, with its five extra entries and its own numbers, on the
+  Master Mode file.
+- A tab per category with photographed counts; Creatures is split into animals and food (048–083,
+  the entries that show hearts recovered rather than materials). Search by name, number, location
+  or drop, and a *Missing only* filter.
+- Each entry's common locations and drops, and how to buy its picture from Symin if you can't
+  take it (Elite Enemy Pictures only after Dark Beast Ganon). Entries that can only be
+  photographed at certain times — bosses, DLC trials — are marked *Limited*.
+- Tracks Save File 1, Save File 2 and Master Mode separately, sharing the active file.
 
 **Breath of the Wild: Korok Seeds**
 - All 900 seeds grouped by tower region, with counts per region and overall (e.g. 312 / 900).
@@ -79,7 +103,9 @@ Both TotK trackers track **Save File 1** and **Save File 2** separately and shar
 shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
+  src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW only for now)
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker and Spirit Orb planner
+  src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -87,6 +113,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
+  src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
+  src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
@@ -120,6 +148,11 @@ Requires JDK 17+ and the Android SDK (set `sdk.dir` in `local.properties`).
 Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
 Where sources disagreed, the majority value was used.
 
+BotW main quest data (towers, Divine Beasts and Recovered Memories) comes from Zelda Wiki: the
+memory list and Pikango's hints from its Memory and Captured Memories pages, and the beasts from
+each Divine Beast quest page. Tower climbing tips are cross-checked against Zelda Fandom, Zelda
+Dungeon, GameWith and RankedBoost, and memory directions against RPG Site and Nintendo Insider.
+
 TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against Game8,
 Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
 from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
@@ -130,6 +163,13 @@ Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the 
 geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
 under a different region there. Trial names keep the in-game wording, including the "A" in
 "A Minor Test of Strength".
+
+BotW Compendium numbering is from Zelda Wiki's *Hyrule Compendium Items in Breath of the Wild*
+(Normal and Master Mode, with and without The Champions' Ballad). Common locations and drops are
+the in-game text, from the Hyrule Compendium API (api.hyrule-compendium.com) checked against
+Zelda Wiki's `Data:Hyrule Compendium/BotW`, which also supplied the drops the API got wrong.
+Locations for entries the game lists as unknown, Symin's picture sales and the *Limited* notes
+come from Zelda Wiki and Zelda Fandom.
 
 Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 `scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
