@@ -1,9 +1,12 @@
 package gx.zelda
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.datastore.core.DataStore
+import androidx.compose.ui.Modifier
 import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -28,12 +31,20 @@ import gx.zelda.core.ui.ZeldaTheme
 import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.ui.FairyTrackerScreen
 import gx.zelda.fairies.ui.FairyViewModel
+import gx.zelda.mainquest.data.MainQuestStorage
+import gx.zelda.mainquest.ui.MainQuestScreen
+import gx.zelda.mainquest.ui.MainQuestViewModel
+import gx.zelda.shrines.data.ShrineStorage
+import gx.zelda.shrines.ui.ShrineTrackerScreen
+import gx.zelda.shrines.ui.ShrineViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable private data object Home
 @Serializable private data class ArmorTracker(val gameId: String)
 @Serializable private data class ArmorDetail(val gameId: String, val pieceId: String)
 @Serializable private data class Fairies(val gameId: String)
+@Serializable private data class MainQuest(val gameId: String)
+@Serializable private data class Shrines(val gameId: String)
 @Serializable private data class Compendium(val gameId: String)
 @Serializable private data class CompendiumDetail(val gameId: String, val entryId: String)
 
@@ -41,12 +52,17 @@ import kotlinx.serialization.Serializable
 fun App(dataStore: DataStore<Preferences>) {
     ZeldaTheme {
         val nav = rememberNavController()
-        NavHost(navController = nav, startDestination = Home) {
+        // Edge-to-edge (forced from targetSdk 35) means adjustResize no longer shrinks the window
+        // for the keyboard, so lift every screen above it here. imePadding consumes the IME
+        // insets, so each Scaffold drops its own navigation-bar padding while the keyboard is up.
+        NavHost(navController = nav, startDestination = Home, modifier = Modifier.fillMaxSize().imePadding()) {
             composable<Home> {
                 HomeScreen(onOpenTracker = { game, kind ->
                     when (kind) {
                         TrackerKind.ARMOR -> nav.navigate(ArmorTracker(game.id))
                         TrackerKind.FAIRIES -> nav.navigate(Fairies(game.id))
+                        TrackerKind.MAIN_QUEST -> nav.navigate(MainQuest(game.id))
+                        TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
                         TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
                     }
                 })
@@ -56,6 +72,19 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = viewModel(key = game.id) { FairyViewModel(FairyStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 FairyTrackerScreen(state, vm, onBack = { nav.popBackStack() })
+            }
+            composable<MainQuest> { entry ->
+                val game = Games.byId(entry.toRoute<MainQuest>().gameId)
+                val vm = viewModel(key = game.id) { MainQuestViewModel(MainQuestStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                MainQuestScreen(state, vm, onBack = { nav.popBackStack() })
+            }
+            composable<Shrines> { entry ->
+                val game = Games.byId(entry.toRoute<Shrines>().gameId)
+                val vm = viewModel(key = game.id) { ShrineViewModel(ShrineStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                ShrineTrackerScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<Compendium> { entry ->
                 val game = Games.byId(entry.toRoute<Compendium>().gameId)

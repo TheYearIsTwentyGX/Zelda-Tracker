@@ -20,7 +20,13 @@ data class SaveFile(
 )
 
 /** The kinds of tracker a game can offer; each kind has one set of screens shared by every game. */
-enum class TrackerKind { ARMOR, FAIRIES, COMPENDIUM }
+enum class TrackerKind {
+    ARMOR,
+    FAIRIES,
+    MAIN_QUEST,
+    SHRINES,
+    COMPENDIUM,
+}
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
 
@@ -38,6 +44,8 @@ object Games {
         trackers = listOf(
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
             Tracker(TrackerKind.FAIRIES, "Great Fairy Fountains", "Where to find each Great Fairy and what opening her fountain costs"),
+            Tracker(TrackerKind.MAIN_QUEST, "Main Quest Progress", "Sheikah Towers, Divine Beasts and Recovered Memories"),
+            Tracker(TrackerKind.SHRINES, "Shrines", "Shrines by region, Shrine Quests and a Spirit Orb planner"),
             Tracker(TrackerKind.COMPENDIUM, "Hyrule Compendium", "Every entry photographed, by category, with where to find what's missing"),
         ),
     )
