@@ -1,0 +1,50 @@
+partial shot: 27 true shrine detections, 0 spurious, 10 towers
+  k shrines | towers | scale | success (proj. error < 2 px everywhere, 200 trials)
+          1 |     no |  free | 0%
+          2 |     no |  free | 0%
+          3 |     no |  free | 52%
+          4 |     no |  free | 92%
+          6 |     no |  free | 99%
+         10 |     no |  free | 100%
+          1 |     no | fixed | 0%
+          2 |     no | fixed | 0%
+          3 |     no | fixed | 89%
+          4 |     no | fixed | 98%
+          6 |     no | fixed | 100%
+         10 |     no | fixed | 100%
+          1 |    yes |  free | 100%
+          2 |    yes |  free | 100%
+          3 |    yes |  free | 100%
+          4 |    yes |  free | 100%
+          6 |    yes |  free | 100%
+         10 |    yes |  free | 100%
+          1 |    yes | fixed | 100%
+          2 |    yes | fixed | 100%
+          3 |    yes | fixed | 100%
+          4 |    yes | fixed | 100%
+          6 |    yes | fixed | 100%
+         10 |    yes | fixed | 100%
+
+simulated pan of partial shot (content shifted under the HUD):
+  dx,dy | scale | dt error px | judged in both | category agreement
+  0,37 | free | 0.04 | 86 | 86/86
+  0,37 | fixed | 0.07 | 86 | 86/86
+  61,-23 | free | 0.03 | 92 | 92/92
+  61,-23 | fixed | 0.04 | 92 | 92/92
+  -90,50 | free | 0.08 | 84 | 84/84
+  -90,50 | fixed | 0.10 | 84 | 84/84
+  150,0 | free | 0.03 | 89 | 89/89
+  150,0 | fixed | 0.05 | 89 | 89/89
+  -150,-120 | free | 0.07 | 80 | 80/80
+  -150,-120 | fixed | 0.06 | 80 | 80/80
+  7,233 | free | 0.11 | 66 | 66/66
+  7,233 | fixed | 0.14 | 66 | 66/66
+  -233,101 | free | 0.06 | 67 | 67/67
+  -233,101 | fixed | 0.11 | 67 | 67/67
+
+real pan (all-complete north vs south, 675 px apart): 13/13 shrines judged in both shots agree
+
+decoys: korok seed spots >= 25 px from any shrine/tower
+  all-complete north: {'Unsure': 12, 'Not present': 455}; false icons: []
+  all-complete south: {'Not present': 277, 'Unsure': 9, 'Completed': 1}; false icons: [(807, 258, 'shape 0.67; glyph blue 0.62 orange 0.00')]
+  partial north: {'Unsure': 13, 'Not present': 454}; false icons: []

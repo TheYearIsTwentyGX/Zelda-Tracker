@@ -1,0 +1,1306 @@
+{
+ "source": "https://objmap.zeldamods.org/game_files/map_summary/MainField/static.json",
+ "shrines": [
+  {
+   "id": "ja_baij",
+   "name": "Ja Baij",
+   "region": "Great Plateau",
+   "dlc": false,
+   "flag": "Location_Dungeon041",
+   "x": -447.7,
+   "z": 1990.18
+  },
+  {
+   "id": "keh_namut",
+   "name": "Keh Namut",
+   "region": "Great Plateau",
+   "dlc": false,
+   "flag": "Location_Dungeon065",
+   "x": -1435.39,
+   "z": 1990.71
+  },
+  {
+   "id": "oman_au",
+   "name": "Oman Au",
+   "region": "Great Plateau",
+   "dlc": false,
+   "flag": "Location_Dungeon038",
+   "x": -672.46,
+   "z": 1513.63
+  },
+  {
+   "id": "owa_daim",
+   "name": "Owa Daim",
+   "region": "Great Plateau",
+   "dlc": false,
+   "flag": "Location_Dungeon009",
+   "x": -925.03,
+   "z": 2320.23
+  },
+  {
+   "id": "bosh_kala",
+   "name": "Bosh Kala",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon007",
+   "x": 87.02,
+   "z": 1657.71
+  },
+  {
+   "id": "ha_dahamar",
+   "name": "Ha Dahamar",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon045",
+   "x": 1662.97,
+   "z": 1922.4
+  },
+  {
+   "id": "hila_rao",
+   "name": "Hila Rao",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon029",
+   "x": 854.0,
+   "z": 838.74
+  },
+  {
+   "id": "lakna_rokee",
+   "name": "Lakna Rokee",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon112",
+   "x": 2039.63,
+   "z": 971.7
+  },
+  {
+   "id": "ree_dahee",
+   "name": "Ree Dahee",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon047",
+   "x": 1272.92,
+   "z": 1843.91
+  },
+  {
+   "id": "shee_vaneer",
+   "name": "Shee Vaneer",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon017",
+   "x": 1266.27,
+   "z": 1938.7
+  },
+  {
+   "id": "shee_venath",
+   "name": "Shee Venath",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon044",
+   "x": 1245.12,
+   "z": 1850.44
+  },
+  {
+   "id": "taloh_naeg",
+   "name": "Ta'loh Naeg",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon099",
+   "x": 1841.22,
+   "z": 891.11
+  },
+  {
+   "id": "toto_sah",
+   "name": "Toto Sah",
+   "region": "Dueling Peaks",
+   "dlc": false,
+   "flag": "Location_Dungeon015",
+   "x": 1846.56,
+   "z": 2473.73
+  },
+  {
+   "id": "chaas_qeta",
+   "name": "Chaas Qeta",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon082",
+   "x": 4011.48,
+   "z": 2989.83
+  },
+  {
+   "id": "dow_naeh",
+   "name": "Dow Na'eh",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon019",
+   "x": 2696.77,
+   "z": 1333.02
+  },
+  {
+   "id": "jitan_sami",
+   "name": "Jitan Sa'mi",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon117",
+   "x": 3883.03,
+   "z": 1315.36
+  },
+  {
+   "id": "kam_urog",
+   "name": "Kam Urog",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon014",
+   "x": 2501.7,
+   "z": 1495.58
+  },
+  {
+   "id": "mezza_lo",
+   "name": "Mezza Lo",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon024",
+   "x": 2621.62,
+   "z": 379.23
+  },
+  {
+   "id": "myahm_agana",
+   "name": "Myahm Agana",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon039",
+   "x": 3387.71,
+   "z": 2215.13
+  },
+  {
+   "id": "tahno_oah",
+   "name": "Tahno O'ah",
+   "region": "Hateno",
+   "dlc": false,
+   "flag": "Location_Dungeon119",
+   "x": 4182.76,
+   "z": 1686.56
+  },
+  {
+   "id": "dagah_keek",
+   "name": "Dagah Keek",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon101",
+   "x": 3148.85,
+   "z": -417.33
+  },
+  {
+   "id": "daka_tuss",
+   "name": "Daka Tuss",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon033",
+   "x": 1601.83,
+   "z": 462.75
+  },
+  {
+   "id": "kah_mael",
+   "name": "Kah Mael",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon066",
+   "x": 4708.56,
+   "z": -1309.51
+  },
+  {
+   "id": "kaya_wan",
+   "name": "Kaya Wan",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon049",
+   "x": 825.17,
+   "z": 187.51
+  },
+  {
+   "id": "neez_yohma",
+   "name": "Ne'ez Yohma",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon005",
+   "x": 3323.17,
+   "z": -517.92
+  },
+  {
+   "id": "rucco_maag",
+   "name": "Rucco Maag",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon016",
+   "x": 3333.5,
+   "z": 402.5
+  },
+  {
+   "id": "shai_yota",
+   "name": "Shai Yota",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon114",
+   "x": 4245.25,
+   "z": 253.91
+  },
+  {
+   "id": "sheh_rata",
+   "name": "Sheh Rata",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon023",
+   "x": 1509.48,
+   "z": -377.22
+  },
+  {
+   "id": "soh_kofi",
+   "name": "Soh Kofi",
+   "region": "Lanayru",
+   "dlc": false,
+   "flag": "Location_Dungeon070",
+   "x": 2239.21,
+   "z": -292.43
+  },
+  {
+   "id": "kah_yah",
+   "name": "Kah Yah",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon034",
+   "x": 3437.29,
+   "z": 3317.2
+  },
+  {
+   "id": "korgu_chideh",
+   "name": "Korgu Chideh",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon097",
+   "x": 4736.62,
+   "z": 3771.59
+  },
+  {
+   "id": "muwo_jeem",
+   "name": "Muwo Jeem",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon081",
+   "x": 3657.17,
+   "z": 3307.99
+  },
+  {
+   "id": "qukah_nata",
+   "name": "Qukah Nata",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon096",
+   "x": 2007.9,
+   "z": 3284.57
+  },
+  {
+   "id": "shai_utoh",
+   "name": "Shai Utoh",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon050",
+   "x": 1586.38,
+   "z": 3613.99
+  },
+  {
+   "id": "shoda_sah",
+   "name": "Shoda Sah",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon061",
+   "x": 1790.26,
+   "z": 2992.86
+  },
+  {
+   "id": "tawa_jinn",
+   "name": "Tawa Jinn",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon111",
+   "x": 2636.69,
+   "z": 2833.85
+  },
+  {
+   "id": "yah_rin",
+   "name": "Yah Rin",
+   "region": "Faron",
+   "dlc": false,
+   "flag": "Location_Dungeon006",
+   "x": 2833.53,
+   "z": 3311.96
+  },
+  {
+   "id": "ishto_soh",
+   "name": "Ishto Soh",
+   "region": "Lake",
+   "dlc": false,
+   "flag": "Location_Dungeon069",
+   "x": -985.79,
+   "z": 3564.98
+  },
+  {
+   "id": "kao_makagh",
+   "name": "Ka'o Makagh",
+   "region": "Lake",
+   "dlc": false,
+   "flag": "Location_Dungeon054",
+   "x": 522.95,
+   "z": 3525.32
+  },
+  {
+   "id": "pumaag_nitae",
+   "name": "Pumaag Nitae",
+   "region": "Lake",
+   "dlc": false,
+   "flag": "Location_Dungeon071",
+   "x": 559.36,
+   "z": 2991.18
+  },
+  {
+   "id": "shae_katha",
+   "name": "Shae Katha",
+   "region": "Lake",
+   "dlc": false,
+   "flag": "Location_Dungeon113",
+   "x": 870.49,
+   "z": 2329.53
+  },
+  {
+   "id": "shoqa_tatone",
+   "name": "Shoqa Tatone",
+   "region": "Lake",
+   "dlc": false,
+   "flag": "Location_Dungeon080",
+   "x": 95.0,
+   "z": 3840.94
+  },
+  {
+   "id": "ya_naga",
+   "name": "Ya Naga",
+   "region": "Lake",
+   "dlc": false,
+   "flag": "Location_Dungeon068",
+   "x": -329.17,
+   "z": 2600.12
+  },
+  {
+   "id": "dah_kaso",
+   "name": "Dah Kaso",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon072",
+   "x": -1695.71,
+   "z": 1701.03
+  },
+  {
+   "id": "kaam_yatak",
+   "name": "Kaam Ya'tak",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon040",
+   "x": -967.64,
+   "z": 716.88
+  },
+  {
+   "id": "katah_chuki",
+   "name": "Katah Chuki",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon073",
+   "x": -636.08,
+   "z": -344.16
+  },
+  {
+   "id": "namika_ozz",
+   "name": "Namika Ozz",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon079",
+   "x": 760.29,
+   "z": -821.39
+  },
+  {
+   "id": "noya_neha",
+   "name": "Noya Neha",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon074",
+   "x": -952.17,
+   "z": -623.88
+  },
+  {
+   "id": "rota_ooh",
+   "name": "Rota Ooh",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon027",
+   "x": -1562.29,
+   "z": 1309.78
+  },
+  {
+   "id": "saas_kosah",
+   "name": "Saas Ko'sah",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon089",
+   "x": -148.4,
+   "z": -1159.35
+  },
+  {
+   "id": "wahgo_katta",
+   "name": "Wahgo Katta",
+   "region": "Central",
+   "dlc": false,
+   "flag": "Location_Dungeon057",
+   "x": 345.59,
+   "z": 1007.77
+  },
+  {
+   "id": "maag_norah",
+   "name": "Maag No'rah",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon092",
+   "x": -1940.47,
+   "z": -1459.02
+  },
+  {
+   "id": "mijah_rokee",
+   "name": "Mijah Rokee",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon078",
+   "x": -2743.99,
+   "z": 225.75
+  },
+  {
+   "id": "mogg_latan",
+   "name": "Mogg Latan",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon058",
+   "x": -2297.78,
+   "z": 461.66
+  },
+  {
+   "id": "shae_loya",
+   "name": "Shae Loya",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon037",
+   "x": -2930.76,
+   "z": -433.04
+  },
+  {
+   "id": "sheem_dagoze",
+   "name": "Sheem Dagoze",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon020",
+   "x": -1892.42,
+   "z": 91.03
+  },
+  {
+   "id": "toh_yahsa",
+   "name": "Toh Yahsa",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon021",
+   "x": -2269.1,
+   "z": -901.1
+  },
+  {
+   "id": "zalta_wa",
+   "name": "Zalta Wa",
+   "region": "Ridgeland",
+   "dlc": false,
+   "flag": "Location_Dungeon004",
+   "x": -1432.62,
+   "z": -593.25
+  },
+  {
+   "id": "akh_vaquot",
+   "name": "Akh Va'quot",
+   "region": "Tabantha",
+   "dlc": false,
+   "flag": "Location_Dungeon035",
+   "x": -3656.03,
+   "z": -1757.7
+  },
+  {
+   "id": "bareeda_naag",
+   "name": "Bareeda Naag",
+   "region": "Tabantha",
+   "dlc": false,
+   "flag": "Location_Dungeon008",
+   "x": -3608.99,
+   "z": -1516.38
+  },
+  {
+   "id": "kah_okeo",
+   "name": "Kah Okeo",
+   "region": "Tabantha",
+   "dlc": false,
+   "flag": "Location_Dungeon059",
+   "x": -4121.4,
+   "z": -414.2
+  },
+  {
+   "id": "sha_warvo",
+   "name": "Sha Warvo",
+   "region": "Tabantha",
+   "dlc": false,
+   "flag": "Location_Dungeon053",
+   "x": -3822.24,
+   "z": -2206.9
+  },
+  {
+   "id": "tena_kosah",
+   "name": "Tena Ko'sah",
+   "region": "Tabantha",
+   "dlc": false,
+   "flag": "Location_Dungeon083",
+   "x": -3466.36,
+   "z": -447.5
+  },
+  {
+   "id": "voo_lota",
+   "name": "Voo Lota",
+   "region": "Tabantha",
+   "dlc": false,
+   "flag": "Location_Dungeon012",
+   "x": -4015.36,
+   "z": -1722.49
+  },
+  {
+   "id": "dunba_taag",
+   "name": "Dunba Taag",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon055",
+   "x": -2832.06,
+   "z": -1577.13
+  },
+  {
+   "id": "gee_harah",
+   "name": "Gee Ha'rah",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon052",
+   "x": -2380.42,
+   "z": -2255.4
+  },
+  {
+   "id": "goma_asaagh",
+   "name": "Goma Asaagh",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon086",
+   "x": -2793.27,
+   "z": -2882.06
+  },
+  {
+   "id": "hia_miu",
+   "name": "Hia Miu",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon088",
+   "x": -4446.02,
+   "z": -3802.42
+  },
+  {
+   "id": "lanno_kooh",
+   "name": "Lanno Kooh",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon104",
+   "x": -2636.75,
+   "z": -2061.29
+  },
+  {
+   "id": "maka_rah",
+   "name": "Maka Rah",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon051",
+   "x": -4058.84,
+   "z": -2508.26
+  },
+  {
+   "id": "mozo_shenno",
+   "name": "Mozo Shenno",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon087",
+   "x": -3626.71,
+   "z": -3038.26
+  },
+  {
+   "id": "qaza_tokki",
+   "name": "Qaza Tokki",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon116",
+   "x": -821.5,
+   "z": -3535.0
+  },
+  {
+   "id": "rin_oyaa",
+   "name": "Rin Oyaa",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon042",
+   "x": -1720.39,
+   "z": -2554.63
+  },
+  {
+   "id": "rok_uwog",
+   "name": "Rok Uwog",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon018",
+   "x": -2377.02,
+   "z": -3224.61
+  },
+  {
+   "id": "sha_gehma",
+   "name": "Sha Gehma",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon062",
+   "x": -1672.36,
+   "z": -3759.03
+  },
+  {
+   "id": "shada_naw",
+   "name": "Shada Naw",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon046",
+   "x": -2998.31,
+   "z": -3220.64
+  },
+  {
+   "id": "to_quomo",
+   "name": "To Quomo",
+   "region": "Hebra",
+   "dlc": false,
+   "flag": "Location_Dungeon118",
+   "x": -4022.13,
+   "z": -3711.7
+  },
+  {
+   "id": "daag_chokah",
+   "name": "Daag Chokah",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon098",
+   "x": -26.08,
+   "z": -2457.69
+  },
+  {
+   "id": "keo_ruug",
+   "name": "Keo Ruug",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon022",
+   "x": 470.95,
+   "z": -2167.82
+  },
+  {
+   "id": "ketoh_wawai",
+   "name": "Ketoh Wawai",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon108",
+   "x": 284.4,
+   "z": -3119.6
+  },
+  {
+   "id": "kuhn_sidajj",
+   "name": "Kuhn Sidajj",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon095",
+   "x": 18.44,
+   "z": -1943.7
+  },
+  {
+   "id": "maag_halan",
+   "name": "Maag Halan",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon106",
+   "x": 836.63,
+   "z": -2418.81
+  },
+  {
+   "id": "mirro_shaz",
+   "name": "Mirro Shaz",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon056",
+   "x": 1231.0,
+   "z": -1212.73
+  },
+  {
+   "id": "monya_toma",
+   "name": "Monya Toma",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon011",
+   "x": -1489.24,
+   "z": -1473.8
+  },
+  {
+   "id": "rona_kachta",
+   "name": "Rona Kachta",
+   "region": "Woodland",
+   "dlc": false,
+   "flag": "Location_Dungeon115",
+   "x": -1088.8,
+   "z": -2660.74
+  },
+  {
+   "id": "daqa_koh",
+   "name": "Daqa Koh",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon064",
+   "x": 2064.97,
+   "z": -2327.87
+  },
+  {
+   "id": "gorae_torr",
+   "name": "Gorae Torr",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon091",
+   "x": 2662.71,
+   "z": -3457.21
+  },
+  {
+   "id": "kayra_mah",
+   "name": "Kayra Mah",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon025",
+   "x": 2075.82,
+   "z": -2039.72
+  },
+  {
+   "id": "moa_keet",
+   "name": "Mo'a Keet",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon031",
+   "x": 2723.08,
+   "z": -1165.17
+  },
+  {
+   "id": "qua_raym",
+   "name": "Qua Raym",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon067",
+   "x": 1820.24,
+   "z": -1517.9
+  },
+  {
+   "id": "sah_dahaj",
+   "name": "Sah Dahaj",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon002",
+   "x": 2666.12,
+   "z": -1580.33
+  },
+  {
+   "id": "shae_mosah",
+   "name": "Shae Mo'sah",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon026",
+   "x": 1756.57,
+   "z": -2561.7
+  },
+  {
+   "id": "shora_hah",
+   "name": "Shora Hah",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon028",
+   "x": 1536.21,
+   "z": -3117.47
+  },
+  {
+   "id": "tah_muhl",
+   "name": "Tah Muhl",
+   "region": "Eldin",
+   "dlc": false,
+   "flag": "Location_Dungeon000",
+   "x": 2301.46,
+   "z": -940.73
+  },
+  {
+   "id": "dah_hesho",
+   "name": "Dah Hesho",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon075",
+   "x": 3899.69,
+   "z": -1303.79
+  },
+  {
+   "id": "katosa_aug",
+   "name": "Katosa Aug",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon013",
+   "x": 4294.9,
+   "z": -2729.88
+  },
+  {
+   "id": "kenai_shakah",
+   "name": "Ke'nai Shakah",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon077",
+   "x": 4194.71,
+   "z": -855.91
+  },
+  {
+   "id": "ritaag_zumo",
+   "name": "Ritaag Zumo",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon109",
+   "x": 4525.04,
+   "z": -2128.39
+  },
+  {
+   "id": "tu_kaloh",
+   "name": "Tu Ka'loh",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon105",
+   "x": 4655.0,
+   "z": -3709.0
+  },
+  {
+   "id": "tutsuwa_nima",
+   "name": "Tutsuwa Nima",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon084",
+   "x": 3777.26,
+   "z": -2704.07
+  },
+  {
+   "id": "ze_kasho",
+   "name": "Ze Kasho",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon048",
+   "x": 3028.3,
+   "z": -1668.01
+  },
+  {
+   "id": "zuna_kai",
+   "name": "Zuna Kai",
+   "region": "Akkala",
+   "dlc": false,
+   "flag": "Location_Dungeon102",
+   "x": 3324.09,
+   "z": -3421.37
+  },
+  {
+   "id": "dako_tah",
+   "name": "Dako Tah",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon032",
+   "x": -3316.8,
+   "z": 2162.68
+  },
+  {
+   "id": "daqo_chisay",
+   "name": "Daqo Chisay",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon060",
+   "x": -3816.31,
+   "z": 2819.16
+  },
+  {
+   "id": "dila_maag",
+   "name": "Dila Maag",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon103",
+   "x": -1795.0,
+   "z": 3464.39
+  },
+  {
+   "id": "hawa_koth",
+   "name": "Hawa Koth",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon003",
+   "x": -4847.43,
+   "z": 3773.55
+  },
+  {
+   "id": "jee_noh",
+   "name": "Jee Noh",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon001",
+   "x": -1793.25,
+   "z": 2422.49
+  },
+  {
+   "id": "kay_noh",
+   "name": "Kay Noh",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon010",
+   "x": -2809.97,
+   "z": 2300.18
+  },
+  {
+   "id": "kema_zoos",
+   "name": "Kema Zoos",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon063",
+   "x": -4673.53,
+   "z": 1968.79
+  },
+  {
+   "id": "korsh_ohu",
+   "name": "Korsh O'hu",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon110",
+   "x": -2689.31,
+   "z": 2811.91
+  },
+  {
+   "id": "misae_suma",
+   "name": "Misae Suma",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon107",
+   "x": -2969.8,
+   "z": 3780.63
+  },
+  {
+   "id": "raqa_zunzo",
+   "name": "Raqa Zunzo",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon093",
+   "x": -3809.56,
+   "z": 3126.86
+  },
+  {
+   "id": "suma_sahma",
+   "name": "Suma Sahma",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon090",
+   "x": -1417.78,
+   "z": 3449.21
+  },
+  {
+   "id": "tho_kayu",
+   "name": "Tho Kayu",
+   "region": "Wasteland",
+   "dlc": false,
+   "flag": "Location_Dungeon094",
+   "x": -4798.15,
+   "z": 2800.03
+  },
+  {
+   "id": "joloo_nah",
+   "name": "Joloo Nah",
+   "region": "Gerudo",
+   "dlc": false,
+   "flag": "Location_Dungeon030",
+   "x": -2004.01,
+   "z": 1675.26
+  },
+  {
+   "id": "keeha_yoog",
+   "name": "Keeha Yoog",
+   "region": "Gerudo",
+   "dlc": false,
+   "flag": "Location_Dungeon100",
+   "x": -3852.46,
+   "z": 716.36
+  },
+  {
+   "id": "kema_kosassa",
+   "name": "Kema Kosassa",
+   "region": "Gerudo",
+   "dlc": false,
+   "flag": "Location_Dungeon085",
+   "x": -4657.49,
+   "z": 904.97
+  },
+  {
+   "id": "kuh_takkar",
+   "name": "Kuh Takkar",
+   "region": "Gerudo",
+   "dlc": false,
+   "flag": "Location_Dungeon043",
+   "x": -3083.61,
+   "z": 1221.79
+  },
+  {
+   "id": "sasa_kai",
+   "name": "Sasa Kai",
+   "region": "Gerudo",
+   "dlc": false,
+   "flag": "Location_Dungeon076",
+   "x": -3560.29,
+   "z": 1953.87
+  },
+  {
+   "id": "sho_dantu",
+   "name": "Sho Dantu",
+   "region": "Gerudo",
+   "dlc": false,
+   "flag": "Location_Dungeon036",
+   "x": -3910.61,
+   "z": 1653.03
+  },
+  {
+   "id": "etsu_korima",
+   "name": "Etsu Korima",
+   "region": "Great Plateau",
+   "dlc": true,
+   "flag": "Location_Dungeon122",
+   "x": -1215.97,
+   "z": 2110.88
+  },
+  {
+   "id": "rohta_chigah",
+   "name": "Rohta Chigah",
+   "region": "Great Plateau",
+   "dlc": true,
+   "flag": "Location_Dungeon123",
+   "x": -517.95,
+   "z": 1799.02
+  },
+  {
+   "id": "ruvo_korbah",
+   "name": "Ruvo Korbah",
+   "region": "Great Plateau",
+   "dlc": true,
+   "flag": "Location_Dungeon135",
+   "x": -833.59,
+   "z": 2144.81
+  },
+  {
+   "id": "yowaka_ita",
+   "name": "Yowaka Ita",
+   "region": "Great Plateau",
+   "dlc": true,
+   "flag": "Location_Dungeon120",
+   "x": -941.85,
+   "z": 1671.74
+  },
+  {
+   "id": "kiah_toza",
+   "name": "Kiah Toza",
+   "region": "Hebra",
+   "dlc": true,
+   "flag": "Location_Dungeon128",
+   "x": -2156.43,
+   "z": -3188.15
+  },
+  {
+   "id": "noe_rajee",
+   "name": "Noe Rajee",
+   "region": "Tabantha",
+   "dlc": true,
+   "flag": "Location_Dungeon127",
+   "x": -3821.0,
+   "z": -2310.52
+  },
+  {
+   "id": "shira_gomar",
+   "name": "Shira Gomar",
+   "region": "Ridgeland",
+   "dlc": true,
+   "flag": "Location_Dungeon129",
+   "x": -2377.08,
+   "z": -1383.92
+  },
+  {
+   "id": "kee_dafunia",
+   "name": "Kee Dafunia",
+   "region": "Lanayru",
+   "dlc": true,
+   "flag": "Location_Dungeon125",
+   "x": 4934.23,
+   "z": -1002.05
+  },
+  {
+   "id": "mah_eliya",
+   "name": "Mah Eliya",
+   "region": "Lanayru",
+   "dlc": true,
+   "flag": "Location_Dungeon126",
+   "x": 3761.87,
+   "z": -645.5
+  },
+  {
+   "id": "sato_koda",
+   "name": "Sato Koda",
+   "region": "Lanayru",
+   "dlc": true,
+   "flag": "Location_Dungeon124",
+   "x": 3103.61,
+   "z": -833.96
+  },
+  {
+   "id": "kamia_omuna",
+   "name": "Kamia Omuna",
+   "region": "Eldin",
+   "dlc": true,
+   "flag": "Location_Dungeon130",
+   "x": 2129.35,
+   "z": -3228.66
+  },
+  {
+   "id": "rinu_honika",
+   "name": "Rinu Honika",
+   "region": "Eldin",
+   "dlc": true,
+   "flag": "Location_Dungeon131",
+   "x": 2242.22,
+   "z": -1996.19
+  },
+  {
+   "id": "sharo_lun",
+   "name": "Sharo Lun",
+   "region": "Eldin",
+   "dlc": true,
+   "flag": "Location_Dungeon132",
+   "x": 2931.94,
+   "z": -2418.73
+  },
+  {
+   "id": "keive_tala",
+   "name": "Keive Tala",
+   "region": "Wasteland",
+   "dlc": true,
+   "flag": "Location_Dungeon133",
+   "x": -2340.23,
+   "z": 3900.93
+  },
+  {
+   "id": "kihiro_moh",
+   "name": "Kihiro Moh",
+   "region": "Wasteland",
+   "dlc": true,
+   "flag": "Location_Dungeon121",
+   "x": -3392.16,
+   "z": 1347.47
+  },
+  {
+   "id": "takama_shiri",
+   "name": "Takama Shiri",
+   "region": "Wasteland",
+   "dlc": true,
+   "flag": "Location_Dungeon134",
+   "x": -4894.49,
+   "z": 2155.5
+  }
+ ],
+ "towers": [
+  {
+   "name": "Tabantha Tower",
+   "x": -3613.75,
+   "z": -990.16
+  },
+  {
+   "name": "Gerudo Tower",
+   "x": -3666.0,
+   "z": 1828.6
+  },
+  {
+   "name": "Hebra Tower",
+   "x": -2173.0,
+   "z": -2034.0
+  },
+  {
+   "name": "Wasteland Tower",
+   "x": -2306.84,
+   "z": 2437.32
+  },
+  {
+   "name": "Ridgeland Tower",
+   "x": -1755.3,
+   "z": -774.3
+  },
+  {
+   "name": "Central Tower",
+   "x": -788.64,
+   "z": 442.03
+  },
+  {
+   "name": "Great Plateau Tower",
+   "x": -560.04,
+   "z": 1694.86
+  },
+  {
+   "name": "Lake Tower",
+   "x": -31.82,
+   "z": 2961.6
+  },
+  {
+   "name": "Woodland Tower",
+   "x": 883.88,
+   "z": -1605.71
+  },
+  {
+   "name": "Dueling Peaks Tower",
+   "x": 1016.78,
+   "z": 1714.08
+  },
+  {
+   "name": "Faron Tower",
+   "x": 1331.2,
+   "z": 3273.72
+  },
+  {
+   "name": "Eldin Tower",
+   "x": 2174.15,
+   "z": -1556.78
+  },
+  {
+   "name": "Lanayru Tower",
+   "x": 2258.0,
+   "z": -109.0
+  },
+  {
+   "name": "Hateno Tower",
+   "x": 2735.5,
+   "z": 2133.5
+  },
+  {
+   "name": "Akkala Tower",
+   "x": 3308.0,
+   "z": -1500.1
+  }
+ ]
+}
