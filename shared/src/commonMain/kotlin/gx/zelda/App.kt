@@ -39,6 +39,8 @@ import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.ui.MainQuestScreen
 import gx.zelda.mainquest.ui.MainQuestViewModel
 import gx.zelda.shrines.data.ShrineStorage
+import gx.zelda.shrines.scan.ShrineScanScreen
+import gx.zelda.shrines.scan.ShrineScanViewModel
 import gx.zelda.shrines.ui.ShrineTrackerScreen
 import gx.zelda.shrines.ui.ShrineViewModel
 import kotlinx.serialization.Serializable
@@ -53,6 +55,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class CompendiumDetail(val gameId: String, val entryId: String)
 @Serializable private data class Koroks(val gameId: String)
 @Serializable private data class KorokDetail(val gameId: String, val korokId: String)
+@Serializable private data class ShrineScan(val gameId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -91,7 +94,20 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = viewModel(key = game.id) { ShrineViewModel(ShrineStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
-                ShrineTrackerScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
+                ShrineTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onScanMap = { nav.navigate(ShrineScan(game.id)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<ShrineScan> { entry ->
+                val game = Games.byId(entry.toRoute<ShrineScan>().gameId)
+                val vm = viewModel(key = "scan_${game.id}") { ShrineScanViewModel(ShrineStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                ShrineScanScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<Compendium> { entry ->
                 val game = Games.byId(entry.toRoute<Compendium>().gameId)
