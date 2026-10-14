@@ -37,6 +37,19 @@ iOS port is mostly a matter of adding the iOS targets.
   Stamina Vessels, and what's left. 120 orbs in the base game; the Champions' Ballad's four Great
   Plateau shrines add 4 more (its other twelve give emblems). Purchases are entered by hand.
   Divine Beast Heart Containers aren't tracked.
+- **Scan map screenshots** (top-bar menu): reads shrine states from screenshots of the in-game map
+  (2D map, fully zoomed out, 1920×1080 straight from the Switch album; one of the north half and one
+  of the south). Each shrine comes out as *Completed* (blue glyph), *Not done* (orange glyph),
+  *Not on the map* (spot clearly empty) or *Unsure*, with why: covered by another icon, a pin, a
+  stamp or the Hero's Path trail; stacked with another shrine (Ree Dahee and Shee Venath share a
+  spot); at the screen edge; or in no screenshot. Any number of screenshots merge: a definite reading
+  beats an edge or missing one, and two definite readings that disagree become Unsure.
+  Nothing is written until you review it. Completed and Not done are pre-ticked, Unsure shrines are
+  listed by name for you to decide, Not on the map is never written, a shrine already completed is
+  never downgraded, and Apply asks for confirmation before writing to the active save file. With
+  *Hide undiscovered shrines* on, empty spots are only counted and unsure undiscovered shrines stay
+  hidden until tapped. Screenshots at the wrong size, not fully zoomed out or with too few icons to
+  line up are rejected with a reason.
 - Shares the active save file with the other BotW trackers.
 
 **Tears of the Kingdom: Armor Progress**
@@ -62,9 +75,11 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker and Spirit Orb planner
+  src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
+  src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
@@ -108,6 +123,42 @@ Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the 
 geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
 under a different region there. Trial names keep the in-game wording, including the "A" in
 "A Minor Test of Strength".
+
+### How the map scan works
+
+`ShrineMapScanner` is pure Kotlin in `commonMain`, with no OpenCV or ML Kit. Each platform only
+decodes the image (`BitmapFactory` on Android, `ImageIO` on the JVM). It is a port of the Python
+feasibility prototype in `tools/shrine-map-spike` on branch `worktree-shrine-map-spike` (see its
+`REPORT.md`):
+
+1. Colour masks in OpenCV's 8-bit HSV, computed with OpenCV's fixed-point formula so the
+   prototype's thresholds carry over.
+2. Candidate shrine and tower icons: connected components of the icon-blue masks, each confirmed
+   by matching a template around it.
+3. Registration. The fully zoomed-out map is world × 0.135 px plus a translation. Candidates vote
+   for a translation against the world positions of their own class (shrine or tower), and the
+   inliers are averaged. A fit needs at least 3 icons, and at least half of the icons found. A free
+   least-squares scale more than 3% from 0.135 means the map isn't fully zoomed out.
+4. Each shrine's projected spot is classified from a window around it: silhouette score, outline
+   coverage, glyph colour, and other colours covering the spot.
+
+**Hero's Path mode** is detected from its green frame. Trail pixels count as unknown: icons are
+matched on the pixels around the trail, and a spot only counts as empty when at least half its
+outline is free of trail. In the golden test, pasting a real trail over icons known to be there
+leaves every one readable except Shee Vaneer, which already half-overlaps the Dueling Peaks pair.
+The timeline slider replaces the usual HUD as the covered area.
+
+Golden tests (`shared/src/jvmTest/.../scan/ShrineMapGoldenTest.kt`) run the scanner on four real
+screenshots in `shared/src/jvmTest/resources/map-samples`. The all-complete save gives 132
+Completed and 4 Unsure: Hawa Koth (under the Travel Medallion), Akh Va'quot (under Vah Medoh), and
+Ree Dahee and Shee Venath (stacked). The partial save, whose south shot is in Hero's Path mode,
+reads Tena Ko'sah, Qua Raym and Shae Mo'sah as Not done. The tests also compare every shrine in
+every shot with the prototype's CSV output. The only differences are three spots in the Hero's
+Path shot, where trail covers most of the outline: the prototype calls them empty and the port
+calls them Unsure.
+
+`shrine_map.json` holds the shrine and tower positions from objmap.zeldamods.org, matched to
+`shrines.json` by name, and the prototype's 33×33 shrine and tower silhouettes.
 
 Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 `scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
