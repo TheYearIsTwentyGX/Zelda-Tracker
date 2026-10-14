@@ -45,7 +45,7 @@ data class OrbUpgrades(
     val startingStaminaWheels: Int,
     /** Stamina Vessels from the starting wheels to the maximum; [VESSELS_PER_WHEEL] make a wheel. */
     val maxStaminaVessels: Int,
-    /** Heart Containers awarded outside the Goddess Statues (the Divine Beasts); not tracked. */
+    /** Heart Containers awarded outside the Goddess Statues: one per Divine Beast freed. */
     val bossHearts: Int,
 ) {
     /** Heart Containers a Goddess Statue will sell at most, before any boss hearts. */
