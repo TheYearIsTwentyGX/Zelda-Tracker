@@ -3,9 +3,9 @@
   "regions": ["Great Plateau", "Dueling Peaks", "Hateno", "Lanayru", "Faron", "Lake", "Central", "Ridgeland", "Tabantha", "Hebra", "Woodland", "Eldin", "Akkala", "Wasteland", "Gerudo"],
   "hestu": {
     "pouches": [
-      {"id": "weapon", "name": "Weapons", "startingSlots": 8, "costs": [1, 2, 3, 5, 8, 12, 17, 25, 35, 45, 55]},
-      {"id": "bow", "name": "Bows", "startingSlots": 5, "costs": [1, 2, 3, 5, 8, 12, 17, 25]},
-      {"id": "shield", "name": "Shields", "startingSlots": 4, "costs": [1, 2, 3, 4, 5, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 20]}
+      {"id": "weapon", "name": "Weapon", "startingSlots": 8, "costs": [1, 2, 3, 5, 8, 12, 17, 25, 35, 45, 55]},
+      {"id": "bow", "name": "Bow", "startingSlots": 5, "costs": [1, 2, 3, 5, 8, 12, 17, 25]},
+      {"id": "shield", "name": "Shield", "startingSlots": 4, "costs": [1, 2, 3, 4, 5, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 20]}
     ]
   },
   "koroks": [

@@ -31,7 +31,7 @@ data class Korok(
     val objmapUrl: String get() = "https://objmap.zeldamods.org/#/map/z7,$x,$z?id=MainField,$mapSection,$hashId"
 }
 
-/** One of Hestu's inventory upgrades: a pouch, the slots it starts with and the seeds each extra slot costs. */
+/** One of Hestu's inventory upgrades: a pouch (named in the singular, e.g. "Weapon"), its starting slots and the seeds each extra slot costs. */
 @Serializable
 data class HestuPouch(
     val id: String,

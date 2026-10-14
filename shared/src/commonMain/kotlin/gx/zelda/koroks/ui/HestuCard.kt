@@ -43,7 +43,7 @@ fun HestuCard(plan: HestuPlan, onBoughtChange: (pouchId: String, upgrades: Int) 
             for (pouch in plan.costs.pouches) {
                 val bought = plan.boughtIn(pouch)
                 Stepper(
-                    label = "${pouch.name} upgrades",
+                    label = "${pouch.name} upgrades bought",
                     detail = buildString {
                         append("${plan.slots(pouch)} of ${pouch.maxSlots} slots")
                         append(plan.nextCost(pouch)?.let { " · next costs ${seedCount(it)}" } ?: " · maxed")
@@ -72,7 +72,7 @@ private fun summary(plan: HestuPlan): String = when {
         "${seedCount(plan.inHand)} in hand: enough for ${upgradeCount(plan.affordable)}, cheapest first."
     else -> {
         val cheapest = plan.costs.pouches.mapNotNull(plan::nextCost).min()
-        "${seedCount(plan.inHand)} in hand; the cheapest next upgrade costs $cheapest."
+        "${seedCount(plan.inHand)} in hand; the cheapest next upgrade costs ${seedCount(cheapest)}."
     }
 }.let { line ->
     if (plan.isConsistent && !plan.isMaxed && plan.stillToCollect > 0) {
