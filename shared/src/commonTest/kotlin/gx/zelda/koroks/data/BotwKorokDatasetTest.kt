@@ -94,6 +94,25 @@ class BotwKorokDatasetTest {
     }
 
     @Test
+    fun hestuCostsMatchTheGame() = withData { c, _ ->
+        assertEquals(listOf("weapon", "bow", "shield"), c.hestu.pouches.map { it.id })
+        assertEquals(listOf(208, 73, 160), c.hestu.pouches.map { it.costs.sum() })
+        assertEquals(441, c.hestu.total)
+        assertEquals(listOf(8, 5, 4), c.hestu.pouches.map { it.startingSlots })
+        assertEquals(listOf(19, 13, 20), c.hestu.pouches.map { it.maxSlots })
+        c.hestu.pouches.forEach { p -> assertEquals(p.costs.sorted(), p.costs, "${p.id}: costs never go down") }
+    }
+
+    /** objmap's `#/map/z<zoom>,<x>,<z>?id=MainField,<section>,<hashId>` opens the Korok's details. */
+    @Test
+    fun objmapLinksPointAtTheKorok() = withData { c, _ ->
+        assertEquals(
+            "https://objmap.zeldamods.org/#/map/z7,3084.93,2884.65?id=MainField,I-7,94134284",
+            c.koroks.first { it.id == "F18" }.objmapUrl,
+        )
+    }
+
+    @Test
     fun spotChecks() = withData { c, _ ->
         fun korok(id: String) = c.koroks.first { it.id == id }
         with(korok("Z07")) {

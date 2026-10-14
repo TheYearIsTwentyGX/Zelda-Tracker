@@ -2,6 +2,7 @@ package gx.zelda.koroks.data
 
 import gx.zelda.core.Game
 import gx.zelda.koroks.model.KorokCatalog
+import gx.zelda.koroks.model.KorokData
 import gx.zelda.koroks.model.KorokPuzzleTypes
 import gx.zelda.resources.Res
 import kotlinx.serialization.json.Json
@@ -23,4 +24,7 @@ object KorokRepository {
 
     suspend fun loadPuzzleTypes(game: Game): KorokPuzzleTypes =
         parsePuzzleTypes(Res.readBytes(puzzleTypesPath(game)).decodeToString())
+
+    /** The Koroks and their puzzle types, as the tracker uses them. */
+    suspend fun loadData(game: Game): KorokData = KorokData(load(game), loadPuzzleTypes(game))
 }

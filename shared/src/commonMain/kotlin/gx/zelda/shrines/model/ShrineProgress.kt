@@ -1,13 +1,10 @@
 package gx.zelda.shrines.model
 
+import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
 /** Where a save file stands with one shrine. Completing a shrine implies having found it. */
-enum class ShrineState(val label: String) {
-    UNDISCOVERED("Undiscovered"),
-    FOUND("Found"),
-    COMPLETED("Completed"),
-}
+typealias ShrineState = DiscoveryState
 
 /** One save file's shrines, plus what its Spirit Orbs have been spent on. */
 @Serializable
@@ -23,11 +20,7 @@ data class ShrineProgress(
     /** Stamina Vessels bought at Goddess Statues, as entered by the user. */
     val staminaBought: Int = 0,
 ) {
-    fun state(shrineId: String): ShrineState = when (shrineId) {
-        in completed -> ShrineState.COMPLETED
-        in found -> ShrineState.FOUND
-        else -> ShrineState.UNDISCOVERED
-    }
+    fun state(shrineId: String): ShrineState = DiscoveryState.of(shrineId, completed, found)
 
     fun isFound(shrineId: String): Boolean = shrineId in found || shrineId in completed
 

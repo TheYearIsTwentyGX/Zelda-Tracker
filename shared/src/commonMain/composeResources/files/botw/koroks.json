@@ -1,6 +1,13 @@
 {
   "coordinates": "objmap world units (same as the game): x grows east, z grows south, y is height; origin at the map centre; the playable map spans x -5000..5000 and z -4000..4000.",
   "regions": ["Great Plateau", "Dueling Peaks", "Hateno", "Lanayru", "Faron", "Lake", "Central", "Ridgeland", "Tabantha", "Hebra", "Woodland", "Eldin", "Akkala", "Wasteland", "Gerudo"],
+  "hestu": {
+    "pouches": [
+      {"id": "weapon", "name": "Weapons", "startingSlots": 8, "costs": [1, 2, 3, 5, 8, 12, 17, 25, 35, 45, 55]},
+      {"id": "bow", "name": "Bows", "startingSlots": 5, "costs": [1, 2, 3, 5, 8, 12, 17, 25]},
+      {"id": "shield", "name": "Shields", "startingSlots": 4, "costs": [1, 2, 3, 4, 5, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 20]}
+    ]
+  },
   "koroks": [
     {"id": "P01", "hashId": 20346760, "mapSection": "E-6", "region": "Great Plateau", "x": -822.64, "y": 171.23, "z": 1546.92, "nearestPlace": "Oman Au Shrine", "internalType": "Rock Lift", "actors": ["Obj_LiftRockWhite_A_01"], "puzzleType": "lift_rock", "typeSource": "internal"},
     {"id": "P02", "hashId": 2120438097, "mapSection": "E-6", "region": "Great Plateau", "x": -769.88, "y": 175.22, "z": 1574.23, "nearestPlace": "Oman Au Shrine", "internalType": "Ball and Chain", "actors": ["ConstraintDummy", "FldObj_ChainEyeBolt_A_01", "FldObj_Chain_A", "Obj_KorokIronRock_A_01"], "puzzleType": "ball_and_chain", "typeSource": "internal"},

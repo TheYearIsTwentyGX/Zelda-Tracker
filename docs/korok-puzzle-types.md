@@ -56,6 +56,10 @@ Nothing is fetched at runtime; the JSON was built offline by scripts that are no
 | `puzzleType` | A type id from `korok_puzzle_types.json`. Never null: every seed's type comes from its objmap `korok_type` (see [Puzzle types](#puzzle-types)). |
 | `typeSource` | `"internal"` on every seed: the type comes from objmap's datamined `korok_type`. A later override from another source should use a different value. |
 
+Besides `koroks`, the file has `regions` (tower order) and `hestu`: each pouch Hestu upgrades, its starting slots and
+the seed cost of each upgrade in turn (weapons 208, bows 73, shields 160: 441 in all, from Zelda Wiki's Korok Seed
+page). The Korok tracker's Hestu card reads it.
+
 The file is ordered by region (tower order, as in `shrines.json`) then id.
 
 ### Coordinates
