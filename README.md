@@ -108,23 +108,7 @@ Requires JDK 17+ and the Android SDK (set `sdk.dir` in `local.properties`).
 - **Land** (`scripts/land.sh`) merges the current worktree's PR and fast-forwards the main
   checkout. `--status` and `--dry-run` show what it would do.
 
-## Data sources
-
-Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
-Where sources disagreed, the majority value was used.
-
-TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against Game8,
-Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
-from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
-Zelda Wiki only.
-
-BotW shrine data (names, trials, Shrine Quests, locations) comes from Zelda Wiki and Zelda Fandom.
-Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the wikis use
-geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
-under a different region there. Trial names keep the in-game wording, including the "A" in
-"A Minor Test of Strength".
-
-### How the map scan works
+## How the map scan works
 
 `ShrineMapScanner` is pure Kotlin in `commonMain`, with no OpenCV or ML Kit. Each platform only
 decodes the image (`BitmapFactory` on Android, `ImageIO` on the JVM). It is a port of the Python
@@ -159,6 +143,22 @@ calls them Unsure.
 
 `shrine_map.json` holds the shrine and tower positions from objmap.zeldamods.org, matched to
 `shrines.json` by name, and the prototype's 33×33 shrine and tower silhouettes.
+
+## Data sources
+
+Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
+Where sources disagreed, the majority value was used.
+
+TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against Game8,
+Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes
+from Zelda Wiki, PowerPyx, Nintendo Life and Shacknews. The TotK Materials pouch order is from
+Zelda Wiki only.
+
+BotW shrine data (names, trials, Shrine Quests, locations) comes from Zelda Wiki and Zelda Fandom.
+Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the wikis use
+geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
+under a different region there. Trial names keep the in-game wording, including the "A" in
+"A Minor Test of Strength".
 
 Armor icons are the in-game inventory icons, downloaded from Zelda Wiki by
 `scripts/fetch-armor-icons.py`. Icons are keyed by piece id, so a piece that appears in both games
