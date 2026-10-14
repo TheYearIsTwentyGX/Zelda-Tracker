@@ -57,6 +57,7 @@ fun ShrineTrackerScreen(
     state: ShrineUiState?,
     loadFailed: Boolean,
     viewModel: ShrineViewModel,
+    onScanMap: () -> Unit,
     onBack: () -> Unit,
 ) {
     Scaffold(
@@ -82,7 +83,7 @@ fun ShrineTrackerScreen(
                     }
                 },
                 actions = {
-                    if (state != null) ShrineMenu(state, viewModel)
+                    if (state != null) ShrineMenu(state, viewModel, onScanMap)
                 },
             )
         },
@@ -106,7 +107,7 @@ fun ShrineTrackerScreen(
 }
 
 @Composable
-private fun ShrineMenu(state: ShrineUiState, viewModel: ShrineViewModel) {
+private fun ShrineMenu(state: ShrineUiState, viewModel: ShrineViewModel, onScanMap: () -> Unit) {
     var open by remember { mutableStateOf(false) }
     IconButton(onClick = { open = true }) {
         Icon(Icons.Filled.MoreVert, contentDescription = "More options")
@@ -118,6 +119,13 @@ private fun ShrineMenu(state: ShrineUiState, viewModel: ShrineViewModel) {
             onClick = {
                 viewModel.setHideUndiscovered(!state.prefs.hideUndiscovered)
                 open = false
+            },
+        )
+        DropdownMenuItem(
+            text = { Text("Scan map screenshots") },
+            onClick = {
+                open = false
+                onScanMap()
             },
         )
     }
