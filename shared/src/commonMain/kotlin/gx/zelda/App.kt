@@ -27,6 +27,9 @@ import gx.zelda.core.ui.ZeldaTheme
 import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.ui.FairyTrackerScreen
 import gx.zelda.fairies.ui.FairyViewModel
+import gx.zelda.mainquest.data.MainQuestStorage
+import gx.zelda.mainquest.ui.MainQuestScreen
+import gx.zelda.mainquest.ui.MainQuestViewModel
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.ui.ShrineTrackerScreen
 import gx.zelda.shrines.ui.ShrineViewModel
@@ -36,6 +39,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class ArmorTracker(val gameId: String)
 @Serializable private data class ArmorDetail(val gameId: String, val pieceId: String)
 @Serializable private data class Fairies(val gameId: String)
+@Serializable private data class MainQuest(val gameId: String)
 @Serializable private data class Shrines(val gameId: String)
 
 @Composable
@@ -51,6 +55,7 @@ fun App(dataStore: DataStore<Preferences>) {
                     when (kind) {
                         TrackerKind.ARMOR -> nav.navigate(ArmorTracker(game.id))
                         TrackerKind.FAIRIES -> nav.navigate(Fairies(game.id))
+                        TrackerKind.MAIN_QUEST -> nav.navigate(MainQuest(game.id))
                         TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
                     }
                 })
@@ -60,6 +65,12 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = viewModel(key = game.id) { FairyViewModel(FairyStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 FairyTrackerScreen(state, vm, onBack = { nav.popBackStack() })
+            }
+            composable<MainQuest> { entry ->
+                val game = Games.byId(entry.toRoute<MainQuest>().gameId)
+                val vm = viewModel(key = game.id) { MainQuestViewModel(MainQuestStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                MainQuestScreen(state, vm, onBack = { nav.popBackStack() })
             }
             composable<Shrines> { entry ->
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)
