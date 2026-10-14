@@ -42,6 +42,8 @@ data class ShrinePrefs(
 /**
  * The Spirit Orb arithmetic for one save file. Orbs come from completed shrines with an
  * [Shrine.orb]; how they were spent is what the user entered, since the app can't see the save.
+ * Heart Containers also come from the Divine Beasts freed on the same file, which the Main Quest
+ * tracker records.
  */
 data class OrbPlan(
     val upgrades: OrbUpgrades,
@@ -51,6 +53,8 @@ data class OrbPlan(
     val total: Int,
     val heartsBought: Int,
     val staminaBought: Int,
+    /** Divine Beasts freed on this save file; each gave one Heart Container. */
+    val beastHearts: Int = 0,
 ) {
     val bought: Int get() = heartsBought + staminaBought
 
@@ -71,10 +75,22 @@ data class OrbPlan(
     /** Upgrades every orb in the game buys. */
     val totalUpgrades: Int get() = total / upgrades.orbsPerUpgrade
 
-    /** Upgrades still to buy, counting orbs not yet earned. */
+    /**
+     * Upgrades still to buy, counting orbs not yet earned. The statues never run out first: even
+     * with every beast freed they sell 23 + 10, more than the 30 (31) upgrades the orbs buy.
+     */
     val upgradesLeft: Int get() = (totalUpgrades - bought).coerceAtLeast(0)
 
-    val heartsLeft: Int get() = (upgrades.maxHeartsBought - heartsBought).coerceAtLeast(0)
+    /** Hearts on this save file: the starting ones, the Divine Beasts' and those bought. */
+    val hearts: Int get() = upgrades.startingHearts + beastHearts + heartsBought
+
+    /** Heart Containers the Goddess Statues sell at most, given the Divine Beasts freed so far. */
+    val maxHeartsBought: Int get() = (upgrades.maxHeartsBought - beastHearts).coerceAtLeast(0)
+
+    /** More hearts entered than the game allows, e.g. a beast freed after hearts were maxed. */
+    val heartsOverMax: Boolean get() = heartsBought > maxHeartsBought
+
+    val heartsLeft: Int get() = (maxHeartsBought - heartsBought).coerceAtLeast(0)
 
     val staminaLeft: Int get() = (upgrades.maxStaminaVessels - staminaBought).coerceAtLeast(0)
 
@@ -86,8 +102,11 @@ data class OrbPlan(
     val upgradesToMaxBoth: Int get() = upgrades.maxHeartsBought - upgrades.bossHearts + upgrades.maxStaminaVessels
 
     companion object {
-        /** [includeDlc] counts the DLC shrines' orbs; off when the DLC is hidden. */
-        fun of(catalog: ShrineCatalog, progress: ShrineProgress, includeDlc: Boolean): OrbPlan {
+        /**
+         * [includeDlc] counts the DLC shrines' orbs; off when the DLC is hidden. [beastsFreed] is
+         * how many Divine Beasts the same save file has freed.
+         */
+        fun of(catalog: ShrineCatalog, progress: ShrineProgress, includeDlc: Boolean, beastsFreed: Int = 0): OrbPlan {
             val orbShrines = catalog.shrines.filter { it.orb && (includeDlc || !it.dlc) }
             return OrbPlan(
                 upgrades = catalog.upgrades,
@@ -95,6 +114,7 @@ data class OrbPlan(
                 total = orbShrines.size,
                 heartsBought = progress.heartsBought,
                 staminaBought = progress.staminaBought,
+                beastHearts = beastsFreed.coerceIn(0, catalog.upgrades.bossHearts),
             )
         }
     }

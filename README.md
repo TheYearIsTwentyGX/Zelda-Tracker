@@ -48,7 +48,11 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Spirit Orbs**: orbs earned from completed shrines, what you've spent on Heart Containers and
   Stamina Vessels, and what's left. 120 orbs in the base game; the Champions' Ballad's four Great
   Plateau shrines add 4 more (its other twelve give emblems). Purchases are entered by hand.
-  Divine Beast Heart Containers aren't tracked.
+  Hearts count 3 to start, one per Divine Beast marked freed in Main Quest Progress on the same
+  save file, and those bought; Goddess Statues stop at 30, so each freed beast lowers how many
+  can be bought (27 with none, 23 with all four). A number entered before a beast was freed is
+  kept and flagged in red if it now goes past 30. All 120 orbs buy 30 upgrades (31 with the DLC),
+  short of the 33 that max both hearts and stamina.
 - **Scan map screenshots** (top-bar menu): reads shrine states from screenshots of the in-game map
   (2D map, fully zoomed out, 1920×1080 straight from the Switch album; one of the north half and one
   of the south). Each shrine comes out as *Completed* (blue glyph), *Not done* (orange glyph),
