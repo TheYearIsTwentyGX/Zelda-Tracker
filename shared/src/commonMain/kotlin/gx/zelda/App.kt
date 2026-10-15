@@ -91,7 +91,11 @@ fun App(dataStore: DataStore<Preferences>) {
             }
             composable<Shrines> { entry ->
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)
-                val vm = viewModel(key = game.id) { ShrineViewModel(ShrineStorage(dataStore, game)) }
+                val vm = viewModel(key = game.id) {
+                    // Freed Divine Beasts add Heart Containers to the Spirit Orb card.
+                    val mainQuest = MainQuestStorage(dataStore, game).takeIf { game.trackers.any { it.kind == TrackerKind.MAIN_QUEST } }
+                    ShrineViewModel(ShrineStorage(dataStore, game), mainQuest)
+                }
                 val state by vm.state.collectAsStateWithLifecycle()
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
                 ShrineTrackerScreen(

@@ -18,7 +18,8 @@ class OrbPlanTest {
     private fun shrine(id: String, dlc: Boolean = false, orb: Boolean = true) =
         Shrine(id, id, "Region", "Trial", TrialType.PUZZLE, dlc = dlc, orb = orb, location = "Somewhere")
 
-    private fun plan(earned: Int, hearts: Int = 0, stamina: Int = 0) = OrbPlan(upgrades, earned, 120, hearts, stamina)
+    private fun plan(earned: Int, hearts: Int = 0, stamina: Int = 0, beasts: Int = 0) =
+        OrbPlan(upgrades, earned, 120, hearts, stamina, beasts)
 
     private val catalog = ShrineCatalog(
         listOf("Region"),
@@ -87,5 +88,36 @@ class OrbPlanTest {
         assertEquals(27, upgrades.maxHeartsBought)
         assertEquals(33, p.upgradesToMaxBoth, "23 Heart Containers after the Divine Beasts' 4, plus 10 Stamina Vessels")
         assertTrue(p.upgradesToMaxBoth > p.totalUpgrades)
+    }
+
+    @Test
+    fun freedBeastsAddHeartsAndLowerWhatTheStatuesSell() {
+        val p = plan(earned = 40, hearts = 5, beasts = 2)
+        assertEquals(10, p.hearts, "3 to start + 2 from Divine Beasts + 5 bought")
+        assertEquals(25, p.maxHeartsBought)
+        assertEquals(20, p.heartsLeft)
+        assertFalse(p.heartsOverMax)
+
+        val allBeasts = plan(earned = 120, hearts = 23, beasts = 4)
+        assertEquals(30, allBeasts.hearts)
+        assertEquals(23, allBeasts.maxHeartsBought)
+        assertEquals(0, allBeasts.heartsLeft)
+        assertFalse(allBeasts.heartsOverMax)
+    }
+
+    @Test
+    fun freeingABeastAfterMaxingHeartsIsFlaggedNotChanged() {
+        val p = plan(earned = 120, hearts = 27, beasts = 1)
+        assertEquals(27, p.heartsBought, "the entered number is kept")
+        assertEquals(31, p.hearts)
+        assertEquals(26, p.maxHeartsBought)
+        assertTrue(p.heartsOverMax)
+        assertEquals(0, p.heartsLeft)
+    }
+
+    @Test
+    fun beastsFreedAreCappedAtTheGamesFour() {
+        assertEquals(4, OrbPlan.of(catalog, ShrineProgress(), includeDlc = true, beastsFreed = 6).beastHearts)
+        assertEquals(0, OrbPlan.of(catalog, ShrineProgress(), includeDlc = true).beastHearts)
     }
 }
