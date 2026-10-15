@@ -45,6 +45,12 @@ import gx.zelda.mainquest.ui.MainQuestScreen
 import gx.zelda.mainquest.ui.MainQuestViewModel
 import gx.zelda.overview.OverviewScreen
 import gx.zelda.overview.OverviewViewModel
+import gx.zelda.map.data.MapLayers
+import gx.zelda.map.data.MapStorage
+import gx.zelda.map.data.botwMapLayers
+import gx.zelda.map.model.markerKey
+import gx.zelda.map.ui.MapViewModel
+import gx.zelda.map.ui.WorldMapScreen
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.scan.ShrineScanScreen
 import gx.zelda.shrines.ui.ShrineDetailScreen
@@ -74,6 +80,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Bosses(val gameId: String)
 @Serializable private data class BossDetail(val gameId: String, val spawnId: String)
 @Serializable private data class ShrineDetail(val gameId: String, val shrineId: String)
+/** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
+@Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -95,6 +103,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.OVERVIEW -> nav.navigate(Overview(game.id))
                         TrackerKind.SIDE_QUESTS -> nav.navigate(SideQuests(game.id))
                         TrackerKind.BOSSES -> nav.navigate(Bosses(game.id))
+                        TrackerKind.MAP -> nav.navigate(WorldMap(game.id))
                     }
                 })
             }
@@ -196,7 +205,13 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = korokViewModel(listEntry, dataStore, Games.byId(route.gameId))
                 val state by vm.state.collectAsStateWithLifecycle()
                 state?.let {
-                    KorokDetailScreen(it, route.korokId, vm, onBack = { nav.popBackStack() })
+                    KorokDetailScreen(
+                        it,
+                        route.korokId,
+                        vm,
+                        onBack = { nav.popBackStack() },
+                        onShowOnMap = { nav.navigate(WorldMap(route.gameId, MapLayers.KOROKS, route.korokId)) },
+                    )
                 }
             }
             composable<SideQuests> { entry ->
@@ -257,6 +272,33 @@ fun App(dataStore: DataStore<Preferences>) {
                 state?.let {
                     BossDetailScreen(it, route.spawnId, vm, onBack = { nav.popBackStack() })
                 }
+            }
+            composable<WorldMap> { entry ->
+                val route = entry.toRoute<WorldMap>()
+                val game = Games.byId(route.gameId)
+                val focus = route.focusId?.let { markerKey(route.focusLayer ?: return@let null, it) }
+                val vm = viewModel(key = "map_${game.id}") {
+                    MapViewModel(MapStorage(dataStore, game), botwMapLayers(dataStore, game), focus)
+                }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                WorldMapScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenInTracker = { layerId, entryId ->
+                        when (layerId) {
+                            MapLayers.SHRINES -> nav.navigate(Shrines(game.id))
+                            MapLayers.KOROKS -> {
+                                // The detail screen shares the list's view model, so the list goes under it.
+                                nav.navigate(Koroks(game.id))
+                                nav.navigate(KorokDetail(game.id, entryId))
+                            }
+                            MapLayers.TOWERS -> nav.navigate(MainQuest(game.id))
+                        }
+                    },
+                    onBack = { nav.popBackStack() },
+                )
             }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
@@ -338,6 +380,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.OVERVIEW -> Unit
         TrackerKind.SIDE_QUESTS -> navigate(SideQuests(game.id))
         TrackerKind.BOSSES -> navigate(Bosses(game.id))
+        TrackerKind.MAP -> navigate(WorldMap(game.id))
     }
 }
 

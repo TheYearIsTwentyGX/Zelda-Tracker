@@ -9,3 +9,6 @@ captures/
 .cxx/
 .DS_Store
 .playwright-mcp/
+
+# Map tile cache (tools/map-tiles/build_tiles.py)
+tools/map-tiles/.cache/

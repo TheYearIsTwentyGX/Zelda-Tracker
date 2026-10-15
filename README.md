@@ -155,6 +155,24 @@ iOS port is mostly a matter of adding the iOS targets.
   the world level are tagged *Scales* and listed at their weakest colour.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Map**
+- The map of Hyrule, from the game's own map art. It's bundled with the app, so it works offline.
+  Pan, pinch or double-tap to zoom.
+- Layers you can switch on and off: **Shrines** (136), **Korok Seeds** (900) and **Sheikah Towers** (15).
+  - Each chip shows how many are done on the active save file.
+  - Colours: blue done, orange found (or a tower not yet activated), grey undiscovered.
+  - At low zoom, nearby Koroks merge into a cluster numbered with the seeds still to collect. Tap
+    it to zoom in.
+- Tap a marker for its sheet: name, region, state, and buttons to mark it found or done, or to
+  open it in its tracker. Changes go to the active save file, the same one the trackers use.
+- **Spoilers:** each layer follows its tracker's own setting. With *Hide undiscovered shrines* or
+  *Hide undiscovered Koroks* on, undiscovered ones are left off the map, the way the game's map
+  leaves off what you haven't found.
+  - *Show hidden places as dots* (map menu) shows them as unnamed grey dots instead.
+  - Tap a dot to reveal it for the session.
+- *Hide completed* (map menu) leaves only what's left to do.
+- **Show on map** on a Korok's page centres the map on that seed.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -202,6 +220,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
   src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
+  src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -214,6 +233,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
+  src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
@@ -348,3 +368,9 @@ boss actor's id, position, tower region and parameters, with names and drops fro
 Medals of Honor are cross-checked against Zelda Wiki; where they differ, the game data wins.
 `scripts/build-botw-bosses.py` rebuilds it, and `docs/overworld-bosses.md` covers the fields, the counts and what's
 uncertain (Lynel colours).
+
+The BotW map art is Nintendo's, from the game's `MapTex` files as objmap.zeldamods.org serves them.
+`tools/map-tiles/build_tiles.py` fetched it once and turned it into the bundled WebP tile pyramid;
+see `tools/map-tiles/README.md` to rebuild it. objmap grants no licence for the art, so the map is
+fine for a personal, sideloaded build but would need replacing before any store release. Shrine,
+tower and Korok positions are objmap's (see above).

@@ -48,6 +48,8 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.OVERVIEW -> emptyList()
             TrackerKind.SIDE_QUESTS -> listOf(SideQuestProgressProvider(SideQuestStorage(dataStore, game)))
             TrackerKind.BOSSES -> listOf(BossProgressProvider(BossStorage(dataStore, game)))
+            // The map's counts are the shrine, Korok and tower trackers', which have rows already.
+            TrackerKind.MAP -> emptyList()
         }
     }
 }
