@@ -97,13 +97,15 @@ fun App(dataStore: DataStore<Preferences>) {
                 val game = Games.byId(entry.toRoute<Fairies>().gameId)
                 val vm = viewModel(key = game.id) { FairyViewModel(FairyStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
-                FairyTrackerScreen(state, vm, onBack = { nav.popBackStack() })
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                FairyTrackerScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<MainQuest> { entry ->
                 val game = Games.byId(entry.toRoute<MainQuest>().gameId)
                 val vm = viewModel(key = game.id) { MainQuestViewModel(MainQuestStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
-                MainQuestScreen(state, vm, onBack = { nav.popBackStack() })
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                MainQuestScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<Shrines> { entry ->
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)
@@ -133,8 +135,10 @@ fun App(dataStore: DataStore<Preferences>) {
                 val game = Games.byId(entry.toRoute<Compendium>().gameId)
                 val vm = compendiumViewModel(entry, dataStore, game)
                 val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
                 CompendiumTrackerScreen(
                     state = state,
+                    loadFailed = loadFailed,
                     viewModel = vm,
                     onOpenEntry = { nav.navigate(CompendiumDetail(game.id, it)) },
                     onBack = { nav.popBackStack() },
@@ -175,8 +179,10 @@ fun App(dataStore: DataStore<Preferences>) {
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
                 val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
                 ArmorTrackerScreen(
                     state = state,
+                    loadFailed = loadFailed,
                     viewModel = vm,
                     onOpenPiece = { nav.navigate(ArmorDetail(game.id, it)) },
                     onBack = { nav.popBackStack() },
