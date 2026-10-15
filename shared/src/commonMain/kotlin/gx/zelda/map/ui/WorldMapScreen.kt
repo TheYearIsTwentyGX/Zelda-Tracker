@@ -3,9 +3,7 @@ package gx.zelda.map.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,7 +16,6 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -48,6 +45,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import gx.zelda.core.DiscoveryState
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.map.model.MapMarker
@@ -104,7 +102,7 @@ fun WorldMapScreen(
         },
     ) { padding ->
         if (state == null) {
-            LoadingOrError(loadFailed, padding)
+            LoadingOrError(loadFailed, "The map couldn't be loaded.", padding)
             return@Scaffold
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
@@ -269,20 +267,4 @@ private fun AboutDialog(onDismiss: () -> Unit) {
             )
         },
     )
-}
-
-/** The spinner or failure message, the same as each tracker shows before its dataset is ready. */
-@Composable
-private fun LoadingOrError(loadFailed: Boolean, padding: PaddingValues) {
-    Box(Modifier.fillMaxSize().padding(padding).padding(24.dp), contentAlignment = Alignment.Center) {
-        if (loadFailed) {
-            Text(
-                "The map couldn't be loaded.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.error,
-            )
-        } else {
-            CircularProgressIndicator()
-        }
-    }
 }
