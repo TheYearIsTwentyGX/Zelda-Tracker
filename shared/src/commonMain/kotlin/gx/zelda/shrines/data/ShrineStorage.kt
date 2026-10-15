@@ -2,18 +2,20 @@ package gx.zelda.shrines.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.shrines.model.ShrinePrefs
 import gx.zelda.shrines.model.ShrineProgress
 import gx.zelda.shrines.model.ShrineState
+import gx.zelda.shrines.model.UpgradeKind
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Persistence for a game's shrine tracker: found and completed shrines and Spirit Orb purchases
- * per save file, plus viewing preferences shared across files. The active save file is the one the
- * game's other trackers use too.
+ * Persistence for a game's shrine tracker: found and completed shrines, Lightroots (TotK) and
+ * Spirit Orb purchases per save file, plus viewing preferences shared across files. The active
+ * save file is the one the game's other trackers use too.
  */
 class ShrineStorage(dataStore: DataStore<Preferences>, val game: Game) {
     private val progressStores = game.saveFiles.associate { file ->
@@ -39,6 +41,16 @@ class ShrineStorage(dataStore: DataStore<Preferences>, val game: Game) {
     /** Purchases are stored as entered, never below zero. */
     suspend fun setBought(saveFileId: String, hearts: Int, stamina: Int) =
         updateProgress(saveFileId) { it.copy(heartsBought = hearts.coerceAtLeast(0), staminaBought = stamina.coerceAtLeast(0)) }
+
+    /** Entered by hand, never below zero. */
+    suspend fun setBossHearts(saveFileId: String, hearts: Int) =
+        updateProgress(saveFileId) { it.copy(bossHearts = hearts.coerceAtLeast(0)) }
+
+    suspend fun setFreeUpgrade(saveFileId: String, kind: UpgradeKind?) =
+        updateProgress(saveFileId) { it.copy(freeUpgrade = kind) }
+
+    suspend fun setLightrootState(saveFileId: String, lightrootId: String, state: DiscoveryState) =
+        updateProgress(saveFileId) { it.withLightrootState(lightrootId, state) }
 
     suspend fun updateProgress(saveFileId: String, transform: (ShrineProgress) -> ShrineProgress) =
         store(saveFileId).update(transform)

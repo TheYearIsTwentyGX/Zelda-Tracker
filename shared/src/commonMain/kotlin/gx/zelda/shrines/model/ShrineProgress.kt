@@ -1,34 +1,44 @@
 package gx.zelda.shrines.model
 
+import gx.zelda.core.Discoveries
+import gx.zelda.core.DiscoverySets
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
 /** Where a save file stands with one shrine. Completing a shrine implies having found it. */
 typealias ShrineState = DiscoveryState
 
-/** One save file's shrines, plus what its Spirit Orbs have been spent on. */
+/**
+ * One save file's shrines, plus what its Spirit Orbs (Lights of Blessing) have been spent on and,
+ * in TotK, its Lightroots. Fields a game doesn't use stay at their defaults, which aren't stored.
+ */
 @Serializable
 data class ShrineProgress(
-    val completed: Set<String> = emptySet(),
+    override val completed: Set<String> = emptySet(),
     /**
      * Shrines found on this save file, completed or not. Saves from before this field existed
      * only have [completed]; those shrines count as found too, so read [state] rather than this.
      */
-    val found: Set<String> = emptySet(),
+    override val found: Set<String> = emptySet(),
     /** Heart Containers bought at Goddess Statues, as entered by the user. */
     val heartsBought: Int = 0,
     /** Stamina Vessels bought at Goddess Statues, as entered by the user. */
     val staminaBought: Int = 0,
-) {
-    fun state(shrineId: String): ShrineState = DiscoveryState.of(shrineId, completed, found)
+    /** Lightroots found and lit (completed), tracked apart from the shrines above them. */
+    val lightroots: Discoveries = Discoveries(),
+    /**
+     * Heart Containers from bosses, as entered by the user, for a game with no tracker that
+     * records its bosses (TotK). BotW counts the Divine Beasts in Main Quest Progress instead.
+     */
+    val bossHearts: Int = 0,
+    /** What [OrbUpgrades.freeUpgrade] was taken as; null until it's been claimed. */
+    val freeUpgrade: UpgradeKind? = null,
+) : DiscoverySets {
+    fun withState(shrineId: String, state: ShrineState): ShrineProgress =
+        setsWith(shrineId, state).let { (completed, found) -> copy(completed = completed, found = found) }
 
-    fun isFound(shrineId: String): Boolean = shrineId in found || shrineId in completed
-
-    fun withState(shrineId: String, state: ShrineState): ShrineProgress = when (state) {
-        ShrineState.UNDISCOVERED -> copy(completed = completed - shrineId, found = found - shrineId)
-        ShrineState.FOUND -> copy(completed = completed - shrineId, found = found + shrineId)
-        ShrineState.COMPLETED -> copy(completed = completed + shrineId, found = found + shrineId)
-    }
+    fun withLightrootState(lightrootId: String, state: DiscoveryState): ShrineProgress =
+        copy(lightroots = lightroots.withState(lightrootId, state))
 }
 
 /** Viewing preferences, shared by every save file. */
@@ -53,10 +63,18 @@ data class OrbPlan(
     val total: Int,
     val heartsBought: Int,
     val staminaBought: Int,
-    /** Divine Beasts freed on this save file; each gave one Heart Container. */
+    /**
+     * Boss Heart Containers on this save file: Divine Beasts freed in BotW, bosses beaten
+     * (entered by hand) in TotK.
+     */
     val beastHearts: Int = 0,
+    /** What [OrbUpgrades.freeUpgrade] was taken as, if it has been. */
+    val freeUpgrade: UpgradeKind? = null,
 ) {
     val bought: Int get() = heartsBought + staminaBought
+
+    private val freeHeart: Int get() = if (freeUpgrade == UpgradeKind.HEART) 1 else 0
+    private val freeVessel: Int get() = if (freeUpgrade == UpgradeKind.STAMINA) 1 else 0
 
     /** Orbs not yet traded in. Negative when more was entered as bought than the orbs allow. */
     val inHand: Int get() = earned - bought * upgrades.orbsPerUpgrade
@@ -77,36 +95,49 @@ data class OrbPlan(
 
     /**
      * Upgrades still to buy, counting orbs not yet earned. The statues never run out first: even
-     * with every beast freed they sell 23 + 10, more than the 30 (31) upgrades the orbs buy.
+     * with every beast freed they sell 23 + 10, more than the 30 (31) upgrades the orbs buy. In
+     * TotK, with every boss heart and the free upgrade, they sell 40 against the Lights' 38.
      */
     val upgradesLeft: Int get() = (totalUpgrades - bought).coerceAtLeast(0)
 
-    /** Hearts on this save file: the starting ones, the Divine Beasts' and those bought. */
-    val hearts: Int get() = upgrades.startingHearts + beastHearts + heartsBought
+    /** Hearts on this save file: the starting ones, the bosses', the free one if taken as a heart, and those bought. */
+    val hearts: Int get() = upgrades.startingHearts + beastHearts + freeHeart + heartsBought
 
-    /** Heart Containers the Goddess Statues sell at most, given the Divine Beasts freed so far. */
-    val maxHeartsBought: Int get() = (upgrades.maxHeartsBought - beastHearts).coerceAtLeast(0)
+    /** Heart Containers the Goddess Statues sell at most, given the boss (and free) hearts so far. */
+    val maxHeartsBought: Int get() = (upgrades.maxHeartsBought - beastHearts - freeHeart).coerceAtLeast(0)
+
+    /** Heart Containers that weren't bought: the bosses' and the free one. */
+    val heartsNotBought: Int get() = beastHearts + freeHeart
+
+    /** Stamina Vessels on this save file, bought or free. */
+    val staminaVessels: Int get() = staminaBought + freeVessel
+
+    /** Stamina Vessels the Goddess Statues sell at most, given the free one. */
+    val maxStaminaBought: Int get() = upgrades.maxStaminaVessels - freeVessel
 
     /** More hearts entered than the game allows, e.g. a beast freed after hearts were maxed. */
     val heartsOverMax: Boolean get() = heartsBought > maxHeartsBought
 
     val heartsLeft: Int get() = (maxHeartsBought - heartsBought).coerceAtLeast(0)
 
-    val staminaLeft: Int get() = (upgrades.maxStaminaVessels - staminaBought).coerceAtLeast(0)
+    val staminaLeft: Int get() = (maxStaminaBought - staminaBought).coerceAtLeast(0)
 
     /**
-     * Upgrades needed to max both hearts and stamina, with every boss heart collected. In BotW
-     * that's 23 + 10 = 33 against 30 bought with every orb (31 with the DLC), so both can't be
-     * maxed at once.
+     * Upgrades to buy to max both hearts and stamina, with every boss heart and the free upgrade
+     * collected. In BotW that's 23 + 10 = 33 against 30 bought with every orb (31 with the DLC);
+     * in TotK it's 31 + 10 - 1 = 40 against the 38 that 152 Lights buy. Neither game can max both.
      */
-    val upgradesToMaxBoth: Int get() = upgrades.maxHeartsBought - upgrades.bossHearts + upgrades.maxStaminaVessels
+    val upgradesToMaxBoth: Int
+        get() = upgrades.maxHeartsBought - upgrades.bossHearts + upgrades.maxStaminaVessels -
+            (if (upgrades.freeUpgrade != null) 1 else 0)
 
     companion object {
         /**
          * [includeDlc] counts the DLC shrines' orbs; off when the DLC is hidden. [beastsFreed] is
-         * how many Divine Beasts the same save file has freed.
+         * how many Divine Beasts the same save file has freed; null for a game where the boss
+         * hearts are entered by hand ([ShrineProgress.bossHearts]).
          */
-        fun of(catalog: ShrineCatalog, progress: ShrineProgress, includeDlc: Boolean, beastsFreed: Int = 0): OrbPlan {
+        fun of(catalog: ShrineCatalog, progress: ShrineProgress, includeDlc: Boolean, beastsFreed: Int? = 0): OrbPlan {
             val orbShrines = catalog.shrines.filter { it.orb && (includeDlc || !it.dlc) }
             return OrbPlan(
                 upgrades = catalog.upgrades,
@@ -114,7 +145,8 @@ data class OrbPlan(
                 total = orbShrines.size,
                 heartsBought = progress.heartsBought,
                 staminaBought = progress.staminaBought,
-                beastHearts = beastsFreed.coerceIn(0, catalog.upgrades.bossHearts),
+                beastHearts = (beastsFreed ?: progress.bossHearts).coerceIn(0, catalog.upgrades.bossHearts),
+                freeUpgrade = progress.freeUpgrade.takeIf { catalog.upgrades.freeUpgrade != null },
             )
         }
     }

@@ -1,11 +1,13 @@
 package gx.zelda.shrines.ui
 
+import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Games
 import gx.zelda.core.createDataStore
 import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.model.MainQuestSection
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
+import gx.zelda.shrines.model.UpgradeKind
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -87,5 +89,31 @@ class ShrineViewModelTest {
     fun withoutTheMainQuestTrackerNoBeastsCount() = runTest {
         val vm = ShrineViewModel(storage()) { ShrineRepository.parse(catalogJson) }
         assertEquals(0, vm.state.first { it != null }!!.orbs.beastHearts)
+    }
+
+    // TotK: no Main Quest tracker, so boss hearts are entered by hand; Lightroots are tracked per file.
+
+    @Test
+    fun totkTracksLightrootsAndBossHeartsOnTheActiveFile() = runTest {
+        val storage = ShrineStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.TOTK)
+        val vm = ShrineViewModel(storage)
+        val loaded = vm.state.first { it != null }!!
+        assertTrue(loaded.bossHeartsByHand)
+        assertEquals(152, loaded.orbs.total)
+
+        vm.setLightrootState("kawumoro", DiscoveryState.COMPLETED)
+        vm.setBossHearts(2)
+        vm.setFreeUpgrade(UpgradeKind.STAMINA)
+        val s = vm.state.first { it?.progress?.lightroots?.completed?.isNotEmpty() == true && it.progress.freeUpgrade != null }!!
+        assertEquals(DiscoveryState.UNDISCOVERED, s.progress.state("oromuwak"), "the shrine above is untouched")
+        assertEquals(2, s.orbs.beastHearts)
+        assertEquals(1, s.orbs.staminaVessels)
+        assertEquals(1, s.saveFiles.first { it.file.id == "file_1" }.lightrootsLit)
+        assertEquals(0, s.saveFiles.first { it.file.id == "file_2" }.lightrootsLit)
+
+        storage.setActiveSaveFile("file_2")
+        val two = vm.state.first { it?.saveFile?.id == "file_2" }!!
+        assertEquals(DiscoveryState.UNDISCOVERED, two.progress.lightroots.state("kawumoro"))
+        assertEquals(0, two.orbs.beastHearts)
     }
 }
