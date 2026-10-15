@@ -27,6 +27,7 @@ enum class TrackerKind {
     SHRINES,
     COMPENDIUM,
     KOROKS,
+    BOSSES,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -49,6 +50,7 @@ object Games {
             Tracker(TrackerKind.SHRINES, "Shrines", "Shrines by region, Shrine Quests and a Spirit Orb planner"),
             Tracker(TrackerKind.COMPENDIUM, "Hyrule Compendium", "Every entry photographed, by category, with where to find what's missing"),
             Tracker(TrackerKind.KOROKS, "Korok Seeds", "All 900 seeds by region and puzzle type, and Hestu's upgrades"),
+            Tracker(TrackerKind.BOSSES, "Overworld Bosses", "Every Hinox, Talus, Molduga and Lynel by region, and Kilton's Medals of Honor"),
         ),
     )
 

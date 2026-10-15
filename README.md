@@ -98,6 +98,23 @@ iOS port is mostly a matter of adding the iOS targets.
   pouch takes 441 seeds; the rest only count toward Hestu's Gift for all 900.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Overworld Bosses**
+- Every fixed Hinox, Stalnox, Talus, Molduga and Lynel spawn: 40 Hinoxes, 40 Taluses, 4 Moldugas and 22 Lynels, plus
+  The Champions' Ballad's Igneo Talus Titan and Molduking (marked DLC) and Master Mode's extra Lynel (on the Master
+  Mode file only).
+- A swipeable tab per kind with its count, each grouped by tower region with counts per region.
+- Not found, Found or Defeated per spawn (defeated once is enough: bosses return after a Blood Moon). Tick a row to
+  mark it defeated, use its pin to mark it found.
+- Each tab's headline tracks Kilton's **Medals of Honor**, e.g. "Hinox 12 / 40 · Medal of Honor: Hinox". DLC bosses
+  are listed but not counted; Lynels have no medal.
+- **Hide unfound bosses** (top-bar menu): the same spoiler-safe mode as shrines and Koroks, with its own setting.
+- Search by place, variant, region or id; filter to bosses not yet defeated, or by variant (Blue Hinox, Frost
+  Talus…).
+- Tap › for a spawn's page: its Compendium entry and number, drops, region, nearest place, coordinates, notes (the
+  Coliseum Lynel, the Hyrule Castle bosses, Eventide Island…) and **Open in objmap**. Lynels whose colour rises with
+  the world level are tagged *Scales* and listed at their weakest colour.
+- Shares the active save file with the other BotW trackers.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -125,6 +142,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
+  src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
@@ -132,6 +150,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
+  src/commonMain/composeResources/files/botw/bosses.json     ← overworld boss spawns
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
@@ -239,3 +258,9 @@ datamined `korok_type`, which decides its puzzle type. The puzzle-type names and
 follow Zelda Wiki. See `docs/korok-puzzle-types.md` for the fields, the coordinate system and how
 the types map. Hestu's per-upgrade seed costs are from Zelda Wiki's Korok Seed page
 (208 + 73 + 160 = 441).
+
+BotW overworld boss data (`files/botw/bosses.json`) comes from objmap.zeldamods.org and its radar backend: every
+boss actor's id, position, tower region and parameters, with names and drops from `compendium.json`. Counts and the
+Medals of Honor are cross-checked against Zelda Wiki; where they differ, the game data wins.
+`scripts/build-botw-bosses.py` rebuilds it, and `docs/overworld-bosses.md` covers the fields, the counts and what's
+uncertain (Lynel colours).
