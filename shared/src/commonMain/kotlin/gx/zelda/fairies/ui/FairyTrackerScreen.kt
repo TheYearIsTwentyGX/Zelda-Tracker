@@ -223,7 +223,7 @@ private fun SectionCard(content: @Composable () -> Unit) {
     }
 }
 
-private fun rupees(amount: Int) = "${grouped(amount)} rupees"
+internal fun rupees(amount: Int) = "${grouped(amount)} rupees"
 
 /** 10000 → "10,000". */
 private fun grouped(amount: Int): String = amount.toString().reversed().chunked(3).joinToString(",").reversed()
