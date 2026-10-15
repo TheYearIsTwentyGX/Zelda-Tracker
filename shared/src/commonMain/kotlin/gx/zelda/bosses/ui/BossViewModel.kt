@@ -13,6 +13,8 @@ import gx.zelda.bosses.model.BossSpawn
 import gx.zelda.bosses.model.tallies
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
+import gx.zelda.core.isSpoilerHidden
+import gx.zelda.core.matchesQuery
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -77,7 +79,7 @@ data class BossUiState(
      * the user hasn't tapped to reveal it.
      */
     fun isHidden(spawn: BossSpawn): Boolean =
-        prefs.hideUndiscovered && !progress.isFound(spawn.id) && spawn.id !in filters.revealed
+        isSpoilerHidden(prefs.hideUndiscovered, progress.isFound(spawn.id), spawn.id in filters.revealed)
 
     /** The tabs, one per kind in the dataset's order, each worked out once per state. */
     val pages: List<BossPage> = catalog.tallies(saveFile, progress).map { tally -> page(tally) }
@@ -85,7 +87,6 @@ data class BossUiState(
     private fun page(tally: BossKindTally): BossPage {
         val kind = tally.kind
         val all = spawns.filter { it.kind == kind.id }
-        val q = filters.query.trim()
         val variants = filters.variants.intersect(kind.variants.toSet())
         // A hidden spawn only matches on its region and never on a variant filter, so neither
         // can leak what the row hides.
@@ -93,7 +94,9 @@ data class BossUiState(
             val hidden = isHidden(spawn)
             (!filters.incompleteOnly || !progress.isDefeated(spawn.id)) &&
                 (variants.isEmpty() || (!hidden && spawn.variant in variants)) &&
-                (q.isEmpty() || searchText(spawn, hidden).any { it.contains(q, ignoreCase = true) })
+                matchesQuery(filters.query, hidden, spawn.region) {
+                    listOf(data.variantName(spawn.variant), spawn.nearestPlace, spawn.region, spawn.id)
+                }
         }
         return BossPage(
             tally = tally,
@@ -109,13 +112,6 @@ data class BossUiState(
             uncounted = all.filterNot { it.countsForMedal },
         )
     }
-
-    private fun searchText(spawn: BossSpawn, hidden: Boolean): List<String> =
-        if (hidden) {
-            listOf(spawn.region)
-        } else {
-            listOf(data.variantName(spawn.variant), spawn.nearestPlace, spawn.region, spawn.id)
-        }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)

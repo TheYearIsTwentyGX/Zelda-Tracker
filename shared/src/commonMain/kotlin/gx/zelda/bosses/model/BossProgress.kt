@@ -1,5 +1,6 @@
 package gx.zelda.bosses.model
 
+import gx.zelda.core.DiscoverySets
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -12,19 +13,15 @@ data class BossProgress(
     /** Spawns defeated at least once. */
     val defeated: Set<String> = emptySet(),
     /** Spawns found, defeated or not; a defeated one counts as found whether or not it's here. */
-    val found: Set<String> = emptySet(),
-) {
-    fun state(spawnId: String): DiscoveryState = DiscoveryState.of(spawnId, defeated, found)
-
-    fun isFound(spawnId: String): Boolean = spawnId in found || spawnId in defeated
+    override val found: Set<String> = emptySet(),
+) : DiscoverySets {
+    /** [defeated] under [DiscoverySets]' name; not stored, so saves keep the `defeated` key. */
+    override val completed: Set<String> get() = defeated
 
     fun isDefeated(spawnId: String): Boolean = spawnId in defeated
 
-    fun withState(spawnId: String, state: DiscoveryState): BossProgress = when (state) {
-        DiscoveryState.UNDISCOVERED -> copy(defeated = defeated - spawnId, found = found - spawnId)
-        DiscoveryState.FOUND -> copy(defeated = defeated - spawnId, found = found + spawnId)
-        DiscoveryState.COMPLETED -> copy(defeated = defeated + spawnId, found = found + spawnId)
-    }
+    fun withState(spawnId: String, state: DiscoveryState): BossProgress =
+        setsWith(spawnId, state).let { (defeated, found) -> copy(defeated = defeated, found = found) }
 }
 
 /** Viewing preferences, shared by every save file. */

@@ -1,5 +1,6 @@
 package gx.zelda.sidequests.model
 
+import gx.zelda.core.DiscoverySets
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -21,19 +22,17 @@ val QuestState.questLabel: String
 /** One save file's quests. Completing a quest implies having started it. */
 @Serializable
 data class SideQuestProgress(
-    val completed: Set<String> = emptySet(),
+    override val completed: Set<String> = emptySet(),
     /** Quests started, completed or not; read [state] rather than this. */
     val started: Set<String> = emptySet(),
-) {
-    fun state(questId: String): QuestState = DiscoveryState.of(questId, completed, started)
+) : DiscoverySets {
+    /** [started] under [DiscoverySets]' name; not stored, so saves keep the `started` key. */
+    override val found: Set<String> get() = started
 
-    fun isStarted(questId: String): Boolean = questId in started || questId in completed
+    fun isStarted(questId: String): Boolean = isFound(questId)
 
-    fun withState(questId: String, state: QuestState): SideQuestProgress = when (state) {
-        DiscoveryState.UNDISCOVERED -> copy(completed = completed - questId, started = started - questId)
-        DiscoveryState.FOUND -> copy(completed = completed - questId, started = started + questId)
-        DiscoveryState.COMPLETED -> copy(completed = completed + questId, started = started + questId)
-    }
+    fun withState(questId: String, state: QuestState): SideQuestProgress =
+        setsWith(questId, state).let { (completed, started) -> copy(completed = completed, started = started) }
 }
 
 /** Viewing preferences, shared by every save file. */
