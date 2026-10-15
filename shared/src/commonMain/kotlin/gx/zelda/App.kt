@@ -11,6 +11,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -38,6 +39,8 @@ import gx.zelda.koroks.ui.KorokViewModel
 import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.ui.MainQuestScreen
 import gx.zelda.mainquest.ui.MainQuestViewModel
+import gx.zelda.overview.OverviewScreen
+import gx.zelda.overview.OverviewViewModel
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.scan.ShrineScanScreen
 import gx.zelda.shrines.scan.ShrineScanViewModel
@@ -56,6 +59,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Koroks(val gameId: String)
 @Serializable private data class KorokDetail(val gameId: String, val korokId: String)
 @Serializable private data class ShrineScan(val gameId: String)
+@Serializable private data class Overview(val gameId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -74,8 +78,20 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
                         TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
                         TrackerKind.KOROKS -> nav.navigate(Koroks(game.id))
+                        TrackerKind.OVERVIEW -> nav.navigate(Overview(game.id))
                     }
                 })
+            }
+            composable<Overview> { entry ->
+                val game = Games.byId(entry.toRoute<Overview>().gameId)
+                val vm = viewModel(key = "overview_${game.id}") { OverviewViewModel(dataStore, game) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                OverviewScreen(
+                    state,
+                    vm,
+                    onOpenTracker = { nav.openTrackerFromOverview(game, it) },
+                    onBack = { nav.popBackStack() },
+                )
             }
             composable<Fairies> { entry ->
                 val game = Games.byId(entry.toRoute<Fairies>().gameId)
@@ -205,3 +221,19 @@ private fun korokViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): KorokViewModel = viewModel(owner, key = game.id) { KorokViewModel(KorokStorage(dataStore, game)) }
+
+/**
+ * Opens [kind]'s tracker for [game] from the Progress Overview. The same mapping as the home
+ * screen's; kept separate only so this change didn't edit lines other branches were changing.
+ */
+private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind) {
+    when (kind) {
+        TrackerKind.ARMOR -> navigate(ArmorTracker(game.id))
+        TrackerKind.FAIRIES -> navigate(Fairies(game.id))
+        TrackerKind.MAIN_QUEST -> navigate(MainQuest(game.id))
+        TrackerKind.SHRINES -> navigate(Shrines(game.id))
+        TrackerKind.COMPENDIUM -> navigate(Compendium(game.id))
+        TrackerKind.KOROKS -> navigate(Koroks(game.id))
+        TrackerKind.OVERVIEW -> Unit
+    }
+}

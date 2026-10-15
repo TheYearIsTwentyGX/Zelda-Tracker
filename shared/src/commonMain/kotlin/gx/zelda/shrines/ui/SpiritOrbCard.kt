@@ -108,7 +108,7 @@ private fun orbCount(n: Int) = if (n == 1) "1 orb" else "$n orbs"
 private fun beastCount(n: Int) = if (n == 1) "1 Divine Beast" else "$n Divine Beasts"
 
 /** Stamina wheels after [vessels]: 1 + 7 vessels → "2⅖". */
-private fun wheels(up: OrbUpgrades, vessels: Int): String {
+internal fun wheels(up: OrbUpgrades, vessels: Int): String {
     val whole = up.startingStaminaWheels + vessels / OrbUpgrades.VESSELS_PER_WHEEL
     return "$whole" + listOf("", "⅕", "⅖", "⅗", "⅘")[vessels % OrbUpgrades.VESSELS_PER_WHEEL]
 }

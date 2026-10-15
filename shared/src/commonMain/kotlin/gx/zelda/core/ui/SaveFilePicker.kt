@@ -26,7 +26,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.SaveFile
 
-/** One choice in the picker, with a short line of progress under its name. */
+/** One choice in the picker, with a short line of progress under its name (none when [detail] is empty). */
 data class SaveFileOption(val file: SaveFile, val detail: String)
 
 /** The active save file's name with a dropdown arrow; tapping it lists every file to switch to. */
@@ -50,11 +50,13 @@ fun SaveFilePicker(current: SaveFile, options: List<SaveFileOption>, onSelect: (
                     text = {
                         Column(Modifier.padding(vertical = 4.dp)) {
                             Text(option.file.label)
-                            Text(
-                                option.detail,
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
+                            if (option.detail.isNotEmpty()) {
+                                Text(
+                                    option.detail,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
                         }
                     },
                     onClick = { onSelect(option.file.id); open = false },
