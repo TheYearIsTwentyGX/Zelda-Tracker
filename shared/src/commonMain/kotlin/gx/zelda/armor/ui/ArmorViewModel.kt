@@ -55,6 +55,10 @@ class ArmorViewModel(
     private val loadCatalog: suspend () -> ArmorCatalog = { ArmorRepository.load(storage.game) },
 ) : ViewModel() {
     private val catalog = MutableStateFlow<ArmorCatalog?>(null)
+    private val _loadFailed = MutableStateFlow(false)
+
+    /** True when the bundled dataset is missing or unreadable; [state] then stays null. */
+    val loadFailed: StateFlow<Boolean> = _loadFailed
     private val totalsMode = MutableStateFlow(TotalsMode.COLLECTED)
     private val ownershipFilter = MutableStateFlow(OwnershipFilter.ALL)
     private val query = MutableStateFlow("")
@@ -92,7 +96,9 @@ class ArmorViewModel(
     init {
         viewModelScope.launch {
             storage.migrateLegacy()
-            catalog.value = loadCatalog()
+            runCatching { loadCatalog() }
+                .onSuccess { catalog.value = it }
+                .onFailure { _loadFailed.value = true }
         }
     }
 

@@ -1,14 +1,11 @@
 package gx.zelda.armor.ui
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Build
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,9 +19,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 
@@ -38,6 +35,7 @@ private enum class ArmorTab(val label: String, val title: String) {
 @Composable
 fun ArmorTrackerScreen(
     state: ArmorUiState?,
+    loadFailed: Boolean,
     viewModel: ArmorViewModel,
     onOpenPiece: (String) -> Unit,
     onBack: () -> Unit,
@@ -86,9 +84,7 @@ fun ArmorTrackerScreen(
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
+            LoadingOrError(loadFailed, "The armor list couldn't be loaded.", padding)
             return@Scaffold
         }
         when (tab) {
