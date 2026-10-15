@@ -64,3 +64,8 @@ compose.resources {
 dependencies {
     androidRuntimeClasspath(libs.compose.uiTooling)
 }
+
+// The screenshot-scan tests decode JPEGs through ImageIO; keep AWT headless so they run on CI.
+tasks.withType<Test>().configureEach {
+    systemProperty("java.awt.headless", "true")
+}

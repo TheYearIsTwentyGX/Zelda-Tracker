@@ -19,7 +19,7 @@ class TotkStorageTest {
     @Test
     fun totkHasTwoSaveFiles() {
         assertEquals(listOf("file_1", "file_2"), Games.TOTK.saveFiles.map { it.id })
-        assertEquals(listOf(TrackerKind.ARMOR, TrackerKind.FAIRIES), Games.TOTK.trackers.map { it.kind })
+        assertEquals(listOf(TrackerKind.ARMOR, TrackerKind.FAIRIES, TrackerKind.SHRINES), Games.TOTK.trackers.map { it.kind })
     }
 
     @Test

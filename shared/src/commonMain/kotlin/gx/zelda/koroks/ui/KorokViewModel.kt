@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
+import gx.zelda.core.isSpoilerHidden
+import gx.zelda.core.matchesQuery
 import gx.zelda.koroks.data.KorokRepository
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.koroks.model.HestuPlan
@@ -62,20 +64,19 @@ data class KorokUiState(
      * and the user hasn't tapped to reveal it.
      */
     fun isHidden(korok: Korok): Boolean =
-        prefs.hideUndiscovered && !progress.isFound(korok.id) && korok.id !in filters.revealed
+        isSpoilerHidden(prefs.hideUndiscovered, progress.isFound(korok.id), korok.id in filters.revealed)
 
     /**
      * Every Korok narrowed by search and filters, worked out once per state. A hidden Korok only
      * matches on its region and never on a puzzle-type filter, so neither can leak what the row hides.
      */
-    val matching: List<Korok> = run {
-        val q = filters.query.trim()
-        catalog.koroks.filter { korok ->
-            val hidden = isHidden(korok)
-            (!filters.incompleteOnly || korok.id !in progress.completed) &&
-                (filters.types.isEmpty() || (!hidden && korok.puzzleType in filters.types)) &&
-                (q.isEmpty() || searchText(korok, hidden).any { it.contains(q, ignoreCase = true) })
-        }
+    val matching: List<Korok> = catalog.koroks.filter { korok ->
+        val hidden = isHidden(korok)
+        (!filters.incompleteOnly || korok.id !in progress.completed) &&
+            (filters.types.isEmpty() || (!hidden && korok.puzzleType in filters.types)) &&
+            matchesQuery(filters.query, hidden, korok.region) {
+                listOf(data.typeOf(korok).name, korok.nearestPlace, korok.region, korok.internalType, korok.id)
+            }
     }
 
     /** [matching] in region order. */
@@ -88,13 +89,6 @@ data class KorokUiState(
             total = koroks.size,
         )
     }
-
-    private fun searchText(korok: Korok, hidden: Boolean): List<String> =
-        if (hidden) {
-            listOf(korok.region)
-        } else {
-            listOf(data.typeOf(korok).name, korok.nearestPlace, korok.region, korok.internalType, korok.id)
-        }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
