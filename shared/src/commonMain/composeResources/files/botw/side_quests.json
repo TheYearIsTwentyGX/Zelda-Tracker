@@ -1,0 +1,1521 @@
+{
+  "regions": [
+    "Great Plateau",
+    "Dueling Peaks",
+    "Hateno",
+    "Lanayru",
+    "Faron",
+    "Lake",
+    "Central",
+    "Ridgeland",
+    "Tabantha",
+    "Hebra",
+    "Woodland",
+    "Eldin",
+    "Akkala",
+    "Wasteland",
+    "Gerudo"
+  ],
+  "quests": [
+    {
+      "id": "arrows_of_burning_heat",
+      "name": "Arrows of Burning Heat",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Rola",
+      "giverLocation": "Kakariko Village, The Curious Quiver",
+      "prerequisites": "Talk to Rola with a bow in your inventory",
+      "objective": "Light the torches by Kakariko's Goddess Statue the way Rola hopes you will.",
+      "reward": "Red Rupee (20)"
+    },
+    {
+      "id": "by_fireflys_light",
+      "name": "By Firefly's Light",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Lasli",
+      "giverLocation": "Kakariko Village, her home (Enchanted clothes shop house)",
+      "prerequisites": "After Flown the Coop and Find the Fairy Fountain",
+      "objective": "Bring five Sunset Fireflies and release them in Lasli's home.",
+      "reward": "Purple Rupee (50)",
+      "limited": "Lasli is home only at night (about 9-10 PM on)"
+    },
+    {
+      "id": "cooking_with_koko",
+      "name": "Cooking with Koko",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Koko",
+      "giverLocation": "Kakariko Village, the cooking pot",
+      "prerequisites": "After Koko's Kitchen",
+      "objective": "Get Koko the ingredient she's missing for her mother's hot buttered apples.",
+      "reward": "Hot Buttered Apple",
+      "limited": "Koko is at the cooking pot only from about 11 AM-noon until evening"
+    },
+    {
+      "id": "flown_the_coop",
+      "name": "Flown the Coop",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Cado",
+      "giverLocation": "Kakariko Village, by his Cucco pen",
+      "prerequisites": "After first meeting Impa",
+      "objective": "Return all of Cado's escaped Cuccos to their pen.",
+      "reward": "Purple Rupee (50)",
+      "limited": "Cado is at his pen only in the afternoon (about noon-5 PM); one Cucco needs evening"
+    },
+    {
+      "id": "koko_cuisine",
+      "name": "Koko Cuisine",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Koko",
+      "giverLocation": "Kakariko Village, the cooking pot",
+      "prerequisites": "After Cooking with Koko",
+      "objective": "Bring Koko the meat she needs for her father's favourite pumpkin dish.",
+      "reward": "Tough Meat-Stuffed Pumpkin",
+      "limited": "Koko is at the cooking pot only from about 11 AM-noon until evening"
+    },
+    {
+      "id": "kokos_kitchen",
+      "name": "Koko's Kitchen",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Koko",
+      "giverLocation": "Kakariko Village, the cooking pot",
+      "objective": "Bring Koko the vegetable she forgot for her sister's favourite soup.",
+      "reward": "Hasty Veggie Cream Soup",
+      "limited": "Koko is at the cooking pot only from about 11 AM-noon until evening"
+    },
+    {
+      "id": "kokos_specialty",
+      "name": "Koko's Specialty",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Koko",
+      "giverLocation": "Kakariko Village, the cooking pot",
+      "prerequisites": "After Koko Cuisine",
+      "objective": "Gather the honey Koko needs for her mother's honeyed apple dessert.",
+      "reward": "Energizing Honeyed Apple",
+      "limited": "Koko is at the cooking pot only from about 11 AM-noon until evening"
+    },
+    {
+      "id": "misko_the_great_bandit",
+      "name": "Misko, the Great Bandit",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Domidak",
+      "giverLocation": "Dueling Peaks Stable (with his brother Prissen)",
+      "prerequisites": "Pay Domidak 100 rupees for the riddle",
+      "objective": "Solve the riddle to find the Great Bandit Misko's hidden cave.",
+      "reward": "Opal, Amber, 2 Sapphires, Luminous Stone, Flameblade"
+    },
+    {
+      "id": "playtime_with_cottla",
+      "name": "Playtime with Cottla",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Cottla",
+      "giverLocation": "Kakariko Village, running around town",
+      "objective": "Play hide-and-seek or tag with Cottla.",
+      "reward": "Rock Salt",
+      "limited": "Cottla only plays during the day (not when raining)"
+    },
+    {
+      "id": "the_priceless_maracas",
+      "name": "The Priceless Maracas",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Hestu",
+      "giverLocation": "Road between Kakariko Bridge and Kakariko Village",
+      "objective": "Get Hestu's maracas back from the monster camp up the path.",
+      "reward": "Hestu expands your inventory for Korok Seeds"
+    },
+    {
+      "id": "wild_horses",
+      "name": "Wild Horses",
+      "kind": "side",
+      "region": "Dueling Peaks",
+      "giver": "Rensa",
+      "giverLocation": "Dueling Peaks Stable, out front",
+      "objective": "Ride a wild horse back to the stable within two minutes.",
+      "reward": "Purple Rupee (50)"
+    },
+    {
+      "id": "a_gift_for_my_beloved",
+      "name": "A Gift for My Beloved",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Manny",
+      "giverLocation": "Hateno Village, outside the Great Ton Pu Inn (by day)",
+      "objective": "Find out what Prima at the inn likes, then bring Manny 10 Restless Crickets.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "from_the_ground_up",
+      "name": "From the Ground Up",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Hudson",
+      "giverLocation": "Hateno Village, at the Bolson Construction house",
+      "prerequisites": "After Hylian Homeowner (buy the house)",
+      "objective": "Help Hudson build Tarrey Town in Akkala with wood and new residents.",
+      "reward": "Tarrey Town built; 3 Diamonds"
+    },
+    {
+      "id": "hylian_homeowner",
+      "name": "Hylian Homeowner",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Bolson",
+      "giverLocation": "Hateno Village, behind the abandoned house",
+      "objective": "Buy the empty house from Bolson, then pay to furnish and fix it up.",
+      "reward": "Link's House (costs 3,000 rupees + 30 wood; add-ons 1,400 rupees)"
+    },
+    {
+      "id": "robbies_research",
+      "name": "Robbie's Research",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Purah",
+      "giverLocation": "Hateno Ancient Tech Lab",
+      "prerequisites": "After meeting Purah in Locked Mementos",
+      "objective": "Visit Robbie at the Akkala Ancient Tech Lab and get its furnace running again.",
+      "reward": "3 Ancient Arrows; Akkala lab reopens"
+    },
+    {
+      "id": "slated_for_upgrades",
+      "name": "Slated for Upgrades",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Purah",
+      "giverLocation": "Hateno Ancient Tech Lab",
+      "prerequisites": "After meeting Purah in Locked Mementos",
+      "objective": "Bring Purah ancient materials so she can power up your runes.",
+      "reward": "Remote Bomb+, Stasis+ and Sheikah Sensor+"
+    },
+    {
+      "id": "sunshroom_sensing",
+      "name": "Sunshroom Sensing",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Symin",
+      "giverLocation": "Hateno Ancient Tech Lab",
+      "prerequisites": "Requires Sheikah Sensor+ (Slated for Upgrades)",
+      "objective": "Photograph a Sunshroom, then use the Sensor+ to find three for Symin.",
+      "reward": "3 Hearty Truffles"
+    },
+    {
+      "id": "the_heros_cache",
+      "name": "The Hero's Cache",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Kass",
+      "giverLocation": "Kitano Bay, on a rock pillar south of Hateno",
+      "objective": "Work out where Kass's 'cache at 17 of 24' song points.",
+      "reward": "Gold Rupee (300)"
+    },
+    {
+      "id": "the_sheep_rustlers",
+      "name": "The Sheep Rustlers",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Koyin",
+      "giverLocation": "Hateno Village, Hateno Pasture",
+      "objective": "Clear out the monster camp at Hateno Beach that's stealing Koyin's sheep.",
+      "reward": "10 Fresh Milk"
+    },
+    {
+      "id": "the_statues_bargain",
+      "name": "The Statue's Bargain",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Horned Statue",
+      "giverLocation": "Path from Hateno Village toward Firly Pond",
+      "objective": "Pray at the Horned Statue and make it give back what it takes from you.",
+      "reward": "Swap Heart Containers and Stamina Vessels at the statue"
+    },
+    {
+      "id": "the_weapon_connoisseur",
+      "name": "The Weapon Connoisseur",
+      "kind": "side",
+      "region": "Hateno",
+      "giver": "Nebb",
+      "giverLocation": "Hateno Village, near the armor and general stores",
+      "objective": "Show Nebb eight specific weapons, one at a time.",
+      "reward": "640 rupees in total and a Diamond"
+    },
+    {
+      "id": "a_wife_washed_away",
+      "name": "A Wife Washed Away",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Fronk",
+      "giverLocation": "Zora's Domain",
+      "prerequisites": "After appeasing Divine Beast Vah Ruta",
+      "objective": "Search for Fronk's wife Mei, who went fishing and never came home.",
+      "reward": "5 Staminoka Bass"
+    },
+    {
+      "id": "diving_is_beauty",
+      "name": "Diving is Beauty!",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Gruve",
+      "giverLocation": "Zora's Domain, atop a waterfall outside the Throne Room",
+      "prerequisites": "Own the Zora Armor",
+      "objective": "Show Gruve a beautiful headfirst dive, then climb the waterfall.",
+      "reward": "5 Fleet-Lotus Seeds"
+    },
+    {
+      "id": "frog_catching",
+      "name": "Frog Catching",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Tumbo",
+      "giverLocation": "Zora's Domain",
+      "prerequisites": "After appeasing Divine Beast Vah Ruta",
+      "objective": "Donate five Hot-Footed Frogs to young Tumbo.",
+      "reward": "Armoranth"
+    },
+    {
+      "id": "luminous_stone_gathering",
+      "name": "Luminous Stone Gathering",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Ledo",
+      "giverLocation": "Zora's Domain",
+      "prerequisites": "After meeting King Dorephan",
+      "objective": "Bring Ledo 10 Luminous Stones to help repair Zora's Domain.",
+      "reward": "2 Diamonds; afterwards 1 Diamond per 10 stones"
+    },
+    {
+      "id": "lynel_safari",
+      "name": "Lynel Safari",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Laflat",
+      "giverLocation": "Zora's Domain",
+      "prerequisites": "Talk to Sidon at Mipha's statue first; Camera Rune",
+      "objective": "Show Laflat a picture of a red-maned Lynel.",
+      "reward": "Zora Greaves",
+      "rewardArmor": [
+        "zora_greaves"
+      ]
+    },
+    {
+      "id": "riverbed_reward",
+      "name": "Riverbed Reward",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Izra",
+      "giverLocation": "Hylia River bank beside Wetland Stable",
+      "objective": "Help Izra get the treasure chest up off the riverbed.",
+      "reward": "Knight's Broadsword (in the chest)"
+    },
+    {
+      "id": "special_delivery",
+      "name": "Special Delivery",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Finley",
+      "giverLocation": "Bank of Wishes, south of Zora's Domain",
+      "prerequisites": "After freeing Vah Ruta",
+      "objective": "Follow Finley's love letter down the river and see who picks it up.",
+      "reward": "Gold Rupee (300)"
+    },
+    {
+      "id": "the_giant_of_ralis_pond",
+      "name": "The Giant of Ralis Pond",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Torfeau",
+      "giverLocation": "Zora's Domain, Sleeping Chamber",
+      "prerequisites": "After freeing Vah Ruta",
+      "objective": "Defeat the Hinox at Ralis Pond.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "zora_stone_monuments",
+      "name": "Zora Stone Monuments",
+      "kind": "side",
+      "region": "Lanayru",
+      "giver": "Jiahto",
+      "giverLocation": "Zora's Domain, Sleeping Chamber (below the throne room)",
+      "prerequisites": "After freeing Vah Ruta",
+      "objective": "Find the 10 stone monuments around Zora's Domain and report to Jiahto.",
+      "reward": "Diamond"
+    },
+    {
+      "id": "a_gift_of_nightshade",
+      "name": "A Gift of Nightshade",
+      "kind": "side",
+      "region": "Faron",
+      "giver": "Wabbin",
+      "giverLocation": "Lover's Pond (near Yambi Lake), with Perda across the pond",
+      "objective": "Bring Wabbin a Blue Nightshade, then deliver it to Perda for him.",
+      "reward": "Red Rupee (20) + Silver Rupee (100)"
+    },
+    {
+      "id": "sunken_treasure",
+      "name": "Sunken Treasure",
+      "kind": "side",
+      "region": "Faron",
+      "giver": "Rozel",
+      "giverLocation": "Lurelin Village, near his raft",
+      "objective": "Solve Rozel's riddle about a treasure in the 'center of the golden triangle'.",
+      "reward": "Sapphire, 2 Topaz and a Thunderblade (chests)"
+    },
+    {
+      "id": "take_back_the_sea",
+      "name": "Take Back the Sea",
+      "kind": "side",
+      "region": "Faron",
+      "giver": "Sebasto",
+      "giverLocation": "Lurelin Village",
+      "objective": "Clear the monster camp on Aris Beach.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "thunder_magnet",
+      "name": "Thunder Magnet",
+      "kind": "side",
+      "region": "Faron",
+      "giver": "Cima",
+      "giverLocation": "Lakeside Stable",
+      "objective": "Find out why lightning keeps striking Lakeside Stable.",
+      "reward": "Rubber Helm",
+      "rewardArmor": [
+        "rubber_helm"
+      ]
+    },
+    {
+      "id": "whats_for_dinner",
+      "name": "What's for Dinner?",
+      "kind": "side",
+      "region": "Faron",
+      "giver": "Kiana",
+      "giverLocation": "Lurelin Village, at her house",
+      "objective": "Bring Kiana Goat Butter and a Hearty Blueshell Snail for her paella.",
+      "reward": "Purple Rupee (50) and Seafood Paella"
+    },
+    {
+      "id": "hunt_for_the_giant_horse",
+      "name": "Hunt for the Giant Horse",
+      "kind": "side",
+      "region": "Lake",
+      "giver": "Straia",
+      "giverLocation": "Mounted Archery Camp, Faron Grasslands",
+      "objective": "Tame the giant horse of Taobab Grassland and ride it back to Straia.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "the_horseback_hoodlums",
+      "name": "The Horseback Hoodlums",
+      "kind": "side",
+      "region": "Lake",
+      "giver": "Perosa",
+      "giverLocation": "Highland Stable",
+      "objective": "Defeat the five Bokoblins on horseback roaming Fural Plain.",
+      "reward": "Endura Carrot"
+    },
+    {
+      "id": "a_rare_find",
+      "name": "A Rare Find",
+      "kind": "side",
+      "region": "Central",
+      "giver": "Trott",
+      "giverLocation": "Outskirt Stable",
+      "objective": "Bring the weary stable hand Trott some Raw Gourmet Meat.",
+      "reward": "Silver Rupee (100); he then buys more at 100 each (3 per day)"
+    },
+    {
+      "id": "a_royal_recipe",
+      "name": "A Royal Recipe",
+      "kind": "side",
+      "region": "Central",
+      "giver": "Gotter",
+      "giverLocation": "Riverside Stable",
+      "objective": "Serve Gotter a dish from the old royal cookbooks.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "my_hero",
+      "name": "My Hero",
+      "kind": "side",
+      "region": "Central",
+      "giver": "Aliza",
+      "giverLocation": "Outskirt Stable, under a tree across the road",
+      "objective": "Aliza is waiting for the hero. Return carrying the Master Sword to prove it's you.",
+      "reward": "Star Fragment"
+    },
+    {
+      "id": "the_royal_guards_gear",
+      "name": "The Royal Guard's Gear",
+      "kind": "side",
+      "region": "Central",
+      "giver": "Parcy",
+      "giverLocation": "Riverside Stable",
+      "objective": "Show Parcy any piece of Royal Guard's gear from Hyrule Castle.",
+      "reward": "Gold Rupee (300)"
+    },
+    {
+      "id": "the_royal_white_stallion",
+      "name": "The Royal White Stallion",
+      "kind": "side",
+      "region": "Central",
+      "giver": "Toffa",
+      "giverLocation": "Outskirt Stable",
+      "objective": "Find and tame the royal white horse said to graze on Safula Hill.",
+      "reward": "Royal Bridle and Royal Saddle"
+    },
+    {
+      "id": "a_gift_for_the_great_fairy",
+      "name": "A Gift for the Great Fairy",
+      "kind": "side",
+      "region": "Ridgeland",
+      "giver": "Toren",
+      "giverLocation": "Tabantha Bridge Stable",
+      "objective": "Take Toren's 500-rupee offering to a Great Fairy found by following Tabantha Tower's afternoon shadow.",
+      "reward": "Kaysa's Great Fairy Fountain opened (Toren pays the 500-rupee offering)"
+    },
+    {
+      "id": "curry_for_what_ails_you",
+      "name": "Curry for What Ails You",
+      "kind": "side",
+      "region": "Tabantha",
+      "giver": "Lester",
+      "giverLocation": "Rito Stable",
+      "objective": "Bring Lester the Goron Spice he needs for curry rice.",
+      "reward": "Purple Rupee (50); he then trades Hylian Rice for Goron Spice"
+    },
+    {
+      "id": "face_the_frost_talus",
+      "name": "Face the Frost Talus",
+      "kind": "side",
+      "region": "Tabantha",
+      "giver": "Gesane",
+      "giverLocation": "Rito Village, guarding the entrance",
+      "prerequisites": "After appeasing Divine Beast Vah Medoh",
+      "objective": "Defeat the Frost Talus Gesane saw at Coldsnap Hollow.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "find_kheel",
+      "name": "Find Kheel",
+      "kind": "side",
+      "region": "Tabantha",
+      "giver": "Amali",
+      "giverLocation": "Rito Village, near Akh Va'quot Shrine",
+      "prerequisites": "After appeasing Divine Beast Vah Medoh",
+      "objective": "Find Amali's missing daughter Kheel and tell Amali she's safe.",
+      "reward": "Purple Rupee (50)"
+    },
+    {
+      "id": "the_apple_of_my_eye",
+      "name": "The Apple of My Eye",
+      "kind": "side",
+      "region": "Tabantha",
+      "giver": "Juney",
+      "giverLocation": "Rito Village, near the top",
+      "objective": "Bring honeymooning Juney a Baked Apple.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "the_spark_of_romance",
+      "name": "The Spark of Romance",
+      "kind": "side",
+      "region": "Tabantha",
+      "giver": "Jogo",
+      "giverLocation": "Rito Village, at the inn",
+      "objective": "Bring Jogo some flint so he can bake apples for his wife.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "stalhorse_pictured",
+      "name": "Stalhorse: Pictured!",
+      "kind": "side",
+      "region": "Hebra",
+      "giver": "Juannelle",
+      "giverLocation": "Snowfield Stable",
+      "objective": "Bring Juannelle a picture of a Stalhorse.",
+      "reward": "Silver Rupee (100)",
+      "limited": "Stalhorses only appear at night"
+    },
+    {
+      "id": "a_freezing_rod",
+      "name": "A Freezing Rod",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Kula",
+      "giverLocation": "Korok Forest",
+      "objective": "Show Kula a rod with the power of ice, the kind Ice Wizzrobes carry.",
+      "reward": "Silver Rupee (100); Gold Rupee (300) if you show a Blizzard Rod"
+    },
+    {
+      "id": "a_gift_from_the_monks",
+      "name": "A Gift from the Monks",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Monk of your 120th shrine",
+      "giverLocation": "Any shrine (the last of the 120 you finish); claim at the Forgotten Temple",
+      "prerequisites": "Complete all 120 base-game shrines (DLC shrines do not count)",
+      "objective": "Head to the Forgotten Temple's Goddess Statue to collect the monks' gift.",
+      "reward": "Cap, Tunic and Trousers of the Wild",
+      "rewardArmor": [
+        "cap_of_the_wild",
+        "tunic_of_the_wild",
+        "trousers_of_the_wild"
+      ]
+    },
+    {
+      "id": "balloon_flight",
+      "name": "Balloon Flight",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Shamae",
+      "giverLocation": "Woodland Stable, by the barrels on the patio",
+      "objective": "Make the barrel next to Shamae float with balloons.",
+      "reward": "Star Fragment"
+    },
+    {
+      "id": "legendary_rabbit_trial",
+      "name": "Legendary Rabbit Trial",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Peeks",
+      "giverLocation": "Korok Forest",
+      "prerequisites": "Camera Rune",
+      "objective": "Show Peeks a picture of the glowing Blupee.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "leviathan_bones",
+      "name": "Leviathan Bones",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Akrah",
+      "giverLocation": "Serenne Stable (with Garshon and Onya)",
+      "prerequisites": "Camera Rune",
+      "objective": "Photograph the skulls of the three great leviathan skeletons for the researchers.",
+      "reward": "Gold Rupee (300)"
+    },
+    {
+      "id": "riddles_of_hyrule",
+      "name": "Riddles of Hyrule",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Walton",
+      "giverLocation": "Korok Forest, on top of the Great Deku Tree",
+      "objective": "Answer Walton's five riddles by bringing him the item each one describes.",
+      "reward": "Diamond"
+    },
+    {
+      "id": "the_korok_trials",
+      "name": "The Korok Trials",
+      "kind": "side",
+      "region": "Woodland",
+      "giver": "Chio",
+      "giverLocation": "Korok Forest",
+      "objective": "Complete the three Korok Trial shrine quests Chio describes.",
+      "reward": "3 Big Hearty Truffles"
+    },
+    {
+      "id": "death_mountains_secret",
+      "name": "Death Mountain's Secret",
+      "kind": "side",
+      "region": "Eldin",
+      "giver": "Dugby",
+      "giverLocation": "Goron Hot Springs, soaking in a spring",
+      "objective": "Decode Dugby's gurgled hint and find the treasure he buried near the Bridge of Eldin.",
+      "reward": "Drillshaft"
+    },
+    {
+      "id": "fireproof_lizard_roundup",
+      "name": "Fireproof Lizard Roundup",
+      "kind": "side",
+      "region": "Eldin",
+      "giver": "Kima",
+      "giverLocation": "Southern Mine",
+      "objective": "Catch 10 Fireproof Lizards for Kima.",
+      "reward": "Flamebreaker Armor; he then buys 3 lizards for 20 rupees",
+      "rewardArmor": [
+        "flamebreaker_armor"
+      ]
+    },
+    {
+      "id": "the_jewel_trade",
+      "name": "The Jewel Trade",
+      "kind": "side",
+      "region": "Eldin",
+      "giver": "Ramella",
+      "giverLocation": "Goron City, walking around town",
+      "prerequisites": "After freeing Vah Rudania",
+      "objective": "Sell Ramella 10 pieces of Amber.",
+      "reward": "500 rupees for the Amber"
+    },
+    {
+      "id": "the_road_to_respect",
+      "name": "The Road to Respect",
+      "kind": "side",
+      "region": "Eldin",
+      "giver": "Fugo",
+      "giverLocation": "Goron City, outside Rohan's house",
+      "objective": "Defeat the Igneo Talus at Darunia Lake for Fugo.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "a_parents_love",
+      "name": "A Parent's Love",
+      "kind": "side",
+      "region": "Akkala",
+      "giver": "Ruli",
+      "giverLocation": "Tarrey Town, the southern house (overheard through its window)",
+      "prerequisites": "After From the Ground Up",
+      "objective": "Find a cake that sick Hunnie will eat and bring it to her mother Ruli.",
+      "reward": "Gold Rupee (300)",
+      "limited": "Starts by eavesdropping on Ruli and Hagie at their window at night"
+    },
+    {
+      "id": "a_shady_customer",
+      "name": "A Shady Customer",
+      "kind": "side",
+      "region": "Akkala",
+      "giver": "Hoz",
+      "giverLocation": "East Akkala Stable",
+      "prerequisites": "Camera Rune (to take the photo)",
+      "objective": "Find the odd merchant running Fang and Bone and show Hoz a picture of him.",
+      "reward": "Silver Rupee (100)",
+      "limited": "Kilton, the man to photograph, only appears at night"
+    },
+    {
+      "id": "hobbies_of_the_rich",
+      "name": "Hobbies of the Rich",
+      "kind": "side",
+      "region": "Akkala",
+      "giver": "Hagie",
+      "giverLocation": "Tarrey Town, on the west cliff overlooking Torin Wetland",
+      "prerequisites": "After From the Ground Up",
+      "objective": "Defeat the two Guardian Stalkers in Torin Wetland for Hagie.",
+      "reward": "Silver Rupee (100) up front + Red Rupee (20)",
+      "limited": "Hagie is on the cliff only during the day"
+    },
+    {
+      "id": "little_sisters_big_request",
+      "name": "Little Sister's Big Request",
+      "kind": "side",
+      "region": "Akkala",
+      "giver": "Jana",
+      "giverLocation": "South Akkala Stable",
+      "prerequisites": "Give Jana an Armoranth to get her to open up",
+      "objective": "Learn what bug Jana's sister Gleema wants for her birthday and bring them.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "an_ice_guy",
+      "name": "An Ice Guy",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Guy",
+      "giverLocation": "Kara Kara Bazaar, by the water",
+      "objective": "Bring Guy, a Rito wilting in the heat, a cooling elixir.",
+      "reward": "Purple Rupee (50)"
+    },
+    {
+      "id": "good_sized_horse",
+      "name": "Good-Sized Horse",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Zyle",
+      "giverLocation": "Gerudo Canyon, by a cooking pot on the road",
+      "objective": "Bring Zyle a normal-sized wild horse to buy.",
+      "reward": "300 rupees (Gold Rupee) for the horse"
+    },
+    {
+      "id": "medicinal_molduga",
+      "name": "Medicinal Molduga",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Malena",
+      "giverLocation": "Gerudo Town (Barracks by day, Hotel Oasis at night)",
+      "prerequisites": "Get into Gerudo Town (needs a disguise)",
+      "objective": "Bring Malena Molduga Guts to cure her sick husband.",
+      "reward": "Gold Rupee (300)"
+    },
+    {
+      "id": "missing_in_action",
+      "name": "Missing in Action",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Sesami",
+      "giverLocation": "Gerudo Canyon Stable",
+      "objective": "Find Sesami's four friends, scattered by monsters along the Koukot Plateau path.",
+      "reward": "Gold Rupee (300)"
+    },
+    {
+      "id": "rushroom_rush",
+      "name": "Rushroom Rush!",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Pirou",
+      "giverLocation": "Gerudo Canyon Stable",
+      "objective": "Gather 55 Rushrooms for Pirou.",
+      "reward": "Diamond"
+    },
+    {
+      "id": "the_eighth_heroine",
+      "name": "The Eighth Heroine",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Bozai",
+      "giverLocation": "Gerudo Desert, jogging outside Gerudo Town",
+      "prerequisites": "Wear the Gerudo Vai outfit when talking to Bozai",
+      "objective": "Show Bozai a picture of the statue of the Eighth Heroine.",
+      "reward": "Sand Boots",
+      "rewardArmor": [
+        "sand_boots"
+      ]
+    },
+    {
+      "id": "the_forgotten_sword",
+      "name": "The Forgotten Sword",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Bozai",
+      "giverLocation": "Under the tent outside Gerudo Town",
+      "prerequisites": "After The Eighth Heroine; wear the Gerudo Vai outfit",
+      "objective": "Show Bozai a picture of the Eighth Heroine's lost sword.",
+      "reward": "Snow Boots",
+      "rewardArmor": [
+        "snow_boots"
+      ]
+    },
+    {
+      "id": "the_mystery_polluter",
+      "name": "The Mystery Polluter",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Dalia",
+      "giverLocation": "Gerudo Town, empty plot near The Noble Canteen",
+      "prerequisites": "After freeing Vah Naboris; wear the Gerudo Vai outfit to enter Gerudo Town",
+      "objective": "Track down whoever is dumping trash in Dalia's water trough.",
+      "reward": "Hydromelon; Dalia's Wildberry garden"
+    },
+    {
+      "id": "the_search_for_barta",
+      "name": "The Search for Barta",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Liana",
+      "giverLocation": "Gerudo Town, Barracks",
+      "prerequisites": "After freeing Vah Naboris; wear the Gerudo Vai outfit to enter Gerudo Town",
+      "objective": "Find the missing soldier Barta out by the Gerudo Great Skeleton.",
+      "reward": "Silver Rupee (100)"
+    },
+    {
+      "id": "the_secret_clubs_secret",
+      "name": "The Secret Club's Secret",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Greta",
+      "giverLocation": "Gerudo Town, side door of Fashion Passion",
+      "prerequisites": "Wear the Gerudo Vai outfit to enter Gerudo Town",
+      "objective": "Learn the password for the members-only club behind Fashion Passion.",
+      "reward": "Access to the Gerudo Secret Club shop"
+    },
+    {
+      "id": "the_thunder_helm",
+      "name": "The Thunder Helm",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Riju",
+      "giverLocation": "Gerudo Town, Royal Palace throne room",
+      "prerequisites": "After freeing Vah Naboris; wear the Gerudo Vai outfit to enter Gerudo Town",
+      "objective": "Win the Gerudo's trust by solving the townsfolk's problems.",
+      "reward": "Thunder Helm",
+      "rewardArmor": [
+        "thunder_helm"
+      ]
+    },
+    {
+      "id": "tools_of_the_trade",
+      "name": "Tools of the Trade",
+      "kind": "side",
+      "region": "Wasteland",
+      "giver": "Isha",
+      "giverLocation": "Gerudo Town market, outside Starlight Memories",
+      "prerequisites": "Wear the Gerudo Vai outfit to enter Gerudo Town",
+      "objective": "Bring Isha 10 pieces of flint so she can make jewelry again.",
+      "reward": "Choice of Ruby Circlet, Sapphire Circlet or Topaz Earrings",
+      "rewardArmor": [
+        "ruby_circlet",
+        "sapphire_circlet",
+        "topaz_earrings"
+      ]
+    },
+    {
+      "id": "the_stolen_heirloom",
+      "name": "The Stolen Heirloom",
+      "kind": "shrine",
+      "region": "Dueling Peaks",
+      "giver": "Paya",
+      "giverLocation": "Kakariko Village, inside Impa's house",
+      "prerequisites": "Finish Flown the Coop, Find the Fairy Fountain and By Firefly's Light",
+      "objective": "Track down who stole the Sheikah Heirloom from Impa's house and use it to reveal a shrine.",
+      "reward": "Access to the Lakna Rokee shrine",
+      "shrineId": "lakna_rokee",
+      "limited": "Key step happens at night (after 10 PM)"
+    },
+    {
+      "id": "watch_out_for_the_flowers",
+      "name": "Watch Out for the Flowers",
+      "kind": "shrine",
+      "region": "Dueling Peaks",
+      "giver": "Magda",
+      "giverLocation": "Floret Sandbar on the Hylia River, by the shrine",
+      "objective": "Reach the shrine through Magda's flower beds without trampling any flowers.",
+      "reward": "Access to the Hila Rao shrine",
+      "shrineId": "hila_rao"
+    },
+    {
+      "id": "secret_of_the_cedars",
+      "name": "Secret of the Cedars",
+      "kind": "shrine",
+      "region": "Hateno",
+      "giver": "Clavia",
+      "giverLocation": "Hateno Village, on the dock behind the dye shop",
+      "objective": "Follow an old note about three cedar trees on Mount Lanayru to find a trial encased in stone.",
+      "reward": "Access to the Tahno O'ah shrine",
+      "shrineId": "tahno_oah"
+    },
+    {
+      "id": "the_crowned_beast",
+      "name": "The Crowned Beast",
+      "kind": "shrine",
+      "region": "Hateno",
+      "giver": "Kass",
+      "giverLocation": "Rabia Plain, by the pedestal",
+      "objective": "Solve Kass's song about a beast with a crown of bone to raise a shrine.",
+      "reward": "Access to the Mezza Lo shrine",
+      "shrineId": "mezza_lo"
+    },
+    {
+      "id": "the_cursed_statue",
+      "name": "The Cursed Statue",
+      "kind": "shrine",
+      "region": "Hateno",
+      "giver": "Calip",
+      "giverLocation": "Fort Hateno, at his cabin",
+      "objective": "Solve Calip's ancient text about a cursed statue near Fort Hateno to reveal a shrine.",
+      "reward": "Access to the Kam Urog shrine",
+      "shrineId": "kam_urog",
+      "limited": "Statue's eyes only glow at night (from 9 PM)"
+    },
+    {
+      "id": "the_spring_of_wisdom",
+      "name": "The Spring of Wisdom",
+      "kind": "shrine",
+      "region": "Hateno",
+      "giver": "Medda",
+      "giverLocation": "Hateno Village",
+      "objective": "Find the Spring of Wisdom atop Mount Lanayru and free the dragon Naydra from Malice.",
+      "reward": "Access to the Jitan Sa'mi shrine",
+      "shrineId": "jitan_sami"
+    },
+    {
+      "id": "master_of_the_wind",
+      "name": "Master of the Wind",
+      "kind": "shrine",
+      "region": "Lanayru",
+      "giver": "Kass",
+      "giverLocation": "Horon Lagoon",
+      "objective": "Solve Kass's song about breaking rocks above a stormy bay to raise a shrine.",
+      "reward": "Access to the Shai Yota shrine",
+      "shrineId": "shai_yota"
+    },
+    {
+      "id": "the_ceremonial_song",
+      "name": "The Ceremonial Song",
+      "kind": "shrine",
+      "region": "Lanayru",
+      "giver": "Laruta",
+      "giverLocation": "Zora's Domain, by Mipha's statue",
+      "prerequisites": "After freeing Vah Ruta",
+      "objective": "Decode the Zora Champion ceremony song and find the lost Ceremonial Trident to raise a shrine.",
+      "reward": "Access to the Dagah Keek shrine",
+      "shrineId": "dagah_keek"
+    },
+    {
+      "id": "a_fragmented_monument",
+      "name": "A Fragmented Monument",
+      "kind": "shrine",
+      "region": "Faron",
+      "giver": "Garini",
+      "giverLocation": "Palmorae Ruins, at the broken monument",
+      "prerequisites": "Requires the Camera rune",
+      "objective": "Photograph the scattered monument shards for Garini, then decode the inscription.",
+      "reward": "Access to the Kah Yah shrine",
+      "shrineId": "kah_yah"
+    },
+    {
+      "id": "a_song_of_storms",
+      "name": "A Song of Storms",
+      "kind": "shrine",
+      "region": "Faron",
+      "giver": "Kass",
+      "giverLocation": "Calora Lake shore",
+      "objective": "Solve Kass's song about calling down lightning onto a giant mound.",
+      "reward": "Access to the Qukah Nata shrine",
+      "shrineId": "qukah_nata"
+    },
+    {
+      "id": "stranded_on_eventide",
+      "name": "Stranded on Eventide",
+      "kind": "shrine",
+      "region": "Faron",
+      "giver": "No quest giver",
+      "giverLocation": "On arrival at Eventide Island (a monk's voice)",
+      "objective": "Survive Eventide Island with nothing but what you scavenge and place three orbs on pedestals.",
+      "reward": "Access to the Korgu Chideh shrine",
+      "shrineId": "korgu_chideh"
+    },
+    {
+      "id": "the_three_giant_brothers",
+      "name": "The Three Giant Brothers",
+      "kind": "shrine",
+      "region": "Faron",
+      "giver": "Stone monument",
+      "giverLocation": "Top of Mount Taran, by three pedestals",
+      "objective": "Take the orbs worn by the three Hinox brothers of Mount Taran and place them on the pedestals.",
+      "reward": "Access to the Tawa Jinn shrine",
+      "shrineId": "tawa_jinn"
+    },
+    {
+      "id": "guardian_slideshow",
+      "name": "Guardian Slideshow",
+      "kind": "shrine",
+      "region": "Lake",
+      "giver": "Loone",
+      "giverLocation": "Puffer Beach",
+      "prerequisites": "Requires the Camera rune",
+      "objective": "Show Loone photos of the three kinds of active Guardians she longs to see.",
+      "reward": "Access to the Shoqa Tatone shrine",
+      "shrineId": "shoqa_tatone"
+    },
+    {
+      "id": "the_serpents_jaws",
+      "name": "The Serpent's Jaws",
+      "kind": "shrine",
+      "region": "Lake",
+      "giver": "Kass",
+      "giverLocation": "Pagos Woods, on the edge of the Faron Highroad",
+      "objective": "Find the Spring of Courage and make the offering its goddess asks for.",
+      "reward": "Access to the Shae Katha shrine",
+      "shrineId": "shae_katha"
+    },
+    {
+      "id": "the_two_rings",
+      "name": "The Two Rings",
+      "kind": "shrine",
+      "region": "Ridgeland",
+      "giver": "Kass",
+      "giverLocation": "West Hyrule Plains, among the stone rings by Jeddo Bridge",
+      "objective": "Solve Kass's song about one arrow threading two rings to raise a shrine.",
+      "reward": "Access to the Sheem Dagoze shrine",
+      "shrineId": "sheem_dagoze"
+    },
+    {
+      "id": "trial_of_thunder",
+      "name": "Trial of Thunder",
+      "kind": "shrine",
+      "region": "Ridgeland",
+      "giver": "No quest giver",
+      "giverLocation": "On arrival at Thundra Plateau (a monk's voice)",
+      "objective": "Return four coloured spheres to their proper places on Thundra Plateau.",
+      "reward": "Access to the Toh Yahsa shrine",
+      "shrineId": "toh_yahsa"
+    },
+    {
+      "id": "under_a_red_moon",
+      "name": "Under a Red Moon",
+      "kind": "shrine",
+      "region": "Ridgeland",
+      "giver": "Kass",
+      "giverLocation": "Washa's Bluff, Hyrule Ridge",
+      "objective": "Solve Kass's song about a bleeding moon and a pedestal to raise a shrine.",
+      "reward": "Access to the Mijah Rokee shrine",
+      "shrineId": "mijah_rokee",
+      "limited": "Needs a Blood Moon"
+    },
+    {
+      "id": "recital_at_warblers_nest",
+      "name": "Recital at Warbler's Nest",
+      "kind": "shrine",
+      "region": "Tabantha",
+      "giver": "Kheel",
+      "giverLocation": "Warbler's Nest, west of Rito Village",
+      "prerequisites": "After freeing Vah Medoh; starts from the side quest Find Kheel (Amali)",
+      "objective": "Round up Kheel's four sisters for rehearsal, then solve the song they sing at Warbler's Nest.",
+      "reward": "Access to the Voo Lota shrine",
+      "shrineId": "voo_lota"
+    },
+    {
+      "id": "the_ancient_rito_song",
+      "name": "The Ancient Rito Song",
+      "kind": "shrine",
+      "region": "Tabantha",
+      "giver": "Bedoli",
+      "giverLocation": "Rito Village, on Revali's Landing",
+      "prerequisites": "After freeing Vah Medoh",
+      "objective": "Learn both halves of an old Rito song from Bedoli and her sister Laissa, then solve it.",
+      "reward": "Access to the Bareeda Naag shrine",
+      "shrineId": "bareeda_naag",
+      "limited": "Light only reaches the pedestal around midday"
+    },
+    {
+      "id": "the_bird_in_the_mountains",
+      "name": "The Bird in the Mountains",
+      "kind": "shrine",
+      "region": "Hebra",
+      "giver": "Molli",
+      "giverLocation": "Rito Village",
+      "objective": "Follow Molli's grandpa's story of a huge white bird seen from a cedar tree on Talonto Peak.",
+      "reward": "Access to the Mozo Shenno shrine",
+      "shrineId": "mozo_shenno"
+    },
+    {
+      "id": "trial_on_the_cliff",
+      "name": "Trial on the Cliff",
+      "kind": "shrine",
+      "region": "Hebra",
+      "giver": "No quest giver",
+      "giverLocation": "On entering the North Lomei Labyrinth (a monk's voice)",
+      "objective": "Find the way through the North Lomei Labyrinth to the shrine at its heart.",
+      "reward": "Access to the Qaza Tokki shrine",
+      "shrineId": "qaza_tokki"
+    },
+    {
+      "id": "shrouded_shrine",
+      "name": "Shrouded Shrine",
+      "kind": "shrine",
+      "region": "Woodland",
+      "giver": "No quest giver",
+      "giverLocation": "On entering the Thyphlo Ruins (a monk's voice)",
+      "objective": "Find a hidden shrine in the pitch-dark Thyphlo Ruins by following the bird-shaped torches.",
+      "reward": "Access to the Ketoh Wawai shrine",
+      "shrineId": "ketoh_wawai"
+    },
+    {
+      "id": "the_lost_pilgrimage",
+      "name": "The Lost Pilgrimage",
+      "kind": "shrine",
+      "region": "Woodland",
+      "giver": "Tasho",
+      "giverLocation": "Korok Forest, northwest side",
+      "prerequisites": "Reach Korok Forest through the Lost Woods",
+      "objective": "Secretly follow the young Korok Oaki on his trial without being seen.",
+      "reward": "Access to the Daag Chokah shrine",
+      "shrineId": "daag_chokah"
+    },
+    {
+      "id": "the_test_of_wood",
+      "name": "The Test of Wood",
+      "kind": "shrine",
+      "region": "Woodland",
+      "giver": "Damia",
+      "giverLocation": "Korok Forest, east edge",
+      "prerequisites": "Reach Korok Forest through the Lost Woods",
+      "objective": "Reach the shrine through Mido Swamp using only the Korok gear you are given.",
+      "reward": "Access to the Maag Halan shrine",
+      "shrineId": "maag_halan"
+    },
+    {
+      "id": "trial_of_second_sight",
+      "name": "Trial of Second Sight",
+      "kind": "shrine",
+      "region": "Woodland",
+      "giver": "Zooki",
+      "giverLocation": "Korok Forest, southwest edge",
+      "prerequisites": "Reach Korok Forest through the Lost Woods",
+      "objective": "Find your way through the misty Lost Woods by following Zooki's hint.",
+      "reward": "Access to the Kuhn Sidajj shrine",
+      "shrineId": "kuhn_sidajj"
+    },
+    {
+      "id": "a_brothers_roast",
+      "name": "A Brother's Roast",
+      "kind": "shrine",
+      "region": "Eldin",
+      "giver": "Bladon",
+      "giverLocation": "Goron City, in his home",
+      "objective": "Help Bladon's brother Gonguron break through the bedrock in Gorko Tunnel.",
+      "reward": "Access to the Kayra Mah shrine",
+      "shrineId": "kayra_mah"
+    },
+    {
+      "id": "a_landscape_of_a_stable",
+      "name": "A Landscape of a Stable",
+      "kind": "shrine",
+      "region": "Eldin",
+      "giver": "Mayro",
+      "giverLocation": "Foothill Stable, by the painting",
+      "objective": "Find the place shown in Ozunda's landscape painting at Foothill Stable.",
+      "reward": "Access to the Tah Muhl shrine",
+      "shrineId": "tah_muhl"
+    },
+    {
+      "id": "the_gut_check_challenge",
+      "name": "The Gut Check Challenge",
+      "kind": "shrine",
+      "region": "Eldin",
+      "giver": "Bayge",
+      "giverLocation": "Top of Gut Check Rock, blocking the shrine",
+      "objective": "Climb Gut Check Rock within the time limit while collecting enough rupees.",
+      "reward": "Access to the Gorae Torr shrine",
+      "shrineId": "gorae_torr"
+    },
+    {
+      "id": "into_the_vortex",
+      "name": "Into the Vortex",
+      "kind": "shrine",
+      "region": "Akkala",
+      "giver": "Stone monument",
+      "giverLocation": "Ruins at the base of Rist Peninsula",
+      "objective": "Carry the ancient orb from the tablet to the tip of Rist Peninsula.",
+      "reward": "Access to the Ritaag Zumo shrine",
+      "shrineId": "ritaag_zumo"
+    },
+    {
+      "id": "the_skulls_eye",
+      "name": "The Skull's Eye",
+      "kind": "shrine",
+      "region": "Akkala",
+      "giver": "Jerrin",
+      "giverLocation": "Akkala Ancient Tech Lab",
+      "prerequisites": "Finish Robbie's Research",
+      "objective": "Reach the shrine atop the left eye of Skull Lake.",
+      "reward": "Access to the Zuna Kai shrine",
+      "shrineId": "zuna_kai"
+    },
+    {
+      "id": "the_spring_of_power",
+      "name": "The Spring of Power",
+      "kind": "shrine",
+      "region": "Akkala",
+      "giver": "Nobo",
+      "giverLocation": "East Akkala Stable",
+      "objective": "Find the Spring of Power west of the stable and make the offering its goddess asks for.",
+      "reward": "Access to the Tutsuwa Nima shrine",
+      "shrineId": "tutsuwa_nima"
+    },
+    {
+      "id": "trial_of_the_labyrinth",
+      "name": "Trial of the Labyrinth",
+      "kind": "shrine",
+      "region": "Akkala",
+      "giver": "No quest giver",
+      "giverLocation": "On arrival at Lomei Labyrinth Island (a monk's voice)",
+      "objective": "Make your way through the island maze to the shrine at its centre.",
+      "reward": "Access to the Tu Ka'loh shrine",
+      "shrineId": "tu_kaloh"
+    },
+    {
+      "id": "secret_of_the_snowy_peaks",
+      "name": "Secret of the Snowy Peaks",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "Stone monument",
+      "giverLocation": "Ruined house on Mount Granajh (the Mountain Peak Log)",
+      "objective": "Cast a 'cold shadow' on the mountain pedestal as the Mountain Peak Log describes.",
+      "reward": "Access to the Suma Sahma shrine",
+      "shrineId": "suma_sahma",
+      "limited": "Pedestal only glows around 4 PM"
+    },
+    {
+      "id": "the_desert_labyrinth",
+      "name": "The Desert Labyrinth",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "No quest giver",
+      "giverLocation": "On entering the South Lomei Labyrinth (a monk's voice)",
+      "objective": "Find the way through the South Lomei Labyrinth to the shrine at its heart.",
+      "reward": "Access to the Dila Maag shrine",
+      "shrineId": "dila_maag"
+    },
+    {
+      "id": "the_eye_of_the_sandstorm",
+      "name": "The Eye of the Sandstorm",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "Nobiro",
+      "giverLocation": "Kara Kara Bazaar, at the lookout",
+      "objective": "Find the treasure hidden inside the Great Cliffs sandstorm.",
+      "reward": "Access to the Dako Tah shrine",
+      "shrineId": "dako_tah",
+      "limited": "Sandstorm only clears at night (about 9 PM-4 AM)"
+    },
+    {
+      "id": "the_perfect_drink",
+      "name": "The Perfect Drink",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "Pokki",
+      "giverLocation": "East Barrens, collapsed on the shrine's terminal",
+      "prerequisites": "Must be able to enter Gerudo Town",
+      "objective": "Get Pokki a Noble Pursuit by bringing ice from the Northern Icehouse to Furosa.",
+      "reward": "Access to the Misae Suma shrine",
+      "shrineId": "misae_suma"
+    },
+    {
+      "id": "the_seven_heroines",
+      "name": "The Seven Heroines",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "Rotana",
+      "giverLocation": "Gerudo Town, her home next to The Noble Canteen",
+      "prerequisites": "Must be able to enter Gerudo Town",
+      "objective": "Place seven orbs before the matching statues of the Seven Heroines at the East Gerudo Ruins.",
+      "reward": "Access to the Korsh O'hu shrine",
+      "shrineId": "korsh_ohu"
+    },
+    {
+      "id": "the_silent_swordswomen",
+      "name": "The Silent Swordswomen",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "Laine",
+      "giverLocation": "Gerudo Town, at the northwest gate",
+      "objective": "Follow the swordswoman statues through the West Barrens sandstorm.",
+      "reward": "Access to the Kema Zoos shrine",
+      "shrineId": "kema_zoos"
+    },
+    {
+      "id": "the_undefeated_champ",
+      "name": "The Undefeated Champ",
+      "kind": "shrine",
+      "region": "Wasteland",
+      "giver": "Tali",
+      "giverLocation": "Sand-Seal Rally (with Shabonne)",
+      "prerequisites": "After freeing Vah Naboris",
+      "objective": "Beat Tali's sand-seal race record of 1:30 to win the Grand Trophy.",
+      "reward": "Access to the Raqa Zunzo shrine",
+      "shrineId": "raqa_zunzo"
+    },
+    {
+      "id": "cliffside_etchings",
+      "name": "Cliffside Etchings",
+      "kind": "shrine",
+      "region": "Gerudo",
+      "giver": "Geggle",
+      "giverLocation": "Tabantha Bridge Stable, on the cliff behind it",
+      "objective": "Investigate the man-made-looking cliff face Geggle spots in the Gerudo Highlands.",
+      "reward": "Access to the Keeha Yoog shrine",
+      "shrineId": "keeha_yoog"
+    },
+    {
+      "id": "sign_of_the_shadow",
+      "name": "Sign of the Shadow",
+      "kind": "shrine",
+      "region": "Gerudo",
+      "giver": "Kass",
+      "giverLocation": "Top of Gerudo Tower",
+      "objective": "Solve Kass's song about an arrow flying from the tower's shadow.",
+      "reward": "Access to the Sasa Kai shrine",
+      "shrineId": "sasa_kai",
+      "limited": "Sun or moon must be behind the tower (about 3-5 PM or 12-2 AM)"
+    },
+    {
+      "id": "test_of_will",
+      "name": "Test of Will",
+      "kind": "shrine",
+      "region": "Gerudo",
+      "giver": "Bayge",
+      "giverLocation": "Mount Nabooru, with the Goron Blood Brothers",
+      "objective": "Outlast the Goron Blood Brothers in two heat-endurance contests.",
+      "reward": "Access to the Joloo Nah shrine",
+      "shrineId": "joloo_nah"
+    },
+    {
+      "id": "ex_treasure_ancient_mask",
+      "name": "EX Treasure: Ancient Mask",
+      "kind": "dlc",
+      "region": "Dueling Peaks",
+      "giver": "Misko's EX Journal",
+      "giverLocation": "Outpost Ruins, on a broken bookshelf in the southern ruin",
+      "objective": "Use Misko's journal clue to find a chest at old ruins near Lake Kolomo.",
+      "reward": "Majora's Mask",
+      "rewardArmor": [
+        "majoras_mask"
+      ],
+      "pack": "The Master Trials"
+    },
+    {
+      "id": "ex_treasure_fairy_clothes",
+      "name": "EX Treasure: Fairy Clothes",
+      "kind": "dlc",
+      "region": "Dueling Peaks",
+      "giver": "Misko's EX Journal",
+      "giverLocation": "Outpost Ruins, on a broken bookshelf in the southern ruin",
+      "objective": "Use Misko's journal clues to find three chests in Hyrule Field ruins.",
+      "reward": "Tingle's Hood, Shirt and Tights",
+      "rewardArmor": [
+        "tingles_hood",
+        "tingles_shirt",
+        "tingles_tights"
+      ],
+      "pack": "The Master Trials"
+    },
+    {
+      "id": "ex_treasure_phantasma",
+      "name": "EX Treasure: Phantasma",
+      "kind": "dlc",
+      "region": "Dueling Peaks",
+      "giver": "Misko's EX Journal",
+      "giverLocation": "Outpost Ruins, on a broken bookshelf in the southern ruin",
+      "objective": "Use Misko's journal clues to find three chests in Hyrule Field ruins.",
+      "reward": "Phantom Helmet, Armor and Greaves",
+      "rewardArmor": [
+        "phantom_helmet",
+        "phantom_armor",
+        "phantom_greaves"
+      ],
+      "pack": "The Master Trials"
+    },
+    {
+      "id": "ex_treasure_twilight_relic",
+      "name": "EX Treasure: Twilight Relic",
+      "kind": "dlc",
+      "region": "Dueling Peaks",
+      "giver": "Misko's EX Journal",
+      "giverLocation": "Outpost Ruins, on a broken bookshelf in the southern ruin",
+      "objective": "Use Misko's journal clue to find a chest at temple ruins by the Regencia River.",
+      "reward": "Midna's Helmet",
+      "rewardArmor": [
+        "midnas_helmet"
+      ],
+      "pack": "The Master Trials"
+    },
+    {
+      "id": "ex_ancient_horse_rumors",
+      "name": "EX Ancient Horse Rumors",
+      "kind": "dlc",
+      "region": "Lake",
+      "giver": "Super Rumor Mill EX Vol. 3",
+      "giverLocation": "Highland Stable, book on a table inside",
+      "objective": "Follow the rumor book's clues to two hidden chests holding ancient horse gear.",
+      "reward": "Ancient Bridle and Ancient Saddle",
+      "pack": "The Champions' Ballad"
+    },
+    {
+      "id": "ex_treasure_dark_armor",
+      "name": "EX Treasure: Dark Armor",
+      "kind": "dlc",
+      "region": "Lake",
+      "giver": "Misko's EX Journal 2",
+      "giverLocation": "Deya Village Ruins, under a collapsed roof in an eastern ruin",
+      "objective": "Use Misko's journal clues to find three chests in Faron's forests.",
+      "reward": "Phantom Ganon Skull, Armor and Greaves",
+      "rewardArmor": [
+        "phantom_ganon_skull",
+        "phantom_ganon_armor",
+        "phantom_ganon_greaves"
+      ],
+      "pack": "The Champions' Ballad"
+    },
+    {
+      "id": "ex_treasure_garb_of_winds",
+      "name": "EX Treasure: Garb of Winds",
+      "kind": "dlc",
+      "region": "Lake",
+      "giver": "Misko's EX Journal 2",
+      "giverLocation": "Deya Village Ruins, under a collapsed roof in an eastern ruin",
+      "objective": "Use Misko's journal clue to find a chest where the Menoat River begins.",
+      "reward": "Island Lobster Shirt",
+      "rewardArmor": [
+        "island_lobster_shirt"
+      ],
+      "pack": "The Champions' Ballad"
+    },
+    {
+      "id": "ex_treasure_merchant_hood",
+      "name": "EX Treasure: Merchant Hood",
+      "kind": "dlc",
+      "region": "Lake",
+      "giver": "Misko's EX Journal 2",
+      "giverLocation": "Deya Village Ruins, under a collapsed roof in an eastern ruin",
+      "objective": "Use Misko's journal clue to find a chest at the dragon statue of Dracozu Lake.",
+      "reward": "Ravio's Hood",
+      "rewardArmor": [
+        "ravios_hood"
+      ],
+      "pack": "The Champions' Ballad"
+    },
+    {
+      "id": "ex_treasure_usurper_king",
+      "name": "EX Treasure: Usurper King",
+      "kind": "dlc",
+      "region": "Lake",
+      "giver": "Misko's EX Journal 2",
+      "giverLocation": "Deya Village Ruins, under a collapsed roof in an eastern ruin",
+      "objective": "Use Misko's journal clue to find a chest in a swampy valley south of Dueling Peaks.",
+      "reward": "Zant's Helmet",
+      "rewardArmor": [
+        "zants_helmet"
+      ],
+      "pack": "The Champions' Ballad"
+    },
+    {
+      "id": "ex_royal_guard_rumors",
+      "name": "EX Royal Guard Rumors",
+      "kind": "dlc",
+      "region": "Central",
+      "giver": "Super Rumor Mill EX Vol. 4",
+      "giverLocation": "Riverside Stable, book on a table inside",
+      "objective": "Follow the rumor book's clues to three chests hidden inside Hyrule Castle.",
+      "reward": "Royal Guard Cap, Uniform and Boots",
+      "rewardArmor": [
+        "royal_guard_cap",
+        "royal_guard_uniform",
+        "royal_guard_boots"
+      ],
+      "pack": "The Champions' Ballad"
+    },
+    {
+      "id": "ex_strange_mask_rumors",
+      "name": "EX Strange Mask Rumors",
+      "kind": "dlc",
+      "region": "Woodland",
+      "giver": "Super Rumor Mill EX Vol. 1",
+      "giverLocation": "Woodland Stable, book on a table inside",
+      "objective": "Follow the rumor book's clue to a chest hidden in a forest that makes travelers lose their way.",
+      "reward": "Korok Mask",
+      "rewardArmor": [
+        "korok_mask"
+      ],
+      "pack": "The Master Trials"
+    },
+    {
+      "id": "ex_trial_of_the_sword",
+      "name": "EX Trial of the Sword",
+      "kind": "dlc",
+      "region": "Woodland",
+      "giver": "Great Deku Tree",
+      "giverLocation": "Korok Forest, at the Master Sword's pedestal",
+      "prerequisites": "After obtaining the Master Sword",
+      "objective": "Clear the three Trial of the Sword tiers, starting each with no gear.",
+      "reward": "The Master Sword stays permanently awakened",
+      "pack": "The Master Trials"
+    },
+    {
+      "id": "ex_teleportation_rumors",
+      "name": "EX Teleportation Rumors!",
+      "kind": "dlc",
+      "region": "Akkala",
+      "giver": "Super Rumor Mill EX Vol. 2",
+      "giverLocation": "South Akkala Stable, book on a table inside",
+      "objective": "Follow the rumor book's clue to a chest hidden beneath a labyrinth in northeast Akkala.",
+      "reward": "Travel Medallion",
+      "pack": "The Master Trials"
+    }
+  ]
+}

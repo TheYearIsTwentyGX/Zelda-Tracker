@@ -43,6 +43,10 @@ import gx.zelda.shrines.scan.ShrineScanScreen
 import gx.zelda.shrines.scan.ShrineScanViewModel
 import gx.zelda.shrines.ui.ShrineTrackerScreen
 import gx.zelda.shrines.ui.ShrineViewModel
+import gx.zelda.sidequests.data.SideQuestStorage
+import gx.zelda.sidequests.ui.SideQuestDetailScreen
+import gx.zelda.sidequests.ui.SideQuestTrackerScreen
+import gx.zelda.sidequests.ui.SideQuestViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable private data object Home
@@ -56,6 +60,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Koroks(val gameId: String)
 @Serializable private data class KorokDetail(val gameId: String, val korokId: String)
 @Serializable private data class ShrineScan(val gameId: String)
+@Serializable private data class SideQuests(val gameId: String)
+@Serializable private data class SideQuestDetail(val gameId: String, val questId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -74,6 +80,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
                         TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
                         TrackerKind.KOROKS -> nav.navigate(Koroks(game.id))
+                        TrackerKind.SIDE_QUESTS -> nav.navigate(SideQuests(game.id))
                     }
                 })
             }
@@ -151,6 +158,43 @@ fun App(dataStore: DataStore<Preferences>) {
                     KorokDetailScreen(it, route.korokId, vm, onBack = { nav.popBackStack() })
                 }
             }
+            composable<SideQuests> { entry ->
+                val game = Games.byId(entry.toRoute<SideQuests>().gameId)
+                val vm = sideQuestViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                SideQuestTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenQuest = { nav.navigate(SideQuestDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<SideQuestDetail> { entry ->
+                val route = entry.toRoute<SideQuestDetail>()
+                val game = Games.byId(route.gameId)
+                val listEntry = remember(entry) { nav.getBackStackEntry<SideQuests>() }
+                val vm = sideQuestViewModel(listEntry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    SideQuestDetailScreen(
+                        it,
+                        route.questId,
+                        vm,
+                        // The armor detail shares its list's view model, so open the list under it.
+                        onOpenArmor = if (game.has(TrackerKind.ARMOR)) {
+                            { pieceId ->
+                                nav.navigate(ArmorTracker(game.id))
+                                nav.navigate(ArmorDetail(game.id, pieceId))
+                            }
+                        } else {
+                            null
+                        },
+                        onBack = { nav.popBackStack() },
+                    )
+                }
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -201,3 +245,18 @@ private fun korokViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): KorokViewModel = viewModel(owner, key = game.id) { KorokViewModel(KorokStorage(dataStore, game)) }
+
+/**
+ * The [SideQuestViewModel] for [game], owned by the quest list's entry so the detail screen shares
+ * it. Shrine Quests show their shrine's state from the shrine tracker's storage.
+ */
+@Composable
+private fun sideQuestViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): SideQuestViewModel = viewModel(owner, key = game.id) {
+    SideQuestViewModel(SideQuestStorage(dataStore, game), ShrineStorage(dataStore, game).takeIf { game.has(TrackerKind.SHRINES) })
+}
+
+private fun Game.has(kind: TrackerKind): Boolean = trackers.any { it.kind == kind }
