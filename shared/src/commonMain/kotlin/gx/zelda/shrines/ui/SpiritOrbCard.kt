@@ -19,7 +19,8 @@ import gx.zelda.shrines.model.OrbUpgrades
 
 /**
  * Spirit Orbs earned from completed shrines, what the user says they've bought with them, and
- * what's still to come. Purchases are entered by hand; the app can't see the save.
+ * what's still to come. Purchases are entered by hand; the app can't see the save. Hearts also
+ * count the Divine Beasts freed in the Main Quest tracker.
  */
 @Composable
 fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> Unit, modifier: Modifier = Modifier) {
@@ -51,11 +52,22 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
             )
             Stepper(
                 label = "Heart Containers bought",
-                detail = "${up.startingHearts + plan.heartsBought} hearts, plus any from Divine Beasts",
+                detail = "${plan.hearts} of ${up.maxHearts} hearts, " +
+                    if (plan.beastHearts == 0) "none from Divine Beasts yet" else "${plan.beastHearts} from Divine Beasts",
                 value = plan.heartsBought,
-                max = up.maxHeartsBought,
+                // Never below what's entered: an over-max number stays put and is flagged below.
+                max = plan.maxHeartsBought,
                 onValueChange = { onBoughtChange(it, plan.staminaBought) },
             )
+            if (plan.heartsOverMax) {
+                Text(
+                    "That makes ${plan.hearts} hearts, but the game stops at ${up.maxHearts}. With " +
+                        "${beastCount(plan.beastHearts)} freed, Goddess Statues sell ${plan.maxHeartsBought} at most. " +
+                        "Check this number or Main Quest Progress.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.error,
+                )
+            }
             Stepper(
                 label = "Stamina Vessels bought",
                 detail = "${wheels(up, plan.staminaBought)} of ${wheels(up, up.maxStaminaVessels)} stamina wheels",
@@ -70,7 +82,7 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
             )
             if (plan.upgradesToMaxBoth > plan.totalUpgrades) {
                 Text(
-                    "All ${plan.total} orbs buy ${plan.totalUpgrades} upgrades, but maxing hearts and stamina takes " +
+                    "You can't max both. All ${plan.total} orbs buy ${plan.totalUpgrades} upgrades, but maxing hearts and stamina takes " +
                         "${plan.upgradesToMaxBoth}: ${up.maxHeartsBought - up.bossHearts} Heart Containers (the ${up.bossHearts} " +
                         "Divine Beasts give the rest) and ${up.maxStaminaVessels} Stamina Vessels. The Horned Statue in " +
                         "Hateno Village swaps one for the other.",
@@ -81,7 +93,7 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
             Text(
                 "Every ${up.orbsPerUpgrade} orbs buy one upgrade. Each base-game shrine gives one orb, and so do " +
                     "the Champions' Ballad's four Great Plateau shrines; its other twelve give an emblem instead. " +
-                    "Divine Beast Heart Containers aren't tracked here.",
+                    "Each Divine Beast marked freed in Main Quest Progress adds a Heart Container.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -92,6 +104,8 @@ fun SpiritOrbCard(plan: OrbPlan, onBoughtChange: (hearts: Int, stamina: Int) -> 
 private fun upgradeCount(n: Int) = if (n == 1) "1 upgrade" else "$n upgrades"
 
 private fun orbCount(n: Int) = if (n == 1) "1 orb" else "$n orbs"
+
+private fun beastCount(n: Int) = if (n == 1) "1 Divine Beast" else "$n Divine Beasts"
 
 /** Stamina wheels after [vessels]: 1 + 7 vessels → "2⅖". */
 private fun wheels(up: OrbUpgrades, vessels: Int): String {

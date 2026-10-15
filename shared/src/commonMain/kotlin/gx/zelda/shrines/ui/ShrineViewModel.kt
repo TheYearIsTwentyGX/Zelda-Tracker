@@ -3,6 +3,7 @@ package gx.zelda.shrines.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import gx.zelda.core.SaveFile
+import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.OrbPlan
@@ -19,6 +20,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -44,8 +46,10 @@ data class ShrineUiState(
     val saveFile: SaveFile,
     val saveFiles: List<ShrineSaveSummary>,
     val filters: ShrineFilters,
+    /** Divine Beasts the active save file has freed, from the Main Quest tracker. */
+    val beastsFreed: Int = 0,
 ) {
-    val orbs: OrbPlan get() = OrbPlan.of(catalog, progress, includeDlc = prefs.showDlc)
+    val orbs: OrbPlan get() = OrbPlan.of(catalog, progress, includeDlc = prefs.showDlc, beastsFreed = beastsFreed)
 
     /** Shrines the DLC filter allows, before search and the other filters. */
     val shown: List<Shrine> get() = if (prefs.showDlc) catalog.shrines else catalog.base
@@ -77,6 +81,8 @@ data class ShrineUiState(
 @OptIn(ExperimentalCoroutinesApi::class)
 class ShrineViewModel(
     private val storage: ShrineStorage,
+    /** Where the Divine Beasts freed per save file are kept; null for a game without the tracker. */
+    private val mainQuest: MainQuestStorage? = null,
     private val loadCatalog: suspend () -> ShrineCatalog = { ShrineRepository.load(storage.game) },
 ) : ViewModel() {
     private val catalog = MutableStateFlow<ShrineCatalog?>(null)
@@ -90,17 +96,21 @@ class ShrineViewModel(
 
     private val activeProgress: Flow<ShrineProgress> = activeFile.flatMapLatest { storage.progress(it.id) }
 
+    private val activeBeastsFreed: Flow<Int> = activeFile.flatMapLatest { file ->
+        mainQuest?.divineBeastsFreed(file.id)?.map { it.size } ?: flowOf(0)
+    }
+
     private val progressByFile: Flow<List<Pair<SaveFile, ShrineProgress>>> = combine(
         storage.game.saveFiles.map { file -> storage.progress(file.id).map { file to it } },
     ) { it.toList() }
 
     val state: StateFlow<ShrineUiState?> = combine(
         catalog.filterNotNull(),
-        combine(activeFile, activeProgress, ::Pair),
+        combine(activeFile, activeProgress, activeBeastsFreed, ::Triple),
         storage.prefs,
         progressByFile,
         filters,
-    ) { catalog, (file, progress), prefs, byFile, filters ->
+    ) { catalog, (file, progress, beastsFreed), prefs, byFile, filters ->
         ShrineUiState(
             catalog = catalog,
             progress = progress,
@@ -108,6 +118,7 @@ class ShrineViewModel(
             saveFile = file,
             saveFiles = byFile.map { (f, p) -> ShrineSaveSummary(f, catalog.baseCompleted(p.completed)) },
             filters = filters,
+            beastsFreed = beastsFreed,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
