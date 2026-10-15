@@ -44,6 +44,7 @@ kotlin {
             implementation(libs.navigation.compose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
+            implementation(libs.mapcompose.mp)
 
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)

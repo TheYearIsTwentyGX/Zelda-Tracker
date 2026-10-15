@@ -38,6 +38,12 @@ import gx.zelda.koroks.ui.KorokViewModel
 import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.ui.MainQuestScreen
 import gx.zelda.mainquest.ui.MainQuestViewModel
+import gx.zelda.map.data.MapLayers
+import gx.zelda.map.data.MapStorage
+import gx.zelda.map.data.botwMapLayers
+import gx.zelda.map.model.markerKey
+import gx.zelda.map.ui.MapViewModel
+import gx.zelda.map.ui.WorldMapScreen
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.scan.ShrineScanScreen
 import gx.zelda.shrines.scan.ShrineScanViewModel
@@ -56,6 +62,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Koroks(val gameId: String)
 @Serializable private data class KorokDetail(val gameId: String, val korokId: String)
 @Serializable private data class ShrineScan(val gameId: String)
+/** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
+@Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -74,6 +82,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
                         TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
                         TrackerKind.KOROKS -> nav.navigate(Koroks(game.id))
+                        TrackerKind.MAP -> nav.navigate(WorldMap(game.id))
                     }
                 })
             }
@@ -152,8 +161,41 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = korokViewModel(listEntry, dataStore, Games.byId(route.gameId))
                 val state by vm.state.collectAsStateWithLifecycle()
                 state?.let {
-                    KorokDetailScreen(it, route.korokId, vm, onBack = { nav.popBackStack() })
+                    KorokDetailScreen(
+                        it,
+                        route.korokId,
+                        vm,
+                        onBack = { nav.popBackStack() },
+                        onShowOnMap = { nav.navigate(WorldMap(route.gameId, MapLayers.KOROKS, route.korokId)) },
+                    )
                 }
+            }
+            composable<WorldMap> { entry ->
+                val route = entry.toRoute<WorldMap>()
+                val game = Games.byId(route.gameId)
+                val focus = route.focusId?.let { markerKey(route.focusLayer ?: return@let null, it) }
+                val vm = viewModel(key = "map_${game.id}") {
+                    MapViewModel(MapStorage(dataStore, game), botwMapLayers(dataStore, game), focus)
+                }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                WorldMapScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenInTracker = { layerId, entryId ->
+                        when (layerId) {
+                            MapLayers.SHRINES -> nav.navigate(Shrines(game.id))
+                            MapLayers.KOROKS -> {
+                                // The detail screen shares the list's view model, so the list goes under it.
+                                nav.navigate(Koroks(game.id))
+                                nav.navigate(KorokDetail(game.id, entryId))
+                            }
+                            MapLayers.TOWERS -> nav.navigate(MainQuest(game.id))
+                        }
+                    },
+                    onBack = { nav.popBackStack() },
+                )
             }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
