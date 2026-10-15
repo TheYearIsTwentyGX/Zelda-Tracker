@@ -47,6 +47,7 @@ import gx.zelda.overview.OverviewScreen
 import gx.zelda.overview.OverviewViewModel
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.scan.ShrineScanScreen
+import gx.zelda.shrines.ui.ShrineDetailScreen
 import gx.zelda.shrines.scan.ShrineScanViewModel
 import gx.zelda.shrines.ui.ShrineTrackerScreen
 import gx.zelda.shrines.ui.ShrineViewModel
@@ -72,6 +73,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class SideQuestDetail(val gameId: String, val questId: String)
 @Serializable private data class Bosses(val gameId: String)
 @Serializable private data class BossDetail(val gameId: String, val spawnId: String)
+@Serializable private data class ShrineDetail(val gameId: String, val shrineId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -123,20 +125,28 @@ fun App(dataStore: DataStore<Preferences>) {
             }
             composable<Shrines> { entry ->
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)
-                val vm = viewModel(key = game.id) {
-                    // Freed Divine Beasts add Heart Containers to the Spirit Orb card.
-                    val mainQuest = MainQuestStorage(dataStore, game).takeIf { game.trackers.any { it.kind == TrackerKind.MAIN_QUEST } }
-                    ShrineViewModel(ShrineStorage(dataStore, game), mainQuest)
-                }
+                val vm = shrineViewModel(entry, dataStore, game)
                 val state by vm.state.collectAsStateWithLifecycle()
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
                 ShrineTrackerScreen(
                     state,
                     loadFailed,
                     vm,
-                    onScanMap = { nav.navigate(ShrineScan(game.id)) },
                     onBack = { nav.popBackStack() },
+                    title = game.trackers.first { it.kind == TrackerKind.SHRINES }.title,
+                    // Only BotW has the shrine map data the scanner reads.
+                    onScanMap = { nav.navigate(ShrineScan(game.id)) }.takeIf { game == Games.BOTW },
+                    onOpenShrine = { nav.navigate(ShrineDetail(game.id, it)) },
                 )
+            }
+            composable<ShrineDetail> { entry ->
+                val route = entry.toRoute<ShrineDetail>()
+                val listEntry = remember(entry) { nav.getBackStackEntry<Shrines>() }
+                val vm = shrineViewModel(listEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    ShrineDetailScreen(it, route.shrineId, vm, onBack = { nav.popBackStack() })
+                }
             }
             composable<ShrineScan> { entry ->
                 val game = Games.byId(entry.toRoute<ShrineScan>().gameId)
@@ -292,6 +302,18 @@ private fun compendiumViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): CompendiumViewModel = viewModel(owner, key = game.id) { CompendiumViewModel(CompendiumStorage(dataStore, game)) }
+
+/** The [ShrineViewModel] for [game], owned by the shrine list's entry so the detail screen shares it. */
+@Composable
+private fun shrineViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): ShrineViewModel = viewModel(owner, key = game.id) {
+    // Freed Divine Beasts add Heart Containers to the Spirit Orb card.
+    val mainQuest = MainQuestStorage(dataStore, game).takeIf { game.trackers.any { it.kind == TrackerKind.MAIN_QUEST } }
+    ShrineViewModel(ShrineStorage(dataStore, game), mainQuest)
+}
 
 /** The [KorokViewModel] for [game], owned by the Korok list's entry so the detail screen shares it. */
 @Composable

@@ -169,7 +169,25 @@ iOS port is mostly a matter of adding the iOS targets.
 - Mark each fairy as freed; the screen shows how far armor can be upgraded and the per-upgrade
   rupee fee (10 / 50 / 200 / 500).
 
-Both TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
+**Tears of the Kingdom: Shrines & Lightroots**
+- All 152 Shrines of Light and the 120 Lightroots beneath them, as two swipeable tabs with their
+  counts (e.g. 87 / 152 and 40 / 120), each grouped by Skyview Tower region with per-region counts.
+- Each shrine's trial (Rauru's Blessing, Proving Grounds, Combat Training or a puzzle), whether it
+  is on a sky island or in a cave, its Shrine Quest if it has one, its map area and a location hint.
+- Each Lightroot points at the shrine above it, and its name is the shrine's spelled backwards
+  (Kawumoro under Oromuwak Shrine). Only the 32 sky shrines have none. A shrine's row shows its
+  Lightroot, a Lightroot's row shows its shrine, and › opens a page with the pair. Each half is
+  Undiscovered, Found or Completed / Lit on its own.
+- The same **Hide undiscovered** setting as BotW, covering both tabs, plus search and an
+  *Incomplete* / *Unlit* filter. A hidden Lightroot only matches a search by region, and finding a
+  shrine doesn't reveal the Lightroot below it.
+- **Lights of Blessing**: Lights earned from completed shrines, Heart Containers and Stamina
+  Vessels bought, the six boss Heart Containers (five temples and Phantom Ganon, entered by hand)
+  and A Call from the Depths' free heart or vessel. Maxing both takes 47 upgrades against the 45
+  available, so the card says you can't. There are no Lights outside shrines, and Crystallized
+  Charges are Zonai currency, so neither counts.
+
+All three TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
 
 ## Layout
 
@@ -178,7 +196,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW only for now)
-  src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker and Spirit Orb planner
+  src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker (BotW; TotK with Lightroots) and Spirit Orb / Light of Blessing planner
   src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
@@ -188,7 +206,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
-  src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
+  src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines (TotK's also has the Lightroots)
   src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
@@ -289,6 +307,12 @@ Shrines are grouped by Sheikah Tower region as Game8 and Thonky group them; the 
 geographic regions instead, so a few border shrines (e.g. Ishto Soh, Kah Mael, Rona Kachta) sit
 under a different region there. Trial names keep the in-game wording, including the "A" in
 "A Minor Test of Strength".
+
+TotK shrine and Lightroot data (`files/totk/shrines.json`) combines objmap's TotK data with the
+wikis; see `docs/totk-shrines.md`. Names, positions, sky/surface/cave and Skyview Tower regions
+are datamined (radar-totk.zeldamods.org and the objmap-totk repo). Trials, Shrine Quests and
+location hints come from Zelda Wiki, cross-checked against Zelda Fandom and Game8. The Light of
+Blessing numbers are from Zelda Wiki, Fandom and Game8.
 
 BotW Compendium numbering is from Zelda Wiki's *Hyrule Compendium Items in Breath of the Wild*
 (Normal and Master Mode, with and without The Champions' Ballad). Common locations and drops are

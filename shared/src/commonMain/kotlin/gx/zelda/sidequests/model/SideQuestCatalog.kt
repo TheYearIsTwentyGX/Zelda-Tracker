@@ -1,5 +1,6 @@
 package gx.zelda.sidequests.model
 
+import gx.zelda.core.groupByRegion
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -55,8 +56,5 @@ data class SideQuestCatalog(
     fun completedCount(kind: QuestKind, completed: Set<String>): Int = quests.count { it.kind == kind && it.id in completed }
 
     /** [visible] split by region in [regions] order; regions with none are left out. */
-    fun byRegion(visible: List<SideQuest>): List<Pair<String, List<SideQuest>>> {
-        val grouped = visible.groupBy { it.region }
-        return regions.mapNotNull { region -> grouped[region]?.let { region to it } }
-    }
+    fun byRegion(visible: List<SideQuest>): List<Pair<String, List<SideQuest>>> = groupByRegion(regions, visible) { it.region }
 }

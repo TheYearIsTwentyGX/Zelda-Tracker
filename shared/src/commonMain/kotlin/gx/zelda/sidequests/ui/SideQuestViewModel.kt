@@ -3,6 +3,8 @@ package gx.zelda.sidequests.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import gx.zelda.core.SaveFile
+import gx.zelda.core.isSpoilerHidden
+import gx.zelda.core.matchesQuery
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.ShrineProgress
 import gx.zelda.shrines.model.ShrineState
@@ -67,15 +69,14 @@ data class SideQuestUiState(
      * and the user hasn't tapped to reveal it.
      */
     fun isHidden(quest: SideQuest): Boolean =
-        prefs.hideUndiscovered && !progress.isStarted(quest.id) && quest.id !in filters.revealed
+        isSpoilerHidden(prefs.hideUndiscovered, progress.isStarted(quest.id), quest.id in filters.revealed)
 
     /** Every quest narrowed by search and filters. A hidden quest only matches on its region. */
-    val matching: List<SideQuest> = run {
-        val q = filters.query.trim()
-        catalog.quests.filter { quest ->
-            (!filters.incompleteOnly || quest.id !in progress.completed) &&
-                (q.isEmpty() || searchText(quest).any { it.contains(q, ignoreCase = true) })
-        }
+    val matching: List<SideQuest> = catalog.quests.filter { quest ->
+        (!filters.incompleteOnly || quest.id !in progress.completed) &&
+            matchesQuery(filters.query, isHidden(quest), quest.region) {
+                listOf(quest.name, quest.giver, quest.giverLocation, quest.region, quest.reward, shrineName(quest))
+            }
     }
 
     /** [matching] quests of [kind], in region order. */
@@ -100,13 +101,6 @@ data class SideQuestUiState(
     }
 
     fun shrineName(quest: SideQuest): String? = quest.shrineId?.let { data.shrineNames[it] }
-
-    private fun searchText(quest: SideQuest): List<String> =
-        if (isHidden(quest)) {
-            listOf(quest.region)
-        } else {
-            listOfNotNull(quest.name, quest.giver, quest.giverLocation, quest.region, quest.reward, shrineName(quest))
-        }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)

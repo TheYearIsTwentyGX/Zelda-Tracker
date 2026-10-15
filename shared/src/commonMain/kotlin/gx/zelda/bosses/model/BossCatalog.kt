@@ -3,6 +3,7 @@ package gx.zelda.bosses.model
 import gx.zelda.compendium.model.CompendiumCatalog
 import gx.zelda.compendium.model.CompendiumEntry
 import gx.zelda.core.SaveFile
+import gx.zelda.core.groupByRegion
 import kotlinx.serialization.Serializable
 
 /** A kind of overworld boss, which the tracker gives its own tab: Hinox, Talus, Molduga or Lynel. */
@@ -75,10 +76,7 @@ data class BossCatalog(
         if (file.masterMode) spawns else spawns.filter { !it.masterModeOnly }
 
     /** [visible] split by region in [regions] order; regions with none are left out. */
-    fun byRegion(visible: List<BossSpawn>): List<Pair<String, List<BossSpawn>>> {
-        val grouped = visible.groupBy { it.region }
-        return regions.mapNotNull { region -> grouped[region]?.let { region to it } }
-    }
+    fun byRegion(visible: List<BossSpawn>): List<Pair<String, List<BossSpawn>>> = groupByRegion(regions, visible) { it.region }
 }
 
 /** The bosses and the Compendium entries they're named and numbered by, loaded together. */
