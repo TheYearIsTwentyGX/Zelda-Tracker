@@ -27,6 +27,8 @@ enum class TrackerKind {
     SHRINES,
     COMPENDIUM,
     KOROKS,
+    /** Every other tracker's progress on one screen; see `overview/OverviewProviders.kt`. */
+    OVERVIEW,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -43,6 +45,7 @@ object Games {
             SaveFile("master", "Master Mode", masterMode = true),
         ),
         trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
             Tracker(TrackerKind.FAIRIES, "Great Fairy Fountains", "Where to find each Great Fairy and what opening her fountain costs"),
             Tracker(TrackerKind.MAIN_QUEST, "Main Quest Progress", "Sheikah Towers, Divine Beasts and Recovered Memories"),

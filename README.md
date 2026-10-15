@@ -5,6 +5,23 @@ iOS port is mostly a matter of adding the iOS targets.
 
 ## Features
 
+**Breath of the Wild: Progress Overview**
+- The first card under BotW: every tracker's progress on the active save file on one screen, each
+  with a progress bar and its numbers. Tap a row to open that tracker.
+- Shrines (completed of 120, found, and the Champions' Ballad's 16 counted apart), Korok Seeds (of
+  900, and Hestu upgrades bought), Hyrule Compendium (of the save file's own total: 389, or 394 in
+  Master Mode), Main Quest (towers, Divine Beasts and memories), Armor (collected, and how many are
+  fully upgraded; the armor list's DLC and amiibo filters apply), Great Fairy Fountains (open, and
+  what the next costs) and Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels).
+- Most rows suggest a next step. With a tracker's *Hide undiscovered* on, the suggestion names only
+  shrines or Koroks already found, as the list does, and otherwise just the region.
+- **Map completion**: Korok seeds, shrines and Divine Beasts count toward the map's percentage
+  (Nintendo Life, Screen Rant), so the overview shows how many of those 1,024 items are done. Named
+  locations count too, but sources disagree on how many there are (187 or 226) and no tracker
+  records them, so this is a count of items toward 100%, not the percentage.
+- The save file picker switches every tracker. A tracker whose data can't be loaded shows as
+  unavailable without holding up the rest.
+
 **Breath of the Wild: Armor Progress**
 - All 107 armor pieces: base game, The Master Trials, The Champions' Ballad and amiibo.
 - In-game inventory icon for every piece, in the list and on its detail page.
@@ -126,6 +143,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
+  src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines
@@ -139,6 +157,15 @@ androidApp/   Android application shell
 ```
 
 Each game's trackers are listed in `core/Games.kt`; storage keys are prefixed with the game id.
+
+### Adding a tracker to the Progress Overview
+
+Write a `ProgressProvider` (`core/ProgressSummary.kt`) next to the tracker's storage, e.g.
+`koroks/data/KorokProgressProvider.kt`: it maps one save file's progress to a `ProgressSummary`
+(title, done / total, an optional detail line, an optional next step, and whether it counts
+toward map completion). Then return it for the tracker's `TrackerKind` in
+`overview/OverviewProviders.kt`; that `when` is exhaustive, so a new kind won't compile until it
+has a branch. The interface's KDoc has the details.
 
 ## Building
 
