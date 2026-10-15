@@ -285,6 +285,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.COMPENDIUM -> navigate(Compendium(game.id))
         TrackerKind.KOROKS -> navigate(Koroks(game.id))
         TrackerKind.OVERVIEW -> Unit
+        TrackerKind.SIDE_QUESTS -> navigate(SideQuests(game.id))
     }
 }
 

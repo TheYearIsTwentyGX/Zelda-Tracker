@@ -12,9 +12,11 @@ iOS port is mostly a matter of adding the iOS targets.
   900, and Hestu upgrades bought), Hyrule Compendium (of the save file's own total: 389, or 394 in
   Master Mode), Main Quest (towers, Divine Beasts and memories), Armor (collected, and how many are
   fully upgraded; the armor list's DLC and amiibo filters apply), Great Fairy Fountains (open, and
-  what the next costs) and Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels).
+  what the next costs), Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels) and
+  Side Quests (completed across the Side, Shrine and DLC tabs, with each tab's tally).
 - Most rows suggest a next step. With a tracker's *Hide undiscovered* on, the suggestion names only
-  shrines or Koroks already found, as the list does, and otherwise just the region.
+  shrines or Koroks already found or quests already started, as the list does, and otherwise just
+  the region.
 - **Map completion**: Korok seeds, shrines and Divine Beasts count toward the map's percentage
   (Nintendo Life, Screen Rant), so the overview shows how many of those 1,024 items are done. Named
   locations count too, but sources disagree on how many there are (187 or 226) and no tracker
