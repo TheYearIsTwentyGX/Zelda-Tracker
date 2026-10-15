@@ -189,7 +189,7 @@ private class Wording(
 private fun upgradeCount(n: Int) = if (n == 1) "1 upgrade" else "$n upgrades"
 
 /** Stamina wheels after [vessels]: 1 + 7 vessels → "2⅖". */
-private fun wheels(up: OrbUpgrades, vessels: Int): String {
+internal fun wheels(up: OrbUpgrades, vessels: Int): String {
     val whole = up.startingStaminaWheels + vessels / OrbUpgrades.VESSELS_PER_WHEEL
     return "$whole" + listOf("", "⅕", "⅖", "⅗", "⅘")[vessels % OrbUpgrades.VESSELS_PER_WHEEL]
 }

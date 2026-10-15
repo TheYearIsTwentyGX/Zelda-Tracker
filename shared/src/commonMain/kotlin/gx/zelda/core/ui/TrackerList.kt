@@ -28,14 +28,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.DiscoveryState
 
 /*
- * Building blocks shared by the region-grouped trackers (Shrines, Koroks): each region is a card
- * made of a header and its rows, and each row can be found, completed, or hidden as a spoiler.
+ * Building blocks shared by the region-grouped trackers (Shrines, Koroks, Side Quests): each region
+ * is a card made of a header and its rows, and each row can be found, completed, or hidden as a
+ * spoiler.
  */
 
 val CardInset = 12.dp
@@ -51,9 +53,12 @@ fun Modifier.groupRow(last: Boolean): Modifier = this
     .clip(if (last) CardBottom else RectangleShape)
     .background(MaterialTheme.colorScheme.surfaceContainer)
 
-/** The top of a region's card: "<region> Tower", how many are found, and done / total. */
+/**
+ * The top of a region's card: "<region> Tower", how many are found, and done / total. [foundLabel]
+ * names the middle state, e.g. "Started" for quests.
+ */
 @Composable
-fun RegionHeader(region: String, found: Int, done: Int, total: Int) {
+fun RegionHeader(region: String, found: Int, done: Int, total: Int, foundLabel: String = "Found") {
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         shape = CardTop,
@@ -67,7 +72,7 @@ fun RegionHeader(region: String, found: Int, done: Int, total: Int) {
                 modifier = Modifier.weight(1f),
             )
             Text(
-                "Found $found",
+                "$foundLabel $found",
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(end = 8.dp),
@@ -91,12 +96,26 @@ fun RowDivider() {
     HorizontalDivider(Modifier.padding(start = 52.dp), color = MaterialTheme.colorScheme.outlineVariant)
 }
 
+/** What [FoundToggle] shows: a pin for places, or something else for e.g. a quest in progress. */
+data class FoundToggleStyle(
+    val on: ImageVector,
+    val off: ImageVector,
+    /** Read out when the entry is found. */
+    val onLabel: String,
+    /** Read out when it isn't: what tapping does. */
+    val offLabel: String,
+) {
+    companion object {
+        val Pin = FoundToggleStyle(Icons.Filled.LocationOn, Icons.Outlined.LocationOn, "Found", "Mark found")
+    }
+}
+
 /**
  * Marks an entry found or undiscovered. A completed entry is always found, so the button is
  * disabled until it's unticked.
  */
 @Composable
-fun FoundToggle(state: DiscoveryState, onStateChange: (DiscoveryState) -> Unit) {
+fun FoundToggle(state: DiscoveryState, onStateChange: (DiscoveryState) -> Unit, style: FoundToggleStyle = FoundToggleStyle.Pin) {
     val found = state != DiscoveryState.UNDISCOVERED
     IconToggleButton(
         checked = found,
@@ -104,8 +123,8 @@ fun FoundToggle(state: DiscoveryState, onStateChange: (DiscoveryState) -> Unit) 
         onCheckedChange = { onStateChange(if (it) DiscoveryState.FOUND else DiscoveryState.UNDISCOVERED) },
     ) {
         Icon(
-            if (found) Icons.Filled.LocationOn else Icons.Outlined.LocationOn,
-            contentDescription = if (found) "Found" else "Mark found",
+            if (found) style.on else style.off,
+            contentDescription = if (found) style.onLabel else style.offLabel,
             tint = if (found) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
@@ -113,7 +132,14 @@ fun FoundToggle(state: DiscoveryState, onStateChange: (DiscoveryState) -> Unit) 
 
 /** An undiscovered entry with spoilers hidden: tap to see it, or mark it found. */
 @Composable
-fun HiddenRow(title: String, onReveal: () -> Unit, onFound: () -> Unit, showDivider: Boolean, modifier: Modifier = Modifier) {
+fun HiddenRow(
+    title: String,
+    onReveal: () -> Unit,
+    onFound: () -> Unit,
+    showDivider: Boolean,
+    modifier: Modifier = Modifier,
+    toggleStyle: FoundToggleStyle = FoundToggleStyle.Pin,
+) {
     Column(modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -132,7 +158,7 @@ fun HiddenRow(title: String, onReveal: () -> Unit, onFound: () -> Unit, showDivi
                 Text(title, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Text("Tap to reveal", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
-            FoundToggle(DiscoveryState.UNDISCOVERED) { onFound() }
+            FoundToggle(DiscoveryState.UNDISCOVERED, { onFound() }, toggleStyle)
         }
         if (showDivider) RowDivider()
     }

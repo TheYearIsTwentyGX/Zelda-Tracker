@@ -1,7 +1,6 @@
 package gx.zelda.shrines.ui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -20,7 +19,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -48,6 +46,7 @@ import gx.zelda.core.DiscoveryState
 import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.HiddenRow
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.RegionHeader
 import gx.zelda.core.ui.RowDivider
 import gx.zelda.core.ui.SaveFileOption
@@ -107,17 +106,7 @@ fun ShrineTrackerScreen(
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding).padding(24.dp), contentAlignment = Alignment.Center) {
-                if (loadFailed) {
-                    Text(
-                        "The shrine list couldn't be loaded.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.error,
-                    )
-                } else {
-                    CircularProgressIndicator()
-                }
-            }
+            LoadingOrError(loadFailed, "The shrine list couldn't be loaded.", padding)
             return@Scaffold
         }
         if (state.catalog.lightroots.isEmpty()) {

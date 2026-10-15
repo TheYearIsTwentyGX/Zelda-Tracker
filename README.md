@@ -5,6 +5,26 @@ iOS port is mostly a matter of adding the iOS targets.
 
 ## Features
 
+**Breath of the Wild: Progress Overview**
+- The first card under BotW: every tracker's progress on the active save file on one screen, each
+  with a progress bar and its numbers. Tap a row to open that tracker.
+- Shrines (completed of 120, found, and the Champions' Ballad's 16 counted apart), Korok Seeds (of
+  900, and Hestu upgrades bought), Hyrule Compendium (of the save file's own total: 389, or 394 in
+  Master Mode), Main Quest (towers, Divine Beasts and memories), Armor (collected, and how many are
+  fully upgraded; the armor list's DLC and amiibo filters apply), Great Fairy Fountains (open, and
+  what the next costs), Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels) and
+  Side Quests (completed across the Side, Shrine and DLC tabs, with each tab's tally) and Overworld
+  Bosses (spawns defeated, each kind's count, and the next Medal of Honor to earn).
+- Most rows suggest a next step. With a tracker's *Hide undiscovered* on, the suggestion names only
+  shrines or Koroks already found or quests already started, as the list does, and otherwise just
+  the region.
+- **Map completion**: Korok seeds, shrines and Divine Beasts count toward the map's percentage
+  (Nintendo Life, Screen Rant), so the overview shows how many of those 1,024 items are done. Named
+  locations count too, but sources disagree on how many there are (187 or 226) and no tracker
+  records them, so this is a count of items toward 100%, not the percentage.
+- The save file picker switches every tracker. A tracker whose data can't be loaded shows as
+  unavailable without holding up the rest.
+
 **Breath of the Wild: Armor Progress**
 - All 107 armor pieces: base game, The Master Trials, The Champions' Ballad and amiibo.
 - In-game inventory icon for every piece, in the list and on its detail page.
@@ -98,6 +118,43 @@ iOS port is mostly a matter of adding the iOS targets.
   pouch takes 441 seeds; the rest only count toward Hestu's Gift for all 900.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Side Quests**
+- All 76 base-game side quests, the 42 Shrine Quests and the 13 DLC side quests ("EX" quests from
+  The Master Trials and The Champions' Ballad), a swipeable tab each, grouped by tower region with
+  counts per region and per tab.
+- Each quest is Not started, In progress or Completed: tick a row to complete it, and use its play
+  button to mark it in progress. Completing implies started; unticking leaves it in progress.
+- **Hide quests not started** (top-bar menu): the same spoiler-safe mode as shrines and Koroks, but
+  its own setting. A hidden quest's row shows only its region until tapped, and search only matches
+  it by region.
+- Search by quest, giver, place, reward, region or linked shrine; filter to incomplete quests.
+- Tap › for a quest's page: giver and where to find them, what has to happen first, a spoiler-light
+  objective, the reward and, where it's well sourced, when it can only be done (night, a Blood
+  Moon). Reward armor opens in Armor Progress.
+- A Shrine Quest's page shows its shrine's state from the shrine tracker on the same save file.
+  Completing the quest doesn't complete the shrine, since the trial inside is still to do.
+- EX quests are here because the Adventure Log lists them under Side Quests. The DLC's five main
+  quests (EX The Champions' Ballad and the four EX Champion … Song quests) are Main Quests in the
+  log, so they aren't.
+- Shares the active save file with the other BotW trackers.
+
+**Breath of the Wild: Overworld Bosses**
+- Every fixed Hinox, Stalnox, Talus, Molduga and Lynel spawn: 40 Hinoxes, 40 Taluses, 4 Moldugas and 22 Lynels, plus
+  The Champions' Ballad's Igneo Talus Titan and Molduking (marked DLC) and Master Mode's extra Lynel (on the Master
+  Mode file only).
+- A swipeable tab per kind with its count, each grouped by tower region with counts per region.
+- Not found, Found or Defeated per spawn (defeated once is enough: bosses return after a Blood Moon). Tick a row to
+  mark it defeated, use its pin to mark it found.
+- Each tab's headline tracks Kilton's **Medals of Honor**, e.g. "Hinox 12 / 40 · Medal of Honor: Hinox". DLC bosses
+  are listed but not counted; Lynels have no medal.
+- **Hide unfound bosses** (top-bar menu): the same spoiler-safe mode as shrines and Koroks, with its own setting.
+- Search by place, variant, region or id; filter to bosses not yet defeated, or by variant (Blue Hinox, Frost
+  Talus…).
+- Tap › for a spawn's page: its Compendium entry and number, drops, region, nearest place, coordinates, notes (the
+  Coliseum Lynel, the Hyrule Castle bosses, Eventide Island…) and **Open in objmap**. Lynels whose colour rises with
+  the world level are tagged *Scales* and listed at their weakest colour.
+- Shares the active save file with the other BotW trackers.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -143,20 +200,34 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
+  src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
+  src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
+  src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines (TotK's also has the Lightroots)
   src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
+  src/commonMain/composeResources/files/botw/bosses.json     ← overworld boss spawns
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
+  src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
 
 Each game's trackers are listed in `core/Games.kt`; storage keys are prefixed with the game id.
+
+### Adding a tracker to the Progress Overview
+
+Write a `ProgressProvider` (`core/ProgressSummary.kt`) next to the tracker's storage, e.g.
+`koroks/data/KorokProgressProvider.kt`: it maps one save file's progress to a `ProgressSummary`
+(title, done / total, an optional detail line, an optional next step, and whether it counts
+toward map completion). Then return it for the tracker's `TrackerKind` in
+`overview/OverviewProviders.kt`; that `when` is exhaustive, so a new kind won't compile until it
+has a branch. The interface's KDoc has the details.
 
 ## Building
 
@@ -263,3 +334,17 @@ datamined `korok_type`, which decides its puzzle type. The puzzle-type names and
 follow Zelda Wiki. See `docs/korok-puzzle-types.md` for the fields, the coordinate system and how
 the types map. Hestu's per-upgrade seed costs are from Zelda Wiki's Korok Seed page
 (208 + 73 + 160 = 441).
+
+BotW side quest data (`files/botw/side_quests.json`) comes from Zelda Wiki's *Side Quests in Breath
+of the Wild* and *Shrine Quest* pages and each quest's page, cross-checked against Game8's side
+quest, Shrine Quest and DLC lists: 76 side quests, 42 Shrine Quests and 13 EX side quests. Zelda
+Fandom and Thonky give the same 76. Regions are tower regions, worked out from where the quest giver stands using
+objmap's tower-region map data, which Game8's per-quest regions agree with. A Shrine Quest takes its
+shrine's region instead, so both trackers group it the same way, and its `shrineId` is the shrine's
+id in `shrines.json`. Timing notes are only given where a source states them.
+
+BotW overworld boss data (`files/botw/bosses.json`) comes from objmap.zeldamods.org and its radar backend: every
+boss actor's id, position, tower region and parameters, with names and drops from `compendium.json`. Counts and the
+Medals of Honor are cross-checked against Zelda Wiki; where they differ, the game data wins.
+`scripts/build-botw-bosses.py` rebuilds it, and `docs/overworld-bosses.md` covers the fields, the counts and what's
+uncertain (Lynel colours).
