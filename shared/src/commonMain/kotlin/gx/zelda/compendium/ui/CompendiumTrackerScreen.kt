@@ -2,7 +2,6 @@ package gx.zelda.compendium.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -19,7 +18,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -50,6 +48,7 @@ import gx.zelda.compendium.model.CompendiumCategory
 import gx.zelda.compendium.model.CompendiumEntry
 import gx.zelda.compendium.model.EntrySource
 import gx.zelda.compendium.model.compendiumNumber
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
@@ -59,6 +58,7 @@ import gx.zelda.core.ui.Tag
 @Composable
 fun CompendiumTrackerScreen(
     state: CompendiumUiState?,
+    loadFailed: Boolean,
     viewModel: CompendiumViewModel,
     onOpenEntry: (String) -> Unit,
     onBack: () -> Unit,
@@ -89,9 +89,7 @@ fun CompendiumTrackerScreen(
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
+            LoadingOrError(loadFailed, "The Compendium couldn't be loaded.", padding)
             return@Scaffold
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
