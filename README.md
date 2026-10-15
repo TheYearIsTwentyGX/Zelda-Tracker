@@ -115,6 +115,26 @@ iOS port is mostly a matter of adding the iOS targets.
   pouch takes 441 seeds; the rest only count toward Hestu's Gift for all 900.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Side Quests**
+- All 76 base-game side quests, the 42 Shrine Quests and the 13 DLC side quests ("EX" quests from
+  The Master Trials and The Champions' Ballad), a swipeable tab each, grouped by tower region with
+  counts per region and per tab.
+- Each quest is Not started, In progress or Completed: tick a row to complete it, and use its play
+  button to mark it in progress. Completing implies started; unticking leaves it in progress.
+- **Hide quests not started** (top-bar menu): the same spoiler-safe mode as shrines and Koroks, but
+  its own setting. A hidden quest's row shows only its region until tapped, and search only matches
+  it by region.
+- Search by quest, giver, place, reward, region or linked shrine; filter to incomplete quests.
+- Tap › for a quest's page: giver and where to find them, what has to happen first, a spoiler-light
+  objective, the reward and, where it's well sourced, when it can only be done (night, a Blood
+  Moon). Reward armor opens in Armor Progress.
+- A Shrine Quest's page shows its shrine's state from the shrine tracker on the same save file.
+  Completing the quest doesn't complete the shrine, since the trial inside is still to do.
+- EX quests are here because the Adventure Log lists them under Side Quests. The DLC's five main
+  quests (EX The Champions' Ballad and the four EX Champion … Song quests) are Main Quests in the
+  log, so they aren't.
+- Shares the active save file with the other BotW trackers.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -142,6 +162,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
+  src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -152,6 +173,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
+  src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
 androidApp/   Android application shell
 ```
@@ -266,3 +288,11 @@ datamined `korok_type`, which decides its puzzle type. The puzzle-type names and
 follow Zelda Wiki. See `docs/korok-puzzle-types.md` for the fields, the coordinate system and how
 the types map. Hestu's per-upgrade seed costs are from Zelda Wiki's Korok Seed page
 (208 + 73 + 160 = 441).
+
+BotW side quest data (`files/botw/side_quests.json`) comes from Zelda Wiki's *Side Quests in Breath
+of the Wild* and *Shrine Quest* pages and each quest's page, cross-checked against Game8's side
+quest, Shrine Quest and DLC lists: 76 side quests, 42 Shrine Quests and 13 EX side quests. Zelda
+Fandom and Thonky give the same 76. Regions are tower regions, worked out from where the quest giver stands using
+objmap's tower-region map data, which Game8's per-quest regions agree with. A Shrine Quest takes its
+shrine's region instead, so both trackers group it the same way, and its `shrineId` is the shrine's
+id in `shrines.json`. Timing notes are only given where a source states them.
