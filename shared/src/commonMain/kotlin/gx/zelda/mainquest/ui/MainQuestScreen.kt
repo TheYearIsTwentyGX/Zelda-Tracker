@@ -2,7 +2,6 @@ package gx.zelda.mainquest.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,7 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -41,6 +39,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
@@ -80,7 +79,7 @@ private val MainQuestSection.shortNoun: String
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainQuestScreen(state: MainQuestUiState?, viewModel: MainQuestViewModel, onBack: () -> Unit) {
+fun MainQuestScreen(state: MainQuestUiState?, loadFailed: Boolean, viewModel: MainQuestViewModel, onBack: () -> Unit) {
     val sections = MainQuestSection.entries
     val pager = rememberPagerState { sections.size }
     // Hoisted so each checklist keeps its scroll position while its page is off screen.
@@ -117,9 +116,7 @@ fun MainQuestScreen(state: MainQuestUiState?, viewModel: MainQuestViewModel, onB
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
+            LoadingOrError(loadFailed, "The main quest list couldn't be loaded.", padding)
             return@Scaffold
         }
         Column(Modifier.fillMaxSize().padding(padding)) {

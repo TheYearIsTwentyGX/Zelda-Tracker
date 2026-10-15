@@ -2,7 +2,6 @@ package gx.zelda.fairies.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,7 +15,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,6 +33,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import gx.zelda.fairies.model.FairyCatalog
 import gx.zelda.fairies.model.GreatFairy
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Stars
@@ -43,7 +42,7 @@ import gx.zelda.core.ui.Tag
 /** Great Fairy Fountains: where each one is, and which are open on the active save file. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FairyTrackerScreen(state: FairyUiState?, viewModel: FairyViewModel, onBack: () -> Unit) {
+fun FairyTrackerScreen(state: FairyUiState?, loadFailed: Boolean, viewModel: FairyViewModel, onBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -70,9 +69,7 @@ fun FairyTrackerScreen(state: FairyUiState?, viewModel: FairyViewModel, onBack: 
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
+            LoadingOrError(loadFailed, "The Great Fairy list couldn't be loaded.", padding)
             return@Scaffold
         }
         LazyColumn(
@@ -223,7 +220,7 @@ private fun SectionCard(content: @Composable () -> Unit) {
     }
 }
 
-private fun rupees(amount: Int) = "${grouped(amount)} rupees"
+internal fun rupees(amount: Int) = "${grouped(amount)} rupees"
 
 /** 10000 → "10,000". */
 private fun grouped(amount: Int): String = amount.toString().reversed().chunked(3).joinToString(",").reversed()

@@ -1,11 +1,9 @@
 package gx.zelda.koroks.ui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,7 +16,6 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -47,6 +44,7 @@ import gx.zelda.core.DiscoveryState
 import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.HiddenRow
+import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.RegionHeader
 import gx.zelda.core.ui.RowDivider
 import gx.zelda.core.ui.SaveFileOption
@@ -95,17 +93,7 @@ fun KorokTrackerScreen(
         },
     ) { padding ->
         if (state == null) {
-            Box(Modifier.fillMaxSize().padding(padding).padding(24.dp), contentAlignment = Alignment.Center) {
-                if (loadFailed) {
-                    Text(
-                        "The Korok list couldn't be loaded.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.error,
-                    )
-                } else {
-                    CircularProgressIndicator()
-                }
-            }
+            LoadingOrError(loadFailed, "The Korok list couldn't be loaded.", padding)
             return@Scaffold
         }
         KorokList(state, viewModel, onOpenKorok, padding)
