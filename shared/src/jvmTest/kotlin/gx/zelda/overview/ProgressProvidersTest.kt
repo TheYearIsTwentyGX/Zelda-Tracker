@@ -5,6 +5,9 @@ import gx.zelda.armor.data.ArmorRepository
 import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.armor.model.Source
+import gx.zelda.bosses.data.BossProgressProvider
+import gx.zelda.bosses.data.BossRepository
+import gx.zelda.bosses.data.BossStorage
 import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumRepository
 import gx.zelda.compendium.data.CompendiumStorage
@@ -258,10 +261,31 @@ class ProgressProvidersTest {
     }
 
     @Test
+    fun bossesCountEverySpawnAndSuggestTheNextMedal() = runTest {
+        val catalog = BossRepository.load(game)
+        val storage = BossStorage(dataStore, game)
+        val hinoxes = catalog.spawnsFor(file1).filter { it.kind == "hinox" }
+        hinoxes.take(2).forEach { storage.setDefeated("normal_1", it.id, true) }
+        storage.setState("normal_1", hinoxes[2].id, DiscoveryState.FOUND)
+
+        val summary = BossProgressProvider(storage).on()
+        assertEquals(2, summary.done, "a boss only found doesn't count")
+        assertEquals(108, summary.total, "DLC titans included")
+        assertEquals("Hinox 2 / 40 · Talus 0 / 41 · Molduga 0 / 5 · Lynel 0 / 22", summary.secondary)
+        assertEquals("Hinox 2 / 40 · Medal of Honor: Hinox", summary.next)
+        assertNull(summary.mapItems, "bosses don't count toward the map")
+        assertEquals(109, BossProgressProvider(storage).on("master").total, "Master Mode's extra Lynel")
+
+        // Lynels have no medal, so they never hold up the last line.
+        catalog.spawnsFor(file1).filter { it.countsForMedal && it.kind != "lynel" }.forEach { storage.setDefeated("normal_1", it.id, true) }
+        assertEquals("All Medals of Honor earned", BossProgressProvider(storage).on().next)
+    }
+
+    @Test
     fun aSaveFileWithNoDataYetShowsZeroEverywhere() = runTest {
         val providers = overviewProviders(dataStore, game)
         assertEquals(
-            listOf("Armor", "Great Fairy Fountains", "Main Quest", "Shrines", "Hearts & Stamina", "Hyrule Compendium", "Korok Seeds", "Side Quests"),
+            listOf("Armor", "Great Fairy Fountains", "Main Quest", "Shrines", "Hearts & Stamina", "Hyrule Compendium", "Korok Seeds", "Side Quests", "Overworld Bosses"),
             providers.map { it.title },
         )
         providers.forEach { provider ->
