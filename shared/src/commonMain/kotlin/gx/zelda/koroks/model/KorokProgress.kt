@@ -1,5 +1,6 @@
 package gx.zelda.koroks.model
 
+import gx.zelda.core.DiscoverySets
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -7,21 +8,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class KorokProgress(
     /** Koroks whose seed has been collected. */
-    val completed: Set<String> = emptySet(),
+    override val completed: Set<String> = emptySet(),
     /** Koroks found, collected or not; a collected one counts as found whether or not it's here. */
-    val found: Set<String> = emptySet(),
+    override val found: Set<String> = emptySet(),
     /** Hestu upgrades bought per [HestuPouch.id], as entered by the user. */
     val hestu: Map<String, Int> = emptyMap(),
-) {
-    fun state(korokId: String): DiscoveryState = DiscoveryState.of(korokId, completed, found)
-
-    fun isFound(korokId: String): Boolean = korokId in found || korokId in completed
-
-    fun withState(korokId: String, state: DiscoveryState): KorokProgress = when (state) {
-        DiscoveryState.UNDISCOVERED -> copy(completed = completed - korokId, found = found - korokId)
-        DiscoveryState.FOUND -> copy(completed = completed - korokId, found = found + korokId)
-        DiscoveryState.COMPLETED -> copy(completed = completed + korokId, found = found + korokId)
-    }
+) : DiscoverySets {
+    fun withState(korokId: String, state: DiscoveryState): KorokProgress =
+        setsWith(korokId, state).let { (completed, found) -> copy(completed = completed, found = found) }
 
     /** Upgrades are stored as entered, never below zero. */
     fun withBought(pouchId: String, upgrades: Int): KorokProgress = copy(hestu = hestu + (pouchId to upgrades.coerceAtLeast(0)))

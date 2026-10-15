@@ -1,5 +1,6 @@
 package gx.zelda.koroks.model
 
+import gx.zelda.core.groupByRegion
 import kotlinx.serialization.Serializable
 
 /** One Korok Seed puzzle. Positions and ids come from objmap.zeldamods.org; see docs/korok-puzzle-types.md. */
@@ -59,10 +60,7 @@ data class KorokCatalog(
     val koroks: List<Korok>,
 ) {
     /** [visible] split by region in [regions] order; regions with none are left out. */
-    fun byRegion(visible: List<Korok>): List<Pair<String, List<Korok>>> {
-        val grouped = visible.groupBy { it.region }
-        return regions.mapNotNull { region -> grouped[region]?.let { region to it } }
-    }
+    fun byRegion(visible: List<Korok>): List<Pair<String, List<Korok>>> = groupByRegion(regions, visible) { it.region }
 
     /** How many of [ids] are Koroks in this catalog. */
     fun count(ids: Set<String>): Int = koroks.count { it.id in ids }
