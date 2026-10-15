@@ -220,6 +220,8 @@ fun App(dataStore: DataStore<Preferences>) {
                         },
                         onBack = { nav.popBackStack() },
                     )
+                }
+            }
             composable<Bosses> { entry ->
                 val game = Games.byId(entry.toRoute<Bosses>().gameId)
                 val vm = bossViewModel(entry, dataStore, game)
@@ -307,6 +309,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.KOROKS -> navigate(Koroks(game.id))
         TrackerKind.OVERVIEW -> Unit
         TrackerKind.SIDE_QUESTS -> navigate(SideQuests(game.id))
+        TrackerKind.BOSSES -> navigate(Bosses(game.id))
     }
 }
 

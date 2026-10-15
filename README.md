@@ -13,7 +13,8 @@ iOS port is mostly a matter of adding the iOS targets.
   Master Mode), Main Quest (towers, Divine Beasts and memories), Armor (collected, and how many are
   fully upgraded; the armor list's DLC and amiibo filters apply), Great Fairy Fountains (open, and
   what the next costs), Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels) and
-  Side Quests (completed across the Side, Shrine and DLC tabs, with each tab's tally).
+  Side Quests (completed across the Side, Shrine and DLC tabs, with each tab's tally) and Overworld
+  Bosses (spawns defeated, each kind's count, and the next Medal of Honor to earn).
 - Most rows suggest a next step. With a tracker's *Hide undiscovered* on, the suggestion names only
   shrines or Koroks already found or quests already started, as the list does, and otherwise just
   the region.

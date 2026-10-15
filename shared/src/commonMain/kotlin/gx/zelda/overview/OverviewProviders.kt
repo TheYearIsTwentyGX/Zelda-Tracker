@@ -4,6 +4,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.armor.data.ArmorProgressProvider
 import gx.zelda.armor.data.ArmorStorage
+import gx.zelda.bosses.data.BossProgressProvider
+import gx.zelda.bosses.data.BossStorage
 import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumStorage
 import gx.zelda.core.Game
@@ -45,6 +47,7 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.KOROKS -> listOf(KorokProgressProvider(KorokStorage(dataStore, game)))
             TrackerKind.OVERVIEW -> emptyList()
             TrackerKind.SIDE_QUESTS -> listOf(SideQuestProgressProvider(SideQuestStorage(dataStore, game)))
+            TrackerKind.BOSSES -> listOf(BossProgressProvider(BossStorage(dataStore, game)))
         }
     }
 }
