@@ -20,6 +20,10 @@ import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.ui.ArmorDetailScreen
 import gx.zelda.armor.ui.ArmorTrackerScreen
 import gx.zelda.armor.ui.ArmorViewModel
+import gx.zelda.bosses.data.BossStorage
+import gx.zelda.bosses.ui.BossDetailScreen
+import gx.zelda.bosses.ui.BossTrackerScreen
+import gx.zelda.bosses.ui.BossViewModel
 import gx.zelda.compendium.data.CompendiumStorage
 import gx.zelda.compendium.ui.CompendiumDetailScreen
 import gx.zelda.compendium.ui.CompendiumTrackerScreen
@@ -66,6 +70,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Overview(val gameId: String)
 @Serializable private data class SideQuests(val gameId: String)
 @Serializable private data class SideQuestDetail(val gameId: String, val questId: String)
+@Serializable private data class Bosses(val gameId: String)
+@Serializable private data class BossDetail(val gameId: String, val spawnId: String)
 
 @Composable
 fun App(dataStore: DataStore<Preferences>) {
@@ -86,6 +92,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.KOROKS -> nav.navigate(Koroks(game.id))
                         TrackerKind.OVERVIEW -> nav.navigate(Overview(game.id))
                         TrackerKind.SIDE_QUESTS -> nav.navigate(SideQuests(game.id))
+                        TrackerKind.BOSSES -> nav.navigate(Bosses(game.id))
                     }
                 })
             }
@@ -213,6 +220,26 @@ fun App(dataStore: DataStore<Preferences>) {
                         },
                         onBack = { nav.popBackStack() },
                     )
+            composable<Bosses> { entry ->
+                val game = Games.byId(entry.toRoute<Bosses>().gameId)
+                val vm = bossViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                BossTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenSpawn = { nav.navigate(BossDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<BossDetail> { entry ->
+                val route = entry.toRoute<BossDetail>()
+                val listEntry = remember(entry) { nav.getBackStackEntry<Bosses>() }
+                val vm = bossViewModel(listEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    BossDetailScreen(it, route.spawnId, vm, onBack = { nav.popBackStack() })
                 }
             }
             composable<ArmorTracker> { entry ->
@@ -297,3 +324,11 @@ private fun sideQuestViewModel(
 }
 
 private fun Game.has(kind: TrackerKind): Boolean = trackers.any { it.kind == kind }
+
+/** The [BossViewModel] for [game], owned by the boss list's entry so the detail screen shares it. */
+@Composable
+private fun bossViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): BossViewModel = viewModel(owner, key = game.id) { BossViewModel(BossStorage(dataStore, game)) }

@@ -1,0 +1,2152 @@
+{
+  "coordinates": "objmap world units (same as the game): x grows east, z grows south, y is height; origin at the map centre; the playable map spans x -5000..5000 and z -4000..4000.",
+  "regions": [
+    "Great Plateau",
+    "Dueling Peaks",
+    "Hateno",
+    "Lanayru",
+    "Faron",
+    "Lake",
+    "Central",
+    "Ridgeland",
+    "Tabantha",
+    "Hebra",
+    "Woodland",
+    "Eldin",
+    "Akkala",
+    "Wasteland",
+    "Gerudo"
+  ],
+  "kinds": [
+    {
+      "id": "hinox",
+      "name": "Hinox",
+      "plural": "Hinoxes",
+      "medal": "Medal of Honor: Hinox",
+      "variants": [
+        "hinox",
+        "blue_hinox",
+        "black_hinox",
+        "stalnox"
+      ],
+      "medalTotal": 40
+    },
+    {
+      "id": "talus",
+      "name": "Talus",
+      "plural": "Taluses",
+      "medal": "Medal of Honor: Talus",
+      "variants": [
+        "stone_talus",
+        "stone_talus_luminous",
+        "stone_talus_rare",
+        "igneo_talus",
+        "frost_talus",
+        "igneo_talus_titan"
+      ],
+      "medalTotal": 40
+    },
+    {
+      "id": "molduga",
+      "name": "Molduga",
+      "plural": "Moldugas",
+      "medal": "Medal of Honor: Molduga",
+      "variants": [
+        "molduga",
+        "molduking"
+      ],
+      "medalTotal": 4
+    },
+    {
+      "id": "lynel",
+      "name": "Lynel",
+      "plural": "Lynels",
+      "variants": [
+        "lynel",
+        "blue_maned_lynel",
+        "white_maned_lynel",
+        "silver_lynel"
+      ]
+    }
+  ],
+  "spawns": [
+    {
+      "hashId": 1698864303,
+      "mapSection": "G-7",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Dueling Peaks",
+      "x": 1940.5,
+      "y": 144.41,
+      "z": 2396.5,
+      "nearestPlace": "Hickaly Woods",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 1833514674,
+      "mapSection": "H-6",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Hateno",
+      "x": 2414.72,
+      "y": 304.69,
+      "z": 1177.84,
+      "nearestPlace": "Phalian Highlands",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "hashId": 3350013125,
+      "mapSection": "I-6",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Hateno",
+      "x": 3250.94,
+      "y": 268.75,
+      "z": 1331.63,
+      "nearestPlace": "Purifier Lake",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "hashId": 373348007,
+      "mapSection": "I-7",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Hateno",
+      "x": 3210.17,
+      "y": 172.01,
+      "z": 2996.33,
+      "nearestPlace": "Mount Dunsel",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "hashId": 3572226454,
+      "mapSection": "H-5",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Hateno",
+      "x": 2990.9,
+      "y": 251.39,
+      "z": 787.92,
+      "nearestPlace": "Trotter's Downfall",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 1602515170,
+      "mapSection": "G-5",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Lanayru",
+      "x": 1969.04,
+      "y": 115.44,
+      "z": 97.4,
+      "nearestPlace": "Kincean Island",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "hashId": 2083136285,
+      "mapSection": "H-4",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Lanayru",
+      "x": 2930.51,
+      "y": 312.54,
+      "z": -298.4,
+      "nearestPlace": "Ralis Pond",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 3706280648,
+      "mapSection": "J-5",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Lanayru",
+      "x": 4442,
+      "y": 160.79,
+      "z": 350.94,
+      "nearestPlace": "Talus Plateau",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 3831867213,
+      "mapSection": "I-5",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Lanayru",
+      "x": 3526.26,
+      "y": 251.18,
+      "z": 364.97,
+      "nearestPlace": "Rucco Maag Shrine",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 3741497810,
+      "mapSection": "H-4",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Lanayru",
+      "x": 2485.1,
+      "y": 152.09,
+      "z": -133.56,
+      "nearestPlace": "Tabahl Woods",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "hashId": 1903632265,
+      "mapSection": "G-7",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Faron",
+      "x": 1330.55,
+      "y": 180.38,
+      "z": 2623.94,
+      "nearestPlace": "Tobio's Hollow",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "hashId": 3337886442,
+      "mapSection": "H-7",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Faron",
+      "x": 2768.06,
+      "y": 258.13,
+      "z": 2711.58,
+      "nearestPlace": "Hanu Pond",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ],
+      "noMasterModeRankUp": true
+    },
+    {
+      "hashId": 4099815924,
+      "mapSection": "G-8",
+      "kind": "hinox",
+      "variant": "hinox",
+      "region": "Faron",
+      "x": 1493.39,
+      "y": 306.77,
+      "z": 3092.14,
+      "nearestPlace": "Kamah Plateau",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Apple",
+        "Wildberry",
+        "Palm Fruit",
+        "Voltfruit",
+        "Mighty Bananas",
+        "Fortified Pumpkin",
+        "Hearty Durian"
+      ]
+    },
+    {
+      "hashId": 936329231,
+      "mapSection": "H-7",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Faron",
+      "x": 2693.7,
+      "y": 273.89,
+      "z": 2967.57,
+      "nearestPlace": "Uten Marsh",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ],
+      "noMasterModeRankUp": true
+    },
+    {
+      "hashId": 1925665429,
+      "mapSection": "J-8",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Faron",
+      "x": 4537.11,
+      "y": 110.76,
+      "z": 3701.95,
+      "nearestPlace": "Eventide Island",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ],
+      "note": "Eventide Island, where you arrive with nothing and must clear the island to leave."
+    },
+    {
+      "hashId": 3785639248,
+      "mapSection": "H-7",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Faron",
+      "x": 2420.75,
+      "y": 327.47,
+      "z": 2782.6,
+      "nearestPlace": "Rabella Wetlands",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ],
+      "noMasterModeRankUp": true
+    },
+    {
+      "hashId": 3700264996,
+      "mapSection": "H-8",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Faron",
+      "x": 2078.62,
+      "y": 110.22,
+      "z": 3450.66,
+      "nearestPlace": "Qukah Nata Shrine",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 3272527560,
+      "mapSection": "G-8",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Lake",
+      "x": 1031.43,
+      "y": 127.22,
+      "z": 3496.26,
+      "nearestPlace": "Herin Lake",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 2974080467,
+      "mapSection": "F-8",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Lake",
+      "x": 100.5,
+      "y": 111.28,
+      "z": 3371,
+      "nearestPlace": "Harfin Valley",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 2815854988,
+      "mapSection": "D-8",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Lake",
+      "x": -1062,
+      "y": 275.24,
+      "z": 3771.5,
+      "nearestPlace": "Ishto Soh Shrine",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 1266282060,
+      "mapSection": "F-4",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Central",
+      "x": 626.49,
+      "y": 123.09,
+      "z": -305.54,
+      "nearestPlace": "Applean Forest",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 3744176720,
+      "mapSection": "F-5",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Central",
+      "x": 421,
+      "y": 161.27,
+      "z": 329.5,
+      "nearestPlace": "Bottomless Swamp",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 1949698080,
+      "mapSection": "D-6",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Central",
+      "x": -1704.3,
+      "y": 111.6,
+      "z": 1776.78,
+      "nearestPlace": "Dah Kaso Shrine",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 851170738,
+      "mapSection": "D-5",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Central",
+      "x": -1177.05,
+      "y": 139.48,
+      "z": 118.51,
+      "nearestPlace": "Giant's Forest",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "hashId": 73882430,
+      "mapSection": "E-4",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Central",
+      "x": -491.34,
+      "y": 126.08,
+      "z": -1009.82,
+      "nearestPlace": "Lockup",
+      "drops": [
+        "Hinox Tooth"
+      ],
+      "note": "Hyrule Castle Lockup. Unlike other Stalnoxes it is there day and night; beating it opens the chest with the Hylian Shield."
+    },
+    {
+      "hashId": 1287559097,
+      "mapSection": "F-4",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Central",
+      "x": 256.5,
+      "y": 142.49,
+      "z": -913.5,
+      "nearestPlace": "Hyrule Forest Park",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 3627901807,
+      "mapSection": "C-4",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Ridgeland",
+      "x": -2370.05,
+      "y": 261.7,
+      "z": -419.59,
+      "nearestPlace": "Hyrule Ridge",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 2472409077,
+      "mapSection": "D-4",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Ridgeland",
+      "x": -1534.88,
+      "y": 214.82,
+      "z": -171.59,
+      "nearestPlace": "West Hyrule Plains",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 1721655973,
+      "mapSection": "C-5",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Ridgeland",
+      "x": -2217,
+      "y": 372.31,
+      "z": 584,
+      "nearestPlace": "Mogg Latan Shrine",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 2853871544,
+      "mapSection": "B-3",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Tabantha",
+      "x": -3793.68,
+      "y": 246.02,
+      "z": -1557.1,
+      "nearestPlace": "Bareeda Naag Shrine",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "hashId": 2009832062,
+      "mapSection": "A-2",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Hebra",
+      "x": -4531,
+      "y": 333.45,
+      "z": -2679.27,
+      "nearestPlace": "Hebra West Summit",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "hashId": 4237208898,
+      "mapSection": "A-1",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Hebra",
+      "x": -4260.15,
+      "y": 327,
+      "z": -3777.48,
+      "nearestPlace": "Icefall Foothills",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 2530315670,
+      "mapSection": "F-1",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Woodland",
+      "x": 341.82,
+      "y": 278.73,
+      "z": -3116.14,
+      "nearestPlace": "Thyphlo Ruins",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 3637193649,
+      "mapSection": "E-2",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Woodland",
+      "x": -480.55,
+      "y": 278.99,
+      "z": -2039.64,
+      "nearestPlace": "Lake Mekar",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 4080554254,
+      "mapSection": "E-3",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Woodland",
+      "x": -752.49,
+      "y": 187.41,
+      "z": -1268.12,
+      "nearestPlace": "Irch Plain",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 3201775889,
+      "mapSection": "D-2",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Woodland",
+      "x": -1273.5,
+      "y": 213.08,
+      "z": -2113.5,
+      "nearestPlace": "Rowan Plain",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 3410381997,
+      "mapSection": "H-1",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Eldin",
+      "x": 2917.42,
+      "y": 343.68,
+      "z": -3561.4,
+      "nearestPlace": "Gut Check Rock",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "hashId": 1384742674,
+      "mapSection": "I-3",
+      "kind": "hinox",
+      "variant": "blue_hinox",
+      "region": "Akkala",
+      "x": 3288.75,
+      "y": 323.08,
+      "z": -1256.24,
+      "nearestPlace": "Akkala Parade Ground Ruins",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Roasted Bass",
+        "Roasted Hearty Bass",
+        "Roasted Hearty Salmon",
+        "Roasted Trout",
+        "Roasted Carp",
+        "Roasted Porgy",
+        "Sneaky River Escargot",
+        "Blueshell Escargot",
+        "Blackened Crab"
+      ]
+    },
+    {
+      "hashId": 1028264440,
+      "mapSection": "I-1",
+      "kind": "hinox",
+      "variant": "black_hinox",
+      "region": "Akkala",
+      "x": 3489.38,
+      "y": 179.1,
+      "z": -3335.79,
+      "nearestPlace": "Tempest Gulch",
+      "drops": [
+        "Hinox Toenail",
+        "Hinox Tooth",
+        "Hinox Guts",
+        "Seared Steak",
+        "Seared Prime Steak",
+        "Seared Gourmet Steak",
+        "Roasted Bird Drumstick",
+        "Roasted Bird Thigh",
+        "Roasted Whole Bird"
+      ]
+    },
+    {
+      "hashId": 2519547405,
+      "mapSection": "J-2",
+      "kind": "hinox",
+      "variant": "stalnox",
+      "region": "Akkala",
+      "x": 4146.69,
+      "y": 130.35,
+      "z": -2225.24,
+      "nearestPlace": "East Akkala Plains",
+      "drops": [
+        "Hinox Tooth"
+      ]
+    },
+    {
+      "hashId": 3610208070,
+      "mapSection": "D-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Great Plateau",
+      "x": -1087.75,
+      "y": 179.14,
+      "z": 1663.18,
+      "nearestPlace": "Hopper Pond",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ],
+      "noMasterModeRankUp": true
+    },
+    {
+      "hashId": 2009332164,
+      "mapSection": "G-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Dueling Peaks",
+      "x": 1465.91,
+      "y": 203.77,
+      "z": 1328.91,
+      "nearestPlace": "Mable Ridge",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 4234397911,
+      "mapSection": "F-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Dueling Peaks",
+      "x": 705.34,
+      "y": 137.62,
+      "z": 1471.88,
+      "nearestPlace": "South Nabi Lake",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 1450825465,
+      "mapSection": "G-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Dueling Peaks",
+      "x": 1186.62,
+      "y": 254.28,
+      "z": 1642.77,
+      "nearestPlace": "West Necluda",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 3873221297,
+      "mapSection": "G-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Dueling Peaks",
+      "x": 1257.12,
+      "y": 355.8,
+      "z": 2176.52,
+      "nearestPlace": "Dueling Peaks",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 2367737901,
+      "mapSection": "E-6",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Dueling Peaks",
+      "x": -176.93,
+      "y": 132.59,
+      "z": 1771.62,
+      "nearestPlace": "Outpost Ruins",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 139564765,
+      "mapSection": "I-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Hateno",
+      "x": 3199.41,
+      "y": 173.38,
+      "z": 1904.36,
+      "nearestPlace": "Ovli Plain",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 3688513041,
+      "mapSection": "H-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Hateno",
+      "x": 2527.5,
+      "y": 242,
+      "z": 1904.5,
+      "nearestPlace": "Squabble River",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 3529818719,
+      "mapSection": "J-7",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Hateno",
+      "x": 4558.5,
+      "y": 105.41,
+      "z": 2465,
+      "nearestPlace": "Mapla Point",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 1063952470,
+      "mapSection": "I-4",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Lanayru",
+      "x": 3992.27,
+      "y": 353.03,
+      "z": -158.82,
+      "nearestPlace": "Ja'Abu Ridge",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 4097205930,
+      "mapSection": "G-8",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Faron",
+      "x": 1690.73,
+      "y": 165.27,
+      "z": 3335.62,
+      "nearestPlace": "Floria Falls",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 3707687090,
+      "mapSection": "I-8",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Faron",
+      "x": 3272.52,
+      "y": 133.05,
+      "z": 3409.85,
+      "nearestPlace": "Gama Cove",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 3817875409,
+      "mapSection": "G-8",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Faron",
+      "x": 1392.02,
+      "y": 107.03,
+      "z": 3727.59,
+      "nearestPlace": "Martha's Landing",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 481698249,
+      "mapSection": "F-6",
+      "kind": "talus",
+      "variant": "stone_talus",
+      "region": "Lake",
+      "x": 359.34,
+      "y": 114.45,
+      "z": 1904.01,
+      "nearestPlace": "Deya Lake",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Ruby"
+      ]
+    },
+    {
+      "hashId": 491623064,
+      "mapSection": "D-8",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Lake",
+      "x": -971.13,
+      "y": 355.71,
+      "z": 3236.14,
+      "nearestPlace": "Oseira Plains",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 853217538,
+      "mapSection": "F-3",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Central",
+      "x": 771.5,
+      "y": 152.53,
+      "z": -1014,
+      "nearestPlace": "Crenel Hills",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 3812413946,
+      "mapSection": "E-6",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Central",
+      "x": -514.75,
+      "y": 127.49,
+      "z": 1181.74,
+      "nearestPlace": "Lake Kolomo",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 1943962273,
+      "mapSection": "E-4",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Central",
+      "x": -136.65,
+      "y": 127.21,
+      "z": -956.26,
+      "nearestPlace": "East Passage",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ],
+      "note": "Hyrule Castle, East Passage."
+    },
+    {
+      "hashId": 3869714669,
+      "mapSection": "E-4",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Central",
+      "x": -768.74,
+      "y": 152.76,
+      "z": -804.49,
+      "nearestPlace": "Castle Town Prison",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 3605751469,
+      "mapSection": "C-3",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Ridgeland",
+      "x": -2177.46,
+      "y": 322.3,
+      "z": -1585.39,
+      "nearestPlace": "Tanagar Canyon",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 2763213354,
+      "mapSection": "B-5",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Ridgeland",
+      "x": -3137.5,
+      "y": 317.31,
+      "z": 72.9,
+      "nearestPlace": "Illumeni Plateau",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 464316212,
+      "mapSection": "B-3",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Tabantha",
+      "x": -3929.3,
+      "y": 197.19,
+      "z": -1083.48,
+      "nearestPlace": "Gisa Crater",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 2530932938,
+      "mapSection": "B-3",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Tabantha",
+      "x": -3248.4,
+      "y": 291.68,
+      "z": -1078.12,
+      "nearestPlace": "Strock Lake",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 321907823,
+      "mapSection": "C-3",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Hebra",
+      "x": -2864.5,
+      "y": 408.98,
+      "z": -1825.91,
+      "nearestPlace": "Tama Pond",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 4087740554,
+      "mapSection": "C-1",
+      "kind": "talus",
+      "variant": "frost_talus",
+      "region": "Hebra",
+      "x": -2144.88,
+      "y": 491.27,
+      "z": -3082.59,
+      "nearestPlace": "Pikida Stonegrove",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 1684711544,
+      "mapSection": "B-2",
+      "kind": "talus",
+      "variant": "frost_talus",
+      "region": "Hebra",
+      "x": -3073.5,
+      "y": 478.42,
+      "z": -2918.5,
+      "nearestPlace": "Coldsnap Hollow",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 189892196,
+      "mapSection": "B-2",
+      "kind": "talus",
+      "variant": "frost_talus",
+      "region": "Hebra",
+      "x": -3709.5,
+      "y": 331.28,
+      "z": -2347,
+      "nearestPlace": "Rospro Pass",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 2080410037,
+      "mapSection": "G-1",
+      "kind": "talus",
+      "variant": "igneo_talus",
+      "region": "Eldin",
+      "x": 1336.1,
+      "y": 507.31,
+      "z": -3043.21,
+      "nearestPlace": "Isle of Rabac",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Ruby",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 4143112243,
+      "mapSection": "H-1",
+      "kind": "talus",
+      "variant": "igneo_talus",
+      "region": "Eldin",
+      "x": 2146.5,
+      "y": 535.83,
+      "z": -3011.5,
+      "nearestPlace": "Lake Darman",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Ruby",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 3180486693,
+      "mapSection": "H-2",
+      "kind": "talus",
+      "variant": "igneo_talus",
+      "region": "Eldin",
+      "x": 2141.56,
+      "y": 559.13,
+      "z": -2178.47,
+      "nearestPlace": "Gorko Lake",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Ruby",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 1372356658,
+      "mapSection": "H-3",
+      "kind": "talus",
+      "variant": "igneo_talus",
+      "region": "Eldin",
+      "x": 2372.52,
+      "y": 507.89,
+      "z": -1998.62,
+      "nearestPlace": "Darb Pond",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Ruby",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 2112489205,
+      "mapSection": "G-3",
+      "kind": "talus",
+      "variant": "igneo_talus",
+      "region": "Eldin",
+      "x": 1795.54,
+      "y": 394.18,
+      "z": -1746.73,
+      "nearestPlace": "Gortram Cliff",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Ruby",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 667761767,
+      "mapSection": "H-1",
+      "kind": "talus",
+      "variant": "igneo_talus_titan",
+      "region": "Eldin",
+      "x": 2160.11,
+      "y": 500.65,
+      "z": -3190.37,
+      "nearestPlace": "Lake Darman",
+      "drops": [],
+      "dlc": true,
+      "note": "Champions' Ballad: Lake Darman, during EX Champion Daruk's Song. Doesn't count toward the Medal of Honor: Talus."
+    },
+    {
+      "hashId": 2827830463,
+      "mapSection": "C-6",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Wasteland",
+      "x": -2277.5,
+      "y": 293.77,
+      "z": 1979,
+      "nearestPlace": "Koukot Plateau",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 975119268,
+      "mapSection": "C-8",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Wasteland",
+      "x": -2096.46,
+      "y": 318.46,
+      "z": 3037.91,
+      "nearestPlace": "Champion's Gate",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 3900382371,
+      "mapSection": "A-6",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Gerudo",
+      "x": -4312.07,
+      "y": 418.11,
+      "z": 1446.89,
+      "nearestPlace": "Rutimala Hill",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 3273877672,
+      "mapSection": "D-7",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Gerudo",
+      "x": -1896,
+      "y": 200.68,
+      "z": 2044.68,
+      "nearestPlace": "Mount Nabooru",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 372172601,
+      "mapSection": "C-7",
+      "kind": "talus",
+      "variant": "stone_talus_luminous",
+      "region": "Gerudo",
+      "x": -2898.47,
+      "y": 305.79,
+      "z": 2210.99,
+      "nearestPlace": "Gerudo Canyon Stable",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Luminous Stone",
+        "Topaz",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 2455625785,
+      "mapSection": "B-6",
+      "kind": "talus",
+      "variant": "stone_talus_rare",
+      "region": "Gerudo",
+      "x": -3804.76,
+      "y": 602.57,
+      "z": 1204.77,
+      "nearestPlace": "Yiga Clan Hideout",
+      "drops": [
+        "Flint",
+        "Amber",
+        "Opal",
+        "Topaz",
+        "Ruby",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 648092042,
+      "mapSection": "C-6",
+      "kind": "talus",
+      "variant": "frost_talus",
+      "region": "Gerudo",
+      "x": -2919.99,
+      "y": 656.12,
+      "z": 1294.27,
+      "nearestPlace": "Laparoh Mesa",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 4007690024,
+      "mapSection": "B-6",
+      "kind": "talus",
+      "variant": "frost_talus",
+      "region": "Gerudo",
+      "x": -3558.72,
+      "y": 558.36,
+      "z": 1560.07,
+      "nearestPlace": "Yiga Clan Hideout",
+      "drops": [
+        "Flint",
+        "Opal",
+        "Sapphire",
+        "Diamond"
+      ]
+    },
+    {
+      "hashId": 3098676163,
+      "mapSection": "A-7",
+      "kind": "molduga",
+      "variant": "molduga",
+      "region": "Wasteland",
+      "x": -4832.61,
+      "y": 133.21,
+      "z": 2800.42,
+      "nearestPlace": "Tho Kayu Shrine",
+      "drops": [
+        "Molduga Fin",
+        "Molduga Guts"
+      ]
+    },
+    {
+      "hashId": 3569739054,
+      "mapSection": "A-8",
+      "kind": "molduga",
+      "variant": "molduga",
+      "region": "Wasteland",
+      "x": -4555.62,
+      "y": 137.14,
+      "z": 3256.35,
+      "nearestPlace": "Dragon's Exile",
+      "drops": [
+        "Molduga Fin",
+        "Molduga Guts"
+      ]
+    },
+    {
+      "hashId": 494020159,
+      "mapSection": "B-8",
+      "kind": "molduga",
+      "variant": "molduga",
+      "region": "Wasteland",
+      "x": -3799.06,
+      "y": 118.76,
+      "z": 3653.43,
+      "nearestPlace": "Southern Oasis",
+      "drops": [
+        "Molduga Fin",
+        "Molduga Guts"
+      ]
+    },
+    {
+      "hashId": 3538536935,
+      "mapSection": "A-8",
+      "kind": "molduga",
+      "variant": "molduga",
+      "region": "Wasteland",
+      "x": -4191.12,
+      "y": 126.91,
+      "z": 3797.45,
+      "nearestPlace": "Arbiter's Grounds",
+      "drops": [
+        "Molduga Fin",
+        "Molduga Guts"
+      ]
+    },
+    {
+      "hashId": 1755179653,
+      "mapSection": "C-8",
+      "kind": "molduga",
+      "variant": "molduking",
+      "region": "Wasteland",
+      "x": -2391.18,
+      "y": 119.09,
+      "z": 3733.19,
+      "nearestPlace": "East Barrens",
+      "drops": [
+        "Treasures"
+      ],
+      "dlc": true,
+      "note": "Champions' Ballad: East Barrens, during EX Champion Urbosa's Song; back after every Blood Moon once beaten. Doesn't count toward the Medal of Honor: Molduga."
+    },
+    {
+      "hashId": 1288562591,
+      "mapSection": "E-7",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Great Plateau",
+      "x": -669.37,
+      "y": 190.31,
+      "z": 2081.47,
+      "nearestPlace": "Temple of Time",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "masterModeOnly": true,
+      "noMasterModeRankUp": true,
+      "note": "Master Mode only: not on Normal Mode files."
+    },
+    {
+      "hashId": 1492521341,
+      "mapSection": "I-6",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Hateno",
+      "x": 3261.15,
+      "y": 263.12,
+      "z": 1211.79,
+      "nearestPlace": "Lanayru Road - East Gate",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 1396251553,
+      "mapSection": "I-4",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Lanayru",
+      "x": 3864.5,
+      "y": 591.6,
+      "z": -603,
+      "nearestPlace": "Ploymus Mountain",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "otherHashIds": [
+        2291678401
+      ],
+      "note": "Ploymus Mountain: the Lynel Sidon sends you to for Shock Arrows. The game swaps in a second actor once Vah Ruta's quest reaches the mountain; it is the same fight. Never changes colour."
+    },
+    {
+      "hashId": 438554606,
+      "mapSection": "J-5",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Lanayru",
+      "x": 4479.35,
+      "y": 154.65,
+      "z": 788.93,
+      "nearestPlace": "Tarm Point",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 232962450,
+      "mapSection": "G-7",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Faron",
+      "x": 1619.39,
+      "y": 366.65,
+      "z": 2928.56,
+      "nearestPlace": "Keelay Plain",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 1819222204,
+      "mapSection": "E-8",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Lake",
+      "x": -864.86,
+      "y": 191.71,
+      "z": 3181.61,
+      "nearestPlace": "Oseira Plains",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 459804714,
+      "mapSection": "E-8",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Lake",
+      "x": -781.81,
+      "y": 176.92,
+      "z": 3656.41,
+      "nearestPlace": "Oseira Plains",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 4200912374,
+      "mapSection": "D-6",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Central",
+      "x": -1146.09,
+      "y": 152.19,
+      "z": 1276.29,
+      "nearestPlace": "Coliseum Ruins",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "otherHashIds": [
+        1544805954,
+        237760997,
+        1578404536
+      ],
+      "note": "Coliseum Ruins. The game places one Lynel per colour here and shows one: Red, Blue-Maned, White-Maned or Silver as more Divine Beasts are freed (BattleArena_Level1–4). Its colour follows that, not the world level."
+    },
+    {
+      "hashId": 2284947922,
+      "mapSection": "E-4",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Central",
+      "x": -346.11,
+      "y": 222.98,
+      "z": -825.89,
+      "nearestPlace": "First Gatehouse",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "note": "Hyrule Castle, First Gatehouse. Never changes colour."
+    },
+    {
+      "hashId": 3515533418,
+      "mapSection": "E-4",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Central",
+      "x": -157.12,
+      "y": 247.19,
+      "z": -887.92,
+      "nearestPlace": "Second Gatehouse",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "note": "Hyrule Castle, Second Gatehouse. Never changes colour."
+    },
+    {
+      "hashId": 3391176708,
+      "mapSection": "C-4",
+      "kind": "lynel",
+      "variant": "lynel",
+      "region": "Ridgeland",
+      "x": -2874.37,
+      "y": 304.5,
+      "z": -282.18,
+      "nearestPlace": "Shae Loya Shrine",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 1423341458,
+      "mapSection": "A-2",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Hebra",
+      "x": -4493.33,
+      "y": 218.68,
+      "z": -2456.18,
+      "nearestPlace": "Hebra West Summit",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 3788100745,
+      "mapSection": "C-1",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Hebra",
+      "x": -2028.39,
+      "y": 347.73,
+      "z": -3628.6,
+      "nearestPlace": "N. Tabantha Snowfield",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 2378625228,
+      "mapSection": "D-1",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Hebra",
+      "x": -1313.07,
+      "y": 323.05,
+      "z": -3567.33,
+      "nearestPlace": "Mount Drena",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 329409903,
+      "mapSection": "D-1",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Hebra",
+      "x": -1689.5,
+      "y": 340.91,
+      "z": -3557,
+      "nearestPlace": "N. Tabantha Snowfield",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 4192271973,
+      "mapSection": "E-3",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Woodland",
+      "x": -760.74,
+      "y": 219.46,
+      "z": -1837.6,
+      "nearestPlace": "Aldor Foothills",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 4101701470,
+      "mapSection": "G-1",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Woodland",
+      "x": 1257.69,
+      "y": 207.16,
+      "z": -3753.55,
+      "nearestPlace": "East Deplian Badlands",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 3371712234,
+      "mapSection": "F-1",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Woodland",
+      "x": 247,
+      "y": 173.39,
+      "z": -3668.5,
+      "nearestPlace": "Deplian Badlands",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 4246046905,
+      "mapSection": "E-1",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Woodland",
+      "x": -401,
+      "y": 207.78,
+      "z": -3100.5,
+      "nearestPlace": "Drenan Highlands",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 3396778219,
+      "mapSection": "I-1",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Akkala",
+      "x": 3859,
+      "y": 244.82,
+      "z": -3226,
+      "nearestPlace": "Akkala Wilds",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 1529588945,
+      "mapSection": "I-2",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Akkala",
+      "x": 3637,
+      "y": 127.94,
+      "z": -2965.5,
+      "nearestPlace": "Akkala",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 86620264,
+      "mapSection": "B-6",
+      "kind": "lynel",
+      "variant": "blue_maned_lynel",
+      "region": "Gerudo",
+      "x": -3061.89,
+      "y": 687.75,
+      "z": 1067.74,
+      "nearestPlace": "Kuh Takkar Shrine",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    },
+    {
+      "hashId": 1309263371,
+      "mapSection": "A-5",
+      "kind": "lynel",
+      "variant": "white_maned_lynel",
+      "region": "Gerudo",
+      "x": -4037.55,
+      "y": 795.53,
+      "z": 878.59,
+      "nearestPlace": "Gerudo Highlands",
+      "drops": [
+        "Lynel Horn",
+        "Lynel Hoof",
+        "Lynel Guts"
+      ],
+      "scalesWithWorldLevel": true
+    }
+  ]
+}
