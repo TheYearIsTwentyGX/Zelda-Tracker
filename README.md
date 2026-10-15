@@ -12,9 +12,12 @@ iOS port is mostly a matter of adding the iOS targets.
   900, and Hestu upgrades bought), Hyrule Compendium (of the save file's own total: 389, or 394 in
   Master Mode), Main Quest (towers, Divine Beasts and memories), Armor (collected, and how many are
   fully upgraded; the armor list's DLC and amiibo filters apply), Great Fairy Fountains (open, and
-  what the next costs) and Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels).
+  what the next costs), Hearts & Stamina (Spirit Orb upgrades bought, hearts and stamina wheels) and
+  Side Quests (completed across the Side, Shrine and DLC tabs, with each tab's tally) and Overworld
+  Bosses (spawns defeated, each kind's count, and the next Medal of Honor to earn).
 - Most rows suggest a next step. With a tracker's *Hide undiscovered* on, the suggestion names only
-  shrines or Koroks already found, as the list does, and otherwise just the region.
+  shrines or Koroks already found or quests already started, as the list does, and otherwise just
+  the region.
 - **Map completion**: Korok seeds, shrines and Divine Beasts count toward the map's percentage
   (Nintendo Life, Screen Rant), so the overview shows how many of those 1,024 items are done. Named
   locations count too, but sources disagree on how many there are (187 or 226) and no tracker
@@ -135,6 +138,23 @@ iOS port is mostly a matter of adding the iOS targets.
   log, so they aren't.
 - Shares the active save file with the other BotW trackers.
 
+**Breath of the Wild: Overworld Bosses**
+- Every fixed Hinox, Stalnox, Talus, Molduga and Lynel spawn: 40 Hinoxes, 40 Taluses, 4 Moldugas and 22 Lynels, plus
+  The Champions' Ballad's Igneo Talus Titan and Molduking (marked DLC) and Master Mode's extra Lynel (on the Master
+  Mode file only).
+- A swipeable tab per kind with its count, each grouped by tower region with counts per region.
+- Not found, Found or Defeated per spawn (defeated once is enough: bosses return after a Blood Moon). Tick a row to
+  mark it defeated, use its pin to mark it found.
+- Each tab's headline tracks Kilton's **Medals of Honor**, e.g. "Hinox 12 / 40 · Medal of Honor: Hinox". DLC bosses
+  are listed but not counted; Lynels have no medal.
+- **Hide unfound bosses** (top-bar menu): the same spoiler-safe mode as shrines and Koroks, with its own setting.
+- Search by place, variant, region or id; filter to bosses not yet defeated, or by variant (Blue Hinox, Frost
+  Talus…).
+- Tap › for a spawn's page: its Compendium entry and number, drops, region, nearest place, coordinates, notes (the
+  Coliseum Lynel, the Hyrule Castle bosses, Eventide Island…) and **Open in objmap**. Lynels whose colour rises with
+  the world level are tagged *Scales* and listed at their weakest colour.
+- Shares the active save file with the other BotW trackers.
+
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set
   bonus and material-totals features as BotW.
@@ -163,6 +183,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
+  src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -171,6 +192,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
+  src/commonMain/composeResources/files/botw/bosses.json     ← overworld boss spawns
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
@@ -296,3 +318,9 @@ Fandom and Thonky give the same 76. Regions are tower regions, worked out from w
 objmap's tower-region map data, which Game8's per-quest regions agree with. A Shrine Quest takes its
 shrine's region instead, so both trackers group it the same way, and its `shrineId` is the shrine's
 id in `shrines.json`. Timing notes are only given where a source states them.
+
+BotW overworld boss data (`files/botw/bosses.json`) comes from objmap.zeldamods.org and its radar backend: every
+boss actor's id, position, tower region and parameters, with names and drops from `compendium.json`. Counts and the
+Medals of Honor are cross-checked against Zelda Wiki; where they differ, the game data wins.
+`scripts/build-botw-bosses.py` rebuilds it, and `docs/overworld-bosses.md` covers the fields, the counts and what's
+uncertain (Lynel colours).

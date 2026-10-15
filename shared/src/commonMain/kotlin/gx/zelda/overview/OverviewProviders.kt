@@ -4,6 +4,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.armor.data.ArmorProgressProvider
 import gx.zelda.armor.data.ArmorStorage
+import gx.zelda.bosses.data.BossProgressProvider
+import gx.zelda.bosses.data.BossStorage
 import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumStorage
 import gx.zelda.core.Game
@@ -19,6 +21,8 @@ import gx.zelda.shrines.data.ShrineProgressProvider
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.data.SpiritOrbProgressProvider
 import gx.zelda.shrines.data.shrineCatalogLoad
+import gx.zelda.sidequests.data.SideQuestProgressProvider
+import gx.zelda.sidequests.data.SideQuestStorage
 
 /**
  * The Progress Overview's rows for [game], in the order its trackers are listed.
@@ -42,6 +46,8 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.COMPENDIUM -> listOf(CompendiumProgressProvider(CompendiumStorage(dataStore, game)))
             TrackerKind.KOROKS -> listOf(KorokProgressProvider(KorokStorage(dataStore, game)))
             TrackerKind.OVERVIEW -> emptyList()
+            TrackerKind.SIDE_QUESTS -> listOf(SideQuestProgressProvider(SideQuestStorage(dataStore, game)))
+            TrackerKind.BOSSES -> listOf(BossProgressProvider(BossStorage(dataStore, game)))
         }
     }
 }

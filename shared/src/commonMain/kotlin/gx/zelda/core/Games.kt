@@ -30,6 +30,7 @@ enum class TrackerKind {
     /** Every other tracker's progress on one screen; see `overview/OverviewProviders.kt`. */
     OVERVIEW,
     SIDE_QUESTS,
+    BOSSES,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -54,6 +55,7 @@ object Games {
             Tracker(TrackerKind.COMPENDIUM, "Hyrule Compendium", "Every entry photographed, by category, with where to find what's missing"),
             Tracker(TrackerKind.KOROKS, "Korok Seeds", "All 900 seeds by region and puzzle type, and Hestu's upgrades"),
             Tracker(TrackerKind.SIDE_QUESTS, "Side Quests", "Side Quests, Shrine Quests and DLC quests by region, with givers and rewards"),
+            Tracker(TrackerKind.BOSSES, "Overworld Bosses", "Every Hinox, Talus, Molduga and Lynel by region, and Kilton's Medals of Honor"),
         ),
     )
 

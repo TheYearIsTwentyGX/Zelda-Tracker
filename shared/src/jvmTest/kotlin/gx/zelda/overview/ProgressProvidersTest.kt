@@ -5,6 +5,9 @@ import gx.zelda.armor.data.ArmorRepository
 import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.armor.model.Source
+import gx.zelda.bosses.data.BossProgressProvider
+import gx.zelda.bosses.data.BossRepository
+import gx.zelda.bosses.data.BossStorage
 import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumRepository
 import gx.zelda.compendium.data.CompendiumStorage
@@ -27,6 +30,10 @@ import gx.zelda.shrines.data.ShrineProgressProvider
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.data.SpiritOrbProgressProvider
+import gx.zelda.sidequests.data.SideQuestProgressProvider
+import gx.zelda.sidequests.data.SideQuestRepository
+import gx.zelda.sidequests.data.SideQuestStorage
+import gx.zelda.sidequests.model.QuestKind
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import java.nio.file.Files
@@ -216,10 +223,69 @@ class ProgressProvidersTest {
     }
 
     @Test
+    fun sideQuestsCountEachTab() = runTest {
+        val catalog = SideQuestRepository.load(game)
+        val storage = SideQuestStorage(dataStore, game)
+        catalog.ofKind(QuestKind.SIDE).take(3).forEach { storage.setState("normal_1", it.id, DiscoveryState.COMPLETED) }
+        storage.setState("normal_1", catalog.ofKind(QuestKind.SHRINE).first().id, DiscoveryState.COMPLETED)
+        storage.setState("normal_1", catalog.ofKind(QuestKind.DLC).first().id, DiscoveryState.FOUND)
+
+        val summary = SideQuestProgressProvider(storage).on()
+        assertEquals(4, summary.done, "a quest only started doesn't count")
+        assertEquals(catalog.quests.size, summary.total)
+        val (side, shrine, dlc) = listOf(QuestKind.SIDE, QuestKind.SHRINE, QuestKind.DLC).map { catalog.ofKind(it).size }
+        assertEquals("Side 3 / $side · Shrine 1 / $shrine · DLC 0 / $dlc", summary.secondary)
+        assertNull(summary.mapItems, "side quests don't count toward the map")
+        val started = catalog.ofKind(QuestKind.DLC).first()
+        assertEquals("Finish ${started.name} (${started.region})", summary.next)
+    }
+
+    @Test
+    fun sideQuestSuggestionNamesNothingNotStartedWhileSpoilersAreHidden() = runTest {
+        val catalog = SideQuestRepository.load(game)
+        val storage = SideQuestStorage(dataStore, game)
+        val shown = SideQuestProgressProvider(storage).on().next
+        assertNotNull(shown)
+        assertTrue(shown.startsWith("Start ") && catalog.quests.any { it.name in shown }, shown)
+
+        storage.updatePrefs { it.copy(hideUndiscovered = true) }
+        val hidden = SideQuestProgressProvider(storage).on().next
+        assertNotNull(hidden)
+        assertTrue(hidden.endsWith("Tower region"), hidden)
+        assertFalse(catalog.quests.any { it.name in hidden || it.giver in hidden }, "no quest or giver named: $hidden")
+
+        // A started quest is no spoiler, as in the list.
+        val started = catalog.quests.first { it.region == "Hebra" }
+        storage.setState("normal_1", started.id, DiscoveryState.FOUND)
+        assertEquals("Finish ${started.name} (Hebra)", SideQuestProgressProvider(storage).on().next)
+    }
+
+    @Test
+    fun bossesCountEverySpawnAndSuggestTheNextMedal() = runTest {
+        val catalog = BossRepository.load(game)
+        val storage = BossStorage(dataStore, game)
+        val hinoxes = catalog.spawnsFor(file1).filter { it.kind == "hinox" }
+        hinoxes.take(2).forEach { storage.setDefeated("normal_1", it.id, true) }
+        storage.setState("normal_1", hinoxes[2].id, DiscoveryState.FOUND)
+
+        val summary = BossProgressProvider(storage).on()
+        assertEquals(2, summary.done, "a boss only found doesn't count")
+        assertEquals(108, summary.total, "DLC titans included")
+        assertEquals("Hinox 2 / 40 · Talus 0 / 41 · Molduga 0 / 5 · Lynel 0 / 22", summary.secondary)
+        assertEquals("Hinox 2 / 40 · Medal of Honor: Hinox", summary.next)
+        assertNull(summary.mapItems, "bosses don't count toward the map")
+        assertEquals(109, BossProgressProvider(storage).on("master").total, "Master Mode's extra Lynel")
+
+        // Lynels have no medal, so they never hold up the last line.
+        catalog.spawnsFor(file1).filter { it.countsForMedal && it.kind != "lynel" }.forEach { storage.setDefeated("normal_1", it.id, true) }
+        assertEquals("All Medals of Honor earned", BossProgressProvider(storage).on().next)
+    }
+
+    @Test
     fun aSaveFileWithNoDataYetShowsZeroEverywhere() = runTest {
         val providers = overviewProviders(dataStore, game)
         assertEquals(
-            listOf("Armor", "Great Fairy Fountains", "Main Quest", "Shrines", "Hearts & Stamina", "Hyrule Compendium", "Korok Seeds"),
+            listOf("Armor", "Great Fairy Fountains", "Main Quest", "Shrines", "Hearts & Stamina", "Hyrule Compendium", "Korok Seeds", "Side Quests", "Overworld Bosses"),
             providers.map { it.title },
         )
         providers.forEach { provider ->
