@@ -33,7 +33,13 @@ import kotlin.math.roundToInt
 /** One Korok: how its puzzle type is solved, where it is, and a link to it on objmap. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KorokDetailScreen(state: KorokUiState, korokId: String, viewModel: KorokViewModel, onBack: () -> Unit) {
+fun KorokDetailScreen(
+    state: KorokUiState,
+    korokId: String,
+    viewModel: KorokViewModel,
+    onBack: () -> Unit,
+    onShowOnMap: (() -> Unit)? = null,
+) {
     val korok = state.catalog.koroks.firstOrNull { it.id == korokId } ?: return
     val type = state.data.typeOf(korok)
     val uriHandler = LocalUriHandler.current
@@ -93,6 +99,12 @@ fun KorokDetailScreen(state: KorokUiState, korokId: String, viewModel: KorokView
                 )
             }
 
+            if (onShowOnMap != null) {
+                OutlinedButton(onClick = onShowOnMap) {
+                    Icon(Icons.Filled.Place, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
+                    Text("Show on map")
+                }
+            }
             OutlinedButton(onClick = { uriHandler.openUri(korok.objmapUrl) }) {
                 Icon(Icons.Filled.Place, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
                 Text("Open in objmap")

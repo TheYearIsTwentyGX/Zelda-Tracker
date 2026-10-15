@@ -58,6 +58,16 @@ object ShrineMapRepository {
 
     suspend fun load(game: Game): ShrineMapData = parse(Res.readBytes(path(game)).decodeToString())
 
+    @Serializable
+    private class TowersJson(val towers: Map<String, List<Double>>)
+
+    /** Tower positions keyed by name, as `main_quest.json` names them; [parse] keeps only the points. */
+    fun parseTowerPositions(text: String): Map<String, WorldPoint> =
+        json.decodeFromString(TowersJson.serializer(), text).towers.mapValues { (_, p) -> WorldPoint(p[0], p[1]) }
+
+    suspend fun loadTowerPositions(game: Game): Map<String, WorldPoint> =
+        parseTowerPositions(Res.readBytes(path(game)).decodeToString())
+
     private fun TemplateJson.toTemplate(): IconTemplate {
         val values = rows.flatMap { row -> row.trim().split(' ').map { it.toInt() / 255f } }
         require(rows.size == size && values.size == size * size) { "template must be $size × $size" }
