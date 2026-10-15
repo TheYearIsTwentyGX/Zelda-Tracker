@@ -68,6 +68,7 @@ object Games {
         trackers = listOf(
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
             Tracker(TrackerKind.FAIRIES, "Great Fairy Fountains", "Where to find each Great Fairy and how to free her"),
+            Tracker(TrackerKind.SHRINES, "Shrines & Lightroots", "All 152 shrines, the 120 Lightroots beneath them and a Light of Blessing planner"),
         ),
     )
 
