@@ -56,7 +56,7 @@ import gx.zelda.core.rememberImagesPicker
 import gx.zelda.core.ui.Tag
 import gx.zelda.shrines.model.ShrineState
 
-/** Shrines → ⋮ → Scan map screenshots: instructions, the photo picker, and the review before Apply. */
+/** Shrines → ⋮ → Scan map screenshots or photos: instructions, the photo picker, and the review before Apply. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShrineScanScreen(state: ShrineScanUiState?, loadFailed: Boolean, viewModel: ShrineScanViewModel, onBack: () -> Unit) {
@@ -67,7 +67,7 @@ fun ShrineScanScreen(state: ShrineScanUiState?, loadFailed: Boolean, viewModel: 
             TopAppBar(
                 title = {
                     Column {
-                        Text("Scan map screenshots")
+                        Text("Scan map screenshots or photos")
                         if (state != null) {
                             Text(
                                 state.saveFile.label,
@@ -125,7 +125,7 @@ private fun ScanContent(state: ShrineScanUiState, viewModel: ShrineScanViewModel
         state.scanning?.let { (done, total) ->
             item(key = "_scanning") {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Reading screenshot ${(done + 1).coerceAtMost(total)} of $total…", style = MaterialTheme.typography.bodyMedium)
+                    Text("Reading image ${(done + 1).coerceAtMost(total)} of $total…", style = MaterialTheme.typography.bodyMedium)
                     LinearProgressIndicator(Modifier.fillMaxWidth())
                 }
             }
@@ -135,8 +135,8 @@ private fun ScanContent(state: ShrineScanUiState, viewModel: ShrineScanViewModel
             if (state.scanning == null) {
                 item(key = "_retry") {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Text("None of these screenshots could be used.", style = MaterialTheme.typography.bodyMedium)
-                        Button(onClick = { viewModel.startOver(); onPick() }) { Text("Choose screenshots") }
+                        Text("None of these images could be used.", style = MaterialTheme.typography.bodyMedium)
+                        Button(onClick = { viewModel.startOver(); onPick() }) { Text("Choose images") }
                     }
                 }
             }
@@ -151,8 +151,8 @@ private fun ScanContent(state: ShrineScanUiState, viewModel: ShrineScanViewModel
 private fun Instructions(onPick: () -> Unit) {
     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Text(
-            "Read which shrines you've found and finished from screenshots of the in-game map. You'll see " +
-                "what it found before anything changes.",
+            "Read which shrines you've found and finished from screenshots of the in-game map, or photos of the " +
+                "screen showing it. You'll see what it found before anything changes.",
             style = MaterialTheme.typography.bodyMedium,
         )
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) {
@@ -161,7 +161,7 @@ private fun Instructions(onPick: () -> Unit) {
                 Step(1, "Open the 2D map and zoom all the way out.")
                 Step(2, "Take one screenshot of the north half, then pan down and take one of the south half.")
                 Step(3, "On the Switch, open the Album, pick the screenshots and use Send to Smartphone. Scan the QR code with this phone and save the images.")
-                Step(4, "Choose them here. Use the original screenshots: photos of the TV, crops and edited copies won't work.")
+                Step(4, "Choose them here. Use the original screenshots, not crops or edited copies.")
                 Text(
                     "Hero's Path mode works, but its trail can hide a few spots. Pins and stamps on a shrine hide it too.",
                     style = MaterialTheme.typography.bodySmall,
@@ -169,7 +169,20 @@ private fun Instructions(onPick: () -> Unit) {
                 )
             }
         }
-        Button(onClick = onPick, modifier = Modifier.fillMaxWidth()) { Text("Choose screenshots") }
+        Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                Text("Or photograph the screen", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                Step(1, "With the map zoomed all the way out, take a photo of the TV or the Switch: one of the north half, one of the south.")
+                Step(2, "Fill most of the picture with the screen, but keep all of it in the shot. From the couch, use the camera's 2× zoom.")
+                Step(3, "Hold steady, keep lamps and windows from reflecting in the screen, then choose the photos here.")
+                Text(
+                    "Photos leave a few more shrines unsure than screenshots do.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+        Button(onClick = onPick, modifier = Modifier.fillMaxWidth()) { Text("Choose screenshots or photos") }
     }
 }
 
@@ -191,7 +204,7 @@ private fun ShotCard(index: Int, shot: ScannedShot) {
         modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp),
     ) {
         Column(Modifier.padding(horizontal = 16.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text("Screenshot ${index + 1} · ${shot.name}", style = MaterialTheme.typography.labelLarge)
+            Text("${if (shot.fromPhoto) "Photo" else "Screenshot"} ${index + 1} · ${shot.name}", style = MaterialTheme.typography.labelLarge)
             when (val scan = shot.scan) {
                 is ShotScan.Rejected -> Text(scan.message, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onErrorContainer)
                 is ShotScan.Read -> Text(
@@ -397,7 +410,7 @@ private fun ApplyBar(changes: Int, onAddMore: () -> Unit, onApply: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth().navigationBarsPadding().padding(horizontal = 16.dp, vertical = 10.dp),
         ) {
-            OutlinedButton(onClick = onAddMore) { Text("Add screenshots") }
+            OutlinedButton(onClick = onAddMore) { Text("Add more") }
             Button(onClick = onApply, enabled = changes > 0, modifier = Modifier.weight(1f)) {
                 Text(if (changes == 0) "Nothing to apply" else "Apply ${changeCount(changes)}")
             }

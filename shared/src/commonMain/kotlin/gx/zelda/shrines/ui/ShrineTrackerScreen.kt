@@ -186,7 +186,7 @@ private fun ShrineMenu(state: ShrineUiState, viewModel: ShrineViewModel, onScanM
         )
         if (onScanMap != null) {
             DropdownMenuItem(
-                text = { Text("Scan map screenshots") },
+                text = { Text("Scan map screenshots or photos") },
                 onClick = {
                     open = false
                     onScanMap()

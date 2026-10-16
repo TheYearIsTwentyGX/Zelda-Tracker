@@ -57,6 +57,12 @@ enum class RejectReason {
     WRONG_SIZE,
     TOO_FEW_ICONS,
     NOT_MIN_ZOOM,
+
+    /** A photo in which no map screen could be found. */
+    NO_SCREEN,
+
+    /** A photo in which the screen is too small to read the icons. */
+    SCREEN_TOO_SMALL,
 }
 
 /** Where a screenshot sits on the map: screen = [scale] × world + ([tx], [ty]). */
