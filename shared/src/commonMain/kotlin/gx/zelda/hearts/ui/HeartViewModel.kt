@@ -14,6 +14,7 @@ import gx.zelda.hearts.model.HeartPrefs
 import gx.zelda.hearts.model.HeartProgress
 import gx.zelda.hearts.model.HeartTotal
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -139,22 +140,21 @@ class HeartViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setCollected(entryId: String, collected: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setCollected(file, entryId, collected) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setCollected(entryId: String, collected: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setCollected(file, entryId, collected) }
     }
 
-    fun setHideUncollected(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideUncollected = hide) } }
-    }
+    fun setHideUncollected(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUncollected = hide) } }
 
     /** Shows one uncollected entry's row until the tracker is closed; nothing is saved. */
     fun reveal(entryId: String) = filters.update { it.copy(revealed = it.revealed + entryId) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 

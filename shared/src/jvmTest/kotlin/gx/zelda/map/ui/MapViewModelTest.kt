@@ -1,8 +1,8 @@
 package gx.zelda.map.ui
 
-import androidx.lifecycle.viewModelScope
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Games
+import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.koroks.model.Korok
@@ -18,19 +18,13 @@ import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.Shrine
 import gx.zelda.shrines.model.TrialType
 import gx.zelda.shrines.scan.WorldPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.asCoroutineDispatcher
-import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import java.util.concurrent.Executors
 import kotlin.test.AfterTest
@@ -45,17 +39,14 @@ class MapViewModelTest {
     // A real single thread, like Android's main looper. With an unconfined Main the view model's
     // collectors run inline on DataStore's threads, and under load a fresh progress() collector
     // could miss an edit made from the view model.
-    private val main = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
+    private val thread = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
+    private val main = TestMain(thread)
 
-    @BeforeTest fun setUp() = Dispatchers.setMain(main)
-
-    private val created = mutableListOf<MapViewModel>()
+    @BeforeTest fun setUp() = main.setUp()
 
     @AfterTest fun tearDown() {
-        // Stop each view model's flows and wait for them, so none outlives the test's Main.
-        runBlocking { created.forEach { it.viewModelScope.coroutineContext.job.cancelAndJoin() } }
-        Dispatchers.resetMain()
-        main.close()
+        main.tearDown()
+        thread.close()
     }
 
     private val game = Games.BOTW
@@ -75,9 +66,7 @@ class MapViewModelTest {
         listOf(SheikahTower("great_plateau", "Great Plateau Tower", "Great Plateau", "", "") to here)
     }
 
-    private fun vm(focus: String? = null) = track(MapViewModel(MapStorage(dataStore, game), listOf(shrineLayer, korokLayer, towerLayer), focus))
-
-    private fun track(vm: MapViewModel) = vm.also { created += it }
+    private fun vm(focus: String? = null) = main.track(MapViewModel(MapStorage(dataStore, game), listOf(shrineLayer, korokLayer, towerLayer), focus))
 
     /** Keeps [vm]'s state flowing, as the screen does, and waits for a state matching [until]. */
     private suspend fun TestScope.await(vm: MapViewModel, until: (MapUiState) -> Boolean): MapUiState {
@@ -101,7 +90,7 @@ class MapViewModelTest {
         shrines.setState("normal_2", "ja_baij", DiscoveryState.COMPLETED)
         val vm = vm()
         await(vm) { it.saveFile.id == "normal_1" }
-        vm.setSaveFile("normal_2")
+        vm.setSaveFile("normal_2").join()
         val state = await(vm) { it.saveFile.id == "normal_2" }
         assertEquals(DiscoveryState.COMPLETED, state.marker("shrines:ja_baij")?.entry?.state)
         assertEquals(listOf(1, 0, 0), state.layers.map { it.done })
@@ -114,11 +103,11 @@ class MapViewModelTest {
         val vm = vm()
         val state = await(vm) { true }
         // One tap at a time, as in the sheet: each write lands in its own tracker before the next.
-        vm.setState(state.marker("koroks:P01")!!, DiscoveryState.FOUND)
+        vm.setState(state.marker("koroks:P01")!!, DiscoveryState.FOUND)!!.join()
         assertEquals(DiscoveryState.FOUND, koroks.progress("normal_1").first { "P01" in it.found }.state("P01"))
-        vm.setState(state.marker("shrines:oman_au")!!, DiscoveryState.COMPLETED)
+        vm.setState(state.marker("shrines:oman_au")!!, DiscoveryState.COMPLETED)!!.join()
         assertEquals(DiscoveryState.COMPLETED, shrines.progress("normal_1").first { "oman_au" in it.completed }.state("oman_au"))
-        vm.setState(state.marker("towers:great_plateau")!!, DiscoveryState.COMPLETED)
+        vm.setState(state.marker("towers:great_plateau")!!, DiscoveryState.COMPLETED)!!.join()
         assertTrue("great_plateau" in mainQuest.progress("normal_1").first { it.towers.isNotEmpty() }.towers)
         val after = await(vm) { s -> s.layers.map { it.done } == listOf(1, 0, 1) }
         assertEquals(DiscoveryState.FOUND, after.marker("koroks:P01")?.entry?.state)
@@ -134,7 +123,7 @@ class MapViewModelTest {
         // The sheet still knows a hidden shrine, unnamed.
         assertTrue(state.all.getValue("shrines:ja_baij").anonymous)
 
-        vm.setUndiscoveredAsDots(true)
+        vm.setUndiscoveredAsDots(true).join()
         val dots = await(vm) { it.prefs.undiscoveredAsDots }
         assertTrue(dots.marker("shrines:ja_baij")!!.anonymous)
 
@@ -146,7 +135,7 @@ class MapViewModelTest {
     fun showOnMapPinsNamesAndSelectsTheEntry() = runTest {
         koroks.updatePrefs { it.copy(hideUndiscovered = true) }
         val vm = vm(focus = "koroks:P01")
-        vm.setLayerOn("koroks", false)
+        vm.setLayerOn("koroks", false).join()
         val state = await(vm) { "koroks" in it.prefs.hiddenLayers }
         assertEquals(listOf("koroks:P01"), state.markers.filter { it.layer.id == "koroks" }.map { it.key })
         assertFalse(state.marker("koroks:P01")!!.anonymous)
@@ -159,7 +148,7 @@ class MapViewModelTest {
     @Test
     fun missingDatasetReportsLoadFailure() = runTest {
         val broken = KorokLayer(koroks) { throw IllegalStateException("files/botw/koroks.json not found") }
-        val vm = track(MapViewModel(MapStorage(dataStore, game), listOf(shrineLayer, broken)))
+        val vm = main.track(MapViewModel(MapStorage(dataStore, game), listOf(shrineLayer, broken)))
         backgroundScope.launch { vm.state.collect {} }
         assertTrue(vm.loadFailed.first { it })
         assertEquals(null, vm.state.value)
@@ -167,7 +156,7 @@ class MapViewModelTest {
 
     @Test
     fun bundledLayersLoad() = runTest {
-        val vm = track(MapViewModel(MapStorage(dataStore, game), botwMapLayers(dataStore, game)))
+        val vm = main.track(MapViewModel(MapStorage(dataStore, game), botwMapLayers(dataStore, game)))
         val state = await(vm) { true }
         assertEquals(listOf(136, 900, 15), state.layers.map { it.total })
         assertFalse(vm.loadFailed.value)
