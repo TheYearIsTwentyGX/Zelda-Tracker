@@ -280,6 +280,23 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   **File 3**. Each tab shows its count, and the save file picker shows all three. Sources and
   known disagreements are in `docs/mc-main-quest.md`.
 
+**The Minish Cap: Carlov's Figurines**
+- All 136 figurines with their gallery numbers, names and in-game descriptions (North American
+  text), in four categories by egg colour: Characters, Scenes, Enemies and Bosses.
+- Grouped by the story checkpoint that adds them to Carlov's machine: the gallery opening, Cave of
+  Flames, Vaati taking the king, and so on up to the six-figurine final series after the credits.
+  Eleven also need a side task (a Kinstone fusion, Beedle's dusty stall, the Goron Cave); tick it
+  under the figurine.
+- Set the save file's story checkpoint and the tracker works out which figurines are **available
+  now**. Filter by *Available now*, *Still to win* or *Not yet available*, and by category. Counts
+  are shown overall, per category and per checkpoint.
+- **Mysterious Shells** per save file, and the odds of a new figurine from the game's own code:
+  what Carlov's machine shows, the hidden minimum it actually rolls against (15 % down to 6 %),
+  and about how many shells the next one, and the rest of what's available, will cost.
+- **Hide figurines not yet available** (top-bar menu): they show only their number until tapped,
+  later checkpoints read "Later in the story", and search only matches their number.
+- Three save files, **File 1–3**, as on the cartridge.
+
 ## Layout
 
 ```
@@ -296,6 +313,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/kinstones/  ← Kinstone fusion tracker (Minish Cap)
   src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
   src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
+  src/commonMain/kotlin/gx/zelda/figurines/  ← Minish Cap figurine tracker and Carlov's odds
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -312,6 +330,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/mc/kinstones.json   ← Minish Cap Kinstone fusions
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
+  src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
 androidApp/   Android application shell
@@ -474,3 +493,10 @@ The map's shrine and tower markers are objmap's vector tracings of the game's ma
 The Korok marker is the Korok Seed's inventory icon from Zelda Wiki. `docs/map-icons.md` lists the
 source of each icon and has licence notes: objmap's repository is GPL-3.0, so the icons have the same
 personal-build caveat as the map art.
+
+Minish Cap figurine data (`files/mc/figurines.json`) comes from Zelda Wiki's *Figurines in The
+Minish Cap* (names, North American descriptions, who's pictured) and the zeldaret/tmc decompilation
+(each figurine's egg colour and the story flag or Kinstone fusion that unlocks it, plus the odds
+formula). It is cross-checked against Zelda Wiki's Figurine Gallery table, StrategyWiki and
+Zeldapedia. `scripts/build-mc-figurines.py` rebuilds it, and `docs/mc-figurines.md` covers the
+checkpoints, the odds and where the sources disagree.

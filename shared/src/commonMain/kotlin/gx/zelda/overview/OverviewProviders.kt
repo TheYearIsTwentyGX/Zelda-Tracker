@@ -17,6 +17,8 @@ import gx.zelda.hearts.data.HeartProgressProvider
 import gx.zelda.hearts.data.HeartStorage
 import gx.zelda.kinstones.data.KinstoneProgressProvider
 import gx.zelda.kinstones.data.KinstoneStorage
+import gx.zelda.figurines.data.FigurineProgressProvider
+import gx.zelda.figurines.data.FigurineStorage
 import gx.zelda.koroks.data.KorokProgressProvider
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.mainquest.data.MainQuestProgressProvider
@@ -56,6 +58,7 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.MAP -> emptyList()
             TrackerKind.HEART_PIECES -> listOf(HeartProgressProvider(HeartStorage(dataStore, game)))
             TrackerKind.KINSTONES -> listOf(KinstoneProgressProvider(KinstoneStorage(dataStore, game)))
+            TrackerKind.FIGURINES -> listOf(FigurineProgressProvider(FigurineStorage(dataStore, game)))
         }
     }
 }

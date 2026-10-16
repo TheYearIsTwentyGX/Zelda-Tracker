@@ -43,6 +43,9 @@ import gx.zelda.kinstones.data.KinstoneStorage
 import gx.zelda.kinstones.ui.KinstoneDetailScreen
 import gx.zelda.kinstones.ui.KinstoneTrackerScreen
 import gx.zelda.kinstones.ui.KinstoneViewModel
+import gx.zelda.figurines.data.FigurineStorage
+import gx.zelda.figurines.ui.FigurineTrackerScreen
+import gx.zelda.figurines.ui.FigurineViewModel
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.koroks.ui.KorokDetailScreen
 import gx.zelda.koroks.ui.KorokTrackerScreen
@@ -90,6 +93,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class HeartPieces(val gameId: String)
 @Serializable private data class Kinstones(val gameId: String)
 @Serializable private data class KinstoneDetail(val gameId: String, val fusionId: String)
+@Serializable private data class Figurines(val gameId: String)
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
@@ -116,6 +120,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.MAP -> nav.navigate(WorldMap(game.id))
                         TrackerKind.HEART_PIECES -> nav.navigate(HeartPieces(game.id))
                         TrackerKind.KINSTONES -> nav.navigate(Kinstones(game.id))
+                        TrackerKind.FIGURINES -> nav.navigate(Figurines(game.id))
                     }
                 })
             }
@@ -353,6 +358,13 @@ fun App(dataStore: DataStore<Preferences>) {
                     KinstoneDetailScreen(it, route.fusionId, vm, onBack = { nav.popBackStack() })
                 }
             }
+            composable<Figurines> { entry ->
+                val game = Games.byId(entry.toRoute<Figurines>().gameId)
+                val vm = viewModel(key = "figurines_${game.id}") { FigurineViewModel(FigurineStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                FigurineTrackerScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -436,6 +448,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.MAP -> navigate(WorldMap(game.id))
         TrackerKind.HEART_PIECES -> navigate(HeartPieces(game.id))
         TrackerKind.KINSTONES -> navigate(Kinstones(game.id))
+        TrackerKind.FIGURINES -> navigate(Figurines(game.id))
     }
 }
 
