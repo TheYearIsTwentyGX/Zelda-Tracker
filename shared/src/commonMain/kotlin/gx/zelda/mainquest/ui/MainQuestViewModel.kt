@@ -36,6 +36,10 @@ data class MainQuestUiState(
     fun doneCount(section: MainQuestSection): Int = catalog.doneCount(section, progress.done(section))
 
     val albumCount: Int get() = catalog.albumCount(progress.memories)
+
+    val elementCount: Int get() = catalog.elementCount(progress.dungeons)
+
+    val upgradeCount: Int get() = catalog.upgradeCount(progress.tigerScrolls)
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -68,7 +72,7 @@ class MainQuestViewModel(
             progress = progress,
             saveFile = file,
             saveFiles = byFile.map { (f, p) ->
-                MainQuestSaveSummary(f, MainQuestSection.entries.associateWith { catalog.doneCount(it, p.done(it)) })
+                MainQuestSaveSummary(f, catalog.sections.associateWith { catalog.doneCount(it, p.done(it)) })
             },
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)

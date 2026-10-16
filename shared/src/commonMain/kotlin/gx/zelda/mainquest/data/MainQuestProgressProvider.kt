@@ -14,7 +14,10 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
-/** The overview's Main Quest row: towers, Divine Beasts and memories together, each counted below. */
+/**
+ * The overview's Main Quest row: every checklist the game has together, each counted below.
+ * Towers, Divine Beasts and memories in BotW; dungeons, items and Tiger Scrolls in The Minish Cap.
+ */
 class MainQuestProgressProvider(
     private val storage: MainQuestStorage,
     private val catalog: CachedLoad<MainQuestCatalog> = CachedLoad { MainQuestRepository.load(storage.game) },
@@ -28,7 +31,10 @@ class MainQuestProgressProvider(
     }
 
     companion object {
-        fun summarize(catalog: MainQuestCatalog, progress: MainQuestProgress): ProgressSummary {
+        fun summarize(catalog: MainQuestCatalog, progress: MainQuestProgress): ProgressSummary =
+            if (catalog.dungeons.isEmpty()) summarizeBotw(catalog, progress) else summarizeDungeons(catalog, progress)
+
+        private fun summarizeBotw(catalog: MainQuestCatalog, progress: MainQuestProgress): ProgressSummary {
             fun done(section: MainQuestSection) = catalog.doneCount(section, progress.done(section))
             val towers = done(MainQuestSection.TOWERS)
             val beasts = done(MainQuestSection.DIVINE_BEASTS)
@@ -43,6 +49,22 @@ class MainQuestProgressProvider(
                     "Memories $memories / ${catalog.total(MainQuestSection.MEMORIES)}",
                 next = next(catalog, progress),
                 mapItems = ItemCount("Divine Beasts", beasts, beastTotal),
+            )
+        }
+
+        private fun summarizeDungeons(catalog: MainQuestCatalog, progress: MainQuestProgress): ProgressSummary {
+            fun done(section: MainQuestSection) = catalog.doneCount(section, progress.done(section))
+            val dungeons = done(MainQuestSection.DUNGEONS)
+            val items = done(MainQuestSection.ITEMS)
+            val scrolls = done(MainQuestSection.TIGER_SCROLLS)
+            return ProgressSummary(
+                title = "Main Quest",
+                done = dungeons + items + scrolls,
+                total = catalog.sections.sumOf { catalog.total(it) },
+                secondary = "Dungeons $dungeons / ${catalog.total(MainQuestSection.DUNGEONS)} · " +
+                    "Items $items / ${catalog.total(MainQuestSection.ITEMS)} · " +
+                    "Tiger Scrolls $scrolls / ${catalog.total(MainQuestSection.TIGER_SCROLLS)}",
+                next = catalog.dungeons.firstOrNull { it.id !in progress.dungeons }?.let { "Clear ${it.name} in ${it.region}" },
             )
         }
 
