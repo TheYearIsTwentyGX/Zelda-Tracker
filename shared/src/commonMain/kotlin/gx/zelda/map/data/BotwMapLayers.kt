@@ -15,7 +15,7 @@ import gx.zelda.mainquest.model.MainQuestSection
 import gx.zelda.mainquest.model.SheikahTower
 import gx.zelda.map.model.MapEntry
 import gx.zelda.map.model.MapLayer
-import gx.zelda.map.model.MarkerShape
+import gx.zelda.map.model.MarkerKind
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.Shrine
@@ -59,7 +59,7 @@ class ShrineLayer(
             DiscoveryState.FOUND to "Found",
             DiscoveryState.COMPLETED to "Completed",
         ),
-        shape = MarkerShape.SQUARE,
+        kind = MarkerKind.SHRINE,
         spoilerSetting = "Hide undiscovered shrines",
     )
 
@@ -74,6 +74,7 @@ class ShrineLayer(
                 region = shrine.region,
                 world = at,
                 state = progress.state(shrine.id),
+                dlc = shrine.dlc,
             )
         }
 
@@ -100,7 +101,7 @@ class KorokLayer(
             DiscoveryState.FOUND to "Found",
             DiscoveryState.COMPLETED to "Collected",
         ),
-        shape = MarkerShape.CIRCLE,
+        kind = MarkerKind.KOROK,
         clustered = true,
         spoilerSetting = "Hide undiscovered Koroks",
     )
@@ -144,7 +145,7 @@ class TowerLayer(
             DiscoveryState.UNDISCOVERED to "Not activated",
             DiscoveryState.COMPLETED to "Activated",
         ),
-        shape = MarkerShape.DIAMOND,
+        kind = MarkerKind.TOWER,
     )
 
     private val towers = LoadOnce(load)
