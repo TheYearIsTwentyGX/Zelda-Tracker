@@ -7,6 +7,7 @@ import gx.zelda.core.ItemCount
 import gx.zelda.core.ProgressProvider
 import gx.zelda.core.ProgressSummary
 import gx.zelda.core.SaveFile
+import gx.zelda.core.TestMain
 import gx.zelda.core.TrackerKind
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.core.createDataStore
@@ -16,14 +17,11 @@ import gx.zelda.fairies.model.FairyCatalog
 import gx.zelda.koroks.data.KorokProgressProvider
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.shrines.data.ShrineStorage
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -34,18 +32,19 @@ import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class OverviewViewModelTest {
-    private val main = UnconfinedTestDispatcher()
+    private val dispatcher = UnconfinedTestDispatcher()
+    private val main = TestMain(dispatcher)
 
-    @BeforeTest fun setUp() = Dispatchers.setMain(main)
+    @BeforeTest fun setUp() = main.setUp()
 
-    @AfterTest fun tearDown() = Dispatchers.resetMain()
+    @AfterTest fun tearDown() = main.tearDown()
 
     private val dataStore = createDataStore(Files.createTempDirectory("zgx").toString())
     private val game = Games.BOTW
 
     /** Loads on the test's main dispatcher, so nothing outlives the test on another thread. */
     private fun viewModel(providers: List<ProgressProvider> = overviewProviders(dataStore, game)) =
-        OverviewViewModel(dataStore, game, providers, loadDispatcher = main)
+        main.track(OverviewViewModel(dataStore, game, providers, loadDispatcher = dispatcher))
 
     private fun OverviewUiState.summary(title: String): ProgressSummary? =
         (rows.single { it.title == title }.status as? RowStatus.Ready)?.summary
@@ -70,7 +69,7 @@ class OverviewViewModelTest {
         assertEquals(0, first.summary("Korok Seeds")!!.done)
         assertEquals(0, first.summary("Great Fairy Fountains")!!.done)
 
-        vm.setSaveFile("normal_2")
+        vm.setSaveFile("normal_2").join()
         val second = vm.state.first { it?.saveFile?.id == "normal_2" && it.loaded() }!!
         assertEquals(0, second.summary("Shrines")!!.done)
         assertEquals(2, second.summary("Korok Seeds")!!.done)

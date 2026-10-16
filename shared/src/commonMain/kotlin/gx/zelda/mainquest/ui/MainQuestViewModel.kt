@@ -9,6 +9,7 @@ import gx.zelda.mainquest.model.MainQuestCatalog
 import gx.zelda.mainquest.model.MainQuestProgress
 import gx.zelda.mainquest.model.MainQuestSection
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -35,6 +36,10 @@ data class MainQuestUiState(
     fun doneCount(section: MainQuestSection): Int = catalog.doneCount(section, progress.done(section))
 
     val albumCount: Int get() = catalog.albumCount(progress.memories)
+
+    val elementCount: Int get() = catalog.elementCount(progress.dungeons)
+
+    val upgradeCount: Int get() = catalog.upgradeCount(progress.tigerScrolls)
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -67,7 +72,7 @@ class MainQuestViewModel(
             progress = progress,
             saveFile = file,
             saveFiles = byFile.map { (f, p) ->
-                MainQuestSaveSummary(f, MainQuestSection.entries.associateWith { catalog.doneCount(it, p.done(it)) })
+                MainQuestSaveSummary(f, catalog.sections.associateWith { catalog.doneCount(it, p.done(it)) })
             },
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
@@ -80,13 +85,14 @@ class MainQuestViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setDone(section: MainQuestSection, id: String, done: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setDone(file, section, id, done) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setDone(section: MainQuestSection, id: String, done: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setDone(file, section, id, done) }
     }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 }

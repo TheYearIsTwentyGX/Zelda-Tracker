@@ -13,6 +13,10 @@ import gx.zelda.core.ProgressProvider
 import gx.zelda.core.TrackerKind
 import gx.zelda.fairies.data.FairyProgressProvider
 import gx.zelda.fairies.data.FairyStorage
+import gx.zelda.hearts.data.HeartProgressProvider
+import gx.zelda.hearts.data.HeartStorage
+import gx.zelda.kinstones.data.KinstoneProgressProvider
+import gx.zelda.kinstones.data.KinstoneStorage
 import gx.zelda.figurines.data.FigurineProgressProvider
 import gx.zelda.figurines.data.FigurineStorage
 import gx.zelda.koroks.data.KorokProgressProvider
@@ -52,6 +56,8 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.BOSSES -> listOf(BossProgressProvider(BossStorage(dataStore, game)))
             // The map's counts are the shrine, Korok and tower trackers', which have rows already.
             TrackerKind.MAP -> emptyList()
+            TrackerKind.HEART_PIECES -> listOf(HeartProgressProvider(HeartStorage(dataStore, game)))
+            TrackerKind.KINSTONES -> listOf(KinstoneProgressProvider(KinstoneStorage(dataStore, game)))
             TrackerKind.FIGURINES -> listOf(FigurineProgressProvider(FigurineStorage(dataStore, game)))
         }
     }

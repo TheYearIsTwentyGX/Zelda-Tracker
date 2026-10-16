@@ -15,6 +15,7 @@ import gx.zelda.figurines.model.FigurineProgress
 import gx.zelda.figurines.model.FigurineTally
 import gx.zelda.figurines.model.tally
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -168,10 +169,13 @@ class FigurineViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    private fun edit(block: suspend (fileId: String) -> Unit) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { block(file) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    private fun edit(block: suspend (fileId: String) -> Unit): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { block(file) }
     }
 
     fun setOwned(number: Int, owned: Boolean) = edit { storage.setOwned(it, number, owned) }
@@ -182,16 +186,12 @@ class FigurineViewModel(
 
     fun setShells(shells: Int) = edit { storage.setShells(it, shells) }
 
-    fun setHideUnavailable(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideUnavailable = hide) } }
-    }
+    fun setHideUnavailable(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUnavailable = hide) } }
 
     /** Shows one hidden figurine's row until the tracker is closed; nothing is saved. */
     fun reveal(number: Int) = filters.update { it.copy(revealed = it.revealed + number) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 

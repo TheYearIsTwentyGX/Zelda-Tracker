@@ -2,16 +2,14 @@ package gx.zelda.shrines.scan
 
 import gx.zelda.core.Games
 import gx.zelda.core.PickedImage
+import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.ShrineState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -25,9 +23,11 @@ import kotlin.test.assertTrue
 /** The scan screen's flow with the real partial-save screenshots: pick, review, apply. */
 @OptIn(ExperimentalCoroutinesApi::class)
 class ShrineScanViewModelTest {
-    @BeforeTest fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
+    private val main = TestMain()
 
-    @AfterTest fun tearDown() = Dispatchers.resetMain()
+    @BeforeTest fun setUp() = main.setUp()
+
+    @AfterTest fun tearDown() = main.tearDown()
 
     private fun storage() = ShrineStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.BOTW)
 
@@ -37,7 +37,7 @@ class ShrineScanViewModelTest {
 
     /** A view model whose catalog, map data and save file have loaded. */
     private suspend fun viewModel(storage: ShrineStorage) =
-        ShrineScanViewModel(storage, work = Dispatchers.Unconfined).also { vm -> vm.state.first { it != null } }
+        main.track(ShrineScanViewModel(storage, work = Dispatchers.Unconfined)).also { vm -> vm.state.first { it != null } }
 
     /** Scans and waits for the review; DataStore reads finish on their own thread. */
     private suspend fun ShrineScanViewModel.scanAndWait(vararg images: PickedImage): ShrineScanUiState {

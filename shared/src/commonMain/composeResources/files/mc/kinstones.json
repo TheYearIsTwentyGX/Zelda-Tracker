@@ -1,0 +1,1760 @@
+{
+  "regions": [
+    "Random fusers",
+    "Hyrule Town",
+    "South Hyrule Field",
+    "Minish Woods",
+    "Lon Lon Ranch",
+    "Eastern Hills",
+    "Lake Hylia",
+    "Mt. Crenel",
+    "Trilby Highlands",
+    "Western Wood",
+    "Castor Wilds",
+    "Wind Ruins",
+    "North Hyrule Field",
+    "Hyrule Castle Garden",
+    "Royal Valley",
+    "Veil Falls",
+    "Cloud Tops"
+  ],
+  "stages": [
+    "From the Kinstone Bag, after Deepwood Shrine",
+    "After Vaati takes King Daltus's place",
+    "After the Ocarina of Wind (Fortress of Winds)",
+    "After the Water Element and meeting Gustaf's spirit",
+    "After Gustaf's Gold Kinstone (Royal Crypt)",
+    "After the Wind Element (Palace of Winds)"
+  ],
+  "fusions": [
+    {
+      "id": "random_minish_woods_chest_red",
+      "number": 4,
+      "gameId": "0x46",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears in the misty east of Minish Woods with a red Kinstone Piece",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_minish_woods_chest_blue",
+      "number": 5,
+      "gameId": "0x44",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears in Minish Woods below the Great Fairy's pond with a blue Kinstone Piece",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_south_field_cave",
+      "number": 6,
+      "gameId": "0x58",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "slant",
+      "result": "A pool in western South Hyrule Field drains, revealing a cave with 75 Rupees",
+      "resultRegion": "South Hyrule Field",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_castle_garden_rope",
+      "number": 7,
+      "gameId": "0x3C",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A Golden Rope appears in Hyrule Castle Garden",
+      "resultRegion": "Hyrule Castle Garden",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_castle_garden_fairy",
+      "number": 8,
+      "gameId": "0x35",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "The north-west fountain in Hyrule Castle Garden drains, revealing a Fairy Fountain",
+      "resultRegion": "Hyrule Castle Garden",
+      "rewards": [
+        "fountain"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_lon_lon_chest",
+      "number": 9,
+      "gameId": "0x60",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears in the north of Lon Lon Ranch with 200 Rupees",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 1,
+      "note": "Reached by going round through Veil Falls."
+    },
+    {
+      "id": "random_school_chest",
+      "number": 10,
+      "gameId": "0x36",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A chest appears on the Minish path at Funday School with a red Kinstone Piece",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_village_path_chest",
+      "number": 11,
+      "gameId": "0x37",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A chest appears on the Minish path into Minish Village with 200 Rupees",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_north_field_chest",
+      "number": 12,
+      "gameId": "0x5F",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A chest appears in north-west North Hyrule Field by the Royal Valley with 200 Mysterious Shells",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "shells"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_deepwood_chest",
+      "number": 13,
+      "gameId": "0x39",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A chest appears in the bushes east of Deepwood Shrine with a red Kinstone Piece",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_lon_lon_path_chest",
+      "number": 14,
+      "gameId": "0x50",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears on the Minish path in the Lon Lon Ranch pasture with a red Kinstone Piece",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_eastern_hills_rope",
+      "number": 15,
+      "gameId": "0x55",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "slant",
+      "result": "A Golden Rope appears in the Eastern Hills",
+      "resultRegion": "Eastern Hills",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_minish_woods_chest_rupees",
+      "number": 16,
+      "gameId": "0x47",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears in western Minish Woods by a small pool with 200 Rupees",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_minish_woods_crack",
+      "number": 17,
+      "gameId": "0x4E",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A crack opens by the spinning lily pads near Minish Village, with a chest holding a blue Kinstone Piece",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_south_field_chest",
+      "number": 18,
+      "gameId": "0x53",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears in the bushes east of Link's House with 200 Mysterious Shells",
+      "resultRegion": "South Hyrule Field",
+      "rewards": [
+        "shells"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_minish_woods_octorok",
+      "number": 19,
+      "gameId": "0x56",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "green",
+      "shape": "slant",
+      "result": "A Golden Octorok appears in Minish Woods",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_north_field_fairy",
+      "number": 21,
+      "gameId": "0x2D",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "blue",
+      "shape": "S-curve",
+      "result": "A tree in eastern North Hyrule Field opens, with a Fairy Fountain inside",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "fountain"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "random_castle_garden_heart",
+      "number": 22,
+      "gameId": "0x18",
+      "partner": "Random fuser",
+      "random": true,
+      "region": "Random fusers",
+      "location": "Whoever the game hands it to: most townsfolk, animals and Minish can offer one",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "The north-east fountain in Hyrule Castle Garden drains, leading to a Piece of Heart",
+      "resultRegion": "Hyrule Castle Garden",
+      "rewards": [
+        "heart"
+      ],
+      "stage": 1
+    },
+    {
+      "id": "hurdy_gurdy_man",
+      "number": 1,
+      "gameId": "0x32",
+      "partner": "Hurdy-Gurdy Man",
+      "region": "Hyrule Town",
+      "location": "On the bridge into town, when Link first arrives after Deepwood Shrine",
+      "color": "blue",
+      "shape": "S-curve",
+      "result": "A thorn-blocked tree near Link's House opens, with a Piece of Heart inside",
+      "resultRegion": "South Hyrule Field",
+      "rewards": [
+        "heart"
+      ],
+      "stage": 1,
+      "note": "The tutorial fusion: he gives Link the Kinstone Bag and the piece to fuse. Afterwards he's in Mama's Cafe as a random fuser."
+    },
+    {
+      "id": "mayor_hagen",
+      "number": 2,
+      "gameId": "0x1E",
+      "partner": "Mayor Hagen",
+      "region": "Hyrule Town",
+      "location": "His house in the north-east of town",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "A puddle in the Lon Lon Ranch pasture dries up, revealing stairs to a chest with the Big Wallet",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "item"
+      ],
+      "stage": 1,
+      "note": "The red piece he needs is in a chest down the steps outside his house."
+    },
+    {
+      "id": "strato",
+      "number": 3,
+      "gameId": "0x0F",
+      "partner": "Strato",
+      "region": "Hyrule Town",
+      "location": "The Stranger's House, a yellow-roofed house in town",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A glowing portal appears west of Link's House, leading to part of the Home of the Wind Tribe",
+      "resultRegion": "South Hyrule Field",
+      "rewards": [
+        "way"
+      ],
+      "stage": 1,
+      "missable": "The fusion can't be missed, but follow up what it opens before reaching the Cloud Tops, or a side quest it leads to is lost.",
+      "note": "Gregal is in the house it leads to; helping him gives 100 Mysterious Shells and, later, the Light Arrows."
+    },
+    {
+      "id": "postman",
+      "number": 23,
+      "gameId": "0x2C",
+      "partner": "Postman",
+      "region": "Hyrule Town",
+      "location": "Running his round through town; stand in his way to stop him",
+      "color": "blue",
+      "shape": "squarish",
+      "result": "Marcy starts selling the Swordsman Newsletter at the Post Office",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "people"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "candy",
+      "number": 24,
+      "gameId": "0x22",
+      "partner": "Candy",
+      "region": "Hyrule Town",
+      "location": "Happy Hearth Inn, upstairs; on the Library roof after the Royal Crypt, back at the inn after the Palace of Winds",
+      "color": "blue",
+      "shape": "squarish",
+      "result": "A shoal rises in the Trilby Highlands lake, leading to a cave with a red Kinstone Piece and a Fairy Fountain",
+      "resultRegion": "Trilby Highlands",
+      "rewards": [
+        "way",
+        "kinstone",
+        "fountain"
+      ],
+      "stage": 2,
+      "requires": "The cave needs the Flippers and the Mole Mitts."
+    },
+    {
+      "id": "farore_1",
+      "number": 45,
+      "gameId": "0x1B",
+      "partner": "Farore",
+      "region": "Hyrule Town",
+      "location": "Happy Hearth Inn, top floor, with Din and Nayru",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "Gorman comes to town looking for a tenant for his Vacant House",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "people"
+      ],
+      "stage": 3,
+      "note": "Whoever of the three Oracles rents the house moves in. GameFAQs says any Oracle can do this fusion; Zelda Wiki, Thonky and Zelda Dungeon say Farore."
+    },
+    {
+      "id": "bremor",
+      "number": 46,
+      "gameId": "0x0B",
+      "partner": "Bremor",
+      "region": "Hyrule Town",
+      "location": "Next to the Post Office",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "Mutoh is inspired to build a second Vacant House in town for Gorman to rent",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "people"
+      ],
+      "stage": 3,
+      "requires": "Farore's first fusion, followed through to a tenant moving in. Bremor shows up once Link has the Flippers.",
+      "note": "Bremor leaves town after fusing."
+    },
+    {
+      "id": "mama",
+      "number": 48,
+      "gameId": "0x34",
+      "partner": "Mama",
+      "region": "Hyrule Town",
+      "location": "Behind the bar in Mama's Cafe",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A shoal rises in Lake Hylia, leading to a cave with 50 Rupees",
+      "resultRegion": "Lake Hylia",
+      "rewards": [
+        "way",
+        "rupees"
+      ],
+      "stage": 3,
+      "requires": "The cave needs the Mole Mitts."
+    },
+    {
+      "id": "librari",
+      "number": 66,
+      "gameId": "0x54",
+      "partner": "Librari",
+      "region": "Hyrule Town",
+      "location": "In a tiny house in a bookshelf of the Royal Hyrule Library",
+      "color": "green",
+      "shape": "slant",
+      "result": "A Golden Octorok appears in the Wind Ruins",
+      "resultRegion": "Wind Ruins",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 3,
+      "note": "The Library closes late in the story. Librari then lives in Lake Hylia, once the last Minish Village fusion opens the way there."
+    },
+    {
+      "id": "din",
+      "number": 77,
+      "gameId": "0x20",
+      "partner": "Din",
+      "region": "Hyrule Town",
+      "location": "Happy Hearth Inn, or the Vacant House if she rented it",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "A Joy Butterfly appears in the Wind Ruins; catching it lets Link shoot arrows faster",
+      "resultRegion": "Wind Ruins",
+      "rewards": [
+        "item"
+      ],
+      "stage": 5
+    },
+    {
+      "id": "nayru",
+      "number": 78,
+      "gameId": "0x19",
+      "partner": "Nayru",
+      "region": "Hyrule Town",
+      "location": "Happy Hearth Inn, or the Vacant House if she rented it",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "A Joy Butterfly appears in the Royal Valley; catching it lets Link swim faster",
+      "resultRegion": "Royal Valley",
+      "rewards": [
+        "item"
+      ],
+      "stage": 5
+    },
+    {
+      "id": "farore_2",
+      "number": 79,
+      "gameId": "0x10",
+      "partner": "Farore (second)",
+      "region": "Hyrule Town",
+      "location": "Happy Hearth Inn, or the Vacant House if she rented it",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A Joy Butterfly appears in Castor Wilds; catching it lets Link dig faster with the Mole Mitts",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "item"
+      ],
+      "stage": 5
+    },
+    {
+      "id": "tina",
+      "number": 93,
+      "gameId": "0x5E",
+      "partner": "Tina",
+      "region": "Hyrule Town",
+      "location": "Funday School",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears among the rocks in central Trilby Highlands with a red Kinstone Piece",
+      "resultRegion": "Trilby Highlands",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 5,
+      "note": "She only sometimes wants to fuse: leave and come back until she does. Often the last one people find."
+    },
+    {
+      "id": "smith_1",
+      "number": 26,
+      "gameId": "0x16",
+      "partner": "Smith",
+      "region": "South Hyrule Field",
+      "location": "Link's House",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "A big chest appears in the Eastern Hills, south of the farm, with an Empty Bottle",
+      "resultRegion": "Eastern Hills",
+      "rewards": [
+        "item"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "smith_2",
+      "number": 27,
+      "gameId": "0x52",
+      "partner": "Smith (second)",
+      "region": "South Hyrule Field",
+      "location": "Link's House",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears in north-east Trilby Highlands with a red Kinstone Piece",
+      "resultRegion": "Trilby Highlands",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "tingle",
+      "number": 28,
+      "gameId": "0x59",
+      "partner": "Tingle",
+      "region": "South Hyrule Field",
+      "location": "On the ledge east of Link's House",
+      "color": "green",
+      "shape": "slant",
+      "result": "The north-west of the four trees in North Hyrule Field opens: a switch and a red Kinstone Piece",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "kinstone",
+        "item"
+      ],
+      "stage": 2,
+      "requires": "He appears after Link first fails to cross Castor Wilds.",
+      "note": "One of the four Tingle trees. Pressing all four switches lowers a ladder to the Magical Boomerang."
+    },
+    {
+      "id": "picori_south_field",
+      "number": 56,
+      "gameId": "0x14",
+      "partner": "Forest Picori (South Hyrule Field)",
+      "region": "South Hyrule Field",
+      "location": "A tiny house in a stump in the south-west of the field; dash into the lone tree first",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "Syrup is inspired to brew Red Potion, and sells it at her hut",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "item",
+        "people"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "tingle_2",
+      "number": 63,
+      "gameId": "0x0D",
+      "partner": "Tingle (second)",
+      "region": "South Hyrule Field",
+      "location": "On the ledge east of Link's House",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A Golden Tektite appears on Mt. Crenel, worth 200 Rupees",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 3,
+      "requires": "Fuse with all four Tingle brothers first."
+    },
+    {
+      "id": "wall_minish_woods",
+      "number": 49,
+      "gameId": "0x25",
+      "partner": "Mysterious Wall (Minish Woods)",
+      "partnerKind": "object",
+      "region": "Minish Woods",
+      "location": "The Mole Mitts cave by the steps near Syrup's hut; dig to the far wall",
+      "color": "blue",
+      "shape": "squarish or S-curve",
+      "result": "The Goron at Lon Lon Ranch digs open the Goron Cave, or another Goron joins him if it's already open",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "people",
+        "way"
+      ],
+      "stage": 2,
+      "requires": "The Mole Mitts.",
+      "note": "One of the six Goron Cave fusions (Eenie and five walls). The piece depends on how many are done, not on the wall."
+    },
+    {
+      "id": "lily_pad_1",
+      "number": 47,
+      "gameId": "0x4B",
+      "partner": "Forest Picori (Minish Village) or Zill",
+      "region": "Minish Woods",
+      "location": "The Minish in the west house of Minish Village, or Zill in Hyrule Town (or the Town Minish in the new house)",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A lily pad appears in the small north-west swamp of Castor Wilds, with a blue Kinstone Piece beyond",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "way",
+        "kinstone"
+      ],
+      "stage": 3,
+      "note": "The first of three lily pads; any of these partners gives the next one. Zill moves around town as the story goes on."
+    },
+    {
+      "id": "lily_pad_2",
+      "number": 50,
+      "gameId": "0x57",
+      "partner": "Forest Picori (Minish Village) or Zill",
+      "region": "Minish Woods",
+      "location": "The Minish in the west house of Minish Village, or Zill in Hyrule Town (or the Town Minish in the new house)",
+      "color": "green",
+      "shape": "slant",
+      "result": "A lily pad appears in the big north-west swamp of Castor Wilds, leading to a red Kinstone Piece and an underwater cave with a Piece of Heart",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "way",
+        "kinstone",
+        "heart"
+      ],
+      "stage": 3,
+      "requires": "The underwater cave needs the Flippers.",
+      "note": "The second lily pad. Zelda Wiki doesn't list the Piece of Heart under this fusion; GameFAQs and Zelda Dungeon's Heart Piece list do."
+    },
+    {
+      "id": "lily_pad_3",
+      "number": 51,
+      "gameId": "0x3E",
+      "partner": "Forest Picori (Minish Village) or Zill",
+      "region": "Minish Woods",
+      "location": "The Minish in the west house of Minish Village, or Zill in Hyrule Town (or the Town Minish in the new house)",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A lily pad appears in the south-west swamp of Castor Wilds, with a red Kinstone Piece beyond",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "way",
+        "kinstone"
+      ],
+      "stage": 3,
+      "note": "The third lily pad; ride the second one's leaf to reach it."
+    },
+    {
+      "id": "business_scrub_tree_1",
+      "number": 53,
+      "gameId": "0x3D",
+      "partner": "Business Scrub (Minish Woods)",
+      "region": "Minish Woods",
+      "location": "Inside the tree the Castor Wilds Scrub's fusion opens",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A Golden Octorok appears in Western Wood",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 3,
+      "requires": "The Castor Wilds Business Scrub's fusion."
+    },
+    {
+      "id": "business_scrub_tree_2",
+      "number": 54,
+      "gameId": "0x5B",
+      "partner": "Business Scrub (Minish Woods, second)",
+      "region": "Minish Woods",
+      "location": "Inside the tree the Castor Wilds Scrub's fusion opens",
+      "color": "green",
+      "shape": "slant",
+      "result": "A crack opens in north-west Castor Wilds with a chest holding a red Kinstone Piece",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 3,
+      "requires": "The Castor Wilds Business Scrub's fusion."
+    },
+    {
+      "id": "belari",
+      "number": 69,
+      "gameId": "0x0A",
+      "partner": "Belari",
+      "region": "Minish Woods",
+      "location": "His house just west of Minish Village, where Link got the bombs",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A chest appears below the Fortress of Winds in the Wind Ruins with the Big Bomb Bag",
+      "resultRegion": "Wind Ruins",
+      "rewards": [
+        "item"
+      ],
+      "stage": 4,
+      "requires": "The Water Element."
+    },
+    {
+      "id": "gentari",
+      "number": 70,
+      "gameId": "0x1C",
+      "partner": "Gentari",
+      "region": "Minish Woods",
+      "location": "The elder's house in Minish Village",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "Belari is inspired to make Remote Bombs; Link can swap between them and normal Bombs at his house",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "item"
+      ],
+      "stage": 4,
+      "requires": "The Water Element."
+    },
+    {
+      "id": "picori_village_lake_1",
+      "number": 99,
+      "gameId": "0x1F",
+      "partner": "Forest Picori (Minish Village lake house)",
+      "region": "Minish Woods",
+      "location": "The pink-roofed house across the water in north-east Minish Village; swim there",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "A shoal rises at Veil Falls, leading to a cave with a Piece of Heart and 50 Mysterious Shells",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "way",
+        "heart",
+        "shells"
+      ],
+      "stage": 6,
+      "requires": "The Flippers, and the Wind Element.",
+      "note": "GameFAQs says this Minish also has a random fusion, before these two."
+    },
+    {
+      "id": "picori_village_lake_2",
+      "number": 100,
+      "gameId": "0x12",
+      "partner": "Forest Picori (Minish Village lake house, second)",
+      "region": "Minish Woods",
+      "location": "The pink-roofed house across the water in north-east Minish Village",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A crack opens by the Lake Hylia Wind Crest, leading to Librari's island home, where he gives a Heart Container",
+      "resultRegion": "Lake Hylia",
+      "rewards": [
+        "way",
+        "heart"
+      ],
+      "stage": 6,
+      "requires": "The Flippers, and the Wind Element."
+    },
+    {
+      "id": "goron_merchant",
+      "number": 31,
+      "gameId": "0x33",
+      "partner": "Goron (leftmost)",
+      "region": "Lon Lon Ranch",
+      "location": "Outside the Goron Cave; once it's open, the leftmost Goron inside",
+      "color": "blue",
+      "shape": "S-curve",
+      "result": "The Goron Merchant opens a stall in the Hyrule Town square, selling Kinstone Pieces",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "people",
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "ankle",
+      "number": 32,
+      "gameId": "0x40",
+      "partner": "Ankle",
+      "region": "Lon Lon Ranch",
+      "location": "In a cave in the north-west of the pasture, through a Minish Portal",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "The north-east of the four trees in North Hyrule Field opens: a switch and a red Kinstone Piece",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "kinstone",
+        "item"
+      ],
+      "stage": 2,
+      "requires": "He appears after Link has spoken to Tingle.",
+      "note": "One of the four Tingle trees. Pressing all four switches lowers a ladder to the Magical Boomerang."
+    },
+    {
+      "id": "biggoron",
+      "number": 98,
+      "gameId": "0x0E",
+      "partner": "Goron (rightmost)",
+      "region": "Lon Lon Ranch",
+      "location": "The far right of the Goron Cave",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "Biggoron wakes up at Veil Springs",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "people",
+        "item"
+      ],
+      "stage": 6,
+      "requires": "All six Goron Cave fusions.",
+      "note": "Biggoron swallows Link's shield and gives back the Mirror Shield, but only after the game is beaten and saved."
+    },
+    {
+      "id": "eenie",
+      "number": 29,
+      "gameId": "0x29",
+      "partner": "Eenie",
+      "region": "Eastern Hills",
+      "location": "Eenie and Meenie's farm",
+      "color": "blue",
+      "shape": "squarish or S-curve",
+      "result": "The Goron at Lon Lon Ranch digs open the Goron Cave, or another Goron joins him if it's already open",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "people",
+        "way"
+      ],
+      "stage": 2,
+      "missable": "European version: if you start this fusion, cancel it and leave, Eenie never offers it again.",
+      "note": "One of the six Goron Cave fusions with the five Mysterious Walls, done in any order. When all six Gorons are there they break the last wall, behind which is an Empty Bottle."
+    },
+    {
+      "id": "meenie",
+      "number": 30,
+      "gameId": "0x62",
+      "partner": "Meenie",
+      "region": "Eastern Hills",
+      "location": "Eenie and Meenie's farm",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears on a ledge halfway up the Crenel Wall with a blue Kinstone Piece",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "wall_eastern_hills",
+      "number": 55,
+      "gameId": "0x2A",
+      "partner": "Mysterious Wall (Eastern Hills)",
+      "partnerKind": "object",
+      "region": "Eastern Hills",
+      "location": "The Mole Mitts cave in Eenie and Meenie's garden; the far corner",
+      "color": "blue",
+      "shape": "squarish or S-curve",
+      "result": "The Goron at Lon Lon Ranch digs open the Goron Cave, or another Goron joins him if it's already open",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "people",
+        "way"
+      ],
+      "stage": 2,
+      "requires": "The Mole Mitts.",
+      "note": "One of the six Goron Cave fusions (Eenie and five walls). The piece depends on how many are done, not on the wall."
+    },
+    {
+      "id": "picori_eastern_hills",
+      "number": 52,
+      "gameId": "0x2E",
+      "partner": "Forest Picori (Eastern Hills)",
+      "region": "Eastern Hills",
+      "location": "The mushroom house in the south-west corner of the Eastern Hills",
+      "color": "blue",
+      "shape": "S-curve",
+      "result": "A beanstalk grows in the Eastern Hills, with a Piece of Heart and chests of 200 Rupees and 200 Mysterious Shells",
+      "resultRegion": "Eastern Hills",
+      "rewards": [
+        "beanstalk",
+        "heart",
+        "rupees",
+        "shells"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "fifi",
+      "number": 25,
+      "gameId": "0x51",
+      "partner": "Fifi",
+      "region": "Lake Hylia",
+      "location": "Stockwell's dog, at his house; Link has to be Minish-sized",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears on the Minish path into Mayor Hagen's cabin with a blue Kinstone Piece",
+      "resultRegion": "Lake Hylia",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "david_jr_1",
+      "number": 33,
+      "gameId": "0x5A",
+      "partner": "David Jr.",
+      "region": "Lake Hylia",
+      "location": "By the water south of Stockwell's House",
+      "color": "green",
+      "shape": "slant",
+      "result": "The south-east of the four trees in North Hyrule Field opens: a switch and 200 Mysterious Shells",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "shells",
+        "item"
+      ],
+      "stage": 2,
+      "note": "One of the four Tingle trees. Pressing all four switches lowers a ladder to the Magical Boomerang."
+    },
+    {
+      "id": "picori_lake_wind_crest",
+      "number": 44,
+      "gameId": "0x11",
+      "partner": "Forest Picori (Wind Crest)",
+      "region": "Lake Hylia",
+      "location": "The Minish house next to the Lake Hylia Wind Crest",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A tree in Western Wood, on the way to Castor Wilds, opens with a Piece of Heart inside",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "heart"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "david_jr_2",
+      "number": 67,
+      "gameId": "0x45",
+      "partner": "David Jr. (second)",
+      "region": "Lake Hylia",
+      "location": "By the water south of Stockwell's House",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears on the Minish path into Melari's Mine with 200 Mysterious Shells",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "shells"
+      ],
+      "stage": 3,
+      "requires": "His first fusion. GameFAQs adds the Magical Boomerang."
+    },
+    {
+      "id": "picori_lake_east",
+      "number": 68,
+      "gameId": "0x23",
+      "partner": "Forest Picori (Lake Hylia east)",
+      "region": "Lake Hylia",
+      "location": "A Minish crack on a ledge on the east side of the lake: shrink at the south-east stump, swim north and climb the vine",
+      "color": "blue",
+      "shape": "squarish",
+      "result": "A beanstalk grows in northern Lake Hylia, with a Piece of Heart and chests of 200 Rupees and 200 Mysterious Shells",
+      "resultRegion": "Lake Hylia",
+      "rewards": [
+        "beanstalk",
+        "heart",
+        "rupees",
+        "shells"
+      ],
+      "stage": 3,
+      "requires": "Reaching the beanstalk takes the Roc's Cape."
+    },
+    {
+      "id": "wall_lake_hylia",
+      "number": 94,
+      "gameId": "0x2F",
+      "partner": "Mysterious Wall (Lake Hylia)",
+      "partnerKind": "object",
+      "region": "Lake Hylia",
+      "location": "The Mole Mitts cave on the island in northern Lake Hylia",
+      "color": "blue",
+      "shape": "squarish or S-curve",
+      "result": "The Goron at Lon Lon Ranch digs open the Goron Cave, or another Goron joins him if it's already open",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "people",
+        "way"
+      ],
+      "stage": 5,
+      "requires": "The Mole Mitts and the Roc's Cape.",
+      "note": "One of the six Goron Cave fusions (Eenie and five walls). The piece depends on how many are done, not on the wall."
+    },
+    {
+      "id": "waveblade",
+      "number": 95,
+      "gameId": "0x15",
+      "partner": "Waveblade",
+      "region": "Lake Hylia",
+      "location": "His dojo in a tree on the south-west shore; needs the Flippers",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "A gap opens in a waterfall in North Hyrule Field, leading to Greatblade's dojo",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "technique"
+      ],
+      "stage": 5
+    },
+    {
+      "id": "mountain_minish_kitchen",
+      "number": 20,
+      "gameId": "0x3B",
+      "partner": "Mountain Minish (kitchen)",
+      "region": "Mt. Crenel",
+      "location": "Melari's Mine, in the south-east dining hall; there once Link has the White Sword",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A Golden Tektite appears on Mt. Crenel",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 1,
+      "note": "Thonky counts this as random; Zelda Wiki, GameFAQs and the game's own data give it to this Minish."
+    },
+    {
+      "id": "picori_crenel_base",
+      "number": 35,
+      "gameId": "0x63",
+      "partner": "Forest Picori (Mt. Crenel)",
+      "region": "Mt. Crenel",
+      "location": "A Minish crack at the foot of Mt. Crenel, behind cobwebs (Gust Jar)",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears at the foot of Mt. Crenel with 200 Rupees",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "mountain_minish_west",
+      "number": 36,
+      "gameId": "0x38",
+      "partner": "Mountain Minish (west door)",
+      "region": "Mt. Crenel",
+      "location": "Melari's Mine, by the west exit",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A chest appears in south-west Minish Woods, across the bridge from the Wind Crest, with a blue Kinstone Piece",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "melari",
+      "number": 37,
+      "gameId": "0x1A",
+      "partner": "Melari",
+      "region": "Mt. Crenel",
+      "location": "Melari's Mine; there after Vaati takes the King's place",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "A bean at the top of Mt. Crenel grows into a beanstalk with 160 Rupees and a Piece of Heart",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "beanstalk",
+        "heart",
+        "rupees"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "mountain_minish_east",
+      "number": 38,
+      "gameId": "0x43",
+      "partner": "Mountain Minish (east door)",
+      "region": "Mt. Crenel",
+      "location": "Melari's Mine, by the door to the bedroom",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears on the rainy Minish path on Mt. Crenel with a blue Kinstone Piece",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "mountain_minish_miner",
+      "number": 39,
+      "gameId": "0x4F",
+      "partner": "Mountain Minish (miner)",
+      "region": "Mt. Crenel",
+      "location": "Melari's Mine, the north-west Minish with the pickaxe",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears on the Minish path to the hot spring on Mt. Crenel with a blue Kinstone Piece",
+      "resultRegion": "Mt. Crenel",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 2
+    },
+    {
+      "id": "wall_mt_crenel",
+      "number": 65,
+      "gameId": "0x2B",
+      "partner": "Mysterious Wall (Mt. Crenel)",
+      "partnerKind": "object",
+      "region": "Mt. Crenel",
+      "location": "The Mole Mitts cave next to the Crenel Hermit's, at the top of the Crenel Wall",
+      "color": "blue",
+      "shape": "squarish or S-curve",
+      "result": "The Goron at Lon Lon Ranch digs open the Goron Cave, or another Goron joins him if it's already open",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "people",
+        "way"
+      ],
+      "stage": 2,
+      "requires": "The Mole Mitts.",
+      "note": "One of the six Goron Cave fusions (Eenie and five walls). The piece depends on how many are done, not on the wall."
+    },
+    {
+      "id": "grayblade",
+      "number": 96,
+      "gameId": "0x0C",
+      "partner": "Grayblade",
+      "region": "Mt. Crenel",
+      "location": "His cave dojo high on the east side of Mt. Crenel; it takes the split to get in",
+      "color": "red",
+      "shape": "jagged teeth",
+      "result": "A gap opens in a waterfall in north-east Castor Wilds, leading to Scarblade's dojo",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "technique"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "percy",
+      "number": 34,
+      "gameId": "0x21",
+      "partner": "Percy",
+      "region": "Trilby Highlands",
+      "location": "Inside a tree in Trilby Highlands",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "A fallen tree in Western Wood rises, opening the way to Percy's House",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "way"
+      ],
+      "stage": 2,
+      "note": "A side quest at his house later gives 100 Mysterious Shells."
+    },
+    {
+      "id": "wall_trilby",
+      "number": 58,
+      "gameId": "0x26",
+      "partner": "Mysterious Wall (Trilby Highlands)",
+      "partnerKind": "object",
+      "region": "Trilby Highlands",
+      "location": "The Mole Mitts cave north of the way up to Mt. Crenel, beside the ladder",
+      "color": "blue",
+      "shape": "squarish or S-curve",
+      "result": "The Goron at Lon Lon Ranch digs open the Goron Cave, or another Goron joins him if it's already open",
+      "resultRegion": "Lon Lon Ranch",
+      "rewards": [
+        "people",
+        "way"
+      ],
+      "stage": 2,
+      "requires": "The Mole Mitts.",
+      "note": "One of the six Goron Cave fusions (Eenie and five walls). The piece depends on how many are done, not on the wall."
+    },
+    {
+      "id": "knuckle",
+      "number": 59,
+      "gameId": "0x4D",
+      "partner": "Knuckle",
+      "region": "Trilby Highlands",
+      "location": "North-west Trilby Highlands, through the Mole Mitts cave",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "The south-west of the four trees in North Hyrule Field opens: a switch and a red Kinstone Piece",
+      "resultRegion": "North Hyrule Field",
+      "rewards": [
+        "kinstone",
+        "item"
+      ],
+      "stage": 2,
+      "requires": "The Mole Mitts, to reach him.",
+      "note": "One of the four Tingle trees. Pressing all four switches lowers a ladder to the Magical Boomerang."
+    },
+    {
+      "id": "picori_trilby",
+      "number": 60,
+      "gameId": "0x3F",
+      "partner": "Forest Picori (Trilby Highlands)",
+      "region": "Trilby Highlands",
+      "location": "The mushroom house next to Knuckle, through a Minish Portal",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A pool in Trilby Highlands drains, revealing a cave with 75 Rupees",
+      "resultRegion": "Trilby Highlands",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "picori_western_wood",
+      "number": 57,
+      "gameId": "0x24",
+      "partner": "Forest Picori (Western Wood)",
+      "region": "Western Wood",
+      "location": "The mushroom house in south-west Western Wood",
+      "color": "blue",
+      "shape": "squarish",
+      "result": "A beanstalk grows in Western Wood with 320 Rupees and a chest holding a red Kinstone Piece",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "beanstalk",
+        "rupees",
+        "kinstone"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "business_scrub_castor_wilds",
+      "number": 40,
+      "gameId": "0x27",
+      "partner": "Business Scrub (Castor Wilds)",
+      "region": "Castor Wilds",
+      "location": "His cave on the north edge of Castor Wilds; beat him first",
+      "color": "blue",
+      "shape": "squarish",
+      "result": "A tree in Minish Woods, north of Deepwood Shrine, opens: another Business Scrub inside sells Kinstone Pieces",
+      "resultRegion": "Minish Woods",
+      "rewards": [
+        "people",
+        "kinstone"
+      ],
+      "stage": 2,
+      "note": "That Scrub then has two fusions of his own."
+    },
+    {
+      "id": "statue_left",
+      "number": 41,
+      "gameId": "0x06",
+      "partner": "Mysterious Statue (left)",
+      "partnerKind": "object",
+      "region": "Castor Wilds",
+      "location": "The three statues in south-west Castor Wilds",
+      "color": "gold",
+      "result": "The boulder nearby cracks; with all three statues fused it shatters, opening the way to the Wind Ruins",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "way"
+      ],
+      "stage": 2,
+      "note": "The three Gold pieces are in caves around Castor Wilds."
+    },
+    {
+      "id": "statue_center",
+      "number": 42,
+      "gameId": "0x07",
+      "partner": "Mysterious Statue (center)",
+      "partnerKind": "object",
+      "region": "Castor Wilds",
+      "location": "The three statues in south-west Castor Wilds",
+      "color": "gold",
+      "result": "The boulder nearby cracks; with all three statues fused it shatters, opening the way to the Wind Ruins",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "way"
+      ],
+      "stage": 2,
+      "note": "The three Gold pieces are in caves around Castor Wilds."
+    },
+    {
+      "id": "statue_right",
+      "number": 43,
+      "gameId": "0x08",
+      "partner": "Mysterious Statue (right)",
+      "partnerKind": "object",
+      "region": "Castor Wilds",
+      "location": "The three statues in south-west Castor Wilds",
+      "color": "gold",
+      "result": "The boulder nearby cracks; with all three statues fused it shatters, opening the way to the Wind Ruins",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "way"
+      ],
+      "stage": 2,
+      "note": "The three Gold pieces are in caves around Castor Wilds."
+    },
+    {
+      "id": "picori_wind_ruins",
+      "number": 64,
+      "gameId": "0x17",
+      "partner": "Forest Picori (Wind Ruins)",
+      "region": "Wind Ruins",
+      "location": "A Minish crack near the first tree stump",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "A bean in the Wind Ruins grows into a beanstalk with the Large Quiver at the top",
+      "resultRegion": "Wind Ruins",
+      "rewards": [
+        "beanstalk",
+        "item"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "picori_north_field",
+      "number": 61,
+      "gameId": "0x64",
+      "partner": "Forest Picori (North Hyrule Field)",
+      "region": "North Hyrule Field",
+      "location": "A Minish house in a stump on the east side; dash into a tree first",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears in the south of the Wind Ruins, among four face pillars, with 200 Mysterious Shells",
+      "resultRegion": "Wind Ruins",
+      "rewards": [
+        "shells"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "picori_castle_garden",
+      "number": 62,
+      "gameId": "0x4C",
+      "partner": "Forest Picori (Hyrule Castle Garden)",
+      "region": "Hyrule Castle Garden",
+      "location": "A Minish crack behind a hedge in the north-east corner",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A fallen tree in eastern Western Wood rises; dig behind it with the Mole Mitts for 400 Rupees",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 3
+    },
+    {
+      "id": "grimblade",
+      "number": 97,
+      "gameId": "0x1D",
+      "partner": "Grimblade",
+      "region": "Hyrule Castle Garden",
+      "location": "His dojo down a ladder under the bushes in the south-east",
+      "color": "red",
+      "shape": "long teeth",
+      "result": "A gap opens in a waterfall at Veil Falls, leading to Splitblade's dojo",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "technique"
+      ],
+      "stage": 5
+    },
+    {
+      "id": "spekter_1",
+      "number": 71,
+      "gameId": "0x31",
+      "partner": "Spekter",
+      "region": "Royal Valley",
+      "location": "The ghost by the graveyard in the Royal Valley; talk to him first",
+      "color": "blue",
+      "shape": "S-curve",
+      "result": "Borlov's Chest Mini-Game Shop in town adds a harder level",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "people"
+      ],
+      "stage": 4,
+      "note": "Zelda Wiki says this ghost is Spekter and his brother in town Spookter; Zelda Dungeon's walkthrough swaps the names."
+    },
+    {
+      "id": "spekter_2",
+      "number": 72,
+      "gameId": "0x28",
+      "partner": "Spekter (second)",
+      "region": "Royal Valley",
+      "location": "The ghost by the graveyard in the Royal Valley",
+      "color": "blue",
+      "shape": "squarish",
+      "result": "His brother Spookter leaves Anju's Henhouse in Hyrule Town, so Link can get in as a Minish",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "way"
+      ],
+      "stage": 4
+    },
+    {
+      "id": "dampe_1",
+      "number": 73,
+      "gameId": "0x30",
+      "partner": "Dampé",
+      "region": "Royal Valley",
+      "location": "His house outside the graveyard gates",
+      "color": "blue",
+      "shape": "S-curve",
+      "result": "A grave in the north-east of the graveyard opens: Gina is inside, with a chest of 100 Mysterious Shells",
+      "resultRegion": "Royal Valley",
+      "rewards": [
+        "people",
+        "shells"
+      ],
+      "stage": 5,
+      "note": "Gina then has two fusions of her own."
+    },
+    {
+      "id": "dampe_2",
+      "number": 74,
+      "gameId": "0x41",
+      "partner": "Dampé (second)",
+      "region": "Royal Valley",
+      "location": "His house outside the graveyard gates",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A crack opens in the middle of the Wind Ruins, with a chest holding a red Kinstone Piece",
+      "resultRegion": "Wind Ruins",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 5
+    },
+    {
+      "id": "gina_1",
+      "number": 75,
+      "gameId": "0x42",
+      "partner": "Gina",
+      "region": "Royal Valley",
+      "location": "Inside her grave, the one Dampé's first fusion opens",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A gap opens in the waterfall in western Hyrule Town, with a chest of 200 Mysterious Shells",
+      "resultRegion": "Hyrule Town",
+      "rewards": [
+        "shells"
+      ],
+      "stage": 5,
+      "requires": "Dampé's first fusion."
+    },
+    {
+      "id": "gina_2",
+      "number": 76,
+      "gameId": "0x3A",
+      "partner": "Gina (second)",
+      "region": "Royal Valley",
+      "location": "Inside her grave",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A fallen tree in northern Western Wood rises, with a chest of 100 Mysterious Shells behind it",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "shells"
+      ],
+      "stage": 5,
+      "requires": "Dampé's first fusion."
+    },
+    {
+      "id": "source_of_the_flow",
+      "number": 83,
+      "gameId": "0x09",
+      "partner": "Source of the Flow",
+      "partnerKind": "object",
+      "region": "Veil Falls",
+      "location": "The stone slab at the end of the bridge at Veil Falls",
+      "color": "gold",
+      "result": "The slab opens, and the caves behind it lead up Veil Falls to Veil Springs and the way to the Cloud Tops",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "way"
+      ],
+      "stage": 5,
+      "note": "Its Gold piece comes from Gustaf in the Royal Crypt."
+    },
+    {
+      "id": "flurris_1",
+      "number": 80,
+      "gameId": "0x49",
+      "partner": "Flurris",
+      "region": "Cloud Tops",
+      "location": "The Home of the Wind Tribe, third floor",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A Golden Rope appears in northern Castor Wilds",
+      "resultRegion": "Castor Wilds",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    },
+    {
+      "id": "flurris_2",
+      "number": 81,
+      "gameId": "0x48",
+      "partner": "Flurris (second)",
+      "region": "Cloud Tops",
+      "location": "The Home of the Wind Tribe, third floor",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A fallen tree in northern Western Wood rises; dig behind it with the Mole Mitts for 300 Rupees",
+      "resultRegion": "Western Wood",
+      "rewards": [
+        "rupees"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    },
+    {
+      "id": "caprice",
+      "number": 82,
+      "gameId": "0x61",
+      "partner": "Caprice",
+      "region": "Cloud Tops",
+      "location": "The Home of the Wind Tribe, the bedroom floor",
+      "color": "green",
+      "shape": "slant",
+      "result": "A chest appears among the rocks in north-east Veil Falls with a blue Kinstone Piece",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    },
+    {
+      "id": "hailey",
+      "number": 84,
+      "gameId": "0x4A",
+      "partner": "Hailey",
+      "region": "Cloud Tops",
+      "location": "Near the hole down to Veil Falls, or in the Home of the Wind Tribe (sources differ)",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A Golden Tektite appears in north-east Veil Falls",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "golden_monster"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    },
+    {
+      "id": "gale",
+      "number": 85,
+      "gameId": "0x13",
+      "partner": "Gale",
+      "region": "Cloud Tops",
+      "location": "Near the Cloud Tops entrance, or the bottom floor of the Home of the Wind Tribe (sources differ)",
+      "color": "red",
+      "shape": "triangle wedge",
+      "result": "A gap opens in the top waterfall of Veil Falls, with a Piece of Heart inside",
+      "resultRegion": "Veil Falls",
+      "rewards": [
+        "heart"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    },
+    {
+      "id": "cloud_northeast",
+      "number": 86,
+      "gameId": "0x01",
+      "partner": "Mysterious Cloud (north-east)",
+      "partnerKind": "object",
+      "region": "Cloud Tops",
+      "location": "The north-east cloud in the Cloud Tops",
+      "color": "gold",
+      "result": "A pinwheel starts turning; with all five turning, a tornado carries Link up to the Home of the Wind Tribe",
+      "resultRegion": "Cloud Tops",
+      "rewards": [
+        "way"
+      ],
+      "stage": 5,
+      "note": "The five Gold pieces are dug up or won from enemies around the Cloud Tops."
+    },
+    {
+      "id": "cloud_southwest",
+      "number": 87,
+      "gameId": "0x02",
+      "partner": "Mysterious Cloud (south-west)",
+      "partnerKind": "object",
+      "region": "Cloud Tops",
+      "location": "The south-west cloud in the Cloud Tops",
+      "color": "gold",
+      "result": "A pinwheel starts turning; with all five turning, a tornado carries Link up to the Home of the Wind Tribe",
+      "resultRegion": "Cloud Tops",
+      "rewards": [
+        "way"
+      ],
+      "stage": 5,
+      "note": "The five Gold pieces are dug up or won from enemies around the Cloud Tops."
+    },
+    {
+      "id": "cloud_northwest",
+      "number": 88,
+      "gameId": "0x03",
+      "partner": "Mysterious Cloud (north-west)",
+      "partnerKind": "object",
+      "region": "Cloud Tops",
+      "location": "The north-west cloud in the Cloud Tops",
+      "color": "gold",
+      "result": "A pinwheel starts turning; with all five turning, a tornado carries Link up to the Home of the Wind Tribe",
+      "resultRegion": "Cloud Tops",
+      "rewards": [
+        "way"
+      ],
+      "stage": 5,
+      "note": "The five Gold pieces are dug up or won from enemies around the Cloud Tops."
+    },
+    {
+      "id": "cloud_center",
+      "number": 89,
+      "gameId": "0x04",
+      "partner": "Mysterious Cloud (center)",
+      "partnerKind": "object",
+      "region": "Cloud Tops",
+      "location": "The center cloud in the Cloud Tops",
+      "color": "gold",
+      "result": "A pinwheel starts turning; with all five turning, a tornado carries Link up to the Home of the Wind Tribe",
+      "resultRegion": "Cloud Tops",
+      "rewards": [
+        "way"
+      ],
+      "stage": 5,
+      "note": "The five Gold pieces are dug up or won from enemies around the Cloud Tops."
+    },
+    {
+      "id": "cloud_southeast",
+      "number": 90,
+      "gameId": "0x05",
+      "partner": "Mysterious Cloud (south-east)",
+      "partnerKind": "object",
+      "region": "Cloud Tops",
+      "location": "The south-east cloud in the Cloud Tops",
+      "color": "gold",
+      "result": "A pinwheel starts turning; with all five turning, a tornado carries Link up to the Home of the Wind Tribe",
+      "resultRegion": "Cloud Tops",
+      "rewards": [
+        "way"
+      ],
+      "stage": 5,
+      "note": "The five Gold pieces are dug up or won from enemies around the Cloud Tops."
+    },
+    {
+      "id": "siroc_1",
+      "number": 91,
+      "gameId": "0x5C",
+      "partner": "Siroc",
+      "region": "Cloud Tops",
+      "location": "The Home of the Wind Tribe, top floor",
+      "color": "green",
+      "shape": "triangle wedge",
+      "result": "A chest appears in the north-west of the Royal Valley graveyard with a red Kinstone Piece",
+      "resultRegion": "Royal Valley",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    },
+    {
+      "id": "siroc_2",
+      "number": 92,
+      "gameId": "0x5D",
+      "partner": "Siroc (second)",
+      "region": "Cloud Tops",
+      "location": "The Home of the Wind Tribe, top floor",
+      "color": "green",
+      "shape": "square tooth",
+      "result": "A chest appears in the north-east of the Royal Valley graveyard with a red Kinstone Piece",
+      "resultRegion": "Royal Valley",
+      "rewards": [
+        "kinstone"
+      ],
+      "stage": 5,
+      "requires": "Reach the Home of the Wind Tribe through the Cloud Tops."
+    }
+  ]
+}

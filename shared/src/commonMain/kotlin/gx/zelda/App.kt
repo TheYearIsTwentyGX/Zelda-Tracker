@@ -36,6 +36,13 @@ import gx.zelda.core.ui.ZeldaTheme
 import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.ui.FairyTrackerScreen
 import gx.zelda.fairies.ui.FairyViewModel
+import gx.zelda.hearts.data.HeartStorage
+import gx.zelda.hearts.ui.HeartTrackerScreen
+import gx.zelda.hearts.ui.HeartViewModel
+import gx.zelda.kinstones.data.KinstoneStorage
+import gx.zelda.kinstones.ui.KinstoneDetailScreen
+import gx.zelda.kinstones.ui.KinstoneTrackerScreen
+import gx.zelda.kinstones.ui.KinstoneViewModel
 import gx.zelda.figurines.data.FigurineStorage
 import gx.zelda.figurines.ui.FigurineTrackerScreen
 import gx.zelda.figurines.ui.FigurineViewModel
@@ -83,6 +90,9 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Bosses(val gameId: String)
 @Serializable private data class BossDetail(val gameId: String, val spawnId: String)
 @Serializable private data class ShrineDetail(val gameId: String, val shrineId: String)
+@Serializable private data class HeartPieces(val gameId: String)
+@Serializable private data class Kinstones(val gameId: String)
+@Serializable private data class KinstoneDetail(val gameId: String, val fusionId: String)
 @Serializable private data class Figurines(val gameId: String)
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
@@ -108,6 +118,8 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.SIDE_QUESTS -> nav.navigate(SideQuests(game.id))
                         TrackerKind.BOSSES -> nav.navigate(Bosses(game.id))
                         TrackerKind.MAP -> nav.navigate(WorldMap(game.id))
+                        TrackerKind.HEART_PIECES -> nav.navigate(HeartPieces(game.id))
+                        TrackerKind.KINSTONES -> nav.navigate(Kinstones(game.id))
                         TrackerKind.FIGURINES -> nav.navigate(Figurines(game.id))
                     }
                 })
@@ -135,7 +147,13 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = viewModel(key = game.id) { MainQuestViewModel(MainQuestStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
-                MainQuestScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
+                MainQuestScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onBack = { nav.popBackStack() },
+                    title = game.trackers.first { it.kind == TrackerKind.MAIN_QUEST }.title,
+                )
             }
             composable<Shrines> { entry ->
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)
@@ -305,6 +323,41 @@ fun App(dataStore: DataStore<Preferences>) {
                     onBack = { nav.popBackStack() },
                 )
             }
+            composable<HeartPieces> { entry ->
+                val game = Games.byId(entry.toRoute<HeartPieces>().gameId)
+                val vm = viewModel(key = "hearts_${game.id}") { HeartViewModel(HeartStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                HeartTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onBack = { nav.popBackStack() },
+                    title = game.trackers.first { it.kind == TrackerKind.HEART_PIECES }.title,
+                )
+            }
+            composable<Kinstones> { entry ->
+                val game = Games.byId(entry.toRoute<Kinstones>().gameId)
+                val vm = kinstoneViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                KinstoneTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenFusion = { nav.navigate(KinstoneDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<KinstoneDetail> { entry ->
+                val route = entry.toRoute<KinstoneDetail>()
+                val listEntry = remember(entry) { nav.getBackStackEntry<Kinstones>() }
+                val vm = kinstoneViewModel(listEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    KinstoneDetailScreen(it, route.fusionId, vm, onBack = { nav.popBackStack() })
+                }
+            }
             composable<Figurines> { entry ->
                 val game = Games.byId(entry.toRoute<Figurines>().gameId)
                 val vm = viewModel(key = "figurines_${game.id}") { FigurineViewModel(FigurineStorage(dataStore, game)) }
@@ -393,6 +446,8 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.SIDE_QUESTS -> navigate(SideQuests(game.id))
         TrackerKind.BOSSES -> navigate(Bosses(game.id))
         TrackerKind.MAP -> navigate(WorldMap(game.id))
+        TrackerKind.HEART_PIECES -> navigate(HeartPieces(game.id))
+        TrackerKind.KINSTONES -> navigate(Kinstones(game.id))
         TrackerKind.FIGURINES -> navigate(Figurines(game.id))
     }
 }
@@ -419,3 +474,11 @@ private fun bossViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): BossViewModel = viewModel(owner, key = game.id) { BossViewModel(BossStorage(dataStore, game)) }
+
+/** The [KinstoneViewModel] for [game], owned by the fusion list's entry so the detail screen shares it. */
+@Composable
+private fun kinstoneViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): KinstoneViewModel = viewModel(owner, key = game.id) { KinstoneViewModel(KinstoneStorage(dataStore, game)) }

@@ -16,6 +16,7 @@ import gx.zelda.core.SaveFile
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -162,27 +163,26 @@ class BossViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setDefeated(spawnId: String, defeated: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setDefeated(file, spawnId, defeated) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setDefeated(spawnId: String, defeated: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setDefeated(file, spawnId, defeated) }
     }
 
-    fun setState(spawnId: String, bossState: DiscoveryState) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setState(file, spawnId, bossState) }
+    fun setState(spawnId: String, bossState: DiscoveryState): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setState(file, spawnId, bossState) }
     }
 
-    fun setHideUndiscovered(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
-    }
+    fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
 
     /** Shows one unfound boss's row until the tracker is closed; nothing is saved. */
     fun reveal(spawnId: String) = filters.update { it.copy(revealed = it.revealed + spawnId) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 

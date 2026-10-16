@@ -18,8 +18,9 @@ class MainQuestStorageTest {
     private fun newDataStore() = createDataStore(Files.createTempDirectory("zgx").toString())
 
     @Test
-    fun onlyBotwHasTheMainQuestTracker() {
+    fun botwAndTheMinishCapHaveTheMainQuestTracker() {
         assertTrue(TrackerKind.MAIN_QUEST in Games.BOTW.trackers.map { it.kind })
+        assertTrue(TrackerKind.MAIN_QUEST in Games.MC.trackers.map { it.kind })
         assertFalse(TrackerKind.MAIN_QUEST in Games.TOTK.trackers.map { it.kind })
     }
 

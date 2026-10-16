@@ -4,8 +4,8 @@ import gx.zelda.core.DiscoveryState
 import gx.zelda.shrines.scan.WorldPoint
 import kotlinx.serialization.Serializable
 
-/** How a layer's markers are drawn; the colour comes from each entry's state. */
-enum class MarkerShape { CIRCLE, SQUARE, DIAMOND }
+/** Which in-game map icon a layer's markers use; each entry's state picks its variant (see [markerLook]). */
+enum class MarkerKind { SHRINE, KOROK, TOWER }
 
 /** One toggleable set of markers on the map, such as every shrine. */
 data class MapLayer(
@@ -17,7 +17,7 @@ data class MapLayer(
     val noun: String,
     /** What each state is called in this layer, in order; a layer only offers the states listed. */
     val stateLabels: Map<DiscoveryState, String>,
-    val shape: MarkerShape,
+    val kind: MarkerKind,
     /** Whether markers this close together merge into a counted cluster at low zoom. */
     val clustered: Boolean = false,
     /** The tracker setting that hides undiscovered entries, as its menu names it; null if the layer has none. */
@@ -41,6 +41,8 @@ data class MapEntry(
     val region: String,
     val world: WorldPoint,
     val state: DiscoveryState,
+    /** From a DLC. The Champions' Ballad's shrines have their own icon. */
+    val dlc: Boolean = false,
 )
 
 /** A marker the map draws: an entry, its layer, and whether its tracker's spoiler setting hides its name. */
@@ -56,7 +58,7 @@ data class MapPrefs(
     /** Ids of the layers switched off. */
     val hiddenLayers: Set<String> = emptySet(),
     val hideCompleted: Boolean = false,
-    /** Show entries a tracker's spoiler setting hides as unnamed grey dots instead of leaving them off. */
+    /** Show entries a tracker's spoiler setting hides as unnamed grey markers instead of leaving them off. */
     val undiscoveredAsDots: Boolean = false,
 )
 

@@ -179,9 +179,9 @@ private fun MapMenu(state: MapUiState, viewModel: MapViewModel) {
         DropdownMenuItem(
             text = {
                 Column {
-                    Text("Show hidden places as dots")
+                    Text("Show hidden places")
                     Text(
-                        "Places a tracker's \"Hide undiscovered\" hides appear as unnamed grey dots",
+                        "Places a tracker's \"Hide undiscovered\" hides appear as unnamed grey markers",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -213,7 +213,7 @@ private fun MarkerSheet(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                MarkerDot(marker, selected = false)
+                MapMarkerIcon(marker, selected = false, scale = 1.25f)
                 Column(Modifier.weight(1f)) {
                     Text(
                         if (marker.anonymous) "Undiscovered ${layer.noun}" else entry.name,
@@ -261,9 +261,11 @@ private fun AboutDialog(onDismiss: () -> Unit) {
             Text(
                 "Map art © Nintendo, from Breath of the Wild's game files, via objmap.zeldamods.org. " +
                     "It is bundled with the app, so the map works offline.\n\n" +
-                    "Shrine, tower and Korok positions are objmap's too. Colours: blue done, orange found " +
-                    "(or a tower not yet activated), grey undiscovered. Numbers on Korok clusters count the " +
-                    "seeds not yet collected.",
+                    "Shrine, tower and Korok positions are objmap's too, and so are the shrine and tower icons, " +
+                    "traced from the game's. As in the game, a shrine's glyph is orange until it's completed and " +
+                    "a tower is orange until it's activated; both turn blue when done. Korok seeds sit on a blue " +
+                    "disc once collected and an orange one when found. Undiscovered places are grey. Numbers on " +
+                    "Korok clusters count the seeds not yet collected.",
             )
         },
     )

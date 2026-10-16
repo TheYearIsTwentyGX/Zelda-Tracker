@@ -14,6 +14,7 @@ import gx.zelda.armor.model.MaterialSort
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.core.SaveFile
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -107,9 +108,9 @@ class ArmorViewModel(
     fun setLevel(pieceId: String, level: Int) = setLevels(mapOf(pieceId to level))
 
     /** Sets several pieces' levels in one write (collecting them), e.g. a whole set from its header. */
-    fun setLevels(levels: Map<String, Int>) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch {
+    fun setLevels(levels: Map<String, Int>): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch {
             storage.updatePieces(file) { pieces ->
                 pieces + levels.mapValues { (id, level) -> (pieces[id] ?: PieceProgress()).copy(owned = true, level = level) }
             }
@@ -126,9 +127,7 @@ class ArmorViewModel(
 
     fun setMaterialSort(sort: MaterialSort) = editPrefs { it.copy(materialSort = sort) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setTotalsMode(mode: TotalsMode) { totalsMode.value = mode }
 
@@ -136,15 +135,16 @@ class ArmorViewModel(
 
     fun setQuery(text: String) { query.value = text }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    private fun editPiece(pieceId: String, transform: (PieceProgress) -> PieceProgress) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch {
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    private fun editPiece(pieceId: String, transform: (PieceProgress) -> PieceProgress): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch {
             storage.updatePieces(file) { pieces -> pieces + (pieceId to transform(pieces[pieceId] ?: PieceProgress())) }
         }
     }
 
-    private fun editPrefs(transform: (ArmorPrefs) -> ArmorPrefs) {
-        viewModelScope.launch { storage.updatePrefs(transform) }
-    }
+    private fun editPrefs(transform: (ArmorPrefs) -> ArmorPrefs): Job = viewModelScope.launch { storage.updatePrefs(transform) }
 }
