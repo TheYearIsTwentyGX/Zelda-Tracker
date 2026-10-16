@@ -1,6 +1,8 @@
 package gx.zelda.screencam
 
 import gx.zelda.core.Games
+import gx.zelda.screencam.live.ChromeTracker
+import gx.zelda.screencam.live.GrayImage
 import gx.zelda.shrines.scan.MapImage
 import gx.zelda.shrines.scan.decodeMapImage
 import kotlinx.coroutines.runBlocking
@@ -32,6 +34,16 @@ class ScreenChromeReferenceTest {
         val file = File("src/commonMain/composeResources/${ScreenChromeRepository.path(Games.BOTW)}")
         if (System.getenv("REGENERATE_SCREEN_CHROME") == "1") file.writeText(text)
         assertEquals(text, file.readText(), "map_chrome.json is out of date: rerun this test with REGENERATE_SCREEN_CHROME=1")
+    }
+
+    /** The live scan's tracking reference, `map_chrome_track.bin`, from the three normal shots. */
+    @Test
+    fun trackingReferenceIsUpToDate() {
+        val shots = listOf("all-complete/1000002225", "all-complete/1000002224", "partial/1000002226").map { GrayImage.fromMapImage(sample(it)) }
+        val bytes = ChromeTracker.encodeReference(ChromeTracker.reference(shots))
+        val file = File("src/commonMain/composeResources/${ChromeTracker.referencePath(Games.BOTW)}")
+        if (System.getenv("REGENERATE_SCREEN_CHROME") == "1") file.writeBytes(bytes)
+        assertTrue(bytes.contentEquals(file.readBytes()), "map_chrome_track.bin is out of date: rerun this test with REGENERATE_SCREEN_CHROME=1")
     }
 
     @Test

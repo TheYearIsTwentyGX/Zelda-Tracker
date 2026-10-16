@@ -30,6 +30,21 @@ class ScreenChrome(
         require(histograms.size == 3 && heroesPathHistograms.size == 3) { "one histogram per channel" }
     }
 
+    /**
+     * Where the screen is in [photo]: the canonical → photo homography of the [ScreenFinder]
+     * outline, with each corner tried as top left, whose frame looks most like this one, and its score.
+     */
+    fun locate(photo: MapImage): Pair<Homography, Double>? {
+        var best: Pair<Homography, Double>? = null
+        for (outline in ScreenFinder.candidates(photo)) for (turn in 0..3) {
+            val corners = List(4) { outline[(it + turn) % 4] }
+            val h = Homography.fit(CORNERS, corners) ?: continue
+            val score = frameScore(Rectifier.rectify(photo, h, THUMB_W, THUMB_H, THUMB_W / WIDTH.toDouble()))
+            if (score > (best?.second ?: -2.0)) best = h to score
+        }
+        return best
+    }
+
     /** How much [screen] (any size, canonical layout) looks like the frame, −1 to 1. */
     fun frameScore(screen: MapImage): Double = ncc(thumbnail(screen), thumb)
 
