@@ -12,8 +12,8 @@ class FigurineCatalogTest {
         categories = listOf(FigurineCategory("characters", "Characters", "Blue"), FigurineCategory("bosses", "Bosses", "Gold")),
         checkpoints = listOf(
             FigurineCheckpoint("start", "Start", ""),
-            FigurineCheckpoint("middle", "Middle", ""),
-            FigurineCheckpoint("end", "End", "", finalSeries = true),
+            FigurineCheckpoint("middle", "Middle", "Reach the middle"),
+            FigurineCheckpoint("end", "End", "Reach the end", finalSeries = true),
         ),
         figurines = listOf(
             Figurine(1, "One", "characters", "start", "…"),
@@ -53,16 +53,31 @@ class FigurineCatalogTest {
         assertTrue(tally.odds.complete)
     }
 
+    private fun row(progress: FigurineProgress, hide: Boolean = false) =
+        FigurineProgressProvider.summarize(catalog, progress, FigurinePrefs(hideUnavailable = hide))
+
     @Test
-    fun overviewRowNamesNoFigurine() {
-        val row = FigurineProgressProvider.summarize(catalog.tally(FigurineProgress(owned = setOf(1))))
+    fun overviewRowFollowsTheSpoilerSetting() {
+        val one = FigurineProgress(owned = setOf(1))
+        val row = row(one)
         assertEquals(1, row.done)
         assertEquals(4, row.total)
-        assertEquals("Characters 1 / 2 · Bosses 0 / 2", row.secondary)
-        assertEquals("Nothing new at Carlov's until the story moves on", row.next)
+        assertEquals("0 shells · Characters 1 / 2 · Bosses 0 / 2", row.secondary)
+        // Nothing to win now, but #2's side task would open one; hidden, it's only counted.
+        assertEquals("#002 needs a side task: Fuse Kinstones", row.next)
+        assertEquals("1 figurine waiting on a side task", row(one, hide = true).next)
 
-        val more = FigurineProgressProvider.summarize(catalog.tally(FigurineProgress(checkpoint = "middle")))
-        assertEquals("2 figurines to win now · 100% a draw with one shell", more.next)
+        // With the side task done too, the next checkpoint is named only while spoilers are shown.
+        val start = FigurineProgress(owned = setOf(1, 2), requirementsMet = setOf(2))
+        assertEquals("Nothing new at Carlov's until the story moves on: Reach the middle", row(start).next)
+        assertEquals("Nothing new at Carlov's until the story moves on", row(start, hide = true).next)
+
+        val middle = FigurineProgress(checkpoint = "middle")
+        assertEquals("2 figurines to win now: find Mysterious Shells to draw", row(middle).next)
+        assertEquals("2 figurines to win now · 100% a draw with one shell", row(middle.copy(shells = 3)).next)
+        assertEquals("3 shells · Characters 0 / 2 · Bosses 0 / 2", row(middle.copy(shells = 3)).secondary)
+
+        assertEquals("Every figurine won", row(FigurineProgress(owned = setOf(1, 2, 3, 4)), hide = true).next)
     }
 
     @Test
