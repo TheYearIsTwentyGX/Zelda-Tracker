@@ -207,13 +207,29 @@ iOS port is mostly a matter of adding the iOS targets.
 
 All three TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
 
+**The Minish Cap: Main Quest & Items**
+- **Dungeons**: the six in story order (Deepwood Shrine to Dark Hyrule Castle), with how to reach
+  each, the item inside, the boss, the Element (Earth, Fire, Water, Wind; the Fortress of Winds
+  has none) and what the Elemental Sanctuary then does to the sword, from the White Sword (Two
+  Elements) to the Four Sword. The tab counts Elements recovered as well as dungeons cleared.
+- **Items**: all 38 swords, shields, items, equipment, upgrades and bottles, grouped with per-group
+  counts, each with where and how to get it, including Rupee costs and Kinstone Fusions. The bomb
+  bag, quiver and wallet upgrades are named by where they are found, since they come in any order.
+  The Light Arrows are flagged missable and the Mirror Shield post-game.
+- **Tiger Scrolls**: the eight techniques from Swiftblade, Grayblade, Waveblade, Grimblade and
+  Swiftblade I, with each dojo's location and what the brother asks for first. The three technique
+  upgrades from Scarblade, Splitblade and Greatblade are listed under them and counted apart.
+- Mark dungeons cleared, items obtained and techniques learned on **File 1**, **File 2** or
+  **File 3**. Each tab shows its count, and the save file picker shows all three. Sources and
+  known disagreements are in `docs/mc-main-quest.md`.
+
 ## Layout
 
 ```
 shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/armor/    ← armor tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
-  src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW only for now)
+  src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW; The Minish Cap with dungeons, items and Tiger Scrolls)
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker (BotW; TotK with Lightroots) and Spirit Orb / Light of Blessing planner
   src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
@@ -231,6 +247,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
   src/commonMain/composeResources/files/botw/bosses.json     ← overworld boss spawns
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
+  src/commonMain/composeResources/files/mc/main_quest.json   ← Minish Cap dungeons, items, Tiger Scrolls
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
@@ -316,6 +333,10 @@ BotW main quest data (towers, Divine Beasts and Recovered Memories) comes from Z
 memory list and Pikango's hints from its Memory and Captured Memories pages, and the beasts from
 each Divine Beast quest page. Tower climbing tips are cross-checked against Zelda Fandom, Zelda
 Dungeon, GameWith and RankedBoost, and memory directions against RPG Site and Nintendo Insider.
+
+Minish Cap main quest data (`files/mc/main_quest.json`: dungeons, items and Tiger Scrolls) comes
+from Zelda Wiki, cross-checked against StrategyWiki, Zelda Universe and Zelda Dungeon; see
+`docs/mc-main-quest.md`.
 
 TotK armor data comes from Zelda Wiki's TotK armor tables, cross-checked against Game8,
 Fextralife, Thonky, Zelda Universe, Gamer Guides and Samurai Gamers. TotK Great Fairy data comes

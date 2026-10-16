@@ -1,0 +1,454 @@
+{
+  "dungeons": [
+    {
+      "id": "deepwood_shrine",
+      "number": 1,
+      "name": "Deepwood Shrine",
+      "region": "Minish Woods",
+      "access": "Shrink at the stump in the Minish Woods and find the Minish Village. Pick up the Jabber Nut in the Barrel House so you can understand the Minish; Elder Gentari then has the priest Festari let you into the shrine.",
+      "item": "Gust Jar",
+      "boss": "Big Green Chuchu",
+      "element": "Earth",
+      "rewards": [
+        "Earth Element",
+        "Heart Container"
+      ],
+      "tip": "Suck at the Big Green Chuchu's legs with the Gust Jar until it topples, then slash it. Afterwards Belari gives you the Bomb Bag, and Swiftblade in Hyrule Town teaches the Spin Attack, which the guards want to see before they let you onto Mount Crenel. The Earth Element waits for the Fire Element: the Sanctuary infuses the two together."
+    },
+    {
+      "id": "cave_of_flames",
+      "number": 2,
+      "name": "Cave of Flames",
+      "region": "Mount Crenel",
+      "access": "With the Spin Attack learned, climb Mount Crenel. Halfway up, bomb open the Business Scrub's cave and buy the Grip Ring (40 Rupees) to climb the rock walls, then shrink and pass through Melari's Mine at the summit. Melari starts reforging the Broken Picori Blade while you clear the cave.",
+      "item": "Cane of Pacci",
+      "boss": "Gleerok",
+      "element": "Fire",
+      "rewards": [
+        "Fire Element",
+        "Heart Container"
+      ],
+      "sanctuary": "Earth and Fire turn Melari's White Sword into the White Sword (Two Elements): charge a Spin Attack on a glowing tile to split in two.",
+      "tip": "Flip Gleerok's shell with the Cane of Pacci, climb onto its neck and slash. Afterwards collect the White Sword from Melari, then take both Elements to the Elemental Sanctuary in Hyrule Castle's courtyard."
+    },
+    {
+      "id": "fortress_of_winds",
+      "number": 3,
+      "name": "Fortress of Winds",
+      "region": "Wind Ruins",
+      "access": "Wake Rem in Hyrule Town with Syrup's Wake-Up Mushroom for the Pegasus Boots, which sprint over the Castor Wilds swamp. Find the Bow in the northwest of the Wilds, then fuse the three gold Kinstones hidden around them with the Mysterious Statues in the southwest to open the way to the Wind Ruins.",
+      "item": "Mole Mitts",
+      "boss": "Mazaal",
+      "rewards": [
+        "Heart Container",
+        "Ocarina of Wind"
+      ],
+      "tip": "No Element here: the Wind Tribe took it with them to the Cloud Tops. Shoot Mazaal's hands with arrows, slash them, then shrink and attack it from inside its head. The Ocarina of Wind on the roof calls Zeffa to fly you to any Wind Crest you've found."
+    },
+    {
+      "id": "temple_of_droplets",
+      "number": 4,
+      "name": "Temple of Droplets",
+      "region": "Lake Hylia",
+      "access": "Return the Royal Hyrule Library's three overdue books, then climb the reshelved books as a Minish to reach Librari; his trial ends with the Flippers. Swim to the block of ice in the middle of Lake Hylia and shrink to fall into the temple.",
+      "item": "Flame Lantern",
+      "boss": "Big Octorok",
+      "element": "Water",
+      "rewards": [
+        "Water Element",
+        "Heart Container"
+      ],
+      "sanctuary": "Water turns it into the White Sword (Three Elements): split into three.",
+      "tip": "Open the skylights to melt the ice with light. The Big Octorok has swallowed the Water Element: deflect its rocks with your shield and burn the flower on its tail with the Flame Lantern."
+    },
+    {
+      "id": "palace_of_winds",
+      "number": 5,
+      "name": "Palace of Winds",
+      "region": "Cloud Tops",
+      "access": "After the Water Element, King Gustaf's ghost sends you to the Royal Crypt in the Royal Valley (Dampé has the Graveyard Key). His gold Kinstone opens the stone door at Veil Falls; climb to Veil Springs and ride the tornado up. In the Cloud Tops, fuse gold Kinstones with the five Mysterious Clouds to raise the tornado to the palace. Save Gregal first if you want the Light Arrows.",
+      "item": "Roc's Cape",
+      "boss": "Gyorg Pair",
+      "element": "Wind",
+      "rewards": [
+        "Wind Element",
+        "Heart Container"
+      ],
+      "sanctuary": "Wind completes the Four Sword: split into four. Infusing it opens the Sanctuary's sealed room, and Vaati learns where the Light Force is.",
+      "tip": "The Roc's Cape carries you through the palace, which is full of pits and fans. The Gyorg Pair are fought on their backs in mid-air: jump between them with the Cape and split to hit the female's eyes."
+    },
+    {
+      "id": "dark_hyrule_castle",
+      "number": 6,
+      "name": "Dark Hyrule Castle",
+      "region": "Hyrule Castle",
+      "access": "Opens as soon as the Four Sword is complete: Vaati has transformed Hyrule Castle and taken Princess Zelda to the roof.",
+      "boss": "Vaati: Vaati Reborn, Vaati Transfigured and Vaati's Wrath",
+      "rewards": [],
+      "tip": "In the basement, free King Daltus and the castle staff from stone with the Four Sword; the king gives you a key to the rest of the castle. Once you open the keep with the Big Key, Vaati's ceremony ends at the bell's third toll, so don't linger in the last fight before him."
+    }
+  ],
+  "items": [
+    {
+      "id": "smiths_sword",
+      "name": "Smith's Sword",
+      "category": "sword",
+      "region": "Hyrule Castle",
+      "how": "King Daltus gives it to you at the start of the quest, after Vaati turns Zelda to stone."
+    },
+    {
+      "id": "white_sword",
+      "name": "White Sword",
+      "category": "sword",
+      "region": "Melari's Mine, Mount Crenel",
+      "how": "Melari reforges the Broken Picori Blade while you clear the Cave of Flames; collect it from him afterwards. It replaces the Smith's Sword."
+    },
+    {
+      "id": "white_sword_two",
+      "name": "White Sword (Two Elements)",
+      "category": "sword",
+      "region": "Elemental Sanctuary, Hyrule Castle",
+      "how": "Infuse the Earth and Fire Elements. A charged Spin Attack on a glowing tile splits you in two."
+    },
+    {
+      "id": "white_sword_three",
+      "name": "White Sword (Three Elements)",
+      "category": "sword",
+      "region": "Elemental Sanctuary, Hyrule Castle",
+      "how": "Infuse the Water Element from the Temple of Droplets. Splits you into three."
+    },
+    {
+      "id": "four_sword",
+      "name": "Four Sword",
+      "category": "sword",
+      "region": "Elemental Sanctuary, Hyrule Castle",
+      "how": "Infuse the Wind Element from the Palace of Winds. Splits you into four."
+    },
+    {
+      "id": "small_shield",
+      "name": "Small Shield",
+      "category": "shield",
+      "region": "Hyrule Town",
+      "how": "Zelda gives it to you at the Picori Festival. If a Like Like eats it, Stockwell's Shop sells another."
+    },
+    {
+      "id": "mirror_shield",
+      "name": "Mirror Shield",
+      "category": "shield",
+      "region": "Veil Falls",
+      "how": "After beating Vaati, let Biggoron at the top of Veil Falls eat your Small Shield, then come back later for the Mirror Shield. It turns projectiles into beams.",
+      "postgame": true
+    },
+    {
+      "id": "gust_jar",
+      "name": "Gust Jar",
+      "category": "item",
+      "region": "Deepwood Shrine",
+      "how": "In the big chest that appears after you beat the Madderpillar."
+    },
+    {
+      "id": "cane_of_pacci",
+      "name": "Cane of Pacci",
+      "category": "item",
+      "region": "Cave of Flames",
+      "how": "In the big chest after the eight Spiny Chuchus."
+    },
+    {
+      "id": "mole_mitts",
+      "name": "Mole Mitts",
+      "category": "item",
+      "region": "Fortress of Winds",
+      "how": "Behind a bombable wall in the narrow passage past the Darknut's room."
+    },
+    {
+      "id": "flame_lantern",
+      "name": "Flame Lantern",
+      "category": "item",
+      "region": "Temple of Droplets",
+      "how": "After you defeat the Big Blue Chuchu."
+    },
+    {
+      "id": "pegasus_boots",
+      "name": "Pegasus Boots",
+      "category": "item",
+      "region": "Hyrule Town",
+      "how": "After your first visit to Castor Wilds, buy a Wake-Up Mushroom from Syrup's hut in the north of the Minish Woods (60 Rupees) and use it on Rem, asleep in his shoe shop. He finishes the boots and gives them to you."
+    },
+    {
+      "id": "rocs_cape",
+      "name": "Roc's Cape",
+      "category": "item",
+      "region": "Palace of Winds",
+      "how": "In a chest partway through the palace; you need it for the rest of the climb and the Gyorg Pair."
+    },
+    {
+      "id": "ocarina_of_wind",
+      "name": "Ocarina of Wind",
+      "category": "item",
+      "region": "Fortress of Winds",
+      "how": "On the roof after you defeat Mazaal. Plays to call Zeffa, who flies you to any Wind Crest you've found."
+    },
+    {
+      "id": "bombs",
+      "name": "Bomb Bag",
+      "category": "item",
+      "region": "Minish Woods",
+      "how": "Belari gives it to you, with 10 bombs, in his house outside the Minish Village after Deepwood Shrine."
+    },
+    {
+      "id": "remote_bombs",
+      "name": "Remote Bombs",
+      "category": "item",
+      "region": "Minish Woods",
+      "how": "Fuse Kinstones with Elder Gentari, then talk to Belari. He swaps them back for normal bombs whenever you ask."
+    },
+    {
+      "id": "boomerang",
+      "name": "Boomerang",
+      "category": "item",
+      "region": "Hyrule Town",
+      "how": "Stockwell's Shop, 300 Rupees."
+    },
+    {
+      "id": "magical_boomerang",
+      "name": "Magical Boomerang",
+      "category": "item",
+      "region": "North Hyrule Field",
+      "how": "Fuse Kinstones with all four Tingle siblings to reveal a chest underground."
+    },
+    {
+      "id": "bow",
+      "name": "Bow",
+      "category": "item",
+      "region": "Castor Wilds",
+      "how": "In the northwest of the Wilds: shrink, ride a lily pad across the puddle and beat the five Mulldozers in the hole beyond."
+    },
+    {
+      "id": "light_arrows",
+      "name": "Light Arrows (Bow of Light)",
+      "category": "item",
+      "region": "Cloud Tops",
+      "how": "Fuse Kinstones with Strato in western Hyrule Town to open a portal in South Hyrule Field to the Home of the Wind Tribe, and suck the ghost off Gregal with the Gust Jar. Visit him again once you reach the Cloud Tops through Veil Falls. Save him before then, or he dies and they're gone.",
+      "missable": true
+    },
+    {
+      "id": "grip_ring",
+      "name": "Grip Ring",
+      "category": "equipment",
+      "region": "Mount Crenel",
+      "how": "Halfway up, bomb open the cave south of Grayblade's door, deflect the Business Scrub's nut and buy it for 40 Rupees. Lets you climb rock walls."
+    },
+    {
+      "id": "power_bracelets",
+      "name": "Power Bracelets",
+      "category": "equipment",
+      "region": "Hyrule Town",
+      "how": "A Minish in Dr. Left's house gives a riddle that starts there; follow it at Minish size to the fountain and through its secret entrance. They let you push big things while you're small, like the bookcases in Dr. Left's house on the way to the Flippers."
+    },
+    {
+      "id": "flippers",
+      "name": "Flippers",
+      "category": "equipment",
+      "region": "Royal Hyrule Library, Hyrule Town",
+      "how": "Return all three overdue books, then climb the reshelved books as a Minish to reach Librari. Pass the trial below his trapdoor and beat the two Scissors Beetles."
+    },
+    {
+      "id": "jabber_nut",
+      "name": "Jabber Nut",
+      "category": "quest",
+      "region": "Minish Village, Minish Woods",
+      "how": "In the Barrel House. Lets you understand the Minish."
+    },
+    {
+      "id": "kinstone_bag",
+      "name": "Kinstone Bag",
+      "category": "quest",
+      "region": "Hyrule Town",
+      "how": "You're given it in Hyrule Town after Deepwood Shrine. It holds any number of Kinstone pieces."
+    },
+    {
+      "id": "big_bomb_bag_shop",
+      "name": "Big Bomb Bag (Stockwell's Shop)",
+      "category": "upgrade",
+      "region": "Hyrule Town",
+      "how": "Stockwell's Shop, 600 Rupees. Not sold in the European version."
+    },
+    {
+      "id": "big_bomb_bag_mayfly",
+      "name": "Big Bomb Bag (Great Mayfly Fairy)",
+      "category": "upgrade",
+      "region": "Mount Crenel",
+      "how": "Throw a bomb into the Great Mayfly Fairy's fountain and answer her question truthfully."
+    },
+    {
+      "id": "big_bomb_bag_belari",
+      "name": "Big Bomb Bag (Wind Ruins chest)",
+      "category": "upgrade",
+      "region": "Wind Ruins",
+      "how": "After the Water Element, fuse Kinstones with Belari and a chest appears in the Wind Ruins."
+    },
+    {
+      "id": "large_quiver_shop",
+      "name": "Large Quiver (Stockwell's Shop)",
+      "category": "upgrade",
+      "region": "Hyrule Town",
+      "how": "Stockwell's Shop, 600 Rupees."
+    },
+    {
+      "id": "large_quiver_beanstalk",
+      "name": "Large Quiver (Wind Ruins beanstalk)",
+      "category": "upgrade",
+      "region": "Wind Ruins",
+      "how": "Fuse Kinstones with the Minish who makes the bean in the Wind Ruins grow; the chest is at the top of the beanstalk."
+    },
+    {
+      "id": "large_quiver_dragonfly",
+      "name": "Large Quiver (Great Dragonfly Fairy)",
+      "category": "upgrade",
+      "region": "Royal Valley",
+      "how": "Bomb the wall near the Royal Valley entrance and answer all of the Great Dragonfly Fairy's questions about your journey correctly."
+    },
+    {
+      "id": "big_wallet_shop",
+      "name": "Big Wallet (Stockwell's Shop)",
+      "category": "upgrade",
+      "region": "Hyrule Town",
+      "how": "Stockwell's Shop, 80 Rupees."
+    },
+    {
+      "id": "big_wallet_lon_lon",
+      "name": "Big Wallet (Lon Lon Ranch chest)",
+      "category": "upgrade",
+      "region": "Lon Lon Ranch",
+      "how": "Fuse Kinstones with Mayor Hagen to drain a pool at Lon Lon Ranch; the chest is in it."
+    },
+    {
+      "id": "big_wallet_butterfly",
+      "name": "Big Wallet (Great Butterfly Fairy)",
+      "category": "upgrade",
+      "region": "Minish Woods",
+      "how": "Open the way with the Cane of Pacci on a hole in the Eastern Hills. The Great Butterfly Fairy in the north of the woods asks for all your Rupees; give them to her."
+    },
+    {
+      "id": "bottle_trilby",
+      "name": "Bottle (Trilby Highlands)",
+      "category": "bottle",
+      "region": "Trilby Highlands",
+      "how": "The Business Scrub sells it for 20 Rupees."
+    },
+    {
+      "id": "bottle_eastern_hills",
+      "name": "Bottle (Eastern Hills)",
+      "category": "bottle",
+      "region": "Eastern Hills",
+      "how": "Fuse Kinstones with Smith and a chest appears south of Eenie and Meenie's garden."
+    },
+    {
+      "id": "bottle_stockwell",
+      "name": "Bottle (Stockwell's Dog Food)",
+      "category": "bottle",
+      "region": "Hyrule Town",
+      "how": "Shrink and sneak behind Stockwell's counter for a bottle of Dog Food. Feed it to his dog Fifi at his house by Lake Hylia and keep the bottle."
+    },
+    {
+      "id": "bottle_goron_cave",
+      "name": "Bottle (Goron cave)",
+      "category": "bottle",
+      "region": "Lon Lon Ranch",
+      "how": "Fuse Kinstones with Eenie to bring a Goron to open the cave near the ranch, then with five Mysterious Walls to bring more Gorons until they dig to the end."
+    }
+  ],
+  "tigerScrolls": [
+    {
+      "id": "spin_attack",
+      "name": "Spin Attack",
+      "teacher": "Swiftblade",
+      "location": "Swiftblade's dojo, in the southwest corner of Hyrule Town.",
+      "requirement": "Come back from Deepwood Shrine. The only technique the story needs: the guards won't let you onto Mount Crenel without it.",
+      "effect": "Hold the sword button to charge, then release to spin."
+    },
+    {
+      "id": "rock_breaker",
+      "name": "Rock Breaker",
+      "teacher": "Swiftblade",
+      "location": "Swiftblade's dojo, in the southwest corner of Hyrule Town.",
+      "requirement": "\"A new sword in hand\": Melari's White Sword.",
+      "effect": "Break pots and throwable rocks with the sword."
+    },
+    {
+      "id": "roll_attack",
+      "name": "Roll Attack",
+      "teacher": "Grayblade",
+      "location": "A cave on the east side of Mount Crenel, up four rock walls.",
+      "requirement": "The Grip Ring to climb there, and the White Sword (Two Elements): his door only opens once you can split in two.",
+      "effect": "Roll, then swing as you start to get up: a forward thrust that becomes a spin slash when it hits."
+    },
+    {
+      "id": "dash_attack",
+      "name": "Dash Attack",
+      "teacher": "Swiftblade",
+      "location": "Swiftblade's dojo, in the southwest corner of Hyrule Town.",
+      "requirement": "The Pegasus Boots.",
+      "effect": "Equip the Pegasus Boots and the sword, then dash with the blade out."
+    },
+    {
+      "id": "peril_beam",
+      "name": "Peril Beam",
+      "teacher": "Waveblade",
+      "location": "Under a tree on the southwest side of Lake Hylia; swim west from Mayor Hagen's cabin.",
+      "requirement": "The Flippers to get there, and more than 10 hearts.",
+      "effect": "With one heart left, swing the sword to fire a beam."
+    },
+    {
+      "id": "sword_beam",
+      "name": "Sword Beam",
+      "teacher": "Grimblade",
+      "location": "A cave in the southeast of Hyrule Castle Garden; cut the bushes in the corner to find the ladder.",
+      "requirement": "The Flame Lantern: light the two braziers in his room.",
+      "effect": "With full hearts, swing the sword to fire a beam."
+    },
+    {
+      "id": "down_thrust",
+      "name": "Down Thrust",
+      "teacher": "Swiftblade",
+      "location": "Swiftblade's dojo, in the southwest corner of Hyrule Town.",
+      "requirement": "The Roc's Cape.",
+      "effect": "Equip the Roc's Cape and the sword; jump, then swing at the top of the jump to strike down."
+    },
+    {
+      "id": "great_spin_attack",
+      "name": "Great Spin Attack",
+      "teacher": "Swiftblade I",
+      "location": "Under his grave in the southwest of Castor Wilds: push the big tombstone above the Mysterious Statues.",
+      "requirement": "The other seven Tiger Scrolls.",
+      "effect": "During a Spin Attack, keep pressing the button to keep spinning."
+    },
+    {
+      "id": "faster_spin",
+      "name": "Faster Spin Attack",
+      "teacher": "Scarblade",
+      "location": "A waterfall cave in the northeast of Castor Wilds.",
+      "requirement": "Fuse Kinstones with Grayblade to open the waterfall, and the Flippers to swim in.",
+      "effect": "The Spin Attack charges faster.",
+      "upgrade": true
+    },
+    {
+      "id": "faster_split",
+      "name": "Faster Split Gauge",
+      "teacher": "Splitblade",
+      "location": "A waterfall cave on the south side of Veil Falls.",
+      "requirement": "Fuse Kinstones with Grimblade to open the waterfall, and the Flippers to swim in.",
+      "effect": "The Split Gauge fills faster, so you split sooner.",
+      "upgrade": true
+    },
+    {
+      "id": "longer_great_spin",
+      "name": "Longer Great Spin Attack",
+      "teacher": "Greatblade",
+      "location": "A waterfall cave on the west side of North Hyrule Field.",
+      "requirement": "Fuse Kinstones with Waveblade to open the waterfall, the Flippers to swim in, and the Great Spin Attack already learned.",
+      "effect": "The Great Spin Attack lasts longer.",
+      "upgrade": true
+    }
+  ]
+}

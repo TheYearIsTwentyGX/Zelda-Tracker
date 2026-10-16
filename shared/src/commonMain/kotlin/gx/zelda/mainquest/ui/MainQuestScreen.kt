@@ -44,16 +44,25 @@ import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
 import gx.zelda.mainquest.model.DivineBeast
+import gx.zelda.mainquest.model.Dungeon
+import gx.zelda.mainquest.model.InventoryItem
 import gx.zelda.mainquest.model.MainQuestSection
 import gx.zelda.mainquest.model.Memory
 import gx.zelda.mainquest.model.SheikahTower
+import gx.zelda.mainquest.model.TigerScroll
 import kotlinx.coroutines.launch
+
+/** The most checklists a game's catalog can have: one scroll position is kept per page. */
+private val MAX_SECTIONS = MainQuestSection.entries.size
 
 private val MainQuestSection.label: String
     get() = when (this) {
         MainQuestSection.TOWERS -> "Towers"
         MainQuestSection.DIVINE_BEASTS -> "Divine Beasts"
         MainQuestSection.MEMORIES -> "Memories"
+        MainQuestSection.DUNGEONS -> "Dungeons"
+        MainQuestSection.ITEMS -> "Items"
+        MainQuestSection.TIGER_SCROLLS -> "Tiger Scrolls"
     }
 
 /** "Activated", "Freed" or "Recovered": the tag on a finished item. */
@@ -62,6 +71,9 @@ private val MainQuestSection.doneWord: String
         MainQuestSection.TOWERS -> "Activated"
         MainQuestSection.DIVINE_BEASTS -> "Freed"
         MainQuestSection.MEMORIES -> "Recovered"
+        MainQuestSection.DUNGEONS -> "Cleared"
+        MainQuestSection.ITEMS -> "Obtained"
+        MainQuestSection.TIGER_SCROLLS -> "Learned"
     }
 
 /** The noun the save file picker counts in. */
@@ -70,34 +82,45 @@ private val MainQuestSection.shortNoun: String
         MainQuestSection.TOWERS -> "towers"
         MainQuestSection.DIVINE_BEASTS -> "beasts"
         MainQuestSection.MEMORIES -> "memories"
+        MainQuestSection.DUNGEONS -> "dungeons"
+        MainQuestSection.ITEMS -> "items"
+        MainQuestSection.TIGER_SCROLLS -> "scrolls"
     }
 
 /**
- * Main quest progress: Sheikah Towers, Divine Beasts and Recovered Memories on the active save
- * file. The tab row doubles as the summary, with each checklist's count under its name; swipe
- * between the checklists or tap a tab to jump to one.
+ * Main quest progress on the active save file: Sheikah Towers, Divine Beasts and Recovered
+ * Memories in BotW, or dungeons, items and Tiger Scrolls in The Minish Cap. The tab row doubles as
+ * the summary, with each checklist's count under its name; swipe between the checklists or tap a
+ * tab to jump to one.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainQuestScreen(state: MainQuestUiState?, loadFailed: Boolean, viewModel: MainQuestViewModel, onBack: () -> Unit) {
-    val sections = MainQuestSection.entries
+fun MainQuestScreen(
+    state: MainQuestUiState?,
+    loadFailed: Boolean,
+    viewModel: MainQuestViewModel,
+    onBack: () -> Unit,
+    title: String = "Main Quest Progress",
+) {
+    // Until the catalog loads there are no checklists to page through.
+    val sections = state?.catalog?.sections.orEmpty()
     val pager = rememberPagerState { sections.size }
     // Hoisted so each checklist keeps its scroll position while its page is off screen.
-    val listStates = sections.map { rememberLazyListState() }
+    val listStates = List(MAX_SECTIONS) { rememberLazyListState() }
     val scope = rememberCoroutineScope()
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Column {
-                        Text("Main Quest Progress", maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis)
                         if (state != null) {
                             SaveFilePicker(
                                 current = state.saveFile,
                                 options = state.saveFiles.map { summary ->
                                     SaveFileOption(
                                         summary.file,
-                                        MainQuestSection.entries.joinToString(" · ") {
+                                        sections.joinToString(" · ") {
                                             "${summary.counts[it] ?: 0}/${state.catalog.total(it)} ${it.shortNoun}"
                                         },
                                     )
@@ -121,10 +144,10 @@ fun MainQuestScreen(state: MainQuestUiState?, loadFailed: Boolean, viewModel: Ma
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
             PrimaryTabRow(selectedTabIndex = pager.targetPage) {
-                sections.forEach { s ->
+                sections.forEachIndexed { index, s ->
                     Tab(
-                        selected = pager.targetPage == s.ordinal,
-                        onClick = { scope.launch { pager.animateScrollToPage(s.ordinal) } },
+                        selected = pager.targetPage == index,
+                        onClick = { scope.launch { pager.animateScrollToPage(index) } },
                         text = {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(s.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
@@ -157,6 +180,29 @@ fun MainQuestScreen(state: MainQuestUiState?, loadFailed: Boolean, viewModel: Ma
                         MainQuestSection.MEMORIES -> items(state.catalog.memories, key = { it.id }) { memory ->
                             MemoryCard(memory, state.isDone(section, memory.id)) { viewModel.setDone(section, memory.id, it) }
                         }
+                        MainQuestSection.DUNGEONS -> items(state.catalog.dungeons, key = { it.id }) { dungeon ->
+                            DungeonCard(dungeon, state.isDone(section, dungeon.id)) { viewModel.setDone(section, dungeon.id, it) }
+                        }
+                        MainQuestSection.ITEMS -> state.catalog.itemsByCategory.forEach { (category, inCategory) ->
+                            item(key = "_${category.name}") {
+                                GroupHeader(category.label, inCategory.count { state.isDone(section, it.id) }, inCategory.size)
+                            }
+                            items(inCategory, key = { it.id }) { item ->
+                                InventoryItemCard(item, state.isDone(section, item.id)) { viewModel.setDone(section, item.id, it) }
+                            }
+                        }
+                        MainQuestSection.TIGER_SCROLLS -> {
+                            items(state.catalog.scrolls, key = { it.id }) { scroll ->
+                                TigerScrollCard(scroll, state.isDone(section, scroll.id)) { viewModel.setDone(section, scroll.id, it) }
+                            }
+                            val upgrades = state.catalog.techniqueUpgrades
+                            if (upgrades.isNotEmpty()) {
+                                item(key = "_upgrades") { GroupHeader("Technique upgrades", state.upgradeCount, upgrades.size) }
+                                items(upgrades, key = { it.id }) { upgrade ->
+                                    TigerScrollCard(upgrade, state.isDone(section, upgrade.id)) { viewModel.setDone(section, upgrade.id, it) }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -179,6 +225,17 @@ private fun SummaryCard(state: MainQuestUiState, section: MainQuestSection) {
                     "Impa's \"Free the Divine Beasts\" asks for all four, in any order. Each one you free grants its " +
                         "Champion's ability and a Heart Container, and fires on Hyrule Castle when you face Calamity Ganon."
                 MainQuestSection.MEMORIES -> memoriesSummary(state)
+                MainQuestSection.DUNGEONS ->
+                    "Elements: ${state.elementCount} / ${state.catalog.elementTotal}. Each one goes to the Elemental " +
+                        "Sanctuary in Hyrule Castle's courtyard, which infuses it into the White Sword: Earth and Fire " +
+                        "together let you split in two, Water in three, and Wind makes it the Four Sword. The Fortress " +
+                        "of Winds and Dark Hyrule Castle have no Element."
+                MainQuestSection.ITEMS -> itemsSummary(state)
+                MainQuestSection.TIGER_SCROLLS ->
+                    "Technique upgrades: ${state.upgradeCount} / ${state.catalog.techniqueUpgrades.size}. Only the Spin " +
+                        "Attack is needed to finish the game. Swiftblade I teaches the Great Spin Attack once you have " +
+                        "the other seven scrolls, and three more brothers, found through Kinstone Fusions, improve " +
+                        "techniques you already know. Nobody charges for lessons."
             },
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -196,6 +253,19 @@ private fun memoriesSummary(state: MainQuestUiState): String {
     }
     return "$albumLine The four Champion memories come from the Divine Beast quests and the last from drawing the " +
         "Master Sword. Recovering the 13 pictures completes \"Captured Memories\" and unlocks a post-credits scene."
+}
+
+private fun itemsSummary(state: MainQuestUiState): String {
+    val missable = state.catalog.items.filter { it.missable }.joinToString { it.name }
+    val postgame = state.catalog.items.filter { it.postgame }.joinToString { it.name }
+    return buildString {
+        append(
+            "The three bomb bags, three quivers and three wallets can be found in any order; each one raises the " +
+                "limit a step (bombs 10 → 30 → 50 → 99, Rupees 100 → 300 → 500 → 999).",
+        )
+        if (missable.isNotEmpty()) append(" Missable: $missable.")
+        if (postgame.isNotEmpty()) append(" After the final boss: $postgame.")
+    }
 }
 
 @Composable
@@ -246,6 +316,61 @@ private fun MemoryCard(memory: Memory, done: Boolean, onDoneChange: (Boolean) ->
     ) {
         Text(memory.location, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
         Text(memory.hint, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+}
+
+@Composable
+private fun DungeonCard(dungeon: Dungeon, done: Boolean, onDoneChange: (Boolean) -> Unit) {
+    ItemCard(
+        title = "${dungeon.number}. ${dungeon.name}",
+        tags = listOfNotNull(dungeon.region, dungeon.element?.let { "$it Element" }),
+        doneWord = MainQuestSection.DUNGEONS.doneWord,
+        done = done,
+        onDoneChange = onDoneChange,
+    ) {
+        Labeled("Getting there", dungeon.access)
+        dungeon.item?.let { Labeled("Item", it) }
+        Labeled("Boss", dungeon.boss)
+        if (dungeon.rewards.isNotEmpty()) Labeled("Reward", dungeon.rewards.joinToString(" · "))
+        dungeon.sanctuary?.let { Labeled("Elemental Sanctuary", it) }
+        Note(dungeon.tip)
+    }
+}
+
+@Composable
+private fun InventoryItemCard(item: InventoryItem, done: Boolean, onDoneChange: (Boolean) -> Unit) {
+    ItemCard(
+        title = item.name,
+        tags = listOfNotNull(item.region, "Missable".takeIf { item.missable }, "Post-game".takeIf { item.postgame }),
+        doneWord = MainQuestSection.ITEMS.doneWord,
+        done = done,
+        onDoneChange = onDoneChange,
+    ) {
+        Text(item.how, style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+private fun TigerScrollCard(scroll: TigerScroll, done: Boolean, onDoneChange: (Boolean) -> Unit) {
+    ItemCard(
+        title = scroll.name,
+        tags = listOf(scroll.teacher),
+        doneWord = MainQuestSection.TIGER_SCROLLS.doneWord,
+        done = done,
+        onDoneChange = onDoneChange,
+    ) {
+        Text(scroll.location, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
+        Labeled("Before he'll teach it", scroll.requirement)
+        Note(scroll.effect)
+    }
+}
+
+/** A heading inside a checklist, with how much of the group is done. */
+@Composable
+private fun GroupHeader(label: String, done: Int, total: Int) {
+    Row(Modifier.fillMaxWidth().padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(label, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+        Text("$done / $total", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
 

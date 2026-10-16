@@ -130,7 +130,13 @@ fun App(dataStore: DataStore<Preferences>) {
                 val vm = viewModel(key = game.id) { MainQuestViewModel(MainQuestStorage(dataStore, game)) }
                 val state by vm.state.collectAsStateWithLifecycle()
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
-                MainQuestScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
+                MainQuestScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onBack = { nav.popBackStack() },
+                    title = game.trackers.first { it.kind == TrackerKind.MAIN_QUEST }.title,
+                )
             }
             composable<Shrines> { entry ->
                 val game = Games.byId(entry.toRoute<Shrines>().gameId)

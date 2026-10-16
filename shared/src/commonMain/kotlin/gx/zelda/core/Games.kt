@@ -74,7 +74,18 @@ object Games {
         ),
     )
 
-    val all = listOf(BOTW, TOTK)
+    /** Three save files, as on the GBA cartridge. */
+    val MC = Game(
+        id = "mc",
+        title = "The Minish Cap",
+        year = 2004,
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.MAIN_QUEST, "Main Quest & Items", "Dungeons and Elements, every item and upgrade, and the Tiger Scrolls"),
+        ),
+    )
+
+    val all = listOf(BOTW, TOTK, MC)
 
     fun byId(id: String): Game = all.first { it.id == id }
 }

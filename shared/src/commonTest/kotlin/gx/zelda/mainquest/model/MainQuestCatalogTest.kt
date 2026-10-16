@@ -37,4 +37,44 @@ class MainQuestCatalogTest {
         assertEquals(emptySet(), progress.done(MainQuestSection.DIVINE_BEASTS))
         assertEquals(setOf("memory_2"), progress.done(MainQuestSection.MEMORIES))
     }
+
+    private fun dungeon(id: String, element: String?) = Dungeon(id, 1, id, "Region", "Go there.", boss = "Boss", element = element, rewards = emptyList(), tip = "Hit it.")
+    private fun scroll(id: String, upgrade: Boolean = false) = TigerScroll(id, id, "Teacher", "Dojo", "None", "Swing.", upgrade)
+
+    private val minishCap = MainQuestCatalog(
+        dungeons = listOf(dungeon("earth", "Earth"), dungeon("fortress", null), dungeon("fire", "Fire")),
+        items = listOf(InventoryItem("jar", "Jar", ItemCategory.ITEM, "Woods", "Find it.")),
+        tigerScrolls = listOf(scroll("spin"), scroll("beam"), scroll("faster", upgrade = true)),
+    )
+
+    @Test
+    fun sectionsAreTheNonEmptyChecklistsInOrder() {
+        assertEquals(listOf(MainQuestSection.TOWERS, MainQuestSection.MEMORIES), catalog.sections)
+        assertEquals(listOf(MainQuestSection.DUNGEONS, MainQuestSection.ITEMS, MainQuestSection.TIGER_SCROLLS), minishCap.sections)
+    }
+
+    @Test
+    fun tigerScrollSectionCountsScrollsAndUpgradesApart() {
+        val done = setOf("spin", "faster")
+        assertEquals(2, minishCap.total(MainQuestSection.TIGER_SCROLLS))
+        assertEquals(1, minishCap.doneCount(MainQuestSection.TIGER_SCROLLS, done))
+        assertEquals(1, minishCap.upgradeCount(done))
+    }
+
+    @Test
+    fun elementsCountOnlyDungeonsThatHoldOne() {
+        assertEquals(2, minishCap.elementTotal)
+        assertEquals(1, minishCap.elementCount(setOf("earth", "fortress")))
+    }
+
+    @Test
+    fun minishCapProgressKeepsEachSectionApart() {
+        val progress = MainQuestProgress()
+            .with(MainQuestSection.DUNGEONS, "earth", true)
+            .with(MainQuestSection.ITEMS, "jar", true)
+            .with(MainQuestSection.TIGER_SCROLLS, "spin", true)
+            .with(MainQuestSection.ITEMS, "jar", false)
+
+        assertEquals(MainQuestProgress(dungeons = setOf("earth"), tigerScrolls = setOf("spin")), progress)
+    }
 }
