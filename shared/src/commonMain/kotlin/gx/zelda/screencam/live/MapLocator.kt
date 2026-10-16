@@ -96,13 +96,8 @@ class MapLocator(private val mosaic: TileMosaic) {
 
     /** Matches [view] within [radius] world units of [predicted] (the view's top-left in world units). */
     suspend fun near(view: GrayImage, predicted: Point, radius: Double = 100.0): Fix {
-        // Level 1 (a quarter pixel per unit): coarse search over the radius.
-        val t1 = highPass(view.half())
+        val (px1, py1, coarse) = coarse(view, predicted, radius)
         val r1 = (radius / 4).toInt()
-        val px1 = pixelX(predicted.x, 1)
-        val py1 = pixelZ(predicted.y, 1)
-        val m1 = highPass(mosaic.region(1, px1 - r1 - PAD, py1 - r1 - PAD, t1.width + 2 * (r1 + PAD), t1.height + 2 * (r1 + PAD)))
-        val coarse = search(m1, t1, PAD, PAD, 2 * r1 + 1, 2 * r1 + 1)
         // Level 2: refine around it.
         val t2 = highPass(view)
         val cx2 = 2 * (px1 - r1 + coarse.x)
@@ -150,21 +145,43 @@ class MapLocator(private val mosaic: TileMosaic) {
         return out
     }
 
+    /** Level 1 (a quarter pixel per unit) over [radius]: the best offset's level-1 corner and its peak. */
+    private suspend fun coarse(view: GrayImage, predicted: Point, radius: Double): Triple<Int, Int, Peak> {
+        val t1 = highPass(view.half())
+        val r1 = (radius / 4).toInt()
+        val px1 = pixelX(predicted.x, 1)
+        val py1 = pixelZ(predicted.y, 1)
+        val m1 = highPass(mosaic.region(1, px1 - r1 - PAD, py1 - r1 - PAD, t1.width + 2 * (r1 + PAD), t1.height + 2 * (r1 + PAD)))
+        return Triple(px1, py1, search(m1, t1, PAD, PAD, 2 * r1 + 1, 2 * r1 + 1))
+    }
+
     private var overview: GrayImage? = null
+    private var overviewIntegral: Integral? = null
+
+    /** Builds the whole-map overview [anywhere] needs, ahead of time (it decodes 20 tiles). */
+    suspend fun prepare() {
+        if (overview == null) {
+            val map = highPass(mosaic.region(0, 0, 0, 1250, 1000).half())
+            overview = map
+            overviewIntegral = Integral(map)
+        }
+    }
 
     /** Matches [view] over the whole map: a coarse pass at level 0, then [near] on the best few. */
     suspend fun anywhere(view: GrayImage): Fix? {
-        val map = overview ?: highPass(mosaic.region(0, 0, 0, 1250, 1000).half()).also { overview = it }
+        prepare()
+        val map = checkNotNull(overview)
+        val integral = checkNotNull(overviewIntegral)
         // Level 0 halved is 1/16 px per unit: the view is 8× smaller than at level 2.
         val t = highPass(view.half().half().half())
         val tz = zeroMean(t)
         val n = t.width * t.height
         val tNorm = sqrt(tz.sumOf { it.toDouble() * it })
-        val integral = Integral(map)
         val nx = map.width - t.width + 1
         val ny = map.height - t.height + 1
         val scores = DoubleArray(nx * ny)
-        for (y in 0 until ny) for (x in 0 until nx) {
+        // Every other position: 32 world units apart, inside the ±40 each candidate is re-searched.
+        for (y in 0 until ny step 2) for (x in 0 until nx step 2) {
             val varM = integral.variance(x, y, t.width, t.height)
             if (varM < MIN_MAP_VARIANCE) continue
             var sum = 0.0
@@ -175,19 +192,28 @@ class MapLocator(private val mosaic: TileMosaic) {
             }
             scores[y * nx + x] = sum / (sqrt(varM * n) * tNorm)
         }
-        val best = ArrayList<Pair<Int, Int>>()
-        for (k in scores.indices.sortedByDescending { scores[it] }) {
-            if (best.size == CANDIDATES) break
+        // The best few peaks, each clearing its neighbourhood before the next is taken.
+        val best = ArrayList<Point>()
+        repeat(CANDIDATES) {
+            var k = -1
+            for (i in scores.indices) if (scores[i] > 0 && (k < 0 || scores[i] > scores[k])) k = i
+            if (k < 0) return@repeat
             val x = k % nx
             val y = k / nx
-            if (best.none { abs(it.first - x) < 6 && abs(it.second - y) < 6 }) best += x to y
+            best += Point(x * 16 - 5000.0, y * 16 - 4000.0)
+            for (yy in max(0, y - 5)..min(ny - 1, y + 5)) for (xx in max(0, x - 5)..min(nx - 1, x + 5)) scores[yy * nx + xx] = 0.0
         }
-        var result: Fix? = null
-        for ((x, y) in best) {
-            val fix = near(view, Point(x * 16 - 5000.0, y * 16 - 4000.0), radius = 40.0)
-            if (result == null || fix.peak > result.peak) result = fix
+        // Check each at level 1 only; refine just the winner at level 2.
+        var winner: Point? = null
+        var winnerPeak = -1.0
+        for (p in best) {
+            val peak = coarse(view, p, 40.0).third.peak
+            if (peak > winnerPeak) {
+                winnerPeak = peak
+                winner = p
+            }
         }
-        return result
+        return winner?.let { near(view, it, radius = 40.0) }
     }
 
     private class Peak(val x: Int, val y: Int, val subX: Double, val subY: Double, val peak: Double, val ratio: Double)

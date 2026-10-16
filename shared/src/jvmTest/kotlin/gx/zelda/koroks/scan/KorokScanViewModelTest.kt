@@ -6,6 +6,7 @@ import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.screencam.live.CameraAccess
+import gx.zelda.screencam.live.FileFrameRecorder
 import gx.zelda.screencam.live.decodeGrayImage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -68,6 +69,24 @@ class KorokScanViewModelTest {
         assertTrue("T17" !in progress.completed)
         // The other save file is untouched.
         assertTrue(storage.progress("normal_1").first().completed.isEmpty())
+    }
+
+    @Test
+    fun aDebugSessionSavesFramesAndState() = runTest {
+        val vm = main.track(KorokScanViewModel(storage()))
+        vm.state.first { it != null }
+        val dir = Files.createTempDirectory("korok-debug").toFile()
+        vm.cameraInfo("analysis 1280x720 rotation 90")
+        vm.startRecording { FileFrameRecorder(dir) }
+        assertEquals(dir.absolutePath, vm.state.value!!.recording)
+        for (f in frames.take(7)) vm.analyse(f)
+        vm.stopRecording()
+        assertTrue(File(dir, "frame-0000.jpg").exists() && File(dir, "frame-0005.jpg").exists() && !File(dir, "frame-0001.jpg").exists())
+        val lines = File(dir, "state.jsonl").readLines()
+        assertEquals(7, lines.size)
+        assertTrue(lines[0].contains("\"phase\"") && lines[0].contains("\"saved\":\"frame-0000.jpg\""), lines[0])
+        assertTrue(File(dir, "session.json").readText().contains("rotation 90"))
+        assertEquals(null, vm.state.value!!.recording)
     }
 
     @Test

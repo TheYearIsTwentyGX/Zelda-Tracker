@@ -43,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontFamily
@@ -55,6 +56,7 @@ import gx.zelda.screencam.live.KorokVerdict
 import gx.zelda.screencam.live.LiveCameraView
 import gx.zelda.screencam.live.LivePhase
 import gx.zelda.screencam.live.isDebugBuild
+import gx.zelda.screencam.live.rememberFrameRecorderFactory
 import gx.zelda.screencam.live.rememberCameraPermission
 import kotlin.math.max
 
@@ -63,6 +65,7 @@ import kotlin.math.max
 @Composable
 fun KorokScanScreen(state: KorokScanUiState?, loadFailed: Boolean, viewModel: KorokScanViewModel, onBack: () -> Unit) {
     val debug = isDebugBuild()
+    val recorders = rememberFrameRecorderFactory()
     var showStats by rememberSaveable { mutableStateOf(debug) }
     var confirming by remember { mutableStateOf(false) }
     Scaffold(
@@ -81,6 +84,11 @@ fun KorokScanScreen(state: KorokScanUiState?, loadFailed: Boolean, viewModel: Ko
                 },
                 actions = {
                     if (state != null && state.review == null && state.applied == null) {
+                        if (debug && recorders != null) {
+                            TextButton(onClick = { if (state.recording == null) viewModel.startRecording(recorders) else viewModel.stopRecording() }) {
+                                Text(if (state.recording == null) "Save frames" else "Stop saving")
+                            }
+                        }
                         TextButton(onClick = { showStats = !showStats }) { Text(if (showStats) "Hide stats" else "Stats") }
                     }
                 },
@@ -119,7 +127,7 @@ private fun CameraPane(state: KorokScanUiState, viewModel: KorokScanViewModel, s
     Column(Modifier.fillMaxSize().padding(padding)) {
         when (permission.access) {
             CameraAccess.GRANTED -> Box(Modifier.weight(1f).fillMaxWidth()) {
-                LiveCameraView(onFrame = viewModel::analyse, modifier = Modifier.fillMaxSize())
+                LiveCameraView(onFrame = viewModel::analyse, modifier = Modifier.fillMaxSize(), onCameraInfo = viewModel::cameraInfo)
                 Overlay(state.live, Modifier.fillMaxSize())
                 Surface(
                     color = Color.Black.copy(alpha = 0.6f),
@@ -129,6 +137,8 @@ private fun CameraPane(state: KorokScanUiState, viewModel: KorokScanViewModel, s
                 ) {
                     Column(Modifier.padding(horizontal = 10.dp, vertical = 6.dp)) {
                         Text(statusLine(state.live.phase), style = MaterialTheme.typography.bodySmall)
+                        state.live.reason?.let { Text(it, style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold) }
+                        state.recording?.let { Text("Saving frames to $it", style = MaterialTheme.typography.labelSmall) }
                         if (showStats && state.live.stats.isNotEmpty()) {
                             Text(state.live.stats, style = MaterialTheme.typography.labelSmall, fontFamily = FontFamily.Monospace)
                         }
@@ -168,6 +178,15 @@ private fun Overlay(live: LiveView, modifier: Modifier) {
         val ox = (size.width - live.frameWidth * scale) / 2
         val oy = (size.height - live.frameHeight * scale) / 2
         fun at(x: Double, y: Double) = Offset(ox + x.toFloat() * scale, oy + y.toFloat() * scale)
+        // The best outline that was turned down, so you can see what it's looking at.
+        if (live.screen == null) live.candidate?.let { corners ->
+            val path = Path().apply {
+                moveTo(at(corners[0].x, corners[0].y).x, at(corners[0].x, corners[0].y).y)
+                for (c in corners.drop(1)) at(c.x, c.y).let { lineTo(it.x, it.y) }
+                close()
+            }
+            drawPath(path, Color(0xFFFFCA28), style = Stroke(width = 1.5.dp.toPx(), pathEffect = PathEffect.dashPathEffect(floatArrayOf(12f, 8f))))
+        }
         live.screen?.let { corners ->
             val path = Path().apply {
                 moveTo(at(corners[0].x, corners[0].y).x, at(corners[0].x, corners[0].y).y)
