@@ -32,6 +32,7 @@ enum class TrackerKind {
     SIDE_QUESTS,
     BOSSES,
     MAP,
+    FIGURINES,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -74,7 +75,18 @@ object Games {
         ),
     )
 
-    val all = listOf(BOTW, TOTK)
+    /** Three save files, as on the GBA cartridge. */
+    val MC = Game(
+        id = "mc",
+        title = "The Minish Cap",
+        year = 2004,
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.FIGURINES, "Carlov's Figurines", "All 136 figurines by story checkpoint, Mysterious Shells and the odds of a new one"),
+        ),
+    )
+
+    val all = listOf(BOTW, TOTK, MC)
 
     fun byId(id: String): Game = all.first { it.id == id }
 }
