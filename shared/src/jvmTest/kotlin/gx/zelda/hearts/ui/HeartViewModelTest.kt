@@ -78,6 +78,9 @@ class HeartViewModelTest {
     fun hidingUncollectedCoversTheRowsUntilRevealed() = runTest {
         val vm = main.track(HeartViewModel(storage()))
         backgroundScope.launchCollect(vm)
+        // Let the state load before writing: on a fresh DataStore, a collector that first subscribes
+        // while an edit from Main (unconfined in tests) is in flight can miss that edit for good.
+        vm.state.filterNotNull().first()
         vm.setHideUncollected(true).join()
         val hidden = vm.state.filterNotNull().first { it.prefs.hideUncollected }
         val bell = hidden.catalog.entries.first { it.id == "hyrule_town_bell" }
