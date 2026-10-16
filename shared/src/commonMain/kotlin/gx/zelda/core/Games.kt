@@ -32,6 +32,8 @@ enum class TrackerKind {
     SIDE_QUESTS,
     BOSSES,
     MAP,
+    /** Pieces of Heart and Heart Containers, with a running hearts total. */
+    HEART_PIECES,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -74,7 +76,18 @@ object Games {
         ),
     )
 
-    val all = listOf(BOTW, TOTK)
+    /** Three save files, as on the GBA cartridge. */
+    val MC = Game(
+        id = "mc",
+        title = "The Minish Cap",
+        year = 2004,
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.HEART_PIECES, "Heart Pieces", "All 44 Pieces of Heart and 6 Heart Containers by region, with your hearts total"),
+        ),
+    )
+
+    val all = listOf(BOTW, TOTK, MC)
 
     fun byId(id: String): Game = all.first { it.id == id }
 }
