@@ -18,6 +18,7 @@ import gx.zelda.shrines.model.ShrineProgress
 import gx.zelda.shrines.model.ShrineState
 import gx.zelda.shrines.model.UpgradeKind
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -160,44 +161,43 @@ class ShrineViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setCompleted(shrineId: String, completed: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setCompleted(file, shrineId, completed) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setCompleted(shrineId: String, completed: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setCompleted(file, shrineId, completed) }
     }
 
-    fun setState(shrineId: String, shrineState: ShrineState) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setState(file, shrineId, shrineState) }
+    fun setState(shrineId: String, shrineState: ShrineState): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setState(file, shrineId, shrineState) }
     }
 
-    fun setBought(hearts: Int, stamina: Int) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setBought(file, hearts, stamina) }
+    fun setBought(hearts: Int, stamina: Int): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setBought(file, hearts, stamina) }
     }
 
-    fun setBossHearts(hearts: Int) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setBossHearts(file, hearts) }
+    fun setBossHearts(hearts: Int): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setBossHearts(file, hearts) }
     }
 
-    fun setFreeUpgrade(kind: UpgradeKind?) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setFreeUpgrade(file, kind) }
+    fun setFreeUpgrade(kind: UpgradeKind?): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setFreeUpgrade(file, kind) }
     }
 
-    fun setLightrootState(lightrootId: String, lightrootState: DiscoveryState) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setLightrootState(file, lightrootId, lightrootState) }
+    fun setLightrootState(lightrootId: String, lightrootState: DiscoveryState): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setLightrootState(file, lightrootId, lightrootState) }
     }
 
-    fun setShowDlc(show: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(showDlc = show) } }
-    }
+    fun setShowDlc(show: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(showDlc = show) } }
 
-    fun setHideUndiscovered(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
-    }
+    fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
 
     /** Shows one undiscovered shrine's row until the tracker is closed; nothing is saved. */
     fun reveal(shrineId: String) = filters.update { it.copy(revealed = it.revealed + shrineId) }
@@ -205,9 +205,7 @@ class ShrineViewModel(
     /** Shows one undiscovered Lightroot's row until the tracker is closed; nothing is saved. */
     fun revealLightroot(lightrootId: String) = filters.update { it.copy(revealedLightroots = it.revealedLightroots + lightrootId) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 

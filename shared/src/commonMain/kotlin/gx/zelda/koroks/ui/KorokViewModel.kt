@@ -14,6 +14,7 @@ import gx.zelda.koroks.model.KorokData
 import gx.zelda.koroks.model.KorokPrefs
 import gx.zelda.koroks.model.KorokProgress
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -136,32 +137,31 @@ class KorokViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setCompleted(korokId: String, completed: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setCompleted(file, korokId, completed) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setCompleted(korokId: String, completed: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setCompleted(file, korokId, completed) }
     }
 
-    fun setState(korokId: String, korokState: DiscoveryState) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setState(file, korokId, korokState) }
+    fun setState(korokId: String, korokState: DiscoveryState): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setState(file, korokId, korokState) }
     }
 
-    fun setBought(pouchId: String, upgrades: Int) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setBought(file, pouchId, upgrades) }
+    fun setBought(pouchId: String, upgrades: Int): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setBought(file, pouchId, upgrades) }
     }
 
-    fun setHideUndiscovered(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
-    }
+    fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
 
     /** Shows one undiscovered Korok's row until the tracker is closed; nothing is saved. */
     fun reveal(korokId: String) = filters.update { it.copy(revealed = it.revealed + korokId) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 
