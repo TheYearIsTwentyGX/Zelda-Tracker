@@ -4,7 +4,6 @@ import gx.zelda.screencam.Homography
 import gx.zelda.screencam.Point
 import gx.zelda.screencam.Rectifier
 import gx.zelda.screencam.ScreenChrome
-import gx.zelda.screencam.ScreenFinder
 import gx.zelda.screencam.smoothChroma
 import kotlin.math.abs
 import kotlin.math.hypot
@@ -30,7 +29,7 @@ class PhotoShotReader(
     private val shrinePoints = data.shrines.values.toList()
 
     fun read(photo: MapImage): ShotScan {
-        val (screen, score) = locate(photo) ?: return noScreen()
+        val (screen, score) = chrome.locate(photo) ?: return noScreen()
         if (score < MIN_FRAME_SCORE) return noScreen()
         if (screen.localScale(CENTRE) < MIN_PHOTO_PX) return if (fillsPhoto(screen, photo)) scanner.wrongSize(photo) else tooSmall()
 
@@ -59,19 +58,6 @@ class PhotoShotReader(
                 else -> scan
             }
         }
-    }
-
-    /** The best candidate's canonical → photo homography and how much its frame looks like the reference. */
-    private fun locate(photo: MapImage): Pair<Homography, Double>? {
-        var best: Pair<Homography, Double>? = null
-        for (outline in ScreenFinder.candidates(photo)) for (turn in 0..3) {
-            val corners = List(4) { outline[(it + turn) % 4] }
-            val h = Homography.fit(ScreenChrome.CORNERS, corners) ?: continue
-            val thumb = Rectifier.rectify(photo, h, ScreenChrome.THUMB_W, ScreenChrome.THUMB_H, ScreenChrome.THUMB_W / W.toDouble())
-            val score = chrome.frameScore(thumb)
-            if (score > (best?.second ?: -2.0)) best = h to score
-        }
-        return best
     }
 
     private class Icons(val groups: List<Pair<List<ShrineMapScanner.Detection>, List<WorldPoint>>>, val registration: MapRegistration?) {

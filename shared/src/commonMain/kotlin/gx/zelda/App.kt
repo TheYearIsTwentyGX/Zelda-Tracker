@@ -47,6 +47,8 @@ import gx.zelda.figurines.data.FigurineStorage
 import gx.zelda.figurines.ui.FigurineTrackerScreen
 import gx.zelda.figurines.ui.FigurineViewModel
 import gx.zelda.koroks.data.KorokStorage
+import gx.zelda.koroks.scan.KorokScanScreen
+import gx.zelda.koroks.scan.KorokScanViewModel
 import gx.zelda.koroks.ui.KorokDetailScreen
 import gx.zelda.koroks.ui.KorokTrackerScreen
 import gx.zelda.koroks.ui.KorokViewModel
@@ -84,6 +86,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Koroks(val gameId: String)
 @Serializable private data class KorokDetail(val gameId: String, val korokId: String)
 @Serializable private data class ShrineScan(val gameId: String)
+
+@Serializable private data class KorokScan(val gameId: String)
 @Serializable private data class Overview(val gameId: String)
 @Serializable private data class SideQuests(val gameId: String)
 @Serializable private data class SideQuestDetail(val gameId: String, val questId: String)
@@ -220,7 +224,16 @@ fun App(dataStore: DataStore<Preferences>) {
                     vm,
                     onOpenKorok = { nav.navigate(KorokDetail(game.id, it)) },
                     onBack = { nav.popBackStack() },
+                    // Only BotW has the map tiles and marker template the live scan reads.
+                    onScanLive = { nav.navigate(KorokScan(game.id)) }.takeIf { game == Games.BOTW },
                 )
+            }
+            composable<KorokScan> { entry ->
+                val game = Games.byId(entry.toRoute<KorokScan>().gameId)
+                val vm = viewModel(key = "korok_scan_${game.id}") { KorokScanViewModel(KorokStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                KorokScanScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<KorokDetail> { entry ->
                 val route = entry.toRoute<KorokDetail>()

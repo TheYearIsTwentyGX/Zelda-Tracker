@@ -1,0 +1,5 @@
+{
+  "note": "Handheld Switch at max zoom: Biron Snowshelf south to Tanagar Canyon, east to Mount Rhoam, north to Upland Lindor. Every Korok the scan sees was checked by eye on a crop sheet (KOROK_SHEET). H72's crop shows only H73's marker at its edge.",
+  "found": ["H25", "H42", "H54", "H65", "H73", "T10", "T17", "T36", "R33", "R34", "R35", "R36"],
+  "empty": ["H26", "H64", "H69", "H72", "T01", "T02", "T04", "T09", "T13", "T16", "T23", "T24", "T26", "T27", "T28", "T29", "T32", "T37", "R04", "R05", "R13", "R17", "R21", "R22", "R30"]
+}

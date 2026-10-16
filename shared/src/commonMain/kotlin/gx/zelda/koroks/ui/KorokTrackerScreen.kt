@@ -63,6 +63,8 @@ fun KorokTrackerScreen(
     viewModel: KorokViewModel,
     onOpenKorok: (String) -> Unit,
     onBack: () -> Unit,
+    /** Opens the live camera scan; null where the game has no map data for it. */
+    onScanLive: (() -> Unit)? = null,
 ) {
     Scaffold(
         topBar = {
@@ -87,7 +89,7 @@ fun KorokTrackerScreen(
                     }
                 },
                 actions = {
-                    if (state != null) KorokMenu(state, viewModel)
+                    if (state != null) KorokMenu(state, viewModel, onScanLive)
                 },
             )
         },
@@ -101,7 +103,7 @@ fun KorokTrackerScreen(
 }
 
 @Composable
-private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel) {
+private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel, onScanLive: (() -> Unit)?) {
     var open by remember { mutableStateOf(false) }
     IconButton(onClick = { open = true }) {
         Icon(Icons.Filled.MoreVert, contentDescription = "More options")
@@ -115,6 +117,15 @@ private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel) {
                 open = false
             },
         )
+        if (onScanLive != null) {
+            DropdownMenuItem(
+                text = { Text("Scan the map live") },
+                onClick = {
+                    open = false
+                    onScanLive()
+                },
+            )
+        }
     }
 }
 
