@@ -230,6 +230,40 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
 - Tracks **File 1**, **File 2** and **File 3** separately, as on the cartridge. The save file picker
   shows each file's hearts.
 
+**The Minish Cap: Kinstone Fusions**
+- All 100 fusions, grouped by where the partner is, with counts per region and overall, e.g. 37 / 100. The
+  summary line also counts the 9 **Gold** fusions and the 10 that give a Piece of Heart or the Heart Container.
+- Each row shows who or what to fuse with, where to find them and which piece they need. The piece is its
+  colour and Thonky's shape name, e.g. *Red jagged teeth*. The row also shows what the fusion does: a
+  chest, a beanstalk, a Golden Octorok, a dojo, a Fairy Fountain, the way on.
+- Tags mark:
+  - the nine Gold story fusions (three statues, five clouds, the Source of the Flow);
+  - objects such as the Mysterious Walls;
+  - fusions that can be missed;
+  - fusions that need something done first.
+- The 18 **random** fusions, which any of dozens of characters may offer, are listed by result under
+  *Random fusers*.
+- The six Goron Cave fusions take a squarish or S-curve piece depending on how many are done, so they
+  say so.
+- Tick a row once fused. Search by partner, place, piece or result, and filter:
+  - to fusions not yet done;
+  - by region;
+  - by piece colour;
+  - by what they give (Hearts, Items & upgrades, Sword techniques, Opens the way, People & shops,
+    Fairy Fountains, Beanstalks, Golden monsters, Kinstone Pieces, Rupees, Mysterious Shells).
+- **Hide results not fused** (top-bar menu): a fusion not done still shows its partner, place and piece,
+  since they're how to find it, but not what it does until it's fused or tapped to reveal.
+  - Search doesn't match a hidden result, and the reward filter skips hidden rows.
+  - Warnings about missing a fusion stay visible and are written without spoilers.
+- Tap › for a fusion's page:
+  - the partner and where to find them;
+  - the piece;
+  - the story point it becomes possible (Zelda Wiki's six stages) and what it needs first;
+  - the result, where it appears and notes.
+- The only fusion that can be lost for good is Eenie's on the European version. It's marked, as is
+  Strato's, whose follow-up side quest can be missed.
+- Tracks **File 1**, **File 2** and **File 3** separately and shares the active file with MC's other trackers.
+
 ## Layout
 
 ```
@@ -243,6 +277,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
   src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
+  src/commonMain/kotlin/gx/zelda/kinstones/  ← Kinstone fusion tracker (Minish Cap)
   src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
   src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
@@ -257,6 +292,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/main_quest.json ← towers, Divine Beasts, memories
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
+  src/commonMain/composeResources/files/mc/kinstones.json   ← Minish Cap Kinstone fusions
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
@@ -399,6 +435,12 @@ MC heart data (`files/mc/heart_pieces.json`) comes from Zelda Wiki's Piece of He
 Kinstone Fusion pages, cross-checked against Zelda Dungeon's Heart Pieces list, Zelda Universe and Zelda's Palace:
 44 pieces and 6 containers in all four. `docs/mc-heart-pieces.md` covers the fields, regions and where the guides
 disagree.
+
+Minish Cap Kinstone fusion data (`files/mc/kinstones.json`) comes from Zelda Wiki's Kinstone Fusion table and
+character pages, cross-checked against silktail's GameFAQs Kinstone Fusion Guide, Thonky's numbered fusion list and
+Zelda Dungeon's walkthrough. Disagreements were settled with the zeldaret/tmc decompilation's own fusion table, which
+also gives each fusion's in-game id. `docs/mc-kinstones.md` covers the counts, the fields, the shape names and every
+discrepancy.
 
 The BotW map art is Nintendo's, from the game's `MapTex` files as objmap.zeldamods.org serves them.
 `tools/map-tiles/build_tiles.py` fetched it once and turned it into the bundled WebP tile pyramid;

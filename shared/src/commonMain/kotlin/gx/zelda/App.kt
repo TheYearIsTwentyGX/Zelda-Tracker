@@ -39,6 +39,10 @@ import gx.zelda.fairies.ui.FairyViewModel
 import gx.zelda.hearts.data.HeartStorage
 import gx.zelda.hearts.ui.HeartTrackerScreen
 import gx.zelda.hearts.ui.HeartViewModel
+import gx.zelda.kinstones.data.KinstoneStorage
+import gx.zelda.kinstones.ui.KinstoneDetailScreen
+import gx.zelda.kinstones.ui.KinstoneTrackerScreen
+import gx.zelda.kinstones.ui.KinstoneViewModel
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.koroks.ui.KorokDetailScreen
 import gx.zelda.koroks.ui.KorokTrackerScreen
@@ -84,6 +88,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class BossDetail(val gameId: String, val spawnId: String)
 @Serializable private data class ShrineDetail(val gameId: String, val shrineId: String)
 @Serializable private data class HeartPieces(val gameId: String)
+@Serializable private data class Kinstones(val gameId: String)
+@Serializable private data class KinstoneDetail(val gameId: String, val fusionId: String)
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
@@ -109,6 +115,7 @@ fun App(dataStore: DataStore<Preferences>) {
                         TrackerKind.BOSSES -> nav.navigate(Bosses(game.id))
                         TrackerKind.MAP -> nav.navigate(WorldMap(game.id))
                         TrackerKind.HEART_PIECES -> nav.navigate(HeartPieces(game.id))
+                        TrackerKind.KINSTONES -> nav.navigate(Kinstones(game.id))
                     }
                 })
             }
@@ -318,6 +325,28 @@ fun App(dataStore: DataStore<Preferences>) {
                     title = game.trackers.first { it.kind == TrackerKind.HEART_PIECES }.title,
                 )
             }
+            composable<Kinstones> { entry ->
+                val game = Games.byId(entry.toRoute<Kinstones>().gameId)
+                val vm = kinstoneViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                KinstoneTrackerScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    onOpenFusion = { nav.navigate(KinstoneDetail(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<KinstoneDetail> { entry ->
+                val route = entry.toRoute<KinstoneDetail>()
+                val listEntry = remember(entry) { nav.getBackStackEntry<Kinstones>() }
+                val vm = kinstoneViewModel(listEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    KinstoneDetailScreen(it, route.fusionId, vm, onBack = { nav.popBackStack() })
+                }
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -400,6 +429,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.BOSSES -> navigate(Bosses(game.id))
         TrackerKind.MAP -> navigate(WorldMap(game.id))
         TrackerKind.HEART_PIECES -> navigate(HeartPieces(game.id))
+        TrackerKind.KINSTONES -> navigate(Kinstones(game.id))
     }
 }
 
@@ -425,3 +455,11 @@ private fun bossViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): BossViewModel = viewModel(owner, key = game.id) { BossViewModel(BossStorage(dataStore, game)) }
+
+/** The [KinstoneViewModel] for [game], owned by the fusion list's entry so the detail screen shares it. */
+@Composable
+private fun kinstoneViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): KinstoneViewModel = viewModel(owner, key = game.id) { KinstoneViewModel(KinstoneStorage(dataStore, game)) }

@@ -34,6 +34,7 @@ enum class TrackerKind {
     MAP,
     /** Pieces of Heart and Heart Containers, with a running hearts total. */
     HEART_PIECES,
+    KINSTONES,
 }
 
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
@@ -84,6 +85,7 @@ object Games {
         saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
         trackers = listOf(
             Tracker(TrackerKind.HEART_PIECES, "Heart Pieces", "All 44 Pieces of Heart and 6 Heart Containers by region, with your hearts total"),
+            Tracker(TrackerKind.KINSTONES, "Kinstone Fusions", "All 100 fusions by region: who to fuse with, which piece, and what each one opens"),
         ),
     )
 
