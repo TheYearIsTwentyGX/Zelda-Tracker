@@ -14,6 +14,7 @@ import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -77,9 +78,7 @@ class OverviewViewModel(
         .flatMapLatest { file -> rows(file).map { OverviewUiState(file, game.saveFiles, it) } }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { activeStore.update { game.saveFile(id).id } }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { activeStore.update { game.saveFile(id).id } }
 
     private fun rows(file: SaveFile): Flow<List<OverviewRow>> =
         if (providers.isEmpty()) flowOf(emptyList()) else combine(providers.map { row(it, file) }) { it.toList() }

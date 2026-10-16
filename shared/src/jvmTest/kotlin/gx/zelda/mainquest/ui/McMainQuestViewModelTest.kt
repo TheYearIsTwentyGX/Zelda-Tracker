@@ -1,20 +1,18 @@
 package gx.zelda.mainquest.ui
 
 import gx.zelda.core.Games
+import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.mainquest.data.MainQuestProgressProvider
 import gx.zelda.mainquest.data.MainQuestRepository
 import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.model.MainQuestSection
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -26,26 +24,28 @@ import kotlin.test.assertNull
 /** The Minish Cap's dungeons, items and Tiger Scrolls on the shared main quest screen state. */
 @OptIn(ExperimentalCoroutinesApi::class)
 class McMainQuestViewModelTest {
-    @BeforeTest fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
+    private val main = TestMain()
 
-    @AfterTest fun tearDown() = Dispatchers.resetMain()
+    @BeforeTest fun setUp() = main.setUp()
+
+    @AfterTest fun tearDown() = main.tearDown()
 
     private val storage = MainQuestStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.MC)
 
     @Test
     fun countsEachChecklistOnTheActiveSaveFile() = runTest {
-        val vm = MainQuestViewModel(storage)
+        val vm = main.track(MainQuestViewModel(storage))
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         val loaded = vm.state.filterNotNull().first()
         assertFalse(vm.loadFailed.value)
         assertEquals(listOf(MainQuestSection.DUNGEONS, MainQuestSection.ITEMS, MainQuestSection.TIGER_SCROLLS), loaded.catalog.sections)
         assertEquals("file_1", loaded.saveFile.id)
 
-        vm.setDone(MainQuestSection.DUNGEONS, "deepwood_shrine", true)
-        vm.setDone(MainQuestSection.DUNGEONS, "fortress_of_winds", true)
-        vm.setDone(MainQuestSection.ITEMS, "gust_jar", true)
-        vm.setDone(MainQuestSection.TIGER_SCROLLS, "spin_attack", true)
-        vm.setDone(MainQuestSection.TIGER_SCROLLS, "faster_split", true)
+        vm.setDone(MainQuestSection.DUNGEONS, "deepwood_shrine", true)!!.join()
+        vm.setDone(MainQuestSection.DUNGEONS, "fortress_of_winds", true)!!.join()
+        vm.setDone(MainQuestSection.ITEMS, "gust_jar", true)!!.join()
+        vm.setDone(MainQuestSection.TIGER_SCROLLS, "spin_attack", true)!!.join()
+        vm.setDone(MainQuestSection.TIGER_SCROLLS, "faster_split", true)!!.join()
 
         val state = vm.state.filterNotNull().first { it.progress.tigerScrolls.size == 2 }
         assertEquals(2, state.doneCount(MainQuestSection.DUNGEONS))
@@ -62,12 +62,12 @@ class McMainQuestViewModelTest {
 
     @Test
     fun editsFollowTheActiveSaveFile() = runTest {
-        val vm = MainQuestViewModel(storage)
+        val vm = main.track(MainQuestViewModel(storage))
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         vm.state.filterNotNull().first()
-        vm.setSaveFile("file_2")
+        vm.setSaveFile("file_2").join()
         vm.state.filterNotNull().first { it.saveFile.id == "file_2" }
-        vm.setDone(MainQuestSection.ITEMS, "flippers", true)
+        vm.setDone(MainQuestSection.ITEMS, "flippers", true)!!.join()
         vm.state.filterNotNull().first { "flippers" in it.progress.items }
 
         assertEquals(setOf("flippers"), storage.progress("file_2").first().items)
