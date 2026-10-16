@@ -14,6 +14,7 @@ import gx.zelda.kinstones.model.KinstoneFusion
 import gx.zelda.kinstones.model.KinstonePrefs
 import gx.zelda.kinstones.model.KinstoneProgress
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -155,22 +156,21 @@ class KinstoneViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setFused(fusionId: String, done: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setFused(file, fusionId, done) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setFused(fusionId: String, done: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setFused(file, fusionId, done) }
     }
 
-    fun setHideResults(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideResults = hide) } }
-    }
+    fun setHideResults(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideResults = hide) } }
 
     /** Shows one fusion's result until the tracker is closed; nothing is saved. */
     fun reveal(fusionId: String) = filters.update { it.copy(revealed = it.revealed + fusionId) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 

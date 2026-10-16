@@ -55,13 +55,13 @@ class KinstoneViewModelTest {
         assertEquals(100, first.total)
         assertEquals(listOf(0, 0, 0), first.saveFiles.map { it.fused })
 
-        vm.setFused("mayor_hagen", true)
+        vm.setFused("mayor_hagen", true)!!.join()
         vm.state.filterNotNull().first { it.fused == 1 }
 
-        vm.setSaveFile("file_2")
+        vm.setSaveFile("file_2").join()
         val second = vm.state.filterNotNull().first { it.saveFile.id == "file_2" }
         assertEquals(0, second.fused)
-        vm.setFused("statue_left", true)
+        vm.setFused("statue_left", true)!!.join()
         val now = vm.state.filterNotNull().first { it.gold.fused == 1 }
         assertEquals(listOf(1, 1, 0), now.saveFiles.map { it.fused })
         assertEquals(setOf("mayor_hagen"), storage.progress("file_1").first().fused)
@@ -75,7 +75,7 @@ class KinstoneViewModelTest {
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         vm.state.filterNotNull().first()
 
-        vm.setHideResults(true)
+        vm.setHideResults(true).join()
         val hidden = vm.state.filterNotNull().first { it.prefs.hideResults }
         val hagen = hidden.catalog.fusion("mayor_hagen")!!
         assertTrue(hidden.isHidden(hagen))
