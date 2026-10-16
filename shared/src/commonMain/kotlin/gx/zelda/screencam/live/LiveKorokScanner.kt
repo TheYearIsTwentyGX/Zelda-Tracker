@@ -10,14 +10,11 @@ enum class LivePhase {
     /** Looking for the whole screen in the camera's view. */
     FINDING_SCREEN,
 
-    /** Screen found; working out where on the map it shows. */
+    /** Screen found; working out where on the map it shows (which needs the map at max zoom). */
     FINDING_PLACE,
 
     /** Following the screen and the map, reading markers. */
     TRACKING,
-
-    /** The view doesn't match the map at max zoom: probably zoomed out. */
-    NOT_MAX_ZOOM,
 }
 
 /** Milliseconds spent in each stage of one frame. */
@@ -149,7 +146,7 @@ class LiveKorokScanner(
         if (fix == null || !plausible(fix)) {
             times = times.copy(locate = t.elapsedNow().inWholeMicroseconds / 1000.0)
             if (previous == null) {
-                return done(LiveFrameResult(LivePhase.NOT_MAX_ZOOM, h, null, false, emptyList(), times, correlation, fix?.peak ?: 0.0, fix?.ratio ?: 0.0))
+                return done(LiveFrameResult(LivePhase.FINDING_PLACE, h, null, false, emptyList(), times, correlation, fix?.peak ?: 0.0, fix?.ratio ?: 0.0))
             }
             if (++sinceFix > LOST_MAP_FRAMES) {
                 origin = null

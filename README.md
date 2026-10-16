@@ -111,6 +111,14 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Hide undiscovered Koroks** (top-bar menu): the same spoiler-safe mode as shrines, but a
   separate setting, so one can be on without the other. Hidden rows only match a search by region
   and never match a puzzle-type filter.
+- **Scan the map live** (top-bar menu): point the phone's camera at the TV or Switch showing the 2D
+  map zoomed all the way in, and pan around. The game marks every Korok you've found at max zoom,
+  and the app reads those marks as you go: green rings for found ones, grey dots for empty spots,
+  amber for unsure. **Done** lists what it saw. Found Koroks not yet collected on the active save
+  file are pre-ticked, unsure ones are listed for you to tick, empty spots are only counted, and
+  Apply asks for confirmation and never unmarks anything. The camera permission is asked for when
+  you open the scan, with a way to the app's settings if it was turned off. **Stats** shows the
+  analysed frames per second and each stage's milliseconds (also logged to logcat, tag `KorokScan`).
 - Search by place, puzzle type, region or id; filter to incomplete seeds or to any mix of puzzle
   types (bottom sheet, with how many seeds each type has).
 - Tap › for a seed's page: how to solve its puzzle type, region, nearest place, coordinates, and
@@ -329,6 +337,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker (BotW; TotK with Lightroots) and Spirit Orb / Light of Blessing planner
   src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner, photo reader and their review screen
   src/commonMain/kotlin/gx/zelda/screencam/  ← finding and unwarping a game screen in a photo
+  src/commonMain/kotlin/gx/zelda/screencam/live/  ← live tracking of the max-zoom map and its Korok markers
+  src/commonMain/kotlin/gx/zelda/koroks/scan/  ← the live Korok scan screen and its review
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
@@ -344,6 +354,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines (TotK's also has the Lightroots)
   src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
   src/commonMain/composeResources/files/<game>/map_chrome.json  ← the map screen's frame, for reading photos
+  src/commonMain/composeResources/files/<game>/map_chrome_track.bin  ← the frame at 240×135, for live tracking
+  src/commonMain/composeResources/files/<game>/korok_marker.json  ← the found-Korok marker's grey template
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
   src/commonMain/composeResources/files/botw/bosses.json     ← overworld boss spawns
@@ -490,6 +502,46 @@ message.
 
 On a desktop JVM a 9 MP photo takes about 2 s. `ScreenChromeReferenceTest` computes `map_chrome.json`
 from the golden screenshots.
+
+## How the live Korok scan works
+
+At max zoom the game draws a marker on every Korok you've found and nothing on the rest. A
+screenshot of each view would take hundreds, so the scan reads the camera's frames as you pan.
+Everything runs on the frame's grey (luma) plane, in pure Kotlin in `screencam/live/`:
+
+1. **Find the screen** the way photos do (`ScreenChrome.locate`), once, with the whole screen in view.
+2. **Follow it** with `ChromeTracker`: Gauss–Newton (Lucas–Kanade) on the screen's homography plus a
+   brightness gain and offset, aligning the map screen's frame (ornaments, header, button bar) with
+   a 240×135 grey reference, coarse to fine, with Huber weights. It first fits from the last frame's
+   pose and only searches around when that fails.
+3. **Find the map** with `MapLocator`. The screen's view is cut out at half a pixel per world unit (the
+   map's max-zoom scale is 2.985 screenshot pixels per unit) and matched by high-pass correlation
+   against the bundled tiles: over the whole map to start, then near where the pan predicts.
+4. **Straighten** the screen from the map. A 4×3 grid of blocks of the view is matched on its own,
+   and a robust homography through them corrects the tracker's pose. The frame alone can drift when
+   the phone moves in and the screen's top leaves the picture; the map fills the screen and can't.
+   When the whole-view match fails, the blocks are matched in a wider window to rebuild the pose. A
+   fix far from both the predicted pan and the last fix is a false lock and is rejected.
+5. **Read markers** at every Korok position in view (away from the readouts and the cursor) with a
+   grey template, and **accumulate** across frames. Found needs 3 frames with a marker and 70% of the
+   frames seen; empty needs 4 without and none with; anything else is unsure. The two pairs drawn on
+   top of each other (X05/X06, L17/L18) are always unsure.
+
+`KorokClipGoldenTest` runs every clip in `shared/src/jvmTest/resources/korok-clips/`. Each clip is
+grey frames extracted from a phone video by `tools/korok-clips/extract.py`, plus a hand-checked
+`expected.json`. The handheld clip (the Switch in handheld mode, filmed at close range over
+Hebra, Tabantha and Ridgeland):
+
+- Tracks 151 of 154 frames.
+- Reads all 12 Koroks with a marker as found and none of the 25 empty ones as found; 8 empty spots
+  stay unsure.
+- Takes a 25 ms median per frame on a desktop JVM (track 7.5, locate 16, markers 0.2; p90 32). Finding
+  the map's place at the start is a one-off of about 1.5 s.
+
+The marker template was built from that same clip's markers, so a docked-TV clip is the real test of
+how well it generalises. To add one, run the script on the video, write its `expected.json` (the
+test's `KOROK_SHEET=<dir>` option writes a crop of every Korok seen, to check by eye), and rerun the
+test with `REGENERATE_KOROK_MARKER=1` to fold its markers into the template.
 
 ## Data sources
 
