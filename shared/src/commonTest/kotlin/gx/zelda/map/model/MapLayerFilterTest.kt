@@ -18,7 +18,7 @@ class MapLayerFilterTest {
         title = id,
         noun = id,
         stateLabels = linkedMapOf(UNDISCOVERED to "Undiscovered", FOUND to "Found", COMPLETED to "Completed"),
-        shape = MarkerShape.CIRCLE,
+        kind = MarkerKind.KOROK,
         clustered = clustered,
     )
 

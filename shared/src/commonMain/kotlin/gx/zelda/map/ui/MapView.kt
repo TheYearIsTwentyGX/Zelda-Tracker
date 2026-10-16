@@ -1,22 +1,24 @@
 package gx.zelda.map.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -27,14 +29,19 @@ import gx.zelda.map.model.ClusterSummary
 import gx.zelda.map.model.MapLayer
 import gx.zelda.map.model.MapMarker
 import gx.zelda.map.model.MapProjection
-import gx.zelda.map.model.MarkerShape
+import gx.zelda.map.model.MarkerIcon
+import gx.zelda.map.model.MarkerKind
 import gx.zelda.map.model.clusterSummary
+import gx.zelda.map.model.iconScale
+import gx.zelda.map.model.markerLook
+import org.jetbrains.compose.resources.painterResource
 import ovh.plrapps.mapcompose.api.ClusterScaleThreshold
 import ovh.plrapps.mapcompose.api.addClusterer
 import ovh.plrapps.mapcompose.api.addLayer
 import ovh.plrapps.mapcompose.api.addMarker
 import ovh.plrapps.mapcompose.api.onMarkerClick
 import ovh.plrapps.mapcompose.api.removeMarker
+import ovh.plrapps.mapcompose.api.scale
 import ovh.plrapps.mapcompose.ui.layout.Fit
 import ovh.plrapps.mapcompose.ui.state.MapState
 import ovh.plrapps.mapcompose.ui.state.markers.model.RenderingStrategy
@@ -58,6 +65,9 @@ internal class MapView {
     }
 
     var onMarkerTap: (String) -> Unit = {}
+
+    /** How big markers draw at the current zoom; see [iconScale]. */
+    val markerScale: Float by derivedStateOf { iconScale(state.scale) }
 
     /** The marker whose sheet is open, drawn with a ring. */
     var selected: String? by mutableStateOf(null)
@@ -95,11 +105,11 @@ internal class MapView {
             at.x,
             at.y,
             relativeOffset = Offset(-0.5f, -0.5f),
-            zIndex = zIndex(marker.layer.shape),
+            zIndex = zIndex(marker.layer.kind),
             clickableAreaScale = Offset(2f, 2f),
             renderingStrategy = clusterer?.let { RenderingStrategy.Clustering(it) } ?: RenderingStrategy.Default,
         ) {
-            shown[key]?.let { MarkerDot(it, selected = selected == key) }
+            shown[key]?.let { MapMarkerIcon(it, selected = selected == key, scale = markerScale) }
         }
     }
 
@@ -115,10 +125,10 @@ internal class MapView {
         /** The scale "Show on map" zooms to. */
         const val FOCUS_SCALE = 1.2
 
-        private fun zIndex(shape: MarkerShape): Float = when (shape) {
-            MarkerShape.CIRCLE -> 0f
-            MarkerShape.SQUARE -> 1f
-            MarkerShape.DIAMOND -> 2f
+        private fun zIndex(kind: MarkerKind): Float = when (kind) {
+            MarkerKind.KOROK -> 0f
+            MarkerKind.SHRINE -> 1f
+            MarkerKind.TOWER -> 2f
         }
     }
 }
@@ -130,26 +140,44 @@ internal fun stateColor(layer: MapLayer, state: DiscoveryState): Color = when {
     else -> Color(0xFFB0B0B0)
 }
 
-private fun size(shape: MarkerShape): Dp = when (shape) {
-    MarkerShape.CIRCLE -> 10.dp
-    MarkerShape.SQUARE -> 14.dp
-    MarkerShape.DIAMOND -> 15.dp
+/** Each icon's size at [iconScale] 1. */
+private fun fullSize(icon: MarkerIcon): Dp = when (icon) {
+    MarkerIcon.KOROK -> 20.dp
+    MarkerIcon.TOWER, MarkerIcon.TOWER_ACTIVE -> 30.dp
+    else -> 26.dp
 }
 
+private val GreyedOut = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) })
+
+/**
+ * A marker's in-game icon at [scale] of its full size (see [markerLook]): greyed out when
+ * undiscovered, on a state-coloured disc for Koroks, and in a white ring when [selected].
+ */
 @Composable
-internal fun MarkerDot(marker: MapMarker, selected: Boolean, modifier: Modifier = Modifier) {
-    val shape = marker.layer.shape
-    val color = stateColor(marker.layer, if (marker.anonymous) DiscoveryState.UNDISCOVERED else marker.entry.state)
-    val outline = if (selected) Color.White else Color(0xCC000000)
-    val base = modifier.size(size(shape) + if (selected) 4.dp else 0.dp)
-    when (shape) {
-        MarkerShape.CIRCLE -> Box(base.background(color, CircleShape).border(if (selected) 2.dp else 1.dp, outline, CircleShape))
-        MarkerShape.SQUARE -> Box(
-            base.background(color, RoundedCornerShape(3.dp)).border(if (selected) 2.dp else 1.dp, outline, RoundedCornerShape(3.dp)),
-        )
-        MarkerShape.DIAMOND -> Box(
-            base.rotate(45f).background(color, RoundedCornerShape(2.dp)).border(if (selected) 2.dp else 1.5.dp, outline, RoundedCornerShape(2.dp)),
-        )
+internal fun MapMarkerIcon(marker: MapMarker, selected: Boolean, modifier: Modifier = Modifier, scale: Float = 1f) {
+    val look = markerLook(marker)
+    val size = fullSize(look.icon) * scale
+    Box(
+        modifier
+            .size(if (selected) size + 8.dp else size)
+            .then(if (selected) Modifier.background(Color(0x66FFFFFF), CircleShape).border(2.dp, Color.White, CircleShape) else Modifier),
+        contentAlignment = Alignment.Center,
+    ) {
+        if (look.disc) {
+            Box(Modifier.size(size).background(stateColor(marker.layer, look.state), CircleShape).border(1.dp, Color(0xCC000000), CircleShape))
+        }
+        val drawable = markerDrawable(look.icon)
+        if (drawable == null) {
+            Box(Modifier.size(size * 0.6f).background(stateColor(marker.layer, look.state), CircleShape))
+        } else {
+            Image(
+                painterResource(drawable),
+                contentDescription = null,
+                modifier = Modifier.size(size),
+                alpha = if (look.greyed) 0.8f else 1f,
+                colorFilter = if (look.greyed) GreyedOut else null,
+            )
+        }
     }
 }
 
