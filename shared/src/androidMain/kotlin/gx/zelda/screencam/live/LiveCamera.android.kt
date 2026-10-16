@@ -83,9 +83,10 @@ private fun Context.findActivity(): Activity? = when (this) {
 }
 
 @Composable
-actual fun LiveCameraView(onFrame: suspend (GrayImage) -> Unit, modifier: Modifier) {
+actual fun LiveCameraView(onFrame: suspend (GrayImage) -> Unit, modifier: Modifier, onCameraInfo: (String) -> Unit) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val callback by rememberUpdatedState(onFrame)
+    val infoCallback by rememberUpdatedState(onCameraInfo)
     val executor = remember { Executors.newSingleThreadExecutor() }
     DisposableEffect(Unit) { onDispose { executor.shutdown() } }
     AndroidView(
@@ -106,8 +107,18 @@ actual fun LiveCameraView(onFrame: suspend (GrayImage) -> Unit, modifier: Modifi
                     .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                     .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888)
                     .build()
+                var described = false
                 analysis.setAnalyzer(executor) { image ->
                     try {
+                        if (!described) {
+                            described = true
+                            val plane = image.planes[0]
+                            infoCallback(
+                                "analysis ${image.width}x${image.height} rotation ${image.imageInfo.rotationDegrees} " +
+                                    "crop ${image.cropRect.flattenToString()} rowStride ${plane.rowStride} pixelStride ${plane.pixelStride} " +
+                                    "format ${image.format} preview ${view.width}x${view.height} device ${android.os.Build.MODEL}",
+                            )
+                        }
                         val frame = uprightLuma(image)
                         runBlocking { callback(frame) }
                     } finally {
@@ -148,3 +159,40 @@ actual fun logLiveStats(line: String) {
 
 @Composable
 actual fun isDebugBuild(): Boolean = LocalContext.current.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
+
+/** Frames as JPEG and state as JSON lines under the app's files dir, `korok-debug/<timestamp>/`. */
+private class AndroidFrameRecorder(private val dir: java.io.File) : FrameRecorder {
+    override val location: String = dir.absolutePath
+
+    init {
+        dir.mkdirs()
+    }
+
+    override fun frame(index: Int, image: GrayImage) {
+        val px = IntArray(image.pixels.size) {
+            val v = image.pixels[it].toInt().coerceIn(0, 255)
+            (0xff shl 24) or (v shl 16) or (v shl 8) or v
+        }
+        val bitmap = android.graphics.Bitmap.createBitmap(px, image.width, image.height, android.graphics.Bitmap.Config.ARGB_8888)
+        try {
+            java.io.File(dir, "frame-%04d.jpg".format(index)).outputStream().use { bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 90, it) }
+        } finally {
+            bitmap.recycle()
+        }
+    }
+
+    override fun line(json: String) = java.io.File(dir, "state.jsonl").appendText(json + "\n")
+
+    override fun session(json: String) = java.io.File(dir, "session.json").writeText(json + "\n")
+}
+
+@Composable
+actual fun rememberFrameRecorderFactory(): (() -> FrameRecorder)? {
+    val context = LocalContext.current.applicationContext
+    return remember(context) {
+        {
+            val stamp = java.text.SimpleDateFormat("yyyyMMdd-HHmmss", java.util.Locale.US).format(java.util.Date())
+            AndroidFrameRecorder(java.io.File(context.filesDir, "korok-debug/$stamp"))
+        }
+    }
+}

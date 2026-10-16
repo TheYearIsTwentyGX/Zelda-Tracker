@@ -509,7 +509,14 @@ At max zoom the game draws a marker on every Korok you've found and nothing on t
 screenshot of each view would take hundreds, so the scan reads the camera's frames as you pan.
 Everything runs on the frame's grey (luma) plane, in pure Kotlin in `screencam/live/`:
 
-1. **Find the screen** the way photos do (`ScreenChrome.locate`), once, with the whole screen in view.
+1. **Find the screen** (`ScreenAcquirer`), with the whole screen in view. Outlines come from
+   `ScreenFinder` on a ~320 px grey copy of the frame, plus centred 16:9 rectangles both ways up (a
+   screen filling the frame can split the brightness threshold inside itself). Every outline, in
+   every orientation, is scored by how much its frame looks like the map screen's. The tracker then
+   refines the best few, and one is accepted when its fit correlates at 0.5 or more, its rescored
+   frame likeness is 0.45 or more, and it's a plausible screen: convex, inside the frame, sides and
+   corners near a rectangle's. A screen that can't then be placed on the map three times running is
+   dropped, and the search starts over.
 2. **Follow it** with `ChromeTracker`: Gauss–Newton (Lucas–Kanade) on the screen's homography plus a
    brightness gain and offset, aligning the map screen's frame (ornaments, header, button bar) with
    a 240×135 grey reference, coarse to fine, with Huber weights. It first fits from the last frame's
@@ -527,16 +534,25 @@ Everything runs on the frame's grey (luma) plane, in pure Kotlin in `screencam/l
    frames seen; empty needs 4 without and none with; anything else is unsure. The two pairs drawn on
    top of each other (X05/X06, L17/L18) are always unsure.
 
+When it can't read a frame, the status line says why: "No screen found: best match 0.31",
+"Screen too small: move closer", "Hold steadier: screen match 0.52, fit 0.41", "Can't place this on
+the map (best 0.22): zoom all the way in" or "Lost the map: pan slower". A dashed outline shows the
+best rejected screen. Logcat (`KorokScan`) logs the same reason once a second with the scores, and
+once what the camera actually delivers (size, rotation, crop and strides). In a debug build, **Save
+frames** records a session to the app's files (`korok-debug/<timestamp>/`) that
+`tools/korok-clips/from_session.py` turns into a test clip.
+
 `KorokClipGoldenTest` runs every clip in `shared/src/jvmTest/resources/korok-clips/`. Each clip is
 grey frames extracted from a phone video by `tools/korok-clips/extract.py`, plus a hand-checked
 `expected.json`. The handheld clip (the Switch in handheld mode, filmed at close range over
 Hebra, Tabantha and Ridgeland):
 
-- Tracks 151 of 154 frames.
+- Tracks 153 of 154 frames.
 - Reads all 12 Koroks with a marker as found and none of the 25 empty ones as found; 8 empty spots
   stay unsure.
 - Takes a 25 ms median per frame on a desktop JVM (track 7.5, locate 16, markers 0.2; p90 32). Finding
-  the map's place at the start is a one-off of about 1.5 s.
+  the screen takes 12–40 ms per try on 1280-wide frames, and the first whole-map search about 50 ms
+  once the map overview is decoded (done while the scan screen opens).
 
 The marker template was built from that same clip's markers, so a docked-TV clip is the real test of
 how well it generalises. To add one, run the script on the video, write its `expected.json` (the

@@ -2,6 +2,7 @@ package gx.zelda.screencam
 
 import gx.zelda.core.Game
 import gx.zelda.resources.Res
+import gx.zelda.screencam.live.GrayImage
 import gx.zelda.shrines.scan.MapImage
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -43,6 +44,32 @@ class ScreenChrome(
             if (score > (best?.second ?: -2.0)) best = h to score
         }
         return best
+    }
+
+    /**
+     * How much the screen at [screenToFrame] looks like the frame, read from [small], a grey copy of
+     * the camera frame at [scale] of its size: each thumbnail cell averages 2×2 samples.
+     */
+    fun frameScore(small: GrayImage, scale: Double, screenToFrame: Homography): Double {
+        val cell = WIDTH.toDouble() / THUMB_W
+        val m = screenToFrame.m
+        val out = FloatArray(thumb.size) { Float.NaN }
+        for (i in thumb.indices) {
+            if (thumb[i].isNaN()) continue
+            val tx = i % THUMB_W
+            val ty = i / THUMB_W
+            var sum = 0f
+            var ok = true
+            for (b in 0..1) for (a in 0..1) {
+                val x = (tx + 0.25 + 0.5 * a) * cell
+                val y = (ty + 0.25 + 0.5 * b) * cell
+                val w = m[6] * x + m[7] * y + m[8]
+                val v = small.sample((m[0] * x + m[1] * y + m[2]) / w * scale - 0.5, (m[3] * x + m[4] * y + m[5]) / w * scale - 0.5)
+                if (v.isNaN()) ok = false else sum += v
+            }
+            if (ok) out[i] = sum / 4
+        }
+        return ncc(out, thumb)
     }
 
     /** How much [screen] (any size, canonical layout) looks like the frame, −1 to 1. */

@@ -15,16 +15,20 @@ import gx.zelda.screencam.ScreenChrome
 import gx.zelda.screencam.ScreenChromeRepository
 import gx.zelda.screencam.live.BundledTiles
 import gx.zelda.screencam.live.ChromeTracker
+import gx.zelda.screencam.live.FrameRecorder
 import gx.zelda.screencam.live.GrayImage
 import gx.zelda.screencam.live.KorokMarkerReader
 import gx.zelda.screencam.live.KorokMarkerTemplate
 import gx.zelda.screencam.live.KorokSpot
 import gx.zelda.screencam.live.KorokVerdict
+import gx.zelda.screencam.live.LiveFrameResult
 import gx.zelda.screencam.live.LiveKorokScanner
 import gx.zelda.screencam.live.LivePhase
 import gx.zelda.screencam.live.MapLocator
+import gx.zelda.screencam.live.ScreenAcquirer
 import gx.zelda.screencam.live.TileMosaic
 import gx.zelda.screencam.live.logLiveStats
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,6 +37,10 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.builtins.MapSerializer
+import kotlinx.serialization.builtins.serializer
+import kotlinx.serialization.json.Json
 import kotlin.time.TimeSource
 
 /** A Korok spot in the latest frame, in frame pixels, for the overlay. */
@@ -48,6 +56,30 @@ data class LiveView(
     val spots: List<SpotMark> = emptyList(),
     /** fps and per-stage milliseconds, as logged. */
     val stats: String = "",
+    /** Why this frame wasn't read, for the status line. */
+    val reason: String? = null,
+    /** While finding the screen: the best rejected outline, in frame pixels. */
+    val candidate: List<Point>? = null,
+)
+
+/** One analysed frame's pipeline state, as a line of a debug session's `state.jsonl`. */
+@Serializable
+private class StateLine(
+    val index: Int,
+    val ms: Long,
+    val phase: String,
+    val reason: String?,
+    val screenScore: Double,
+    val chrome: Double,
+    val mapPeak: Double,
+    val mapRatio: Double,
+    val tracked: Boolean,
+    /** The screen's corners (or the best candidate's), in frame pixels: x0, y0, x1, y1… */
+    val corners: List<Double>?,
+    val origin: List<Double>?,
+    val times: Map<String, Double>,
+    /** The frame file written for this line, if any. */
+    val saved: String?,
 )
 
 /** The scan's findings, ready to apply. */
@@ -78,6 +110,8 @@ data class KorokScanUiState(
     val revealed: Set<String> = emptySet(),
     /** Koroks changed by Apply; set once it's written. */
     val applied: Int? = null,
+    /** Where frames are being saved, while a debug session records. */
+    val recording: String? = null,
 ) {
     /** True when [korok]'s name stays hidden: spoilers off and it's undiscovered on this save. */
     fun isHidden(korok: Korok): Boolean =
@@ -104,6 +138,11 @@ class KorokScanViewModel(
     private var scanner: LiveKorokScanner? = null
     private val busy = Mutex()
     private var lastLog = TimeSource.Monotonic.markNow()
+    private val started = TimeSource.Monotonic.markNow()
+    private var frames = 0
+    private var cameraInfo: String? = null
+    private var recorder: FrameRecorder? = null
+    private val json = Json { encodeDefaults = true }
 
     init {
         viewModelScope.launch {
@@ -114,6 +153,8 @@ class KorokScanViewModel(
                 KorokScanUiState(file, storage.prefs.first(), storage.progress(file.id).first())
             }.onSuccess { initial ->
                 _state.value = initial
+                // The first whole-map search needs the map overview; decode it while the user aims.
+                launch(Dispatchers.Default) { busy.withLock { scanner?.prepare() } }
                 storage.progress(initial.saveFile.id).collect { p -> _state.update { it?.copy(progress = p) } }
             }.onFailure { _loadFailed.value = true }
         }
@@ -128,6 +169,7 @@ class KorokScanViewModel(
         if (_state.value?.review != null) return
         if (!busy.tryLock()) return
         try {
+            val index = frames++
             val r = s.process(frame)
             val verdicts = s.evidence.verdicts()
             val h = r.screenToFrame
@@ -142,6 +184,8 @@ class KorokScanViewModel(
                 screen = h?.let { hh -> ScreenChrome.CORNERS.map(hh::map) },
                 spots = spots,
                 stats = s.stats.summary(),
+                reason = r.reason,
+                candidate = r.candidate,
             )
             _state.update { st ->
                 st?.copy(
@@ -153,11 +197,58 @@ class KorokScanViewModel(
             }
             if (lastLog.elapsedNow().inWholeMilliseconds >= 1000) {
                 lastLog = TimeSource.Monotonic.markNow()
-                logLiveStats("${r.phase} ${s.stats.summary()} | Koroks in view ${live.spots.size}")
+                val why = r.reason?.let { " | $it" } ?: ""
+                logLiveStats("${r.phase} ${s.stats.summary()} | screen ${dp2(r.screenScore)} chrome ${dp2(r.chromeCorrelation)} map ${dp2(r.mapPeak)} | Koroks in view ${live.spots.size}$why")
             }
+            recorder?.let { rec -> record(rec, index, frame, r) }
         } finally {
             busy.unlock()
         }
+    }
+
+    private fun record(rec: FrameRecorder, index: Int, frame: GrayImage, r: LiveFrameResult) {
+        val saved = if (index % SAVE_EVERY == 0) pad(index) else null
+        runCatching {
+            if (saved != null) rec.frame(index, frame)
+            val corners = (r.screenToFrame?.let { h -> ScreenChrome.CORNERS.map(h::map) } ?: r.candidate)?.flatMap { listOf(it.x, it.y) }
+            val t = r.times
+            val line = StateLine(
+                index, started.elapsedNow().inWholeMilliseconds, r.phase.name, r.reason, r.screenScore, r.chromeCorrelation,
+                r.mapPeak, r.mapRatio, r.tracked, corners, r.mapOrigin?.let { listOf(it.x, it.y) },
+                mapOf("acquire" to t.acquire, "track" to t.track, "view" to t.view, "locate" to t.locate, "markers" to t.markers),
+                saved,
+            )
+            rec.line(json.encodeToString(StateLine.serializer(), line))
+        }.onFailure { logLiveStats("recording failed: ${it.message}") }
+    }
+
+    private fun pad(i: Int) = "frame-" + i.toString().padStart(4, '0') + ".jpg"
+
+    /** What the camera actually delivers; logged once, and saved with any recording. */
+    fun cameraInfo(info: String) {
+        if (cameraInfo == info) return
+        cameraInfo = info
+        logLiveStats("camera: $info")
+        recorder?.session(sessionJson())
+    }
+
+    private fun sessionJson() = json.encodeToString(MapSerializer(String.serializer(), String.serializer()), mapOf("camera" to (cameraInfo ?: "unknown")))
+
+    /** Starts saving every few analysed frames and every frame's state, for debugging a real session. */
+    fun startRecording(make: () -> FrameRecorder) {
+        val rec = runCatching(make).getOrElse {
+            logLiveStats("can't record: ${it.message}")
+            return
+        }
+        rec.session(sessionJson())
+        recorder = rec
+        _state.update { it?.copy(recording = rec.location) }
+        logLiveStats("recording to ${rec.location}")
+    }
+
+    fun stopRecording() {
+        recorder = null
+        _state.update { it?.copy(recording = null) }
     }
 
     /** Stops reading frames and lists what was found. */
@@ -202,6 +293,11 @@ class KorokScanViewModel(
     }
 
     companion object {
+        /** A debug session saves every this-many-th analysed frame. */
+        const val SAVE_EVERY = 5
+
+        private fun dp2(v: Double) = ScreenAcquirer.dp2(v)
+
         suspend fun defaultScanner(storage: KorokStorage, catalog: KorokCatalog): LiveKorokScanner {
             val game = storage.game
             return LiveKorokScanner(

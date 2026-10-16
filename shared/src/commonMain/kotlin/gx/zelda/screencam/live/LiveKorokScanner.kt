@@ -47,6 +47,11 @@ class LiveFrameResult(
     val chromeCorrelation: Double = 0.0,
     val mapPeak: Double = 0.0,
     val mapRatio: Double = 0.0,
+    /** Why the frame wasn't read, in a few words for the status line; null when it was. */
+    val reason: String? = null,
+    /** While finding the screen: the best candidate's frame likeness and its corners in frame pixels. */
+    val screenScore: Double = 0.0,
+    val candidate: List<Point>? = null,
 )
 
 /**
@@ -62,8 +67,12 @@ class LiveKorokScanner(
 ) {
     val evidence = KorokEvidence(markers.stacked)
 
+    private val acquirer = ScreenAcquirer(chrome, tracker)
     private var screen: Homography? = null
     private var lostScreen = 0
+
+    /** Whole-map searches that failed since the screen was found. */
+    private var placeFailures = 0
     private var origin: Point? = null
     private var velocity = Point(0.0, 0.0)
 
@@ -73,21 +82,30 @@ class LiveKorokScanner(
     /** Rolling statistics for the stats overlay and logcat. */
     val stats = LiveStats()
 
+    /** Decodes what the first whole-map search needs, so it doesn't stall the first frames. */
+    suspend fun prepare() = locator.prepare()
+
     suspend fun process(frame: GrayImage): LiveFrameResult {
         val clock = TimeSource.Monotonic
         var times = StageTimes()
 
         // 1. The screen.
+        val pyramid = ChromeTracker.Frame(frame)
         var guess = screen
         if (guess == null) {
             val t = clock.markNow()
-            val found = chrome.locate(frame.toMapImage())
+            val attempt = acquirer.acquire(frame, pyramid)
             times = times.copy(acquire = t.elapsedNow().inWholeMicroseconds / 1000.0)
-            if (found == null || found.second < MIN_FRAME_SCORE) return done(LiveFrameResult(LivePhase.FINDING_SCREEN, null, null, false, emptyList(), times))
-            guess = found.first
+            val accepted = attempt.screenToFrame ?: return done(
+                LiveFrameResult(
+                    LivePhase.FINDING_SCREEN, null, null, false, emptyList(), times, attempt.correlation,
+                    reason = attempt.reason, screenScore = attempt.score, candidate = attempt.corners,
+                ),
+            )
+            guess = accepted
+            placeFailures = 0
         }
         val t0 = clock.markNow()
-        val pyramid = ChromeTracker.Frame(frame)
         val result = tracker.track(pyramid, guess)
         times = times.copy(track = t0.elapsedNow().inWholeMicroseconds / 1000.0)
         if (result == null || result.correlation < KEEP_CHROME) {
@@ -95,7 +113,7 @@ class LiveKorokScanner(
                 screen = null
                 lostScreen = 0
             }
-            return done(LiveFrameResult(LivePhase.TRACKING, guess, origin, false, emptyList(), times, result?.correlation ?: 0.0))
+            return done(LiveFrameResult(LivePhase.TRACKING, guess, origin, false, emptyList(), times, result?.correlation ?: 0.0, reason = "Hold steadier"))
         }
         lostScreen = 0
         var h = result.screenToFrame
@@ -146,14 +164,17 @@ class LiveKorokScanner(
         if (fix == null || !plausible(fix)) {
             times = times.copy(locate = t.elapsedNow().inWholeMicroseconds / 1000.0)
             if (previous == null) {
-                return done(LiveFrameResult(LivePhase.FINDING_PLACE, h, null, false, emptyList(), times, correlation, fix?.peak ?: 0.0, fix?.ratio ?: 0.0))
+                // Never placed: either not max zoom, or not the map screen at all. Look again soon.
+                if (++placeFailures >= PLACE_TRIES) screen = null
+                val why = "Can't place this on the map (best ${ScreenAcquirer.dp2(fix?.peak ?: 0.0)}): zoom all the way in"
+                return done(LiveFrameResult(LivePhase.FINDING_PLACE, h, null, false, emptyList(), times, correlation, fix?.peak ?: 0.0, fix?.ratio ?: 0.0, reason = why))
             }
             if (++sinceFix > LOST_MAP_FRAMES) {
                 origin = null
                 velocity = Point(0.0, 0.0)
                 sinceFix = 0
             }
-            return done(LiveFrameResult(LivePhase.TRACKING, h, previous, false, emptyList(), times, correlation, fix?.peak ?: 0.0, fix?.ratio ?: 0.0))
+            return done(LiveFrameResult(LivePhase.TRACKING, h, previous, false, emptyList(), times, correlation, fix?.peak ?: 0.0, fix?.ratio ?: 0.0, reason = "Lost the map: pan slower"))
         }
         val located = checkNotNull(fix)
         var o = Point(located.viewOrigin.x - MapLocator.VIEW_X0 / S, located.viewOrigin.y - MapLocator.VIEW_Y0 / S)
@@ -203,9 +224,6 @@ class LiveKorokScanner(
     }
 
     companion object {
-        /** The frame likeness that counts as having found the screen (see [ScreenChrome.locate]). */
-        const val MIN_FRAME_SCORE = 0.6
-
         /** Chrome correlation below which the screen counts as lost. */
         const val KEEP_CHROME = 0.3
 
@@ -231,6 +249,9 @@ class LiveKorokScanner(
 
         /** Lost frames in a row before starting over. */
         const val LOST_FRAMES = 3
+
+        /** Failed whole-map searches before looking for the screen again (it may not be the map). */
+        const val PLACE_TRIES = 3
     }
 }
 

@@ -1,5 +1,6 @@
 package gx.zelda.screencam
 
+import gx.zelda.screencam.live.GrayImage
 import gx.zelda.shrines.scan.MapImage
 import kotlin.math.abs
 import kotlin.math.atan2
@@ -8,6 +9,7 @@ import kotlin.math.cos
 import kotlin.math.hypot
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.roundToInt
 import kotlin.math.sin
 
 /**
@@ -37,24 +39,47 @@ object ScreenFinder {
             val lo = min((c shr 16) and 0xff, min((c shr 8) and 0xff, c and 0xff))
             saturated[y * w + x] = hi > 60 && (hi - lo) * 255 > 80 * hi
         }
+        return outlines(luma, saturated, w, h, radius = 4).map { q -> q.map { Point(it.x * f, it.y * f) } }
+    }
+
+    /**
+     * The same for a camera frame's grey, already downscaled to [small] (a few hundred pixels
+     * across), [scale] small pixels per frame pixel. Corners are in frame pixels.
+     */
+    fun candidates(small: GrayImage, scale: Double): List<List<Point>> =
+        // Closing radius: 4 px at 640 px across, in proportion below that.
+        outlines(small.pixels, null, small.width, small.height, radius = max(1, (4.0 * max(small.width, small.height) / WORK_SIDE).roundToInt()))
+            .map { q -> q.map { Point(it.x / scale, it.y / scale) } }
+
+    private fun outlines(luma: FloatArray, saturated: BooleanArray?, w: Int, h: Int, radius: Int): List<List<Point>> {
         val otsu = otsu(luma)
         // Below Otsu the screen's dark frame joins it; at Otsu a lit room drops out; colour catches
         // the icons and frame when the map itself is dark.
-        val masks = listOf(
+        val masks = listOfNotNull(
             BooleanArray(w * h) { luma[it] > max(25.0, 0.5 * otsu) },
             BooleanArray(w * h) { luma[it] > otsu },
-            BooleanArray(w * h) { saturated[it] || luma[it] > otsu },
+            saturated?.let { sat -> BooleanArray(w * h) { sat[it] || luma[it] > otsu } },
         )
         val minBlob = (0.005 * w * h).toInt()
         return masks.flatMap { raw ->
-            val mask = erode(dilate(raw, w, h, 4), w, h, 4)
+            val mask = erode(dilate(raw, w, h, radius), w, h, radius)
             val blobs = components(mask, w, h).filter { it.size >= minBlob }.sortedByDescending { it.size }
             listOfNotNull(
                 blobs.firstOrNull()?.let { quad(it, mask, w, h) },
                 // The union, for a screen split by a dark band (the sea below the map's south edge).
-                blobs.takeIf { it.size > 1 }?.let { quad(it.flatMap { b -> b.asIterable() }.toIntArray(), mask, w, h) },
+                blobs.takeIf { it.size > 1 }?.let { quad(concat(it), mask, w, h) },
             )
-        }.map { q -> q.map { Point(it.x * f, it.y * f) } }
+        }
+    }
+
+    private fun concat(arrays: List<IntArray>): IntArray {
+        val out = IntArray(arrays.sumOf { it.size })
+        var at = 0
+        for (a in arrays) {
+            a.copyInto(out, at)
+            at += a.size
+        }
+        return out
     }
 
     /** The biggest quadrilateral in the hull of [pixels], refined by a line fit along each side. */

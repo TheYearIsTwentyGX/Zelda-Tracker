@@ -39,6 +39,24 @@ class GrayImage(val width: Int, val height: Int, val pixels: FloatArray = FloatA
         return GrayImage(w, h, out)
     }
 
+    /** [k] times smaller, each pixel the mean of a k×k block. */
+    fun shrink(k: Int): GrayImage {
+        if (k <= 1) return this
+        val w = width / k
+        val h = height / k
+        val out = FloatArray(w * h)
+        val inv = 1f / (k * k)
+        for (y in 0 until h) for (x in 0 until w) {
+            var s = 0f
+            for (dy in 0 until k) {
+                val o = (y * k + dy) * width + x * k
+                for (dx in 0 until k) s += pixels[o + dx]
+            }
+            out[y * w + x] = s * inv
+        }
+        return GrayImage(w, h, out)
+    }
+
     /** As an opaque grey [MapImage], for code that works on colour images. */
     fun toMapImage(): MapImage = MapImage(width, height, IntArray(pixels.size) {
         val v = pixels[it].toInt().coerceIn(0, 255)

@@ -46,7 +46,28 @@ expect fun rememberCameraPermission(): CameraPermission
  * camera's analysis thread and may take its time: frames that arrive meanwhile are dropped.
  */
 @Composable
-expect fun LiveCameraView(onFrame: suspend (GrayImage) -> Unit, modifier: Modifier = Modifier)
+expect fun LiveCameraView(
+    onFrame: suspend (GrayImage) -> Unit,
+    modifier: Modifier = Modifier,
+    /** Called once, with what the camera actually delivers (size, rotation, crop, strides), for diagnostics. */
+    onCameraInfo: (String) -> Unit = {},
+)
+
+/** Writes a debug session: analysed frames and one JSON line per frame of the pipeline's state. */
+interface FrameRecorder {
+    /** Where the session is, for showing the user and for `adb`. */
+    val location: String
+
+    fun frame(index: Int, image: GrayImage)
+
+    fun line(json: String)
+
+    fun session(json: String)
+}
+
+/** Starts a new recording session each time it's called; null where the platform can't record. */
+@Composable
+expect fun rememberFrameRecorderFactory(): (() -> FrameRecorder)?
 
 /** Writes a line of live-scan statistics where developers can read it (logcat tag `KorokScan`). */
 expect fun logLiveStats(line: String)
