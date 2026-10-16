@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import gx.zelda.core.PickedImage
 import gx.zelda.core.SaveFile
+import gx.zelda.screencam.ScreenChrome
+import gx.zelda.screencam.ScreenChromeRepository
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.ShrineCatalog
@@ -21,8 +23,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.time.TimeSource
 
-/** One picked screenshot and what came of it. */
-data class ScannedShot(val name: String, val scan: ShotScan, val millis: Long)
+/** One picked screenshot or photo of the screen, and what came of it. */
+data class ScannedShot(val name: String, val scan: ShotScan, val millis: Long, val fromPhoto: Boolean = false)
 
 data class ShrineScanUiState(
     val saveFile: SaveFile,
@@ -54,13 +56,14 @@ data class ShrineScanUiState(
 }
 
 /**
- * Reads map screenshots, merges them, and turns the result into suggestions for the save file that
- * was active when the screen opened. Nothing is written until [apply].
+ * Reads map screenshots and photos of the screen, merges them, and turns the result into suggestions
+ * for the save file that was active when the screen opened. Nothing is written until [apply].
  */
 class ShrineScanViewModel(
     private val storage: ShrineStorage,
     private val loadCatalog: suspend () -> ShrineCatalog = { ShrineRepository.load(storage.game) },
     private val loadMap: suspend () -> ShrineMapData = { ShrineMapRepository.load(storage.game) },
+    private val loadChrome: suspend () -> ScreenChrome = { ScreenChromeRepository.load(storage.game) },
     private val decode: (ByteArray) -> MapImage? = ::decodeMapImage,
     /** Decoding and scanning are CPU-bound, so they run here rather than on the main thread. */
     private val work: CoroutineDispatcher = Dispatchers.Default,
@@ -73,6 +76,7 @@ class ShrineScanViewModel(
 
     private lateinit var catalog: ShrineCatalog
     private lateinit var scanner: ShrineMapScanner
+    private lateinit var photos: PhotoShotReader
 
     /** Choices the user made by hand, kept when more screenshots are added. */
     private var edits = mapOf<String, ScanChoice>()
@@ -82,8 +86,11 @@ class ShrineScanViewModel(
             runCatching {
                 val c = async { loadCatalog() }
                 val m = async { loadMap() }
+                val f = async { loadChrome() }
                 catalog = c.await()
-                scanner = ShrineMapScanner(m.await())
+                val map = m.await()
+                scanner = ShrineMapScanner(map)
+                photos = PhotoShotReader(scanner, map, f.await())
                 val file = storage.game.saveFile(storage.activeSaveFile.first())
                 ShrineScanUiState(file, storage.prefs.first(), storage.progress(file.id).first())
             }.onSuccess { initial ->
@@ -129,12 +136,14 @@ class ShrineScanViewModel(
         val mark = TimeSource.Monotonic.markNow()
         val bytes = runCatching { image.read() }.getOrNull()
         val decoded = bytes?.let(decode)
-        val result = if (decoded == null) {
-            ShotScan.Rejected(RejectReason.UNREADABLE, "Couldn't open this file as an image.")
-        } else {
-            scanner.scan(decoded)
+        // Anything but a straight-from-the-album screenshot is taken to be a photo of the screen.
+        val fromPhoto = decoded != null && (decoded.width != ShrineMapScanner.WIDTH || decoded.height != ShrineMapScanner.HEIGHT)
+        val result = when {
+            decoded == null -> ShotScan.Rejected(RejectReason.UNREADABLE, "Couldn't open this file as an image.")
+            fromPhoto -> photos.read(decoded)
+            else -> scanner.scan(decoded)
         }
-        return ScannedShot(image.name, result, mark.elapsedNow().inWholeMilliseconds)
+        return ScannedShot(image.name, result, mark.elapsedNow().inWholeMilliseconds, fromPhoto)
     }
 
     /** The review's suggestions, overridden by any hand edits that still apply. */

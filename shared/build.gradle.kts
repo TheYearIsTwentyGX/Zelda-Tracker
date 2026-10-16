@@ -66,6 +66,8 @@ dependencies {
 }
 
 // The screenshot-scan tests decode JPEGs through ImageIO; keep AWT headless so they run on CI.
+// The photo-scan tests render 12 MP synthetic camera photos, a few hundred MB each.
 tasks.withType<Test>().configureEach {
     systemProperty("java.awt.headless", "true")
+    maxHeapSize = "2g"
 }

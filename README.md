@@ -73,19 +73,21 @@ iOS port is mostly a matter of adding the iOS targets.
   can be bought (27 with none, 23 with all four). A number entered before a beast was freed is
   kept and flagged in red if it now goes past 30. All 120 orbs buy 30 upgrades (31 with the DLC),
   short of the 33 that max both hearts and stamina.
-- **Scan map screenshots** (top-bar menu): reads shrine states from screenshots of the in-game map
-  (2D map, fully zoomed out, 1920×1080 straight from the Switch album; one of the north half and one
-  of the south). Each shrine comes out as *Completed* (blue glyph), *Not done* (orange glyph),
+- **Scan map screenshots or photos** (top-bar menu): reads shrine states from screenshots of the
+  in-game map (2D map, fully zoomed out, 1920×1080 straight from the Switch album; one of the north
+  half and one of the south), or from phone photos of the TV or the Switch showing it, at any angle
+  and either way up. Each shrine comes out as *Completed* (blue glyph), *Not done* (orange glyph),
   *Not on the map* (spot clearly empty) or *Unsure*, with why: covered by another icon, a pin, a
   stamp or the Hero's Path trail; stacked with another shrine (Ree Dahee and Shee Venath share a
-  spot); at the screen edge; or in no screenshot. Any number of screenshots merge: a definite reading
-  beats an edge or missing one, and two definite readings that disagree become Unsure.
+  spot); at the screen edge; or in no screenshot. Any number of screenshots and photos merge: a
+  definite reading beats an edge or missing one, and two definite readings that disagree become Unsure.
   Nothing is written until you review it. Completed and Not done are pre-ticked, Unsure shrines are
   listed by name for you to decide, Not on the map is never written, a shrine already completed is
   never downgraded, and Apply asks for confirmation before writing to the active save file. With
   *Hide undiscovered shrines* on, empty spots are only counted and unsure undiscovered shrines stay
-  hidden until tapped. Screenshots at the wrong size, not fully zoomed out or with too few icons to
-  line up are rejected with a reason.
+  hidden until tapped. Screenshots at the wrong size, photos where the screen can't be found or is too
+  small, maps not fully zoomed out, and images with too few icons to line up are rejected with a reason.
+  Photos leave a few more shrines unsure than screenshots do.
 - Shares the active save file with the other BotW trackers.
 
 **Breath of the Wild: Hyrule Compendium**
@@ -305,7 +307,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/fairies/  ← Great Fairy tracker, shared by every game
   src/commonMain/kotlin/gx/zelda/mainquest/ ← main quest tracker (BotW; The Minish Cap with dungeons, items and Tiger Scrolls)
   src/commonMain/kotlin/gx/zelda/shrines/  ← shrine tracker (BotW; TotK with Lightroots) and Spirit Orb / Light of Blessing planner
-  src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner and its review screen
+  src/commonMain/kotlin/gx/zelda/shrines/scan/  ← map-screenshot scanner, photo reader and their review screen
+  src/commonMain/kotlin/gx/zelda/screencam/  ← finding and unwarping a game screen in a photo
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
@@ -320,6 +323,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
   src/commonMain/composeResources/files/<game>/shrines.json  ← per-game shrines (TotK's also has the Lightroots)
   src/commonMain/composeResources/files/<game>/shrine_map.json  ← shrine/tower world positions + icon templates
+  src/commonMain/composeResources/files/<game>/map_chrome.json  ← the map screen's frame, for reading photos
   src/commonMain/composeResources/files/<game>/koroks.json   ← per-game Korok Seeds + Hestu costs
   src/commonMain/composeResources/files/<game>/korok_puzzle_types.json  ← puzzle-type taxonomy
   src/commonMain/composeResources/files/botw/bosses.json     ← overworld boss spawns
@@ -404,6 +408,59 @@ calls them Unsure.
 
 `shrine_map.json` holds the shrine and tower positions from objmap.zeldamods.org, matched to
 `shrines.json` by name, and the prototype's 33×33 shrine and tower silhouettes.
+
+### Photos of the screen
+
+Any image that isn't 1920×1080 is taken to be a photo. `PhotoShotReader` (`shrines/scan/`) and
+the screen-finding code in `screencam/`, all pure Kotlin, turn it into a screenshot-like frame for
+the same scanner:
+
+1. **Find the screen.** `ScreenFinder` thresholds a ~640 px copy of the photo three ways (below
+   Otsu, at Otsu, and saturated colours) and takes a four-sided outline of each mask's largest blob
+   and of all its blobs together. Each outline is tried with each corner as top left. The winner is
+   the one whose frame (header, ornaments and button bar) best matches the grey thumbnail in
+   `map_chrome.json`. A lit room or glare scores far below a real screen, and the photo can be at
+   any angle and either way up, so EXIF orientation doesn't matter.
+2. **Unwarp.** `Rectifier` maps the screen into the screenshot's 1920×1080 frame, averaging several
+   samples per pixel where the photo has more pixels than the screen, and colour moiré is smoothed
+   out of the chroma.
+3. **Calibrate colour.** The frame is the same in every screenshot, so it serves as a colour chart:
+   each channel is mapped so that the photo frame's percentiles match the reference frame's.
+   Hero's Path mode turns the frame's ornaments green, so both the normal and Hero's Path references
+   are tried, and the one that lines up more icons is kept.
+4. **Refine.** The scanner's own icon detection and registration pair icons with their world
+   positions. A RANSAC homography from world to photo corrects the outline's few pixels of error,
+   twice, taking the fit from about 3 px RMS to under 1 px.
+5. **Read** with camera thresholds (`ShotSource.CAMERA`):
+   - icon detection is looser;
+   - blue bloom is allowed around icons;
+   - any warm colour inside an icon's outline counts as an unfinished shrine's glyph;
+   - a spot is called empty only with no trace of an icon and nothing like a dimmed pin or stamp on it.
+
+   A photo needs at least 8 icons lining up within 2 px RMS.
+
+A screen with fewer than 0.75 photo pixels per screen pixel is rejected as too small. A full-frame
+16:9 image smaller than 1920×1080 is a resized screenshot and gets the usual "use the original"
+message.
+
+`PhotoScanGoldenTest` covers two kinds of photo:
+
+- **A real phone photo:** HDR, the Switch in handheld mode, on its side, with heavy moiré and bloom.
+  It shows the same save and pan as `all-complete/1000002225`.
+  - 94 icons line up, with 0.77 px RMS.
+  - 91 of the screenshot's 93 Completed shrines read the same; Sha Warvo and Noe Rajee (under a
+    stamp) are Unsure.
+  - Nothing contradicts the screenshot.
+- **`FakeCamera` photos of the four golden screenshots:** keystoned, turned, colour-shifted, shaky,
+  and in Hero's Path mode. Its simulated sensor gathers light over each pixel's area, so the
+  panel's RGB stripes alias into moiré the way they do in real photos.
+  - None contradicts its screenshot.
+  - 7–20% of definite spots are left Unsure.
+  - Of the partial save's three unfinished shrines, a photo reads Tena Ko'sah. Qua Raym and Shae
+    Mo'sah, on Eldin's lava and beside a stable, come out Unsure.
+
+On a desktop JVM a 9 MP photo takes about 2 s. `ScreenChromeReferenceTest` computes `map_chrome.json`
+from the golden screenshots.
 
 ## Data sources
 

@@ -24,6 +24,9 @@ import kotlin.math.sqrt
  * Hero's Path mode draws green trail lines over the map and its icons. Trail pixels are treated as
  * unknown rather than as evidence either way: icons are matched on the pixels around the trail, and
  * a spot only counts as empty when at least half its icon outline is free of trail.
+ *
+ * Photos of the screen are first warped into this same 1920×1080 frame (see [PhotoShotReader]) and
+ * read with [ShotSource.CAMERA]'s thresholds.
  */
 class ShrineMapScanner(private val data: ShrineMapData) {
     private val shrineIds = data.shrines.keys.toList()
@@ -36,17 +39,16 @@ class ShrineMapScanner(private val data: ShrineMapData) {
         }
     }
 
-    fun scan(image: MapImage): ShotScan {
-        if (image.width != WIDTH || image.height != HEIGHT) {
-            return ShotScan.Rejected(
-                RejectReason.WRONG_SIZE,
-                "This image is ${image.width}×${image.height}; screenshots straight from the Switch album are " +
-                    "${WIDTH}×$HEIGHT. Share the original screenshot, not a photo, crop or resized copy.",
-            )
-        }
+    /**
+     * Reads a 1920×1080 map image. [heroesPath] overrides the Hero's Path check, for photos whose
+     * colours were already matched to one mode's frame.
+     */
+    fun scan(image: MapImage, source: ShotSource = ShotSource.SCREENSHOT, heroesPath: Boolean? = null): ShotScan {
+        if (image.width != WIDTH || image.height != HEIGHT) return wrongSize(image)
+        val tuning = if (source == ShotSource.CAMERA) CAMERA else SCREENSHOT
         val m = MapMasks.of(image)
-        val shrineDets = detectShrines(m)
-        val towerDets = detectTowers(m)
+        val shrineDets = detectShrines(m, tuning)
+        val towerDets = detectTowers(m, tuning)
         val groups = listOf(shrineDets to shrinePoints, towerDets to data.towers)
         // Most icons found must fit; three that line up by chance on a zoomed-in map don't count.
         val reg = register(groups, data.minZoomScale)
@@ -64,14 +66,20 @@ class ShrineMapScanner(private val data: ShrineMapData) {
             }
         }
         if (abs(reg.fittedScale / data.minZoomScale - 1) > SCALE_TOLERANCE) return notMinZoom()
-        val heroesPath = m.isHeroesPath()
+        val trailMode = heroesPath ?: m.isHeroesPath()
         val readings = shrineIds.indices.associate { i ->
             val p = shrinePoints[i]
             val id = shrineIds[i]
-            id to classify(m, reg.scale * p.x + reg.tx, reg.scale * p.z + reg.ty, stacked[id], heroesPath)
+            id to classify(m, reg.scale * p.x + reg.tx, reg.scale * p.z + reg.ty, stacked[id], trailMode, tuning)
         }
-        return ShotScan.Read(reg, readings, heroesPath)
+        return ShotScan.Read(reg, readings, trailMode)
     }
+
+    internal fun wrongSize(image: MapImage) = ShotScan.Rejected(
+        RejectReason.WRONG_SIZE,
+        "This image is ${image.width}×${image.height}; screenshots straight from the Switch album are " +
+            "${WIDTH}×$HEIGHT. Share the original screenshot, not a crop or resized copy.",
+    )
 
     private fun notMinZoom() = ShotScan.Rejected(
         RejectReason.NOT_MIN_ZOOM,
@@ -83,12 +91,12 @@ class ShrineMapScanner(private val data: ShrineMapData) {
     internal data class Detection(val x: Double, val y: Double, val score: Double)
 
     /** Shrine diamonds; both states share the blue outline, so one ring template finds both. */
-    internal fun detectShrines(m: MapMasks): List<Detection> =
-        detect(m, MapMasks.BLUE, RING_TEMPLATE, sizes = 8..36, dyGuess = 0, search = 6, threshold = 0.55)
+    internal fun detectShrines(m: MapMasks, tuning: Tuning = SCREENSHOT): List<Detection> =
+        detect(m, MapMasks.BLUE, RING_TEMPLATE, sizes = 8..36, dyGuess = 0, search = 6, threshold = tuning.shrineMatch)
 
     /** Sheikah Towers. The template is centred on the world point, a little below the icon's middle. */
-    internal fun detectTowers(m: MapMasks): List<Detection> =
-        detect(m, MapMasks.TOWER, data.towerTemplate, sizes = 12..44, dyGuess = 2, search = 6, threshold = 0.6)
+    internal fun detectTowers(m: MapMasks, tuning: Tuning = SCREENSHOT): List<Detection> =
+        detect(m, MapMasks.TOWER, data.towerTemplate, sizes = 12..44, dyGuess = 2, search = 6, threshold = tuning.towerMatch)
 
     private fun detect(
         m: MapMasks,
@@ -252,7 +260,14 @@ class ShrineMapScanner(private val data: ShrineMapData) {
 
     // --- classification ----------------------------------------------------------------------
 
-    internal fun classify(m: MapMasks, u: Double, v: Double, stackedWith: String?, heroesPath: Boolean): SpotReading {
+    internal fun classify(
+        m: MapMasks,
+        u: Double,
+        v: Double,
+        stackedWith: String?,
+        heroesPath: Boolean,
+        tuning: Tuning = SCREENSHOT,
+    ): SpotReading {
         if (!inView(u, v)) return SpotReading.unsure(UnsureReason.NOT_IN_SHOT, "Not in this screenshot")
         if (!inView(u, v, VIEW_MARGIN)) return SpotReading.unsure(UnsureReason.SCREEN_EDGE)
         if (underHud(u, v, heroesPath)) return SpotReading.unsure(UnsureReason.COVERED, "Under the map's HUD")
@@ -271,19 +286,15 @@ class ShrineMapScanner(private val data: ShrineMapData) {
                 cy = v0 + dy
             }
         }
-        var shape = 0.0
-        for (dy in -SHAPE_SEARCH..SHAPE_SEARCH) for (dx in -SHAPE_SEARCH..SHAPE_SEARCH) {
-            // The masked score reads an icon through a trail; the plain one is the prototype's.
-            shape = max(shape, max(
-                m.ncc(MapMasks.ICON, data.shrineTemplate, cx + dx, cy + dy, maskTrail = false),
-                m.ncc(MapMasks.ICON, data.shrineTemplate, cx + dx, cy + dy, maskTrail = true),
-            ))
-        }
+        // The silhouette, and (for photos) the same counting a dulled glyph inside the outline. Warm
+        // terrain fills that inside too, so only the plain one says whether there's a trace of an icon.
+        val shape = shapeScore(m, cx, cy, inner = 0)
+        val glyphShape = if (tuning.glyphOrange == MapMasks.ORANGE) shape else shapeScore(m, cx, cy, inner = tuning.glyphOrange)
         val outer = m.fraction(MapMasks.BLUE, cx, cy, OUTER_BAND) ?: 0.0
 
-        if (shape >= SHAPE_HI && outer <= OUTER_BLUE_MAX) {
+        if (glyphShape >= SHAPE_HI && ring >= tuning.iconRing && outer <= tuning.outerBlueMax) {
             val blue = m.fraction(MapMasks.BLUE, cx, cy, GLYPH) ?: 0.0
-            val orange = m.fraction(MapMasks.ORANGE, cx, cy, GLYPH) ?: 0.0
+            val orange = m.fraction(tuning.glyphOrange, cx, cy, GLYPH) ?: 0.0
             val verdict = when {
                 orange > GLYPH_MIN && orange > 2 * blue -> ScanVerdict.NOT_DONE
                 blue > GLYPH_MIN && blue > 2 * orange -> ScanVerdict.COMPLETED
@@ -292,26 +303,38 @@ class ShrineMapScanner(private val data: ShrineMapData) {
             if (stackedWith != null) {
                 return SpotReading.unsure(UnsureReason.STACKED, "Drawn on top of another shrine's icon", iconSeen = true)
             }
-            return SpotReading(verdict, note = "shape ${fmt(shape)}, glyph blue ${fmt(blue)} orange ${fmt(orange)}")
+            return SpotReading(verdict, note = "shape ${fmt(glyphShape)}, glyph blue ${fmt(blue)} orange ${fmt(orange)}")
         }
-        if (shape >= SHAPE_LO || ring >= RING_LO) {
-            val note = if (outer > OUTER_BLUE_MAX) "A bigger blue icon is on top" else "Only part of an icon is visible"
-            return SpotReading.unsure(UnsureReason.COVERED, note, iconSeen = ring >= RING_LO)
+        if (shape >= tuning.traceShape || ring >= tuning.traceRing) {
+            val note = if (outer > tuning.outerBlueMax) "A bigger blue icon is on top" else "Only part of an icon is visible"
+            return SpotReading.unsure(UnsureReason.COVERED, note, iconSeen = ring >= tuning.traceRing)
         }
         var worst = 0
         var worstFrac = 0.0
-        for (bit in CLUTTER) {
-            val f = m.fraction(bit, u0, v0, FOOTPRINT) ?: 0.0
+        for (bit in tuning.clutter) {
+            val f = m.fraction(bit, u0, v0, tuning.clutterFootprint) ?: 0.0
             if (f > worstFrac) {
                 worstFrac = f
                 worst = bit
             }
         }
-        if (worstFrac > CLUTTER_MAX) return SpotReading.unsure(UnsureReason.COVERED, "Covered by ${clutterName(worst)}")
-        if (m.visible(u0, v0, RING) < MIN_VISIBLE_RING) {
+        if (worstFrac > tuning.clutterMax) return SpotReading.unsure(UnsureReason.COVERED, "Covered by ${clutterName(worst)}")
+        if (m.visible(u0, v0, RING) < tuning.minVisibleRing) {
             return SpotReading.unsure(UnsureReason.COVERED, "Covered by the Hero's Path trail")
         }
         return SpotReading(ScanVerdict.NOT_PRESENT, note = "clear spot")
+    }
+
+    /** Best silhouette match within [SHAPE_SEARCH] px; the trail-masked score reads an icon through a trail. */
+    private fun shapeScore(m: MapMasks, cx: Int, cy: Int, inner: Int): Double {
+        var best = 0.0
+        for (dy in -SHAPE_SEARCH..SHAPE_SEARCH) for (dx in -SHAPE_SEARCH..SHAPE_SEARCH) {
+            best = max(best, max(
+                m.ncc(MapMasks.ICON, data.shrineTemplate, cx + dx, cy + dy, maskTrail = false, inner = inner),
+                m.ncc(MapMasks.ICON, data.shrineTemplate, cx + dx, cy + dy, maskTrail = true, inner = inner),
+            ))
+        }
+        return best
     }
 
     private fun clutterName(bit: Int) = when (bit) {
@@ -320,6 +343,7 @@ class ShrineMapScanner(private val data: ShrineMapData) {
         MapMasks.WHITE -> "a white icon or label"
         MapMasks.PURPLE -> "a pin or its beam"
         MapMasks.YELLOW -> "a stamp"
+        MapMasks.MARKER -> "a pin or stamp"
         else -> "a pin or marker"
     }
 
@@ -379,19 +403,7 @@ class ShrineMapScanner(private val data: ShrineMapData) {
         /** Silhouette score above which the spot holds a shrine icon. */
         private const val SHAPE_HI = 0.60
 
-        /** Below this (and [RING_LO]) there's no shrine-like shape at all. */
-        private const val SHAPE_LO = 0.35
-
-        /** Fraction of the outline that's icon-blue for "some outline visible". */
-        private const val RING_LO = 0.25
-
-        /** More blue than this just outside the icon: a bigger blue icon is drawn on top. */
-        private const val OUTER_BLUE_MAX = 0.40
         private const val GLYPH_MIN = 0.2
-        private const val CLUTTER_MAX = 0.03
-
-        /** An empty spot needs at least this much of its outline free of Hero's Path trail. */
-        private const val MIN_VISIBLE_RING = 0.5
 
         private val CLUTTER = intArrayOf(MapMasks.GLOW, MapMasks.TAN, MapMasks.WHITE, MapMasks.PURPLE, MapMasks.YELLOW, MapMasks.RED)
 
@@ -402,7 +414,48 @@ class ShrineMapScanner(private val data: ShrineMapData) {
         private val RING = Offsets.l1Band(R_INNER, R_OUTER)
         private val OUTER_BAND = Offsets.l1Band(14.0, 18.0)
         private val GLYPH = Offsets.l1Band(0.0, 7.0)
-        private val FOOTPRINT = Offsets.l1Band(0.0, 14.0)
+
+        /** The prototype's thresholds, for screenshots. */
+        internal val SCREENSHOT = Tuning(
+            shrineMatch = 0.55,
+            towerMatch = 0.6,
+            traceShape = 0.35,
+            traceRing = 0.25,
+            iconRing = 0.0,
+            clutter = CLUTTER,
+            outerBlueMax = 0.40,
+            clutterMax = 0.03,
+            clutterFootprint = Offsets.l1Band(0.0, 14.0),
+            minVisibleRing = 0.5,
+            glyphOrange = MapMasks.ORANGE,
+        )
+
+        /**
+         * Photos:
+         * - Blur and moiré fray icon outlines, so candidates need less of a template match (a stray
+         *   one won't line up with the map).
+         * - The camera blooms blue icons into their surroundings, so more blue is allowed just
+         *   outside the icon.
+         * - It dulls the thin orange glyph, so any warm colour inside the outline counts as glyph,
+         *   for the silhouette and the colour. Warm terrain fills that inside too, so some blue
+         *   outline is required as well.
+         * - A photo is never surer than a screenshot that a spot is empty: the faintest trace of an
+         *   icon makes it unsure, dimmed pins and stamps count as covering it, from a wider footprint
+         *   and less of them, and more of its outline must be clear of trail.
+         */
+        internal val CAMERA = Tuning(
+            shrineMatch = 0.45,
+            towerMatch = 0.5,
+            traceShape = 0.25,
+            traceRing = 0.12,
+            iconRing = 0.12,
+            clutter = CLUTTER + MapMasks.MARKER,
+            outerBlueMax = 0.60,
+            clutterMax = 0.015,
+            clutterFootprint = Offsets.l1Band(0.0, 18.0),
+            minVisibleRing = 0.65,
+            glyphOrange = MapMasks.WARM,
+        )
 
         /** The outline as a 33×33 template, for finding diamonds. */
         private val RING_TEMPLATE: IconTemplate = run {
@@ -425,6 +478,40 @@ class ShrineMapScanner(private val data: ShrineMapData) {
             }
     }
 }
+
+/** Where a map image came from. */
+enum class ShotSource {
+    /** Straight from the Switch album: pixel-exact. */
+    SCREENSHOT,
+
+    /** A photo of the screen, warped into the screenshot's frame: bloom, blur and moiré. */
+    CAMERA,
+}
+
+/** The detection and classification thresholds that differ between screenshots and photos. */
+internal class Tuning(
+    /** Template match a blue blob needs to be a shrine candidate. */
+    val shrineMatch: Double,
+    /** Template match a pale blue blob needs to be a tower candidate. */
+    val towerMatch: Double,
+    /** Below this silhouette score and [traceRing] there's no trace of a shrine icon at all. */
+    val traceShape: Double,
+    /** Fraction of the outline that's icon-blue for "some outline visible". */
+    val traceRing: Double,
+    /** Outline a found icon needs as well as its silhouette. */
+    val iconRing: Double,
+    /** Colour classes that cover a spot so it can't be called empty. */
+    val clutter: IntArray,
+    /** More blue than this just outside the icon: a bigger blue icon is drawn on top. */
+    val outerBlueMax: Double,
+    /** A spot is covered when one clutter colour fills more than this of [clutterFootprint]. */
+    val clutterMax: Double,
+    val clutterFootprint: Offsets,
+    /** An empty spot needs at least this much of its icon outline free of Hero's Path trail. */
+    val minVisibleRing: Double,
+    /** The colour class an unfinished shrine's glyph is read with. */
+    val glyphOrange: Int,
+)
 
 /** Pixel offsets (dx, dy) whose L1 distance from the centre lies in a band. */
 internal class Offsets(val dx: IntArray, val dy: IntArray) {
@@ -494,8 +581,9 @@ internal class MapMasks private constructor(val width: Int, val height: Int, pri
     /**
      * Normalised cross-correlation (OpenCV's TM_CCOEFF_NORMED) of the [bits] mask against
      * [template] centred on (cx, cy). With [maskTrail], trail pixels are left out of the sums.
+     * Inside the icon's outline (L1 distance under [INNER_L1]), [inner] counts as well as [bits].
      */
-    fun ncc(bits: Int, template: IconTemplate, cx: Int, cy: Int, maskTrail: Boolean): Double {
+    fun ncc(bits: Int, template: IconTemplate, cx: Int, cy: Int, maskTrail: Boolean, inner: Int = 0): Double {
         val r = template.radius
         if (cx - r < 0 || cy - r < 0 || cx + r >= width || cy + r >= height) return 0.0
         val t = template.values
@@ -511,7 +599,8 @@ internal class MapMasks private constructor(val width: Int, val height: Int, pri
             for (tx in 0 until size) {
                 val f = flags[row + tx].toInt()
                 if (maskTrail && f and TRAIL != 0) continue
-                val p = if (f and bits != 0) 1.0 else 0.0
+                val inside = abs(tx - r) + abs(ty - r) < INNER_L1
+                val p = if (f and bits != 0 || inside && f and inner != 0) 1.0 else 0.0
                 val tv = t[ty * size + tx].toDouble()
                 n++
                 sp += p
@@ -603,7 +692,16 @@ internal class MapMasks private constructor(val width: Int, val height: Int, pri
         /** Hero's Path trail (green), grown by a pixel to cover its blended edge. */
         const val TRAIL = 1 shl 9
 
+        /** Orange to tan, duller than [ORANGE]: a glyph in a photo. Terrain matches too, so only read inside a found icon. */
+        const val WARM = 1 shl 10
+
+        /** Pin and stamp colours as a photo dims them: looser than [RED], [PURPLE] and [YELLOW], and catches Eldin's lava. */
+        const val MARKER = 1 shl 11
+
         const val ICON = BLUE or ORANGE
+
+        /** The inside of a shrine icon's outline: L1 distance from its centre. */
+        private const val INNER_L1 = 9
 
         // OpenCV's fixed-point tables for 8-bit RGB → HSV, so values match the prototype's.
         private val SDIV = IntArray(256) { if (it == 0) 0 else (255.0 * 4096 / it).roundToInt() }
@@ -635,6 +733,10 @@ internal class MapMasks private constructor(val width: Int, val height: Int, pri
                 if (hue in 88..112 && s > 60 && v > 200) f = f or TOWER
                 if (hue in 88..115 && s > 90 && v > 120) f = f or GLOW
                 if (hue in 8..30 && s > 80 && v > 170) f = f or ORANGE
+                if (hue in 5..32 && s > 55 && v > 130) f = f or WARM
+                if ((hue <= 8 || hue >= 165) && s > 120 && v > 150) f = f or MARKER
+                if (hue in 120..164 && s > 70 && v > 120) f = f or MARKER
+                if (hue in 22..38 && s > 140 && v > 170) f = f or MARKER
                 if (hue in 12..30 && s > 45 && s < 150 && v > 215) f = f or TAN
                 if (s < 60 && v > 235) f = f or WHITE
                 if (hue in 120..160 && s > 90 && v > 150) f = f or PURPLE

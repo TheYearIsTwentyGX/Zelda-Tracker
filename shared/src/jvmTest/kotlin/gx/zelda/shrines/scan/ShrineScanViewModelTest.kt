@@ -10,7 +10,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
+import java.awt.image.BufferedImage
+import java.io.ByteArrayOutputStream
 import java.nio.file.Files
+import javax.imageio.ImageIO
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -118,6 +121,28 @@ class ShrineScanViewModelTest {
         assertTrue(review.section(ReviewSection.COMPLETED).none { state.isHidden(it) })
         vm.reveal(offScreen.shrine.id)
         assertTrue(!vm.state.value!!.isHidden(offScreen))
+    }
+
+    @Test
+    fun photosOfTheScreenAreReadAndResizedScreenshotsRejected() = runTest {
+        val vm = viewModel(storage())
+        val north = assertNotNull(decodeMapImage(sample("all-complete/1000002225").read()))
+        val resized = MapImage(1280, 720, IntArray(1280 * 720) { i -> north.argb[(i / 1280 * 3 / 2) * north.width + i % 1280 * 3 / 2] })
+        val png = ByteArrayOutputStream().also { out ->
+            val image = BufferedImage(resized.width, resized.height, BufferedImage.TYPE_INT_RGB)
+            image.setRGB(0, 0, resized.width, resized.height, resized.argb, 0, resized.width)
+            ImageIO.write(image, "png", out)
+        }.toByteArray()
+        val state = vm.scanAndWait(sample("photos/all-complete-north-handheld"), PickedImage("small.png") { png })
+
+        val photo = state.shots[0]
+        assertTrue(photo.fromPhoto)
+        assertIs<ShotScan.Read>(photo.scan)
+        assertEquals(RejectReason.WRONG_SIZE, assertIs<ShotScan.Rejected>(state.shots[1].scan).reason)
+        // The north half of a save with every shrine done: nothing contradicts that.
+        val review = assertNotNull(state.review)
+        assertTrue(review.section(ReviewSection.COMPLETED).size >= 88)
+        assertTrue(review.section(ReviewSection.NOT_DONE).isEmpty())
     }
 
     @Test
