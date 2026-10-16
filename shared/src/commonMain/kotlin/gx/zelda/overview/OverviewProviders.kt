@@ -31,13 +31,18 @@ import gx.zelda.sidequests.data.SideQuestProgressProvider
 import gx.zelda.sidequests.data.SideQuestStorage
 
 /**
- * The Progress Overview's rows for [game], in the order its trackers are listed.
+ * The Progress Overview's rows for [game]: one set per game, built from the trackers that game
+ * lists in `core/Games.kt`, in that order. A game that doesn't list [TrackerKind.OVERVIEW] (TotK)
+ * has no overview, so it gets none; nothing is built from another game's trackers.
  *
  * To add a tracker, give its [TrackerKind] a branch returning its [ProgressProvider]s (see that
- * interface's KDoc); `emptyList()` leaves it out of the overview.
+ * interface's KDoc); `emptyList()` leaves it out of the overview. A branch is shared by every game
+ * with that tracker, so a provider that differs by game (Main Quest) works it out from the game's
+ * own dataset.
  */
 fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<ProgressProvider> {
     val kinds = game.trackers.map { it.kind }
+    if (TrackerKind.OVERVIEW !in kinds) return emptyList()
     return kinds.flatMap { kind ->
         when (kind) {
             TrackerKind.ARMOR -> listOf(ArmorProgressProvider(ArmorStorage(dataStore, game)))

@@ -85,7 +85,7 @@ class McMainQuestViewModelTest {
         val summary = MainQuestProgressProvider(storage).summary(Games.MC.saveFile("file_1")).first()
         assertEquals(1 + 4 + 1, summary.done)
         assertEquals(6 + 38 + 8, summary.total)
-        assertEquals("Dungeons 1 / 6 · Items 4 / 38 · Tiger Scrolls 1 / 8", summary.secondary)
+        assertEquals("Dungeons 1 / 6 · Elements 1 / 4 · Items 4 / 38 · Tiger Scrolls 1 / 8", summary.secondary)
         assertEquals("Clear Cave of Flames in Mount Crenel", summary.next)
         assertNull(summary.mapItems)
     }

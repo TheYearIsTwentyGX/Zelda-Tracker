@@ -16,7 +16,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -32,7 +31,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -45,11 +43,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.LoadingOrError
+import gx.zelda.core.ui.RegionHeader
 import gx.zelda.core.ui.RowDivider
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
@@ -222,7 +219,7 @@ private fun FusionList(state: KinstoneUiState, viewModel: KinstoneViewModel, onO
         for ((region, inRegion) in state.groups) {
             // The header counts the whole region, not just the fusions the filters leave showing.
             val count = state.regionCounts.getValue(region)
-            item(key = "h_$region", contentType = "header") { KinstoneRegionHeader(region, count) }
+            item(key = "h_$region", contentType = "header") { RegionHeader(region, found = null, done = count.fused, total = count.total, suffix = "") }
             itemsIndexed(inRegion, key = { _, f -> f.id }, contentType = { _, _ -> "fusion" }) { i, fusion ->
                 val last = i == inRegion.lastIndex
                 FusionRow(
@@ -235,32 +232,6 @@ private fun FusionList(state: KinstoneUiState, viewModel: KinstoneViewModel, onO
                     showDivider = !last,
                     modifier = Modifier.groupRow(last),
                 )
-            }
-        }
-    }
-}
-
-/**
- * The top of a region's card. Like the core `RegionHeader`, but without its " Tower" suffix and
- * found count: Minish Cap regions are places, and a fusion is only ever done or not.
- */
-@Composable
-private fun KinstoneRegionHeader(region: String, count: KinstoneRegionCount) {
-    Surface(
-        color = MaterialTheme.colorScheme.surfaceContainerHighest,
-        shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-        modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
-    ) {
-        Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text(region, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-            if (count.fused == count.total) {
-                Tag(
-                    "${count.fused} / ${count.total}",
-                    container = MaterialTheme.colorScheme.primaryContainer,
-                    content = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-            } else {
-                Tag("${count.fused} / ${count.total}")
             }
         }
     }

@@ -214,6 +214,26 @@ iOS port is mostly a matter of adding the iOS targets.
 
 All three TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
 
+**The Minish Cap: Progress Overview**
+- The first card under The Minish Cap, like BotW's: every MC tracker on the active save file, each
+  with a progress bar, its numbers and a suggested next step. Tap a row to open that tracker.
+- **Heart Pieces**: pieces and containers collected (of 50), the hearts total (of 20), and the next
+  one to get. With *Hide uncollected* on, it names only the region and how many are left there.
+- **Kinstone Fusions**: fusions done of 100, Gold of 9 and hearts of 10, and the next fixed fusion
+  the story allows soonest. It names the partner, never the result, so *Hide results not fused*
+  has nothing to hold back.
+- **Main Quest**: dungeons cleared, Elements recovered, items and Tiger Scrolls. The next step is
+  the next dungeon in story order, then the next Tiger Scroll, then the next item. The tracker
+  hides nothing, so these are named.
+- **Carlov's Figurines**: owned of 136, shells held and each category's count. The next step is how
+  many figurines Carlov has to win now and the odds of a draw, or that you need shells. If nothing
+  is left to win, it gives a side task that opens one or what moves the story on. With *Hide
+  figurines not yet available* on, it only counts the side tasks and doesn't name the next
+  checkpoint.
+- The save file picker switches every MC tracker, and a tracker whose data can't be loaded shows as
+  unavailable without holding up the rest. No MC row counts toward a map percentage, so there is
+  no map completion card.
+
 **The Minish Cap: Heart Pieces**
 - All 44 Pieces of Heart and the 6 Heart Containers, grouped by region with per-region counts. The
   containers are the five bosses' plus Librari's, from a Kinstone fusion late in the game.
@@ -346,6 +366,15 @@ Write a `ProgressProvider` (`core/ProgressSummary.kt`) next to the tracker's sto
 toward map completion). Then return it for the tracker's `TrackerKind` in
 `overview/OverviewProviders.kt`; that `when` is exhaustive, so a new kind won't compile until it
 has a branch. The interface's KDoc has the details.
+
+Each game's overview is built from its own tracker list in `core/Games.kt`, so a row appears only
+for a game that has that tracker. A game gets an overview by listing `TrackerKind.OVERVIEW` (BotW
+and The Minish Cap do; TotK doesn't yet, and builds no rows). A provider shared by games that
+differ, like Main Quest, works out which game it has from that game's dataset.
+
+Region cards use `core/ui`'s `RegionHeader`. It adds " Tower" to the region name by default, for
+BotW's and TotK's tower regions; The Minish Cap's trackers pass `suffix = ""` and `found = null`,
+since their regions are places and their entries are only done or not.
 
 ## Building
 

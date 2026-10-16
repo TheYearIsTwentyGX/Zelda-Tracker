@@ -14,6 +14,12 @@ import gx.zelda.core.createDataStore
 import gx.zelda.fairies.data.FairyProgressProvider
 import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.model.FairyCatalog
+import gx.zelda.figurines.data.FigurineStorage
+import gx.zelda.hearts.data.HeartProgressProvider
+import gx.zelda.hearts.data.HeartStorage
+import gx.zelda.kinstones.data.KinstoneProgressProvider
+import gx.zelda.kinstones.data.KinstoneStorage
+import gx.zelda.kinstones.model.KinstoneCatalog
 import gx.zelda.koroks.data.KorokProgressProvider
 import gx.zelda.koroks.data.KorokStorage
 import gx.zelda.shrines.data.ShrineStorage
@@ -110,6 +116,47 @@ class OverviewViewModelTest {
         assertEquals(listOf("Divine Beasts", "shrines", "Korok seeds"), items.map { it.label })
         assertEquals(2, items.sumOf { it.done })
         assertEquals(4 + 120 + 900, items.sumOf { it.total })
+    }
+
+    @Test
+    fun theMinishCapsRowsFollowItsOwnSaveFiles() = runTest {
+        val mc = Games.MC
+        val hearts = HeartStorage(dataStore, mc)
+        val figurines = FigurineStorage(dataStore, mc)
+        hearts.setCollected("file_2", "minish_woods_deepwood_entrance", true)
+        figurines.setShells("file_2", 7)
+        // BotW's active file is its own; switching MC's doesn't touch it.
+        activeSaveFileStore(dataStore, game).update { "master" }
+
+        val vm = main.track(OverviewViewModel(dataStore, mc, loadDispatcher = dispatcher))
+        val first = vm.state.first { it != null && it.loaded() }!!
+        assertEquals("file_1", first.saveFile.id)
+        assertEquals(listOf("Heart Pieces", "Kinstone Fusions", "Main Quest", "Carlov's Figurines"), first.rows.map { it.title })
+        assertEquals(0, first.summary("Heart Pieces")!!.done)
+        assertNull(first.mapItems, "nothing in MC counts toward BotW's map")
+
+        vm.setSaveFile("file_2").join()
+        val second = vm.state.first { it?.saveFile?.id == "file_2" && it.loaded() }!!
+        assertEquals(1, second.summary("Heart Pieces")!!.done)
+        assertTrue(second.summary("Carlov's Figurines")!!.secondary!!.startsWith("7 shells"))
+        assertEquals("file_2", activeSaveFileStore(dataStore, mc).data.first())
+        assertEquals("master", activeSaveFileStore(dataStore, game).data.first())
+    }
+
+    @Test
+    fun aMinishCapTrackerThatFailsToLoadIsUnavailable() = runTest {
+        val mc = Games.MC
+        val providers = listOf(
+            HeartProgressProvider(HeartStorage(dataStore, mc)),
+            KinstoneProgressProvider(KinstoneStorage(dataStore, mc), CachedLoad<KinstoneCatalog> { error("files/mc/kinstones.json not found") }),
+        )
+
+        val vm = main.track(OverviewViewModel(dataStore, mc, providers, loadDispatcher = dispatcher))
+        val state = vm.state.first { it != null && it.loaded() }!!
+        assertEquals(50, state.summary("Heart Pieces")!!.total)
+        assertEquals(RowStatus.Unavailable, state.rows[1].status)
+        assertEquals("Kinstone Fusions", state.rows[1].title)
+        assertEquals(TrackerKind.KINSTONES, state.rows[1].kind, "a tap still opens the tracker")
     }
 
     @Test
