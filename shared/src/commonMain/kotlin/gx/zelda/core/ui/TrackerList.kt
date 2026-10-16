@@ -35,9 +35,9 @@ import androidx.compose.ui.unit.dp
 import gx.zelda.core.DiscoveryState
 
 /*
- * Building blocks shared by the region-grouped trackers (Shrines, Koroks, Side Quests): each region
- * is a card made of a header and its rows, and each row can be found, completed, or hidden as a
- * spoiler.
+ * Building blocks shared by the region-grouped trackers (Shrines, Koroks, Side Quests, and The
+ * Minish Cap's Heart Pieces and Kinstones): each region is a card made of a header and its rows,
+ * and each row can be found, completed, or hidden as a spoiler.
  */
 
 val CardInset = 12.dp
@@ -54,11 +54,13 @@ fun Modifier.groupRow(last: Boolean): Modifier = this
     .background(MaterialTheme.colorScheme.surfaceContainer)
 
 /**
- * The top of a region's card: "<region> Tower", how many are found, and done / total. [foundLabel]
- * names the middle state, e.g. "Started" for quests.
+ * The top of a region's card: "<region><suffix>", how many are found, and done / total.
+ * [suffix] defaults to " Tower" for BotW's and TotK's tower regions; The Minish Cap's regions are
+ * places, so it passes "". [foundLabel] names the middle state, e.g. "Started" for quests; a null
+ * [found] leaves the count out, for a tracker whose entries are only ever done or not.
  */
 @Composable
-fun RegionHeader(region: String, found: Int, done: Int, total: Int, foundLabel: String = "Found") {
+fun RegionHeader(region: String, found: Int?, done: Int, total: Int, foundLabel: String = "Found", suffix: String = " Tower") {
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         shape = CardTop,
@@ -66,17 +68,19 @@ fun RegionHeader(region: String, found: Int, done: Int, total: Int, foundLabel: 
     ) {
         Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(
-                "$region Tower",
+                region + suffix,
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.weight(1f),
             )
-            Text(
-                "$foundLabel $found",
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(end = 8.dp),
-            )
+            if (found != null) {
+                Text(
+                    "$foundLabel $found",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(end = 8.dp),
+                )
+            }
             if (done == total) {
                 Tag(
                     "$done / $total",

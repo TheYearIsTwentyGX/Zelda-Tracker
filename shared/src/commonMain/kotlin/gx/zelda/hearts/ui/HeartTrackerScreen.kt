@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
@@ -30,7 +29,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -45,13 +43,12 @@ import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.FoundToggleStyle
 import gx.zelda.core.ui.HiddenRow
 import gx.zelda.core.ui.LoadingOrError
+import gx.zelda.core.ui.RegionHeader
 import gx.zelda.core.ui.RowDivider
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
@@ -147,7 +144,7 @@ private fun HeartList(state: HeartUiState, viewModel: HeartViewModel, modifier: 
         for ((region, entries) in state.groups) {
             // The header counts the whole region, not just the entries the filters leave showing.
             val count = state.regionCounts.getValue(region)
-            item(key = "h_$region", contentType = "header") { HeartRegionHeader(region, count) }
+            item(key = "h_$region", contentType = "header") { RegionHeader(region, found = null, done = count.collected, total = count.total, suffix = "") }
             itemsIndexed(entries, key = { _, entry -> entry.id }, contentType = { _, _ -> "heart" }) { i, entry ->
                 val last = i == entries.lastIndex
                 if (state.isHidden(entry)) {
@@ -256,31 +253,6 @@ private fun HeartFilterBar(state: HeartUiState, viewModel: HeartViewModel) {
                     onClick = { viewModel.toggleRequirement(requirement) },
                     label = { Text(requirement.label) },
                 )
-            }
-        }
-    }
-}
-
-private val CardTop = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
-
-/** The top of a region's card: its name and collected / total. MC's regions aren't tower regions, so no "Tower". */
-@Composable
-private fun HeartRegionHeader(region: String, count: HeartRegionCount) {
-    Surface(
-        color = MaterialTheme.colorScheme.surfaceContainerHighest,
-        shape = CardTop,
-        modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
-    ) {
-        Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text(region, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-            if (count.collected == count.total) {
-                Tag(
-                    "${count.collected} / ${count.total}",
-                    container = MaterialTheme.colorScheme.primaryContainer,
-                    content = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-            } else {
-                Tag("${count.collected} / ${count.total}")
             }
         }
     }

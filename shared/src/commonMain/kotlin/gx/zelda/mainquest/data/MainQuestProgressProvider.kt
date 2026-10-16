@@ -16,7 +16,8 @@ import kotlinx.coroutines.flow.map
 
 /**
  * The overview's Main Quest row: every checklist the game has together, each counted below.
- * Towers, Divine Beasts and memories in BotW; dungeons, items and Tiger Scrolls in The Minish Cap.
+ * Towers, Divine Beasts and memories in BotW; dungeons (with their Elements), items and Tiger
+ * Scrolls in The Minish Cap.
  */
 class MainQuestProgressProvider(
     private val storage: MainQuestStorage,
@@ -62,10 +63,22 @@ class MainQuestProgressProvider(
                 done = dungeons + items + scrolls,
                 total = catalog.sections.sumOf { catalog.total(it) },
                 secondary = "Dungeons $dungeons / ${catalog.total(MainQuestSection.DUNGEONS)} · " +
+                    "Elements ${catalog.elementCount(progress.dungeons)} / ${catalog.elementTotal} · " +
                     "Items $items / ${catalog.total(MainQuestSection.ITEMS)} · " +
                     "Tiger Scrolls $scrolls / ${catalog.total(MainQuestSection.TIGER_SCROLLS)}",
-                next = catalog.dungeons.firstOrNull { it.id !in progress.dungeons }?.let { "Clear ${it.name} in ${it.region}" },
+                next = nextInDungeonGame(catalog, progress),
             )
+        }
+
+        /**
+         * The next dungeon in story order; once they're all cleared, the next Tiger Scroll, then
+         * the next item in list order. The tracker hides nothing, so each can be named.
+         */
+        private fun nextInDungeonGame(catalog: MainQuestCatalog, progress: MainQuestProgress): String {
+            catalog.dungeons.firstOrNull { it.id !in progress.dungeons }?.let { return "Clear ${it.name} in ${it.region}" }
+            catalog.scrolls.firstOrNull { it.id !in progress.tigerScrolls }?.let { return "Learn ${it.name} from ${it.teacher}" }
+            catalog.items.firstOrNull { it.id !in progress.items }?.let { return "Next item: ${it.name} (${it.region})" }
+            return "Every dungeon, item and Tiger Scroll done"
         }
 
         /** The next Divine Beast, then the next tower, then the next memory in Adventure Log order. */
