@@ -2,19 +2,16 @@ package gx.zelda.shrines.ui
 
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Games
+import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.mainquest.data.MainQuestStorage
 import gx.zelda.mainquest.model.MainQuestSection
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.UpgradeKind
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -26,9 +23,11 @@ import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class ShrineViewModelTest {
-    @BeforeTest fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
+    private val main = TestMain()
 
-    @AfterTest fun tearDown() = Dispatchers.resetMain()
+    @BeforeTest fun setUp() = main.setUp()
+
+    @AfterTest fun tearDown() = main.tearDown()
 
     private fun storage() = ShrineStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.BOTW)
 
@@ -40,20 +39,20 @@ class ShrineViewModelTest {
 
     @Test
     fun malformedDatasetReportsLoadFailure() = runTest {
-        val vm = ShrineViewModel(storage()) { ShrineRepository.parse("""{"regions": "not a list"}""") }
+        val vm = main.track(ShrineViewModel(storage()) { ShrineRepository.parse("""{"regions": "not a list"}""") })
         assertTrue(vm.loadFailed.value)
         assertNull(vm.state.value)
     }
 
     @Test
     fun missingDatasetReportsLoadFailure() = runTest {
-        val vm = ShrineViewModel(storage()) { throw IllegalStateException("files/botw/shrines.json not found") }
+        val vm = main.track(ShrineViewModel(storage()) { throw IllegalStateException("files/botw/shrines.json not found") })
         assertTrue(vm.loadFailed.value)
     }
 
     @Test
     fun goodDatasetDoesNotReportFailure() = runTest {
-        val vm = ShrineViewModel(storage()) { ShrineRepository.parse(catalogJson) }
+        val vm = main.track(ShrineViewModel(storage()) { ShrineRepository.parse(catalogJson) })
         assertFalse(vm.loadFailed.value)
     }
 
@@ -70,7 +69,7 @@ class ShrineViewModelTest {
         mainQuest.setDone("normal_2", MainQuestSection.DIVINE_BEASTS, "vah_naboris", true)
         mainQuest.setDone("normal_1", MainQuestSection.TOWERS, "great_plateau", true)
 
-        val vm = ShrineViewModel(shrines, mainQuest) { ShrineRepository.parse(catalogJson) }
+        val vm = main.track(ShrineViewModel(shrines, mainQuest) { ShrineRepository.parse(catalogJson) })
         val orbs = vm.state.first { it != null }!!.orbs
         assertEquals(1, orbs.beastHearts, "only Save File 1's beast; towers don't count")
         assertEquals(27, orbs.heartsBought, "the entered number is never changed")
@@ -87,7 +86,7 @@ class ShrineViewModelTest {
 
     @Test
     fun withoutTheMainQuestTrackerNoBeastsCount() = runTest {
-        val vm = ShrineViewModel(storage()) { ShrineRepository.parse(catalogJson) }
+        val vm = main.track(ShrineViewModel(storage()) { ShrineRepository.parse(catalogJson) })
         assertEquals(0, vm.state.first { it != null }!!.orbs.beastHearts)
     }
 
@@ -96,14 +95,14 @@ class ShrineViewModelTest {
     @Test
     fun totkTracksLightrootsAndBossHeartsOnTheActiveFile() = runTest {
         val storage = ShrineStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.TOTK)
-        val vm = ShrineViewModel(storage)
+        val vm = main.track(ShrineViewModel(storage))
         val loaded = vm.state.first { it != null }!!
         assertTrue(loaded.bossHeartsByHand)
         assertEquals(152, loaded.orbs.total)
 
-        vm.setLightrootState("kawumoro", DiscoveryState.COMPLETED)
-        vm.setBossHearts(2)
-        vm.setFreeUpgrade(UpgradeKind.STAMINA)
+        vm.setLightrootState("kawumoro", DiscoveryState.COMPLETED)!!.join()
+        vm.setBossHearts(2)!!.join()
+        vm.setFreeUpgrade(UpgradeKind.STAMINA)!!.join()
         val s = vm.state.first { it?.progress?.lightroots?.completed?.isNotEmpty() == true && it.progress.freeUpgrade != null }!!
         assertEquals(DiscoveryState.UNDISCOVERED, s.progress.state("oromuwak"), "the shrine above is untouched")
         assertEquals(2, s.orbs.beastHearts)

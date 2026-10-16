@@ -7,6 +7,7 @@ import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.model.FairyCatalog
 import gx.zelda.core.SaveFile
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -72,13 +73,14 @@ class FairyViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setUnlocked(fairyId: String, unlocked: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setUnlocked(file, fairyId, unlocked) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setUnlocked(fairyId: String, unlocked: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setUnlocked(file, fairyId, unlocked) }
     }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 }

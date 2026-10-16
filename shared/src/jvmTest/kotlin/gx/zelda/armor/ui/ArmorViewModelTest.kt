@@ -1,17 +1,14 @@
 package gx.zelda.armor.ui
 
 import gx.zelda.core.Games
+import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.armor.data.ArmorRepository
 import gx.zelda.armor.data.ArmorStorage
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -26,28 +23,30 @@ import kotlin.test.assertTrue
  */
 @OptIn(ExperimentalCoroutinesApi::class)
 class ArmorViewModelTest {
-    @BeforeTest fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
+    private val main = TestMain()
 
-    @AfterTest fun tearDown() = Dispatchers.resetMain()
+    @BeforeTest fun setUp() = main.setUp()
+
+    @AfterTest fun tearDown() = main.tearDown()
 
     private fun storage() = ArmorStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.BOTW)
 
     @Test
     fun malformedDatasetReportsLoadFailure() = runTest {
-        val vm = ArmorViewModel(storage()) { ArmorRepository.parse("""{"pieces": "not a list"}""") }
+        val vm = main.track(ArmorViewModel(storage()) { ArmorRepository.parse("""{"pieces": "not a list"}""") })
         vm.loadFailed.first { it }
         assertNull(vm.state.value)
     }
 
     @Test
     fun missingDatasetReportsLoadFailure() = runTest {
-        val vm = ArmorViewModel(storage()) { throw IllegalStateException("files/botw/armor.json not found") }
+        val vm = main.track(ArmorViewModel(storage()) { throw IllegalStateException("files/botw/armor.json not found") })
         vm.loadFailed.first { it }
     }
 
     @Test
     fun goodDatasetDoesNotReportFailure() = runTest {
-        val vm = ArmorViewModel(storage()) { ArmorRepository.parse("""{"materials":[],"sets":[],"pieces":[]}""") }
+        val vm = main.track(ArmorViewModel(storage()) { ArmorRepository.parse("""{"materials":[],"sets":[],"pieces":[]}""") })
         vm.state.filterNotNull().first()
         assertFalse(vm.loadFailed.value)
     }
