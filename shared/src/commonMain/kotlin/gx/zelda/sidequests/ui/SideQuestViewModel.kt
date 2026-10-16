@@ -17,6 +17,7 @@ import gx.zelda.sidequests.model.SideQuest
 import gx.zelda.sidequests.model.SideQuestPrefs
 import gx.zelda.sidequests.model.SideQuestProgress
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -158,22 +159,21 @@ class SideQuestViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setState(questId: String, questState: QuestState) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setState(file, questId, questState) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setState(questId: String, questState: QuestState): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setState(file, questId, questState) }
     }
 
-    fun setHideUndiscovered(hide: Boolean) {
-        viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
-    }
+    fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }
 
     /** Shows one quest's row until the tracker is closed; nothing is saved. */
     fun reveal(questId: String) = filters.update { it.copy(revealed = it.revealed + questId) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setQuery(text: String) = filters.update { it.copy(query = text) }
 

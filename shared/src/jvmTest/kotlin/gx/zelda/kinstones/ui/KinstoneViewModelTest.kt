@@ -1,20 +1,18 @@
 package gx.zelda.kinstones.ui
 
 import gx.zelda.core.Games
+import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
 import gx.zelda.kinstones.data.KinstoneProgressProvider
 import gx.zelda.kinstones.data.KinstoneRepository
 import gx.zelda.kinstones.data.KinstoneStorage
 import gx.zelda.kinstones.model.KinstoneProgress
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
 import java.nio.file.Files
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -26,29 +24,31 @@ import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class KinstoneViewModelTest {
-    @BeforeTest fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
+    private val main = TestMain()
 
-    @AfterTest fun tearDown() = Dispatchers.resetMain()
+    @BeforeTest fun setUp() = main.setUp()
+
+    @AfterTest fun tearDown() = main.tearDown()
 
     private fun storage() = KinstoneStorage(createDataStore(Files.createTempDirectory("zgx").toString()), Games.MC)
 
     @Test
     fun malformedDatasetReportsLoadFailure() = runTest {
-        val vm = KinstoneViewModel(storage()) { KinstoneRepository.parse("""{"fusions": "not a list"}""") }
+        val vm = main.track(KinstoneViewModel(storage()) { KinstoneRepository.parse("""{"fusions": "not a list"}""") })
         assertTrue(vm.loadFailed.value)
         assertNull(vm.state.value)
     }
 
     @Test
     fun missingDatasetReportsLoadFailure() = runTest {
-        val vm = KinstoneViewModel(storage()) { throw IllegalStateException("files/mc/kinstones.json not found") }
+        val vm = main.track(KinstoneViewModel(storage()) { throw IllegalStateException("files/mc/kinstones.json not found") })
         assertTrue(vm.loadFailed.value)
     }
 
     @Test
     fun fusingGoesToTheSaveFileOnScreen() = runTest {
         val storage = storage()
-        val vm = KinstoneViewModel(storage)
+        val vm = main.track(KinstoneViewModel(storage))
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         val first = vm.state.filterNotNull().first()
         assertFalse(vm.loadFailed.value)
@@ -71,7 +71,7 @@ class KinstoneViewModelTest {
     @Test
     fun hidingResultsIsSavedAndRevealingIsNot() = runTest {
         val storage = storage()
-        val vm = KinstoneViewModel(storage)
+        val vm = main.track(KinstoneViewModel(storage))
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         vm.state.filterNotNull().first()
 
@@ -88,7 +88,7 @@ class KinstoneViewModelTest {
 
     @Test
     fun clearFiltersKeepsTheSearch() = runTest {
-        val vm = KinstoneViewModel(storage())
+        val vm = main.track(KinstoneViewModel(storage()))
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         vm.state.filterNotNull().first()
         vm.setQuery("smith")

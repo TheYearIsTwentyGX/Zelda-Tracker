@@ -14,6 +14,7 @@ import gx.zelda.map.model.isAnonymous
 import gx.zelda.map.model.markerKey
 import gx.zelda.map.model.visibleMarkers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -130,11 +131,14 @@ class MapViewModel(
     /** Names one undiscovered entry until the map is closed. */
     fun reveal(key: String) = revealed.update { it + key }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setState(marker: MapMarker, newState: DiscoveryState) {
-        val file = state.value?.saveFile?.id ?: return
-        val provider = providers.firstOrNull { it.layer.id == marker.layer.id } ?: return
-        viewModelScope.launch { provider.setState(file, marker.entry.id, newState) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setState(marker: MapMarker, newState: DiscoveryState): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        val provider = providers.firstOrNull { it.layer.id == marker.layer.id } ?: return null
+        return viewModelScope.launch { provider.setState(file, marker.entry.id, newState) }
     }
 
     fun setLayerOn(layerId: String, on: Boolean) = updatePrefs {
@@ -145,13 +149,9 @@ class MapViewModel(
 
     fun setUndiscoveredAsDots(show: Boolean) = updatePrefs { it.copy(undiscoveredAsDots = show) }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
-    private fun updatePrefs(transform: (MapPrefs) -> MapPrefs) {
-        viewModelScope.launch { storage.updatePrefs(transform) }
-    }
+    private fun updatePrefs(transform: (MapPrefs) -> MapPrefs): Job = viewModelScope.launch { storage.updatePrefs(transform) }
 
     private var mapView: MapView? = null
 

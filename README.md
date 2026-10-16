@@ -160,7 +160,13 @@ iOS port is mostly a matter of adding the iOS targets.
   Pan, pinch or double-tap to zoom.
 - Layers you can switch on and off: **Shrines** (136), **Korok Seeds** (900) and **Sheikah Towers** (15).
   - Each chip shows how many are done on the active save file.
-  - Colours: blue done, orange found (or a tower not yet activated), grey undiscovered.
+  - Markers use the game's own map icons:
+    - A shrine has an orange glyph until it's completed, then turns all blue, as in the game.
+      The Champions' Ballad's shrines have their own icon, with a spire.
+    - Towers are orange until activated, then blue.
+    - Korok seeds sit on a disc: blue collected, orange found, grey undiscovered.
+    - Undiscovered shrines and Koroks are greyed out.
+    - Markers shrink as you zoom out, so the map stays readable fully zoomed out.
   - At low zoom, nearby Koroks merge into a cluster numbered with the seeds still to collect. Tap
     it to zoom in.
 - Tap a marker for its sheet: name, region, state, and buttons to mark it found or done, or to
@@ -168,8 +174,9 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Spoilers:** each layer follows its tracker's own setting. With *Hide undiscovered shrines* or
   *Hide undiscovered Koroks* on, undiscovered ones are left off the map, the way the game's map
   leaves off what you haven't found.
-  - *Show hidden places as dots* (map menu) shows them as unnamed grey dots instead.
-  - Tap a dot to reveal it for the session.
+  - *Show hidden places* (map menu) shows them as unnamed grey markers instead. A hidden marker
+    never shows the place's state, or whether it's a DLC shrine.
+  - Tap one to reveal it for the session.
 - *Hide completed* (map menu) leaves only what's left to do.
 - **Show on map** on a Korok's page centres the map on that seed.
 
@@ -206,6 +213,22 @@ iOS port is mostly a matter of adding the iOS targets.
   Charges are Zonai currency, so neither counts.
 
 All three TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
+
+**The Minish Cap: Heart Pieces**
+- All 44 Pieces of Heart and the 6 Heart Containers, grouped by region with per-region counts. The
+  containers are the five bosses' plus Librari's, from a Kinstone fusion late in the game.
+- A hearts meter drawn like the game's, ten to a row. Link starts with 3 hearts, every four pieces
+  fill another (shown in quarters), and a full file has 20.
+- Each entry gives its area and how to get it. Tags mark Heart Containers, Kinstone fusions (with who
+  to fuse with) and Minish-size routes, and a *Needs* line lists the items required (Mole Mitts,
+  Roc's Cape, the White Sword split in two…).
+- Search by place, item or region. Filter to *Not collected*, or to Heart Containers, Kinstone
+  fusions or Minish-size routes.
+- **Hide uncollected** (top-bar menu) is a spoiler-safe mode, like the BotW trackers'. An uncollected
+  entry shows only its region until you tap to reveal it, and a search or filter chip can't give it
+  away.
+- Tracks **File 1**, **File 2** and **File 3** separately, as on the cartridge. The save file picker
+  shows each file's hearts.
 
 **The Minish Cap: Kinstone Fusions**
 - All 100 fusions, grouped by where the partner is, with counts per region and overall, e.g. 37 / 100. The
@@ -256,6 +279,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
   src/commonMain/kotlin/gx/zelda/kinstones/  ← Kinstone fusion tracker (Minish Cap)
   src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
+  src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -270,7 +294,9 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
   src/commonMain/composeResources/files/mc/kinstones.json   ← Minish Cap Kinstone fusions
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
+  src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
+  src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
 androidApp/   Android application shell
 ```
 
@@ -405,6 +431,11 @@ Medals of Honor are cross-checked against Zelda Wiki; where they differ, the gam
 `scripts/build-botw-bosses.py` rebuilds it, and `docs/overworld-bosses.md` covers the fields, the counts and what's
 uncertain (Lynel colours).
 
+MC heart data (`files/mc/heart_pieces.json`) comes from Zelda Wiki's Piece of Heart, Heart Container and
+Kinstone Fusion pages, cross-checked against Zelda Dungeon's Heart Pieces list, Zelda Universe and Zelda's Palace:
+44 pieces and 6 containers in all four. `docs/mc-heart-pieces.md` covers the fields, regions and where the guides
+disagree.
+
 Minish Cap Kinstone fusion data (`files/mc/kinstones.json`) comes from Zelda Wiki's Kinstone Fusion table and
 character pages, cross-checked against silktail's GameFAQs Kinstone Fusion Guide, Thonky's numbered fusion list and
 Zelda Dungeon's walkthrough. Disagreements were settled with the zeldaret/tmc decompilation's own fusion table, which
@@ -416,3 +447,9 @@ The BotW map art is Nintendo's, from the game's `MapTex` files as objmap.zeldamo
 see `tools/map-tiles/README.md` to rebuild it. objmap grants no licence for the art, so the map is
 fine for a personal, sideloaded build but would need replacing before any store release. Shrine,
 tower and Korok positions are objmap's (see above).
+
+The map's shrine and tower markers are objmap's vector tracings of the game's map icons, split by
+`scripts/build-map-icons.py` so a shrine's glyph can turn from orange to blue as it does in the game.
+The Korok marker is the Korok Seed's inventory icon from Zelda Wiki. `docs/map-icons.md` lists the
+source of each icon and has licence notes: objmap's repository is GPL-3.0, so the icons have the same
+personal-build caveat as the map art.

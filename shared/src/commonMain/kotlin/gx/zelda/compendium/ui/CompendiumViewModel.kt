@@ -11,6 +11,7 @@ import gx.zelda.compendium.model.CompendiumCategory
 import gx.zelda.compendium.model.CompendiumEntry
 import gx.zelda.core.SaveFile
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -97,15 +98,16 @@ class CompendiumViewModel(
         }
     }
 
-    /** Edits always target the file that was on screen when the user acted. */
-    fun setPhotographed(entryId: String, photographed: Boolean) {
-        val file = state.value?.saveFile?.id ?: return
-        viewModelScope.launch { storage.setPhotographed(file, entryId, photographed) }
+    /**
+     * Edits always target the file that was on screen when the user acted. Each write returns its
+     * job, so a test can wait for it to finish before resetting the Main dispatcher.
+     */
+    fun setPhotographed(entryId: String, photographed: Boolean): Job? {
+        val file = state.value?.saveFile?.id ?: return null
+        return viewModelScope.launch { storage.setPhotographed(file, entryId, photographed) }
     }
 
-    fun setSaveFile(id: String) {
-        viewModelScope.launch { storage.setActiveSaveFile(id) }
-    }
+    fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
 
     fun setCategory(value: CompendiumCategory?) { category.value = value }
 
