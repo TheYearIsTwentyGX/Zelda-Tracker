@@ -214,6 +214,22 @@ iOS port is mostly a matter of adding the iOS targets.
 
 All three TotK trackers track **Save File 1** and **Save File 2** separately and share the active file.
 
+**The Minish Cap: Heart Pieces**
+- All 44 Pieces of Heart and the 6 Heart Containers, grouped by region with per-region counts. The
+  containers are the five bosses' plus Librari's, from a Kinstone fusion late in the game.
+- A hearts meter drawn like the game's, ten to a row. Link starts with 3 hearts, every four pieces
+  fill another (shown in quarters), and a full file has 20.
+- Each entry gives its area and how to get it. Tags mark Heart Containers, Kinstone fusions (with who
+  to fuse with) and Minish-size routes, and a *Needs* line lists the items required (Mole Mitts,
+  Roc's Cape, the White Sword split in two…).
+- Search by place, item or region. Filter to *Not collected*, or to Heart Containers, Kinstone
+  fusions or Minish-size routes.
+- **Hide uncollected** (top-bar menu) is a spoiler-safe mode, like the BotW trackers'. An uncollected
+  entry shows only its region until you tap to reveal it, and a search or filter chip can't give it
+  away.
+- Tracks **File 1**, **File 2** and **File 3** separately, as on the cartridge. The save file picker
+  shows each file's hearts.
+
 ## Layout
 
 ```
@@ -228,6 +244,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)
   src/commonMain/kotlin/gx/zelda/bosses/   ← overworld boss tracker (Hinox, Talus, Molduga, Lynel)
   src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
+  src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
@@ -241,6 +258,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/compendium.json  ← BotW Hyrule Compendium
   src/commonMain/composeResources/files/botw/side_quests.json ← BotW side, Shrine and DLC quests
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
+  src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
 androidApp/   Android application shell
@@ -376,6 +394,11 @@ boss actor's id, position, tower region and parameters, with names and drops fro
 Medals of Honor are cross-checked against Zelda Wiki; where they differ, the game data wins.
 `scripts/build-botw-bosses.py` rebuilds it, and `docs/overworld-bosses.md` covers the fields, the counts and what's
 uncertain (Lynel colours).
+
+MC heart data (`files/mc/heart_pieces.json`) comes from Zelda Wiki's Piece of Heart, Heart Container and
+Kinstone Fusion pages, cross-checked against Zelda Dungeon's Heart Pieces list, Zelda Universe and Zelda's Palace:
+44 pieces and 6 containers in all four. `docs/mc-heart-pieces.md` covers the fields, regions and where the guides
+disagree.
 
 The BotW map art is Nintendo's, from the game's `MapTex` files as objmap.zeldamods.org serves them.
 `tools/map-tiles/build_tiles.py` fetched it once and turned it into the bundled WebP tile pyramid;
