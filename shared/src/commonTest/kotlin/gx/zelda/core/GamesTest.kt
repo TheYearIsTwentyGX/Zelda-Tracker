@@ -61,12 +61,12 @@ class GamesTest {
         }
     }
 
-    /** Ocarina of Time, Majora's Mask, The Minish Cap, BotW, TotK and Echoes of Wisdom have trackers; the rest are coming soon with placeholder files. */
+    /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("oot", "mm", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("alttp", "oot", "mm", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
-        assertEquals(listOf("file_1", "file_2", "file_3"), Games.OOT.saveFiles.map { it.id })
+        assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
     }
 
     @Test
@@ -76,6 +76,14 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.MC.saveFiles.map { it.id })
         // The N64's two files; they were the placeholder's ids, so nothing saved under them moves.
         assertEquals(listOf("file_1", "file_2"), Games.MM.saveFiles.map { it.id })
+    }
+
+    /** Three files on the SNES cartridge (docs/alttp.md); every tracker after the overview is a checklist. */
+    @Test
+    fun aLinkToThePastHasThreeSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2", "file_3"), Games.ALTTP.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.ALTTP.trackers.first().kind)
+        assertTrue(Games.ALTTP.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     /** Two files per Switch user (Zelda Wiki, Saving; Game8); autosaves live inside each file. */

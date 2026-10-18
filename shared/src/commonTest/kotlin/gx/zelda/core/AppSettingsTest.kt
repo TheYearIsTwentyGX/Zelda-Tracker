@@ -11,19 +11,19 @@ class AppSettingsTest {
     @Test
     fun byDefaultOnlyGamesWithTrackersAreShown() {
         val defaults = AppSettings()
-        assertEquals(listOf("oot", "mm", "mc", "botw", "totk", "eow"), defaults.shownGames().map { it.id })
+        assertEquals(listOf("alttp", "oot", "mm", "mc", "botw", "totk", "eow"), defaults.shownGames().map { it.id })
         assertTrue(Games.all.filter { it.comingSoon }.none(defaults::isShown))
     }
 
     @Test
     fun turningOnAComingSoonGameShowsItInReleaseOrder() {
         val settings = AppSettings().withShown(Games.LA, true).withShown(Games.WW, true)
-        assertEquals(listOf("la", "oot", "mm", "ww", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
+        assertEquals(listOf("alttp", "la", "oot", "mm", "ww", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
     }
 
     @Test
     fun theLastShownGameCannotBeHidden() {
-        val one = AppSettings().withShown(Games.OOT, false).withShown(Games.MM, false).withShown(Games.BOTW, false).withShown(Games.TOTK, false).withShown(Games.EOW, false)
+        val one = listOf(Games.ALTTP, Games.OOT, Games.MM, Games.BOTW, Games.TOTK, Games.EOW).fold(AppSettings()) { s, g -> s.withShown(g, false) }
         assertEquals(listOf("mc"), one.shownGames().map { it.id })
         assertFalse(one.canHide(Games.MC))
         assertSame(one, one.withShown(Games.MC, false))
@@ -39,19 +39,19 @@ class AppSettingsTest {
     @Test
     fun choicesHidingEveryGameFallBackToTheDefaults() {
         val broken = AppSettings(gameChoices = Games.all.associate { it.id to false })
-        assertEquals(listOf("oot", "mm", "mc", "botw", "totk", "eow"), broken.shownGames().map { it.id })
+        assertEquals(listOf("alttp", "oot", "mm", "mc", "botw", "totk", "eow"), broken.shownGames().map { it.id })
     }
 
     @Test
     fun menuListsShownGamesWithTrackersUnderOpenSections() {
-        val settings = AppSettings(expandedGames = setOf("botw", "loz")).withShown(Games.LOZ, true)
+        val settings = AppSettings(expandedGames = setOf("botw", "tfh")).withShown(Games.TFH, true)
         val menu = settings.gameMenu()
-        assertEquals(listOf("loz", "oot", "mm", "mc", "botw", "totk", "eow"), menu.map { it.game.id })
+        assertEquals(listOf("alttp", "oot", "mm", "mc", "tfh", "botw", "totk", "eow"), menu.map { it.game.id })
 
-        val loz = menu.first { it.game.id == "loz" }
-        assertFalse(loz.expandable)
-        assertFalse(loz.expanded, "a coming-soon game never opens, even if stored as open")
-        assertTrue(loz.rows.isEmpty())
+        val tfh = menu.first { it.game.id == "tfh" }
+        assertFalse(tfh.expandable)
+        assertFalse(tfh.expanded, "a coming-soon game never opens, even if stored as open")
+        assertTrue(tfh.rows.isEmpty())
 
         val botw = menu.first { it.game.id == "botw" }
         assertTrue(botw.expandable && botw.expanded)
@@ -66,7 +66,7 @@ class AppSettingsTest {
     @Test
     fun hiddenGamesLeaveTheMenu() {
         val settings = AppSettings(expandedGames = setOf("totk")).withShown(Games.TOTK, false)
-        assertEquals(listOf("oot", "mm", "mc", "botw", "eow"), settings.gameMenu().map { it.game.id })
+        assertEquals(listOf("alttp", "oot", "mm", "mc", "botw", "eow"), settings.gameMenu().map { it.game.id })
         // The open state is kept for when it's shown again.
         assertTrue(settings.withShown(Games.TOTK, true).gameMenu().first { it.game.id == "totk" }.expanded)
     }

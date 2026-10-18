@@ -133,10 +133,13 @@ the item's for that step. Counts are in steps, so an item with 3 tiers counts 3 
 ## Formulas
 
 A formula combines numbers, `+ - * /`, parentheses, `floor(x)`, `min(a, b, …)`, `max(a, b, …)` and
-names. Each name is a section id:
+names. Each name is a section id or an item id:
 
 - `pieces` is how many steps of section `pieces` are done (with no tiers, that's items ticked).
 - `pieces.value` is the sum of `value` over those steps.
+- An item id works the same for that one item: `bomb_capacity` is its tiers done and
+  `bomb_capacity.value` their values. This gives two upgrades in one section a total each, as A
+  Link to the Past's bomb and arrow capacities have.
 
 The maximum is worked out by running the same formula with everything done, so "Hearts 5¼ / 20"
 needs no separate total. Values print like the game shows them: `12`, `5¼`, `⅔`, otherwise up to
@@ -145,8 +148,9 @@ two decimals. Dividing by zero gives 0. Examples:
 - Hearts from quarter pieces and containers, in whole hearts: `3 + floor(pieces / 4) + containers`
 - The same, showing the quarters: `3 + pieces / 4 + containers`
 - Crystals collected where some chests hold several: `crystals.value`
+- A capacity that starts at 10 and grows with each tier's `value`: `10 + bomb_capacity.value`
 
-`problems()` rejects a formula that doesn't parse or that names an unknown section.
+`problems()` rejects a formula that doesn't parse or that names an unknown section or item.
 
 ## Behaviour
 
