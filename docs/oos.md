@@ -33,7 +33,7 @@ content is **listed, not hidden**:
 | File | Tracker | Sections (items) |
 |---|---|---|
 | `main_quest.json` | Main Quest | Prologue 2 (value 0), Essences of Nature 8, Finale 3 (Onox, then Twinrova and Ganon tagged Linked). Summary: Essences of Nature of 8. |
-| `items.json` | Items & Equipment | Items 15 (with the five seeds), Upgrades 7 rows (16 steps), Quest Items 21 rows (22 steps) |
+| `items.json` | Items & Equipment | Items 15 (with the five seeds), Upgrades 7 rows (16 steps), Quest Items 21 rows (22 steps). Summaries: seeds of each (20 + the satchel tiers' values, 99 at most) and bombs (10 + the bomb tiers', 50 at most). |
 | `seasons.json` | Rod of Seasons | The Rod (value 0) and Winter, Summer, Spring, Autumn. Summary: Seasons of 4. |
 | `heart_pieces.json` | Heart Pieces | Pieces of Heart 12, Heart Containers 9 (8 bosses and 1 from a linked secret). Summary: hearts = 3 + pieces / 4 + containers, 15 at most. |
 | `rings.json` | Rings | Ring Box 1 row (L-1, L-2, L-3: 3 steps), Magic Rings 64. Summary: Rings of 64. |

@@ -105,6 +105,7 @@ Leave out an optional field rather than writing `null` or `""`.
 | `noun`, `plural`, `hiddenLabel` | no | Override the top-level ones for this section. |
 | `note` | no | One line shown on the section's summary card. |
 | `summary` | no | A total shown only on this section's tab, e.g. crystals spent. |
+| `separate` | no | `true` to count the section on its own: another release's version of a list, like Link's Awakening's Switch-remake seashells beside the Game Boy ones. Its tab, its count on the overview's detail line and formulas that name it work as usual, but it's left out of the file's total (the tracker's and overview's bar), the *All* tab and *Next*. At least one section must not be separate. |
 
 ### Item
 
@@ -133,10 +134,13 @@ the item's for that step. Counts are in steps, so an item with 3 tiers counts 3 
 ## Formulas
 
 A formula combines numbers, `+ - * /`, parentheses, `floor(x)`, `min(a, b, …)`, `max(a, b, …)` and
-names. Each name is a section id:
+names. Each name is a section id or an item id:
 
 - `pieces` is how many steps of section `pieces` are done (with no tiers, that's items ticked).
 - `pieces.value` is the sum of `value` over those steps.
+- An item id works the same for that one item: `bomb_capacity` is its tiers done and
+  `bomb_capacity.value` their values. This gives two upgrades in one section a total each, as A
+  Link to the Past's bomb and arrow capacities have.
 
 The maximum is worked out by running the same formula with everything done, so "Hearts 5¼ / 20"
 needs no separate total. Values print like the game shows them: `12`, `5¼`, `⅔`, otherwise up to
@@ -145,8 +149,9 @@ two decimals. Dividing by zero gives 0. Examples:
 - Hearts from quarter pieces and containers, in whole hearts: `3 + floor(pieces / 4) + containers`
 - The same, showing the quarters: `3 + pieces / 4 + containers`
 - Crystals collected where some chests hold several: `crystals.value`
+- A capacity that starts at 10 and grows with each tier's `value`: `10 + bomb_capacity.value`
 
-`problems()` rejects a formula that doesn't parse or that names an unknown section.
+`problems()` rejects a formula that doesn't parse or that names an unknown section or item.
 
 ## Behaviour
 
@@ -162,12 +167,13 @@ two decimals. Dividing by zero gives 0. Examples:
 - **Search** reads the name, area, region, howTo, after, reward, notes, tags, tier names and section
   title of every row that isn't hidden.
 - **Counts.** Tabs and region headers count every item on that tab, whatever the filters leave
-  showing.
+  showing. The file's total, and the *All* tab, leave out `separate` sections.
 - **Overview row** (`ChecklistProgressProvider`):
-  - the bar is steps done of all;
+  - the bar is steps done of all, less `separate` sections;
   - the detail line lists each summary, then each section's count (when there's more than one
     section);
   - *Next* is the first item, in file order, that isn't done and whose `requires` are all done.
-    So **order items in the order you'd suggest doing them**. With *Hide unchecked* on and that
+    Items in `separate` sections are never suggested. So **order items in the order you'd suggest
+    doing them**. With *Hide unchecked* on and that
     item not started, it says only how many are left there ("2 pieces still to do in Hyrule
     Field").

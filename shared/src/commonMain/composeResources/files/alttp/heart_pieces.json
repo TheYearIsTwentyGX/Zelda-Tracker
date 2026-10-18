@@ -1,0 +1,61 @@
+{
+  "regions": ["Light World", "Dark World"],
+  "noun": "heart",
+  "hiddenLabel": "Uncollected heart",
+  "summaries": [{"label": "Hearts", "formula": "3 + floor(pieces / 4) + containers"}],
+  "sections": [
+    {
+      "id": "pieces",
+      "title": "Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "24 Pieces of Heart; every 4 add one heart. Link starts with 3 hearts, max 20.",
+      "items": [
+        {"id": "poh_lost_woods_hideout", "name": "Lost Woods hideout", "region": "Light World", "area": "Lost Woods (thieves' hideout)", "howTo": "In the east of the Lost Woods, cut the 3 × 3 patch of bushes north-east of the thieves' den and drop into the hole under it.", "notes": "Zelda Dungeon #1, StrategyWiki #1, Zelda Wiki #1. Needs: nothing."},
+        {"id": "poh_kakariko_well", "name": "Kakariko well", "region": "Light World", "area": "Kakariko Village (well)", "howTo": "Drop into the well from the ledge behind it and bomb the cracked north wall beside the chests.", "notes": "Zelda Dungeon #2, StrategyWiki #2, Zelda Wiki #10. Needs: Bombs."},
+        {"id": "poh_blinds_hideout", "name": "Blind's Hideout basement", "region": "Light World", "area": "Kakariko Village (Blind's Hideout)", "howTo": "In the basement of the thieves' house in the north of Kakariko, bomb the cracked wall.", "notes": "Zelda Dungeon #3, StrategyWiki #3, Zelda Wiki #11. Needs: Bombs. Zelda Dungeon puts the cracked wall to the right, StrategyWiki on the north."},
+        {"id": "poh_fifteen_second_game", "name": "15-Second Game", "region": "Light World", "area": "Kakariko Village (Quarreling Brothers' house)", "howTo": "Bomb the wall between the Quarreling Brothers' rooms in the south of Kakariko, leave through the left room and finish the maze race outside in 15 seconds or less. Jumping the fence saves time.", "notes": "Zelda Dungeon #4, StrategyWiki #4, Zelda Wiki #12. Needs: Bombs.", "tags": ["Mini-game"]},
+        {"id": "poh_swamp_ruins_pond", "name": "Great Swamp pond", "region": "Light World", "area": "Great Swamp (Swamp Ruins)", "howTo": "In the Swamp Ruins, push the blocks and pull the right-hand switch to drain the pond outside; the piece is at its bottom.", "notes": "Zelda Dungeon #5, StrategyWiki #5, Zelda Wiki #17. Needs: nothing."},
+        {"id": "poh_aginahs_cave", "name": "Aginah's cave", "region": "Light World", "area": "Desert of Mystery (Aginah's cave)", "howTo": "In Aginah's cave, right of the Desert Palace, bomb the cracked south wall.", "notes": "Zelda Dungeon #6, StrategyWiki #7, Zelda Wiki #14. Needs: Bombs."},
+        {"id": "poh_bonk_rocks_cave", "name": "Cave under the rocks west of the Sanctuary", "region": "Light World", "area": "Near the Sanctuary", "howTo": "On the cliff west of the Sanctuary, dash into the pile of rocks with the Pegasus Shoes and take the stairs under it to the chest.", "notes": "Zelda Dungeon #7, StrategyWiki #6, Zelda Wiki #9. Needs: Pegasus Shoes."},
+        {"id": "poh_desert_ledge", "name": "Desert Palace ledge", "region": "Light World", "area": "Desert of Mystery (Desert Palace)", "howTo": "Leave the Desert Palace by its west door and walk south along the cliff.", "notes": "Zelda Dungeon #8, StrategyWiki #8, Zelda Wiki #16. Needs: Book of Mudora."},
+        {"id": "poh_zoras_ledge", "name": "Zora's River ledge", "region": "Light World", "area": "Zora's Waterfall", "howTo": "After buying the Flippers, swim back down the river from King Zora and turn west before the second waterfall to the fenced ledge.", "notes": "Zelda Dungeon #9, StrategyWiki #9, Zelda Wiki #7. Needs: Zora's Flippers."},
+        {"id": "poh_spectacle_rock_cave", "name": "Spectacle Rock cave", "region": "Light World", "area": "Death Mountain", "howTo": "Drop off the ledge below Spectacle Rock and go into the cave there.", "notes": "Zelda Dungeon #10, StrategyWiki #10, Zelda Wiki #4. Needs: Power Glove."},
+        {"id": "poh_spectacle_rock", "name": "Top of Spectacle Rock", "region": "Light World", "area": "Death Mountain (Spectacle Rock)", "howTo": "In the Dark World, stand on the spot matching Spectacle Rock's eastern eye and use the Magic Mirror.", "notes": "Zelda Dungeon #11, StrategyWiki #11, Zelda Wiki #3. Needs: Magic Mirror."},
+        {"id": "poh_lumberjack_tree", "name": "Lumberjacks' tree", "region": "Light World", "area": "Woodsmen's Hut", "howTo": "After Agahnim, dash into the dead tree by the Lumberjacks' house with the Pegasus Shoes, take the stairs and go through the door on the right.", "after": "After Agahnim at Hyrule Castle Tower", "notes": "Zelda Dungeon #12, StrategyWiki #13, Zelda Wiki #2. Needs: Pegasus Shoes."},
+        {"id": "poh_pyramid_ledge", "name": "Pyramid of Power ledge", "region": "Dark World", "area": "Pyramid of Power", "howTo": "On the lowest ledge of the Pyramid's east side.", "notes": "Zelda Dungeon #13, StrategyWiki #12, Zelda Wiki #24. Needs: access to the Dark World."},
+        {"id": "poh_cave_45", "name": "Cave south of the Haunted Grove", "region": "Light World", "area": "South of the Haunted Grove", "howTo": "In the Dark World, use the Magic Mirror from the oval of flowers south of the Haunted Grove to land on the Light World plateau with the cave.", "notes": "Zelda Dungeon #14, StrategyWiki #15, Zelda Wiki #15. Needs: Magic Mirror."},
+        {"id": "poh_lake_hylia_island", "name": "Lake Hylia island", "region": "Light World", "area": "Lake Hylia", "howTo": "Swim to the stone circle in the north-west of the Dark World's Ice Lake and use the Magic Mirror to land on the islet in Lake Hylia.", "notes": "Zelda Dungeon #15, StrategyWiki #14, Zelda Wiki #18. Needs: Zora's Flippers, Magic Mirror."},
+        {"id": "poh_graveyard_ledge", "name": "Graveyard ledge cave", "region": "Light World", "area": "Graveyard", "howTo": "In the Dark World, climb the ladder north of the Ghostly Garden and use the Magic Mirror to land on the ledge above the Graveyard, then bomb the wall of the cave there.", "notes": "Zelda Dungeon #16, StrategyWiki #16, Zelda Wiki #8. Needs: Magic Mirror, Bombs. To reach the ladder Zelda Dungeon lists the Pegasus Shoes or the Titan's Mitt, StrategyWiki the Magic Hammer."},
+        {"id": "poh_village_chest_game", "name": "Treasure Chest Game", "region": "Dark World", "area": "Village of Outcasts", "howTo": "Pay 30 Rupees in the house with chests on its roof and open two of the 16 chests; the piece is one of the random prizes.", "notes": "Zelda Dungeon #17, StrategyWiki #18, Zelda Wiki #20. Needs: 30 Rupees a game. StrategyWiki also lists the Magic Hammer.", "tags": ["Mini-game"]},
+        {"id": "poh_digging_game", "name": "Digging Game", "region": "Dark World", "area": "South of the Village of Outcasts", "howTo": "Pay 80 Rupees and dig for 30 seconds with the keeper's shovel; the piece is buried at random.", "notes": "Zelda Dungeon #18, StrategyWiki #17, Zelda Wiki #22. Needs: 80 Rupees a game. GBA: you can jump the right-hand fence and walk back in to keep digging.", "tags": ["Mini-game"]},
+        {"id": "poh_bumper_cave_ledge", "name": "Bumper Cave ledge", "region": "Dark World", "area": "Foot of Death Mountain (Bumper Cave)", "howTo": "Go through the cave at the foot of Dark World Death Mountain, cross the gap and pass the Bumper with the Magic Cape to come out on the ledge.", "notes": "Zelda Dungeon #19, StrategyWiki #20, Zelda Wiki #19. Needs: Magic Cape. Zelda Wiki and Zelda Dungeon also need the Hookshot; StrategyWiki lists the Power Glove instead."},
+        {"id": "poh_stake_garden", "name": "Stake Garden cave", "region": "Dark World", "area": "Stake Garden (south of the Smithy ruins)", "howTo": "Lift the dark rock with the Titan's Mitt and pound all 22 stakes with the Magic Hammer; a cave opens with the piece.", "notes": "Zelda Dungeon #20, StrategyWiki #19, Zelda Wiki #21. Needs: Titan's Mitt, Magic Hammer."},
+        {"id": "poh_mire_shed", "name": "Mire Shed", "region": "Dark World", "area": "Swamp of Evil (west of Misery Mire)", "howTo": "In the cave left of the Misery Mire entrance, solve the block puzzle and open the left chest.", "notes": "Zelda Dungeon #21, StrategyWiki #21, Zelda Wiki #23. Needs: Flute, Titan's Mitt. Zelda Wiki's prose counts 19 Light and 5 Dark World pieces, but its table, Zelda Dungeon and StrategyWiki all put this one in the Dark World: 18 and 6."},
+        {"id": "poh_checkerboard_cave", "name": "Checkerboard cave", "region": "Light World", "area": "Desert of Mystery (ridge)", "howTo": "From the dead end in the north-east of the Swamp of Evil, use the Magic Mirror to land on the desert ridge, lift the rock with the Titan's Mitt and enter the cave.", "notes": "Zelda Dungeon #22, StrategyWiki #22, Zelda Wiki #13. Needs: Flute, Titan's Mitt, Magic Mirror."},
+        {"id": "poh_floating_island", "name": "Floating island", "region": "Light World", "area": "Death Mountain (isolated eastern peak)", "howTo": "Take the cave under the rock on Dark World East Death Mountain, cross its invisible bridge, bomb through and leave by the south, then use the Magic Mirror to land on the island above.", "notes": "Zelda Dungeon #23, StrategyWiki #23, Zelda Wiki #5. Needs: Power Glove, Magic Mirror, Bombs."},
+        {"id": "poh_mimic_cave", "name": "Mimic Cave", "region": "Light World", "area": "Death Mountain (east, below Turtle Rock)", "howTo": "Partway through Turtle Rock, step out onto its ledge and use the Magic Mirror to land on the Light World balcony. Defeat the four Goriyas inside.", "notes": "Zelda Dungeon #24, StrategyWiki #24, Zelda Wiki #6. Needs: Magic Mirror, and the way into Turtle Rock (Quake Medallion, Cane of Somaria). GBA: Eyegores instead of Goriyas."}
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "hiddenLabel": "Uncollected Heart Container",
+      "note": "The Sanctuary's and one from each of the 10 bosses; Agahnim gives none. Boss containers can't be skipped.",
+      "items": [
+        {"id": "hc_sanctuary", "name": "Sanctuary chest", "region": "Light World", "area": "Sanctuary", "howTo": "The Loyal Sage gives you the chest by the altar after you bring Zelda to the Sanctuary.", "reward": "Heart Container"},
+        {"id": "hc_armos_knights", "name": "Armos Knights", "region": "Light World", "area": "Eastern Palace (Level 1)", "howTo": "Boss of the Eastern Palace.", "reward": "Heart Container"},
+        {"id": "hc_lanmolas", "name": "Lanmolas", "region": "Light World", "area": "Desert Palace (Level 2)", "howTo": "Boss of the Desert Palace.", "reward": "Heart Container"},
+        {"id": "hc_moldorm", "name": "Moldorm", "region": "Light World", "area": "Tower of Hera (Level 3)", "howTo": "Boss of the Tower of Hera.", "reward": "Heart Container"},
+        {"id": "hc_helmasaur_king", "name": "Helmasaur King", "region": "Dark World", "area": "Palace of Darkness (Level 1)", "howTo": "Boss of the Palace of Darkness.", "reward": "Heart Container"},
+        {"id": "hc_arrghus", "name": "Arrghus", "region": "Dark World", "area": "Swamp Palace (Level 2)", "howTo": "Boss of the Swamp Palace.", "reward": "Heart Container"},
+        {"id": "hc_mothula", "name": "Mothula", "region": "Dark World", "area": "Skull Woods (Level 3)", "howTo": "Boss of Skull Woods.", "reward": "Heart Container"},
+        {"id": "hc_blind", "name": "Blind the Thief", "region": "Dark World", "area": "Thieves' Town (Level 4)", "howTo": "Boss of Thieves' Town.", "reward": "Heart Container"},
+        {"id": "hc_kholdstare", "name": "Kholdstare", "region": "Dark World", "area": "Ice Palace (Level 5)", "howTo": "Boss of the Ice Palace.", "reward": "Heart Container"},
+        {"id": "hc_vitreous", "name": "Vitreous", "region": "Dark World", "area": "Misery Mire (Level 6)", "howTo": "Boss of Misery Mire.", "reward": "Heart Container"},
+        {"id": "hc_trinexx", "name": "Trinexx", "region": "Dark World", "area": "Turtle Rock (Level 7)", "howTo": "Boss of Turtle Rock.", "reward": "Heart Container"}
+      ]
+    }
+  ]
+}

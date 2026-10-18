@@ -23,6 +23,9 @@ data class ChecklistCatalog(
     /** Every item, section by section. */
     val items: List<ChecklistItem> by lazy { sections.flatMap { it.items } }
 
+    /** The items the file's total and [next] count: every section's but the [ChecklistSection.separate] ones. */
+    val counted: List<ChecklistItem> by lazy { sections.filterNot { it.separate }.flatMap { it.items } }
+
     private val itemsById: Map<String, ChecklistItem> by lazy { items.associateBy { it.id } }
     private val sectionByItem: Map<String, ChecklistSection> by lazy {
         sections.flatMap { s -> s.items.map { it.id to s } }.toMap()
@@ -56,20 +59,22 @@ data class ChecklistCatalog(
         return section.hiddenLabel ?: hiddenLabel ?: "Unchecked ${nounOf(section)}"
     }
 
-    /** Steps done and steps in all of [of]; an item with tiers is a step per tier. */
-    fun count(progress: ChecklistProgress, of: List<ChecklistItem> = items): ChecklistCount =
+    /** Steps done and steps in all of [of] (by default the file's total); an item with tiers is a step per tier. */
+    fun count(progress: ChecklistProgress, of: List<ChecklistItem> = counted): ChecklistCount =
         ChecklistCount(done = of.sumOf { progress.level(it) }, total = of.sumOf { it.steps })
 
     /**
      * What a formula name is worth on [progress]: a section id is its steps done, and
-     * `<section id>.value` the sum of their [ChecklistItem.value]s.
+     * `<section id>.value` the sum of their [ChecklistItem.value]s. An item id works the same for
+     * that one item, e.g. a tiered upgrade's `bomb_capacity.value`.
      */
     fun nameValue(name: String, progress: ChecklistProgress): Double {
-        val section = section(name.removeSuffix(".value")) ?: throw IllegalArgumentException("Unknown name '$name'")
+        val id = name.removeSuffix(".value")
+        val of = section(id)?.items ?: item(id)?.let(::listOf) ?: throw IllegalArgumentException("Unknown name '$name'")
         return if (name.endsWith(".value")) {
-            section.items.sumOf { it.valueOfSteps(progress.level(it)) }
+            of.sumOf { it.valueOfSteps(progress.level(it)) }
         } else {
-            section.items.sumOf { progress.level(it) }.toDouble()
+            of.sumOf { progress.level(it) }.toDouble()
         }
     }
 
@@ -92,10 +97,10 @@ data class ChecklistCatalog(
 
     /**
      * What to do next: the first item not yet done whose [ChecklistItem.requires] are all done, in
-     * the file's order; null when everything is done.
+     * the file's order and outside [ChecklistSection.separate] sections; null when those are all done.
      */
     fun next(progress: ChecklistProgress): ChecklistItem? {
-        val left = items.filterNot(progress::isDone)
+        val left = counted.filterNot(progress::isDone)
         return left.firstOrNull { isUnlocked(it, progress) } ?: left.firstOrNull()
     }
 
@@ -105,6 +110,7 @@ data class ChecklistCatalog(
      */
     fun problems(): List<String> = buildList {
         if (sections.isEmpty()) add("no sections")
+        if (sections.isNotEmpty() && sections.all { it.separate }) add("every section is separate, so nothing counts toward the total")
         sections.groupBy { it.id }.filter { it.value.size > 1 }.keys.forEach { add("duplicate section id '$it'") }
         sections.forEach { s ->
             if (!ID.matches(s.id)) add("bad section id '${s.id}'")
@@ -128,8 +134,8 @@ data class ChecklistCatalog(
             val formula = runCatching { Formula.parse(summary.formula) }
                 .onFailure { add(it.message ?: "bad formula '${summary.formula}'") }
                 .getOrNull() ?: return@forEach
-            formula.names.filter { section(it.removeSuffix(".value")) == null }
-                .forEach { add("summary '${summary.label}' reads unknown section '$it'") }
+            formula.names.filter { it.removeSuffix(".value").let { id -> section(id) == null && item(id) == null } }
+                .forEach { add("summary '${summary.label}' reads unknown section or item '$it'") }
         }
         requireCycle()?.let { add("requires loop: ${it.joinToString(" → ")}") }
     }
@@ -168,6 +174,11 @@ data class ChecklistSection(
     val note: String? = null,
     /** A total shown in the section's tab, e.g. Might Crystals collected. */
     val summary: ChecklistSummary? = null,
+    /**
+     * Counted on its own, e.g. another release's version of the list: its tab and the overview's
+     * section counts include it, but the file's total and [ChecklistCatalog.next] leave it out.
+     */
+    val separate: Boolean = false,
     val items: List<ChecklistItem>,
 )
 

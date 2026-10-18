@@ -71,6 +71,18 @@ class ChecklistCatalogTest {
         assertEquals(SummaryValue("Crystals spent", 15.0, 35.0), c.evaluate(spent, ChecklistProgress().withLevel(item("sword"), 2)))
     }
 
+    /** An item id reads that one item, like a section id reads its section. */
+    @Test
+    fun formulasCanReadOneItem() {
+        val progress = ChecklistProgress().withLevel(item("sword"), 2).withDone(item("field_cave"), true)
+        assertEquals(SummaryValue("Sword", 2.0, 3.0), c.evaluate(ChecklistSummary("Sword", "sword"), progress))
+        assertEquals(SummaryValue("Base + sword", 25.0, 45.0), c.evaluate(ChecklistSummary("Base + sword", "10 + sword.value"), progress))
+        assertEquals(1.0, c.evaluate(ChecklistSummary("Cave", "field_cave"), progress).value)
+        assertTrue(ChecklistRepository.parse(
+            """{"summaries": [{"label": "S", "formula": "x.value + a"}], "sections": [{"id": "a", "title": "A", "items": [{"id": "x", "name": "X"}]}]}""",
+        ).problems().isEmpty())
+    }
+
     @Test
     fun nextIsTheFirstUndoneItemWhosePrerequisitesAreDone() {
         val progress = listOf("field_cave", "field_race").fold(ChecklistProgress()) { p, id -> p.withDone(item(id), true) }
@@ -82,6 +94,24 @@ class ChecklistCatalogTest {
         val all = c.items.fold(ChecklistProgress()) { p, i -> p.withDone(i, true) }
         assertNull(c.next(all))
         assertEquals("zora_cove", c.next(all.withDone(item("zora_cove"), false))?.id)
+    }
+
+    @Test
+    fun aSeparateSectionIsLeftOutOfTheTotalAndNext() {
+        val v = ChecklistFixture.versions
+        assertEquals(emptyList(), v.problems())
+        assertEquals(listOf("well", "maze"), v.counted.map { it.id })
+        val remakeDone = v.section("remake_pieces")!!.items.fold(ChecklistProgress()) { p, i -> p.withDone(i, true) }
+        assertEquals(ChecklistCount(0, 2), v.count(remakeDone))
+        assertEquals(ChecklistCount(3, 3), v.count(remakeDone, v.section("remake_pieces")!!.items))
+        assertEquals("well", v.next(remakeDone)?.id)
+        val originalDone = remakeDone.withDone(v.item("well")!!, true).withDone(v.item("maze")!!, true)
+        assertNull(v.next(originalDone.withDone(v.item("remake_pond")!!, false)))
+        // Formulas still read a separate section.
+        assertEquals(SummaryValue("Remake hearts", 3.75, 3.75), v.evaluate(v.section("remake_pieces")!!.summary!!, remakeDone))
+
+        val allSeparate = ChecklistRepository.parse("""{"sections": [{"id": "a", "title": "A", "separate": true, "items": [{"id": "x", "name": "X"}]}]}""")
+        assertEquals(listOf("every section is separate, so nothing counts toward the total"), allSeparate.problems())
     }
 
     @Test
@@ -134,7 +164,7 @@ class ChecklistCatalogTest {
             "item 'x' has a negative value",
             "bad item id 'Bad Id'",
             "section 'b' has no items",
-            "summary 'Unknown' reads unknown section 'nope'",
+            "summary 'Unknown' reads unknown section or item 'nope'",
             "requires loop: y → w → y",
         ).forEach { expected -> assertTrue(problems.any { it == expected }, "missing \"$expected\" in $problems") }
         assertTrue(problems.any { it.startsWith("Formula \"3 +\"") }, problems.toString())

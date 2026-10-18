@@ -50,6 +50,8 @@ class OosChecklistDatasetTest {
         assertEquals(mapOf("items" to 15, "upgrades" to 7, "key_items" to 21), items.sizes())
         // Sword and shield 3 each, then two steps for the feather, boomerang, slingshot, satchel and bombs.
         assertEquals(16, items.section("upgrades")!!.items.sumOf { it.steps })
+        // Capacities from the upgrades' values: seeds start at 20, bombs at 10.
+        assertEquals(listOf("Seeds of each 20 / 99", "Bombs 10 / 50"), items.summaries.map { items.evaluate(it, ChecklistProgress()).text })
         assertTrue(listOf("ember_seeds", "scent_seeds", "pegasus_seeds", "gale_seeds", "mystery_seeds").all { items.item(it) != null })
         assertTrue("Linked" in items.item("biggorons_sword")!!.tags)
     }

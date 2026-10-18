@@ -1,6 +1,10 @@
 {
   "noun": "item",
   "hiddenLabel": "Unfound item",
+  "summaries": [
+    {"label": "Seeds of each", "formula": "20 + seed_satchel_capacity.value"},
+    {"label": "Bombs", "formula": "10 + bomb_capacity.value"}
+  ],
   "sections": [
     {
       "id": "items",
@@ -170,8 +174,8 @@
           "id": "seed_satchel_capacity",
           "name": "Seed Satchel capacity",
           "tiers": [
-            {"name": "50 of each seed", "howTo": "Buy the upgrade for 300 Rupees in the Horon Village Shop's basement, which needs the Member's Card."},
-            {"name": "99 of each seed (Linked)", "howTo": "Linked only: the Deku Secret told to the Deku Scrub in Natzu, or the Tingle Secret told to Farore."}
+            {"name": "50 of each seed", "value": 30, "howTo": "Buy the upgrade for 300 Rupees in the Horon Village Shop's basement, which needs the Member's Card."},
+            {"name": "99 of each seed (Linked)", "value": 49, "howTo": "Linked only: the Deku Secret told to the Deku Scrub in Natzu, or the Tingle Secret told to Farore."}
           ],
           "notes": "Starts at 20 of each. The shop and the secret can come in either order; the second makes it 99."
         },
@@ -179,8 +183,8 @@
           "id": "bomb_capacity",
           "name": "Bomb capacity",
           "tiers": [
-            {"name": "30 Bombs", "howTo": "Buy the Big Bomb Bag (a red bomb that explodes in your hands) at Subrosia Market for 50 Ore Chunks and 10 Bombs."},
-            {"name": "50 Bombs (Linked)", "howTo": "Linked only: tell the Pirate Secret to the Piratian at the House of Pirates while holding exactly 777 Ore Chunks, or tell Farore the Tokay Secret."}
+            {"name": "30 Bombs", "value": 20, "howTo": "Buy the Big Bomb Bag (a red bomb that explodes in your hands) at Subrosia Market for 50 Ore Chunks and 10 Bombs."},
+            {"name": "50 Bombs (Linked)", "value": 20, "howTo": "Linked only: tell the Pirate Secret to the Piratian at the House of Pirates while holding exactly 777 Ore Chunks, or tell Farore the Tokay Secret."}
           ],
           "notes": "Starts at 10."
         }
