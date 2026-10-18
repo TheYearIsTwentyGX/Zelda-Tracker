@@ -1,0 +1,40 @@
+{
+  "regions": ["Silver Door", "Golden Door", "Hero's Door"],
+  "noun": "level",
+  "hiddenLabel": "Hidden level",
+  "sections": [
+    {
+      "id": "realm_of_memories",
+      "title": "Realm of Memories",
+      "note": "Nine fixed levels in the style of A Link to the Past, Link's Awakening and The Legend of Zelda. No bosses.",
+      "items": [
+        {"id": "realm_silver_1", "name": "Hyrule Castle exterior", "region": "Silver Door", "area": "Level 1 (A Link to the Past)", "howTo": "Once Vaati's Palace has been cleared, the Triforce symbol in the Sea of Trees rises into the sky; open its silver door. Puzzles here need the Shield, Pegasus Boots and Bombs.", "after": "Vaati's Palace silver door (Stages & Keys)"},
+        {"id": "realm_silver_2", "name": "Hyrule Castle interior", "region": "Silver Door", "area": "Level 2 (A Link to the Past)", "howTo": "Narrow passages with Flying Floors and Cracked Blocks; bring the Magnetic Glove or Bombs.", "requires": ["realm_silver_1"]},
+        {"id": "realm_silver_3", "name": "Lost Woods", "region": "Silver Door", "area": "Level 3 (A Link to the Past)", "howTo": "Floor spikes and holes: ride the small moving platforms with the Gnat Hat and bomb the Shock Switches you can't reach.", "requires": ["realm_silver_2"], "reward": "Opens the golden door"},
+        {"id": "realm_golden_1", "name": "Mysterious Forest", "region": "Golden Door", "area": "Level 1 (Link's Awakening)", "howTo": "The Mysterious Forest, Goponga Swamp and Koholint Prairie, with Cracked Blocks, Locked Blocks and holes; puzzles use the Roc's Cape, Chain Chomp and Bombs.", "requires": ["realm_silver_3"], "notes": "The doorways of the Telephone Booth and Mr. Write's house hide chests of large Rupees."},
+        {"id": "realm_golden_2", "name": "Tail Cave", "region": "Golden Door", "area": "Level 2 (Link's Awakening)", "howTo": "Small rooms and open areas full of cracked tiles and holes; solve the puzzles with the Roc's Cape or the Magnetic Glove.", "requires": ["realm_golden_1"]},
+        {"id": "realm_golden_3", "name": "Tal Tal Heights", "region": "Golden Door", "area": "Level 3 (Link's Awakening)", "howTo": "Climb from Tal Tal Heights through the Tal Tal Mountain Range to Mt. Tamaranch, jumping holes and geysers with the Roc's Cape. Shoot the Eye Switches and solve the statue switch puzzle.", "requires": ["realm_golden_2"], "reward": "Opens the hero's door"},
+        {"id": "realm_heros_1", "name": "Central Overworld", "region": "Hero's Door", "area": "Level 1 (The Legend of Zelda)", "howTo": "The NES starting screen and the area around Level 1's entrance. Bomb the Cracked Blocks, shoot the Eyegores with the Bow and cross the islands with the Roc's Cape.", "requires": ["realm_golden_3"]},
+        {"id": "realm_heros_2", "name": "Western Overworld", "region": "Hero's Door", "area": "Level 2 (The Legend of Zelda)", "howTo": "The south and west of the NES overworld: the Lost Woods and the Graveyard. Ride the spring tiles and hit the lever with the Boomerang.", "requires": ["realm_heros_1"]},
+        {"id": "realm_heros_3", "name": "Level 1 (The Eagle)", "region": "Hero's Door", "area": "Level 3 (The Legend of Zelda)", "howTo": "The NES game's first dungeon: rooms of holes, solved with the Boomerang or the Bow.", "requires": ["realm_heros_2"], "reward": "Master Sword: Sword Beams at full health (an icon on the file)"}
+      ]
+    },
+    {
+      "id": "heros_trial",
+      "title": "Hero's Trial",
+      "note": "Nine long levels themed on the main stages; each door ends in a version of Vaati's Palace. No bosses.",
+      "items": [
+        {"id": "heros_trial_unlock", "name": "Open the Hero's Trial", "area": "Rock spire on Hyrule's east coast", "howTo": "Win five Medals of Courage (\"hero medals\") or collect 30,000 Rupees in total. Lightning strikes the spire on the stage map and reveals the sword-shaped entrance.", "value": 0, "notes": "A medal goes to the Link with the most Rupees at the end of a stage, and only in multiplayer, so a single player opens it with the 30,000 Rupees. Zelda Dungeon mentions only the Rupees; Zelda Wiki and the game's text give both."},
+        {"id": "trial_silver_1", "name": "Silver Door, level 1", "region": "Silver Door", "area": "Snowy Sea of Trees", "howTo": "Holes hide under leaf piles, Spiny Beetles under bushes, and enemies behind short walls need Bombs.", "requires": ["heros_trial_unlock"], "notes": "Items are not kept between levels in the Hero's Trial. A \"25\" for the series' anniversary is drawn in grass past the warp zones at the end."},
+        {"id": "trial_silver_2", "name": "Silver Door, level 2", "region": "Silver Door", "area": "Snowy Sea of Trees", "howTo": "Clear bushes and hit switches with the Boomerang and Bow, riding moving and four-directional platforms.", "requires": ["trial_silver_1"]},
+        {"id": "trial_silver_3", "name": "Silver Door, level 3", "region": "Silver Door", "area": "Vaati's Palace (alternate)", "howTo": "Dash over ramps and ice with the Pegasus Boots, then backtrack as holes open; shoot the Eye Switches to make bridges.", "requires": ["trial_silver_2"], "reward": "Opens the golden door"},
+        {"id": "trial_golden_1", "name": "Golden Door, level 1", "region": "Golden Door", "area": "Dark purple Talus Cave", "howTo": "Shrink with the Gnat Hat to cross strings of tiny moving platforms between small rooms.", "requires": ["trial_silver_3"]},
+        {"id": "trial_golden_2", "name": "Golden Door, level 2", "region": "Golden Door", "area": "Dark purple Talus Cave", "howTo": "Hold up the Shield to inch along narrow ice floors.", "requires": ["trial_golden_1"], "notes": "A cracked wall at the end of the first ice path, bombed with a Bomb from a nearby bush, is a one-way shortcut. The \"25\" is in coloured tiles mid-level, each visible only to its own Link."},
+        {"id": "trial_golden_3", "name": "Golden Door, level 3", "region": "Golden Door", "area": "Vaati's Palace (alternate)", "howTo": "Narrow walkways over holes, with Pathblades and wind fans. The last fight is six Spiny Beetles, six Stalchildren and two Bow Moblins, then four Spiny Beetles, four Fire Wizzrobes and a Ball and Chain Soldier.", "requires": ["trial_golden_2"], "reward": "Opens the hero's door"},
+        {"id": "trial_heros_1", "name": "Hero's Door, level 1", "region": "Hero's Door", "area": "Desaturated Death Mountain", "howTo": "Precise Roc's Cape jumps over lava and holes, then back past Ball and Chain Soldiers and Stalchildren.", "requires": ["trial_golden_3"], "notes": "The \"25\" is in grated platforms near the end."},
+        {"id": "trial_heros_2", "name": "Hero's Door, level 2", "region": "Hero's Door", "area": "Desaturated Death Mountain", "howTo": "Six locked rooms in any order, each needing a different item.", "requires": ["trial_heros_1"]},
+        {"id": "trial_heros_3", "name": "Hero's Door, level 3", "region": "Hero's Door", "area": "Vaati's Palace (alternate)", "howTo": "Enemies trapped behind short walls and Flying Floors: blow up the Bombarossas with the Boomerang and Bow before the floors run out. The last fight is eight Eyegores, then five Ball and Chain Soldiers and four Darknuts.", "requires": ["trial_heros_2"], "reward": "Hurricane Spin: tap B during a Spin Attack (an icon on the file)"}
+      ]
+    }
+  ]
+}

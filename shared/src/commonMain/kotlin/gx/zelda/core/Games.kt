@@ -148,8 +148,24 @@ object Games {
      * The GBA multiplayer game bundled with A Link to the Past (North America first). Counted as
      * mainline: its own story (Vaati's first appearance) placed in Nintendo's official timeline,
      * and later sold on its own as the Anniversary Edition.
+     *
+     * Three files: on the GBA they're A Link to the Past's, which hold both games' progress; the
+     * Anniversary Edition (DSiWare, 2011) has three of its own. Every tracker is a checklist; the data
+     * and its sources are in docs/fs.md.
      */
-    val FS = comingSoon("fs", "Four Swords", ReleaseDate(2002, 12, 2), "Game Boy Advance")
+    val FS = Game(
+        id = "fs",
+        title = "Four Swords",
+        released = ReleaseDate(2002, 12, 2),
+        platform = "Game Boy Advance",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            fsChecklist("Stages & Keys", "The 9 Silver, Golden and Hero's Keys from the Great Fairies, and Vaati's Palace's 3 doors", "stages"),
+            fsChecklist("Anniversary Edition", "The Realm of Memories and the Hero's Trial: 18 levels, the Master Sword and the Hurricane Spin", "anniversary"),
+            fsChecklist("A Link to the Past Link-ups", "GBA only: Medals of Courage, the Hurricane Spin, Sword Beams and the Palace of the Four Sword", "alttp_links"),
+        ),
+    )
     val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
     val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
     val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
@@ -251,6 +267,9 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun fsChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "fs/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

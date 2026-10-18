@@ -1,0 +1,45 @@
+{
+  "regions": ["Chambers of Insight", "Sea of Trees", "Talus Cave", "Death Mountain", "Vaati's Palace"],
+  "noun": "step",
+  "hiddenLabel": "Hidden stage",
+  "summaries": [
+    {"label": "Keys", "formula": "silver.value + golden.value + heros.value"},
+    {"label": "Palace doors", "formula": "vaati_silver_door + vaati_golden_door + vaati_heros_door"}
+  ],
+  "sections": [
+    {
+      "id": "silver",
+      "title": "Silver Keys",
+      "note": "1,000 Rupees in each stage for its Great Fairy's Silver Key; all three raise Vaati's Palace.",
+      "items": [
+        {"id": "chambers_of_insight", "name": "Chambers of Insight", "region": "Chambers of Insight", "area": "Domed yellow building on an island in south-east Hyrule", "howTo": "The optional tutorial, open from the start. Stand on the warp zones together: two levels of basics, a level for each of the Bow, Pegasus Boots, Boomerang, Roc's Cape and Magnetic Glove, and a two-level final test that ends with an Ice Wizzrobe. Leave by the southernmost warp zones.", "value": 0, "reward": "None (practice only)", "notes": "Not needed to finish the game, and not part of speedrun.com's 100%. The only stage whose warp zones lead back to earlier levels.", "tags": ["Optional"]},
+        {"id": "silver_key_sea_of_trees", "name": "Sea of Trees: Silver Key", "region": "Sea of Trees", "area": "Two bird-like statues in central Hyrule", "howTo": "Clear two floors and defeat Big Manhandla on the third: stun it, then cut or bomb its flower heads. With at least 1,000 Rupees between you, the Great Fairy of Forest gives each Link a Silver Key.", "reward": "Silver Key (Great Fairy of Forest)", "notes": "Open from the start; the three stages can be done in any order. Items found here: Bomb, Boomerang, Bow, Gnat Hat, Roc's Cape, Shield. Fewer than 1,000 Rupees gets no key; play the stage again. Every Link gets a key, so each player's own file tracks it.", "tags": ["Big Manhandla"]},
+        {"id": "silver_key_talus_cave", "name": "Talus Cave: Silver Key", "region": "Talus Cave", "area": "Stone doorway at the foot of a mountain in western Hyrule", "howTo": "Clear two icy floors and defeat Dera Zol on the third. With at least 1,000 Rupees between you, the Great Fairy of Ice gives each Link a Silver Key.", "reward": "Silver Key (Great Fairy of Ice)", "notes": "Adds the Magnetic Glove and Pegasus Boots to the Sea of Trees items.", "tags": ["Dera Zol"]},
+        {"id": "silver_key_death_mountain", "name": "Death Mountain: Silver Key", "region": "Death Mountain", "area": "Volcano in north-west Hyrule", "howTo": "Clear two floors of lava and flames and defeat Gouen on the third. With at least 1,000 Rupees between you, the Great Fairy of Flame gives each Link a Silver Key.", "reward": "Silver Key (Great Fairy of Flame)", "notes": "Adds the Chain Chomp to the Talus Cave items.", "tags": ["Gouen"]},
+        {"id": "vaati_silver_door", "name": "Vaati's Palace: silver door", "region": "Vaati's Palace", "area": "Floating palace above Hyrule (the Palace of Winds)", "howTo": "With all three Silver Keys the palace appears in the sky. Open the silver door, clear two wind-themed levels in the sky and defeat Vaati on the third: first his armored statue form, then his true form.", "requires": ["silver_key_sea_of_trees", "silver_key_talus_cave", "silver_key_death_mountain"], "value": 0, "reward": "The ending; the Great Fairies now give Golden Keys", "notes": "Anniversary Edition: also opens the Realm of Memories (Anniversary Edition tracker).", "tags": ["Vaati"]}
+      ]
+    },
+    {
+      "id": "golden",
+      "title": "Golden Keys",
+      "note": "After the silver door: 3,000 Rupees in a stage for its Golden Key.",
+      "items": [
+        {"id": "golden_key_sea_of_trees", "name": "Sea of Trees: Golden Key", "region": "Sea of Trees", "howTo": "Play the Sea of Trees again and finish with at least 3,000 Rupees between you. Big Manhandla sprouts more flowers at this difficulty.", "requires": ["vaati_silver_door"], "reward": "Golden Key (Great Fairy of Forest)", "notes": "1,000 to 2,999 Rupees earns nothing new once you hold the Silver Key.", "tags": ["Big Manhandla"]},
+        {"id": "golden_key_talus_cave", "name": "Talus Cave: Golden Key", "region": "Talus Cave", "howTo": "Play Talus Cave again and finish with at least 3,000 Rupees between you. Dera Zol starts making illusions at higher difficulties.", "requires": ["vaati_silver_door"], "reward": "Golden Key (Great Fairy of Ice)", "tags": ["Dera Zol"]},
+        {"id": "golden_key_death_mountain", "name": "Death Mountain: Golden Key", "region": "Death Mountain", "howTo": "Play Death Mountain again and finish with at least 3,000 Rupees between you.", "requires": ["vaati_silver_door"], "reward": "Golden Key (Great Fairy of Flame)", "tags": ["Gouen"]},
+        {"id": "vaati_golden_door", "name": "Vaati's Palace: golden door", "region": "Vaati's Palace", "howTo": "Open the golden door with the three Golden Keys. Three levels: the second looks like the Sea of Trees, Talus Cave or Death Mountain, and Vaati waits on the third.", "requires": ["golden_key_sea_of_trees", "golden_key_talus_cave", "golden_key_death_mountain"], "value": 0, "reward": "The Great Fairies now give Hero's Keys", "tags": ["Vaati"]}
+      ]
+    },
+    {
+      "id": "heros",
+      "title": "Hero's Keys",
+      "note": "After the golden door: 5,000 Rupees in a stage for its Hero's Key.",
+      "items": [
+        {"id": "heros_key_sea_of_trees", "name": "Sea of Trees: Hero's Key", "region": "Sea of Trees", "howTo": "Play the Sea of Trees again and finish with at least 5,000 Rupees between you. Keep everyone at full health: Rupee Fever doubles each Rupee's worth (multiplayer only in the Anniversary Edition).", "requires": ["vaati_golden_door"], "reward": "Hero's Key (Great Fairy of Forest)", "tags": ["Big Manhandla"]},
+        {"id": "heros_key_talus_cave", "name": "Talus Cave: Hero's Key", "region": "Talus Cave", "howTo": "Play Talus Cave again and finish with at least 5,000 Rupees between you.", "requires": ["vaati_golden_door"], "reward": "Hero's Key (Great Fairy of Ice)", "tags": ["Dera Zol"]},
+        {"id": "heros_key_death_mountain", "name": "Death Mountain: Hero's Key", "region": "Death Mountain", "howTo": "Play Death Mountain again and finish with at least 5,000 Rupees between you.", "requires": ["vaati_golden_door"], "reward": "Hero's Key (Great Fairy of Flame)", "tags": ["Gouen"]},
+        {"id": "vaati_heros_door", "name": "Vaati's Palace: hero's door", "region": "Vaati's Palace", "howTo": "The three Hero's Keys open a shutter between the silver and golden doors. Twelve levels mixing all three stages, with Big Manhandla, Dera Zol or Gouen every three levels and Vaati on the twelfth.", "requires": ["heros_key_sea_of_trees", "heros_key_talus_cave", "heros_key_death_mountain"], "value": 0, "reward": "Golden sword icon on the file", "notes": "Anniversary Edition: the Great Fairies also change their look. Zelda Wiki's game article says nine floors, but its Vaati's Palace page, Zelda Dungeon and the game's text all say 12.", "tags": ["Vaati"]}
+      ]
+    }
+  ]
+}

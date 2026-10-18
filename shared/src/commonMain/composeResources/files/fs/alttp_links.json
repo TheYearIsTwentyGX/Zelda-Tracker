@@ -1,0 +1,17 @@
+{
+  "noun": "link-up",
+  "hiddenLabel": "Hidden link-up",
+  "sections": [
+    {
+      "id": "alttp_links",
+      "title": "A Link to the Past Link-ups",
+      "note": "Game Boy Advance only: both games share one save file, and each unlocks something in the other.",
+      "items": [
+        {"id": "sword_beams", "name": "Sword Beams", "area": "A Link to the Past: the Lost Woods pedestal", "howTo": "Draw the Master Sword in A Link to the Past on the same file. From then on your sword fires a beam at full health in Four Swords too.", "reward": "Sword Beams in Four Swords", "notes": "The Anniversary Edition has no A Link to the Past, so it gives the Master Sword for clearing the Realm of Memories instead."},
+        {"id": "ten_medals", "name": "10 Medals of Courage", "area": "Four Swords: any stage", "howTo": "At the end of each stage a Medal of Courage goes to the Link who picked up the most Rupees. Your total shows on the Player Select screen; reach 10 on this file.", "reward": "Opens the Lumberjack's Riddles in A Link to the Past", "notes": "Medals keep counting past 10 and have no other use on the GBA. Fan guides call them Triforce Medals."},
+        {"id": "hurricane_spin", "name": "Hurricane Spin (Lumberjack's Riddles)", "area": "A Link to the Past: the Lumberjack's house north of the Death Mountain entrance", "howTo": "After Agahnim's first defeat, Q. Bumpkin gives you a Basket and ten riddles. Catch each answer with the Bug-Catching Net: a Cucco, Sand Crab, Red Rupee, fish, Puffer, Slime, squirrel, Fake Master Sword, apple and Cukeman.", "requires": ["ten_medals"], "reward": "Hurricane Spin in both games; 3 Carver's Statues (after riddles 1, 4 and 7)", "notes": "StrategyWiki calls it the Riddle Quest. The Anniversary Edition gives the Hurricane Spin for clearing the Hero's Trial."},
+        {"id": "palace_of_the_four_sword", "name": "Palace of the Four Sword", "area": "A Link to the Past: the east side of the Pyramid of Power", "howTo": "Beat Vaati in Four Swords and Ganon in A Link to the Past on the same file, then pay the Gatekeeper 20 Rupees. Win the four coloured blades from the stronger Arrghus, Helmasaur King, Mothula and Blind, then defeat the four Dark Links.", "after": "Vaati beaten in Four Swords and Ganon in A Link to the Past", "reward": "The Four Sword restored; an alternate ending with a Quest Log", "notes": "StrategyWiki needs only Vaati beaten; Zelda Wiki and the official encyclopedia also need Ganon."}
+      ]
+    }
+  ]
+}
