@@ -1,0 +1,84 @@
+{
+  "noun": "Big Poe",
+  "hiddenLabel": "Uncaught Big Poe",
+  "sections": [
+    {
+      "id": "big_poes",
+      "title": "Big Poes",
+      "noun": "Big Poe",
+      "note": "Adult Link on Epona: shoot each twice with the Bow and catch its soul in a bottle. The Poe Collector in the Market's Ghost Shop pays 50 Rupees and 100 points each, and gives a bottle at 1,000.",
+      "items": [
+        {
+          "id": "castle_town_entrance_sign",
+          "name": "Sign at the Castle Town entrance",
+          "area": "Hyrule Field",
+          "howTo": "Leave Castle Town, call Epona and ride south from the drawbridge past the signpost on the path, keeping your back to the castle.",
+          "notes": "Zelda Dungeon #1, Zelda Universe #1, Jegged #1, GameWith #2. This is the easiest one; it spawns ahead of you over open field."
+        },
+        {
+          "id": "lon_lon_ranch_entrance_tree",
+          "name": "Tree at the Lon Lon Ranch entrance",
+          "area": "Hyrule Field",
+          "howTo": "Ride between the tree beside the Lon Lon Ranch entrance (north side of the ranch) and the ranch wall.",
+          "notes": "Zelda Dungeon #2, Zelda Universe #3, Jegged #2, GameWith #5. Jegged: ride eastbound between the tree and the ranch."
+        },
+        {
+          "id": "northwest_river_bushes",
+          "name": "Dark bushes by the river, northwest corner",
+          "area": "Hyrule Field",
+          "howTo": "In the northwest corner of the field, west of Castle Town where the river runs along the boundary wall, ride through the patch of dark bushes/tall grass by the water. Face away from the water and the wall so it flees into open field.",
+          "notes": "Zelda Dungeon #3, Zelda Universe #6, Jegged #3, GameWith #1. If you approach facing the wall it can vanish into the wall."
+        },
+        {
+          "id": "west_lone_tree_lon_lon_gerudo",
+          "name": "Lone tree between Lon Lon Ranch and Gerudo Valley",
+          "area": "Hyrule Field",
+          "howTo": "On the west side of the field, between Lon Lon Ranch and the Gerudo Valley entrance, ride past the lone tree along its right side while heading north toward the castle.",
+          "notes": "Zelda Dungeon #4, Zelda Universe #10, Jegged #10, GameWith #4. Zelda Universe approaches from the Gerudo Valley cliffs with the tree on your right."
+        },
+        {
+          "id": "gerudo_valley_road_fork",
+          "name": "Road fork below the Gerudo Valley cliffs",
+          "area": "Hyrule Field",
+          "howTo": "Ride north from the Lake Hylia entrance hugging the left wall under the cliff overhang, then take the right branch where the road forks near the Gerudo Valley entrance. It appears where the two bluffs come closest, between the road and the right-hand wall.",
+          "notes": "Zelda Dungeon #5, Zelda Universe #7, Jegged #4, GameWith #7. Zelda Dungeon and Zelda Universe both call it the most frustrating one: it tends to fly uphill or over the cliff, so shoot it quickly."
+        },
+        {
+          "id": "south_bushes_lone_tree",
+          "name": "Bushes by a lone tree, south field",
+          "area": "Hyrule Field",
+          "howTo": "From the Lake Hylia entrance ride northeast toward the cluster of brownish trees between Lake Hylia and Kokiri Forest. Ride through the patch of bushes/grass between the lone green tree and the cluster.",
+          "notes": "Zelda Dungeon #6, Zelda Universe #8, Jegged #7, GameWith #9."
+        },
+        {
+          "id": "south_boulder_tree_cluster",
+          "name": "Tree south of the brown boulder, south field",
+          "area": "Hyrule Field",
+          "howTo": "In the same cluster of trees, find the lone brown boulder and ride past the tree directly south of it, heading north toward Lon Lon Ranch along the tree's right side.",
+          "notes": "Zelda Dungeon #7, Zelda Universe #9, Jegged #8, GameWith #10."
+        },
+        {
+          "id": "kokiri_road_silver_boulder",
+          "name": "Silver boulder at the fork on the Kokiri Forest road",
+          "area": "Hyrule Field",
+          "howTo": "On the road between Kokiri Forest and Lon Lon Ranch, find the grey/silver boulder at the Y-shaped fork. Stand or ride inside the 'Y' next to the boulder.",
+          "notes": "Zelda Dungeon #8, Zelda Universe #4, Jegged #6, GameWith #8. Jegged puts this path 'between Kakariko Village and Lon Lon Ranch' and GameWith calls it the 'eastern fork'. Zelda Dungeon and Zelda Universe both tie it to the Kokiri Forest road, so that wording is used."
+        },
+        {
+          "id": "east_lon_lon_v_wall",
+          "name": "V-shaped stone wall east of Lon Lon Ranch",
+          "area": "Hyrule Field",
+          "howTo": "East of Lon Lon Ranch, go to the corner of the V-shaped stone wall (the bluff splitting the field). Wait on top of it, or ride along its foot toward the apex.",
+          "notes": "Zelda Dungeon #9, Zelda Universe #5, Jegged #9, GameWith #6. Zelda Universe: from the fork just outside Castle Town, ride up the hill keeping the wall on your right; it appears at the apex and tends to float high."
+        },
+        {
+          "id": "kakariko_river_overhang",
+          "name": "Cliff overhang over the river by Kakariko",
+          "area": "Hyrule Field",
+          "howTo": "Near the Kakariko Village entrance, ride under the cliff overhang along the river, or wait on top of the overhang facing south. It appears and floats across the river.",
+          "notes": "Zelda Dungeon #10, Zelda Universe #2, Jegged #5, GameWith #3. You may have to swim across the river to bottle its soul."
+        }
+      ]
+    }
+  ]
+}
