@@ -10,8 +10,8 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- Breath of the Wild, Tears of the Kingdom, The Minish Cap and Echoes of Wisdom have trackers. The
-  rest show as *Coming soon* until they get some.
+- A Link to the Past, The Minish Cap, Breath of the Wild, Tears of the Kingdom and Echoes of
+  Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -373,6 +373,23 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   later checkpoints read "Later in the story", and search only matches their number.
 - Three save files, **File 1–3**, as on the cartridge.
 
+**A Link to the Past**
+
+Every ALttP tracker is a [checklist](docs/checklist-trackers.md), built for the original SNES
+release; GBA differences are in item notes. Sources and disagreements are in `docs/alttp.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** the Light World (the escape, Sahasrahla, the three Pendant dungeons, the Master
+  Sword and Agahnim) and the Dark World (the seven Crystal dungeons, Ganon's Tower and Ganon),
+  with each dungeon's boss, reward and treasure. Pendants (of 3) and Crystals (of 7) are totalled.
+- **Items & Equipment:** sword, shield, mail and gloves as one row each, a tier per upgrade. It
+  also has the 18 item-screen items, including the Silver Arrows, Magical Boomerang, Magic Powder
+  and Flute; the 4 Bottles; half magic; and the Pond of Happiness bomb (10 to 50) and arrow (30 to
+  70) capacity upgrades.
+- **Heart Pieces:** 24 Pieces of Heart (18 Light World, 6 Dark World) and 11 Heart Containers,
+  with the hearts total (3 to 20). Each piece names the items it needs.
+- Regions are Zelda Wiki's two worlds, with the exact place in each row.
+- Three save files, **File 1–3**, as on the SNES cartridge.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -442,6 +459,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
+  src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -756,6 +774,11 @@ Minish Cap* (names, North American descriptions, who's pictured) and the zeldare
 formula). It is cross-checked against Zelda Wiki's Figurine Gallery table, StrategyWiki and
 Zeldapedia. `scripts/build-mc-figurines.py` rebuilds it, and `docs/mc-figurines.md` covers the
 checkpoints, the odds and where the sources disagree.
+
+A Link to the Past data (`files/alttp/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback
+Machine snapshots) and StrategyWiki, with speedrun.com's 100% rules deciding what's tracked.
+Every count was checked against all three. `docs/alttp.md` covers each tracker, the save files
+and every disagreement between sources.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
