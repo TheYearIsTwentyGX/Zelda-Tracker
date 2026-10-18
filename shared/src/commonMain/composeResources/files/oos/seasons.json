@@ -1,0 +1,64 @@
+{
+  "noun": "season",
+  "hiddenLabel": "Unclaimed season",
+  "summaries": [
+    {"label": "Seasons", "formula": "seasons.value"}
+  ],
+  "sections": [
+    {
+      "id": "seasons",
+      "title": "Rod of Seasons",
+      "note": "The Season Spirits wait in the four corner towers of the Temple of Seasons, sunk into Subrosia. Swing the Rod on a tree stump to change the season.",
+      "items": [
+        {
+          "id": "rod_of_seasons",
+          "name": "Rod of Seasons",
+          "area": "Temple of Seasons, Subrosia",
+          "howTo": "After the Gnarled Root Dungeon, follow Rosa north from the Eastern Suburbs, unseen, to a hidden portal. In Subrosia, go east to the Temple of Seasons and stand on the pedestal at the central altar.",
+          "reward": "Rod of Seasons",
+          "value": 0,
+          "notes": "Sokra explains it on a stump back in Holodrum. Swung like a sword, it only hurts undead enemies."
+        },
+        {
+          "id": "power_of_winter",
+          "name": "Winter",
+          "area": "Tower of Winter (southeast)",
+          "howTo": "Hit the crystal switch across the lava with the Boomerang from the Subrosian Dance Hall, or a thrown bomb, to raise a bridge; the Spirit of Winter is upstairs.",
+          "requires": ["rod_of_seasons"],
+          "reward": "Power of Winter",
+          "notes": "Snow piles up into paths or walls, water freezes and big-leafed trees go bare. Needed for the Woods of Winter and Snake's Remains."
+        },
+        {
+          "id": "power_of_summer",
+          "name": "Summer",
+          "area": "Tower of Summer (northwest)",
+          "howTo": "From the Spool Swamp portal, dig up the Star-Shaped Ore at the Subrosia Seaside with the Shovel, trade it for the Ribbon at Subrosia Market and give it to Rosa. On your 'date' her key opens the locked doors, including the tower's.",
+          "requires": ["power_of_winter"],
+          "after": "Snake's Remains",
+          "reward": "Power of Summer",
+          "notes": "Water dries up and vines grow for climbing. Needed for Poison Moth's Lair."
+        },
+        {
+          "id": "power_of_spring",
+          "name": "Spring",
+          "area": "Tower of Spring (southwest)",
+          "howTo": "Take the portal on Mt. Cucco. When the Strange Brothers take Roc's Feather, follow them unseen through the Treasure Grove and dig it up, then jump the lava to the cave by the portal; its tunnel leads to the tower.",
+          "requires": ["power_of_summer"],
+          "after": "Poison Moth's Lair",
+          "reward": "Power of Spring",
+          "notes": "Flowers bloom, some of which launch you up ledges. Needed for the Dancing Dragon Dungeon."
+        },
+        {
+          "id": "power_of_autumn",
+          "name": "Autumn",
+          "area": "Tower of Autumn (northeast)",
+          "howTo": "From the Eyeglass Lake portal, cross Lava Lake with Roc's Feather and pull up its lone Bomb Flower with the Power Bracelet. The Subrosian Smelter at the tower uses it to blast the rubble from the door.",
+          "requires": ["power_of_summer"],
+          "after": "Poison Moth's Lair",
+          "reward": "Power of Autumn",
+          "notes": "Leaves fill holes and mushrooms ripen so they can be cleared. Needed for Unicorn's Cave. Spring and Autumn can be won in either order."
+        }
+      ]
+    }
+  ]
+}

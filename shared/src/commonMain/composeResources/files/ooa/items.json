@@ -1,0 +1,363 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "summaries": [
+    {"label": "Seeds of each", "formula": "20 + seed_satchel_capacity.value"},
+    {"label": "Bombs", "formula": "10 + bomb_capacity.value"}
+  ],
+  "sections": [
+    {
+      "id": "items",
+      "title": "Items",
+      "note": "The Item Screen and the five Mystical Seeds. Upgradable items are under Upgrades; the Harp of Ages is in the Harp tracker.",
+      "items": [
+        {
+          "id": "shovel",
+          "name": "Shovel",
+          "area": "Black Tower (past)",
+          "howTo": "On your first trip to the past, follow the path around inside the Black Tower to a worker, who gives it to you."
+        },
+        {
+          "id": "seed_satchel",
+          "name": "Seed Satchel",
+          "area": "Lynna City",
+          "howTo": "The Maku Tree gives it to you in the present after you save her in the past.",
+          "notes": "Comes with 20 Ember Seeds. Its capacity is under Upgrades."
+        },
+        {
+          "id": "ember_seeds",
+          "name": "Ember Seeds",
+          "area": "Lynna City",
+          "howTo": "Twenty come with the Seed Satchel. The Ember Tree south of Lynna City stands in both ages.",
+          "notes": "Burn trees and light torches."
+        },
+        {
+          "id": "mystery_seeds",
+          "name": "Mystery Seeds",
+          "area": "Deku Forest (past)",
+          "howTo": "From the Mystery Tree in the Deku Forest, through its caves. A second one grows on Rolling Ridge in the past.",
+          "notes": "Random effect; wakes Owl Statues for hints, and drives Veran out of the people she possesses. Queen Ambi takes your first ones."
+        },
+        {
+          "id": "bombs",
+          "name": "Bombs",
+          "area": "Ambi's Palace (past)",
+          "howTo": "Bring Mystery Seeds to Queen Ambi; she takes them all and gives you 10 Bombs.",
+          "notes": "Bomb capacity is under Upgrades."
+        },
+        {
+          "id": "roc_feather",
+          "name": "Roc's Feather",
+          "area": "Wing Dungeon",
+          "howTo": "The dungeon item of the Wing Dungeon.",
+          "notes": "Oracle of Ages has no Roc's Cape."
+        },
+        {
+          "id": "scent_seeds",
+          "name": "Scent Seeds",
+          "area": "Crescent Island",
+          "howTo": "Win the Scent Seedling at the Wild Tokay game and have the Tokay plant it in the tree nursery in the past; in the present it's a grown Scent Tree. Another grows in Ambi's Palace.",
+          "notes": "Lure enemies. The Crescent Island Tokay trade your stolen items back for them."
+        },
+        {
+          "id": "seed_shooter",
+          "name": "Seed Shooter",
+          "area": "Moonlit Grotto",
+          "howTo": "The dungeon item of the Moonlit Grotto.",
+          "notes": "Shoots seeds in eight directions; they bounce off walls."
+        },
+        {
+          "id": "strange_flute",
+          "name": "Strange Flute",
+          "area": "Lynna City",
+          "howTo": "Buy one at the Lynna City shop in the present (150 Rupees) for Dimitri, or win one at the Shooting Gallery in the past (50 points or more) for Ricky. With neither, Moosh gives you his flute.",
+          "after": "Moonlit Grotto",
+          "reward": "Dimitri's, Ricky's or Moosh's Flute",
+          "notes": "The animal lost in the Fairies' Woods claims it. See Animal Companions."
+        },
+        {
+          "id": "gale_seeds",
+          "name": "Gale Seeds",
+          "area": "Symmetry City",
+          "howTo": "From the Gale Tree in the Symmetry City ruins, in the present. Another grows above Zora Village.",
+          "notes": "Warp to any Mystical Tree you've touched; shot, they blow enemies away."
+        },
+        {
+          "id": "pegasus_seeds",
+          "name": "Pegasus Seeds",
+          "area": "Rolling Ridge (past)",
+          "howTo": "Lift the rock in the far southeast of Rolling Ridge for a time portal, and reach the Pegasus Tree in the northwest in the past.",
+          "notes": "Run faster and jump farther; shot, they freeze enemies. Needed to get past the Great Moblin's trap."
+        },
+        {
+          "id": "cane_of_somaria",
+          "name": "Cane of Somaria",
+          "area": "Crown Dungeon",
+          "howTo": "The dungeon item of the Crown Dungeon.",
+          "notes": "Makes one block at a time."
+        },
+        {
+          "id": "boomerang",
+          "name": "Boomerang",
+          "area": "Rolling Ridge",
+          "howTo": "A prize at the Goron Shooting Gallery in the past or the Target Carts in the present.",
+          "notes": "Optional."
+        },
+        {
+          "id": "bombchus",
+          "name": "Bombchus",
+          "area": "Yoll Graveyard",
+          "howTo": "Only through linking secrets with Oracle of Seasons: the Troy Secret (win Dr. Troy's game on East Rolling Ridge) or the Subrosian Secret told to Farore. Afterwards Syrup sells them, 5 for 100 Rupees.",
+          "tags": ["Linked"]
+        },
+        {
+          "id": "biggorons_sword",
+          "name": "Biggoron's Sword",
+          "area": "Rolling Ridge (past)",
+          "howTo": "Only through linking secrets with Oracle of Seasons: tell the Goron Elder the Elder Secret and score 300 points at the Goron Shooting Gallery, or tell Farore the Biggoron Secret.",
+          "notes": "The strongest sword. It takes both the A and B slots.",
+          "tags": ["Linked"]
+        }
+      ]
+    },
+    {
+      "id": "upgrades",
+      "title": "Upgrades",
+      "note": "Each tap does the next upgrade in order. Linked-only steps say so. The Ring Box is in the rings tracker.",
+      "items": [
+        {
+          "id": "sword",
+          "name": "Sword",
+          "tiers": [
+            {"name": "Wooden Sword", "howTo": "Impa gives it in the Forest of Time after Veran possesses Nayru. In a Linked Game you start with it."},
+            {"name": "Noble Sword", "howTo": "Finish the trading sequence: the Old Zora trades a Broken Sword for the Sea Ukulele, and Patch repairs it on Restoration Wall if you win his cart game."},
+            {"name": "Master Sword (Linked)", "howTo": "Linked only: the King Zora Secret (from the Zora in Holodrum's Hero's Cave) or the Clock Shop Secret told to Farore."}
+          ],
+          "notes": "If a secret gives you the Noble Sword first, Patch's repair makes the Master Sword instead."
+        },
+        {
+          "id": "shield",
+          "name": "Shield",
+          "tiers": [
+            {"name": "Wooden Shield", "howTo": "Buy it at the Lynna City shop for 30 Rupees, or from Business Scrubs (one in the Deku Forest sells it for 10). In a Linked Game Impa gives it to you."},
+            {"name": "Iron Shield", "howTo": "With the Mermaid Suit, swim to the Tokay in a cave on Crescent Island's south side; he returns your stolen shield as an Iron Shield."},
+            {"name": "Mirror Shield (Linked)", "howTo": "Linked only: the Library Secret (the librarian in the past) or the Smith Secret told to Farore. With the Iron Shield already, the Crescent Island Tokay gives the Mirror Shield."}
+          ],
+          "notes": "If a Like Like eats your shield, shops sell a replacement."
+        },
+        {
+          "id": "power_bracelet",
+          "name": "Power Bracelet",
+          "tiers": [
+            {"name": "Power Bracelet", "howTo": "The dungeon item of the Spirit's Grave."},
+            {"name": "Power Glove", "howTo": "The dungeon item of the Ancient Tomb. Lifts the heaviest statues."}
+          ]
+        },
+        {
+          "id": "zora_flippers",
+          "name": "Flippers",
+          "tiers": [
+            {"name": "Zora's Flippers", "howTo": "In Cheval's tomb, in the northwest of Yoll Graveyard in the present; Moosh flies you there."},
+            {"name": "Mermaid Suit", "howTo": "The dungeon item of Mermaid's Cave. Swim in deep water, dive and fight currents."}
+          ]
+        },
+        {
+          "id": "switch_hook",
+          "name": "Switch Hook",
+          "tiers": [
+            {"name": "Switch Hook", "howTo": "The dungeon item of the Skull Dungeon."},
+            {"name": "Long Hook", "howTo": "The dungeon item of Jabu-Jabu's Belly. The same, with a longer reach."}
+          ]
+        },
+        {
+          "id": "seed_satchel_capacity",
+          "name": "Seed Satchel capacity",
+          "tiers": [
+            {"name": "50 of each seed", "value": 30, "howTo": "Visit Tingle again after he gives you the Island Chart; without Ricky, shoot the crystal in the cave at the south of the Forest of Time with the Seed Shooter to reach him."},
+            {"name": "99 of each seed (Linked)", "value": 49, "howTo": "Linked only: the Tingle Secret told to Tingle, or the Deku Secret told to Farore."}
+          ],
+          "notes": "Starts at 20 of each. Tingle and the secret can come in either order; the second makes it 99."
+        },
+        {
+          "id": "bomb_capacity",
+          "name": "Bomb capacity",
+          "tiers": [
+            {"name": "30 Bombs", "value": 20, "howTo": "On Talus Peaks in the present, throw a bomb into the pond whose sign says to throw nothing in, and answer the fairy honestly."},
+            {"name": "50 Bombs (Linked)", "value": 20, "howTo": "Linked only: the Tokay Secret (win the Wild Tokay game at the Crescent Island museum) or the Pirate Secret told to Farore."}
+          ],
+          "notes": "Starts at 10."
+        }
+      ]
+    },
+    {
+      "id": "key_items",
+      "title": "Quest Items",
+      "note": "The Quest Status screen, roughly in the order you find them. Essences are in Main Quest; rings, Gasha Seeds and trade items have their own trackers. The four Slates stay in the Ancient Tomb.",
+      "items": [
+        {
+          "id": "graveyard_key",
+          "name": "Graveyard Key",
+          "area": "Yoll Graveyard",
+          "howTo": "In the cave in the graveyard's south (burn the tree in front), light the lamp with an Ember Seed and it drops from the ceiling.",
+          "notes": "Opens the gate to the Spirit's Grave."
+        },
+        {
+          "id": "cheval_rope",
+          "name": "Cheval Rope",
+          "area": "Yoll Graveyard",
+          "howTo": "Deeper in Cheval's tomb, past the Zora's Flippers: swim along the north side of the flooded cave to its stairs.",
+          "notes": "Rafton needs it to build the raft."
+        },
+        {
+          "id": "ricky_gloves",
+          "name": "Ricky's Gloves",
+          "area": "South of Lynna City",
+          "howTo": "Dig by the tree on the beach south of Lynna City, in the present.",
+          "notes": "Return them to Ricky by the Yoll Graveyard entrance. Also in Animal Companions."
+        },
+        {
+          "id": "island_chart",
+          "name": "Island Chart",
+          "area": "South of Lynna City",
+          "howTo": "Ricky jumps you up to Tingle; pop his balloon and become his friend.",
+          "notes": "Rafton won't launch the raft without it."
+        },
+        {
+          "id": "scent_seedling",
+          "name": "Scent Seedling",
+          "area": "Crescent Island (past)",
+          "howTo": "Win the Wild Tokay game behind a bombable wall between the Cucco hut and the trading hut (10 Rupees a try).",
+          "notes": "Give it to the Tokay at the tree nursery; it's a Scent Tree in the present."
+        },
+        {
+          "id": "tuni_nut",
+          "name": "Tuni Nut",
+          "tiers": [
+            {"name": "Cracked Tuni Nut", "howTo": "In Symmetry Village in the past, the brother who can't leave his house gives it to you."},
+            {"name": "Tuni Nut", "howTo": "Patch mends it on Restoration Wall if you win his cart game. Set it back on its pedestal in the village's middle house."}
+          ],
+          "notes": "Restores Symmetry City in the present."
+        },
+        {
+          "id": "bomb_flower",
+          "name": "Bomb Flower",
+          "area": "Rolling Ridge",
+          "howTo": "The Gorons give it to you after you beat the Great Moblin in his keep in the present.",
+          "notes": "Take it to the past to free the Goron Elder."
+        },
+        {
+          "id": "crown_key",
+          "name": "Crown Key",
+          "area": "Rolling Ridge (past)",
+          "howTo": "The Goron Elder gives it once you free him from the boulder with the Bomb Flower.",
+          "notes": "Opens the Crown Dungeon."
+        },
+        {
+          "id": "brother_emblem",
+          "name": "Brother Emblem",
+          "area": "Goron Dance Hall, Rolling Ridge",
+          "howTo": "Dance the Goron Dance perfectly for the Graceful Goron, in either age.",
+          "notes": "Makes you an honorary Goron, so the guard on the stairs lets you up."
+        },
+        {
+          "id": "rock_brisket",
+          "name": "Rock Brisket",
+          "area": "Target Carts, Rolling Ridge",
+          "howTo": "Hit all twelve targets in Target Carts in the present.",
+          "notes": "Give it to the hungry Goron guarding the stairs."
+        },
+        {
+          "id": "goron_vase",
+          "name": "Goron Vase",
+          "area": "Rolling Ridge",
+          "howTo": "The hungry stairs guard gives it to you for the Rock Brisket.",
+          "notes": "His ancestor in the past wants it."
+        },
+        {
+          "id": "goronade",
+          "name": "Goronade",
+          "area": "Rolling Ridge (past)",
+          "howTo": "The stairs guard's ancestor gives it to you for the Goron Vase.",
+          "notes": "Give it to the tired Big Bang Game owner in the present."
+        },
+        {
+          "id": "old_mermaid_key",
+          "name": "Old Mermaid Key",
+          "area": "Rolling Ridge",
+          "howTo": "Win the Big Bang Game in the present once its owner has had the Goronade.",
+          "notes": "Opens Mermaid's Cave in the present."
+        },
+        {
+          "id": "lava_juice",
+          "name": "Lava Juice",
+          "area": "Goron Shooting Gallery, Rolling Ridge (past)",
+          "howTo": "Score 100 points or more at the Goron Shooting Gallery.",
+          "notes": "Trade it for the Letter of Introduction."
+        },
+        {
+          "id": "letter_of_introduction",
+          "name": "Letter of Introduction",
+          "area": "Rolling Ridge (past)",
+          "howTo": "The Graceful Goron's friend, in a cave near the top of Rolling Ridge, gives it for the Lava Juice once you have the Old Mermaid Key.",
+          "notes": "Show it to the Graceful Goron."
+        },
+        {
+          "id": "mermaid_key",
+          "name": "Mermaid Key",
+          "area": "Goron Dance Hall, Rolling Ridge (past)",
+          "howTo": "Show the Graceful Goron the Letter of Introduction and match his dance.",
+          "notes": "Opens Mermaid's Cave in the past."
+        },
+        {
+          "id": "magic_potion",
+          "name": "Magic Potion",
+          "area": "Yoll Graveyard",
+          "howTo": "Buy one at Syrup's shop (300 Rupees), across the water in Yoll Graveyard. Maple or a Gasha Nut may also give one.",
+          "notes": "King Zora needs one in the past. Otherwise it revives you when you fall."
+        },
+        {
+          "id": "library_key",
+          "name": "Library Key",
+          "area": "Zora Village",
+          "howTo": "King Zora gives it in the present after you cure him with a Magic Potion in the past.",
+          "notes": "Opens the Eyeglass Library."
+        },
+        {
+          "id": "book_of_seals",
+          "name": "Book of Seals",
+          "area": "Eyeglass Library",
+          "howTo": "An old man in the present library's back room gives it to you.",
+          "notes": "Its pages show the way across the past library's invisible floor."
+        },
+        {
+          "id": "fairy_powder",
+          "name": "Fairy Powder",
+          "area": "Eyeglass Library (past)",
+          "howTo": "Cross the dark back room by the Book of Seals' directions to the old man holding it.",
+          "notes": "Cures the Queen Fairy, cursed into an Octorok, who then cleans the Zora Seas."
+        },
+        {
+          "id": "zora_scale",
+          "name": "Zora Scale",
+          "area": "Zora Seas",
+          "howTo": "A Zora gives it to you as you leave Jabu-Jabu's Belly.",
+          "notes": "Gets you past the guard to the Sea of Storms. The Piratians' Cap'n needs it."
+        },
+        {
+          "id": "tokay_eyeball",
+          "name": "Tokay Eyeball",
+          "area": "Sea of Storms",
+          "howTo": "The Piratians' Cap'n gives it for the Zora Scale.",
+          "notes": "Set it in the Tokay statue on Crescent Island to open the way to the Sea of No Return."
+        },
+        {
+          "id": "huge_maku_seed",
+          "name": "Huge Maku Seed",
+          "area": "Lynna City",
+          "howTo": "The Maku Tree gives it in the present once you have all eight Essences of Time.",
+          "notes": "Breaks the barrier in the Black Tower."
+        }
+      ]
+    }
+  ]
+}

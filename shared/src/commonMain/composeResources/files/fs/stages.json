@@ -1,0 +1,95 @@
+{
+  "regions": ["Chambers of Insight", "Sea of Trees", "Talus Cave", "Death Mountain", "Vaati's Palace"],
+  "noun": "step",
+  "hiddenLabel": "Hidden stage",
+  "summaries": [{"label": "Keys", "formula": "silver.value + golden.value + heros.value"}, {"label": "Palace doors", "formula": "vaati_silver_door + vaati_golden_door + vaati_heros_door"}],
+  "sections": [
+    {
+      "id": "silver",
+      "title": "Silver Keys",
+      "note": "1,000 Rupees in each stage for its Great Fairy's Silver Key; all three raise Vaati's Palace.",
+      "items": [
+        {"id": "chambers_of_insight", "name": "Chambers of Insight", "region": "Chambers of Insight", "area": "Domed yellow building on an island in south-east Hyrule", "howTo": "The optional tutorial, open from the start. Stand on the warp zones together: two levels of basics, a level for each of the Bow, Pegasus Boots, Boomerang, Roc's Cape and Magnetic Glove, and a two-level final test that ends with an Ice Wizzrobe. Leave by the southernmost warp zones.", "value": 0, "reward": "None (practice only)", "notes": "Not needed to finish the game, and not part of speedrun.com's 100%. The only stage whose warp zones lead back to earlier levels.", "tags": ["Optional"]},
+        {"id": "silver_key_sea_of_trees", "name": "Sea of Trees: Silver Key", "region": "Sea of Trees", "area": "Two bird-like statues in central Hyrule", "howTo": "Clear two floors and defeat Big Manhandla on the third: stun it, then cut or bomb its flower heads. With at least 1,000 Rupees between you, the Great Fairy of Forest gives each Link a Silver Key.", "reward": "Silver Key (Great Fairy of Forest)", "notes": "Open from the start; the three stages can be done in any order. Items found here: Bomb, Boomerang, Bow, Gnat Hat, Roc's Cape, Shield. Fewer than 1,000 Rupees gets no key; play the stage again. Every Link gets a key, so each player's own file tracks it.", "tags": ["Big Manhandla"]},
+        {"id": "silver_key_talus_cave", "name": "Talus Cave: Silver Key", "region": "Talus Cave", "area": "Stone doorway at the foot of a mountain in western Hyrule", "howTo": "Clear two icy floors and defeat Dera Zol on the third. With at least 1,000 Rupees between you, the Great Fairy of Ice gives each Link a Silver Key.", "reward": "Silver Key (Great Fairy of Ice)", "notes": "Adds the Magnetic Glove and Pegasus Boots to the Sea of Trees items.", "tags": ["Dera Zol"]},
+        {"id": "silver_key_death_mountain", "name": "Death Mountain: Silver Key", "region": "Death Mountain", "area": "Volcano in north-west Hyrule", "howTo": "Clear two floors of lava and flames and defeat Gouen on the third. With at least 1,000 Rupees between you, the Great Fairy of Flame gives each Link a Silver Key.", "reward": "Silver Key (Great Fairy of Flame)", "notes": "Adds the Chain Chomp to the Talus Cave items.", "tags": ["Gouen"]},
+        {"id": "vaati_silver_door", "name": "Vaati's Palace: silver door", "region": "Vaati's Palace", "area": "Floating palace above Hyrule (the Palace of Winds)", "howTo": "With all three Silver Keys the palace appears in the sky. Open the silver door, clear two wind-themed levels in the sky and defeat Vaati on the third: first his armored statue form, then his true form.", "requires": ["silver_key_sea_of_trees", "silver_key_talus_cave", "silver_key_death_mountain"], "value": 0, "reward": "The ending; the Great Fairies now give Golden Keys", "notes": "Anniversary Edition: also opens the Realm of Memories.", "tags": ["Vaati"]}
+      ]
+    },
+    {
+      "id": "golden",
+      "title": "Golden Keys",
+      "note": "After the silver door: 3,000 Rupees in a stage for its Golden Key.",
+      "items": [
+        {"id": "golden_key_sea_of_trees", "name": "Sea of Trees: Golden Key", "region": "Sea of Trees", "howTo": "Play the Sea of Trees again and finish with at least 3,000 Rupees between you. Big Manhandla sprouts more flowers at this difficulty.", "requires": ["vaati_silver_door"], "reward": "Golden Key (Great Fairy of Forest)", "notes": "1,000 to 2,999 Rupees earns nothing new once you hold the Silver Key.", "tags": ["Big Manhandla"]},
+        {"id": "golden_key_talus_cave", "name": "Talus Cave: Golden Key", "region": "Talus Cave", "howTo": "Play Talus Cave again and finish with at least 3,000 Rupees between you. Dera Zol starts making illusions at higher difficulties.", "requires": ["vaati_silver_door"], "reward": "Golden Key (Great Fairy of Ice)", "tags": ["Dera Zol"]},
+        {"id": "golden_key_death_mountain", "name": "Death Mountain: Golden Key", "region": "Death Mountain", "howTo": "Play Death Mountain again and finish with at least 3,000 Rupees between you.", "requires": ["vaati_silver_door"], "reward": "Golden Key (Great Fairy of Flame)", "tags": ["Gouen"]},
+        {"id": "vaati_golden_door", "name": "Vaati's Palace: golden door", "region": "Vaati's Palace", "howTo": "Open the golden door with the three Golden Keys. Three levels: the second looks like the Sea of Trees, Talus Cave or Death Mountain, and Vaati waits on the third.", "requires": ["golden_key_sea_of_trees", "golden_key_talus_cave", "golden_key_death_mountain"], "value": 0, "reward": "The Great Fairies now give Hero's Keys", "tags": ["Vaati"]}
+      ]
+    },
+    {
+      "id": "heros",
+      "title": "Hero's Keys",
+      "note": "After the golden door: 5,000 Rupees in a stage for its Hero's Key.",
+      "items": [
+        {"id": "heros_key_sea_of_trees", "name": "Sea of Trees: Hero's Key", "region": "Sea of Trees", "howTo": "Play the Sea of Trees again and finish with at least 5,000 Rupees between you. Keep everyone at full health: Rupee Fever doubles each Rupee's worth (multiplayer only in the Anniversary Edition).", "requires": ["vaati_golden_door"], "reward": "Hero's Key (Great Fairy of Forest)", "tags": ["Big Manhandla"]},
+        {"id": "heros_key_talus_cave", "name": "Talus Cave: Hero's Key", "region": "Talus Cave", "howTo": "Play Talus Cave again and finish with at least 5,000 Rupees between you.", "requires": ["vaati_golden_door"], "reward": "Hero's Key (Great Fairy of Ice)", "tags": ["Dera Zol"]},
+        {"id": "heros_key_death_mountain", "name": "Death Mountain: Hero's Key", "region": "Death Mountain", "howTo": "Play Death Mountain again and finish with at least 5,000 Rupees between you.", "requires": ["vaati_golden_door"], "reward": "Hero's Key (Great Fairy of Flame)", "tags": ["Gouen"]},
+        {"id": "vaati_heros_door", "name": "Vaati's Palace: hero's door", "region": "Vaati's Palace", "howTo": "The three Hero's Keys open a shutter between the silver and golden doors. Twelve levels mixing all three stages, with Big Manhandla, Dera Zol or Gouen every three levels and Vaati on the twelfth.", "requires": ["heros_key_sea_of_trees", "heros_key_talus_cave", "heros_key_death_mountain"], "value": 0, "reward": "Golden sword icon on the file", "notes": "Anniversary Edition: the Great Fairies also change their look. Zelda Wiki's game article says nine floors, but its Vaati's Palace page, Zelda Dungeon and the game's text all say 12.", "tags": ["Vaati"]}
+      ]
+    },
+    {
+      "id": "realm_of_memories",
+      "title": "Realm of Memories",
+      "separate": true,
+      "noun": "level",
+      "hiddenLabel": "Hidden level",
+      "note": "Nine fixed levels in the style of A Link to the Past, Link's Awakening and The Legend of Zelda. No bosses. Anniversary Edition only.",
+      "items": [
+        {"id": "realm_silver_1", "name": "Hyrule Castle exterior", "area": "Silver door, level 1 (A Link to the Past)", "howTo": "Once Vaati's Palace has been cleared, the Triforce symbol in the Sea of Trees rises into the sky; open its silver door. Puzzles here need the Shield, Pegasus Boots and Bombs.", "requires": ["vaati_silver_door"]},
+        {"id": "realm_silver_2", "name": "Hyrule Castle interior", "area": "Silver door, level 2 (A Link to the Past)", "howTo": "Narrow passages with Flying Floors and Cracked Blocks; bring the Magnetic Glove or Bombs.", "requires": ["realm_silver_1"]},
+        {"id": "realm_silver_3", "name": "Lost Woods", "area": "Silver door, level 3 (A Link to the Past)", "howTo": "Floor spikes and holes: ride the small moving platforms with the Gnat Hat and bomb the Shock Switches you can't reach.", "requires": ["realm_silver_2"], "reward": "Opens the golden door"},
+        {"id": "realm_golden_1", "name": "Mysterious Forest", "area": "Golden door, level 1 (Link's Awakening)", "howTo": "The Mysterious Forest, Goponga Swamp and Koholint Prairie, with Cracked Blocks, Locked Blocks and holes; puzzles use the Roc's Cape, Chain Chomp and Bombs.", "requires": ["realm_silver_3"], "notes": "The doorways of the Telephone Booth and Mr. Write's house hide chests of large Rupees."},
+        {"id": "realm_golden_2", "name": "Tail Cave", "area": "Golden door, level 2 (Link's Awakening)", "howTo": "Small rooms and open areas full of cracked tiles and holes; solve the puzzles with the Roc's Cape or the Magnetic Glove.", "requires": ["realm_golden_1"]},
+        {"id": "realm_golden_3", "name": "Tal Tal Heights", "area": "Golden door, level 3 (Link's Awakening)", "howTo": "Climb from Tal Tal Heights through the Tal Tal Mountain Range to Mt. Tamaranch, jumping holes and geysers with the Roc's Cape. Shoot the Eye Switches and solve the statue switch puzzle.", "requires": ["realm_golden_2"], "reward": "Opens the hero's door"},
+        {"id": "realm_heros_1", "name": "Central Overworld", "area": "Hero's door, level 1 (The Legend of Zelda)", "howTo": "The NES starting screen and the area around Level 1's entrance. Bomb the Cracked Blocks, shoot the Eyegores with the Bow and cross the islands with the Roc's Cape.", "requires": ["realm_golden_3"]},
+        {"id": "realm_heros_2", "name": "Western Overworld", "area": "Hero's door, level 2 (The Legend of Zelda)", "howTo": "The south and west of the NES overworld: the Lost Woods and the Graveyard. Ride the spring tiles and hit the lever with the Boomerang.", "requires": ["realm_heros_1"]},
+        {"id": "realm_heros_3", "name": "Level 1 (The Eagle)", "area": "Hero's door, level 3 (The Legend of Zelda)", "howTo": "The NES game's first dungeon: rooms of holes, solved with the Boomerang or the Bow.", "requires": ["realm_heros_2"], "reward": "Master Sword: Sword Beams at full health (an icon on the file)"}
+      ]
+    },
+    {
+      "id": "heros_trial",
+      "title": "Hero's Trial",
+      "separate": true,
+      "noun": "level",
+      "hiddenLabel": "Hidden level",
+      "note": "Nine long levels themed on the main stages; each door ends in a version of Vaati's Palace. No bosses. Anniversary Edition only.",
+      "items": [
+        {"id": "heros_trial_unlock", "name": "Open the Hero's Trial", "area": "Rock spire on Hyrule's east coast", "howTo": "Win five Medals of Courage (\"hero medals\") or collect 30,000 Rupees in total. Lightning strikes the spire on the stage map and reveals the sword-shaped entrance.", "value": 0, "notes": "A medal goes to the Link with the most Rupees at the end of a stage, and only in multiplayer, so a single player opens it with the 30,000 Rupees. Zelda Dungeon mentions only the Rupees; Zelda Wiki and the game's text give both."},
+        {"id": "trial_silver_1", "name": "Silver door, level 1", "area": "Snowy Sea of Trees", "howTo": "Holes hide under leaf piles, Spiny Beetles under bushes, and enemies behind short walls need Bombs.", "requires": ["heros_trial_unlock"], "notes": "Items are not kept between levels in the Hero's Trial. A \"25\" for the series' anniversary is drawn in grass past the warp zones at the end."},
+        {"id": "trial_silver_2", "name": "Silver door, level 2", "area": "Snowy Sea of Trees", "howTo": "Clear bushes and hit switches with the Boomerang and Bow, riding moving and four-directional platforms.", "requires": ["trial_silver_1"]},
+        {"id": "trial_silver_3", "name": "Silver door, level 3", "area": "Vaati's Palace (alternate)", "howTo": "Dash over ramps and ice with the Pegasus Boots, then backtrack as holes open; shoot the Eye Switches to make bridges.", "requires": ["trial_silver_2"], "reward": "Opens the golden door"},
+        {"id": "trial_golden_1", "name": "Golden door, level 1", "area": "Dark purple Talus Cave", "howTo": "Shrink with the Gnat Hat to cross strings of tiny moving platforms between small rooms.", "requires": ["trial_silver_3"]},
+        {"id": "trial_golden_2", "name": "Golden door, level 2", "area": "Dark purple Talus Cave", "howTo": "Hold up the Shield to inch along narrow ice floors.", "requires": ["trial_golden_1"], "notes": "A cracked wall at the end of the first ice path, bombed with a Bomb from a nearby bush, is a one-way shortcut. The \"25\" is in coloured tiles mid-level, each visible only to its own Link."},
+        {"id": "trial_golden_3", "name": "Golden door, level 3", "area": "Vaati's Palace (alternate)", "howTo": "Narrow walkways over holes, with Pathblades and wind fans. The last fight is six Spiny Beetles, six Stalchildren and two Bow Moblins, then four Spiny Beetles, four Fire Wizzrobes and a Ball and Chain Soldier.", "requires": ["trial_golden_2"], "reward": "Opens the hero's door"},
+        {"id": "trial_heros_1", "name": "Hero's door, level 1", "area": "Desaturated Death Mountain", "howTo": "Precise Roc's Cape jumps over lava and holes, then back past Ball and Chain Soldiers and Stalchildren.", "requires": ["trial_golden_3"], "notes": "The \"25\" is in grated platforms near the end."},
+        {"id": "trial_heros_2", "name": "Hero's door, level 2", "area": "Desaturated Death Mountain", "howTo": "Six locked rooms in any order, each needing a different item.", "requires": ["trial_heros_1"]},
+        {"id": "trial_heros_3", "name": "Hero's door, level 3", "area": "Vaati's Palace (alternate)", "howTo": "Enemies trapped behind short walls and Flying Floors: blow up the Bombarossas with the Boomerang and Bow before the floors run out. The last fight is eight Eyegores, then five Ball and Chain Soldiers and four Darknuts.", "requires": ["trial_heros_2"], "reward": "Hurricane Spin: tap B during a Spin Attack (an icon on the file)"}
+      ]
+    },
+    {
+      "id": "alttp_links",
+      "title": "ALttP Link-ups",
+      "separate": true,
+      "noun": "link-up",
+      "hiddenLabel": "Hidden link-up",
+      "note": "Game Boy Advance only: both games share one save file, and each unlocks something in the other.",
+      "items": [
+        {"id": "sword_beams", "name": "Sword Beams", "area": "A Link to the Past: the Lost Woods pedestal", "howTo": "Draw the Master Sword in A Link to the Past on the same file. From then on your sword fires a beam at full health in Four Swords too.", "reward": "Sword Beams in Four Swords", "notes": "The Anniversary Edition has no A Link to the Past, so it gives the Master Sword for clearing the Realm of Memories instead."},
+        {"id": "ten_medals", "name": "10 Medals of Courage", "area": "Four Swords: any stage", "howTo": "At the end of each stage a Medal of Courage goes to the Link who picked up the most Rupees. Your total shows on the Player Select screen; reach 10 on this file.", "reward": "Opens the Lumberjack's Riddles in A Link to the Past", "notes": "Medals keep counting past 10 and have no other use on the GBA. Fan guides call them Triforce Medals."},
+        {"id": "hurricane_spin", "name": "Hurricane Spin (Lumberjack's Riddles)", "area": "A Link to the Past: the Lumberjack's house north of the Death Mountain entrance", "howTo": "After Agahnim's first defeat, Q. Bumpkin gives you a Basket and ten riddles. Catch each answer with the Bug-Catching Net: a Cucco, Sand Crab, Red Rupee, fish, Puffer, Slime, squirrel, Fake Master Sword, apple and Cukeman.", "requires": ["ten_medals"], "reward": "Hurricane Spin in both games; 3 Carver's Statues (after riddles 1, 4 and 7)", "notes": "StrategyWiki calls it the Riddle Quest. The Anniversary Edition gives the Hurricane Spin for clearing the Hero's Trial."},
+        {"id": "palace_of_the_four_sword", "name": "Palace of the Four Sword", "area": "A Link to the Past: the east side of the Pyramid of Power", "howTo": "Beat Vaati in Four Swords and Ganon in A Link to the Past on the same file, then pay the Gatekeeper 20 Rupees. Win the four coloured blades from the stronger Arrghus, Helmasaur King, Mothula and Blind, then defeat the four Dark Links.", "after": "Ganon beaten in A Link to the Past", "reward": "The Four Sword restored; an alternate ending with a Quest Log", "notes": "StrategyWiki needs only Vaati beaten; Zelda Wiki and the official encyclopedia also need Ganon.", "requires": ["vaati_silver_door"]}
+      ]
+    }
+  ]
+}

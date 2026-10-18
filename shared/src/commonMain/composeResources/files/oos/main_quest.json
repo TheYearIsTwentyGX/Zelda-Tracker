@@ -1,0 +1,159 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {"label": "Essences of Nature", "formula": "dungeons.value"}
+  ],
+  "sections": [
+    {
+      "id": "prologue",
+      "title": "Prologue",
+      "note": "Before the first Essence. These steps don't count toward the Essences.",
+      "items": [
+        {
+          "id": "heros_cave",
+          "name": "Hero's Cave",
+          "area": "Western Coast",
+          "howTo": "Onox carries Din off and Impa sends you to the Maku Tree, but its gate needs a sword. Head west out of Horon Village, drop down to the coast and enter the cave by the dock. Push the blocks and find the Small Key to reach the chest.",
+          "reward": "Wooden Sword",
+          "value": 0,
+          "notes": "In a Linked Game you start with the Wooden Sword and the Hero's Cave becomes a long optional dungeon that needs the seventh dungeon's treasure.",
+          "tags": ["Story"]
+        },
+        {
+          "id": "maku_tree",
+          "name": "Wake the Maku Tree",
+          "area": "Horon Village",
+          "howTo": "Swing your sword at the gate in east Horon Village (its sign says to show courage), then pop the sleeping Maku Tree's bubble with the sword and deliver Impa's message.",
+          "requires": ["heros_cave"],
+          "reward": "Gnarled Key",
+          "value": 0,
+          "tags": ["Story"]
+        }
+      ]
+    },
+    {
+      "id": "dungeons",
+      "title": "Essences of Nature",
+      "note": "Each dungeon's boss guards a Heart Container and an Essence of Nature.",
+      "items": [
+        {
+          "id": "gnarled_root_dungeon",
+          "name": "Gnarled Root Dungeon",
+          "area": "North Horon",
+          "howTo": "Use the Gnarled Key in the keyhole by the giant root in the lake north of Horon Village. The root rises into a tree with the dungeon inside.",
+          "requires": ["maku_tree"],
+          "reward": "Fertile Soil, Heart Container",
+          "notes": "Boss: Aquamentus. Dungeon item: Seed Satchel (with 20 Ember Seeds). Bombs are in a chest here too.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "snakes_remains",
+          "name": "Snake's Remains",
+          "area": "Woods of Winter",
+          "howTo": "Follow Rosa north from the Eastern Suburbs, unseen, to a hidden portal, and get the Rod of Seasons and the Power of Winter at the Temple of Seasons in Subrosia. Make it winter to cross the frozen pond into the woods, drop down Holly's chimney for the Shovel, and dig through the snow to the entrance.",
+          "requires": ["gnarled_root_dungeon"],
+          "reward": "Gift of Time, Heart Container",
+          "notes": "Boss: Dodongo. Dungeon item: Power Bracelet. The Subrosia portal only appears after the Gnarled Root Dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "poison_moths_lair",
+          "name": "Poison Moth's Lair",
+          "area": "Spool Swamp",
+          "howTo": "Beat Blaino at his gym to win back Ricky's Gloves; Ricky hops you over the holes to Spool Swamp. Take the Floodgate Key from the Floodgate Keeper's House and open the floodgate. Dig up the Star-Shaped Ore at the Subrosia Seaside, trade it for the Ribbon and give it to Rosa for the Power of Summer. Make it summer at the stump in northern Spool Swamp; the entrance is one screen north.",
+          "requires": ["snakes_remains"],
+          "reward": "Bright Sun, Heart Container",
+          "notes": "Boss: Mothula. Dungeon item: Roc's Feather.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "dancing_dragon_dungeon",
+          "name": "Dancing Dragon Dungeon",
+          "area": "Mt. Cucco",
+          "howTo": "Earn the Zora's Flippers from the Master Diver in Sunken City and dive through to Mt. Cucco. Through its portal, win Roc's Feather back from the Strange Brothers and get the Power of Spring. Feed Moosh a Spring Banana so he flies you to the Dragon Key on Goron Mountain, then use it in the keyhole by the waterfall to stop it.",
+          "requires": ["poison_moths_lair"],
+          "reward": "Soothing Rain, Heart Container",
+          "notes": "Boss: Gohma. Dungeon item: Slingshot.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "unicorns_cave",
+          "name": "Unicorn's Cave",
+          "area": "Eyeglass Lake",
+          "howTo": "Take the portal on Eyeglass Lake to Subrosia, carry the Bomb Flower from Lava Lake to the Subrosian Smelter by the Tower of Autumn and get the Power of Autumn. In autumn the mushrooms blocking the entrance can be cleared.",
+          "requires": ["poison_moths_lair"],
+          "reward": "Nurturing Warmth, Heart Container",
+          "notes": "Boss: Digdogger. Dungeon item: Magnetic Gloves. Spring and Autumn can be won in either order.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "ancient_ruins",
+          "name": "Ancient Ruins",
+          "area": "Tarm Ruins",
+          "howTo": "Collect the Round, Pyramid, Square and X-Shaped Jewels and set them in the gate to Tarm Ruins, past Spool Swamp. Change the seasons to climb through the ruins and the Lost Woods to the entrance.",
+          "requires": ["unicorns_cave"],
+          "reward": "Blowing Wind, Heart Container",
+          "notes": "Boss: Manhandla. Dungeon item: Magical Boomerang. The Treasure Map (Horon Village Shop basement) marks the jewels. The Round Jewel needs five Essences.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "explorers_crypt",
+          "name": "Explorer's Crypt",
+          "area": "Western Coast",
+          "howTo": "Help the Piratians in Subrosia: find the Rusty Bell in the Samasa Desert quicksand with the pirate's skull, have the Subrosian Smithy polish it, and return the Pirate's Bell to their Cap'n. Their ship sails to the Western Coast; make it summer and climb the vines to the graveyard.",
+          "requires": ["ancient_ruins"],
+          "reward": "Seed of Life, Heart Container",
+          "notes": "Boss: Gleeok. Dungeon item: Roc's Cape. The Piratians' hideout is reached through the portal under Horon Village, opened with the Magical Boomerang. The Cap'n won't send you before the Ancient Ruins.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "sword_and_shield_maze",
+          "name": "Sword & Shield Maze",
+          "area": "Subrosian Volcanoes",
+          "howTo": "In the Temple Remains, use autumn and winter to reach a portal, then throw a bomb into the Subrosian's pit to make the volcanoes erupt. Back in the remains, make it summer, work through the inside with the Roc's Cape and Magnetic Gloves, and take the portal at the top.",
+          "requires": ["explorers_crypt"],
+          "reward": "Changing Seasons, Heart Container",
+          "notes": "Boss: Medusa Head. Dungeon item: Hyper Slingshot. The only dungeon in Subrosia, and the one the Maku Tree can't point you to.",
+          "tags": ["Dungeon"]
+        }
+      ]
+    },
+    {
+      "id": "finale",
+      "title": "Finale",
+      "note": "Twinrova and Ganon appear only in a Linked Game.",
+      "items": [
+        {
+          "id": "onoxs_castle",
+          "name": "General Onox",
+          "area": "Onox's Castle, Northern Peak",
+          "howTo": "With all eight Essences the Maku Tree gives you the Huge Maku Seed, which breaks the dark barrier on Northern Peak. In the castle, clear each room's enemies before taking the way on, then face Onox.",
+          "requires": ["gnarled_root_dungeon", "snakes_remains", "poison_moths_lair", "dancing_dragon_dungeon", "unicorns_cave", "ancient_ruins", "explorers_crypt", "sword_and_shield_maze"],
+          "reward": "Din freed, the Secret to Labrynna",
+          "notes": "Use the Rod of Seasons to knock Din's crystal aside, and the Roc's Cape against his dragon form. The ending gives a secret that starts a Linked Game of Oracle of Ages.",
+          "tags": ["Boss"]
+        },
+        {
+          "id": "twinrova",
+          "name": "Twinrova",
+          "area": "Room of Rites",
+          "howTo": "Linked Game only. After Onox falls, the Oracles send you to the Room of Rites. Through the hall of eye statues, take the way none of the eyes look; then beat Koume and Kotake, and Twinrova when they merge.",
+          "requires": ["onoxs_castle"],
+          "notes": "Turn each witch's spell into the other one. Twinrova is weak to Scent Seeds from the Slingshot while she glows both colours.",
+          "tags": ["Linked", "Boss"]
+        },
+        {
+          "id": "ganon",
+          "name": "Ganon",
+          "area": "Room of Rites",
+          "howTo": "Linked Game only. Twinrova sacrifices herself to revive Ganon. Dodge with the Roc's Cape and hit him with charged spin attacks.",
+          "requires": ["twinrova"],
+          "reward": "Zelda rescued, the true ending",
+          "notes": "Near the end he reverses your controls.",
+          "tags": ["Linked", "Boss"]
+        }
+      ]
+    }
+  ]
+}

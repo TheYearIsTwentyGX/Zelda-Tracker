@@ -1,0 +1,51 @@
+{
+  "noun": "tune",
+  "hiddenLabel": "Unlearned tune",
+  "summaries": [
+    {"label": "Tunes", "formula": "tunes.value"}
+  ],
+  "sections": [
+    {
+      "id": "tunes",
+      "title": "Harp of Ages",
+      "note": "Time travel doesn't work inside dungeons, in Yoll Graveyard, on the Sea of No Return or around the Black Tower. Any tune also beats a Pols Voice.",
+      "items": [
+        {
+          "id": "harp_of_ages",
+          "name": "Harp of Ages",
+          "area": "Nayru's House, Lynna City",
+          "howTo": "After the Wing Dungeon's entrance collapses, go to Nayru's house in the northeast of Lynna City, talk to Impa, push the statue aside and take the stairs to the hidden cellar.",
+          "after": "Spirit's Grave",
+          "reward": "Harp of Ages",
+          "value": 0,
+          "notes": "Nayru's harp. An image of her teaches you the Tune of Echoes as you take it."
+        },
+        {
+          "id": "tune_of_echoes",
+          "name": "Tune of Echoes",
+          "area": "Nayru's House, Lynna City",
+          "howTo": "Nayru's image teaches it when you take the Harp of Ages.",
+          "requires": ["harp_of_ages"],
+          "notes": "Play it on a Time Portal's spot to open it, then step in to cross to the other age. The first portal is outside Nayru's house."
+        },
+        {
+          "id": "tune_of_currents",
+          "name": "Tune of Currents",
+          "area": "Talus Peaks (past)",
+          "howTo": "On the way to Restoration Wall, swim and dive to Tokkey's home atop Talus Peaks, west of Symmetry Village, and play the Harp for him.",
+          "requires": ["tune_of_echoes"],
+          "after": "Moonlit Grotto",
+          "notes": "Sends you from the past to the present from almost anywhere, leaving a portal to come back by. If the spot is blocked in the present, you're sent back."
+        },
+        {
+          "id": "tune_of_ages",
+          "name": "Tune of Ages",
+          "area": "Ambi's Palace (past)",
+          "howTo": "Nayru teaches it when you free her from Veran at Ambi's Palace, after Mermaid's Cave.",
+          "requires": ["tune_of_currents"],
+          "notes": "Travel either way between the ages from almost anywhere. If the spot is blocked in the other age, you're sent back."
+        }
+      ]
+    }
+  ]
+}
