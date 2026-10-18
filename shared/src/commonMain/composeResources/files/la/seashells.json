@@ -1,0 +1,995 @@
+{
+  "regions": [
+    "Mabe Village",
+    "South of the Village",
+    "Toronbo Shores",
+    "Mysterious Forest",
+    "Koholint Prairie",
+    "Ukuku Prairie",
+    "Goponga Swamp",
+    "Tabahl Wasteland",
+    "Kanalet Castle",
+    "Pothole Field",
+    "Tal Tal Heights",
+    "Martha's Bay",
+    "Animal Village",
+    "Yarna Desert",
+    "Ancient Ruins",
+    "Rapids Ride",
+    "Tal Tal Mountain Range"
+  ],
+  "noun": "seashell",
+  "hiddenLabel": "Unfound seashell",
+  "sections": [
+    {
+      "id": "seashells",
+      "title": "Secret Seashells",
+      "hiddenLabel": "Unfound Secret Seashell",
+      "note": "Game Boy and DX: 26. Get all of them before the Koholint Sword.",
+      "items": [
+        {
+          "id": "mabe_trendy_bushes",
+          "name": "Bush north of the Trendy Game",
+          "region": "Mabe Village",
+          "area": "Bush patch one screen north of the Trendy Game",
+          "howTo": "Cut the bush four rows across and four rows up in the patch north of the Trendy Game.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "forest_rock_chest",
+          "name": "Chest behind a rock",
+          "region": "Mysterious Forest",
+          "area": "South-west part of the forest",
+          "howTo": "Lift the rock in front of the chest.",
+          "after": "Bottle Grotto (Power Bracelet)",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "bowwow_doghouse",
+          "name": "BowWow's doghouse",
+          "region": "Mabe Village",
+          "area": "Madam MeowMeow's yard",
+          "howTo": "Dig in the bottom-right corner of BowWow's doghouse.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "tail_cave_chest",
+          "name": "Tail Cave chest",
+          "region": "South of the Village",
+          "area": "Tail Cave (Level 1)",
+          "howTo": "From the entrance go up, left and up, bomb the cracked west wall and open the chest.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Bombs",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "key_cavern_roof",
+          "name": "Key Cavern roof",
+          "region": "Ukuku Prairie",
+          "area": "On top of Key Cavern",
+          "howTo": "Climb the stairs one screen right of Key Cavern's entrance, go one screen left and dig the bare square between four tufts of grass.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "mansion_bonus_five",
+          "name": "Seashell Mansion: exactly 5",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Walk into the Seashell Mansion carrying exactly 5 seashells and the sensor gives you one more.",
+          "missable": true,
+          "notes": "Lost if you pass 5 without visiting. Not in the Switch remake.",
+          "tags": [
+            "Seashells"
+          ]
+        },
+        {
+          "id": "mansion_east_bushes",
+          "name": "Bushes east of the Mansion",
+          "region": "Ukuku Prairie",
+          "area": "One screen right of the Seashell Mansion",
+          "howTo": "It's under the second of the top two bushes.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "villa_tunnel_chest",
+          "name": "Tunnel under Richard's Villa",
+          "region": "Pothole Field",
+          "area": "Tunnel from Richard's Villa, left path",
+          "howTo": "Give Richard the five Golden Leaves to open the tunnel. Take the left path, push the boulder into the pit, jump across and open the chest.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Golden Leaves",
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "witch_hut_stairs_bush",
+          "name": "Bush below the Witch's Hut",
+          "region": "Koholint Prairie",
+          "area": "South-west of the Witch's Hut",
+          "howTo": "Lift the rock blocking the stairs, go down one screen, cut the lone bush and dig where it was.",
+          "notes": "Zelda Dungeon's Game Boy page puts it in Ukuku Prairie. Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet",
+            "Shovel"
+          ]
+        },
+        {
+          "id": "phone_booth_tree",
+          "name": "Tree by the phone booth",
+          "region": "Ukuku Prairie",
+          "area": "Telephone booth just east of Mabe Village",
+          "howTo": "Dash into the tree by the phone booth with the Pegasus Boots.",
+          "after": "Key Cavern (Pegasus Boots)",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "mansion_bonus_ten",
+          "name": "Seashell Mansion: exactly 10",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Walk into the Seashell Mansion carrying exactly 10 seashells and the sensor gives you one more.",
+          "missable": true,
+          "notes": "Lost if you pass 10 without visiting. Not in the Switch remake.",
+          "tags": [
+            "Seashells"
+          ]
+        },
+        {
+          "id": "tail_cave_tree",
+          "name": "Tree by Tail Cave",
+          "region": "South of the Village",
+          "area": "West of Tail Cave's entrance",
+          "howTo": "Dash into the left side of the lone tree west of Tail Cave's entrance.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "marthas_bay_phone_booth_bush",
+          "name": "Bush by the Martha's Bay phone booth",
+          "region": "Martha's Bay",
+          "area": "South-west corner, by the phone booth",
+          "howTo": "Cut the small bush in the corner by the phone booth.",
+          "notes": "Zelda's Palace places it by the Mermaid Statue, across the lake, and needs the Power Bracelet. Also in the Switch remake.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "mansion_cave_owl_statue",
+          "name": "Owl Statue past the cave",
+          "region": "Ukuku Prairie",
+          "area": "Cave south-west of the Seashell Mansion",
+          "howTo": "Bomb the cave's west wall, jump the pit and go out the far side, then dig one square down and one left of the Owl Statue.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Bombs",
+            "Roc's Feather",
+            "Shovel"
+          ]
+        },
+        {
+          "id": "ukuku_rock_ring",
+          "name": "Odd rock among the stones",
+          "region": "Ukuku Prairie",
+          "area": "North of Catfish's Maw, by the Moblins",
+          "howTo": "Lift the one liftable rock among the ring-shaped stones.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "yarna_boulder",
+          "name": "Desert boulder",
+          "region": "Yarna Desert",
+          "area": "Far south-east path",
+          "howTo": "Lift the lower of the two boulders.",
+          "notes": "Zelda's Palace lists the Pegasus Boots. Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "house_by_the_bay_pots",
+          "name": "House by the Bay pots",
+          "region": "Martha's Bay",
+          "area": "House by the Bay",
+          "howTo": "Lift the bottom-right pot inside the house.",
+          "notes": "Zelda Dungeon says it appears only after you help the Ghost; Zelda's Palace says it's there either way. Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "marthas_bay_islet_bush",
+          "name": "Martha's Bay islet",
+          "region": "Martha's Bay",
+          "area": "Islet west of the House by the Bay",
+          "howTo": "Swim to the islet and cut its bush.",
+          "after": "Angler's Tunnel (Flippers)",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Flippers",
+            "Sword"
+          ]
+        },
+        {
+          "id": "key_cavern_islet_bush",
+          "name": "Islet by Key Cavern",
+          "region": "Ukuku Prairie",
+          "area": "Lake by Key Cavern",
+          "howTo": "Swim to the islet and slash its bush from the north side.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Flippers",
+            "Sword"
+          ]
+        },
+        {
+          "id": "marthas_bay_owl_statue",
+          "name": "Owl Statue across the bridge",
+          "region": "Martha's Bay",
+          "area": "Two screens south and one west of Animal Village's entrance",
+          "howTo": "Cross the bridge and dig just left of the Owl Statue.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "ancient_ruins_armos_chest",
+          "name": "Armos stairs",
+          "region": "Ancient Ruins",
+          "area": "Southern Face Shrine",
+          "howTo": "Touch the lower-right of the four Armos statues to reveal stairs, and open the chest below.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "face_shrine_island_chest",
+          "name": "Face Shrine island",
+          "region": "Rapids Ride",
+          "area": "Face Shrine (Level 6), north-west room",
+          "howTo": "Take the stairs in Face Shrine's north-west room out to an island in the rapids and open the chest.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet L-2",
+            "Hookshot",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "kanalet_potholes_chest",
+          "name": "Over the potholes west of Kanalet",
+          "region": "Kanalet Castle",
+          "area": "West of the castle gate",
+          "howTo": "Carry the Flying Rooster and fly west from the gate across the potholes, then take the stairs to the chest.",
+          "after": "Face Shrine (the Flying Rooster)",
+          "notes": "On Switch you Hookshot across instead. Also in the Switch remake.",
+          "tags": [
+            "Flying Rooster",
+            "Power Bracelet",
+            "Ocarina"
+          ]
+        },
+        {
+          "id": "hen_house_rock",
+          "name": "Rock east of the Hen House",
+          "region": "Tal Tal Mountain Range",
+          "area": "East of the Hen House",
+          "howTo": "Cross the bridge east of the Hen House and lift the corner rock.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Power Bracelet",
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "taltal_shallow_cave_chest",
+          "name": "Shallow-water cave",
+          "region": "Tal Tal Mountain Range",
+          "area": "Cave on the way to Eagle's Tower",
+          "howTo": "Bomb your way in, push the blocks past the Rupee chests, come out the far side and open the chest outside.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Flippers",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "eagles_tower_chest",
+          "name": "Eagle's Tower walkway",
+          "region": "Tal Tal Mountain Range",
+          "area": "Eagle's Tower (Level 7)",
+          "howTo": "Go left one, up one, take the stairs, down one, drop into the top-left pit onto the walkway, then up two screens to the chest.",
+          "notes": "Also in the Switch remake.",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mansion",
+      "title": "Seashell Mansion",
+      "noun": "reward",
+      "hiddenLabel": "Unclaimed reward",
+      "items": [
+        {
+          "id": "koholint_sword",
+          "name": "Koholint Sword",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring 20 or more seashells to the Seashell Mansion.",
+          "reward": "Koholint Sword (Level 2 sword)",
+          "notes": "The original's only Mansion reward. Once you have it, seashells still out in the world are gone or turn into 20 Rupees (Zelda Wiki), so collect all 26 first.",
+          "tags": [
+            "Seashells"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "switch_seashells",
+      "title": "Switch Seashells",
+      "hiddenLabel": "Unfound Secret Seashell",
+      "note": "The 2019 Switch remake: 50 (24 of the original's and 26 new). Counted apart from the Game Boy and DX total.",
+      "separate": true,
+      "items": [
+        {
+          "id": "switch_mabe_trendy_bushes",
+          "name": "Bush north of the Trendy Game",
+          "region": "Mabe Village",
+          "area": "6×6 bush patch north of the Trendy Game",
+          "howTo": "Cut the bushes in the patch.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "switch_trendy_game_first",
+          "name": "Trendy Game: first seashell",
+          "region": "Mabe Village",
+          "area": "Trendy Game",
+          "howTo": "Win it from the crane game once the Yoshi Doll and first Piece of Heart are gone.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_forest_rock_chest",
+          "name": "Chest behind a rock",
+          "region": "Mysterious Forest",
+          "area": "West of the forest",
+          "howTo": "Lift the boulder in front of the chest.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_bowwow_doghouse",
+          "name": "BowWow's doghouse",
+          "region": "Mabe Village",
+          "area": "Madam MeowMeow's yard",
+          "howTo": "Dig in the bottom-right corner of the doghouse.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_tail_cave_chest",
+          "name": "Tail Cave chest",
+          "region": "South of the Village",
+          "area": "Tail Cave (Level 1)",
+          "howTo": "Go up, left and up, bomb the west wall and open the chest.",
+          "notes": "Also in the Game Boy and DX versions. Bombs are sold only after Bottle Grotto on Switch (Zelda's Palace), so it comes later.",
+          "tags": [
+            "Bombs",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "switch_witch_hut_stairs_bush",
+          "name": "Bush below the Witch's Hut",
+          "region": "Koholint Prairie",
+          "area": "South-west of the Witch's Hut",
+          "howTo": "Lift the stone, cut the lone bush and dig where it was.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet",
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_mansion_east_bushes",
+          "name": "Bushes east of the Mansion",
+          "region": "Ukuku Prairie",
+          "area": "North-east of the Mansion's hill",
+          "howTo": "Cut the bushes east of the Seashell Mansion.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "switch_ukuku_rock_ring",
+          "name": "Odd rock among the stones",
+          "region": "Ukuku Prairie",
+          "area": "Boarblin area",
+          "howTo": "Lift the lone liftable rock among the fixed stones.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_mansion_cave_owl_statue",
+          "name": "Owl Statue past the cave",
+          "region": "Ukuku Prairie",
+          "area": "Cave south-west of the Seashell Mansion",
+          "howTo": "Bomb the cave's west wall, go out the far side and dig south-west of the Owl Statue.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Bombs",
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_marthas_bay_phone_booth_bush",
+          "name": "Bush by the Martha's Bay phone booth",
+          "region": "Martha's Bay",
+          "area": "Corner just east of the phone booth",
+          "howTo": "Cut the bush in the corner.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "switch_ukuku_skull_dig",
+          "name": "Under the big skull",
+          "region": "Ukuku Prairie",
+          "area": "South-west of Kanalet Castle, east of Mabe",
+          "howTo": "Bomb the big skull and dig where it stood.",
+          "tags": [
+            "Bombs",
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_forest_flower_ring",
+          "name": "Ring of blue flowers",
+          "region": "Mysterious Forest",
+          "area": "Ring of eight blue flowers",
+          "howTo": "Dig in the middle of the ring.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_forest_northwest_dig",
+          "name": "North-west of the forest",
+          "region": "Mysterious Forest",
+          "area": "By the north exit",
+          "howTo": "Dig along the west wall by the trees.",
+          "notes": "Nintendo Life also lists Roc's Feather.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_goponga_phone_booth_dig",
+          "name": "By Mr. Write's phone booth",
+          "region": "Goponga Swamp",
+          "area": "West end, by the phone booth near Mr. Write's House",
+          "howTo": "Cut the bush and dig.",
+          "notes": "Nintendo Life and Zelda's Palace also list Roc's Feather.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_goponga_sign_rock",
+          "name": "Rock by the sign",
+          "region": "Goponga Swamp",
+          "area": "East of Bottle Grotto, north of the Moblin Hideout",
+          "howTo": "Lift the right-hand rock by the sign.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_tabahl_east_dig",
+          "name": "Tabahl Wasteland east edge",
+          "region": "Tabahl Wasteland",
+          "area": "North-east, south of Dampé's Shack",
+          "howTo": "Dig along the east edge.",
+          "tags": [
+            "Shovel",
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "switch_taltal_warp_hole_bomb",
+          "name": "Hole by the warp point",
+          "region": "Tal Tal Heights",
+          "area": "East of Dampé's Shack",
+          "howTo": "Throw a bomb into the hole next to the warp point.",
+          "tags": [
+            "Bombs",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_toronbo_log_dig",
+          "name": "By the log on the beach",
+          "region": "Toronbo Shores",
+          "area": "East end of the beach, by the log",
+          "howTo": "Dig in the far lower-left corner.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_villa_tunnel_chest",
+          "name": "Tunnel under Richard's Villa",
+          "region": "Pothole Field",
+          "area": "Tunnel from Richard's Villa, left path",
+          "howTo": "Take the left path, push the block, jump across and open the chest.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Golden Leaves",
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "switch_key_cavern_roof",
+          "name": "Key Cavern roof",
+          "region": "Ukuku Prairie",
+          "area": "On top of Key Cavern",
+          "howTo": "Dig between the four tufts of grass.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_yarna_owl_statue_dig",
+          "name": "Desert Owl Statue",
+          "region": "Yarna Desert",
+          "area": "North-east Owl Statue",
+          "howTo": "Dig just south of the statue, by the cactus.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_yarna_boulder",
+          "name": "Desert boulder",
+          "region": "Yarna Desert",
+          "area": "Far south-east",
+          "howTo": "Lift the lower of the two rocks.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_yarna_walrus_ballad",
+          "name": "Where the Walrus lay",
+          "region": "Yarna Desert",
+          "area": "The Walrus's spot",
+          "howTo": "Play the Ballad of the Wind Fish where the Walrus was.",
+          "tags": [
+            "Ocarina"
+          ]
+        },
+        {
+          "id": "switch_marthas_bay_owl_statue",
+          "name": "Owl Statue across the bridge",
+          "region": "Martha's Bay",
+          "area": "Bridge east of Catfish's Maw",
+          "howTo": "Dig just west of the Owl Statue.",
+          "notes": "Also in the Game Boy and DX versions. Zelda Dungeon also lists the Flippers.",
+          "tags": [
+            "Shovel"
+          ]
+        },
+        {
+          "id": "switch_ancient_ruins_armos_chest",
+          "name": "Armos stairs",
+          "region": "Ancient Ruins",
+          "area": "Southern Face Shrine",
+          "howTo": "Touch the bottom-right of the four Armos to reveal stairs, and open the chest.",
+          "notes": "Also in the Game Boy and DX versions. The Bow (or Boomerang) makes the Armos easier.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_ancient_ruins_northeast_boulder",
+          "name": "Lone boulder north of the ruins",
+          "region": "Ancient Ruins",
+          "area": "North of the Ancient Ruins, east of the Face Shrine",
+          "howTo": "Lift the lone north-east boulder.",
+          "notes": "Zelda Dungeon lists the Flippers and Zelda's Palace the Pegasus Boots for getting there.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_dampe_four_challenges",
+          "name": "Dampé: four challenges",
+          "region": "Tal Tal Heights",
+          "area": "Dampé's Shack",
+          "howTo": "Complete four of Dampé's Chamber Dungeon challenges.",
+          "after": "Key Cavern",
+          "tags": [
+            "Chamber Dungeon"
+          ]
+        },
+        {
+          "id": "switch_phone_booth_tree",
+          "name": "Tree by the phone booth",
+          "region": "Ukuku Prairie",
+          "area": "Phone booth east of Mabe Village",
+          "howTo": "Dash into the tree with the Pegasus Boots.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "switch_tail_cave_tree",
+          "name": "Tree by Tail Cave",
+          "region": "South of the Village",
+          "area": "West of Tail Cave's entrance",
+          "howTo": "Dash into the lone tree.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "switch_toronbo_palm_tree",
+          "name": "Palm tree on the beach",
+          "region": "Toronbo Shores",
+          "area": "South-west of the beach",
+          "howTo": "Dash into the lower of the four palm trees.",
+          "tags": [
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "switch_kanalet_moat_waterfall",
+          "name": "Kanalet moat waterfall",
+          "region": "Kanalet Castle",
+          "area": "Moat, at the foot of the waterfall",
+          "howTo": "Dive at the foot of the moat's waterfall.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_house_by_the_bay_pots",
+          "name": "House by the Bay pots",
+          "region": "Martha's Bay",
+          "area": "House by the Bay",
+          "howTo": "Lift the pots at the bottom right.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_trendy_game_after_anglers_tunnel",
+          "name": "Trendy Game: second seashell",
+          "region": "Mabe Village",
+          "area": "Trendy Game",
+          "howTo": "Win it from the crane game.",
+          "after": "Angler's Tunnel",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_marthas_bay_islet_bush",
+          "name": "Martha's Bay islet",
+          "region": "Martha's Bay",
+          "area": "Islet at the south end",
+          "howTo": "Swim out and cut its bush.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_christine_letter",
+          "name": "Christine's thanks",
+          "region": "Animal Village",
+          "area": "Christine's house",
+          "howTo": "Talk to Christine after delivering her letter to Mr. Write in the trading sequence.",
+          "tags": [
+            "Trading"
+          ]
+        },
+        {
+          "id": "switch_key_cavern_islet_bush",
+          "name": "Islet by Key Cavern",
+          "region": "Ukuku Prairie",
+          "area": "Islet north-east of Key Cavern",
+          "howTo": "Swim out and cut its bush.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_secret_zora",
+          "name": "The Secret Zora",
+          "region": "Animal Village",
+          "area": "North-east house",
+          "howTo": "Look at the Zora in the north-east house through the Magnifying Lens.",
+          "tags": [
+            "Magnifying Lens"
+          ]
+        },
+        {
+          "id": "switch_kanalet_potholes_chest",
+          "name": "Over the potholes west of Kanalet",
+          "region": "Kanalet Castle",
+          "area": "West of the castle gate",
+          "howTo": "Hookshot over the potholes and take the stairs to the chest.",
+          "notes": "Also in the Game Boy and DX versions. The original needs the Flying Rooster.",
+          "tags": [
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "switch_rapids_empty_islet_dig",
+          "name": "Rapids Ride: empty islet",
+          "region": "Rapids Ride",
+          "area": "Islet far west and south",
+          "howTo": "On a free ride, go far west then south, Hookshot to the vines on the empty islet and dig its top-right corner.",
+          "tags": [
+            "Hookshot",
+            "Shovel",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_rapids_race_under_35",
+          "name": "Rapids Race",
+          "region": "Rapids Ride",
+          "area": "Rapids Ride",
+          "howTo": "Finish the Rapids Race in 35 seconds or less.",
+          "notes": "35 s per Zelda Dungeon and Nintendo Life. The race costs 100 Rupees.",
+          "tags": [
+            "Hookshot",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_face_shrine_island_chest",
+          "name": "Face Shrine island",
+          "region": "Rapids Ride",
+          "area": "Face Shrine (Level 6), north-west room",
+          "howTo": "Take the stairs out to an island in the rapids and open the chest.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet L-2",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "switch_fishing_cheep_cheep",
+          "name": "Fishing Pond: a Cheep Cheep",
+          "region": "Mabe Village",
+          "area": "Fishing Pond",
+          "howTo": "Catch a Cheep Cheep.",
+          "after": "Catfish's Maw",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_fishing_blooper",
+          "name": "Fishing Pond: a Blooper or a big fish",
+          "region": "Mabe Village",
+          "area": "Fishing Pond",
+          "howTo": "Catch a Blooper, or any fish of 100–150 cm (Ol' Baron counts).",
+          "after": "Catfish's Maw",
+          "notes": "Nintendo Life says after Face Shrine. The Blooper also gives the Heavyweight Lure.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_taltal_ladder_waterfall",
+          "name": "Waterfall by the big ladder",
+          "region": "Tal Tal Heights",
+          "area": "Where the waterfall to Angler's Tunnel was",
+          "howTo": "Dive by the waterfall beside the big ladder.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_henhouse_bridge_hole_bomb",
+          "name": "Hole under the bridge",
+          "region": "Tal Tal Mountain Range",
+          "area": "Bridge west of the Hen House",
+          "howTo": "Throw a bomb into the hole under the bridge.",
+          "notes": "Zelda Dungeon also lists the Power Bracelet and Flippers.",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "switch_hen_house_rock",
+          "name": "Rock east of the Hen House",
+          "region": "Tal Tal Mountain Range",
+          "area": "East across the bridge from the Hen House",
+          "howTo": "Lift the rightmost of the three rocks.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet",
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "switch_taltal_shallow_cave_chest",
+          "name": "Shallow-water cave",
+          "region": "Tal Tal Mountain Range",
+          "area": "Cave toward Eagle's Tower",
+          "howTo": "Bomb the north wall, push the blocks, go out and open the chest.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Flippers",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "switch_eagles_tower_chest",
+          "name": "Eagle's Tower walkway",
+          "region": "Tal Tal Mountain Range",
+          "area": "Eagle's Tower (Level 7), Hinox room",
+          "howTo": "Drop down a left hole in the Hinox room to the raised walkway and open the chest.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "switch_mountain_rockfall_rock",
+          "name": "Rock past the rockfall",
+          "region": "Tal Tal Mountain Range",
+          "area": "West of the Wind Fish's Egg, past the rockfall",
+          "howTo": "Lift the north-east rock.",
+          "notes": "Nintendo Life lists the Power Bracelet.",
+          "tags": [
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "switch_turtle_rock_stone_cross",
+          "name": "Cross of stones by Turtle Rock",
+          "region": "Tal Tal Mountain Range",
+          "area": "Just east of Turtle Rock's entrance",
+          "howTo": "Dig in the middle of the cross of small stones.",
+          "tags": [
+            "Mirror Shield",
+            "Shovel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "switch_mansion",
+      "title": "Switch Mansion",
+      "noun": "reward",
+      "hiddenLabel": "Unclaimed reward",
+      "note": "Rewards at 5, 15, 30, 40 and 50; no exact count needed, and two can come in one visit.",
+      "separate": true,
+      "items": [
+        {
+          "id": "switch_mansion_piece_of_heart",
+          "name": "5 seashells",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring 5 seashells.",
+          "reward": "Piece of Heart",
+          "notes": "Also in Heart Pieces, on its Switch tab.",
+          "tags": [
+            "Seashells"
+          ]
+        },
+        {
+          "id": "switch_mansion_seashell_sensor",
+          "name": "15 seashells",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring 15 seashells.",
+          "reward": "Seashell Sensor",
+          "tags": [
+            "Seashells"
+          ],
+          "requires": [
+            "switch_mansion_piece_of_heart"
+          ]
+        },
+        {
+          "id": "switch_mansion_chamber_stone",
+          "name": "30 seashells",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring 30 seashells.",
+          "reward": "Chamber Stone",
+          "tags": [
+            "Seashells"
+          ],
+          "requires": [
+            "switch_mansion_seashell_sensor"
+          ]
+        },
+        {
+          "id": "switch_mansion_koholint_sword",
+          "name": "40 seashells",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring 40 seashells.",
+          "reward": "Koholint Sword",
+          "tags": [
+            "Seashells"
+          ],
+          "requires": [
+            "switch_mansion_chamber_stone"
+          ]
+        },
+        {
+          "id": "switch_mansion_fifty",
+          "name": "50 seashells",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring all 50 seashells.",
+          "reward": "Chamber Stone and 300 Rupees",
+          "notes": "300 Rupees per Zelda Wiki; Zelda's Palace says 280 and Nintendo Life names only the Chamber Stone.",
+          "tags": [
+            "Seashells"
+          ],
+          "requires": [
+            "switch_mansion_koholint_sword"
+          ]
+        }
+      ]
+    }
+  ]
+}
