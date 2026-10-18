@@ -218,8 +218,30 @@ object Games {
     val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
     val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
 
+    /**
+     * Two files ("You can create up to two different files", Nintendo's manual), the placeholder's
+     * ids. Every tracker is a checklist; the data and its sources are in docs/ph.md.
+     */
+    val PH = Game(
+        id = "ph",
+        title = "Phantom Hourglass",
+        released = ReleaseDate(2007, 6, 23),
+        platform = "Nintendo DS",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            phChecklist("Main Quest", "The temples and the Ghost Ship, the Temple of the Ocean King's floors, the Spirits and the Pure Metals", "main_quest"),
+            phChecklist("Items & Equipment", "Every item, the Bomb Bag, Quiver and Bombchu Bag upgrades, and the Phantom Hourglass's 25 minutes", "items"),
+            phChecklist("Heart Containers", "All 13: seven bosses and six from shops, mini-games and fishing, with your hearts", "heart_containers"),
+            phChecklist("Spirit Gems", "All 20 Power, Wisdom and Courage Gems, and the spirits' upgrades at 10 and 20", "spirit_gems"),
+            phChecklist("Treasure Maps", "All 31 maps and their Sunken Treasures, by the sea each map is found in", "treasure_maps"),
+            phChecklist("Ship Parts & Treasure", "The eight sets of eight parts, Golden included, and the eight kinds of Treasure", "ship_parts"),
+            phChecklist("Sea Chart & Islands", "Every island, hidden ones included, and the six Golden Frogs' warps", "sea_chart"),
+            phChecklist("Sidequests", "Fishing, the trading quest, the mini-games' prizes and Beedle's cards", "sidequests"),
+        ),
+    )
+
     /** The DS games keep two files. */
-    val PH = comingSoon("ph", "Phantom Hourglass", ReleaseDate(2007, 6, 23), "Nintendo DS", files = 2)
     val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
     val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
     val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
@@ -324,6 +346,9 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun phChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ph/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
