@@ -1,0 +1,268 @@
+{
+  "regions": [
+    "Horon Village",
+    "Eastern Suburbs",
+    "Woods of Winter",
+    "North Horon",
+    "Spool Swamp",
+    "Subrosia",
+    "Natzu",
+    "Mt. Cucco",
+    "Eyeglass Lake",
+    "Tarm Ruins",
+    "Graveyard",
+    "Temple Remains",
+    "Anywhere in Holodrum"
+  ],
+  "noun": "heart",
+  "plural": "hearts",
+  "hiddenLabel": "Uncollected heart",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "3 + pieces / 4 + containers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pieces",
+      "title": "Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "Twelve pieces, every four make a heart. Tags give what you need.",
+      "items": [
+        {
+          "id": "horon_village_burnable_bush",
+          "name": "Behind the small tree south of Mayor Ruul's house",
+          "region": "Horon Village",
+          "area": "One screen south of Mayor Ruul's house",
+          "howTo": "Hop down the ledge south of Mayor Ruul's house, go up the steps and burn the small tree with an Ember Seed to reach the Piece of Heart behind it.",
+          "after": "Gnarled Root Dungeon",
+          "tags": [
+            "Ember Seeds"
+          ]
+        },
+        {
+          "id": "eastern_suburbs_winter_cave",
+          "name": "Cave reached over the winter snow",
+          "region": "Eastern Suburbs",
+          "area": "Cave north of the stump two screens east of Horon Village",
+          "howTo": "Leave Horon Village by the east exit and go one more screen east to the stump. Change the season to winter, go up one screen and then left across the snow, and enter the cave. The Piece of Heart is inside.",
+          "after": "Power of Winter",
+          "notes": "StrategyWiki places this cave in the East Suburbs; Zelda Dungeon calls the area Woods of Winter.",
+          "tags": [
+            "Rod of Seasons (Winter)"
+          ]
+        },
+        {
+          "id": "woods_of_winter_pond_rock",
+          "name": "Under a rock by the Woods of Winter pond",
+          "region": "Woods of Winter",
+          "area": "The pond in the Woods of Winter",
+          "howTo": "Find the pond in the Woods of Winter and lift the rock beside it with the Power Bracelet to take the Piece of Heart.",
+          "after": "Snake's Remains",
+          "notes": "Zelda Dungeon says you can also swim to it, and gives the route: from the stump one screen east of the Woods of Winter entrance, set winter, then go left one, up one, right one, up three, right two, down one and right two.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "subrosia_market_rare_peach_stone",
+          "name": "Rare Peach Stone at the Subrosia Market",
+          "region": "Subrosia",
+          "area": "Subrosia Market",
+          "howTo": "Trade for the 'Rare Peach Stone' (an upside-down Piece of Heart) at the Subrosia Market: 20 Ore Chunks and 10 Ember Seeds. Dig up Ore Chunks in the clearing just right of the market.",
+          "after": "Reaching Subrosia",
+          "notes": "Zelda Wiki (quoting the shopkeeper) and Zelda Dungeon say 20 Ore Chunks; StrategyWiki says 10.",
+          "tags": [
+            "Ore Chunks",
+            "Ember Seeds"
+          ]
+        },
+        {
+          "id": "maple_drop",
+          "name": "Dropped by Maple",
+          "region": "Anywhere in Holodrum",
+          "area": "Wherever Maple appears",
+          "howTo": "Defeat 30 enemies (15 with Maple's Ring on) and Maple flies in at the next screen change. Bump into her and she sometimes drops the Piece of Heart, which is random. She goes for it first, so grab it fast: Pegasus Seeds help.",
+          "after": "Pegasus Seeds",
+          "notes": "It can take many meetings. Maple doesn't appear in dungeons or Subrosia.",
+          "tags": [
+            "Maple"
+          ]
+        },
+        {
+          "id": "spool_swamp_spring_current",
+          "name": "Carried by the spring current in Spool Swamp",
+          "region": "Spool Swamp",
+          "area": "River south of Poison Moth's Lair",
+          "howTo": "Go to the stump one screen south of Poison Moth's Lair and change the season to spring. Follow the river south (Zelda Dungeon: right, down three, right two, down one) and let the current carry you left to the Piece of Heart.",
+          "after": "Power of Spring",
+          "tags": [
+            "Rod of Seasons (Spring)",
+            "Zora's Flippers"
+          ]
+        },
+        {
+          "id": "moblins_keep_ruins_chest",
+          "name": "Chest in the ruins of Moblin's Keep",
+          "region": "Natzu",
+          "area": "Moblin's Keep, west of Sunken City",
+          "howTo": "Reach the Moblin's Keep (StrategyWiki: its western entrance, with your animal friend), climb the stairs and beat the Great Moblin by throwing his bombs back. The keep collapses, and a chest in the rubble holds the Piece of Heart.",
+          "after": "Poison Moth's Lair",
+          "notes": "Zelda Wiki: the keep is west of Sunken City, reached from the bottom left through Natzu. StrategyWiki lists the animal friend's flute as the requirement, Zelda Dungeon the Power Bracelet.",
+          "tags": [
+            "Animal companion",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "mt_cucco_dancing_dragon_ledge",
+          "name": "Ledge below the Dancing Dragon Dungeon",
+          "region": "Mt. Cucco",
+          "area": "Outside the Dancing Dragon Dungeon",
+          "howTo": "From the Dancing Dragon Dungeon entrance, jump down through the gap in the southern wall and pick up the Piece of Heart. StrategyWiki's route there: in spring, ride a Spring Flower up to the upper ledge, head east a few screens and drop down by the stump.",
+          "after": "Poison Moth's Lair",
+          "tags": [
+            "Rod of Seasons (Spring)"
+          ]
+        },
+        {
+          "id": "gasha_nut_piece",
+          "name": "Inside a Gasha Nut",
+          "region": "Anywhere in Holodrum",
+          "area": "A class 2–4 or 3–5 Gasha spot",
+          "howTo": "One Gasha Nut per game holds a Piece of Heart. It can only come from the four best spots: Goron Mountain, Eyeglass Lake by Unicorn's Cave, Mt. Cucco in autumn and Tarm Ruins. Plant Gasha Seeds there and keep harvesting until it turns up.",
+          "notes": "TourianTourist: the Piece of Heart needs a spot that reaches class 4 or 5. Goron Mountain and Tarm Ruins (class 3–5) are the best bets; the Gasha Ring makes nuts grow twice as fast. See the Gasha tracker.",
+          "tags": [
+            "Gasha Seed"
+          ]
+        },
+        {
+          "id": "eyeglass_lake_summer_cave",
+          "name": "Cave in the dried-up Eyeglass Lake",
+          "region": "Eyeglass Lake",
+          "area": "Eastern basin of the lake",
+          "howTo": "From the stump above Eyeglass Lake change the season to summer, then go right one and down two screens. Walk down the steps into the dried-up lake, go up one screen, lift the rock and go down the stairs. Fight through the three-room cave to the chest with the Piece of Heart.",
+          "after": "Dancing Dragon Dungeon",
+          "notes": "StrategyWiki also lists the Zora's Flippers to swim a short stretch.",
+          "tags": [
+            "Rod of Seasons (Summer)",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "graveyard_autumn_ledge",
+          "name": "Behind the Rock Mushrooms by the Explorer's Crypt",
+          "region": "Graveyard",
+          "area": "One screen right of the Explorer's Crypt entrance",
+          "howTo": "After the Piratians dock on the Western Coast, change the season to autumn at the stump there. Go back through the house and along the path to the Graveyard, through the cave where you jump a gap with the Roc's Cape. At the Explorer's Crypt entrance pick up the Rock Mushrooms, head right a screen and take the Piece of Heart.",
+          "after": "Explorer's Crypt",
+          "notes": "StrategyWiki: after clearing the seventh dungeon.",
+          "tags": [
+            "Rod of Seasons (Autumn)",
+            "Roc's Cape",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "temple_remains_cave",
+          "name": "Cave in the Temple Remains",
+          "region": "Temple Remains",
+          "area": "Cracked wall in the north of the Temple Remains",
+          "howTo": "After the Subrosian volcanoes erupt, bomb the cracked wall in the northern part of the Temple Remains. Inside, cross the room with the Roc's Cape to the Piece of Heart at the back.",
+          "after": "Volcano eruption",
+          "tags": [
+            "Bombs",
+            "Roc's Cape"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "hiddenLabel": "Uncollected Heart Container",
+      "note": "One from each of the eight bosses, plus one from a linked-game secret.",
+      "items": [
+        {
+          "id": "gnarled_root_dungeon",
+          "name": "Aquamentus",
+          "region": "North Horon",
+          "area": "Gnarled Root Dungeon",
+          "howTo": "Defeat Aquamentus at the end of Gnarled Root Dungeon and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "snakes_remains",
+          "name": "Dodongo",
+          "region": "Woods of Winter",
+          "area": "Snake's Remains",
+          "howTo": "Defeat Dodongo at the end of Snake's Remains and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "poison_moths_lair",
+          "name": "Mothula",
+          "region": "Spool Swamp",
+          "area": "Poison Moth's Lair",
+          "howTo": "Defeat Mothula at the end of Poison Moth's Lair and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "dancing_dragon_dungeon",
+          "name": "Gohma",
+          "region": "Mt. Cucco",
+          "area": "Dancing Dragon Dungeon",
+          "howTo": "Defeat Gohma at the end of Dancing Dragon Dungeon and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "unicorns_cave",
+          "name": "Digdogger",
+          "region": "Eyeglass Lake",
+          "area": "Unicorn's Cave",
+          "howTo": "Defeat Digdogger at the end of Unicorn's Cave and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "ancient_ruins",
+          "name": "Manhandla",
+          "region": "Tarm Ruins",
+          "area": "Ancient Ruins",
+          "howTo": "Defeat Manhandla at the end of Ancient Ruins and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "explorers_crypt",
+          "name": "Gleeok",
+          "region": "Graveyard",
+          "area": "Explorer's Crypt",
+          "howTo": "Defeat Gleeok at the end of Explorer's Crypt and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "sword_and_shield_maze",
+          "name": "Medusa Head",
+          "region": "Subrosia",
+          "area": "Sword & Shield Maze",
+          "howTo": "Defeat Medusa Head at the end of Sword & Shield Maze and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "linked_secret_heart_container",
+          "name": "Heart Container from a linked secret",
+          "region": "Graveyard",
+          "area": "The grave with no flowers (or Farore in the Hall of Secrets)",
+          "howTo": "Seasons played first: in the linked Ages, after Spirit's Grave, a Ghini outside Syrup's shop in Yoll Graveyard tells you the Graveyard Secret. Here, dig behind the tombstone second from the left in the first row (the only grave with no flowers) and tell it to the green Ghini inside. Answer whether more red or blue Ghini appeared, three times in a row. Seasons played second: get the Fairy Secret from the woman by the Horon Village fountain, tell it to the blue fairy in Ages' Fairies' Woods, and tell the return secret to Farore.",
+          "reward": "Heart Container",
+          "notes": "Only one of the two routes applies to a given file. A linked game also starts you with 4 hearts instead of 3, which the total above doesn't count.",
+          "tags": [
+            "Linked"
+          ]
+        }
+      ]
+    }
+  ]
+}

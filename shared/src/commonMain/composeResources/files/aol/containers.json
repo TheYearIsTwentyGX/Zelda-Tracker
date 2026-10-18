@@ -1,0 +1,30 @@
+{
+  "regions": ["Western Hyrule", "Death Mountain", "Eastern Hyrule"],
+  "noun": "container",
+  "hiddenLabel": "Uncollected container",
+  "summaries": [{"label": "Life meter", "formula": "4 + heart_containers"}, {"label": "Magic meter", "formula": "4 + magic_containers"}],
+  "sections": [
+    {
+      "id": "heart_containers",
+      "title": "Heart Containers",
+      "note": "Link's life meter starts at 4 bars; each container adds one, up to 8.",
+      "items": [
+        {"id": "hc_parapa_desert", "name": "Parapa Desert forest", "region": "Western Hyrule", "area": "Parapa Desert, south of Parapa Palace", "howTo": "Cross the small valley south of the palace and step onto the grass in the middle of a small forest. A Goriya guards it."},
+        {"id": "hc_midoro_swamp", "name": "Midoro Swamp cave", "region": "Western Hyrule", "area": "Swamp east of Midoro Palace", "howTo": "Two boulders block two caves facing each other: break the eastern one with the Hammer (the other cave holds a 200-point bag).", "notes": "Zelda Dungeon's heart container pages start from the rock south of Rauru instead; it's the same cave."},
+        {"id": "hc_sea_path", "name": "Sea north of the Palace on the Sea", "region": "Eastern Hyrule", "area": "Sea east of Nabooru", "howTo": "Wearing the Boots, follow the hidden path toward the Palace on the Sea but take its branch north, then east, to a small island.", "notes": "Zelda Dungeon's wiki says to start east of Mido; Mido is in Western Hyrule, so Nabooru is used."},
+        {"id": "hc_southeast_coast", "name": "Coast near Three-Eye Rock", "region": "Eastern Hyrule", "area": "Southeast coast, east of Kasuto", "howTo": "Get past the River Devil south of Nabooru with the Flute, then walk the beach to a hidden screen. A wall in an empty New Kasuto house hints at it."}
+      ]
+    },
+    {
+      "id": "magic_containers",
+      "title": "Magic Containers",
+      "note": "The magic meter starts at 4 bars, up to 8. Spell needs 7 and Thunder all 8.",
+      "items": [
+        {"id": "mc_north_castle_cave", "name": "Cave south of North Castle", "region": "Western Hyrule", "area": "South of North Castle", "howTo": "In the dark cave just south of where Link starts; the Candle lights it.", "notes": "Zelda Wiki says southeast of North Castle, Zelda Dungeon's old guide southwest; the others say south."},
+        {"id": "mc_spectacle_rock", "name": "Spectacle Rock", "region": "Death Mountain", "area": "Spectacle Rock", "howTo": "Smash the boulder just west of the Hammer's cave and drop into the hole.", "notes": "Zelda Wiki says it's in the eastern cavern, under a rock."},
+        {"id": "mc_maze_island", "name": "Maze Island", "region": "Eastern Hyrule", "area": "Maze Island, west side", "howTo": "In a hidden pit along the island's west side.", "notes": "StrategyWiki's walkthrough says the northwest corner; its own list and the other sources say the west or southwest."},
+        {"id": "mc_new_kasuto", "name": "New Kasuto", "region": "Eastern Hyrule", "area": "New Kasuto", "howTo": "An old woman in blue lets Link into her basement once his magic meter has 7 bars, so collect the other three first.", "requires": ["mc_north_castle_cave", "mc_spectacle_rock", "mc_maze_island"]}
+      ]
+    }
+  ]
+}
