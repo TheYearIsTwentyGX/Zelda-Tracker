@@ -1,0 +1,62 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "sections": [
+    {
+      "id": "companions",
+      "title": "Animal Companions",
+      "note": "Each of the three helps you once, then your flute decides your partner and the shape of the Nuun Highlands. A Linked Game keeps the partner from the first game.",
+      "items": [
+        {
+          "id": "moosh",
+          "name": "Moosh",
+          "area": "Yoll Graveyard",
+          "howTo": "In the present, beat the monsters attacking Moosh at Yoll Graveyard. He flies you to Cheval's tomb in the northwest corner.",
+          "after": "Wing Dungeon",
+          "notes": "Needed for the Zora's Flippers and the Cheval Rope."
+        },
+        {
+          "id": "ricky_gloves",
+          "name": "Find Ricky's Gloves",
+          "area": "South of Lynna City",
+          "howTo": "Ricky, by the entrance to Yoll Graveyard in the present, has lost his boxing gloves. Dig them up with the Shovel by the tree on the beach south of Lynna City.",
+          "after": "Wing Dungeon",
+          "reward": "Ricky's Gloves"
+        },
+        {
+          "id": "ricky",
+          "name": "Ricky",
+          "area": "South of Lynna City",
+          "howTo": "Return Ricky's gloves and ride in his pouch up the cliffs to Tingle, who gives you the Island Chart.",
+          "requires": ["ricky_gloves"],
+          "notes": "He leaves afterwards."
+        },
+        {
+          "id": "dimitri",
+          "name": "Dimitri",
+          "area": "Crescent Island",
+          "howTo": "After the Moonlit Grotto, two Tokay plan to eat Dimitri, washed up on the shore. Give them Ember Seeds instead, and he swims you back to the mainland.",
+          "after": "Moonlit Grotto",
+          "notes": "He leaves once you're back."
+        },
+        {
+          "id": "companion_flute",
+          "name": "Choose a partner",
+          "area": "Fairies' Woods",
+          "howTo": "On the way to Symmetry City the fairies ask you to find an animal lost in the Fairies' Woods. It's Dimitri if you bought the Strange Flute at the Lynna City shop (150 Rupees, present), Ricky if you won it at the Shooting Gallery in the past (50 points or more), and Moosh otherwise.",
+          "requires": ["moosh", "ricky", "dimitri"],
+          "reward": "Dimitri's, Ricky's or Moosh's Flute",
+          "notes": "Walk back and forth between two screens until he appears. The Strange Flutes go on offer after the Moonlit Grotto."
+        },
+        {
+          "id": "nuun_highlands",
+          "name": "Nuun Highlands",
+          "area": "Nuun Highlands",
+          "howTo": "Call your partner and find the three carpenters on break around the Nuun Highlands, so they finish the bridge to Symmetry City.",
+          "requires": ["companion_flute"],
+          "notes": "The highlands change with your partner: cliffs and ledges for Ricky, waterfalls and currents for Dimitri, pits for Moosh. Dimitri won't go on into the hot city."
+        }
+      ]
+    }
+  ]
+}

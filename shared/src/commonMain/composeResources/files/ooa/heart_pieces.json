@@ -1,0 +1,266 @@
+{
+  "regions": [
+    "Lynna Village",
+    "Lynna City",
+    "Yoll Graveyard",
+    "Deku Forest",
+    "Fairies' Woods",
+    "Crescent Island",
+    "Talus Peaks",
+    "Symmetry Village",
+    "Rolling Ridge",
+    "Zora Village",
+    "Sea of No Return",
+    "Anywhere in Labrynna"
+  ],
+  "noun": "heart",
+  "plural": "hearts",
+  "hiddenLabel": "Uncollected heart",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "3 + pieces / 4 + containers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pieces",
+      "title": "Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "Twelve pieces, every four make a heart. Tags give what you need.",
+      "items": [
+        {
+          "id": "black_tower_dirt_pile",
+          "name": "Dirt pile by the Black Tower",
+          "region": "Lynna Village",
+          "area": "Right of the Black Tower entrance (Past)",
+          "howTo": "Once you have the Shovel from the Black Tower, dig the pile of dirt to the right of the tower's entrance to uncover the Piece of Heart.",
+          "after": "Shovel",
+          "tags": [
+            "Past",
+            "Shovel"
+          ]
+        },
+        {
+          "id": "maku_road_block_puzzle",
+          "name": "Behind the blocks on the Maku Road",
+          "region": "Lynna Village",
+          "area": "Maku Road, the room with two Stalfos (Past)",
+          "howTo": "In the Maku Road room with two Stalfos, the Piece of Heart sits in the top-left corner behind blocks. Push the bottom-left block up, then the one next to it left, and walk in.",
+          "tags": [
+            "Past"
+          ]
+        },
+        {
+          "id": "yoll_graveyard_rock",
+          "name": "Under a rock in Yoll Graveyard",
+          "region": "Yoll Graveyard",
+          "area": "Southwest corner of the graveyard (Present)",
+          "howTo": "With the Power Bracelet from Spirit's Grave, lift the rock in the southwest corner of Yoll Graveyard (Zelda Dungeon: one screen below where you first met the children) to take the Piece of Heart.",
+          "after": "Spirit's Grave",
+          "tags": [
+            "Present",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "deku_forest_burnable_tree_cave",
+          "name": "Cave under a tree in the Deku Forest",
+          "region": "Deku Forest",
+          "area": "Two screens left and one down from the Wing Dungeon (Past)",
+          "howTo": "From the Wing Dungeon head left two screens and down one, burn the tree with an Ember Seed and go down the stairs. Turn right for the Piece of Heart.",
+          "after": "Ember Seeds",
+          "tags": [
+            "Past",
+            "Ember Seeds"
+          ]
+        },
+        {
+          "id": "maple_drop",
+          "name": "Dropped by Maple",
+          "region": "Anywhere in Labrynna",
+          "area": "Wherever Maple appears, in either age",
+          "howTo": "Defeat 30 enemies (15 with Maple's Ring on) and Maple flies in at the next screen change. Bump into her and she sometimes drops the Piece of Heart, which is random. She goes for it first, so be quick.",
+          "notes": "Zelda Dungeon's farming tip: clear 15 or 30 enemies in the Black Tower (past), then leave Lynna Village to the west, where Maple shows up.",
+          "tags": [
+            "Maple"
+          ]
+        },
+        {
+          "id": "restoration_wall_cave",
+          "name": "Cave below the Restoration Wall",
+          "region": "Talus Peaks",
+          "area": "North of West Lynna, near the Restoration Wall (Past)",
+          "howTo": "From the Ember Tree in Lynna Village go up one screen and left five, then up two and enter the cave (StrategyWiki: jump a hole on the way north out of the Deku Forest). Use the Roc's Feather and Power Bracelet inside to reach the Piece of Heart.",
+          "after": "Wing Dungeon",
+          "notes": "StrategyWiki calls the spot West Lynna; Zelda Dungeon calls it Restoration Wall. It's listed under Talus Peaks here because Zelda Wiki places the Restoration Wall Gasha spot there.",
+          "tags": [
+            "Past",
+            "Roc's Feather",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "gasha_nut_piece",
+          "name": "Inside a Gasha Nut",
+          "region": "Anywhere in Labrynna",
+          "area": "A class 2–4 or 3–5 Gasha spot",
+          "howTo": "One Gasha Nut per game holds a Piece of Heart. It can only come from spots that reach class 4 or 5: Yoll Graveyard, east of the Restoration Wall, the three Crescent Island spots, Nuun Highlands, Zora Village and, in a linked game, the Sea of Storms. Plant Gasha Seeds there and keep harvesting until it turns up.",
+          "after": "Moonlit Grotto",
+          "notes": "The best spot is the class 3–5 one on Crescent Island in the past, south of the Tokay statue (reach it on Rafton's raft or with the Mermaid Suit). The Gasha Ring makes nuts grow twice as fast. See the Gasha tracker.",
+          "tags": [
+            "Gasha Seed"
+          ]
+        },
+        {
+          "id": "talus_peaks_currents_ledge",
+          "name": "Ledge reached with the Tune of Currents",
+          "region": "Talus Peaks",
+          "area": "West of Symmetry Village, just south of Tokkey's house (Present)",
+          "howTo": "In the past, from the middle house of Symmetry Village go left one, down one, left one, up one and left one screen. Stand in the southwest corner and play the Tune of Currents to reach the present, then go right one screen for the Piece of Heart.",
+          "after": "Tune of Currents",
+          "notes": "Zelda Dungeon calls the area Symmetry Village outskirts; StrategyWiki calls it Talus Peaks, south of Tokkey's place.",
+          "tags": [
+            "Present",
+            "Tune of Currents"
+          ]
+        },
+        {
+          "id": "lynna_city_hidden_shop",
+          "name": "For sale in the hidden part of the Lynna Item Shop",
+          "region": "Lynna City",
+          "area": "Lynna Item Shop, back room (Present)",
+          "howTo": "In the past, go up one screen from the Ember Tree in Lynna Village, stand by the leftmost tree and play the Tune of Currents. You arrive in the present inside the gate by the shop. Go in and down the stairs, and buy the Piece of Heart for 500 Rupees.",
+          "after": "Tune of Currents",
+          "tags": [
+            "Present",
+            "Tune of Currents",
+            "500 Rupees"
+          ]
+        },
+        {
+          "id": "rolling_ridge_bomb_wall_cave",
+          "name": "Behind a bombable wall in a Rolling Ridge cave",
+          "region": "Rolling Ridge",
+          "area": "Cave below where you saved the Goron Elder (Present)",
+          "howTo": "By the Crown Dungeon is the spot where you saved the Goron Elder. Jump off the cliff, go down one screen and left two, and enter the cave (StrategyWiki: the cave leading to the peak). Bomb the cracked wall a few spaces below the Goron and take the Piece of Heart.",
+          "after": "Skull Dungeon",
+          "tags": [
+            "Present",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "rolling_ridge_currents_ledge",
+          "name": "Ledge reached with the Tune of Currents near Mermaid's Cave",
+          "region": "Rolling Ridge",
+          "area": "East Rolling Ridge (Present)",
+          "howTo": "In the past, from Mermaid's Cave go left one screen and up one, enter the cave and walk out the far exit. Go right one screen, cut the bushes, stand in the upper-right spot and play the Tune of Currents. The Piece of Heart is right by you in the present.",
+          "after": "Crown Dungeon",
+          "tags": [
+            "Present",
+            "Tune of Currents"
+          ]
+        },
+        {
+          "id": "crescent_island_underwater_cave",
+          "name": "Chest in a cave under the Crescent Strait",
+          "region": "Crescent Island",
+          "area": "Underwater maze north of Crescent Island (Present)",
+          "howTo": "With the Mermaid Suit, dive along the north coast of Crescent Island and find the small passage south into the underwater maze. Zelda Dungeon's route from where you met Dimitri: up one, right two, through the passage, down two, then left, down, left and up two to a cave with a chest holding the Piece of Heart.",
+          "after": "Mermaid's Cave",
+          "tags": [
+            "Present",
+            "Mermaid Suit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "hiddenLabel": "Uncollected Heart Container",
+      "note": "One from each of the eight bosses, plus one from a linked-game secret.",
+      "items": [
+        {
+          "id": "spirits_grave",
+          "name": "Pumpkin Head",
+          "region": "Yoll Graveyard",
+          "area": "Spirit's Grave",
+          "howTo": "Defeat Pumpkin Head at the end of Spirit's Grave and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "wing_dungeon",
+          "name": "Head Thwomp",
+          "region": "Deku Forest",
+          "area": "Wing Dungeon",
+          "howTo": "Defeat Head Thwomp at the end of Wing Dungeon and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "moonlit_grotto",
+          "name": "Shadow Hag",
+          "region": "Crescent Island",
+          "area": "Moonlit Grotto",
+          "howTo": "Defeat Shadow Hag at the end of Moonlit Grotto and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "skull_dungeon",
+          "name": "Eyesoar",
+          "region": "Symmetry Village",
+          "area": "Skull Dungeon",
+          "howTo": "Defeat Eyesoar at the end of Skull Dungeon and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "crown_dungeon",
+          "name": "Smog",
+          "region": "Rolling Ridge",
+          "area": "Crown Dungeon",
+          "howTo": "Defeat Smog at the end of Crown Dungeon and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "mermaids_cave",
+          "name": "Octogon",
+          "region": "Rolling Ridge",
+          "area": "Mermaid's Cave",
+          "howTo": "Defeat Octogon at the end of Mermaid's Cave and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "jabu_jabus_belly",
+          "name": "Plasmarine",
+          "region": "Zora Village",
+          "area": "Jabu-Jabu's Belly",
+          "howTo": "Defeat Plasmarine at the end of Jabu-Jabu's Belly and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "ancient_tomb",
+          "name": "Ramrock",
+          "region": "Sea of No Return",
+          "area": "Ancient Tomb",
+          "howTo": "Defeat Ramrock at the end of Ancient Tomb and take the Heart Container it leaves.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "linked_secret_heart_container",
+          "name": "Heart Container from a linked secret",
+          "region": "Fairies' Woods",
+          "area": "The blue fairy in Fairies' Woods (or Farore in the Hall of Secrets)",
+          "howTo": "Ages played first: in the linked Seasons, after first meeting the Maku Tree, the woman by the Horon Village fountain tells you the Fairy Secret. Here, tell it to the blue Forest Fairy in Fairies' Woods. Ages played second: get the Graveyard Secret from the Ghini outside Syrup's shop in Yoll Graveyard (after Spirit's Grave), tell it to the Ghini in Seasons' Graveyard and pass his test, then tell the return secret to Farore.",
+          "reward": "Heart Container",
+          "notes": "Only one of the two routes applies to a given file. A linked game also starts you with 4 hearts instead of 3, which the total above doesn't count.",
+          "tags": [
+            "Linked"
+          ]
+        }
+      ]
+    }
+  ]
+}
