@@ -61,13 +61,12 @@ class GamesTest {
         }
     }
 
-    /** Only BotW, TotK and The Minish Cap have trackers; the rest are coming soon with placeholder files. */
+    /** BotW, TotK, The Minish Cap and Echoes of Wisdom have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("mc", "botw", "totk"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.MM.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
-        assertEquals(listOf("file_1"), Games.EOW.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.OOT.saveFiles.map { it.id })
     }
 
@@ -76,5 +75,13 @@ class GamesTest {
         assertEquals(listOf("normal_1", "normal_2", "master"), Games.BOTW.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.TOTK.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.MC.saveFiles.map { it.id })
+    }
+
+    /** Two files per Switch user (Zelda Wiki, Saving; Game8); autosaves live inside each file. */
+    @Test
+    fun echoesOfWisdomHasTwoSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2"), Games.EOW.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.EOW.trackers.first().kind)
+        assertTrue(Games.EOW.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 }

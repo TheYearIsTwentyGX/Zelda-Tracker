@@ -1,0 +1,74 @@
+{
+  "regions": ["Suthorn Prairie", "Hyrule Castle", "Hyrule Field", "Eastern Hyrule Field", "Gerudo Desert", "Jabul Waters", "Eldin Volcano"],
+  "noun": "entry",
+  "plural": "entries",
+  "sections": [
+    {
+      "id": "bottles",
+      "title": "Fairy Bottles",
+      "noun": "bottle",
+      "plural": "bottles",
+      "hiddenLabel": "Unfound Fairy Bottle",
+      "items": [
+        {"id": "bottle_suthorn_cave", "name": "Suthorn cave chest", "region": "Suthorn Prairie", "area": "Cave east of the Suthorn Prairie waypoint", "howTo": "Enter the cave east of the Suthorn Prairie waypoint, defeat the Ignizol and open the chest at the back.", "reward": "Fairy Bottle"},
+        {"id": "bottle_cuccos", "name": "Cuccos on the Loose", "region": "Eldin Volcano", "area": "Kakariko Village", "howTo": "Side quest reward.", "reward": "Fairy Bottle"},
+        {"id": "bottle_zappy_shipwreck", "name": "The Zappy Shipwreck", "region": "Jabul Waters", "area": "Seesyde Village", "howTo": "Side quest reward.", "after": "After Still Missing", "reward": "Fairy Bottle"},
+        {"id": "bottle_stamps", "name": "Thrilling Stamp Card", "area": "Stamp Guy", "howTo": "Collect 15 stamps.", "reward": "Fairy Bottle"}
+      ]
+    },
+    {
+      "id": "automatons",
+      "title": "Automatons",
+      "noun": "automaton",
+      "plural": "automatons",
+      "hiddenLabel": "Unbuilt automaton",
+      "note": "Built by Dampé at his studio in Eastern Hyrule Field; all six unlock the Clockwork Bangle.",
+      "items": [
+        {"id": "techtite", "name": "Techtite", "region": "Eastern Hyrule Field", "area": "Dampé Studio", "howTo": "'Automaton Engineer Dampé': show Dampé a Tektite and a Mothula Echo.", "after": "After Still Missing", "reward": "Jumps on rockets, knocking back nearby enemies", "notes": "Repair: 50 Rupees or 1 Monster Stone."},
+        {"id": "tocktorok", "name": "Tocktorok", "region": "Eastern Hyrule Field", "area": "Dampé Studio", "howTo": "'Explosions Galore!': show an Octorok-type Echo and a Firework.", "requires": ["techtite"], "reward": "Continuously shoots fireworks", "notes": "Repair: 50 Rupees or 1 Monster Stone."},
+        {"id": "gizmol", "name": "Gizmol", "region": "Eastern Hyrule Field", "area": "Dampé Studio", "howTo": "'Performance Artist!': show a Zol-type Echo and bring the Prismatic Music Box (Flag Race).", "requires": ["tocktorok"], "reward": "Sings and dances, scattering monsters with music notes", "notes": "Repair: 70 Rupees or 2 Monster Stones."},
+        {"id": "high_teku_baba", "name": "High-Teku Baba", "region": "Eastern Hyrule Field", "area": "Dampé Studio", "howTo": "'Endless Stomach!': show a Deku Baba Lv. 2 Echo and bring the Steel Trap (Acorn Gathering).", "requires": ["tocktorok"], "reward": "Swallows any monster it reaches", "notes": "Repair: 70 Rupees or 2 Monster Stones."},
+        {"id": "roboblin", "name": "Roboblin", "region": "Eastern Hyrule Field", "area": "Dampé Studio", "howTo": "'Chop 'em in Two!': show a Sword Moblin Echo and bring the Heirloom Katana (Slumber Dojo).", "requires": ["tocktorok"], "reward": "Cuts down groups of enemies with its blade"},
+        {"id": "goldfinch", "name": "Goldfinch", "region": "Eastern Hyrule Field", "area": "Dampé Studio", "howTo": "'Get Rich Quick!': show a Crow Echo and bring the Golden Fan (Mango Rush).", "requires": ["gizmol", "high_teku_baba", "roboblin"], "reward": "Knocks rupees out of enemies; Zelda can glide holding it"}
+      ]
+    },
+    {
+      "id": "outfits",
+      "title": "Outfits",
+      "noun": "outfit",
+      "plural": "outfits",
+      "hiddenLabel": "Unknown outfit",
+      "note": "8 outfits from gameplay plus 3 amiibo-only (tagged). Outfits can be changed after Still Missing.",
+      "items": [
+        {"id": "disguise", "name": "Disguise", "region": "Hyrule Castle", "area": "Hyrule Castle Underground", "howTo": "Worn during the escape at the start of the game.", "reward": "Hooded outfit"},
+        {"id": "royal_travel_attire", "name": "Royal Travel Attire", "region": "Hyrule Castle", "area": "Throne Room", "howTo": "Given at the start of 'Lands of the Goddesses' after the Hyrule Castle dungeon.", "after": "After Still Missing", "reward": "Travel outfit"},
+        {"id": "customary_attire", "name": "Customary Attire", "region": "Hyrule Castle", "area": "Throne Room", "howTo": "The King returns your dress at the end of the side quest 'From the Heart'.", "reward": "Princess dress"},
+        {"id": "silk_pajamas", "name": "Silk Pajamas", "region": "Gerudo Desert", "area": "Treasury (Gerudo Palace)", "howTo": "Reward for the side quest 'Dohna's Challenge'.", "after": "After Still Missing", "reward": "Hearts recover faster while sleeping in a bed"},
+        {"id": "dancing_outfit", "name": "Dancing Outfit", "region": "Gerudo Desert", "area": "Tough Mango Plant Lab (Oasis)", "howTo": "Mango Rush: harvest 60+ mangoes with Ultimate Seeds.", "after": "After Still Missing", "reward": "Larger spin area"},
+        {"id": "cat_clothes", "name": "Cat Clothes", "region": "Eldin Volcano", "area": "Kakariko Village", "howTo": "From the woman by the shop during 'Questioning the Local Cats'.", "after": "After Still Missing", "reward": "Talk to cats"},
+        {"id": "green_tunic", "name": "Green Tunic", "region": "Eldin Volcano", "area": "Slumber Dojo (Kakariko Village)", "howTo": "Clear 'The Final Titans' Gathering' within its goal time.", "reward": "Link-style tunic"},
+        {"id": "stamp_suit", "name": "Stamp Suit", "area": "From the Stamp Guy", "howTo": "Fill the Final Stamp Card (all 25 stamps).", "reward": "Stamp Guy outfit"},
+        {"id": "blue_attire", "name": "Blue Attire", "area": "amiibo", "howTo": "Scan any Princess Zelda or Sheik amiibo.", "reward": "Blue dress", "tags": ["amiibo"]},
+        {"id": "black_cat_clothes", "name": "Black Cat Clothes", "area": "amiibo", "howTo": "Scan a Ganondorf, Guardian, Bokoblin, Daruk, Mipha, Revali or Urbosa amiibo.", "reward": "Talk to cats", "tags": ["amiibo"]},
+        {"id": "red_tunic", "name": "Red Tunic", "area": "amiibo", "howTo": "Scan any Link amiibo.", "reward": "Red Link-style tunic", "tags": ["amiibo"]}
+      ]
+    },
+    {
+      "id": "minigames",
+      "title": "Mini-games",
+      "noun": "mini-game",
+      "plural": "mini-games",
+      "hiddenLabel": "Undiscovered mini-game",
+      "note": "First-clear rewards only. Slumber Dojo has its own tracker; the Goron Race is the side quest 'Ready? Set? Goron!'.",
+      "items": [
+        {"id": "mango_rush", "name": "Mango Rush", "region": "Gerudo Desert", "area": "Tough Mango Plant Lab (Oasis)", "howTo": "Pay Tourma 10 Rupees and spin into the mangoes as they sprout. Each seed type unlocks the next.", "reward": "Golden Fan, 3 Might Crystals, Dancing Outfit, Piece of Heart", "notes": "Golden Fan is needed for 'Get Rich Quick!'. Ultimate Seeds need Still Missing done.", "tiers": [{"name": "Standard Seeds: 40+", "howTo": "Harvest 40+ of 50", "reward": "Tough Mango; unlocks Vibrant Seeds"}, {"name": "Vibrant Seeds: 50+", "howTo": "Harvest 50+ of 60", "reward": "Golden Fan"}, {"name": "Vibrant Seeds: 60", "howTo": "Harvest all 60", "reward": "Might Crystal x3"}, {"name": "Ultimate Seeds: 60+", "howTo": "Harvest 60+ of 70", "reward": "Dancing Outfit"}, {"name": "Ultimate Seeds: 70", "howTo": "Harvest all 70", "reward": "Piece of Heart"}]},
+        {"id": "flag_race", "name": "Flag Race", "region": "Hyrule Field", "area": "Hyrule Ranch", "howTo": "Talk to Falfa outside the ranch (10 Rupees) and collect the flags in order on horseback. Each course unlocks the next.", "after": "After Impa's Gift (needs your horse)", "reward": "3 Might Crystals, Prismatic Music Box, Piece of Heart, Charging Horn", "notes": "Prismatic Music Box is needed for 'Performance Artist!'.", "tiers": [{"name": "Short Course < 0:23", "reward": "Red Rupee"}, {"name": "Short Course < 0:17", "reward": "Might Crystal x3"}, {"name": "Middle Course < 0:25", "reward": "Prismatic Music Box"}, {"name": "Middle Course < 0:20", "reward": "Piece of Heart"}, {"name": "Long Course < 0:50", "reward": "Purple Rupee (50)"}, {"name": "Long Course < 0:40", "reward": "Charging Horn"}]},
+        {"id": "acorn_castle_west", "name": "Acorn Gathering: west of Castle Town", "region": "Hyrule Castle", "area": "West of the Hyrule Castle Town wall", "howTo": "Talk to the man in the acorn cap (10 Rupees) and collect every acorn in time.", "reward": "Might Crystal", "tiers": [{"name": "Clear", "reward": "20 Rupees"}, {"name": "Under 0:17", "reward": "Might Crystal"}]},
+        {"id": "acorn_kakariko_northeast", "name": "Acorn Gathering: northeast of Kakariko", "region": "Hyrule Field", "area": "Northeast of Kakariko Village", "howTo": "Talk to the man in the acorn cap (10 Rupees) and collect every acorn in time.", "reward": "Piece of Heart", "tiers": [{"name": "Clear", "reward": "20 Rupees"}, {"name": "Under 0:25", "reward": "Piece of Heart"}]},
+        {"id": "acorn_jabul", "name": "Acorn Gathering: Jabul Waters", "region": "Jabul Waters", "area": "Northeast of Crossflows Plaza (east of Lord Jabu-Jabu's Den)", "howTo": "Talk to the man in the acorn cap (10 Rupees) and collect every acorn in time.", "reward": "Silver Rupee (100)", "tiers": [{"name": "Clear", "reward": "20 Rupees"}, {"name": "Under 0:25", "reward": "Silver Rupee (100)"}]},
+        {"id": "acorn_northern_sanctuary", "name": "Acorn Gathering: Northern Sanctuary", "region": "Hyrule Field", "area": "Northern Sanctuary", "howTo": "Talk to the man in the acorn cap (10 Rupees) and collect every acorn in time.", "reward": "Golden Egg", "tiers": [{"name": "Clear", "reward": "20 Rupees"}, {"name": "Under 0:25", "reward": "Golden Egg"}]},
+        {"id": "acorn_hyrule_field_west", "name": "Acorn Gathering: west Hyrule Field", "region": "Hyrule Field", "area": "Western edge of Hyrule Field", "howTo": "Talk to the man in the acorn cap (10 Rupees) and collect every acorn in time.", "reward": "Steel Trap", "notes": "Steel Trap is needed for 'Endless Stomach!'.", "tiers": [{"name": "Clear", "reward": "20 Rupees"}, {"name": "Under 0:40", "reward": "Steel Trap"}]}
+      ]
+    }
+  ]
+}
