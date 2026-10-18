@@ -76,7 +76,27 @@ object Games {
     val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
     val ALTTP = comingSoon("alttp", "A Link to the Past", ReleaseDate(1991, 11, 21), "SNES")
     val LA = comingSoon("la", "Link's Awakening", ReleaseDate(1993, 6, 6), "Game Boy")
-    val OOT = comingSoon("oot", "Ocarina of Time", ReleaseDate(1998, 11, 21), "Nintendo 64")
+
+    /** Three files on the Nintendo 64 cartridge (each with a backup copy), as on the 3DS. */
+    val OOT = Game(
+        id = "oot",
+        title = "Ocarina of Time",
+        released = ReleaseDate(1998, 11, 21),
+        platform = "Nintendo 64",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "Dungeons in order, the Spiritual Stones and the Medallions", dataFile = "oot/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item, sword, shield, tunic and boots, and each upgrade", dataFile = "oot/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 36 Pieces of Heart and 8 Heart Containers, with your hearts", dataFile = "oot/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gold Skulltulas", "All 100 by area, with age, time and items needed, and the rewards", dataFile = "oot/gold_skulltulas.json"),
+            Tracker(TrackerKind.CHECKLIST, "Songs", "All 12 songs: where to learn each one and its notes", dataFile = "oot/songs.json"),
+            Tracker(TrackerKind.CHECKLIST, "Great Fairies", "The six fountains: spells, magic and defense", dataFile = "oot/great_fairies.json"),
+            Tracker(TrackerKind.CHECKLIST, "Bottles", "All four bottles and how to win them", dataFile = "oot/bottles.json"),
+            Tracker(TrackerKind.CHECKLIST, "Big Poes", "All 10 in Hyrule Field, for the Poe Collector's bottle", dataFile = "oot/big_poes.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequences", "The mask quest and the trade for Biggoron's Sword", dataFile = "oot/trading.json"),
+        ),
+    )
 
     /** Two files on the Nintendo 64. */
     val MM = comingSoon("mm", "Majora's Mask", ReleaseDate(2000, 4, 27), "Nintendo 64", files = 2)

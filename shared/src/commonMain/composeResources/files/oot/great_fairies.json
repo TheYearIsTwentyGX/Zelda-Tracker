@@ -1,0 +1,66 @@
+{
+  "noun": "Great Fairy",
+  "hiddenLabel": "Unvisited Great Fairy",
+  "sections": [
+    {
+      "id": "great_fairies",
+      "title": "Great Fairies",
+      "note": "Stand on the Triforce in front of the pool and play Zelda's Lullaby.",
+      "items": [
+        {
+          "id": "hyrule_castle",
+          "name": "Great Fairy of Magic (Hyrule Castle)",
+          "area": "Hyrule Castle",
+          "howTo": "As young Link, bomb the boulder at the end of the path signposted as a dead end on the way up to the castle, and crawl through.",
+          "reward": "Din's Fire",
+          "notes": "As adult Link the castle grounds become Outside Ganon's Castle, which has its own Great Fairy.",
+          "tags": ["Child", "Bombs"]
+        },
+        {
+          "id": "death_mountain_summit",
+          "name": "Great Fairy of Power (Death Mountain Summit)",
+          "area": "Death Mountain Trail",
+          "howTo": "Climb to the summit of Death Mountain Trail, sheltering under the Hylian Shield from falling rocks, and bomb the cracked wall near the top.",
+          "reward": "Magic Meter, Magic Spin Attack",
+          "notes": "The first magic you can get; the Lens of Truth, spells and magic arrows all need it.",
+          "tags": ["Either", "Bombs"]
+        },
+        {
+          "id": "zoras_fountain",
+          "name": "Great Fairy of Magic (Zora's Fountain)",
+          "area": "Zora's Fountain",
+          "howTo": "Swim to the small island with a lone tree behind Lord Jabu-Jabu and bomb the boulder against its wall.",
+          "reward": "Farore's Wind",
+          "tags": ["Either", "Bombs"]
+        },
+        {
+          "id": "desert_colossus",
+          "name": "Great Fairy of Magic (Desert Colossus)",
+          "area": "Desert Colossus",
+          "howTo": "Bomb the cracked wall between two palm trees on the right as you arrive from the Haunted Wasteland.",
+          "reward": "Nayru's Love",
+          "notes": "Young Link can reach it with the Requiem of Spirit.",
+          "tags": ["Either", "Bombs"]
+        },
+        {
+          "id": "death_mountain_crater",
+          "name": "Great Fairy of Wisdom (Death Mountain Crater)",
+          "area": "Death Mountain Crater",
+          "howTo": "As adult Link, enter the crater from Darunia's room in Goron City, cross the bridge to the right and smash the boulders along the wall with the Megaton Hammer.",
+          "reward": "Enhanced Magic Meter (double magic)",
+          "requires": ["death_mountain_summit"],
+          "tags": ["Adult", "Megaton Hammer"]
+        },
+        {
+          "id": "outside_ganons_castle",
+          "name": "Great Fairy of Courage (Outside Ganon's Castle)",
+          "area": "Outside Ganon's Castle",
+          "howTo": "With the Golden Gauntlets from the Shadow Trial, lift the huge black pillar at the dead end of the side path, among the boulders.",
+          "reward": "Defensive Power (double defense)",
+          "notes": "Damage taken is halved; your hearts get a white outline.",
+          "tags": ["Adult", "Golden Gauntlets"]
+        }
+      ]
+    }
+  ]
+}
