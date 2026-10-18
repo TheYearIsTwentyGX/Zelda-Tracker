@@ -111,6 +111,16 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Hide undiscovered Koroks** (top-bar menu): the same spoiler-safe mode as shrines, but a
   separate setting, so one can be on without the other. Hidden rows only match a search by region
   and never match a puzzle-type filter.
+- **Import from Zelda Notes** (top-bar menu): reads the Navigation map in the Nintendo Switch App's
+  Zelda Notes. Turn on **Hide Discovered Destinations**, zoom in until the Korok droplets stand
+  apart, then pick a screen recording of you panning across the map (read three frames a second)
+  or screenshots that cover it. Each view is placed on the world map by matching its droplets to
+  the 900 known Korok positions; a Korok whose droplet is missing is suggested as collected, one
+  covered by a shrine icon or crowded beside another droplet is listed as unsure, and views zoomed
+  out too far, with the switch off, or showing too few Koroks to place are listed with the reason.
+  The review shows a coverage map, lets you pick which save file to import into (Zelda Notes only
+  shows the save your Switch last synced), and gives the percentage to compare with Zelda Notes'
+  Categories → Hidden Koroks. Apply asks for confirmation and never unmarks anything.
 - **Scan the map live** (top-bar menu): point the phone's camera at the TV or Switch showing the 2D
   map zoomed all the way in, and pan around. The game marks every Korok you've found at max zoom,
   and the app reads those marks as you go: green rings for found ones, grey dots for empty spots,
@@ -348,6 +358,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/screencam/  ← finding and unwarping a game screen in a photo
   src/commonMain/kotlin/gx/zelda/screencam/live/  ← live tracking of the max-zoom map and its Korok markers
   src/commonMain/kotlin/gx/zelda/koroks/scan/  ← the live Korok scan screen and its review
+  src/commonMain/kotlin/gx/zelda/zeldanotes/  ← reading Zelda Notes map screenshots and recordings, and the import screen
   src/commonMain/kotlin/gx/zelda/compendium/  ← Hyrule Compendium tracker
   src/commonMain/kotlin/gx/zelda/koroks/   ← Korok Seed tracker and Hestu planner
   src/commonMain/kotlin/gx/zelda/sidequests/  ← side quest tracker (Side, Shrine and DLC quests)

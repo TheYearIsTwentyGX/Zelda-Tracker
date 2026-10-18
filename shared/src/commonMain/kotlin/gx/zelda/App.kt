@@ -73,6 +73,8 @@ import gx.zelda.sidequests.data.SideQuestStorage
 import gx.zelda.sidequests.ui.SideQuestDetailScreen
 import gx.zelda.sidequests.ui.SideQuestTrackerScreen
 import gx.zelda.sidequests.ui.SideQuestViewModel
+import gx.zelda.zeldanotes.NotesImportScreen
+import gx.zelda.zeldanotes.NotesImportViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable private data object Home
@@ -88,6 +90,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class ShrineScan(val gameId: String)
 
 @Serializable private data class KorokScan(val gameId: String)
+@Serializable private data class NotesImport(val gameId: String)
 @Serializable private data class Overview(val gameId: String)
 @Serializable private data class SideQuests(val gameId: String)
 @Serializable private data class SideQuestDetail(val gameId: String, val questId: String)
@@ -226,7 +229,16 @@ fun App(dataStore: DataStore<Preferences>) {
                     onBack = { nav.popBackStack() },
                     // Only BotW has the map tiles and marker template the live scan reads.
                     onScanLive = { nav.navigate(KorokScan(game.id)) }.takeIf { game == Games.BOTW },
+                    // Zelda Notes and its droplet template are BotW's.
+                    onImportNotes = { nav.navigate(NotesImport(game.id)) }.takeIf { game == Games.BOTW },
                 )
+            }
+            composable<NotesImport> { entry ->
+                val game = Games.byId(entry.toRoute<NotesImport>().gameId)
+                val vm = viewModel(key = "notes_import_${game.id}") { NotesImportViewModel(KorokStorage(dataStore, game)) }
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                NotesImportScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
             composable<KorokScan> { entry ->
                 val game = Games.byId(entry.toRoute<KorokScan>().gameId)

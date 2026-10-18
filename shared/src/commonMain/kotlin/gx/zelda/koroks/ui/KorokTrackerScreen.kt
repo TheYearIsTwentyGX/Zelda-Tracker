@@ -65,6 +65,8 @@ fun KorokTrackerScreen(
     onBack: () -> Unit,
     /** Opens the live camera scan; null where the game has no map data for it. */
     onScanLive: (() -> Unit)? = null,
+    /** Opens the Zelda Notes import; null where the game has no data for it. */
+    onImportNotes: (() -> Unit)? = null,
 ) {
     Scaffold(
         topBar = {
@@ -89,7 +91,7 @@ fun KorokTrackerScreen(
                     }
                 },
                 actions = {
-                    if (state != null) KorokMenu(state, viewModel, onScanLive)
+                    if (state != null) KorokMenu(state, viewModel, onScanLive, onImportNotes)
                 },
             )
         },
@@ -103,7 +105,7 @@ fun KorokTrackerScreen(
 }
 
 @Composable
-private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel, onScanLive: (() -> Unit)?) {
+private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel, onScanLive: (() -> Unit)?, onImportNotes: (() -> Unit)?) {
     var open by remember { mutableStateOf(false) }
     IconButton(onClick = { open = true }) {
         Icon(Icons.Filled.MoreVert, contentDescription = "More options")
@@ -117,6 +119,15 @@ private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel, onScanLive
                 open = false
             },
         )
+        if (onImportNotes != null) {
+            DropdownMenuItem(
+                text = { Text("Import from Zelda Notes") },
+                onClick = {
+                    open = false
+                    onImportNotes()
+                },
+            )
+        }
         if (onScanLive != null) {
             DropdownMenuItem(
                 text = { Text("Scan the map live") },
