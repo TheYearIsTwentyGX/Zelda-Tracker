@@ -1,0 +1,178 @@
+{
+  "noun": "trade",
+  "hiddenLabel": "Untraded item",
+  "sections": [
+    {
+      "id": "child",
+      "title": "Masks",
+      "noun": "step",
+      "note": "Young Link's trade slot: from Malon's egg to the Mask of Truth. Tick each item when you get it.",
+      "items": [
+        {
+          "id": "weird_egg",
+          "name": "Weird Egg",
+          "area": "Hyrule Castle",
+          "howTo": "Malon gives it to you by the vines near the castle gate.",
+          "notes": "It hatches into a Cucco when morning comes."
+        },
+        {
+          "id": "child_cucco",
+          "name": "Cucco",
+          "area": "Hyrule Castle",
+          "howTo": "Let the Weird Egg hatch, then wake Talon, asleep by the crates at the castle, with its crow.",
+          "requires": ["weird_egg"],
+          "notes": "Talon runs home to Lon Lon Ranch, and you can then climb his crates into the castle grounds."
+        },
+        {
+          "id": "zeldas_letter",
+          "name": "Zelda's Letter",
+          "area": "Hyrule Castle",
+          "howTo": "Zelda gives it to you in the castle courtyard.",
+          "requires": ["child_cucco"],
+          "notes": "Show it to the guard at the Death Mountain gate in Kakariko Village to open the trail and the Happy Mask Shop."
+        },
+        {
+          "id": "keaton_mask",
+          "name": "Keaton Mask",
+          "area": "Kakariko Village",
+          "howTo": "Borrow it from the Happy Mask Shop in Hyrule Market and sell it to the guard at Kakariko's Death Mountain gate.",
+          "requires": ["zeldas_letter"],
+          "reward": "15 Rupees (the shop wants 10)"
+        },
+        {
+          "id": "skull_mask",
+          "name": "Skull Mask",
+          "area": "Lost Woods",
+          "howTo": "Sell it to the Skull Kid on the stump left of the Lost Woods entrance, after playing him Saria's Song.",
+          "requires": ["keaton_mask"],
+          "reward": "10 Rupees (the shop wants 20)",
+          "notes": "Wear it on the Forest Stage for the 30 Deku Sticks upgrade."
+        },
+        {
+          "id": "spooky_mask",
+          "name": "Spooky Mask",
+          "area": "Kakariko Graveyard",
+          "howTo": "Sell it to the boy in Kakariko Graveyard, by day.",
+          "requires": ["skull_mask"],
+          "reward": "30 Rupees"
+        },
+        {
+          "id": "bunny_hood",
+          "name": "Bunny Hood",
+          "area": "Hyrule Field",
+          "howTo": "Sell it to the Running Man in Hyrule Field. He appears once you have all three Spiritual Stones, and only stops to talk at night.",
+          "requires": ["spooky_mask"],
+          "reward": "Fills your wallet (the shop wants 50)",
+          "notes": "Get the biggest wallet you can first. StrategyWiki places him around Lon Lon Ranch; Zelda Wiki says he runs around Hyrule Field."
+        },
+        {
+          "id": "mask_of_truth",
+          "name": "Mask of Truth",
+          "area": "Hyrule Market",
+          "howTo": "The Happy Mask Shop lends it to you once you've sold all four masks.",
+          "requires": ["bunny_hood"],
+          "notes": "Lets you hear Gossip Stones. Wear it on the Forest Stage for a Deku Nut upgrade before you get the Poacher's Saw (N64). The shop then also lends the Goron, Zora and Gerudo Masks, which nobody buys."
+        }
+      ]
+    },
+    {
+      "id": "adult",
+      "title": "Biggoron's Sword",
+      "noun": "step",
+      "note": "Adult Link's trade slot. Don't warp while a timed item is in hand: it spoils at once.",
+      "items": [
+        {
+          "id": "pocket_egg",
+          "name": "Pocket Egg",
+          "area": "Kakariko Village",
+          "howTo": "Talk to the Cucco Lady in Kakariko Village as adult Link.",
+          "notes": "It hatches into the Pocket Cucco the next morning (play the Sun's Song to hurry it)."
+        },
+        {
+          "id": "pocket_cucco",
+          "name": "Pocket Cucco",
+          "area": "Kakariko Village",
+          "howTo": "Let the Pocket Egg hatch, then use it to wake Talon, asleep in a house in Kakariko Village.",
+          "requires": ["pocket_egg"]
+        },
+        {
+          "id": "cojiro",
+          "name": "Cojiro",
+          "area": "Kakariko Village",
+          "howTo": "Give the Pocket Cucco back to the Cucco Lady once it has woken Talon; she trades it for her brother's blue Cucco.",
+          "requires": ["pocket_cucco"]
+        },
+        {
+          "id": "odd_mushroom",
+          "name": "Odd Mushroom",
+          "area": "Lost Woods",
+          "howTo": "Take Cojiro to the man slumped against a tree in the Lost Woods, left from the Kokiri Forest entrance.",
+          "requires": ["cojiro"],
+          "notes": "Timed: three minutes to reach the potion shop."
+        },
+        {
+          "id": "odd_potion",
+          "name": "Odd Potion",
+          "area": "Kakariko Village",
+          "howTo": "Within three minutes, give the Odd Mushroom to Granny in the potion shop behind Kakariko's main potion shop.",
+          "requires": ["odd_mushroom"],
+          "notes": "Called the Odd Poultice in Ocarina of Time 3D. If time runs out, fetch another mushroom with Cojiro."
+        },
+        {
+          "id": "poachers_saw",
+          "name": "Poacher's Saw",
+          "area": "Lost Woods",
+          "howTo": "Take the Odd Potion back to the same spot in the Lost Woods; Fado is there now and swaps it for the saw.",
+          "requires": ["odd_potion"],
+          "missable": true,
+          "notes": "On the N64, getting the saw makes the Mask of Truth's Deku Nut upgrade on the Forest Stage unobtainable, so get that first. Fixed on the 3DS."
+        },
+        {
+          "id": "broken_gorons_sword",
+          "name": "Broken Goron's Sword",
+          "area": "Gerudo Valley",
+          "howTo": "Give the saw to the head carpenter in his tent in Gerudo Valley. Cross the broken bridge with Epona or the Longshot, or after rescuing the carpenters.",
+          "requires": ["poachers_saw"]
+        },
+        {
+          "id": "prescription",
+          "name": "Prescription",
+          "area": "Death Mountain Trail",
+          "howTo": "Give the broken sword to Biggoron at the summit of Death Mountain Trail.",
+          "requires": ["broken_gorons_sword"]
+        },
+        {
+          "id": "eyeball_frog",
+          "name": "Eyeball Frog",
+          "area": "Zora's Domain",
+          "howTo": "Thaw King Zora with Blue Fire (Ice Cavern) and show him the Prescription.",
+          "requires": ["prescription"],
+          "notes": "Timed: three minutes to reach the Lakeside Laboratory."
+        },
+        {
+          "id": "eye_drops",
+          "name": "World's Finest Eye Drops",
+          "area": "Lake Hylia",
+          "howTo": "Within three minutes, give the Eyeball Frog to the scientist in the Lakeside Laboratory.",
+          "requires": ["eyeball_frog"],
+          "notes": "Timed: four minutes to get back to Biggoron. If time runs out, get another frog from King Zora."
+        },
+        {
+          "id": "claim_check",
+          "name": "Claim Check",
+          "area": "Death Mountain Trail",
+          "howTo": "Within four minutes, give the eye drops to Biggoron.",
+          "requires": ["eye_drops"]
+        },
+        {
+          "id": "biggorons_sword",
+          "name": "Biggoron's Sword",
+          "area": "Death Mountain Trail",
+          "howTo": "Wait three days (or play the Sun's Song six times), then show Biggoron the Claim Check.",
+          "requires": ["claim_check"],
+          "notes": "Two-handed and unbreakable: twice the Master Sword's power."
+        }
+      ]
+    }
+  ]
+}

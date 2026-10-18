@@ -61,10 +61,10 @@ class GamesTest {
         }
     }
 
-    /** Only BotW, TotK and The Minish Cap have trackers; the rest are coming soon with placeholder files. */
+    /** Only BotW, TotK, The Minish Cap and Ocarina of Time have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("mc", "botw", "totk"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("oot", "mc", "botw", "totk"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.MM.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
         assertEquals(listOf("file_1"), Games.EOW.saveFiles.map { it.id })
