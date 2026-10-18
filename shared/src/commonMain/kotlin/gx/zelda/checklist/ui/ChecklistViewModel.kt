@@ -54,8 +54,8 @@ data class ChecklistUiState(
     /** The section on screen; null for "All". A stale id (the file changed) falls back to "All". */
     val section: ChecklistSection? = filters.section?.let(catalog::section)
 
-    /** The items of the section on screen, whatever the other filters leave. */
-    val sectionItems: List<ChecklistItem> = section?.items ?: catalog.items
+    /** The items of the section on screen, whatever the other filters leave. "All" leaves out separate sections, as its count does. */
+    val sectionItems: List<ChecklistItem> = section?.items ?: catalog.counted
 
     /** Tabs only when there's more than one section. */
     val showTabs: Boolean get() = catalog.sections.size > 1

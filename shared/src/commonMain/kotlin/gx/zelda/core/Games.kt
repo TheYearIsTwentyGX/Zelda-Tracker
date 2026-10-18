@@ -75,7 +75,30 @@ object Games {
     val LOZ = comingSoon("loz", "The Legend of Zelda", ReleaseDate(1986, 2, 21), "NES")
     val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
     val ALTTP = comingSoon("alttp", "A Link to the Past", ReleaseDate(1991, 11, 21), "SNES")
-    val LA = comingSoon("la", "Link's Awakening", ReleaseDate(1993, 6, 6), "Game Boy")
+
+    /**
+     * Three files on the Game Boy cartridge, as on DX (the disassembly's SaveGame1–3) and the Switch
+     * remake. Every tracker is a checklist for the original and DX; the Switch remake's own lists are
+     * `separate` tabs. The data and its sources are in docs/la.md.
+     */
+    val LA = Game(
+        id = "la",
+        title = "Link's Awakening",
+        released = ReleaseDate(1993, 6, 6),
+        platform = "Game Boy",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            laChecklist("Main Quest", "The eight dungeons, their keys and Instruments of the Sirens, and the Wind Fish's Egg", "main_quest"),
+            laChecklist("Items & Equipment", "Every item and its upgrades, the Mad Batters' capacity upgrades and the five Golden Leaves", "items"),
+            laChecklist("Heart Pieces", "All 12 Pieces of Heart and 8 Heart Containers, with your hearts, and the Switch remake's 32", "heart_pieces"),
+            laChecklist("Secret Seashells", "All 26 seashells and the Seashell Mansion, and the Switch remake's 50", "seashells"),
+            laChecklist("Trading Sequence", "From the Yoshi Doll to the Magnifying Lens: 14 trades", "trading"),
+            laChecklist("Songs", "The three Ocarina songs and where to learn them", "songs"),
+            laChecklist("Photographs", "DX: all 12 photos for The Travels of Link, and the ones you can miss", "photographs"),
+            laChecklist("Color Dungeon", "DX and Switch: the graveyard puzzle, the bosses and the Fairy's tunics", "color_dungeon"),
+        ),
+    )
 
     /** Three files on the Nintendo 64 cartridge (each with a backup copy), as on the 3DS. */
     val OOT = Game(
@@ -209,6 +232,9 @@ object Games {
     ).sortedBy { it.released }
 
     fun byId(id: String): Game = all.first { it.id == id }
+
+    private fun laChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "la/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

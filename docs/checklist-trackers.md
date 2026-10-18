@@ -105,6 +105,7 @@ Leave out an optional field rather than writing `null` or `""`.
 | `noun`, `plural`, `hiddenLabel` | no | Override the top-level ones for this section. |
 | `note` | no | One line shown on the section's summary card. |
 | `summary` | no | A total shown only on this section's tab, e.g. crystals spent. |
+| `separate` | no | `true` to count the section on its own: another release's version of a list, like Link's Awakening's Switch-remake seashells beside the Game Boy ones. Its tab, its count on the overview's detail line and formulas that name it work as usual, but it's left out of the file's total (the tracker's and overview's bar), the *All* tab and *Next*. At least one section must not be separate. |
 
 ### Item
 
@@ -162,12 +163,13 @@ two decimals. Dividing by zero gives 0. Examples:
 - **Search** reads the name, area, region, howTo, after, reward, notes, tags, tier names and section
   title of every row that isn't hidden.
 - **Counts.** Tabs and region headers count every item on that tab, whatever the filters leave
-  showing.
+  showing. The file's total, and the *All* tab, leave out `separate` sections.
 - **Overview row** (`ChecklistProgressProvider`):
-  - the bar is steps done of all;
+  - the bar is steps done of all, less `separate` sections;
   - the detail line lists each summary, then each section's count (when there's more than one
     section);
   - *Next* is the first item, in file order, that isn't done and whose `requires` are all done.
-    So **order items in the order you'd suggest doing them**. With *Hide unchecked* on and that
+    Items in `separate` sections are never suggested. So **order items in the order you'd suggest
+    doing them**. With *Hide unchecked* on and that
     item not started, it says only how many are left there ("2 pieces still to do in Hyrule
     Field").

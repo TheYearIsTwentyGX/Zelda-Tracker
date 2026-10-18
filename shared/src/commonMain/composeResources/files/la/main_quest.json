@@ -1,0 +1,329 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {
+      "label": "Instruments of the Sirens",
+      "formula": "quest.value"
+    }
+  ],
+  "sections": [
+    {
+      "id": "quest",
+      "title": "Main Quest",
+      "note": "Eight dungeons, each with an Instrument of the Sirens, and the keys that open them.",
+      "items": [
+        {
+          "id": "find_sword",
+          "name": "The Sword",
+          "area": "Toronbo Shores",
+          "howTo": "Tarin gives back your Shield when you wake in Mabe Village. Go south to Toronbo Shores and walk along the beach to the east to find the Sword.",
+          "value": 0,
+          "reward": "Sword",
+          "notes": "The Owl appears for the first time once you have it.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "tail_key",
+          "name": "The Tail Key",
+          "area": "Mysterious Forest",
+          "howTo": "Take the Sleepy Toadstool to Syrup at the Witch's Hut for Magic Powder, sprinkle it on the Raccoon (Tarin) blocking the forest path, then open the chest in the north of the forest.",
+          "requires": [
+            "find_sword"
+          ],
+          "value": 0,
+          "reward": "Tail Key, Magic Powder",
+          "tags": [
+            "Key"
+          ]
+        },
+        {
+          "id": "tail_cave",
+          "name": "Tail Cave (Level 1)",
+          "area": "South of the Village",
+          "howTo": "Open the keyhole south of Mabe Village with the Tail Key.",
+          "requires": [
+            "tail_key"
+          ],
+          "reward": "Full Moon Cello, Heart Container",
+          "notes": "Boss: Moldorm. Dungeon item: Roc's Feather.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "rescue_bowwow",
+          "name": "Rescue BowWow",
+          "area": "Moblin Hideout",
+          "howTo": "Madam MeowMeow's BowWow has been kidnapped. Fight through the Moblin Hideout and beat the Moblin Chief.",
+          "requires": [
+            "tail_cave"
+          ],
+          "value": 0,
+          "reward": "BowWow follows you",
+          "notes": "BowWow eats the Goponga Flowers that block Bottle Grotto.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "bottle_grotto",
+          "name": "Bottle Grotto (Level 2)",
+          "area": "Goponga Swamp",
+          "howTo": "Walk BowWow through Goponga Swamp so he eats the flowers in the way; no key is needed.",
+          "requires": [
+            "rescue_bowwow"
+          ],
+          "reward": "Conch Horn, Heart Container",
+          "notes": "Boss: Genie. Dungeon item: Power Bracelet. Afterwards take BowWow home to Madam MeowMeow.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "slime_key",
+          "name": "The Slime Key",
+          "area": "Pothole Field",
+          "howTo": "Trade Kiki the Bananas so the monkeys build the bridge to Kanalet Castle, collect the five Golden Leaves there and give them to Richard at his villa. Go through to Pothole Field and dig at the Owl Statue with the Shovel.",
+          "requires": [
+            "bottle_grotto"
+          ],
+          "value": 0,
+          "reward": "Slime Key",
+          "notes": "The leaves are in Items & Equipment, the Bananas in the Trading Sequence. The Shovel is 200 Rupees at the Town Tool Shop.",
+          "tags": [
+            "Key"
+          ]
+        },
+        {
+          "id": "key_cavern",
+          "name": "Key Cavern (Level 3)",
+          "area": "Ukuku Prairie",
+          "howTo": "Open the keyhole by the cavern with the Slime Key.",
+          "requires": [
+            "slime_key"
+          ],
+          "reward": "Sea Lily's Bell, Heart Container",
+          "notes": "Boss: Slime Eye. Dungeon item: Pegasus Boots.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "dream_shrine",
+          "name": "The Ocarina",
+          "area": "Mabe Village",
+          "howTo": "Enter the Dream Shrine in Mabe Village, sleep in its bed and cross the dream room with the Power Bracelet and Pegasus Boots. Then learn the Ballad of the Wind Fish from Marin.",
+          "requires": [
+            "key_cavern"
+          ],
+          "value": 0,
+          "reward": "Ocarina",
+          "notes": "Songs are in their own tracker.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "walrus",
+          "name": "Wake the Walrus",
+          "area": "Yarna Desert",
+          "howTo": "Take Marin past Animal Village to the Walrus blocking the way into Yarna Desert, and she sings it awake.",
+          "requires": [
+            "dream_shrine"
+          ],
+          "value": 0,
+          "notes": "On Game Boy and DX Marin only comes along once you've traded the Honeycomb (Zelda Wiki); on Switch she comes either way. Marin's DX photos are lost after this.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "angler_key",
+          "name": "The Angler Key",
+          "area": "Yarna Desert",
+          "howTo": "Beat the Desert Lanmola in Yarna Desert.",
+          "requires": [
+            "walrus"
+          ],
+          "value": 0,
+          "reward": "Angler Key",
+          "tags": [
+            "Key"
+          ]
+        },
+        {
+          "id": "anglers_tunnel",
+          "name": "Angler's Tunnel (Level 4)",
+          "area": "Tal Tal Heights",
+          "howTo": "Put the Angler Key in the keyhole on Tal Tal Heights to stop the waterfall, then drop in from the cliff above.",
+          "requires": [
+            "angler_key"
+          ],
+          "reward": "Surf Harp, Heart Container",
+          "notes": "Boss: Angler Fish. Dungeon item: Flippers.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "ghost",
+          "name": "The Ghost",
+          "area": "Martha's Bay",
+          "howTo": "The Ghost follows you out of Angler's Tunnel. Take him to his old home, the House by the Bay, then to his grave in the Cemetery.",
+          "requires": [
+            "anglers_tunnel"
+          ],
+          "value": 0,
+          "notes": "Guides do this before Catfish's Maw. On Switch he gives a Fairy Bottle at the grave.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "catfishs_maw",
+          "name": "Catfish's Maw (Level 5)",
+          "area": "Martha's Bay",
+          "howTo": "Swim to the middle of Martha's Bay and dive into the catfish's mouth; no key is needed.",
+          "requires": [
+            "anglers_tunnel"
+          ],
+          "reward": "Wind Marimba, Heart Container",
+          "notes": "Boss: Slime Eel. Dungeon item: Hookshot. The Hookshot is taken back from Master Stalfos after four fights.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "face_key",
+          "name": "The Face Key",
+          "area": "Ancient Ruins",
+          "howTo": "Swim to the Ancient Ruins, open the Southern Face Shrine and beat the Armos Knight. Read the relief on the wall.",
+          "requires": [
+            "catfishs_maw"
+          ],
+          "value": 0,
+          "reward": "Face Key",
+          "notes": "The relief tells you the island is a dream.",
+          "tags": [
+            "Key"
+          ]
+        },
+        {
+          "id": "face_shrine",
+          "name": "Face Shrine (Level 6)",
+          "area": "Face Shrine",
+          "howTo": "Open the Face Shrine north of the Ancient Ruins with the Face Key.",
+          "requires": [
+            "face_key"
+          ],
+          "reward": "Coral Triangle, Heart Container",
+          "notes": "Boss: Facade. Dungeon item: Power Bracelet L-2. The bracelet is the Powerful Bracelet on Switch.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "flying_rooster",
+          "name": "The Flying Rooster",
+          "area": "Mabe Village",
+          "howTo": "Push the Weathercock in Mabe Village aside with the L-2 bracelet and play Frog's Song of Soul at the grave beneath it.",
+          "requires": [
+            "face_shrine"
+          ],
+          "value": 0,
+          "reward": "Flying Rooster",
+          "notes": "Frog's Song of Soul is 300 Rupees from Mamu in the Signpost Maze.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "bird_key",
+          "name": "The Bird Key",
+          "area": "Tal Tal Heights",
+          "howTo": "Carry the Flying Rooster to the cave on Tal Tal Heights and fly over the pit to the chest.",
+          "requires": [
+            "flying_rooster"
+          ],
+          "value": 0,
+          "reward": "Bird Key",
+          "tags": [
+            "Key"
+          ]
+        },
+        {
+          "id": "eagles_tower",
+          "name": "Eagle's Tower (Level 7)",
+          "area": "Tal Tal Mountain Range",
+          "howTo": "Use the Bird Key in the keyhole at the far east of the mountains: the tower turns to show its ladder.",
+          "requires": [
+            "bird_key"
+          ],
+          "reward": "Organ of Evening Calm, Heart Container",
+          "notes": "Boss: Evil Eagle. Dungeon item: Mirror Shield. Grim Creeper, the mini-boss, rides the Evil Eagle.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "turtle_rock_head",
+          "name": "Wake Turtle Rock",
+          "area": "Tal Tal Mountain Range",
+          "howTo": "Walk the west of the mountains to Turtle Rock, blocking the Flame Fountain's heat with the Mirror Shield, and play Frog's Song of Soul to the stone head. Beat it to open the way.",
+          "requires": [
+            "eagles_tower"
+          ],
+          "value": 0,
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "turtle_rock",
+          "name": "Turtle Rock (Level 8)",
+          "area": "Tal Tal Mountain Range",
+          "howTo": "Enter through the defeated turtle's head; no key is needed.",
+          "requires": [
+            "turtle_rock_head"
+          ],
+          "reward": "Thunder Drum, Heart Container",
+          "notes": "Boss: Hot Head. Dungeon item: Magic Rod.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "egg_maze_book",
+          "name": "The Egg's path",
+          "area": "Mabe Village",
+          "howTo": "Read Dark Secrets and Mysteries of Koholint in the Mabe Village Library with the Magnifying Lens. It gives the way through the Egg's maze.",
+          "requires": [
+            "turtle_rock"
+          ],
+          "value": 0,
+          "notes": "The path is set per save file. The Magnifying Lens ends the Trading Sequence. On Switch the maze stays dark without the book (Zelda's Palace).",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "wind_fish",
+          "name": "The Wind Fish's Egg",
+          "area": "Mt. Tamaranch",
+          "howTo": "Play the Ballad of the Wind Fish at the Egg on Mt. Tamaranch with all eight instruments, follow the book's path through the maze, beat the Shadow Nightmares and play the Ballad again.",
+          "requires": [
+            "turtle_rock"
+          ],
+          "value": 0,
+          "notes": "Boss: the Shadow Nightmares: Giant Gel, Agahnim's Shadow, Moldorm's Shadow, Ganon's Shadow, Lanmola's Shadow and DethI. Waking the Wind Fish ends the game.",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    }
+  ]
+}

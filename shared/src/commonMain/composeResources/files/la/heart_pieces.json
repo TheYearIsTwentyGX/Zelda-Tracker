@@ -1,0 +1,618 @@
+{
+  "regions": [
+    "Mabe Village",
+    "Mysterious Forest",
+    "Koholint Prairie",
+    "Ukuku Prairie",
+    "Tabahl Wasteland",
+    "Kanalet Castle",
+    "Pothole Field",
+    "Tal Tal Heights",
+    "Martha's Bay",
+    "Animal Village",
+    "Yarna Desert",
+    "Rapids Ride",
+    "Tal Tal Mountain Range"
+  ],
+  "noun": "heart",
+  "plural": "hearts",
+  "hiddenLabel": "Uncollected heart",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "3 + pieces / 4 + containers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pieces",
+      "title": "Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "Game Boy and DX: 12 pieces, every four make a heart. Tags give the items you need.",
+      "items": [
+        {
+          "id": "mabe_well",
+          "name": "Mabe Village well",
+          "region": "Mabe Village",
+          "area": "Well, west of Marin and Tarin's house",
+          "howTo": "Go two screens west of Marin and Tarin's house, cut the middle of the three bushes above the cliff and jump into the well. The piece is in the cave below.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "fishing_big_fish",
+          "name": "Fishing Pond: the big fish",
+          "region": "Mabe Village",
+          "area": "Fishing Pond, two screens north of Madam MeowMeow's",
+          "howTo": "Pay 10 Rupees and catch the heaviest fish, the one lurking under the cliff. Clearing out the small fish first usually helps.",
+          "notes": "The Switch remake adds a second Piece of Heart here for a small fish.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "prairie_pit_ring",
+          "name": "Ring of pits",
+          "region": "Koholint Prairie",
+          "area": "East of the Mysterious Forest",
+          "howTo": "Leave the Mysterious Forest to the east: the piece sits inside a ring of pits. Jump over them.",
+          "after": "Tail Cave (Roc's Feather)",
+          "tags": [
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "forest_skull_cave",
+          "name": "Toadstool cave skulls",
+          "region": "Mysterious Forest",
+          "area": "Cave on the way to the Toadstool",
+          "howTo": "In the cave you pass through to reach the Toadstool, lift the two skulls that block the piece.",
+          "after": "Bottle Grotto (Power Bracelet)",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "ukuku_crystal_cave",
+          "name": "Crystal cave",
+          "region": "Ukuku Prairie",
+          "area": "East of Mabe Village, near the Pincer pits",
+          "howTo": "Bomb the cracked wall at the upper left. Inside, dash through the crystals with the Pegasus Boots, then bomb the hidden east wall.",
+          "after": "Key Cavern (Pegasus Boots)",
+          "tags": [
+            "Bombs",
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "taltal_flooded_cave",
+          "name": "Flooded cave east of Angler's Tunnel",
+          "region": "Tal Tal Heights",
+          "area": "Three screens east of Angler's Tunnel",
+          "howTo": "Swim three screens east of Angler's Tunnel into a cave and dive.",
+          "after": "Angler's Tunnel (Flippers)",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "kanalet_moat",
+          "name": "Kanalet Castle moat",
+          "region": "Kanalet Castle",
+          "area": "Moat, just west of the front gate",
+          "howTo": "Get into the moat by the stairs at the north-east corner, swim round to just west of the front gate and dive.",
+          "after": "Angler's Tunnel (Flippers)",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "yarna_lanmola_cave",
+          "name": "Lanmola's quicksand cave",
+          "region": "Yarna Desert",
+          "area": "Under the quicksand",
+          "howTo": "Beat the Desert Lanmola and let the quicksand swallow you (or bomb the entrance one screen east), then bomb the cave's north wall.",
+          "notes": "Zelda Dungeon's Switch guide also lists the Ocarina; no other source does.",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "cemetery_cave",
+          "name": "Cemetery cave",
+          "region": "Koholint Prairie",
+          "area": "Cave under the Cemetery",
+          "howTo": "Push the bottom-right of the four graves in the south-west of the Cemetery, or take the stairs south of the Witch's Hut. Cross the platforms with a diagonal jump, or bomb the block and Hookshot over.",
+          "notes": "Zelda Dungeon needs only Roc's Feather; Zelda's Palace gives the Pegasus Boots or Hookshot.",
+          "tags": [
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "animal_village_cave",
+          "name": "Cave north-east of Animal Village",
+          "region": "Animal Village",
+          "area": "North of the Walrus's screen",
+          "howTo": "Bomb the cracked wall, then the cave's north wall. Throw a bomb over the fence at the cracked block (or fire a Bomb Arrow), go round and Hookshot across.",
+          "after": "Catfish's Maw (Hookshot)",
+          "notes": "Zelda Dungeon also lists Roc's Feather and the Bow.",
+          "tags": [
+            "Bombs",
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "taltal_broken_bridge",
+          "name": "Broken bridge west of the Hen House",
+          "region": "Tal Tal Mountain Range",
+          "area": "West of the Hen House",
+          "howTo": "Hookshot across the broken bridge, cut the bush to find stairs, bomb the south wall and go one room right.",
+          "after": "Catfish's Maw (Hookshot)",
+          "notes": "Zelda Dungeon's Game Boy page puts it in Tal Tal Heights.",
+          "tags": [
+            "Hookshot",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "turtle_rock_ledge",
+          "name": "Turtle Rock ledge",
+          "region": "Tal Tal Mountain Range",
+          "area": "Turtle Rock (Level 8), the north-west \"left arm\" room",
+          "howTo": "In Turtle Rock's north-west room, take the stairs outside onto a ledge of the mountain. The piece is there.",
+          "after": "Turtle Rock",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "hiddenLabel": "Unbeaten boss",
+      "note": "One from each dungeon's Nightmare, in every version.",
+      "items": [
+        {
+          "id": "moldorm",
+          "name": "Moldorm",
+          "area": "Tail Cave (Level 1)",
+          "howTo": "Beat the boss of Tail Cave.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "genie",
+          "name": "Genie",
+          "area": "Bottle Grotto (Level 2)",
+          "howTo": "Beat the boss of Bottle Grotto.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "slime_eye",
+          "name": "Slime Eye",
+          "area": "Key Cavern (Level 3)",
+          "howTo": "Beat the boss of Key Cavern.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "angler_fish",
+          "name": "Angler Fish",
+          "area": "Angler's Tunnel (Level 4)",
+          "howTo": "Beat the boss of Angler's Tunnel.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "slime_eel",
+          "name": "Slime Eel",
+          "area": "Catfish's Maw (Level 5)",
+          "howTo": "Beat the boss of Catfish's Maw.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "facade",
+          "name": "Facade",
+          "area": "Face Shrine (Level 6)",
+          "howTo": "Beat the boss of Face Shrine.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "evil_eagle",
+          "name": "Evil Eagle",
+          "area": "Eagle's Tower (Level 7)",
+          "howTo": "Beat the boss of Eagle's Tower.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        },
+        {
+          "id": "hot_head",
+          "name": "Hot Head",
+          "area": "Turtle Rock (Level 8)",
+          "howTo": "Beat the boss of Turtle Rock.",
+          "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
+        }
+      ]
+    },
+    {
+      "id": "switch_pieces",
+      "title": "Switch Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "The 2019 Switch remake: 32 pieces (the original 12 and 20 new). Counted apart from the Game Boy and DX total.",
+      "separate": true,
+      "summary": {
+        "label": "Hearts on Switch",
+        "formula": "3 + switch_pieces / 4 + containers + switch_containers"
+      },
+      "items": [
+        {
+          "id": "switch_mabe_well",
+          "name": "Mabe Village well",
+          "region": "Mabe Village",
+          "area": "Well, west of Marin and Tarin's house",
+          "howTo": "Cut the bushes above the well on the west side of the village and jump in.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Sword"
+          ]
+        },
+        {
+          "id": "switch_trendy_game",
+          "name": "Trendy Game: first piece",
+          "region": "Mabe Village",
+          "area": "Trendy Game",
+          "howTo": "Win it from the crane game. It's on offer from the start, alongside the Yoshi Doll.",
+          "notes": "10 Rupees a go.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_fishing_small_fish",
+          "name": "Fishing Pond: a small fish",
+          "region": "Mabe Village",
+          "area": "Fishing Pond",
+          "howTo": "Pay 10 Rupees and catch a small fish.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_fishing_big_fish",
+          "name": "Fishing Pond: the big fish",
+          "region": "Mabe Village",
+          "area": "Fishing Pond",
+          "howTo": "Pay 10 Rupees and catch a large fish.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_prairie_pit_ring",
+          "name": "Ring of pits",
+          "region": "Koholint Prairie",
+          "area": "East of the Mysterious Forest",
+          "howTo": "Jump into the ring of pits just east of the Mysterious Forest.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "switch_tabahl_pit_line",
+          "name": "Line of pits",
+          "region": "Tabahl Wasteland",
+          "area": "North-east corner, south of Dampé's Shack",
+          "howTo": "Jump the line of pits in the north-east corner, north of the Cemetery."
+        },
+        {
+          "id": "switch_forest_skull_cave",
+          "name": "Toadstool cave skulls",
+          "region": "Mysterious Forest",
+          "area": "Cave on the way to the Toadstool",
+          "howTo": "In the third room of the Toadstool cave, push the blocks and lift the skulls.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_tool_shop",
+          "name": "Town Tool Shop",
+          "region": "Mabe Village",
+          "area": "Town Tool Shop",
+          "howTo": "Buy it for 200 Rupees.",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_ukuku_skull_cave",
+          "name": "Skull cave east of Mabe",
+          "region": "Ukuku Prairie",
+          "area": "North-west cave, just east of Mabe Village",
+          "howTo": "Solve the push-block puzzle and lift the skull.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_seashell_mansion",
+          "name": "Seashell Mansion: 5 seashells",
+          "region": "Ukuku Prairie",
+          "area": "Seashell Mansion",
+          "howTo": "Bring 5 Secret Seashells to the Seashell Mansion.",
+          "notes": "Also in Secret Seashells, as the Switch Mansion's first reward.",
+          "tags": [
+            "Seashells"
+          ]
+        },
+        {
+          "id": "switch_taltal_crystal_cave",
+          "name": "Crystal cave north of Dampé's",
+          "region": "Tal Tal Mountain Range",
+          "area": "Cave behind rocks, north of Dampé's Shack",
+          "howTo": "Break the crystal and push the blocks.",
+          "notes": "Nintendo Life also lists Roc's Feather.",
+          "tags": [
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "switch_pothole_field_gap",
+          "name": "Pothole Field gap",
+          "region": "Pothole Field",
+          "area": "North-east corner, behind Richard's Villa",
+          "howTo": "Give Richard the five Golden Leaves to open the way, then jump the two-hole gap in the north-east corner.",
+          "notes": "A running jump with the Pegasus Boots helps (Zelda Dungeon, Nintendo Life); Zelda's Palace says it's needed.",
+          "tags": [
+            "Golden Leaves",
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "switch_ukuku_crystal_cave",
+          "name": "Crystal cave",
+          "region": "Ukuku Prairie",
+          "area": "North-east of the warp point",
+          "howTo": "Bomb the wall north-east of the warp point, dash through the black barriers and bomb the cracked east wall.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Bombs",
+            "Pegasus Boots"
+          ]
+        },
+        {
+          "id": "switch_animal_village_northwest",
+          "name": "Behind Animal Village",
+          "region": "Animal Village",
+          "area": "North-west of the village",
+          "howTo": "The piece is in plain sight. Walk north from where the Walrus lay and round behind the houses."
+        },
+        {
+          "id": "switch_yarna_lanmola_cave",
+          "name": "Lanmola's quicksand cave",
+          "region": "Yarna Desert",
+          "area": "Under the quicksand",
+          "howTo": "Sink into the quicksand after the Lanmola fight and bomb the cave's north wall.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "switch_dampe_fill_up_your_hearts",
+          "name": "Dampé: Fill Up Your Hearts",
+          "region": "Tal Tal Heights",
+          "area": "Dampé's Shack",
+          "howTo": "Clear Dampé's \"Fill Up Your Hearts\" Chamber Dungeon challenge (Tier 1).",
+          "after": "Key Cavern",
+          "notes": "Zelda Dungeon and Nintendo Life. Zelda's Palace ties it to the first four challenges, and Zelda Wiki to the fourth Level 2 challenge.",
+          "tags": [
+            "Chamber Dungeon"
+          ]
+        },
+        {
+          "id": "switch_trendy_game_second",
+          "name": "Trendy Game: second piece",
+          "region": "Mabe Village",
+          "area": "Trendy Game, upper moving platform",
+          "howTo": "Win it from the upper platform once the Yoshi Doll, the first Piece of Heart, the seashell and the Chamber Stone are gone.",
+          "after": "Key Cavern",
+          "tags": [
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_taltal_flooded_cave",
+          "name": "Flooded cave east of Angler's Tunnel",
+          "region": "Tal Tal Heights",
+          "area": "East of Angler's Tunnel",
+          "howTo": "Swim east from Angler's Tunnel into the flooded cave and dive.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_kanalet_moat",
+          "name": "Kanalet Castle moat",
+          "region": "Kanalet Castle",
+          "area": "Moat, just west of the front gate",
+          "howTo": "Dive in the moat just west of the front gate.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_marthas_bay_channel",
+          "name": "Martha's Bay channel",
+          "region": "Martha's Bay",
+          "area": "Narrow channel at the south end",
+          "howTo": "Dive in the narrow water channel at the south end of the bay.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_marthas_bay_stair_cave",
+          "name": "Martha's Bay stair cave",
+          "region": "Martha's Bay",
+          "area": "Stairs ringed by bushes at the south end",
+          "howTo": "Past a two-hole gap, cut into the bushes round the stairs and dive in the flooded cave below.",
+          "notes": "Zelda Dungeon uses the Pegasus Boots for the gap; Zelda's Palace cuts the bushes with the Boomerang or Fire Rod; Nintendo Life says a jump-slash works.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_ukuku_tunnel_dive",
+          "name": "Tunnel south of the Mansion",
+          "region": "Ukuku Prairie",
+          "area": "Underground tunnel toward Animal Village",
+          "howTo": "In the tunnel south of the Seashell Mansion toward Animal Village, dive.",
+          "tags": [
+            "Flippers"
+          ]
+        },
+        {
+          "id": "switch_animal_village_cave",
+          "name": "Cave north-east of Animal Village",
+          "region": "Animal Village",
+          "area": "North of the Walrus's screen",
+          "howTo": "Bomb into the cave, bomb the block over the fence and Hookshot across.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Bombs",
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "switch_forest_hookshot_cave",
+          "name": "Cave behind three rocks",
+          "region": "Mysterious Forest",
+          "area": "North-central cave",
+          "howTo": "Hookshot to the rock and push it.",
+          "notes": "Nintendo Life also lists the Power Bracelet.",
+          "tags": [
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "switch_cemetery_cave",
+          "name": "Cemetery cave",
+          "region": "Koholint Prairie",
+          "area": "Cave under the Cemetery",
+          "howTo": "Take the stairs south of the Witch's Hut, or push the grave, and cross the platforms.",
+          "notes": "Also in the Game Boy and DX versions. Zelda Dungeon: Roc's Feather, Hookshot optional; Nintendo Life: Bombs and Pegasus Boots; Zelda's Palace: Boots or Hookshot.",
+          "tags": [
+            "Roc's Feather"
+          ]
+        },
+        {
+          "id": "switch_dampe_tier_two",
+          "name": "Dampé: Tier 2 challenges",
+          "region": "Tal Tal Heights",
+          "area": "Dampé's Shack",
+          "howTo": "Clear all of Dampé's Tier 2 challenges: Key Hunter, Bombs Away!, Treasure Vault and Passageway Central.",
+          "after": "Catfish's Maw",
+          "tags": [
+            "Chamber Dungeon"
+          ]
+        },
+        {
+          "id": "switch_rapids_cave",
+          "name": "Rapids Ride cave",
+          "region": "Rapids Ride",
+          "area": "Cave by the raft shop, north-east of the Face Shrine",
+          "howTo": "Follow the cave by the raft owner's hut and Hookshot across.",
+          "tags": [
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "switch_rapids_free_ride_islet",
+          "name": "Rapids Ride: west islet",
+          "region": "Rapids Ride",
+          "area": "Island on the far west of the rapids",
+          "howTo": "On a free ride (100 Rupees), go far west, drop down and hug the west wall to an island; Hookshot to the vines.",
+          "tags": [
+            "Hookshot",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_rapids_race",
+          "name": "Rapids Race",
+          "region": "Rapids Ride",
+          "area": "Rapids Ride",
+          "howTo": "Finish the Rapids Race in under 40 seconds.",
+          "notes": "40 s per Zelda Dungeon and Nintendo Life; Zelda's Palace says 45 s. The race costs 100 Rupees.",
+          "tags": [
+            "Hookshot",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "switch_taltal_broken_bridge",
+          "name": "Broken bridge west of the Hen House",
+          "region": "Tal Tal Mountain Range",
+          "area": "West of the Hen House",
+          "howTo": "Hookshot over the broken bridge, cut the bush hiding the stairs, bomb the south wall and go right.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Hookshot",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "switch_mountain_ledge_west",
+          "name": "Ledge past the rockfall",
+          "region": "Tal Tal Mountain Range",
+          "area": "West of the rockfall field",
+          "howTo": "Past the rockfall field with the Like Like and Shrouded Stalfos, take the narrow south-west ledge west.",
+          "tags": [
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "switch_turtle_rock_ledge",
+          "name": "Turtle Rock ledge",
+          "region": "Tal Tal Mountain Range",
+          "area": "Turtle Rock (Level 8), north-west room",
+          "howTo": "In the north-west Vire room of Turtle Rock, take the stairs outside to a ledge.",
+          "notes": "Also in the Game Boy and DX versions.",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "switch_containers",
+      "title": "Switch Heart Container",
+      "noun": "container",
+      "hiddenLabel": "Uncollected Heart Container",
+      "note": "The remake's one extra Heart Container, from Dampé.",
+      "separate": true,
+      "items": [
+        {
+          "id": "switch_dampe_heart_container",
+          "name": "Dampé: Ticking Clock",
+          "region": "Tal Tal Heights",
+          "area": "Dampé's Shack",
+          "howTo": "Clear Dampé's twelfth and last challenge, \"Ticking Clock\" (Tier 3), after the other eleven.",
+          "after": "Turtle Rock",
+          "reward": "Heart Container",
+          "notes": "A full Heart Container, not a piece: with it the remake reaches 20 hearts.",
+          "tags": [
+            "Chamber Dungeon"
+          ]
+        }
+      ]
+    }
+  ]
+}
