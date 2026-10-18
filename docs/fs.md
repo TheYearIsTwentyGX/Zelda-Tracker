@@ -1,14 +1,15 @@
 # Four Swords
 
-Every Four Swords tracker is a checklist (`docs/checklist-trackers.md`). The data is in
-`shared/src/commonMain/composeResources/files/fs/`. `FsDatasetTest` checks the counts below and the
-links inside each file, `ChecklistDatasetsTest` checks the format, ids, regions and `requires`, and
-`FsOverviewTest` checks the overview rows.
+Four Swords has one checklist (`docs/checklist-trackers.md`), `Stages & Keys`, after a Progress
+Overview. The data is in `shared/src/commonMain/composeResources/files/fs/stages.json`.
+`FsDatasetTest` checks the counts below and the links between rows, `ChecklistDatasetsTest` checks
+the format, ids, regions and `requires`, and `FsOverviewTest` checks the overview row.
 
 The game is the **Game Boy Advance original** (2002, bundled with *A Link to the Past & Four
 Swords*) and the **Anniversary Edition** (DSiWare, 2011). Their stages, keys and doors are the same,
-so one tracker covers both. Each version's own content has a tracker of its own. Nothing is fetched
-at runtime: the JSON was compiled offline from the sources below.
+and they make up the counted tabs. Each version's own content is a `separate` section: it has its
+own tab and count but stays out of the total and *Next*, since a player has only one of the two
+versions. Nothing is fetched at runtime: the JSON was compiled offline from the sources below.
 
 ## Save files
 
@@ -27,23 +28,34 @@ at runtime: the JSON was compiled offline from the sources below.
 
 ## Trackers
 
-| Tracker | File | Contents |
+| Tab (section id) | Separate | Contents |
 |---|---|---|
-| Progress Overview | — | A row per checklist below (`ChecklistProgressProvider`) |
-| Stages & Keys | `stages.json` | Three tabs, one per key tier: **Silver Keys** (the optional Chambers of Insight, 3 keys and Vaati's Palace's silver door), **Golden Keys** (3 keys and the golden door) and **Hero's Keys** (3 keys and the 12-level hero's door). Keys = 0–9, Palace doors = 0–3. Regions are the stages: Chambers of Insight, Sea of Trees, Talus Cave, Death Mountain, Vaati's Palace |
-| Anniversary Edition | `anniversary.json` | **Realm of Memories**: 9 levels behind its silver, golden and hero's doors (A Link to the Past, Link's Awakening, The Legend of Zelda), ending with the Master Sword. **Hero's Trial**: opening it (5 medals or 30,000 Rupees) and its 9 levels, ending with the Hurricane Spin. Regions are the three doors |
-| A Link to the Past Link-ups | `alttp_links.json` | GBA only, 4 rows: Sword Beams (the Master Sword in ALttP), 10 Medals of Courage, the Hurricane Spin (the Lumberjack's Riddles) and the Palace of the Four Sword |
+| Silver Keys (`silver`) | | The optional Chambers of Insight, the 3 Silver Keys and Vaati's Palace's silver door |
+| Golden Keys (`golden`) | | The 3 Golden Keys and the golden door |
+| Hero's Keys (`heros`) | | The 3 Hero's Keys and the 12-level hero's door |
+| Realm of Memories (`realm_of_memories`) | Anniversary | 9 levels behind its silver, golden and hero's doors (A Link to the Past, Link's Awakening, The Legend of Zelda), ending with the Master Sword |
+| Hero's Trial (`heros_trial`) | Anniversary | Opening it (5 medals or 30,000 Rupees) and its 9 levels, ending with the Hurricane Spin |
+| ALttP Link-ups (`alttp_links`) | GBA | Sword Beams (the Master Sword in ALttP), 10 Medals of Courage, the Hurricane Spin (the Lumberjack's Riddles) and the Palace of the Four Sword |
 
-The game has no story beyond the stages, so there's no Main Quest; Stages & Keys is the game. Each
-key tier `requires` the previous tier's palace door, and each door `requires` its three keys. Each
-Realm of Memories and Hero's Trial level `requires` the one before, since a door opens only when the
-previous one is cleared. The Realm's first level has `after` text, not `requires`, because Vaati's
-Palace is in another file.
+- **Counts:** 13 counted rows (5 + 4 + 4). Summaries: Keys = 0–9 (each key has `value` 1; the
+  Chambers and doors have 0) and Palace doors = 0–3.
+- **Regions** are the stages: Chambers of Insight, Sea of Trees, Talus Cave, Death Mountain and
+  Vaati's Palace. The separate sections have none, so their rows list under the tab's title. The
+  Realm's door and level are in each row's `area`, and the Hero's Trial's in its name.
+- **One checklist.** The game has no story beyond the stages, so there's no Main Quest, and the
+  version-only lists are short enough to be tabs.
+- **Order and links:**
+  - Each key tier `requires` the previous tier's palace door, and each door `requires` its three
+    keys.
+  - Each Realm of Memories and Hero's Trial level `requires` the one before, since a door opens only
+    once the previous one is cleared.
+  - The Realm's first level and the Palace of the Four Sword `require` the silver door, which is
+    beating Vaati.
 
 **Why these.** speedrun.com's **100%** rules: "You must Finish/Get: All Silver Keys, All Gold Keys,
 All Hero Keys, All Realm of memories maps, All Hero Trail Maps, All Vaati's Palace doors". That is
-the 9 keys, 3 palace doors, 9 Realm of Memories levels and 9 Hero's Trial levels, which are the first
-two checklists. The run starts at the Anniversary Edition's colour selection.
+the 9 keys, 3 palace doors, 9 Realm of Memories levels and 9 Hero's Trial levels: every tab but
+the link-ups. The run starts at the Anniversary Edition's colour selection.
 
 Not tracked:
 - **Medals of Courage as a count.** A medal goes to the Link with the most Rupees at the end of each
@@ -118,7 +130,7 @@ Not tracked:
   Right, Left and Center (AzulFria). Zelda Wiki's are used.
 - **Palace of the Four Sword.** StrategyWiki says beating Vaati is enough. Zelda Wiki and the
   official encyclopedia also need Ganon beaten on the same file. Both are in the row's notes, and
-  `after` uses the stricter one.
+  the row uses the stricter one: it `requires` the silver door (Vaati), and its `after` names Ganon.
 - **Lumberjack's Riddles.** Zelda Wiki's *A Link to the Past & Four Swords* page also needs
   Agahnim's first defeat, which its quest page leaves out. It's in the row's text.
 

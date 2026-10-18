@@ -10,8 +10,8 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- A Link to the Past, Ocarina of Time, Majora's Mask, Four Swords, The Minish Cap, Breath of the
-  Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get
+- A Link to the Past, Link's Awakening, Ocarina of Time, Majora's Mask, Four Swords, The Minish
+  Cap, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get
   some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
@@ -390,6 +390,33 @@ release; GBA differences are in item notes. Sources and disagreements are in `do
   with the hearts total (3 to 20). Each piece names the items it needs.
 - Regions are Zelda Wiki's two worlds, with the exact place in each row.
 - Three save files, **File 1–3**, as on the SNES cartridge.
+**Link's Awakening**
+
+Every LA tracker is a [checklist](docs/checklist-trackers.md), built for the Game Boy original and
+DX. Where the 2019 Switch remake differs, the item's notes say so. Where it differs a lot (Heart
+Pieces, Secret Seashells, Fairy Bottles), the remake's list is its own tab, counted apart: it has
+its own count and totals but stays out of the tracker's bar and the overview's next step. Sources
+and disagreements are in `docs/la.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** the Sword, the five keys, the eight dungeons with each boss, dungeon item and
+  Instrument of the Sirens, and the Wind Fish's Egg, as one chain in play order. Instruments are
+  totalled (of 8).
+- **Items & Equipment:** 15 items, with the Sword (Level 2), Shield (Mirror Shield) and Power
+  Bracelet (L-2) upgrades as tiers; the Mad Batters' Magic Powder, Bomb and Arrow capacity
+  upgrades; the five Golden Leaves; and the Switch remake's three Fairy Bottles.
+- **Heart Pieces:** 12 Pieces of Heart and 8 Heart Containers, with the hearts total (3 to 14).
+  The Switch tabs add the remake's 32 pieces and Dampé's Heart Container, with their own total (3
+  to 20).
+- **Secret Seashells:** all 26 and the Seashell Mansion's Level 2 Sword. The two Mansion bonus
+  shells, given only for exactly 5 or 10, are marked missable. The Switch tabs add the remake's
+  50 and its five Mansion rewards.
+- **Trading Sequence** (14, Yoshi Doll to Magnifying Lens), **Songs** (3), **Photographs** (DX's
+  12, four of them missable) and the **Color Dungeon** (DX and Switch: the Library's clue, the
+  graveyard puzzle, the bosses and the Fairy's red or blue tunic).
+- Regions are the island's areas (Mabe Village, Ukuku Prairie, Tal Tal Heights…), with the exact
+  place in each row. Tags give the items needed.
+- Three save files, **File 1–3**, as on the cartridge.
+
 **Ocarina of Time**
 - Built from checklists (`files/oot/*.json`): nine trackers plus a Progress Overview, which lists
   first and gives each one a row with its count, totals and a next step. Data is for the original
@@ -447,18 +474,20 @@ release; GBA differences are in item notes. Sources and disagreements are in `do
 
 **Four Swords**
 
-Every Four Swords tracker is a [checklist](docs/checklist-trackers.md), covering the GBA original
-and the Anniversary Edition (DSiWare, 2011). Sources and disagreements are in `docs/fs.md`.
-- **Progress Overview** (first): a row per tracker with its count, totals and next step.
-- **Stages & Keys:** a tab per key tier. Each has the Silver, Golden or Hero's Key from the Great
-  Fairies of the Sea of Trees, Talus Cave and Death Mountain (1,000, 3,000 or 5,000 Rupees), then
-  the Vaati's Palace door those keys open. The optional Chambers of Insight come first. Keys (of 9)
-  and palace doors (of 3) are totalled.
-- **Anniversary Edition:** the Realm of Memories' 9 levels (its A Link to the Past, Link's Awakening
-  and NES doors, for the Master Sword) and the Hero's Trial's 9 levels (opened with 5 medals or
-  30,000 Rupees, for the Hurricane Spin), each level after the one before.
-- **A Link to the Past Link-ups** (GBA only): Sword Beams from ALttP's Master Sword, 10 Medals of
-  Courage, the Hurricane Spin from the Lumberjack's Riddles and the Palace of the Four Sword.
+One [checklist](docs/checklist-trackers.md), **Stages & Keys**, after a Progress Overview, covering
+the GBA original and the Anniversary Edition (DSiWare, 2011). Sources and disagreements are in
+`docs/fs.md`.
+- **Silver, Golden and Hero's Keys:** a tab per key tier. Each has the key from the Great Fairies of
+  the Sea of Trees, Talus Cave and Death Mountain (1,000, 3,000 or 5,000 Rupees), then the Vaati's
+  Palace door those keys open. The optional Chambers of Insight come first. Keys (of 9) and palace
+  doors (of 3) are totalled.
+- **Anniversary Edition tabs:** the Realm of Memories' 9 levels (its A Link to the Past, Link's
+  Awakening and NES doors, for the Master Sword) and the Hero's Trial's 9 levels (opened with 5
+  medals or 30,000 Rupees, for the Hurricane Spin), each level after the one before.
+- **ALttP Link-ups** (GBA only): Sword Beams from ALttP's Master Sword, 10 Medals of Courage, the
+  Hurricane Spin from the Lumberjack's Riddles and the Palace of the Four Sword.
+- The version-only tabs are `separate`: counted on their own, left out of the total and the next
+  step.
 - Items and hearts last only for a stage, so they aren't tracked; medals are tracked as the two
   thresholds that unlock something.
 - Three save files, **File 1–3**: A Link to the Past's on the GBA, or the Anniversary Edition's own.
@@ -533,8 +562,9 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
   src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
+  src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
-  src/commonMain/composeResources/files/fs/*.json   ← Four Swords checklists (docs/fs.md)
+  src/commonMain/composeResources/files/fs/stages.json  ← Four Swords checklist (docs/fs.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -851,6 +881,11 @@ A Link to the Past data (`files/alttp/`) comes from Zelda Wiki, Zelda Dungeon (v
 Machine snapshots) and StrategyWiki, with speedrun.com's 100% rules deciding what's tracked.
 Every count was checked against all three. `docs/alttp.md` covers each tracker, the save files
 and every disagreement between sources.
+
+Link's Awakening data (`files/la/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots), Zelda's Palace and Nintendo Life, with StrategyWiki and Zelda Universe for spot
+checks. The LADX disassembly settles the capacity upgrades and save slots. Every count was checked
+against at least three sources. `docs/la.md` covers each tracker and every disagreement.
 
 Ocarina of Time data (`files/oot/*.json`) comes from Zelda Wiki, StrategyWiki and Zelda Dungeon,
 cross-checked against Flying Omelette, Zelda Universe, Zelda's Palace, Jegged and GameWith. The

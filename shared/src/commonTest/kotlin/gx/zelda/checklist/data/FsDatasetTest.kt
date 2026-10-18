@@ -10,17 +10,12 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 /**
- * Four Swords' checklists against the counts in docs/fs.md, where Zelda Wiki, Zelda Dungeon and the
+ * Four Swords' checklist against the counts in docs/fs.md, where Zelda Wiki, Zelda Dungeon and the
  * game's own text agree. Format and in-file references (ids, regions, `requires`, formulas) are
  * checked for every game by [ChecklistDatasetsTest].
  */
 class FsDatasetTest {
-    private fun withCatalogs(block: (Map<String, ChecklistCatalog>) -> Unit) = runTest {
-        val files = Games.FS.trackers.mapNotNull { it.dataFile }
-        block(files.associate { it.removePrefix("fs/").removeSuffix(".json") to ChecklistRepository.load(it, strict = true) })
-    }
-
-    private fun ChecklistCatalog.sizes(): Map<String, Int> = sections.associate { it.id to it.items.size }
+    private fun withCatalog(block: (ChecklistCatalog) -> Unit) = runTest { block(ChecklistRepository.load("fs/stages.json", strict = true)) }
 
     private fun ChecklistCatalog.allDone(): ChecklistProgress = ChecklistProgress(items.associate { it.id to it.steps })
 
@@ -29,17 +24,31 @@ class FsDatasetTest {
     private val stages = listOf("Sea of Trees", "Talus Cave", "Death Mountain")
 
     @Test
-    fun everyTrackerIsAChecklistWithItsOwnFile() {
-        val checklists = Games.FS.trackers.filter { it.kind == TrackerKind.CHECKLIST }
-        assertEquals(listOf("stages", "anniversary", "alttp_links"), checklists.map { it.dataFile!!.removePrefix("fs/").removeSuffix(".json") })
+    fun oneChecklistAfterTheOverview() {
+        assertEquals(listOf(TrackerKind.OVERVIEW, TrackerKind.CHECKLIST), Games.FS.trackers.map { it.kind })
+        assertEquals("fs/stages.json", Games.FS.trackers.last().dataFile)
+    }
+
+    /**
+     * The three key tiers count toward the total; the Anniversary Edition's stages and the GBA's
+     * link-ups are separate, since a player has only one of the two versions.
+     */
+    @Test
+    fun versionOnlySectionsAreSeparate() = withCatalog { c ->
+        assertEquals(
+            listOf("silver" to 5, "golden" to 4, "heros" to 4, "realm_of_memories" to 9, "heros_trial" to 10, "alttp_links" to 4),
+            c.sections.map { it.id to it.items.size },
+        )
+        assertEquals(listOf("realm_of_memories", "heros_trial", "alttp_links"), c.sections.filter { it.separate }.map { it.id })
+        assertEquals(13, c.count(c.allDone(), c.counted).total)
+        // The separate sections have no regions: the stages' regions are the main tiers'.
+        assertTrue(c.sections.filter { it.separate }.all { s -> s.items.all { it.region == null } })
     }
 
     /** Three Great Fairies × Silver, Golden and Hero's Keys, and a Vaati's Palace door for each tier. */
     @Test
-    fun nineKeysAndThreePalaceDoors() = withCatalogs { all ->
-        val c = all.getValue("stages")
+    fun nineKeysAndThreePalaceDoors() = withCatalog { c ->
         assertEquals(listOf("Chambers of Insight") + stages + "Vaati's Palace", c.regions)
-        assertEquals(mapOf("silver" to 5, "golden" to 4, "heros" to 4), c.sizes())
         assertEquals(0.0 to 9.0, c.evaluate(c.summary("Keys"), ChecklistProgress()).let { it.value to it.max })
         assertEquals(3.0, c.evaluate(c.summary("Palace doors"), c.allDone()).max)
 
@@ -62,36 +71,38 @@ class FsDatasetTest {
 
     /** The Realm of Memories and the Hero's Trial: 3 doors × 3 levels each, every level after the one before. */
     @Test
-    fun anniversaryEditionHasEighteenLevels() = withCatalogs { all ->
-        val c = all.getValue("anniversary")
-        assertEquals(listOf("Silver Door", "Golden Door", "Hero's Door"), c.regions)
-        assertEquals(mapOf("realm_of_memories" to 9, "heros_trial" to 10), c.sizes())
-        c.sections.forEach { s ->
-            val levels = s.items.filter { it.region != null }
-            assertEquals(9, levels.size, s.id)
-            assertEquals(c.regions.flatMap { r -> List(3) { r } }, levels.map { it.region }, s.id)
+    fun anniversaryEditionHasEighteenLevels() = withCatalog { c ->
+        listOf("realm_of_memories" to "vaati_silver_door", "heros_trial" to "heros_trial_unlock").forEach { (id, opener) ->
+            val levels = c.section(id)!!.items.filter { it.id != "heros_trial_unlock" }
+            assertEquals(9, levels.size, id)
+            assertEquals(listOf(opener), levels.first().requires, id)
             levels.zipWithNext().forEach { (before, level) -> assertEquals(listOf(before.id), level.requires, level.id) }
+            // The Realm names the door and level in `area`, the Hero's Trial in `name`.
+            listOf("Silver door", "Golden door", "Hero's door").forEachIndexed { d, door ->
+                (1..3).forEach { n ->
+                    val level = levels[d * 3 + n - 1]
+                    assertTrue("$door, level $n" in "${level.name} ${level.area}", level.id)
+                }
+            }
         }
         assertTrue("Master Sword" in c.item("realm_heros_3")!!.reward!!)
         assertTrue("Hurricane Spin" in c.item("trial_heros_3")!!.reward!!)
-        assertEquals(listOf("heros_trial_unlock"), c.item("trial_silver_1")!!.requires)
-        // 18 levels, plus opening the Hero's Trial.
-        assertEquals(19, c.count(c.allDone()).total)
     }
 
     @Test
-    fun alttpLinkUps() = withCatalogs { all ->
-        val c = all.getValue("alttp_links")
-        assertEquals(listOf("sword_beams", "ten_medals", "hurricane_spin", "palace_of_the_four_sword"), c.items.map { it.id })
+    fun alttpLinkUps() = withCatalog { c ->
+        assertEquals(
+            listOf("sword_beams", "ten_medals", "hurricane_spin", "palace_of_the_four_sword"),
+            c.section("alttp_links")!!.items.map { it.id },
+        )
         assertEquals(listOf("ten_medals"), c.item("hurricane_spin")!!.requires)
+        assertEquals(listOf("vaati_silver_door"), c.item("palace_of_the_four_sword")!!.requires)
     }
 
     /** Every key can be earned again on a later run, so nothing is missable (docs/fs.md). */
     @Test
-    fun nothingIsMissableAndEveryRowSaysHow() = withCatalogs { all ->
-        all.forEach { (name, c) ->
-            assertEquals(emptyList(), c.items.filter { it.missable }.map { it.id }, name)
-            c.items.forEach { assertTrue(!it.howTo.isNullOrBlank(), "${it.id} in $name") }
-        }
+    fun nothingIsMissableAndEveryRowSaysHow() = withCatalog { c ->
+        assertEquals(emptyList(), c.items.filter { it.missable }.map { it.id })
+        c.items.forEach { assertTrue(!it.howTo.isNullOrBlank(), it.id) }
     }
 }

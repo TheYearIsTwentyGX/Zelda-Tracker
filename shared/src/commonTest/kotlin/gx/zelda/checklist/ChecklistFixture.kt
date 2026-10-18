@@ -42,4 +42,27 @@ object ChecklistFixture {
 """
 
     val catalog: ChecklistCatalog by lazy { ChecklistRepository.parse(JSON, strict = true) }
+
+    /** Two versions of one list: the remake's is a `separate` section, counted only on its own tab. */
+    const val VERSIONS_JSON = """
+{
+  "regions": ["Mabe Village"],
+  "summaries": [{"label": "Hearts", "formula": "3 + pieces / 4"}],
+  "sections": [
+    {"id": "pieces", "title": "Original", "items": [
+      {"id": "well", "name": "Well", "region": "Mabe Village"},
+      {"id": "maze", "name": "Maze", "region": "Mabe Village"}
+    ]},
+    {"id": "remake_pieces", "title": "Remake", "separate": true,
+     "summary": {"label": "Remake hearts", "formula": "3 + remake_pieces / 4"},
+     "items": [
+      {"id": "remake_well", "name": "Well (remake)", "region": "Mabe Village"},
+      {"id": "remake_pond", "name": "Pond (remake)", "region": "Mabe Village"},
+      {"id": "remake_tree", "name": "Tree (remake)", "region": "Mabe Village"}
+    ]}
+  ]
+}
+"""
+
+    val versions: ChecklistCatalog by lazy { ChecklistRepository.parse(VERSIONS_JSON, strict = true) }
 }

@@ -30,6 +30,8 @@ class FsOverviewTest {
     private val dataStore = createDataStore(Files.createTempDirectory("zgx").toString())
     private val game = Games.FS
 
+    private val extras = "Realm of Memories 0 / 9 · Hero's Trial 0 / 10 · ALttP Link-ups 0 / 4"
+
     private fun OverviewUiState.summary(title: String): ProgressSummary =
         (rows.single { it.title == title }.status as RowStatus.Ready).summary
 
@@ -38,14 +40,13 @@ class FsOverviewTest {
         val vm = main.track(OverviewViewModel(dataStore, game, loadDispatcher = dispatcher))
         val state = vm.state.first { s -> s != null && s.rows.none { it.status == RowStatus.Loading } }!!
         assertEquals(game.trackers.drop(1).map { it.title }, state.rows.map { it.title })
-        state.rows.forEach { assertFalse(it.status == RowStatus.Unavailable, it.title) }
+        assertFalse(state.rows.single().status == RowStatus.Unavailable)
 
+        // The separate Anniversary and GBA sections have their counts but stay out of the bar.
         val stages = state.summary("Stages & Keys")
         assertEquals(0 to 13, stages.done to stages.total)
-        assertEquals("Keys 0 / 9 · Palace doors 0 / 3 · Silver Keys 0 / 5 · Golden Keys 0 / 4 · Hero's Keys 0 / 4", stages.secondary)
+        assertEquals("Keys 0 / 9 · Palace doors 0 / 3 · Silver Keys 0 / 5 · Golden Keys 0 / 4 · Hero's Keys 0 / 4 · $extras", stages.secondary)
         assertEquals("Chambers of Insight, in Chambers of Insight", stages.next)
-        assertEquals("Realm of Memories 0 / 9 · Hero's Trial 0 / 10", state.summary("Anniversary Edition").secondary)
-        assertEquals("Sword Beams", state.summary("A Link to the Past Link-ups").next)
     }
 
     /** Silver Keys done on one file point that file at Vaati's Palace. */
@@ -59,6 +60,6 @@ class FsOverviewTest {
         vm.setSaveFile("file_2").join()
         val shown = vm.state.first { s -> s?.saveFile?.id == "file_2" && s.rows.none { it.status == RowStatus.Loading } }!!
         assertEquals("Vaati's Palace: silver door, in Vaati's Palace", shown.summary("Stages & Keys").next)
-        assertEquals("Keys 3 / 9 · Palace doors 0 / 3 · Silver Keys 4 / 5 · Golden Keys 0 / 4 · Hero's Keys 0 / 4", shown.summary("Stages & Keys").secondary)
+        assertEquals("Keys 3 / 9 · Palace doors 0 / 3 · Silver Keys 4 / 5 · Golden Keys 0 / 4 · Hero's Keys 0 / 4 · $extras", shown.summary("Stages & Keys").secondary)
     }
 }

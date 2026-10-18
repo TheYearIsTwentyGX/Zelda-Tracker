@@ -1,0 +1,246 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "sections": [
+    {
+      "id": "equipment",
+      "title": "Items",
+      "note": "Upgrades of one item are its tiers: Sword, Shield and Power Bracelet.",
+      "items": [
+        {
+          "id": "sword",
+          "name": "Sword",
+          "area": "Toronbo Shores",
+          "notes": "The Level 2 Sword is the Koholint Sword on Switch, given at 40 of the remake's 50 seashells.",
+          "tiers": [
+            {
+              "name": "Sword",
+              "howTo": "Wash up with it on Toronbo Shores, east along the beach from Mabe Village."
+            },
+            {
+              "name": "Level 2 Sword",
+              "howTo": "Bring 20 Secret Seashells to the Seashell Mansion in Ukuku Prairie.",
+              "reward": "Twice the damage, and beams at full health"
+            }
+          ]
+        },
+        {
+          "id": "shield",
+          "name": "Shield",
+          "area": "Mabe Village",
+          "notes": "A Like Like can eat the Shield: buy another for 20 Rupees at the Town Tool Shop.",
+          "tiers": [
+            {
+              "name": "Shield",
+              "howTo": "Tarin gives it back when you wake in his house."
+            },
+            {
+              "name": "Mirror Shield",
+              "howTo": "The dungeon item of Eagle's Tower (Level 7)."
+            }
+          ]
+        },
+        {
+          "id": "magic_powder",
+          "name": "Magic Powder",
+          "area": "Witch's Hut",
+          "howTo": "Take the Sleepy Toadstool from the west of the Mysterious Forest to Syrup at the Witch's Hut.",
+          "notes": "She makes more each time you bring a Toadstool. Also a Trendy Game prize."
+        },
+        {
+          "id": "rocs_feather",
+          "name": "Roc's Feather",
+          "area": "Tail Cave",
+          "howTo": "The dungeon item of Tail Cave (Level 1)."
+        },
+        {
+          "id": "shovel",
+          "name": "Shovel",
+          "area": "Mabe Village",
+          "howTo": "Buy it at the Town Tool Shop for 200 Rupees.",
+          "notes": "Needed for the Slime Key, and for many seashells."
+        },
+        {
+          "id": "bombs",
+          "name": "Bombs",
+          "area": "Mabe Village",
+          "howTo": "Buy them at the Town Tool Shop, 10 for 10 Rupees, or find them in pots and from enemies.",
+          "notes": "On Switch the shop sells them only after Bottle Grotto (Zelda's Palace)."
+        },
+        {
+          "id": "power_bracelet",
+          "name": "Power Bracelet",
+          "notes": "L-2 is the Powerful Bracelet on Switch.",
+          "tiers": [
+            {
+              "name": "Power Bracelet",
+              "howTo": "The dungeon item of Bottle Grotto (Level 2)."
+            },
+            {
+              "name": "Power Bracelet L-2",
+              "howTo": "The dungeon item of Face Shrine (Level 6). Lifts the heaviest rocks and the Weathercock."
+            }
+          ]
+        },
+        {
+          "id": "pegasus_boots",
+          "name": "Pegasus Boots",
+          "area": "Key Cavern",
+          "howTo": "The dungeon item of Key Cavern (Level 3)."
+        },
+        {
+          "id": "ocarina",
+          "name": "Ocarina",
+          "area": "Mabe Village",
+          "howTo": "In the Dream Shrine in Mabe Village: sleep in the bed and cross the dream room with the Power Bracelet and Pegasus Boots."
+        },
+        {
+          "id": "flippers",
+          "name": "Flippers",
+          "area": "Angler's Tunnel",
+          "howTo": "The dungeon item of Angler's Tunnel (Level 4)."
+        },
+        {
+          "id": "hookshot",
+          "name": "Hookshot",
+          "area": "Catfish's Maw",
+          "howTo": "The dungeon item of Catfish's Maw (Level 5), won from Master Stalfos at the end of four fights."
+        },
+        {
+          "id": "bow",
+          "name": "Bow",
+          "area": "Mabe Village",
+          "howTo": "Buy it at the Town Tool Shop for 980 Rupees. It's on sale once you've bought the Shovel.",
+          "notes": "It can be stolen, at the price of being called THIEF from then on (and on DX, a photo)."
+        },
+        {
+          "id": "magic_rod",
+          "name": "Magic Rod",
+          "area": "Turtle Rock",
+          "howTo": "The dungeon item of Turtle Rock (Level 8)."
+        },
+        {
+          "id": "boomerang",
+          "name": "Boomerang",
+          "area": "Toronbo Shores",
+          "howTo": "With the Magnifying Lens, bomb the cave on the east of Toronbo Shores. The Goriya inside swaps it for the item on your B button (the Shovel is the usual choice).",
+          "notes": "Not every item can be swapped. On Game Boy and DX you can swap back; on Switch you buy your item back for 300 Rupees. The Magnifying Lens ends the Trading Sequence."
+        },
+        {
+          "id": "secret_medicine",
+          "name": "Secret Medicine",
+          "area": "Crazy Tracy's Health Spa",
+          "howTo": "Buy it from Crazy Tracy at her Health Spa.",
+          "notes": "Refills your hearts when you fall. Only one can be carried. DX and Switch also hide it in chests in the last dungeons."
+        }
+      ]
+    },
+    {
+      "id": "upgrades",
+      "title": "Capacity Upgrades",
+      "noun": "upgrade",
+      "note": "The three Mad Batters (Li'l Devils on Switch): one upgrade each, your choice.",
+      "items": [
+        {
+          "id": "magic_powder_capacity",
+          "name": "Magic Powder capacity",
+          "howTo": "Choose it from a Mad Batter: sprinkle Magic Powder on one of his three altars.",
+          "reward": "Carry 40 Magic Powder (from 20)",
+          "notes": "The three Mad Batters are under a rock near the middle of the Mysterious Forest (Power Bracelet), down stairs ringed by bushes in the south-west of Martha's Bay, and under a rock on the west of the Tal Tal Mountain Range on the way to Turtle Rock (Hookshot). Each gives one upgrade, and you choose: his first offer is Magic Powder, and saying you're not ready moves on to Bombs, then Arrows. On Game Boy and DX he offers only what you already carry."
+        },
+        {
+          "id": "bomb_capacity",
+          "name": "Bomb capacity",
+          "howTo": "Choose it from a Mad Batter.",
+          "reward": "Carry 60 Bombs (from 30)",
+          "notes": "On Switch you start with 20. The three Mad Batters are under a rock near the middle of the Mysterious Forest (Power Bracelet), down stairs ringed by bushes in the south-west of Martha's Bay, and under a rock on the west of the Tal Tal Mountain Range on the way to Turtle Rock (Hookshot). Each gives one upgrade, and you choose: his first offer is Magic Powder, and saying you're not ready moves on to Bombs, then Arrows. On Game Boy and DX he offers only what you already carry."
+        },
+        {
+          "id": "arrow_capacity",
+          "name": "Arrow capacity",
+          "howTo": "Choose it from a Mad Batter.",
+          "reward": "Carry 60 Arrows (from 30)",
+          "notes": "On Switch you start with 20. The three Mad Batters are under a rock near the middle of the Mysterious Forest (Power Bracelet), down stairs ringed by bushes in the south-west of Martha's Bay, and under a rock on the west of the Tal Tal Mountain Range on the way to Turtle Rock (Hookshot). Each gives one upgrade, and you choose: his first offer is Magic Powder, and saying you're not ready moves on to Bombs, then Arrows. On Game Boy and DX he offers only what you already carry."
+        }
+      ]
+    },
+    {
+      "id": "golden_leaves",
+      "title": "Golden Leaves",
+      "noun": "leaf",
+      "plural": "leaves",
+      "hiddenLabel": "Unfound Golden Leaf",
+      "note": "All five are at Kanalet Castle; Richard trades them for the way to the Slime Key.",
+      "items": [
+        {
+          "id": "golden_leaf_crow",
+          "name": "The Crow",
+          "area": "Outside, west of the castle",
+          "howTo": "Throw a rock at the Crow on the castle's west side and beat it.",
+          "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
+          "notes": "Give all five to Richard at Richard's Villa to open the way to Pothole Field and the Slime Key."
+        },
+        {
+          "id": "golden_leaf_mad_bomber",
+          "name": "The Mad Bomber",
+          "area": "Outside, east of the castle",
+          "howTo": "Hit the Mad Bomber who pops out of the holes on the castle's east side.",
+          "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
+          "notes": "Give all five to Richard at Richard's Villa to open the way to Pothole Field and the Slime Key."
+        },
+        {
+          "id": "golden_leaf_zol",
+          "name": "The Zol and Darknuts",
+          "area": "Inside the castle",
+          "howTo": "Beat the enemies in the room with a Zol and two Darknuts.",
+          "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
+          "notes": "Give all five to Richard at Richard's Villa to open the way to Pothole Field and the Slime Key."
+        },
+        {
+          "id": "golden_leaf_bombed_wall",
+          "name": "Behind the marked wall",
+          "area": "Inside the castle",
+          "howTo": "Bomb the wall marked with a symbol and beat the Darknut behind it.",
+          "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
+          "notes": "Give all five to Richard at Richard's Villa to open the way to Pothole Field and the Slime Key."
+        },
+        {
+          "id": "golden_leaf_ball_and_chain",
+          "name": "The Ball and Chain Trooper",
+          "area": "Inside the castle",
+          "howTo": "Beat the Ball and Chain Trooper.",
+          "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
+          "notes": "Give all five to Richard at Richard's Villa to open the way to Pothole Field and the Slime Key."
+        }
+      ]
+    },
+    {
+      "id": "switch_bottles",
+      "title": "Switch Fairy Bottles",
+      "noun": "bottle",
+      "hiddenLabel": "Unfound bottle",
+      "note": "The Switch remake adds three bottles for fairies; the Game Boy and DX versions have none. Counted apart.",
+      "separate": true,
+      "items": [
+        {
+          "id": "switch_bottle_ghost",
+          "name": "The Ghost's thanks",
+          "area": "Cemetery",
+          "howTo": "Take the Ghost to the House by the Bay and then to his grave; he leaves a bottle."
+        },
+        {
+          "id": "switch_bottle_fishing_pond",
+          "name": "Bottom of the Fishing Pond",
+          "area": "Fishing Pond",
+          "howTo": "Hook it from the bottom of the pond in Mabe Village."
+        },
+        {
+          "id": "switch_bottle_heart_shortage",
+          "name": "Dampé: Heart Shortage",
+          "area": "Dampé's Shack",
+          "howTo": "Clear Dampé's \"Heart Shortage\" Chamber Dungeon challenge."
+        }
+      ]
+    }
+  ]
+}
