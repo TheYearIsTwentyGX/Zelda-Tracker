@@ -70,7 +70,7 @@ Ricky's Gloves are in Items and Animal Companions. Each tracker counts its own.
   direction you linked). 3 + 3 + 9 = 15 hearts. Zelda Wiki: an unlinked game reaches 14 hearts, a
   first game using the return secret 15, and a linked or Hero's game 16 because it starts with 4;
   the total can't know that, so the linked container's notes say so.
-- **Rings**: one 64-ring collection shared with Ages. `files/ooa/rings.json` will use the **same
+- **Rings**: one 64-ring collection shared with Ages. `files/ooa/rings.json` uses the **same
   item ids in the same order** (the in-game ring numbers 1–64), so the two can be cross-referenced
   later. Tags: *Vasu*, *Chest*, *Gasha*, *Maple*, *Linked*, *Secret*, *GBA* (the Advance Shop rings)
   and *Not in Seasons* for the 10 rings that can only be found in Ages and brought over with the
