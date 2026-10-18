@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.MoreVert
@@ -48,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import gx.zelda.core.ui.FoundToggleStyle
 import gx.zelda.core.ui.HiddenRow
 import gx.zelda.core.ui.LoadingOrError
+import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.RegionHeader
 import gx.zelda.core.ui.RowDivider
 import gx.zelda.core.ui.SaveFileOption
@@ -84,11 +84,7 @@ fun HeartTrackerScreen(
                         }
                     }
                 },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                },
+                navigationIcon = { MenuOrBackButton(onBack) },
                 actions = {
                     if (state != null) HeartMenu(state, viewModel)
                 },
