@@ -303,10 +303,18 @@ fun App(dataStore: DataStore<Preferences>) {
             composable<BossDetail> { entry ->
                 val route = entry.toRoute<BossDetail>()
                 val listEntry = remember(entry) { nav.getBackStackEntry<Bosses>() }
-                val vm = bossViewModel(listEntry, dataStore, Games.byId(route.gameId))
+                val game = Games.byId(route.gameId)
+                val vm = bossViewModel(listEntry, dataStore, game)
                 val state by vm.state.collectAsStateWithLifecycle()
                 state?.let {
-                    BossDetailScreen(it, route.spawnId, vm, onBack = { nav.popBackStack() })
+                    BossDetailScreen(
+                        it,
+                        route.spawnId,
+                        vm,
+                        onBack = { nav.popBackStack() },
+                        onShowOnMap = { nav.navigate(WorldMap(game.id, MapLayers.BOSSES, route.spawnId)) }
+                            .takeIf { game.has(TrackerKind.MAP) },
+                    )
                 }
             }
             composable<WorldMap> { entry ->
@@ -331,6 +339,10 @@ fun App(dataStore: DataStore<Preferences>) {
                                 nav.navigate(KorokDetail(game.id, entryId))
                             }
                             MapLayers.TOWERS -> nav.navigate(MainQuest(game.id))
+                            MapLayers.BOSSES -> {
+                                nav.navigate(Bosses(game.id))
+                                nav.navigate(BossDetail(game.id, entryId))
+                            }
                         }
                     },
                     onBack = { nav.popBackStack() },

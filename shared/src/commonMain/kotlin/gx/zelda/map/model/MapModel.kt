@@ -5,7 +5,14 @@ import gx.zelda.shrines.scan.WorldPoint
 import kotlinx.serialization.Serializable
 
 /** Which in-game map icon a layer's markers use; each entry's state picks its variant (see [markerLook]). */
-enum class MarkerKind { SHRINE, KOROK, TOWER }
+enum class MarkerKind {
+    SHRINE,
+    KOROK,
+    TOWER,
+
+    /** Overworld bosses: each entry names its kind's icon in [MapEntry.icon]. */
+    BOSS,
+}
 
 /** One toggleable set of markers on the map, such as every shrine. */
 data class MapLayer(
@@ -43,6 +50,8 @@ data class MapEntry(
     val state: DiscoveryState,
     /** From a DLC. The Champions' Ballad's shrines have their own icon. */
     val dlc: Boolean = false,
+    /** The entry's own icon, in a layer whose entries differ in kind (bosses); null uses the layer's. */
+    val icon: MarkerIcon? = null,
 )
 
 /** A marker the map draws: an entry, its layer, and whether its tracker's spoiler setting hides its name. */

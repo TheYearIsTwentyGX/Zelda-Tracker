@@ -2,8 +2,8 @@
 """
 Write the BotW map's marker icons into shared/src/commonMain/composeResources/drawable.
 
-    scripts/build-map-icons.py            write the vectors; fetch the Korok icon if it's missing
-    scripts/build-map-icons.py --force    also re-download the Korok icon
+    scripts/build-map-icons.py            write the vectors; fetch the bitmap icons that are missing
+    scripts/build-map-icons.py --force    also re-download the bitmap icons
 
 Shrines and Sheikah Towers are vector drawables made from objmap.zeldamods.org's map icons
 (public/icons/mapicon_dungeon.svg, mapicon_dungeon_dlc.svg and mapicon_tower.svg in
@@ -12,11 +12,11 @@ the game colours an unfinished shrine's glyph orange inside the blue frame, so t
 are split into the frame (outer diamond minus inner diamond) and the glyph (the inner diamond
 below objmap's head curve, minus the keyhole). Path data is objmap's, in its 1066.4 viewBox.
 
-The Korok marker is the Korok Seed's inventory icon, "File:BotW Korok Seed Icon.png" on Zelda
-Wiki, scaled to 64 px (needs Pillow, like tools/map-tiles). See docs/map-icons.md.
+The Korok and boss markers are the game's inventory icons from Zelda Wiki, as the wiki's own
+64 px thumbnails: the Korok Seed, Kilton's three Medals of Honor (Hinox, Talus, Molduga) and,
+as there's no Lynel medal, the Lynel Mask. See docs/map-icons.md.
 """
 
-import io
 import json
 import sys
 import urllib.parse
@@ -124,8 +124,15 @@ VECTORS = {
     "map_tower_active": tower(TOWER_BLUE),
 }
 
-KOROK_FILE = "File:BotW Korok Seed Icon.png"
-KOROK_PX = 64
+# Bitmap icons: drawable name → Zelda Wiki file. The medals' names use a full-width colon, as the wiki does.
+BITMAPS = {
+    "map_korok": "File:BotW Korok Seed Icon.png",
+    "map_boss_hinox": "File:BotW Medal of Honor： Hinox Icon.png",
+    "map_boss_talus": "File:BotW Medal of Honor： Talus Icon.png",
+    "map_boss_molduga": "File:BotW Medal of Honor： Molduga Icon.png",
+    "map_boss_lynel": "File:BotW Lynel Mask Icon.png",
+}
+BITMAP_PX = 64
 
 
 def get(url: str) -> bytes:
@@ -133,18 +140,20 @@ def get(url: str) -> bytes:
         return r.read()
 
 
-def fetch_korok(out: Path) -> None:
-    from PIL import Image
-
+def fetch_bitmap(title: str, out: Path) -> None:
+    """Saves Zelda Wiki's BITMAP_PX-wide thumbnail of [title] (the icons are 144 px squares)."""
     query = urllib.parse.urlencode({
-        "action": "query", "titles": KOROK_FILE, "prop": "imageinfo", "iiprop": "url", "format": "json",
+        "action": "query", "titles": title, "prop": "imageinfo", "iiprop": "url",
+        "iiurlwidth": BITMAP_PX, "format": "json",
     })
     pages = json.loads(get(f"{API}?{query}"))["query"]["pages"].values()
     info = next(iter(pages)).get("imageinfo")
     if not info:
-        raise SystemExit(f"{KOROK_FILE} isn't on Zelda Wiki")
-    image = Image.open(io.BytesIO(get(info[0]["url"]))).convert("RGBA")
-    image.resize((KOROK_PX, KOROK_PX), Image.LANCZOS).save(out, optimize=True)
+        raise SystemExit(f"{title} isn't on Zelda Wiki")
+    data = get(info[0]["thumburl"])
+    if not data.startswith(b"\x89PNG"):
+        raise SystemExit(f"{title}: the thumbnail isn't a PNG")
+    out.write_bytes(data)
 
 
 def main() -> int:
@@ -152,10 +161,11 @@ def main() -> int:
     for name, xml in VECTORS.items():
         (OUT_DIR / f"{name}.xml").write_text(xml)
         print(f"  {name}.xml")
-    korok = OUT_DIR / "map_korok.png"
-    if "--force" in sys.argv[1:] or not korok.exists():
-        fetch_korok(korok)
-        print(f"  {korok.name}")
+    for name, title in BITMAPS.items():
+        out = OUT_DIR / f"{name}.png"
+        if "--force" in sys.argv[1:] or not out.exists():
+            fetch_bitmap(title, out)
+            print(f"  {out.name}")
     return 0
 
 
