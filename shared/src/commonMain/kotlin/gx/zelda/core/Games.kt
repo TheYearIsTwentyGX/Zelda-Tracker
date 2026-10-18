@@ -281,7 +281,33 @@ object Games {
         ),
     )
     val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
-    val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
+    /**
+     * Three files on the memory card ("You can store up to three saved-data files", the manual's
+     * Select Game screen). Tracked as the Hyrulean Adventure; Navi Trackers, the Japan-only mode,
+     * isn't. Every tracker is a checklist; the data and its sources are in docs/fsa.md.
+     */
+    val FSA = Game(
+        id = "fsa",
+        title = "Four Swords Adventures",
+        released = ReleaseDate(2004, 3, 18),
+        platform = "GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Hyrulean Adventure",
+                "All 24 stages in 8 levels with their bosses, the 6 Maidens and Zelda, and the 4 Royal Jewels",
+                dataFile = "fsa/hyrulean_adventure.json",
+            ),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Tingle's Tower & Shadow Battle",
+                "Multiplayer: the 8 Tingle's Tower mini-games and the Dark Shadow Battle arenas",
+                dataFile = "fsa/tingle_and_shadow_battle.json",
+            ),
+        ),
+    )
     val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
 
     /** The DS games keep two files. */

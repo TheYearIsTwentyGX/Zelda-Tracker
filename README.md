@@ -11,8 +11,9 @@ iOS port is mostly a matter of adding the iOS targets.
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
-  Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Minish Cap, Breath of the Wild, Tears of
-  the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
+  Mask, Oracle of Seasons, Oracle of Ages, Four Swords, Four Swords Adventures, The Minish Cap,
+  Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as
+  *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -579,6 +580,22 @@ the GBA original and the Anniversary Edition (DSiWare, 2011). Sources and disagr
   thresholds that unlock something.
 - Three save files, **File 1–3**: A Link to the Past's on the GBA, or the Anniversary Edition's own.
 
+**Four Swords Adventures**
+
+Every FSA tracker is a [checklist](docs/checklist-trackers.md), for the GameCube's Hyrulean
+Adventure and its multiplayer extras. Sources and disagreements are in `docs/fsa.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Hyrulean Adventure:** all 24 stages, 3 in each of the 8 levels (Whereabouts of the Wind to the
+  Realm of the Heavens), in order. Each row has the stage's boss, the items found there and what it
+  gives. The 6 Shrine Maidens and Princess Zelda (of 7) and the 4 Royal Jewels are totalled. Every
+  stage needs 2,000 Force Gems to break its barrier.
+- **Tingle's Tower & Shadow Battle** (multiplayer, with Game Boy Advances): the 8 Tingle's Tower
+  mini-games, one per level, opened by its second stage, and the 5 Dark World Shadow Battle arenas
+  that finishing the game unlocks.
+- Items, Heart Containers and the Four Sword's power last only for a stage, and there are no Pieces
+  of Heart, so none are tracked. Navi Trackers, the Japan-only mode, isn't tracked either.
+- Three save files, **File 1–3**, as on the memory card.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -654,6 +671,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
   src/commonMain/composeResources/files/fs/stages.json  ← Four Swords checklist (docs/fs.md)
+  src/commonMain/composeResources/files/fsa/*.json  ← Four Swords Adventures checklists (docs/fsa.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -993,6 +1011,11 @@ Four Swords data (`files/fs/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback
 snapshots) and StrategyWiki, with the Anniversary Edition's text dump on GameFAQs settling exact
 names and speedrun.com's 100% rules deciding what's tracked. `docs/fs.md` covers each tracker, the
 save files and every disagreement between sources.
+
+Four Swords Adventures data (`files/fsa/`) comes from Zelda Wiki, Zelda Dungeon's walkthrough
+(via Wayback Machine snapshots) and the North American manual, cross-checked against Zelda Universe,
+Zeldapedia, both Wikipedias and Nintendo's Japanese site. `docs/fsa.md` covers each tracker, the
+save files, what isn't tracked and every disagreement between sources.
 
 Minish Cap figurine data (`files/mc/figurines.json`) comes from Zelda Wiki's *Figurines in The
 Minish Cap* (names, North American descriptions, who's pictured) and the zeldaret/tmc decompilation
