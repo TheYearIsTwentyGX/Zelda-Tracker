@@ -1,0 +1,48 @@
+{
+  "noun": "bottle",
+  "hiddenLabel": "Unfound bottle",
+  "sections": [
+    {
+      "id": "bottles",
+      "title": "Bottles",
+      "note": "Four in all. Swing an empty one to catch fairies, bugs, fish and Big Poes.",
+      "items": [
+        {
+          "id": "cucco_lady",
+          "name": "Cucco Lady's bottle",
+          "area": "Kakariko Village",
+          "howTo": "As young Link, carry all seven of the Cucco Lady's Cuccos back into her pen by the village entrance.",
+          "notes": "Some are behind fences or up on ledges: throw them over, or glide down holding one. Bringing them back again pays a Purple Rupee.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "talons_chicken_game",
+          "name": "Talon's Chicken Game",
+          "area": "Lon Lon Ranch",
+          "howTo": "As young Link, pay Talon in the ranch house to play, and find his three Super Cuccos among the others before time runs out.",
+          "reward": "Bottle of Lon Lon Milk",
+          "after": "Waking Talon at Hyrule Castle",
+          "notes": "Throw the ordinary Cuccos behind Talon's desk before you start, so only the Super Cuccos are left to find.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "rutos_letter",
+          "name": "Ruto's Letter",
+          "area": "Lake Hylia",
+          "howTo": "With the Silver Scale, dive for the bottle on the lake bed near the underwater passage to Zora's Domain.",
+          "reward": "Bottle (holding Ruto's Letter)",
+          "notes": "Show the letter to King Zora to get into Zora's Fountain; he lets you keep the bottle.",
+          "tags": ["Child", "Silver Scale"]
+        },
+        {
+          "id": "poe_collector",
+          "name": "Poe Collector",
+          "area": "Hyrule Market",
+          "howTo": "As adult Link, sell 10 Big Poes to the Poe Collector in the Ghost Shop, the old guardhouse by the Market entrance.",
+          "notes": "Each Big Poe pays 50 Rupees and 100 points; the bottle comes at 1,000 points. The Big Poes tracker lists all ten.",
+          "tags": ["Adult"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "noun": "song",
+  "hiddenLabel": "Unlearned song",
+  "sections": [
+    {
+      "id": "songs",
+      "title": "Songs",
+      "note": "The ten songs on the Quest Status screen, in story order. Songs stay through the Song of Time.",
+      "items": [
+        {"id": "song_of_time", "name": "Song of Time", "area": "Top of the Clock Tower", "howTo": "In the first cycle, take the Ocarina back from the Skull Kid at midnight on the Final Day; Zelda's memory teaches you the song.", "reward": "Back to the Dawn of the First Day, saving your progress"},
+        {"id": "song_of_healing", "name": "Song of Healing", "area": "Inside the Clock Tower", "howTo": "Back on the Dawn of the First Day after the first cycle, the Happy Mask Salesman teaches it to you.", "requires": ["song_of_time"], "reward": "Heals troubled souls into masks; the first lifts your Deku curse"},
+        {"id": "sonata_of_awakening", "name": "Sonata of Awakening", "area": "Deku Palace", "howTo": "As a Deku, reach the caged Monkey from the Inner Palace Garden side (via the Magic Bean grotto and the Deku flowers) and listen to his song.", "requires": ["song_of_healing"], "reward": "Raises Woodfall Temple; wakes sleepers"},
+        {"id": "song_of_soaring", "name": "Song of Soaring", "area": "Woodfall Temple Pathway", "howTo": "Read the stone monument at the end of the Woodfall Temple Pathway, next to the way into Woodfall, as a Deku.", "requires": ["song_of_healing"], "reward": "Warps to any Owl Statue you've struck, or to a temple's entrance", "notes": "In Majora's Mask 3D the monument is at the entrance to the Southern Swamp."},
+        {"id": "oath_to_order", "name": "Oath to Order", "area": "Woodfall Temple", "howTo": "After beating Odolwa, the freed Swamp Giant teaches it to you.", "requires": ["sonata_of_awakening"], "reward": "Calls the Four Giants from the Clock Tower"},
+        {"id": "eponas_song", "name": "Epona's Song", "area": "Romani Ranch", "howTo": "On Day 1 (6 a.m.–6 p.m.), beat Romani's balloon game with the Hero's Bow. Get into the ranch by blowing up the boulder on Milk Road with a Powder Keg.", "requires": ["song_of_healing"], "reward": "Calls Epona"},
+        {"id": "goron_lullaby", "name": "Goron Lullaby", "area": "Snowhead and the Goron Shrine", "howTo": "As a Goron, find the Goron Elder frozen on the way up to Snowhead, thaw him with Hot Spring Water and play the drums for him: he teaches the Lullaby Intro. Play the intro for his crying son in the Goron Shrine and he sings the rest.", "requires": ["song_of_healing"], "after": "Goron Mask", "reward": "Puts the giant Goron blocking Snowhead to sleep"},
+        {"id": "new_wave_bossa_nova", "name": "New Wave Bossa Nova", "area": "Marine Research Lab, Great Bay Coast", "howTo": "Bring all seven Zora Eggs (four from the Pirates' Fortress, three from Pinnacle Rock) to the Marine Research Lab's tank in one cycle, then play your guitar as a Zora.", "requires": ["song_of_healing"], "after": "Zora Mask, Hookshot, Bottles", "reward": "Wakes the giant turtle to Great Bay Temple", "tags": ["One cycle"]},
+        {"id": "song_of_storms", "name": "Song of Storms", "area": "Beneath the Graveyard, Ikana Graveyard", "howTo": "On Night 1, use the Captain's Hat to have the Stalchildren open their grave. Find your way past the Iron Knuckle to Flat's tomb; the composer's ghost teaches you the song.", "requires": ["song_of_healing"], "after": "Captain's Hat", "reward": "Rain: Magic Bean water, and it cleanses Sharp's curse in the Spring Water Cave", "tags": ["Night 1"]},
+        {"id": "elegy_of_emptiness", "name": "Elegy of Emptiness", "area": "Ancient Castle of Ikana", "howTo": "Beat Igos du Ikana and his lackeys in the castle's throne room; the king teaches it to you.", "requires": ["song_of_healing"], "after": "Mirror Shield, Hero's Bow and Powder Keg or Fire Arrows", "reward": "Leaves a statue of your form behind; needed to climb Stone Tower"}
+      ]
+    },
+    {
+      "id": "secret_songs",
+      "title": "Other songs",
+      "noun": "song",
+      "note": "Variations on the Song of Time. They work as soon as you know them but are never listed on the Quest Status screen.",
+      "items": [
+        {"id": "inverted_song_of_time", "name": "Inverted Song of Time", "area": "Trading Post or Astral Observatory", "howTo": "Pierre the Scarecrow hints at it: play the Song of Time backwards.", "requires": ["song_of_time"], "reward": "Slows time to a third of its speed until you play it again", "notes": "In Majora's Mask 3D it slows time to half speed."},
+        {"id": "song_of_double_time", "name": "Song of Double Time", "area": "Trading Post or Astral Observatory", "howTo": "Pierre the Scarecrow hints at it: play each of the Song of Time's notes twice.", "requires": ["song_of_time"], "reward": "Skips ahead to the next dawn or nightfall", "notes": "In Majora's Mask 3D you choose the hour to skip to."}
+      ]
+    }
+  ]
+}

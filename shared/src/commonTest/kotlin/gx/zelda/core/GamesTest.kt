@@ -64,8 +64,7 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("alttp", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
-        assertEquals(listOf("file_1", "file_2"), Games.MM.saveFiles.map { it.id })
+        assertEquals(listOf("alttp", "oot", "mm", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
     }
@@ -75,9 +74,11 @@ class GamesTest {
         assertEquals(listOf("normal_1", "normal_2", "master"), Games.BOTW.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.TOTK.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.MC.saveFiles.map { it.id })
+        // The N64's two files; they were the placeholder's ids, so nothing saved under them moves.
+        assertEquals(listOf("file_1", "file_2"), Games.MM.saveFiles.map { it.id })
     }
 
-    /** Three files on the SNES cartridge, as on the GBA (docs/alttp.md); every tracker after the overview is a checklist. */
+    /** Three files on the SNES cartridge (docs/alttp.md); every tracker after the overview is a checklist. */
     @Test
     fun aLinkToThePastHasThreeSaveFilesAndAnOverviewFirst() {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.ALTTP.saveFiles.map { it.id })

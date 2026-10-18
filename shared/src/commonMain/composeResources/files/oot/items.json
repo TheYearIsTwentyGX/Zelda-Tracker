@@ -1,0 +1,341 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "sections": [
+    {
+      "id": "inventory",
+      "title": "Items",
+      "note": "The Items subscreen. Bottles and the trade items are in their own trackers.",
+      "items": [
+        {
+          "id": "deku_sticks",
+          "name": "Deku Sticks",
+          "area": "Kokiri Forest",
+          "howTo": "Cut down a Deku Baba once it stands up straight, or buy them at the Kokiri Shop.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "deku_nuts",
+          "name": "Deku Nuts",
+          "area": "Kokiri Forest",
+          "howTo": "Dropped by Deku Babas and found in pots and grass, or bought at the Kokiri Shop.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "ocarina",
+          "name": "Ocarina",
+          "tiers": [
+            {"name": "Fairy Ocarina", "howTo": "Saria gives it to you on the bridge as you leave Kokiri Forest."},
+            {"name": "Ocarina of Time", "howTo": "Zelda throws it into the moat at the Hyrule Castle Town drawbridge once you have the three Spiritual Stones."}
+          ],
+          "tags": ["Child"]
+        },
+        {
+          "id": "fairy_slingshot",
+          "name": "Fairy Slingshot",
+          "area": "Inside the Deku Tree",
+          "howTo": "The dungeon item of Inside the Deku Tree.",
+          "notes": "Young Link only.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "bombs",
+          "name": "Bombs",
+          "area": "Dodongo's Cavern",
+          "howTo": "Comes with the Bomb Bag, the dungeon item of Dodongo's Cavern.",
+          "tags": ["Either"]
+        },
+        {
+          "id": "boomerang",
+          "name": "Boomerang",
+          "area": "Inside Jabu-Jabu's Belly",
+          "howTo": "The dungeon item of Inside Jabu-Jabu's Belly.",
+          "notes": "Young Link only.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "magic_beans",
+          "name": "Magic Beans",
+          "area": "Zora's River",
+          "howTo": "Buy them from the Bean Seller at the start of Zora's River: 10 Rupees for the first, 10 more for each one after, 10 beans in all.",
+          "notes": "Plant them in soft soil as young Link; they grow into platforms for adult Link. All 10 cost 550 Rupees.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "bombchus",
+          "name": "Bombchus",
+          "area": "Hyrule Market",
+          "howTo": "Buy them at the Bombchu Shop in the Market's back alley, or win them at the Bombchu Bowling Alley. Some dungeon chests hold them too.",
+          "tags": ["Either"]
+        },
+        {
+          "id": "dins_fire",
+          "name": "Din's Fire",
+          "area": "Hyrule Castle",
+          "howTo": "From the Great Fairy behind the boulder on the dead-end path near Hyrule Castle.",
+          "notes": "Needed to open the Shadow Temple.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "farores_wind",
+          "name": "Farore's Wind",
+          "area": "Zora's Fountain",
+          "howTo": "From the Great Fairy behind the bombable wall on the small island behind Lord Jabu-Jabu.",
+          "tags": ["Either"]
+        },
+        {
+          "id": "hookshot",
+          "name": "Hookshot",
+          "tiers": [
+            {"name": "Hookshot", "howTo": "Beat Dampé's race through his grave in Kakariko Graveyard as adult Link."},
+            {"name": "Longshot", "howTo": "The dungeon item of the Water Temple."}
+          ],
+          "tags": ["Adult"]
+        },
+        {
+          "id": "fairy_bow",
+          "name": "Fairy Bow",
+          "area": "Forest Temple",
+          "howTo": "The dungeon item of the Forest Temple. It comes with a Quiver of 30 arrows.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "megaton_hammer",
+          "name": "Megaton Hammer",
+          "area": "Fire Temple",
+          "howTo": "The dungeon item of the Fire Temple.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "lens_of_truth",
+          "name": "Lens of Truth",
+          "area": "Bottom of the Well",
+          "howTo": "Beat Dead Hand in the Bottom of the Well as young Link.",
+          "notes": "Uses magic.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "fire_arrows",
+          "name": "Fire Arrows",
+          "area": "Lake Hylia",
+          "howTo": "After the Water Temple, stand on the platform above its entrance at sunrise and shoot an arrow into the sun, then fetch the arrow from the island.",
+          "notes": "You can also reach the island before the Water Temple with the Longshot and the Scarecrow's Song, or a Magic Bean plant.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "nayrus_love",
+          "name": "Nayru's Love",
+          "area": "Desert Colossus",
+          "howTo": "From the Great Fairy behind the bombable wall between two palm trees in the Desert Colossus.",
+          "tags": ["Either"]
+        },
+        {
+          "id": "ice_arrows",
+          "name": "Ice Arrows",
+          "area": "Gerudo Training Ground",
+          "howTo": "The treasure at the end of the Gerudo Training Ground.",
+          "notes": "Optional.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "light_arrows",
+          "name": "Light Arrows",
+          "area": "Temple of Time",
+          "howTo": "Zelda gives them to you in the Temple of Time once all six Sages are awake.",
+          "tags": ["Adult"]
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment",
+      "note": "Swords, shields, tunics and boots. The Kokiri Tunic and Kokiri Boots you start with.",
+      "items": [
+        {
+          "id": "kokiri_sword",
+          "name": "Kokiri Sword",
+          "area": "Kokiri Forest",
+          "howTo": "In the chest at the end of the Hole of \"L\" crawlspace in the Forest Training Center.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "deku_shield",
+          "name": "Deku Shield",
+          "area": "Kokiri Forest",
+          "howTo": "Buy it at the Kokiri Shop for 40 Rupees.",
+          "notes": "It burns if it catches fire; buy another at the shop.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "hylian_shield",
+          "name": "Hylian Shield",
+          "area": "Hyrule Market",
+          "howTo": "Buy it at the Bazaar in Hyrule Market for 80 Rupees, or find it free in a grave in Kakariko Graveyard as young Link at night.",
+          "notes": "Young Link holds it over his back like a turtle shell. Adult Link can buy it at the Kakariko Bazaar.",
+          "tags": ["Either"]
+        },
+        {
+          "id": "master_sword",
+          "name": "Master Sword",
+          "area": "Temple of Time",
+          "howTo": "Draw it from the Pedestal of Time behind the Door of Time.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "goron_tunic",
+          "name": "Goron Tunic",
+          "area": "Goron City",
+          "howTo": "Stop Darunia's son Link as he rolls around Goron City's middle floor, or buy it at the Goron Shop for 200 Rupees.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "zora_tunic",
+          "name": "Zora Tunic",
+          "area": "Zora's Domain",
+          "howTo": "Thaw King Zora with Blue Fire from the Ice Cavern, or buy it at the Zora Shop for 300 Rupees.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "iron_boots",
+          "name": "Iron Boots",
+          "area": "Ice Cavern",
+          "howTo": "The treasure at the end of the Ice Cavern.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "hover_boots",
+          "name": "Hover Boots",
+          "area": "Shadow Temple",
+          "howTo": "The dungeon item of the Shadow Temple, behind Dead Hand.",
+          "notes": "On the 3DS they're an item for a button rather than equipment.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "mirror_shield",
+          "name": "Mirror Shield",
+          "area": "Spirit Temple",
+          "howTo": "The adult dungeon item of the Spirit Temple, on a ledge past an Iron Knuckle.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "giants_knife",
+          "name": "Giant's Knife",
+          "area": "Goron City",
+          "howTo": "Blow open Medigoron's room on Goron City's middle floor and buy it as adult Link for 200 Rupees.",
+          "notes": "Two-handed, and it breaks after a few hits. Not needed once you have Biggoron's Sword.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "biggorons_sword",
+          "name": "Biggoron's Sword",
+          "area": "Death Mountain Trail",
+          "howTo": "The end of the adult trading sequence: hand Biggoron the Claim Check.",
+          "notes": "Two-handed and unbreakable. Also ticked off in the Trading Sequences tracker.",
+          "tags": ["Adult"]
+        }
+      ]
+    },
+    {
+      "id": "upgrades",
+      "title": "Upgrades",
+      "note": "Capacity and strength. Magic and defense come from the Great Fairies.",
+      "items": [
+        {
+          "id": "strength",
+          "name": "Strength",
+          "tiers": [
+            {"name": "Goron's Bracelet", "howTo": "Darunia gives it to young Link after you play Saria's Song for him in Goron City."},
+            {"name": "Silver Gauntlets", "howTo": "Young Link's dungeon item in the Spirit Temple, the treasure Nabooru asks him to fetch."},
+            {"name": "Golden Gauntlets", "howTo": "In a chest in the Shadow Trial of Ganon's Castle."}
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "Scale",
+          "tiers": [
+            {"name": "Silver Scale", "howTo": "Win the diving game at the top of the waterfall in Zora's Domain as young Link."},
+            {"name": "Golden Scale", "howTo": "Catch a fish that beats the Fishing Pond record as adult Link, at Lake Hylia."}
+          ],
+          "notes": "Golden Scale: Zelda Wiki says a fish at least 4 pounds over the starting record; StrategyWiki says 13 pounds or more."
+        },
+        {
+          "id": "wallet",
+          "name": "Wallet",
+          "tiers": [
+            {"name": "Adult's Wallet (200)", "howTo": "Reward for 10 Gold Skulltula Tokens at the House of Skulltula in Kakariko Village."},
+            {"name": "Giant's Wallet (500)", "howTo": "Reward for 30 Gold Skulltula Tokens at the House of Skulltula."}
+          ],
+          "notes": "The starting wallet holds 99. Also listed with the Gold Skulltula rewards."
+        },
+        {
+          "id": "bullet_bag",
+          "name": "Bullet Bag",
+          "tiers": [
+            {"name": "Bigger Bullet Bag (40)", "howTo": "Whichever you do first: three bullseyes in a row at the slingshot target in the Lost Woods, or all 10 Rupees at the Market's Shooting Gallery."},
+            {"name": "Biggest Bullet Bag (50)", "howTo": "Whichever of the two you do second."}
+          ],
+          "notes": "The first bag (30 seeds) comes with the Fairy Slingshot. Young Link only."
+        },
+        {
+          "id": "bomb_bag",
+          "name": "Bomb Bag",
+          "tiers": [
+            {"name": "Big Bomb Bag (30)", "howTo": "Whichever you do first: stop the rolling Hot Rodder Goron in Goron City with a bomb as young Link, or win it at the Bombchu Bowling Alley in Hyrule Market."},
+            {"name": "Biggest Bomb Bag (40)", "howTo": "Whichever of the two you do second."}
+          ],
+          "notes": "The first bag (20 bombs) is Dodongo's Cavern's dungeon item."
+        },
+        {
+          "id": "quiver",
+          "name": "Quiver",
+          "tiers": [
+            {"name": "Big Quiver (40)", "howTo": "Whichever you do first: hit all 10 targets at the Kakariko Shooting Gallery as adult Link, or score 1,500 points at Horseback Archery in Gerudo's Fortress."},
+            {"name": "Biggest Quiver (50)", "howTo": "Whichever of the two you do second."}
+          ],
+          "notes": "The first quiver (30 arrows) comes with the Fairy Bow. Horseback Archery gives a Piece of Heart at 1,000 points and the quiver at 1,500."
+        },
+        {
+          "id": "deku_stick_capacity",
+          "name": "Deku Stick capacity",
+          "tiers": [
+            {"name": "20 Deku Sticks", "howTo": "Buy it for 40 Rupees from the Business Scrub in the Lost Woods, on the wall opposite the bridge to Kokiri Forest."},
+            {"name": "30 Deku Sticks", "howTo": "Wear the Skull Mask on the Forest Stage, the grotto under the butterflies in the Lost Woods' Deku Scrub clearing."}
+          ],
+          "notes": "Starts at 10. Young Link only."
+        },
+        {
+          "id": "deku_nut_capacity",
+          "name": "Deku Nut capacity",
+          "missable": true,
+          "tiers": [
+            {"name": "30 Deku Nuts", "howTo": "Whichever you do first: wear the Mask of Truth on the Forest Stage in the Lost Woods, or pay 40 Rupees to the Business Scrub in the grotto under the boulder by the Sacred Forest Meadow entrance."},
+            {"name": "40 Deku Nuts", "howTo": "Whichever of the two you do second."}
+          ],
+          "notes": "Starts at 20. On the N64 the Forest Stage upgrade is lost for good once you get the Poacher's Saw in the adult trading sequence, so do it first. Fixed on the 3DS."
+        }
+      ]
+    },
+    {
+      "id": "quest_items",
+      "title": "Quest Items",
+      "noun": "quest item",
+      "note": "On the Quest Status subscreen. Songs, Stones and Medallions have their own trackers.",
+      "items": [
+        {
+          "id": "stone_of_agony",
+          "name": "Stone of Agony",
+          "area": "Kakariko Village",
+          "howTo": "Reward for 20 Gold Skulltula Tokens at the House of Skulltula.",
+          "notes": "Rumbles near hidden grottos (with the N64 Rumble Pak). Also listed with the Gold Skulltula rewards."
+        },
+        {
+          "id": "gerudos_card",
+          "name": "Gerudo's Card",
+          "area": "Gerudo's Fortress",
+          "howTo": "Free the four carpenters held in Gerudo's Fortress.",
+          "notes": "Opens the Haunted Wasteland gate and the Gerudo Training Ground."
+        }
+      ]
+    }
+  ]
+}

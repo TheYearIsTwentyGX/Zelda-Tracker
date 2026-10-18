@@ -1,0 +1,535 @@
+{
+  "regions": [
+    "Lost Woods",
+    "Hyrule Field",
+    "Hyrule Market",
+    "Lon Lon Ranch",
+    "Kakariko Village",
+    "Kakariko Graveyard",
+    "Death Mountain Trail",
+    "Goron City",
+    "Death Mountain Crater",
+    "Zora's River",
+    "Zora's Domain",
+    "Lake Hylia",
+    "Zora's Fountain",
+    "Ice Cavern",
+    "Gerudo Valley",
+    "Gerudo's Fortress",
+    "Desert Colossus"
+  ],
+  "noun": "heart",
+  "plural": "hearts",
+  "hiddenLabel": "Uncollected heart",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "3 + pieces / 4 + containers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pieces",
+      "title": "Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "Every four make a heart. Tags give the age and what you need.",
+      "items": [
+        {
+          "id": "lost_woods_skull_kid_memory_game",
+          "name": "Skull Kids' ocarina memory game",
+          "region": "Lost Woods",
+          "area": "Lower area one screen right of the Kokiri Forest entrance",
+          "howTo": "From the Kokiri Forest entrance go right one screen and drop into the lower area, then stand on the stump so two Skull Kids appear. Pull out the ocarina and repeat their increasingly long tunes for three rounds to win the Piece of Heart.",
+          "notes": "In the mirrored Master Quest of Ocarina of Time 3D the left/right directions are swapped (StrategyWiki). The original N64 and GameCube Master Quest are not mirrored.",
+          "tags": [
+            "Child",
+            "Fairy Ocarina"
+          ]
+        },
+        {
+          "id": "lost_woods_skull_kid_sarias_song",
+          "name": "Play Saria's Song for the Skull Kid",
+          "region": "Lost Woods",
+          "area": "One screen left of the Kokiri Forest entrance",
+          "howTo": "From the Kokiri Forest entrance go left one screen, stand on the small stump, and play Saria's Song to the Skull Kid on the tall tree trunk. He gives you a Piece of Heart.",
+          "tags": [
+            "Child",
+            "Saria's Song"
+          ]
+        },
+        {
+          "id": "hyrule_field_lake_hylia_fence_grotto_scrub",
+          "name": "Business Scrub in the fenced grotto by Lake Hylia",
+          "region": "Hyrule Field",
+          "area": "Square of four fences just north of the Lake Hylia entrance",
+          "howTo": "Near the Lake Hylia entrance in the south of Hyrule Field, set a Bomb in the middle of the square formed by four fences to open a hidden hole. Drop in and buy the Piece of Heart from the Business Scrub for 10 Rupees.",
+          "notes": "Any explosive works, and as adult the Megaton Hammer opens it too.",
+          "tags": [
+            "Either",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "hyrule_field_tree_grotto_deep_pool",
+          "name": "Bottom of the flooded grotto under a lone tree",
+          "region": "Hyrule Field",
+          "area": "Lone tree near the river west of the Castle Town entrance (northwest of Lon Lon Ranch, toward Gerudo Valley)",
+          "howTo": "Bomb the ground beside the lone tree near the river west of Castle Town to open a grotto, drop in, and sink to the bottom of the deep pool to take the Piece of Heart.",
+          "notes": "Adult can use the Iron Boots instead of the Golden Scale. The Golden Scale is won as adult but also works as a child, so StrategyWiki's 'Adult' label is too strict. The Stone of Agony (N64) or Shard of Agony (3DS) reacts near the tree but is not required.",
+          "tags": [
+            "Either",
+            "Bombs",
+            "Golden Scale"
+          ]
+        },
+        {
+          "id": "market_lost_dog_richard",
+          "name": "Return Richard the dog to Mamamu Yan",
+          "region": "Hyrule Market",
+          "area": "Market square at night, then the Back Alley",
+          "howTo": "At night, touch the white dog (Richard) that wanders near a stall in the corner of the market square so it follows you, avoiding the other dogs. Lead it into the Back Alley and through the only door open at night; the lady inside (Mamamu Yan) gives you a Piece of Heart.",
+          "notes": "Night only. Other dogs also start following you on contact, so go around them. Entering a building or leaving the area makes a dog stop following.",
+          "tags": [
+            "Child"
+          ]
+        },
+        {
+          "id": "market_bombchu_bowling",
+          "name": "Bombchu Bowling Alley prize",
+          "region": "Hyrule Market",
+          "area": "Bombchu Bowling Alley",
+          "howTo": "Play Bombchu Bowling (30 Rupees per game) when the Piece of Heart is the current prize, and roll Bombchus through all three targets to win it.",
+          "notes": "Prizes rotate in a fixed cycle (Zelda Dungeon: Bombchus, Piece of Heart, Bombs, Bomb Bag upgrade, Purple Rupee). After a loss you wait for the cycle to come back around. Zelda Wiki says the alley is only available after King Dodongo is defeated. Only reachable as a child because the Market is ruined in the adult era.",
+          "tags": [
+            "Child",
+            "Bomb Bag"
+          ]
+        },
+        {
+          "id": "market_treasure_chest_game",
+          "name": "Treasure Chest Game final prize",
+          "region": "Hyrule Market",
+          "area": "Treasure Chest Shop (open only at night)",
+          "howTo": "At night, pay 10 Rupees and pick the chest holding the key in each of the five rooms; the sixth room's lone chest holds the Piece of Heart. The Lens of Truth shows what is in each chest.",
+          "notes": "The Lens of Truth (from Bottom of the Well) is optional but turns a 1-in-32 gamble into a sure win. A Gossip Stone hints at it ('against the rules to use glasses'). After the Piece of Heart is taken, the final chest holds a Purple Rupee.",
+          "tags": [
+            "Child",
+            "Lens of Truth"
+          ]
+        },
+        {
+          "id": "lon_lon_ranch_tower_crawlspace",
+          "name": "Crawlspace in the ranch's back building",
+          "region": "Lon Lon Ranch",
+          "area": "Stone tower/silo at the back (southwest) of the ranch",
+          "howTo": "Enter the stone tower at the back of the ranch, pull the crates away from the corner to reveal a small hole, and crawl through it to find the Piece of Heart in the hay.",
+          "notes": "Only a child can crawl through the hole. StrategyWiki calls the building a tower, Zelda Dungeon a storage building, and Zelda's Palace a small stone house; they all mean the same building.",
+          "tags": [
+            "Child"
+          ]
+        },
+        {
+          "id": "kakariko_impas_house_cow_cage",
+          "name": "Cow pen inside Impa's House",
+          "region": "Kakariko Village",
+          "area": "Back ledge of Impa's House, above the Cucco pen",
+          "howTo": "Get onto the roof of Impa's House, drop to the ledge/awning above the Cucco pen, and enter the opening in the wall. You land in the cow's cage, and the Piece of Heart sits next to the cow.",
+          "notes": "Child: ride Kaepora Gaebora (the owl) from the Death Mountain summit to Impa's roof, or use a Cucco from the construction site. Adult: Hookshot from the House of Skulltula roof to Impa's roof. You can see the Piece of Heart from inside Impa's House, but you cannot get into the cage from there.",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "kakariko_windmill_ledge",
+          "name": "Ledge inside the Windmill",
+          "region": "Kakariko Village",
+          "area": "High ledge inside the Windmill",
+          "howTo": "As a child, stand inside the Windmill and throw the Boomerang at the Piece of Heart on the high ledge to bring it back. As an adult, come out of Dampé's race tunnel into the upper Windmill and jump across the rotating platform to the ledge.",
+          "notes": "Adult route: after Dampé's race, play the Song of Time at the blue block in the tunnel to come out in the Windmill (StrategyWiki).",
+          "tags": [
+            "Either",
+            "Boomerang"
+          ]
+        },
+        {
+          "id": "kakariko_man_on_roof",
+          "name": "Man on the roof",
+          "region": "Kakariko Village",
+          "area": "Roof of the house next to Granny's Potion Shop",
+          "howTo": "Hookshot onto the roof where a man is sitting, for example from the ledge behind the Potion Shop or by standing on the fence in front of the Windmill, then talk to him for the Piece of Heart.",
+          "notes": "As a child you can also get it with no items: from the top of the lookout tower, Z-target and side-jump onto the fence, then walk along it to the roof (Zelda Dungeon, StrategyWiki). The Longshot makes the adult route easier. Zelda Universe and Zelda's Palace list it for adults only.",
+          "tags": [
+            "Adult",
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "kakariko_skulltula_house_50",
+          "name": "House of Skulltula: 50 tokens",
+          "region": "Kakariko Village",
+          "area": "House of Skulltula",
+          "howTo": "Once you have 50 Gold Skulltula Tokens, enter the House of Skulltula and talk to the cursed family to claim the Piece of Heart.",
+          "notes": "Also listed with the House of Skulltula rewards in Gold Skulltulas.",
+          "tags": [
+            "Either",
+            "50 Gold Skulltulas"
+          ]
+        },
+        {
+          "id": "graveyard_dampe_gravedigging",
+          "name": "Dampé's Heart-Pounding Gravedigging Tour",
+          "region": "Kakariko Graveyard",
+          "area": "Soft dirt patches along Dampé's route",
+          "howTo": "Between 18:00 and 21:00, talk to Dampé while he stands on a soft dirt patch (not paving) and pay 10 Rupees for him to dig. The first 'grand prize' dig turns up the Piece of Heart. Pick it up before leaving.",
+          "missable": true,
+          "notes": "N64 (and GameCube/Virtual Console) bug: the flag is set when the Piece of Heart is dug up, not when you pick it up, so leaving the graveyard without it loses it permanently. Ocarina of Time 3D fixed this (and added a repeat-collection glitch). Decomp (z_en_tk.c): rewards are drawn without replacement from a cycle of 8 green, 4 blue, 2 red and 1 grand prize, and the first grand prize is upgraded to the Piece of Heart. That guarantees it within 15 valid digs (150 Rupees) in a single visit.",
+          "tags": [
+            "Child"
+          ]
+        },
+        {
+          "id": "graveyard_redead_grave_suns_song",
+          "name": "ReDead grave: Sun's Song chest",
+          "region": "Kakariko Graveyard",
+          "area": "Under the 2nd gravestone right of the central path, in the row nearest the Royal Family's Tomb",
+          "howTo": "Pull back the second gravestone to the right of the central path in the back row (nearest the Royal Family's Tomb) and drop into the hole. Freeze the ReDead with the Sun's Song, then play the Sun's Song again on the steps at the back to make the Piece of Heart chest appear.",
+          "notes": "A child can pull gravestones only at night, an adult at any time. Zelda Dungeon labels it Child and StrategyWiki labels it Either; Either is correct. In Ocarina of Time 3D's Master Quest the sides are mirrored.",
+          "tags": [
+            "Either",
+            "Sun's Song"
+          ]
+        },
+        {
+          "id": "graveyard_bean_ledge_crate",
+          "name": "Crate on the graveyard ledge",
+          "region": "Kakariko Graveyard",
+          "area": "Ledge above the left (west) side of the graveyard",
+          "howTo": "As a child, plant a Magic Bean in the soft soil on the left side of the graveyard. As an adult, ride the bean platform up to the ledge and roll into the crate to reveal the Piece of Heart.",
+          "notes": "StrategyWiki and randomizer logic also allow the Longshot from the gravestones, with no bean.",
+          "tags": [
+            "Adult",
+            "Magic Beans"
+          ]
+        },
+        {
+          "id": "graveyard_dampe_race_under_minute",
+          "name": "Beat Dampé's race in under a minute",
+          "region": "Kakariko Graveyard",
+          "area": "Dampé's grave (flower-fronted gravestone in the left row) and its tunnel",
+          "howTo": "As an adult with the Hookshot, race Dampé's ghost again and reach the end in 60 seconds or less. The Piece of Heart drops at the finish.",
+          "notes": "The first win gives the Hookshot. The decomp (z_en_po_relay.c) confirms the Piece of Heart only drops when you already have the Hookshot and the timer is at 60 seconds or less (otherwise a Red Rupee drops), so it needs a second race. Hookshotting the torch near the end saves time.",
+          "tags": [
+            "Adult",
+            "Hookshot"
+          ]
+        },
+        {
+          "id": "death_mountain_trail_above_dodongos_cavern",
+          "name": "Ledge above Dodongo's Cavern",
+          "region": "Death Mountain Trail",
+          "area": "Ledge directly above the Dodongo's Cavern entrance",
+          "howTo": "Plant a Magic Bean as a child in the soil by the Dodongo's Cavern entrance and, as an adult, ride the platform up to the ledge above the entrance. Without the bean, backflip or drop onto the ledge from the Bomb Flower spot directly above.",
+          "notes": "The intended route is the bean (Zelda Universe and Zelda's Palace list it for adults). StrategyWiki lists Either because the drop-down or backflip from above works at either age, and adult can also use the Hover Boots.",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "goron_city_spinning_urn",
+          "name": "Goron City spinning urn",
+          "region": "Goron City",
+          "area": "Giant urn on the lowest floor",
+          "howTo": "Light all the torches on the bottom floor (carry fire on a Deku Stick from the torch in Darunia's room) to start the big urn spinning. From the floor above, drop a Bomb or Bomb Flower into it; if it stops on the happy face you get the Piece of Heart.",
+          "notes": "Din's Fire can light the torches instead. Bombs from a Bomb Bag can replace Bomb Flowers. You can only do this as a child.",
+          "tags": [
+            "Child",
+            "Deku Stick",
+            "Goron's Bracelet"
+          ]
+        },
+        {
+          "id": "death_mountain_crater_wall_alcove",
+          "name": "Alcove on the crater's entrance wall",
+          "region": "Death Mountain Crater",
+          "area": "Climbable wall below the entrance from Death Mountain summit",
+          "howTo": "Enter the crater from the summit path and keep walking forward off the edge so Link climbs down the wall. Climb down to the alcove holding the Piece of Heart, then get out before the heat timer runs out.",
+          "notes": "The heat timer applies without the Goron Tunic. An adult can also reach it from the crater's bean platform.",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "death_mountain_crater_volcano_bean",
+          "name": "Atop the crater's central volcano",
+          "region": "Death Mountain Crater",
+          "area": "Top of the smoking volcano in the middle of the crater",
+          "howTo": "As a child, plant a Magic Bean in the soft soil next to the Bolero of Fire warp pad. As an adult, ride the bean platform and jump onto the volcano top that holds the Piece of Heart.",
+          "notes": "Warping in with the Bolero of Fire is the easiest way to reach the soil as a child.",
+          "tags": [
+            "Adult",
+            "Magic Beans"
+          ]
+        },
+        {
+          "id": "zoras_river_pillar",
+          "name": "Top of the pillar in Zora's River",
+          "region": "Zora's River",
+          "area": "Pillar in the middle of the river, near the bean seller",
+          "howTo": "Carry the Cucco from the river entrance and glide to the pillar, or throw the Boomerang at the Piece of Heart as a child, or use the Hover Boots as an adult.",
+          "notes": "StrategyWiki adds an adult bean-platform route (soil next to the bean seller).",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "zoras_river_ledge_near_domain",
+          "name": "Ledge by the Zora's Domain entrance",
+          "region": "Zora's River",
+          "area": "Corner platform near the waterfall at the river's end",
+          "howTo": "Near the waterfall at the Zora's Domain end, take the Piece of Heart on the separate corner platform. As a child, carry the Cucco up the river and glide over, or throw the Boomerang; as an adult, float over with the Hover Boots.",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "zoras_river_frogs_song_of_storms",
+          "name": "Frogs: play the Song of Storms",
+          "region": "Zora's River",
+          "area": "Log sticking out into the water, mid-river",
+          "howTo": "As a child, stand on the log in the river and take out the ocarina so the frogs appear, then play the Song of Storms for the Piece of Heart.",
+          "notes": "You learn the Song of Storms as an adult in the Windmill, then return as a child.",
+          "tags": [
+            "Child",
+            "Song of Storms"
+          ]
+        },
+        {
+          "id": "zoras_river_frogs_bug_game",
+          "name": "Frogs: bug-catching ocarina game",
+          "region": "Zora's River",
+          "area": "Same log as the Song of Storms frogs",
+          "howTo": "As a child, play Zelda's Lullaby, Saria's Song, Epona's Song, the Sun's Song and the Song of Time for the frogs (each gives 50 Rupees), plus the Song of Storms. Then play the notes as the bug lands on each frog: A, C-Left, C-Right, C-Down, C-Left, C-Right, C-Down, A, C-Down, A, C-Down, C-Right, C-Left, A.",
+          "notes": "The button sequence is for N64. On 3DS it is L, X, Y, R, X, Y, R, L, R, L, R, Y, X, L (Zelda Dungeon).",
+          "tags": [
+            "Child",
+            "Zelda's Lullaby",
+            "Saria's Song",
+            "Epona's Song",
+            "Sun's Song",
+            "Song of Time",
+            "Song of Storms"
+          ]
+        },
+        {
+          "id": "zoras_domain_torch_chest",
+          "name": "Torch-lighting chest behind the waterfall",
+          "region": "Zora's Domain",
+          "area": "Torches around the lower domain and behind the waterfall",
+          "howTo": "As a child, light a Deku Stick at the throne-room torch and relay fire to the unlit torches: the one at the foot of the stairs, the one by the shop, the one in the water, and the two behind the waterfall. When all are lit, a chest appears with the Piece of Heart.",
+          "notes": "Din's Fire can light the torches behind the waterfall (StrategyWiki).",
+          "tags": [
+            "Child",
+            "Deku Stick"
+          ]
+        },
+        {
+          "id": "lake_hylia_fishing_child",
+          "name": "Fishing Pond: child record fish",
+          "region": "Lake Hylia",
+          "area": "Fishing Pond",
+          "howTo": "As a child, pay 20 Rupees at the Fishing Pond and catch a fish of about 10 lb with the regular lure, then show it to the owner for the Piece of Heart.",
+          "notes": "Sources differ: Zelda Dungeon, Zelda Universe and Zelda's Palace say 10 lb, StrategyWiki says 9 lb, and Zelda Wiki says 4 lb over the record. The N64 decomp (z_fishing.c) requires a record fish of length 50 or more, which displays as about 9 lb, so 10 lb always qualifies. The Sinking Lure disqualifies the prize.",
+          "tags": [
+            "Child"
+          ]
+        },
+        {
+          "id": "lake_hylia_lab_dive",
+          "name": "Lakeside Laboratory: dive to the bottom",
+          "region": "Lake Hylia",
+          "area": "Pool inside the Lakeside Laboratory",
+          "howTo": "With the Golden Scale, dive to the bottom of the laboratory pool until you hear the chime, then surface and talk to the Lake Scientist for the Piece of Heart.",
+          "notes": "The Iron Boots alone do not count (StrategyWiki). The Golden Scale comes from the adult fishing prize but works at either age.",
+          "tags": [
+            "Either",
+            "Golden Scale"
+          ]
+        },
+        {
+          "id": "lake_hylia_lab_roof",
+          "name": "Lakeside Laboratory roof",
+          "region": "Lake Hylia",
+          "area": "Lookout platform on top of the laboratory",
+          "howTo": "As a child, plant a Magic Bean in the soil outside the laboratory and ride the platform onto the roof as an adult, or play the Scarecrow's Song and Hookshot to Pierre. Then climb the ladder to the Piece of Heart.",
+          "notes": "Alternative: the Scarecrow's Song plus the Hookshot. Watch out for Guays.",
+          "tags": [
+            "Adult",
+            "Magic Beans"
+          ]
+        },
+        {
+          "id": "zoras_fountain_iceberg",
+          "name": "Zora's Fountain iceberg",
+          "region": "Zora's Fountain",
+          "area": "Farthest floating ice platform",
+          "howTo": "As an adult, jump across the drifting icebergs in the frozen Zora's Fountain to the one holding the Piece of Heart.",
+          "notes": "Zelda Dungeon's text says 'Zora's Domain', but its location field and the other sources say Zora's Fountain.",
+          "tags": [
+            "Adult"
+          ]
+        },
+        {
+          "id": "zoras_fountain_bottom",
+          "name": "Bottom of Zora's Fountain",
+          "region": "Zora's Fountain",
+          "area": "Lake floor near where Lord Jabu-Jabu used to float",
+          "howTo": "As an adult, swim out near where Lord Jabu-Jabu used to be, put on the Iron Boots, and sink to the floor of the fountain to take the Piece of Heart.",
+          "notes": "The Zora Tunic stops you running out of air. StrategyWiki lists it, Zelda Dungeon lists only the Iron Boots.",
+          "tags": [
+            "Adult",
+            "Iron Boots",
+            "Zora Tunic"
+          ]
+        },
+        {
+          "id": "ice_cavern_red_ice",
+          "name": "Red ice in the Ice Cavern",
+          "region": "Ice Cavern",
+          "area": "Room with the Blue Fire and the Compass (right-hand branch)",
+          "howTo": "In the Ice Cavern room with the Blue Fire and the Compass, scoop Blue Fire into a bottle and melt the block of red ice holding the Piece of Heart.",
+          "notes": "Master Quest is different: the Piece of Heart is in the Compass room, but you open it by bombing a frozen switch, so it needs Bombs instead of Blue Fire (StrategyWiki, Zelda's Palace). Zelda's Palace calls it the most northwest room.",
+          "tags": [
+            "Adult",
+            "Blue Fire"
+          ]
+        },
+        {
+          "id": "gerudo_valley_waterfall_alcove",
+          "name": "Alcove behind the Gerudo Valley waterfall",
+          "region": "Gerudo Valley",
+          "area": "Ledge in the middle of the big waterfall (north side)",
+          "howTo": "Drop into the river near the waterfall and swim behind it to the ladder, then climb up to the Piece of Heart. As a child you can also glide down with the Cucco by the bridge.",
+          "notes": "Zelda Universe lists a 'ride magic bean' Piece of Heart in Gerudo Valley; no other source does, and there is no bean Piece of Heart there. StrategyWiki mentions an optional bean route to this same alcove.",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "gerudo_valley_crate_ledge",
+          "name": "Crate on the canyon-wall ledge",
+          "region": "Gerudo Valley",
+          "area": "Ledge with a crate on the cliff left of the bridge (looking toward the Gerudo side)",
+          "howTo": "Reach the ledge with the crate on the canyon wall and roll into the crate to reveal the Piece of Heart. As a child, glide down with the Cucco from the bridge; as an adult, drop onto the matching ledge on the Hyrule Field side and Longshot to the crate.",
+          "notes": "Zelda Universe says the Iron Boots are needed; no other source agrees, and that is wrong.",
+          "tags": [
+            "Either"
+          ]
+        },
+        {
+          "id": "gerudo_fortress_rooftop_chest",
+          "name": "Rooftop chest at Gerudo's Fortress",
+          "region": "Gerudo's Fortress",
+          "area": "Highest rooftop of the fortress",
+          "howTo": "Climb the upper ledges and vines to the top of the fortress, then cross the gap to the big chest: Longshot onto the chest itself, or play the Scarecrow's Song and Hookshot to Pierre.",
+          "notes": "Alternative: the Hookshot plus the Scarecrow's Song. Get the Gerudo Membership Card first so the guards leave you alone.",
+          "tags": [
+            "Adult",
+            "Longshot"
+          ]
+        },
+        {
+          "id": "gerudo_fortress_horseback_archery",
+          "name": "Horseback Archery: 1,000 points",
+          "region": "Gerudo's Fortress",
+          "area": "Horseback Archery Range (east side of the fortress)",
+          "howTo": "After rescuing the carpenters and getting the Gerudo Membership Card, pay 20 Rupees and score at least 1,000 points in Horseback Archery on Epona to win the Piece of Heart.",
+          "notes": "1,500 points on a later run wins the quiver upgrade. Zelda Universe's 'get 1,000 points twice' is wrong.",
+          "tags": [
+            "Adult",
+            "Gerudo's Card",
+            "Epona",
+            "Fairy Bow"
+          ]
+        },
+        {
+          "id": "desert_colossus_bean_arch",
+          "name": "Desert Colossus arch (bean ride)",
+          "region": "Desert Colossus",
+          "area": "Top of the rock arch near the Spirit Temple",
+          "howTo": "As a child, warp in with the Requiem of Spirit and plant a Magic Bean in the soil by the Spirit Temple entrance. As an adult, ride the platform and jump off onto the rock arch holding the Piece of Heart.",
+          "tags": [
+            "Adult",
+            "Magic Beans",
+            "Requiem of Spirit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "hiddenLabel": "Unclaimed Heart Container",
+      "note": "One from each of the eight dungeon bosses; Ganon leaves none.",
+      "items": [
+        {
+          "id": "gohma",
+          "name": "Queen Gohma",
+          "area": "Inside the Deku Tree",
+          "howTo": "Defeat Queen Gohma, the boss of Inside the Deku Tree.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "king_dodongo",
+          "name": "King Dodongo",
+          "area": "Dodongo's Cavern",
+          "howTo": "Defeat King Dodongo, the boss of Dodongo's Cavern.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "barinade",
+          "name": "Barinade",
+          "area": "Inside Jabu-Jabu's Belly",
+          "howTo": "Defeat Barinade, the boss of Inside Jabu-Jabu's Belly.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "phantom_ganon",
+          "name": "Phantom Ganon",
+          "area": "Forest Temple",
+          "howTo": "Defeat Phantom Ganon, the boss of Forest Temple.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "volvagia",
+          "name": "Volvagia",
+          "area": "Fire Temple",
+          "howTo": "Defeat Volvagia, the boss of Fire Temple.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "morpha",
+          "name": "Morpha",
+          "area": "Water Temple",
+          "howTo": "Defeat Morpha, the boss of Water Temple.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "bongo_bongo",
+          "name": "Bongo Bongo",
+          "area": "Shadow Temple",
+          "howTo": "Defeat Bongo Bongo, the boss of Shadow Temple.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "twinrova",
+          "name": "Twinrova",
+          "area": "Spirit Temple",
+          "howTo": "Defeat Twinrova, the boss of Spirit Temple.",
+          "reward": "Heart Container"
+        }
+      ]
+    }
+  ]
+}
