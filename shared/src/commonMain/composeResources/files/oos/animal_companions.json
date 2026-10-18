@@ -1,0 +1,63 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "sections": [
+    {
+      "id": "companions",
+      "title": "Animal Companions",
+      "note": "You meet all three, but your flute decides your partner and the shape of Natzu. A Linked Game keeps the same partner.",
+      "items": [
+        {
+          "id": "ricky_gloves",
+          "name": "Win back Ricky's Gloves",
+          "area": "Blaino's Gym, North Horon",
+          "howTo": "Ricky, on Holodrum Plain, lost his boxing gloves to Blaino. Pay Blaino 10 Rupees and knock him out of the ring, using no items or rings.",
+          "after": "Snake's Remains",
+          "reward": "Ricky's Gloves",
+          "notes": "Breaking his rules raises the fee for the next match."
+        },
+        {
+          "id": "companion_flute",
+          "name": "Choose a partner",
+          "area": "Horon Village / Subrosia / Holodrum Plain",
+          "howTo": "Before you return Ricky's gloves, buy a Strange Flute at the Horon Village Shop (150 Rupees) for Moosh, or win one at the Subrosian Dance Hall for Dimitri. With neither, Ricky gives you Ricky's Flute.",
+          "reward": "Ricky's, Dimitri's or Moosh's Flute",
+          "notes": "A Strange Flute's owner meets you in Spool Swamp: Moblins offer to sell Dimitri (50 Rupees, then 30 more), or Moblins attack Moosh and you beat them. Both Strange Flutes disappear once you help Ricky."
+        },
+        {
+          "id": "ricky",
+          "name": "Ricky",
+          "area": "Holodrum Plain",
+          "howTo": "Give Ricky his gloves; he lets you ride in his pouch to Spool Swamp, jumping the holes on the way.",
+          "requires": ["ricky_gloves"],
+          "notes": "Punches, and charges a tornado punch by holding A. He won't go into Sunken City."
+        },
+        {
+          "id": "natzu",
+          "name": "Cross Natzu",
+          "area": "Natzu",
+          "howTo": "Call your partner to cross Natzu, between Holodrum Plain and Sunken City: Natzu Prairie for Ricky's jumps, Natzu River for Dimitri's swimming, Natzu Wasteland for Moosh's flying.",
+          "requires": ["companion_flute"],
+          "after": "Poison Moth's Lair",
+          "notes": "Always spring. Whatever its shape, it has the same three caves: a Fairy Fountain, a Deku Scrub and a 50-Rupee chest. The Great Moblin's Keep is at its east end."
+        },
+        {
+          "id": "dimitri",
+          "name": "Dimitri",
+          "area": "Sunken City",
+          "howTo": "If he isn't your partner, give the 'Safety Patrol' kids harassing him all your Bombs. He swims you up the waterfalls to the Master Diver.",
+          "after": "Poison Moth's Lair",
+          "notes": "He leaves after you get the Zora's Flippers. If he is your partner, just call him into the city."
+        },
+        {
+          "id": "moosh",
+          "name": "Moosh",
+          "area": "Mt. Cucco",
+          "howTo": "In spring, take a Flying Cucco up to the eastern summit for a Spring Banana and feed Moosh. He flies you over the pits on Goron Mountain to the Dragon Key.",
+          "after": "Poison Moth's Lair",
+          "notes": "You meet him here whoever your partner is."
+        }
+      ]
+    }
+  ]
+}

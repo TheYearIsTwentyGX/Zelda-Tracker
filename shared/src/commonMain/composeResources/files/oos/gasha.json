@@ -1,0 +1,212 @@
+{
+  "regions": [
+    "Horon Village",
+    "North Horon",
+    "Woods of Winter",
+    "Holodrum Plain",
+    "Spool Swamp",
+    "Sunken City",
+    "Goron Mountain",
+    "Mt. Cucco",
+    "Eyeglass Lake",
+    "Tarm Ruins",
+    "Samasa Desert",
+    "Western Coast",
+    "Temple Remains"
+  ],
+  "noun": "spot",
+  "hiddenLabel": "Unvisited Gasha spot",
+  "sections": [
+    {
+      "id": "spots",
+      "title": "Gasha Spots",
+      "noun": "spot",
+      "hiddenLabel": "Unvisited Gasha spot",
+      "note": "Tick a spot once you've harvested a nut there. A planted seed becomes a tree after 20 kills and bears a nut after 40 (half with the Gasha Ring).",
+      "items": [
+        {
+          "id": "horon_village_mayors_house",
+          "name": "In front of Mayor Ruul's house",
+          "region": "Horon Village",
+          "area": "Mayor Ruul's Residence",
+          "howTo": "The soft soil right in front of Mayor Ruul's house. Mayor Ruul gives you a Gasha Seed to start with.",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "north_horon_above_impas_refuge",
+          "name": "Above Impa's Refuge",
+          "region": "North Horon",
+          "area": "Just north of Impa's Refuge",
+          "howTo": "Just north of Impa's Refuge in North Horon.",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "woods_of_winter_southeast",
+          "name": "Woods of Winter, by the lake",
+          "region": "Woods of Winter",
+          "area": "Southeast of the first Subrosia portal",
+          "howTo": "Southeast of the first portal to Subrosia; StrategyWiki: just north of the Like Like lair, southeast of the small lake.",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "holodrum_plain_riverside",
+          "name": "Holodrum Plain riverside",
+          "region": "Holodrum Plain",
+          "area": "Northwest of Mrs. Ruul's Villa",
+          "howTo": "Along the river northwest of Mrs. Ruul's Villa.",
+          "reward": "Gasha Nut with rings of class 1–3",
+          "tags": [
+            "Class 1–3"
+          ]
+        },
+        {
+          "id": "spool_swamp_floodgate",
+          "name": "Spool Swamp, by the floodgate",
+          "region": "Spool Swamp",
+          "area": "South of Poison Moth's Lair",
+          "howTo": "South of Poison Moth's Lair, reached through the tunnel from the Floodgate Keeper's House (StrategyWiki: west side, near the floodgate).",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "spool_swamp_southwest",
+          "name": "Spool Swamp, far southwest",
+          "region": "Spool Swamp",
+          "area": "Southwest corner, near the Subrosia portal",
+          "howTo": "The far southwestern corner of Spool Swamp, near the portal to Subrosia.",
+          "reward": "Gasha Nut with rings of class 1–3",
+          "tags": [
+            "Class 1–3"
+          ]
+        },
+        {
+          "id": "sunken_city_north",
+          "name": "Sunken City, above the waterfalls",
+          "region": "Sunken City",
+          "area": "North, by the house above the waterfalls",
+          "howTo": "In the north of Sunken City by the house above the waterfalls. Reach it with Dimitri or the Zora's Flippers.",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Dimitri or Zora's Flippers",
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "goron_mountain_southwest",
+          "name": "Goron Mountain, southwest corner",
+          "region": "Goron Mountain",
+          "area": "Southwest corner, near the Temple Remains",
+          "howTo": "The southwestern corner of Goron Mountain's base. TourianTourist: reachable once you have the Zora's Flippers, or before Poison Moth's Lair by crossing the Natzu River with Dimitri.",
+          "reward": "Gasha Nut with rings of class 3–5, or the one-time Piece of Heart",
+          "notes": "One of the two best spots in Seasons.",
+          "tags": [
+            "Zora's Flippers or Dimitri",
+            "Class 3–5"
+          ]
+        },
+        {
+          "id": "mt_cucco_southwest_base",
+          "name": "Mt. Cucco, southwest base",
+          "region": "Mt. Cucco",
+          "area": "Southwest corner, east of Goron Mountain's base",
+          "howTo": "In the southwest corner of Mt. Cucco, which you reach by going east from Goron Mountain's base.",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "holodrum_plain_lake_island",
+          "name": "Island in the Holodrum Plain lake",
+          "region": "Holodrum Plain",
+          "area": "Small island in the northern lake",
+          "howTo": "A small island in the northern lake of Holodrum Plain. Swim there with the Zora's Flippers.",
+          "reward": "Gasha Nut with rings of class 1–3",
+          "tags": [
+            "Zora's Flippers",
+            "Class 1–3"
+          ]
+        },
+        {
+          "id": "eyeglass_lake_unicorns_cave",
+          "name": "By Unicorn's Cave",
+          "region": "Eyeglass Lake",
+          "area": "Just west of Unicorn's Cave",
+          "howTo": "Just west of the entrance to Unicorn's Cave.",
+          "reward": "Gasha Nut with rings of class 2–4, or the one-time Piece of Heart",
+          "tags": [
+            "Class 2–4"
+          ]
+        },
+        {
+          "id": "mt_cucco_autumn",
+          "name": "Mt. Cucco, behind the Rock Mushrooms",
+          "region": "Mt. Cucco",
+          "area": "Northeast, near the Flying Rooster",
+          "howTo": "In the northeast of Mt. Cucco, behind Rock Mushrooms you can only pick in autumn (TourianTourist: near the Flying Rooster).",
+          "reward": "Gasha Nut with rings of class 2–4, or the one-time Piece of Heart",
+          "tags": [
+            "Rod of Seasons (Autumn)",
+            "Class 2–4"
+          ]
+        },
+        {
+          "id": "tarm_ruins_gale_tree",
+          "name": "Tarm Ruins, by the Gale Seed tree",
+          "region": "Tarm Ruins",
+          "area": "Southeast of the Gale Tree",
+          "howTo": "Southeast of the Gale Seed tree in the Tarm Ruins, so you can warp there with Gale Seeds.",
+          "reward": "Gasha Nut with rings of class 3–5, or the one-time Piece of Heart",
+          "notes": "One of the two best spots in Seasons. TourianTourist: the endless Like Likes in the Lost Woods are a quick way to rack up kills.",
+          "tags": [
+            "Class 3–5"
+          ]
+        },
+        {
+          "id": "samasa_desert_southeast",
+          "name": "Samasa Desert, southeast",
+          "region": "Samasa Desert",
+          "area": "Southeastern corner, above the plateau",
+          "howTo": "The southeastern corner of Samasa Desert, above the plateau.",
+          "reward": "Gasha Nut with rings of class 1–3",
+          "tags": [
+            "Class 1–3"
+          ]
+        },
+        {
+          "id": "western_coast_below_graveyard",
+          "name": "Western Coast, below the Graveyard",
+          "region": "Western Coast",
+          "area": "Far southwest corner",
+          "howTo": "The far southwest corner of the Western Coast, below the Graveyard.",
+          "reward": "Gasha Nut with rings of class 1–2",
+          "tags": [
+            "Class 1–2"
+          ]
+        },
+        {
+          "id": "temple_remains_entrance",
+          "name": "Temple Remains entrance",
+          "region": "Temple Remains",
+          "area": "First screen from Holodrum Plain",
+          "howTo": "On the first screen of the Temple Remains when you come in from Holodrum Plain.",
+          "reward": "Gasha Nut with rings of class 1–3",
+          "tags": [
+            "Class 1–3"
+          ]
+        }
+      ]
+    }
+  ]
+}
