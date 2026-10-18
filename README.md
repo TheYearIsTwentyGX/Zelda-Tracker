@@ -394,6 +394,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
   src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/figurines/  ← Minish Cap figurine tracker and Carlov's odds
+  src/commonMain/kotlin/gx/zelda/checklist/  ← the generic, data-driven checklist tracker (docs/checklist-trackers.md)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces and the menu (AppDrawer.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
@@ -426,6 +427,27 @@ so a new game lands in release order wherever it's added to the list. App-wide s
 games, open menu sections) are one `AppSettings` value under the `app_settings` key
 (`core/AppSettings.kt`, `AppSettingsStorage` in `core/AppDataStore.kt`).
 
+### Adding a game: checklist trackers
+
+New games are built from **checklists** (`TrackerKind.CHECKLIST`) rather than a package per
+tracker. A checklist is one JSON file under `files/<game id>/` plus one line in `core/Games.kt`:
+
+```kotlin
+Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "…", dataFile = "eow/heart_pieces.json")
+```
+
+That gives the game a tracker with:
+- section tabs, region cards with counts, search that respects spoiler hiding, and *Not done* and
+  *Missable* filters;
+- a page per item, with tiers (upgrade levels) where an item has them;
+- summary formulas such as `3 + floor(pieces / 4) + containers`;
+- its own Progress Overview row, so a game made of checklists gets an overview for free.
+
+A game can list any number of checklists. The menu, home screen and overview tell them apart by
+their `dataFile`. `docs/checklist-trackers.md` has the JSON format, the formula syntax, the
+spoiler rules and how the overview picks a next step. `ChecklistDatasetsTest` validates every
+checklist that any game lists.
+
 ### Adding a tracker to the Progress Overview
 
 Write a `ProgressProvider` (`core/ProgressSummary.kt`) next to the tracker's storage, e.g.
@@ -433,7 +455,8 @@ Write a `ProgressProvider` (`core/ProgressSummary.kt`) next to the tracker's sto
 (title, done / total, an optional detail line, an optional next step, and whether it counts
 toward map completion). Then return it for the tracker's `TrackerKind` in
 `overview/OverviewProviders.kt`; that `when` is exhaustive, so a new kind won't compile until it
-has a branch. The interface's KDoc has the details.
+has a branch. The interface's KDoc has the details. Checklists need none of this: the
+`CHECKLIST` branch gives every checklist a `ChecklistProgressProvider` row.
 
 Each game's overview is built from its own tracker list in `core/Games.kt`, so a row appears only
 for a game that has that tracker. A game gets an overview by listing `TrackerKind.OVERVIEW` (BotW

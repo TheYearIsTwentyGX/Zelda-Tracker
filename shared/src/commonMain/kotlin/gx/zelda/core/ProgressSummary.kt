@@ -51,6 +51,9 @@ interface ProgressProvider {
     /** The row's title while it loads or when it is unavailable. */
     val title: String
 
+    /** For a [TrackerKind.CHECKLIST] row, the tracker's dataset, which tells it apart from the game's other checklists. */
+    val dataFile: String? get() = null
+
     /** The row for [saveFile], updated as the tracker's data changes. */
     fun summary(saveFile: SaveFile): Flow<ProgressSummary>
 }

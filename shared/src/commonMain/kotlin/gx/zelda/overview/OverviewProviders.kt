@@ -8,6 +8,8 @@ import gx.zelda.bosses.data.BossProgressProvider
 import gx.zelda.bosses.data.BossStorage
 import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumStorage
+import gx.zelda.checklist.data.ChecklistProgressProvider
+import gx.zelda.checklist.data.ChecklistStorage
 import gx.zelda.core.Game
 import gx.zelda.core.ProgressProvider
 import gx.zelda.core.TrackerKind
@@ -43,8 +45,8 @@ import gx.zelda.sidequests.data.SideQuestStorage
 fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<ProgressProvider> {
     val kinds = game.trackers.map { it.kind }
     if (TrackerKind.OVERVIEW !in kinds) return emptyList()
-    return kinds.flatMap { kind ->
-        when (kind) {
+    return game.trackers.flatMap { tracker ->
+        when (tracker.kind) {
             TrackerKind.ARMOR -> listOf(ArmorProgressProvider(ArmorStorage(dataStore, game)))
             TrackerKind.FAIRIES -> listOf(FairyProgressProvider(FairyStorage(dataStore, game)))
             TrackerKind.MAIN_QUEST -> listOf(MainQuestProgressProvider(MainQuestStorage(dataStore, game)))
@@ -64,6 +66,10 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.HEART_PIECES -> listOf(HeartProgressProvider(HeartStorage(dataStore, game)))
             TrackerKind.KINSTONES -> listOf(KinstoneProgressProvider(KinstoneStorage(dataStore, game)))
             TrackerKind.FIGURINES -> listOf(FigurineProgressProvider(FigurineStorage(dataStore, game)))
+            // One generic row per checklist, so a game made of checklists gets its overview for free.
+            TrackerKind.CHECKLIST -> listOf(
+                ChecklistProgressProvider(ChecklistStorage(dataStore, game, tracker.dataFile!!), tracker.title),
+            )
         }
     }
 }

@@ -35,13 +35,13 @@ import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
 
-/** Every tracker's progress on the active save file; tapping a row opens that tracker. */
+/** Every tracker's progress on the active save file; tapping a row opens that tracker (and checklist, by its dataFile). */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OverviewScreen(
     state: OverviewUiState?,
     viewModel: OverviewViewModel,
-    onOpenTracker: (TrackerKind) -> Unit,
+    onOpenTracker: (TrackerKind, dataFile: String?) -> Unit,
     onBack: () -> Unit,
 ) {
     Scaffold(
@@ -76,7 +76,7 @@ fun OverviewScreen(
         ) {
             // A tracker can have several rows (Shrines and Hearts & Stamina), so the key is the position.
             itemsIndexed(state.rows, key = { i, row -> "$i:${row.title}" }) { _, row ->
-                RowCard(row, onClick = { onOpenTracker(row.kind) })
+                RowCard(row, onClick = { onOpenTracker(row.kind, row.dataFile) })
             }
             state.mapItems?.let { items -> item(key = "map") { MapItemsCard(items) } }
         }

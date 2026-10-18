@@ -27,7 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.Game
-import gx.zelda.core.TrackerKind
+import gx.zelda.core.Tracker
 
 /**
  * The landing page: a card per game the user shows, in release order, the same games and order as
@@ -37,7 +37,7 @@ import gx.zelda.core.TrackerKind
 @Composable
 fun HomeScreen(
     games: List<Game>?,
-    onOpenTracker: (Game, TrackerKind) -> Unit,
+    onOpenTracker: (Game, Tracker) -> Unit,
     onOpenMenu: () -> Unit,
     onOpenSettings: () -> Unit,
 ) {
@@ -65,7 +65,7 @@ fun HomeScreen(
 }
 
 @Composable
-private fun GameCard(game: Game, onOpenTracker: (Game, TrackerKind) -> Unit) {
+private fun GameCard(game: Game, onOpenTracker: (Game, Tracker) -> Unit) {
     val available = game.trackers.isNotEmpty()
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
@@ -83,7 +83,7 @@ private fun GameCard(game: Game, onOpenTracker: (Game, TrackerKind) -> Unit) {
             )
             game.trackers.forEach { tracker ->
                 Card(
-                    onClick = { onOpenTracker(game, tracker.kind) },
+                    onClick = { onOpenTracker(game, tracker) },
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
                     modifier = Modifier.fillMaxWidth(),
                 ) {

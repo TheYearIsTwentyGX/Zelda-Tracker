@@ -30,6 +30,11 @@ import gx.zelda.compendium.ui.CompendiumTrackerScreen
 import gx.zelda.compendium.ui.CompendiumViewModel
 import gx.zelda.core.Game
 import gx.zelda.core.Games
+import gx.zelda.checklist.data.ChecklistStorage
+import gx.zelda.checklist.ui.ChecklistDetailScreen
+import gx.zelda.checklist.ui.ChecklistScreen
+import gx.zelda.checklist.ui.ChecklistViewModel
+import gx.zelda.core.Tracker
 import gx.zelda.core.TrackerKind
 import gx.zelda.core.ui.HomeScreen
 import gx.zelda.core.ui.ZeldaTheme
@@ -117,6 +122,9 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Kinstones(val gameId: String)
 @Serializable private data class KinstoneDetail(val gameId: String, val fusionId: String)
 @Serializable private data class Figurines(val gameId: String)
+/** A checklist tracker, named by its dataset since a game can have several. */
+@Serializable private data class Checklist(val gameId: String, val dataFile: String)
+@Serializable private data class ChecklistDetail(val gameId: String, val dataFile: String, val itemId: String)
 @Serializable private data object Settings
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
@@ -137,7 +145,7 @@ fun App(dataStore: DataStore<Preferences>) {
                 val menu = LocalAppMenu.current
                 HomeScreen(
                     games = settings?.shownGames(),
-                    onOpenTracker = { game, kind -> nav.navigate(trackerRoute(game.id, kind)) },
+                    onOpenTracker = { game, tracker -> nav.navigate(trackerRoute(game.id, tracker)) },
                     onOpenMenu = { menu?.open() },
                     onOpenSettings = { nav.navigate(Settings) },
                 )
@@ -152,7 +160,7 @@ fun App(dataStore: DataStore<Preferences>) {
                 OverviewScreen(
                     state,
                     vm,
-                    onOpenTracker = { nav.openTrackerFromOverview(game, it) },
+                    onOpenTracker = { kind, dataFile -> nav.openTrackerFromOverview(game, kind, dataFile) },
                     onBack = { nav.popBackStack() },
                 )
             }
@@ -416,6 +424,33 @@ fun App(dataStore: DataStore<Preferences>) {
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
                 FigurineTrackerScreen(state, loadFailed, vm, onBack = { nav.popBackStack() })
             }
+            composable<Checklist> { entry ->
+                val route = entry.toRoute<Checklist>()
+                val game = Games.byId(route.gameId)
+                val vm = checklistViewModel(entry, dataStore, game, route.dataFile)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                ChecklistScreen(
+                    state,
+                    loadFailed,
+                    vm,
+                    title = game.trackers.firstOrNull { it.dataFile == route.dataFile }?.title ?: "Checklist",
+                    onOpenItem = { nav.navigate(ChecklistDetail(game.id, route.dataFile, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<ChecklistDetail> { entry ->
+                val route = entry.toRoute<ChecklistDetail>()
+                // Several checklists can be on the back stack; the detail belongs to the one with its dataset.
+                val listEntry = remember(entry) {
+                    nav.currentBackStack.value.last { it.destination.hasRoute<Checklist>() && it.toRoute<Checklist>().dataFile == route.dataFile }
+                }
+                val vm = checklistViewModel(listEntry, dataStore, Games.byId(route.gameId), route.dataFile)
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    ChecklistDetailScreen(it, route.itemId, vm, onBack = { nav.popBackStack() })
+                }
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -483,10 +518,24 @@ private fun korokViewModel(
 ): KorokViewModel = viewModel(owner, key = game.id) { KorokViewModel(KorokStorage(dataStore, game)) }
 
 /**
- * Opens [kind]'s tracker for [game] from the Progress Overview. The same mapping as the home
+ * The [ChecklistViewModel] for [dataFile], owned by its list's back stack entry so the detail screen
+ * shares it.
+ */
+@Composable
+private fun checklistViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+    dataFile: String,
+): ChecklistViewModel = viewModel(owner, key = "checklist_${game.id}_$dataFile") {
+    ChecklistViewModel(ChecklistStorage(dataStore, game, dataFile))
+}
+
+/**
+ * Opens [kind]'s tracker for [game] from the Progress Overview ([dataFile] names a checklist). The same mapping as the home
  * screen's; kept separate only so this change didn't edit lines other branches were changing.
  */
-private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind) {
+private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind, dataFile: String?) {
     when (kind) {
         TrackerKind.ARMOR -> navigate(ArmorTracker(game.id))
         TrackerKind.FAIRIES -> navigate(Fairies(game.id))
@@ -501,6 +550,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind)
         TrackerKind.HEART_PIECES -> navigate(HeartPieces(game.id))
         TrackerKind.KINSTONES -> navigate(Kinstones(game.id))
         TrackerKind.FIGURINES -> navigate(Figurines(game.id))
+        TrackerKind.CHECKLIST -> if (dataFile != null) navigate(Checklist(game.id, dataFile))
     }
 }
 
@@ -596,7 +646,7 @@ private fun AppMenuDrawer(
                 },
                 onSettings = { openFromMenu(Settings) },
                 onToggleGame = { gameId, expanded -> settingsVm.setExpanded(gameId, expanded) },
-                onOpenTracker = { game, kind -> openFromMenu(trackerRoute(game.id, kind)) },
+                onOpenTracker = { game, tracker -> openFromMenu(trackerRoute(game.id, tracker)) },
             )
         },
     ) {
@@ -604,8 +654,8 @@ private fun AppMenuDrawer(
     }
 }
 
-/** The route of [kind]'s tracker for the game [gameId]. */
-private fun trackerRoute(gameId: String, kind: TrackerKind): Any = when (kind) {
+/** The route of [tracker] for the game [gameId]. */
+private fun trackerRoute(gameId: String, tracker: Tracker): Any = when (tracker.kind) {
     TrackerKind.ARMOR -> ArmorTracker(gameId)
     TrackerKind.FAIRIES -> Fairies(gameId)
     TrackerKind.MAIN_QUEST -> MainQuest(gameId)
@@ -619,6 +669,7 @@ private fun trackerRoute(gameId: String, kind: TrackerKind): Any = when (kind) {
     TrackerKind.HEART_PIECES -> HeartPieces(gameId)
     TrackerKind.KINSTONES -> Kinstones(gameId)
     TrackerKind.FIGURINES -> Figurines(gameId)
+    TrackerKind.CHECKLIST -> Checklist(gameId, tracker.dataFile!!)
 }
 
 /** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
@@ -640,6 +691,7 @@ private fun NavBackStackEntry.menuSelection(): MenuSelection {
         d.hasRoute<HeartPieces>() -> MenuSelection.Tracker(toRoute<HeartPieces>().gameId, TrackerKind.HEART_PIECES)
         d.hasRoute<Kinstones>() -> MenuSelection.Tracker(toRoute<Kinstones>().gameId, TrackerKind.KINSTONES)
         d.hasRoute<Figurines>() -> MenuSelection.Tracker(toRoute<Figurines>().gameId, TrackerKind.FIGURINES)
+        d.hasRoute<Checklist>() -> toRoute<Checklist>().let { MenuSelection.Tracker(it.gameId, TrackerKind.CHECKLIST, it.dataFile) }
         else -> MenuSelection.None
     }
 }
