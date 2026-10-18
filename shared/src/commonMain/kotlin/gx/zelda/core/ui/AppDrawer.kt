@@ -43,13 +43,15 @@ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.navigation.NavBackStackEntry
 import gx.zelda.core.Game
 import gx.zelda.core.GameMenuSection
+import gx.zelda.core.Tracker
 import gx.zelda.core.TrackerKind
 
 /** What the menu highlights: the screen open now, or the tracker it was opened from. */
 sealed interface MenuSelection {
     data object Home : MenuSelection
     data object Settings : MenuSelection
-    data class Tracker(val gameId: String, val kind: TrackerKind) : MenuSelection
+    /** [dataFile] tells a game's checklists apart; it's null for every other kind. */
+    data class Tracker(val gameId: String, val kind: TrackerKind, val dataFile: String? = null) : MenuSelection
     data object None : MenuSelection
 }
 
@@ -109,7 +111,7 @@ fun AppDrawerSheet(
     onHome: () -> Unit,
     onSettings: () -> Unit,
     onToggleGame: (gameId: String, expanded: Boolean) -> Unit,
-    onOpenTracker: (Game, TrackerKind) -> Unit,
+    onOpenTracker: (Game, Tracker) -> Unit,
 ) {
     ModalDrawerSheet(drawerState) {
         LazyColumn(contentPadding = PaddingValues(horizontal = 12.dp, vertical = 12.dp)) {
@@ -134,11 +136,11 @@ fun AppDrawerSheet(
                 item(key = "game_${section.game.id}") {
                     GameHeader(section, onToggle = { onToggleGame(section.game.id, !section.expanded) })
                 }
-                items(section.rows, key = { "tracker_${section.game.id}_${it.kind}" }) { tracker ->
+                items(section.rows, key = { "tracker_${section.game.id}_${it.kind}_${it.dataFile}" }) { tracker ->
                     NavigationDrawerItem(
                         label = { Text(tracker.title) },
-                        selected = selection == MenuSelection.Tracker(section.game.id, tracker.kind),
-                        onClick = { onOpenTracker(section.game, tracker.kind) },
+                        selected = selection == MenuSelection.Tracker(section.game.id, tracker.kind, tracker.dataFile),
+                        onClick = { onOpenTracker(section.game, tracker) },
                         modifier = Modifier.padding(start = 16.dp),
                     )
                 }

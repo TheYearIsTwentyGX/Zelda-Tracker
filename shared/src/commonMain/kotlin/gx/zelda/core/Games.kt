@@ -52,9 +52,23 @@ enum class TrackerKind {
     HEART_PIECES,
     KINSTONES,
     FIGURINES,
+
+    /**
+     * A generic checklist read from a JSON file ([Tracker.dataFile]); a game can list any number.
+     * The format is in docs/checklist-trackers.md.
+     */
+    CHECKLIST,
 }
 
-data class Tracker(val kind: TrackerKind, val title: String, val description: String)
+/**
+ * One tracker a game offers. A [TrackerKind.CHECKLIST] names its dataset in [dataFile], relative to
+ * the bundled `files/` folder (e.g. `"eow/echoes.json"`); other kinds find their data by game id.
+ */
+data class Tracker(val kind: TrackerKind, val title: String, val description: String, val dataFile: String? = null) {
+    init {
+        require((kind == TrackerKind.CHECKLIST) == (dataFile != null)) { "$title: only a checklist has a dataFile, and it needs one" }
+    }
+}
 
 object Games {
     /** Famicom Disk System in Japan, a year before the NES cartridge. */

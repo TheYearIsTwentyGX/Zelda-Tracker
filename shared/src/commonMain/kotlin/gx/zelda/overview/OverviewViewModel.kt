@@ -41,7 +41,8 @@ sealed interface RowStatus {
     data class Ready(val summary: ProgressSummary) : RowStatus
 }
 
-data class OverviewRow(val kind: TrackerKind, val title: String, val status: RowStatus)
+/** [dataFile] is set on a checklist's row, to open that checklist rather than another of the game's. */
+data class OverviewRow(val kind: TrackerKind, val title: String, val status: RowStatus, val dataFile: String? = null)
 
 data class OverviewUiState(
     val saveFile: SaveFile,
@@ -90,5 +91,5 @@ class OverviewViewModel(
             .flowOn(loadDispatcher)
             .onStart { emit(RowStatus.Loading) }
             .catch { emit(RowStatus.Unavailable) }
-            .map { OverviewRow(provider.kind, provider.title, it) }
+            .map { OverviewRow(provider.kind, provider.title, it, provider.dataFile) }
 }
