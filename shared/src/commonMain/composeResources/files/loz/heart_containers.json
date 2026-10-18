@@ -1,0 +1,48 @@
+{
+  "regions": ["Levels", "Overworld"],
+  "noun": "container",
+  "hiddenLabel": "Uncollected Heart Container",
+  "summaries": [{"label": "First Quest hearts", "formula": "3 + first_quest"}, {"label": "Second Quest hearts", "formula": "3 + second_quest"}],
+  "sections": [
+    {
+      "id": "first_quest",
+      "title": "First Quest",
+      "note": "Link starts with 3 hearts: 8 bosses and 5 overworld containers make 16. Level 9 has none. Screens are given as column A–P (west to east) and row 1–8 (north to south); the start is H8.",
+      "items": [
+        {"id": "q1_hc_level_1", "name": "Level 1: Aquamentus", "region": "Levels", "area": "Level 1", "howTo": "Dropped by Aquamentus in Level 1's boss room."},
+        {"id": "q1_hc_level_2", "name": "Level 2: Dodongo", "region": "Levels", "area": "Level 2", "howTo": "Dropped by Dodongo in Level 2's boss room."},
+        {"id": "q1_hc_level_3", "name": "Level 3: Manhandla", "region": "Levels", "area": "Level 3", "howTo": "Dropped by Manhandla in Level 3's boss room."},
+        {"id": "q1_hc_level_4", "name": "Level 4: Gleeok (two heads)", "region": "Levels", "area": "Level 4", "howTo": "Dropped by Gleeok (two heads) in Level 4's boss room."},
+        {"id": "q1_hc_level_5", "name": "Level 5: Digdogger", "region": "Levels", "area": "Level 5", "howTo": "Dropped by Digdogger in Level 5's boss room."},
+        {"id": "q1_hc_level_6", "name": "Level 6: Gohma", "region": "Levels", "area": "Level 6", "howTo": "Dropped by Gohma in Level 6's boss room."},
+        {"id": "q1_hc_level_7", "name": "Level 7: Aquamentus", "region": "Levels", "area": "Level 7", "howTo": "Dropped by Aquamentus in Level 7's boss room."},
+        {"id": "q1_hc_level_8", "name": "Level 8: Gleeok (four heads)", "region": "Levels", "area": "Level 8", "howTo": "Dropped by Gleeok (four heads) in Level 8's boss room."},
+        {"id": "q1_hc_coast_cave", "name": "Southern coast cave", "region": "Overworld", "area": "Southern coast, four screens east of the start (L8)", "howTo": "Bomb the rock wall left of the path north for a cave. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true},
+        {"id": "q1_hc_lake_bush", "name": "Lake Hylia bush cave", "region": "Overworld", "area": "Lake Hylia shore, one screen south of Level 1 (H5)", "howTo": "Burn the fifth bush from the right with a Candle. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true},
+        {"id": "q1_hc_boulder_cave", "name": "Boulder cave north of Level 2", "region": "Overworld", "area": "One screen north of Level 2 (M3)", "howTo": "Bomb the lower right of the big rock for a cave. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true},
+        {"id": "q1_hc_raft_cave", "name": "Northeast raft cave", "region": "Overworld", "area": "Northeast coast (P3)", "howTo": "Sail the Raft north from the dock (P4) to the cave. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true},
+        {"id": "q1_hc_sea_dock", "name": "East coast dock", "region": "Overworld", "area": "East coast (P6)", "howTo": "Lying on the sea by the coast: cross the gap with the Stepladder to reach it."}
+      ]
+    },
+    {
+      "id": "second_quest",
+      "title": "Second Quest",
+      "note": "Again 3 to 16. Three Old Men (one in Level 4, two in Level 7) take 50 Rupees, or a Heart Container if you won't pay.",
+      "items": [
+        {"id": "q2_hc_level_1", "name": "Level 1: Aquamentus", "region": "Levels", "area": "Level 1", "howTo": "Dropped by Aquamentus in Level 1's boss room."},
+        {"id": "q2_hc_level_2", "name": "Level 2: Gleeok (two heads)", "region": "Levels", "area": "Level 2", "howTo": "Dropped by Gleeok (two heads) in Level 2's boss room."},
+        {"id": "q2_hc_level_3", "name": "Level 3: Three Dodongos", "region": "Levels", "area": "Level 3", "howTo": "Dropped by three Dodongos in Level 3's boss room."},
+        {"id": "q2_hc_level_4", "name": "Level 4: Digdogger", "region": "Levels", "area": "Level 4", "howTo": "Dropped by Digdogger in Level 4's boss room."},
+        {"id": "q2_hc_level_5", "name": "Level 5: Gleeok (three heads)", "region": "Levels", "area": "Level 5", "howTo": "Dropped by Gleeok (three heads) in Level 5's boss room."},
+        {"id": "q2_hc_level_6", "name": "Level 6: Blue Gohma", "region": "Levels", "area": "Level 6", "howTo": "Dropped by Blue Gohma in Level 6's boss room."},
+        {"id": "q2_hc_level_7", "name": "Level 7: Gleeok (four heads)", "region": "Levels", "area": "Level 7", "howTo": "Dropped by Gleeok (four heads) in Level 7's boss room."},
+        {"id": "q2_hc_level_8", "name": "Level 8: Three Dodongos", "region": "Levels", "area": "Level 8", "howTo": "Dropped by three Dodongos in Level 8's boss room."},
+        {"id": "q2_hc_graveyard", "name": "Graveyard cave", "region": "Overworld", "area": "Northwest corner of the Graveyard (A3)", "howTo": "Push the gravestone for stairs, coming through the Lost Woods. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true, "notes": "Zelda Dungeon says it needs the Power Bracelet; StrategyWiki just has Link push the stone."},
+        {"id": "q2_hc_desert", "name": "Desert cave", "region": "Overworld", "area": "North-central desert (K4)", "howTo": "Play the Recorder to reveal the stairs. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true},
+        {"id": "q2_hc_death_mountain", "name": "Death Mountain cave", "region": "Overworld", "area": "Death Mountain, near Spectacle Rock", "howTo": "Play the Recorder to reveal the stairs. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true, "notes": "StrategyWiki puts it one screen east of Spectacle Rock (G1); Zelda Dungeon's directions lead to I1."},
+        {"id": "q2_hc_raft_cave", "name": "Northeast raft cave", "region": "Overworld", "area": "Northeast coast (P3)", "howTo": "Sail the Raft north from the dock (P4) to the cave, as in the First Quest. A \"Take any one you want\" cave: the Old Man offers the Heart Container or a Red Water of Life. Take the potion and the container is gone for good.", "missable": true},
+        {"id": "q2_hc_sea_dock", "name": "East coast dock", "region": "Overworld", "area": "East coast (P6)", "howTo": "As in the First Quest: cross the gap with the Stepladder to reach it."}
+      ]
+    }
+  ]
+}

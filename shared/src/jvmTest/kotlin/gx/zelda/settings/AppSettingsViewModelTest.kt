@@ -34,7 +34,7 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
-        assertEquals(listOf("mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
+        assertEquals(listOf("loz", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
         assertTrue(settings.expandedGames.isEmpty())
     }
 
@@ -46,15 +46,15 @@ class AppSettingsViewModelTest {
         backgroundScope.launchCollect(vm)
         // Let the state load before writing (see HeartViewModelTest).
         vm.settings.filterNotNull().first()
-        vm.setShown("oot", true).join()
+        vm.setShown("tfh", true).join()
         vm.setShown("totk", false).join()
         vm.setExpanded("botw", true).join()
 
         val reloaded = AppSettingsStorage(dataStore).settings.first()
-        assertEquals(listOf("oot", "mc", "botw", "eow"), reloaded.shownGames().map { it.id })
+        assertEquals(listOf("loz", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
         assertEquals(setOf("botw"), reloaded.expandedGames)
         assertEquals(
-            listOf("oot", "mc", "botw", "eow"),
+            listOf("loz", "mc", "tfh", "botw", "eow"),
             vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames().map { it.id },
         )
     }
@@ -64,11 +64,10 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         vm.settings.filterNotNull().first()
-        vm.setShown("botw", false).join()
-        vm.setShown("totk", false).join()
-        vm.setShown("eow", false).join()
+        val others = Games.all.filter { !it.comingSoon && it != Games.MC }
+        others.forEach { vm.setShown(it.id, false).join() }
         vm.setShown("mc", false).join()
-        val settings = vm.settings.filterNotNull().first { it.gameChoices.size == 3 }
+        val settings = vm.settings.filterNotNull().first { it.gameChoices.size == others.size }
         assertEquals(listOf("mc"), settings.shownGames().map { it.id })
         assertTrue("mc" !in settings.gameChoices)
     }
