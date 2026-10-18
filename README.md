@@ -10,9 +10,9 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- A Link to the Past, Link's Awakening, Ocarina of Time, Majora's Mask, Four Swords, The Minish
-  Cap, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get
-  some.
+- The Legend of Zelda, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's Mask, Four
+  Swords, The Minish Cap, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have
+  trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -374,6 +374,25 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   later checkpoints read "Later in the story", and search only matches their number.
 - Three save files, **File 1–3**, as on the cartridge.
 
+**The Legend of Zelda**
+
+Every LoZ tracker is a [checklist](docs/checklist-trackers.md), with a **First Quest** and a
+**Second Quest** tab: the Second Quest carries on in the same save file once the first is beaten.
+Sources and disagreements are in `docs/loz.md`.
+- **Progress Overview** (first): a row per tracker with its count, the hearts totals and the next
+  thing to do.
+- **Dungeons:** Levels 1–9 of each quest (the Eagle to Death Mountain in the First Quest): where the
+  entrance is and what opens it, the boss, the items inside and the Old Man's hint. Levels 1–8 give
+  a Triforce piece; Level 9 needs all eight.
+- **Items & Equipment:** all 27 items in each quest, from the Wooden Sword to the Red Ring, with
+  where to find each or what it costs, the two bomb upgrades, and where the Second Quest moves them.
+- **Heart Containers:** 13 per quest, 8 from bosses and 5 hidden on the overworld, with each quest's
+  hearts (3 to 16). The "Take any one you want" caves are marked missable: take the potion and the
+  container is gone.
+- Places are a landmark plus the screen, column A–P west to east and row 1–8 north to south (the
+  start is H8).
+- Three save files, **File 1** to **File 3**, as on the cartridge.
+
 **A Link to the Past**
 
 Every ALttP tracker is a [checklist](docs/checklist-trackers.md), built for the original SNES
@@ -561,6 +580,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
+  src/commonMain/composeResources/files/loz/*.json  ← The Legend of Zelda checklists (docs/loz.md)
   src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
@@ -903,6 +923,10 @@ Minish Cap* (names, North American descriptions, who's pictured) and the zeldare
 formula). It is cross-checked against Zelda Wiki's Figurine Gallery table, StrategyWiki and
 Zeldapedia. `scripts/build-mc-figurines.py` rebuilds it, and `docs/mc-figurines.md` covers the
 checkpoints, the odds and where the sources disagree.
+
+The Legend of Zelda data (`files/loz/`) comes from Zelda Wiki, Zelda Dungeon (through the Wayback
+Machine) and StrategyWiki, cross-checked against each other. `docs/loz.md` covers the save files and
+the two quests, the screen grid, what isn't tracked and why, and every disagreement between sources.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
