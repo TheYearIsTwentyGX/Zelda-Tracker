@@ -11,8 +11,8 @@ iOS port is mostly a matter of adding the iOS targets.
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
-  Mask, Oracle of Seasons, Oracle of Ages, The Minish Cap, Breath of the Wild, Tears of the Kingdom
-  and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
+  Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Minish Cap, Breath of the Wild, Tears of
+  the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -559,6 +559,26 @@ and disagreements are in `docs/la.md`.
   each with its reward and the return secret for Farore.
 - Three save files, **File 1** to **File 3**, as in the game.
 
+**Four Swords**
+
+One [checklist](docs/checklist-trackers.md), **Stages & Keys**, after a Progress Overview, covering
+the GBA original and the Anniversary Edition (DSiWare, 2011). Sources and disagreements are in
+`docs/fs.md`.
+- **Silver, Golden and Hero's Keys:** a tab per key tier. Each has the key from the Great Fairies of
+  the Sea of Trees, Talus Cave and Death Mountain (1,000, 3,000 or 5,000 Rupees), then the Vaati's
+  Palace door those keys open. The optional Chambers of Insight come first. Keys (of 9) and palace
+  doors (of 3) are totalled.
+- **Anniversary Edition tabs:** the Realm of Memories' 9 levels (its A Link to the Past, Link's
+  Awakening and NES doors, for the Master Sword) and the Hero's Trial's 9 levels (opened with 5
+  medals or 30,000 Rupees, for the Hurricane Spin), each level after the one before.
+- **ALttP Link-ups** (GBA only): Sword Beams from ALttP's Master Sword, 10 Medals of Courage, the
+  Hurricane Spin from the Lumberjack's Riddles and the Palace of the Four Sword.
+- The version-only tabs are `separate`: counted on their own, left out of the total and the next
+  step.
+- Items and hearts last only for a stage, so they aren't tracked; medals are tracked as the two
+  thresholds that unlock something.
+- Three save files, **File 1–3**: A Link to the Past's on the GBA, or the Anniversary Edition's own.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -633,6 +653,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
+  src/commonMain/composeResources/files/fs/stages.json  ← Four Swords checklist (docs/fs.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -967,6 +988,11 @@ Ocarina of Time data (`files/oot/*.json`) comes from Zelda Wiki, StrategyWiki an
 cross-checked against Flying Omelette, Zelda Universe, Zelda's Palace, Jegged and GameWith. The
 zeldaret/oot decompilation settles disagreements (fishing weights, Dampé, Big Poe spawns) and the
 save-slot count. Sources and every disagreement are in `docs/oot.md`.
+
+Four Swords data (`files/fs/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and StrategyWiki, with the Anniversary Edition's text dump on GameFAQs settling exact
+names and speedrun.com's 100% rules deciding what's tracked. `docs/fs.md` covers each tracker, the
+save files and every disagreement between sources.
 
 Minish Cap figurine data (`files/mc/figurines.json`) comes from Zelda Wiki's *Figurines in The
 Minish Cap* (names, North American descriptions, who's pictured) and the zeldaret/tmc decompilation
