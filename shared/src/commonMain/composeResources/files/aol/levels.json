@@ -1,0 +1,32 @@
+{
+  "regions": ["Western Hyrule", "Eastern Hyrule"],
+  "noun": "level",
+  "hiddenLabel": "Unreached level",
+  "sections": [
+    {
+      "id": "levels",
+      "title": "Levels",
+      "note": "When experience reaches a level's cost, choose which to raise; unspent experience is lost on a game over. Setting a crystal tops it up to the next level.",
+      "items": [
+        {"id": "attack", "name": "Attack", "howTo": "Each level makes the sword stronger.", "tiers": [{"name": "Level 2 (200 XP)"}, {"name": "Level 3 (500 XP)"}, {"name": "Level 4 (1,000 XP)"}, {"name": "Level 5 (2,000 XP)"}, {"name": "Level 6 (3,000 XP)"}, {"name": "Level 7 (5,000 XP)"}, {"name": "Level 8 (8,000 XP)"}]},
+        {"id": "magic", "name": "Magic", "howTo": "Each level makes spells cost less.", "notes": "Zelda Dungeon's old guide gives 1,000 / 2,000 / 3,000 / 5,000 XP for levels 5–8; Zelda Wiki, StrategyWiki and Zelda Dungeon's Magic Level page give the numbers here.", "tiers": [{"name": "Level 2 (100 XP)"}, {"name": "Level 3 (300 XP)"}, {"name": "Level 4 (700 XP)"}, {"name": "Level 5 (1,200 XP)"}, {"name": "Level 6 (2,200 XP)"}, {"name": "Level 7 (3,500 XP)"}, {"name": "Level 8 (6,000 XP)"}]},
+        {"id": "life", "name": "Life", "howTo": "Each level makes Link take less damage.", "tiers": [{"name": "Level 2 (50 XP)"}, {"name": "Level 3 (150 XP)"}, {"name": "Level 4 (400 XP)"}, {"name": "Level 5 (800 XP)"}, {"name": "Level 6 (1,500 XP)"}, {"name": "Level 7 (2,500 XP)"}, {"name": "Level 8 (4,000 XP)"}]}
+      ]
+    },
+    {
+      "id": "link_dolls",
+      "title": "Link Dolls",
+      "noun": "doll",
+      "hiddenLabel": "Unfound Link Doll",
+      "note": "Six dolls, each an extra life. Once taken, a doll never comes back.",
+      "items": [
+        {"id": "doll_moruge_swamp", "name": "Moruge Swamp", "region": "Western Hyrule", "area": "Moruge Swamp, north of Saria", "howTo": "One step southwest of the boulder in front of the Water of Life cave, just out of the cave south of Ruto.", "reward": "Extra life"},
+        {"id": "doll_kings_tomb_beach", "name": "Beach by the King's Tomb", "region": "Western Hyrule", "area": "Beach southwest of the King's Tomb", "howTo": "On the beach southwest of the graveyard around the King's Tomb, near the bridge.", "reward": "Extra life"},
+        {"id": "doll_maze_island_road", "name": "Road to Maze Island", "region": "Eastern Hyrule", "area": "North coast, on the way to Maze Island", "howTo": "On a patch of desert on the south shore of the path to the Maze Island bridge.", "reward": "Extra life"},
+        {"id": "doll_southeast_swamp", "name": "Southeast swamp", "region": "Eastern Hyrule", "area": "Swamp north of the gravestones, south of the River Devil", "howTo": "In the northwest corner of the swamp just north of the gravestones.", "reward": "Extra life", "notes": "Not on StrategyWiki."},
+        {"id": "doll_three_eye_rock_palace", "name": "Three-Eye Rock Palace", "region": "Eastern Hyrule", "area": "Three-Eye Rock Palace", "howTo": "In the rooms before Barba, past a crumbling bridge, guarded by a blue Iron Knuckle and two Bubbles. Gone once the palace is finished.", "missable": true, "reward": "Extra life"},
+        {"id": "doll_great_palace", "name": "Great Palace", "region": "Eastern Hyrule", "area": "Great Palace", "howTo": "Near the end, off an elevator: left to the doll, right to a fairy. Gone once the palace is finished.", "missable": true, "reward": "Extra life"}
+      ]
+    }
+  ]
+}

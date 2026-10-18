@@ -1,0 +1,171 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {"label": "Essences of Time", "formula": "dungeons.value"}
+  ],
+  "sections": [
+    {
+      "id": "prologue",
+      "title": "Prologue",
+      "note": "Before the first Essence. These steps don't count toward the Essences.",
+      "items": [
+        {
+          "id": "nayru_possessed",
+          "name": "Veran possesses Nayru",
+          "area": "Forest of Time",
+          "howTo": "Save Impa from the Octoroks and push aside the rock with the Triforce mark for her. Ralph introduces Nayru, the Oracle of Ages, just before Veran possesses her and flees into the past. Impa gives you a sword and sends you to the Maku Tree in Lynna City.",
+          "reward": "Wooden Sword",
+          "value": 0,
+          "notes": "In a Linked Game you already have the Wooden Sword, so Impa gives you a Wooden Shield.",
+          "tags": ["Story"]
+        },
+        {
+          "id": "maku_tree_rescue",
+          "name": "Save the Maku Tree",
+          "area": "Lynna Village (past)",
+          "howTo": "The Maku Tree vanishes; follow Ralph through the time portal. In the past, a worker in the Black Tower gives you the Shovel. Dig your way into the Maku Path, then drive off the Moblins attacking the young Maku Tree.",
+          "requires": ["nayru_possessed"],
+          "reward": "Seed Satchel",
+          "value": 0,
+          "notes": "Back in the present the grown Maku Tree gives you the Seed Satchel with 20 Ember Seeds.",
+          "tags": ["Story"]
+        }
+      ]
+    },
+    {
+      "id": "dungeons",
+      "title": "Essences of Time",
+      "note": "Each dungeon's boss guards a Heart Container and an Essence of Time.",
+      "items": [
+        {
+          "id": "spirits_grave",
+          "name": "Spirit's Grave",
+          "area": "Yoll Graveyard",
+          "howTo": "Burn the bushes east of Lynna City into Yoll Graveyard. In the cave in the graveyard's south, light the lamp with an Ember Seed and the Graveyard Key drops from the ceiling; it opens the gate to the graveyard's east side.",
+          "requires": ["maku_tree_rescue"],
+          "reward": "Eternal Spirit, Heart Container",
+          "notes": "Boss: Pumpkin Head. Dungeon item: Power Bracelet.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "wing_dungeon",
+          "name": "Wing Dungeon",
+          "area": "Deku Forest (past)",
+          "howTo": "Find the three fairies hiding in the Fairies' Woods; the dungeon's present-day entrance then collapses. Take the Harp of Ages from Nayru's house and travel to the past, bring Queen Ambi Mystery Seeds from the Deku Forest for Bombs, and blow open the building in the middle of the forest.",
+          "requires": ["spirits_grave"],
+          "reward": "Ancient Wood, Heart Container",
+          "notes": "Boss: Head Thwomp. Dungeon item: Roc's Feather.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "moonlit_grotto",
+          "name": "Moonlit Grotto",
+          "area": "Crescent Island",
+          "howTo": "Moosh flies you to Cheval's tomb for the Zora's Flippers and Cheval Rope, and Ricky jumps you up to Tingle for the Island Chart. Rafton builds a raft from them in the past. On Crescent Island the Tokay steal your items: win them back, then head north to the grotto in the present.",
+          "requires": ["wing_dungeon"],
+          "reward": "Echoing Howl, Heart Container",
+          "notes": "Boss: Shadow Hag. Dungeon item: Seed Shooter.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "skull_dungeon",
+          "name": "Skull Dungeon",
+          "area": "Symmetry City",
+          "howTo": "With your animal partner, round up the carpenters in the Nuun Highlands so the bridge gets built. Symmetry City lies in ruins: in the past take the Cracked Tuni Nut, learn the Tune of Currents from Tokkey on Talus Peaks, have Patch mend the nut on Restoration Wall and put it back. In the present the dungeon opens under the old volcano.",
+          "requires": ["moonlit_grotto"],
+          "reward": "Burning Flame, Heart Container",
+          "notes": "Boss: Eyesoar. Dungeon item: Switch Hook.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "crown_dungeon",
+          "name": "Crown Dungeon",
+          "area": "Rolling Ridge",
+          "howTo": "Cross the chasm north of Nayru's house with the Switch Hook in the past. Beat the Great Moblin in his keep (Pegasus Seeds from the past get you past his trap) for a Bomb Flower, take it to the past to free the Goron Elder, and open the dungeon past the Ruined Keep with his Crown Key.",
+          "requires": ["skull_dungeon"],
+          "reward": "Sacred Soil, Heart Container",
+          "notes": "Boss: Smog. Dungeon item: Cane of Somaria.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "mermaids_cave",
+          "name": "Mermaid's Cave",
+          "area": "Rolling Ridge Base (both ages)",
+          "howTo": "Through the new tunnel to East Rolling Ridge, earn the Old Mermaid Key in the present (Brother Emblem, Rock Brisket, Goron Vase, Goronade, then the Big Bang Game) and the Mermaid Key in the past (Lava Juice from the Shooting Gallery, the Letter of Introduction, then the Graceful Goron's dance). The cave is behind the waterfall in the past and in the dry falls in the present.",
+          "requires": ["crown_dungeon"],
+          "reward": "Lonely Peak, Heart Container",
+          "notes": "Boss: Octogon (in the past). Dungeon item: Mermaid Suit (in the present). You go back and forth between both versions.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "rescue_nayru",
+          "name": "Rescue Nayru",
+          "area": "Ambi's Palace (past)",
+          "howTo": "With Queen Ambi away, slip into the palace: press the four buttons in the garden's corners unseen by the guards, then take the hidden stairs and swim the underwater passage. Hit Veran with Mystery Seeds from the Seed Shooter and pull her spirit away from Nayru with the Switch Hook.",
+          "requires": ["mermaids_cave"],
+          "reward": "Tune of Ages",
+          "value": 0,
+          "notes": "Boss: Veran, possessing Nayru. Freed, Nayru teaches you the Tune of Ages, but Veran takes over Queen Ambi.",
+          "tags": ["Story", "Boss"]
+        },
+        {
+          "id": "jabu_jabus_belly",
+          "name": "Jabu-Jabu's Belly",
+          "area": "Zora Seas",
+          "howTo": "Island-hop through the Zora Seas with the Tune of Ages to Zora Village. Cure King Zora with a Magic Potion in the past; in the present he gives you the Library Key. Use the Book of Seals from the present Eyeglass Library to cross the past library's dark room for the Fairy Powder, cure the Queen Fairy so she cleans the seas, and King Zora lets you into Jabu-Jabu.",
+          "requires": ["rescue_nayru"],
+          "reward": "Rolling Sea, Heart Container",
+          "notes": "Boss: Plasmarine. Dungeon item: Long Hook. The Mermaid Suit is needed underwater.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "ancient_tomb",
+          "name": "Ancient Tomb",
+          "area": "Sea of No Return",
+          "howTo": "Leaving Jabu-Jabu, a Zora gives you the Zora Scale, which gets you past the guard to the Sea of Storms. Give it to the Piratians' Cap'n for the Tokay Eyeball, set it in the Tokay statue on Crescent Island and pass the cave's three trials to the Sea of No Return.",
+          "requires": ["jabu_jabus_belly"],
+          "reward": "Falling Star, Heart Container",
+          "notes": "Boss: Ramrock. Dungeon item: Power Glove. The Sea of Storms is open in the past, or in the present in a Linked Game.",
+          "tags": ["Dungeon"]
+        }
+      ]
+    },
+    {
+      "id": "finale",
+      "title": "Finale",
+      "note": "Twinrova and Ganon appear only in a Linked Game.",
+      "items": [
+        {
+          "id": "black_tower",
+          "name": "Veran",
+          "area": "Black Tower (past)",
+          "howTo": "With all eight Essences, visit the Maku Tree in the present for the Huge Maku Seed, which breaks the barrier inside the Black Tower. Climb past its arenas and maze to Veran.",
+          "requires": ["spirits_grave", "wing_dungeon", "moonlit_grotto", "skull_dungeon", "crown_dungeon", "mermaids_cave", "jabu_jabus_belly", "ancient_tomb"],
+          "reward": "Ambi freed, the Secret to Holodrum",
+          "notes": "Drive her out of Queen Ambi with Mystery Seeds and the Long Hook, then beat her own forms. The ending gives a secret that starts a Linked Game of Oracle of Seasons.",
+          "tags": ["Boss"]
+        },
+        {
+          "id": "twinrova",
+          "name": "Twinrova",
+          "area": "Room of Rites",
+          "howTo": "Linked Game only. After Veran falls, the Oracles send you to the Room of Rites. Through the hall of eye statues, take the way none of the eyes look; then beat Koume and Kotake, and Twinrova when they merge.",
+          "requires": ["black_tower"],
+          "notes": "Turn each witch's spell into the other one. Twinrova is weak to Scent Seeds from the Seed Shooter while she glows both colours.",
+          "tags": ["Linked", "Boss"]
+        },
+        {
+          "id": "ganon",
+          "name": "Ganon",
+          "area": "Room of Rites",
+          "howTo": "Linked Game only. Twinrova sacrifices herself to revive Ganon. Dodge his attacks by jumping and hit him with charged spin attacks.",
+          "requires": ["twinrova"],
+          "reward": "Zelda rescued, the true ending",
+          "notes": "Near the end he reverses your controls.",
+          "tags": ["Linked", "Boss"]
+        }
+      ]
+    }
+  ]
+}
