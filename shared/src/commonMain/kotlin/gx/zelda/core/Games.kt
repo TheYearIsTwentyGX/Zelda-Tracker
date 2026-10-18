@@ -150,7 +150,32 @@ object Games {
      * and later sold on its own as the Anniversary Edition.
      */
     val FS = comingSoon("fs", "Four Swords", ReleaseDate(2002, 12, 2), "Game Boy Advance")
-    val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
+
+    /**
+     * Three files on the GameCube memory card (zeldaret/tww: `card_gamedata gamedata[3]`). Tracked as the
+     * GameCube original; Wind Waker HD differences are in item notes. Every tracker is a checklist; the
+     * data and its sources are in docs/ww.md.
+     */
+    val WW = Game(
+        id = "ww",
+        title = "The Wind Waker",
+        released = ReleaseDate(2002, 12, 13),
+        platform = "GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            wwChecklist("Main Quest", "Dungeons and bosses, the three Pearls, the Master Sword and the 8 Triforce Shards", "main_quest"),
+            wwChecklist("Items & Equipment", "Every item and upgrade: wallets, quivers, bomb bags, magic, the Hero's Charm and 4 Bottles", "items"),
+            wwChecklist("Heart Pieces", "All 44 Pieces of Heart and 6 Heart Containers, with your hearts total", "heart_pieces"),
+            wwChecklist("Charts", "All 41 Treasure Charts and their treasure, the 8 Triforce Charts and 12 Special Charts", "charts"),
+            wwChecklist("Sea Chart", "The 49 squares of the Great Sea, charted by feeding each fishman", "sea_chart"),
+            wwChecklist("Sea Secrets", "The 20 Secret Caves, 7 Submarines, lookout platforms and 6 Big Octos", "sea_secrets"),
+            wwChecklist("Nintendo Gallery", "All 134 figurines by room, with the missable ones flagged", "figurines"),
+            wwChecklist("Songs", "The six Wind Waker songs and where each is learned", "songs"),
+            wwChecklist("Great Fairies", "The seven Great Fairies' upgrades and the Queen of Fairies", "great_fairies"),
+            wwChecklist("Side Quests", "Joy Pendants, Mail Sorting, Lenzo, the Withered Trees and Tingle Statues", "side_quests"),
+        ),
+    )
     val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
     val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
 
@@ -251,6 +276,9 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun wwChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ww/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
