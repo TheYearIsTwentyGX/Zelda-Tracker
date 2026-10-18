@@ -33,10 +33,19 @@ import gx.zelda.compendium.model.compendiumNumber
 import gx.zelda.core.DiscoveryState
 import kotlin.math.roundToInt
 
-/** One boss spawn: what it is, its Compendium entry and drops, where it is, and a link to it on objmap. */
+/**
+ * One boss spawn: what it is on this save file, its Compendium entry and drops, where it is, and links
+ * to it on the app's map ([onShowOnMap], when the game has one) and on objmap.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BossDetailScreen(state: BossUiState, spawnId: String, viewModel: BossViewModel, onBack: () -> Unit) {
+fun BossDetailScreen(
+    state: BossUiState,
+    spawnId: String,
+    viewModel: BossViewModel,
+    onBack: () -> Unit,
+    onShowOnMap: (() -> Unit)? = null,
+) {
     val spawn = state.spawns.firstOrNull { it.id == spawnId } ?: return
     val kind = state.catalog.kinds.firstOrNull { it.id == spawn.kind }
     val entry = state.data.entry(spawn.variant)
@@ -123,6 +132,12 @@ fun BossDetailScreen(state: BossUiState, spawnId: String, viewModel: BossViewMod
                 )
             }
 
+            if (onShowOnMap != null) {
+                OutlinedButton(onClick = onShowOnMap) {
+                    Icon(Icons.Filled.Place, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
+                    Text("Show on map")
+                }
+            }
             OutlinedButton(onClick = { uriHandler.openUri(spawn.objmapUrl) }) {
                 Icon(Icons.Filled.Place, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
                 Text("Open in objmap")
@@ -144,7 +159,10 @@ private fun medalText(spawn: BossSpawn, medal: String?, plural: String?): String
     else -> "$medal, from Kilton at Fang and Bone once every one is beaten."
 }
 
-/** Why this boss's colour may differ from the one listed, or null when it's fixed. */
+/**
+ * How this boss's colour depends on the world level and the save file's mode, or null when neither
+ * changes it. [spawn] is as the file meets it (see [BossSpawn.onFile]).
+ */
 internal fun colourNote(spawn: BossSpawn, masterMode: Boolean, variantName: (String) -> String): String? {
     val parts = buildList {
         if (spawn.scalesWithWorldLevel) {
@@ -153,14 +171,13 @@ internal fun colourNote(spawn: BossSpawn, masterMode: Boolean, variantName: (Str
                     "level as you defeat enemies, so later in a playthrough it can be a stronger Lynel.",
             )
         }
-        if (masterMode) {
-            add(
-                if (spawn.noMasterModeRankUp) {
-                    "The game exempts this one from Master Mode's rank-up."
-                } else {
-                    "Master Mode ranks many enemies up a tier, so it may be stronger on this file."
-                },
-            )
+        val normal = spawn.rankedUpFrom
+        val master = spawn.masterModeVariant
+        when {
+            normal != null -> add("Master Mode ranks it up a tier: on a Normal Mode file it's a ${variantName(normal)}.")
+            masterMode && spawn.noMasterModeRankUp -> add("The game exempts this one from Master Mode's rank-up.")
+            masterMode -> add("Master Mode's rank-up doesn't change this one.")
+            master != null -> add("On a Master Mode file it's a ${variantName(master)}: Master Mode ranks it up a tier.")
         }
     }
     return parts.takeIf { it.isNotEmpty() }?.joinToString(" ")

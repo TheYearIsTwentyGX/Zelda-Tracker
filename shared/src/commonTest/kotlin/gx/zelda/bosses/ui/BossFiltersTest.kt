@@ -23,7 +23,11 @@ class BossFiltersTest {
         place: String,
         dlc: Boolean = false,
         masterModeOnly: Boolean = false,
-    ) = BossSpawn(id, "A-1", kind, variant, region, 0.0, 0.0, 0.0, place, dlc = dlc, masterModeOnly = masterModeOnly)
+        masterModeVariant: String? = null,
+    ) = BossSpawn(
+        id, "A-1", kind, variant, region, 0.0, 0.0, 0.0, place,
+        dlc = dlc, masterModeOnly = masterModeOnly, masterModeVariant = masterModeVariant,
+    )
 
     private fun entry(id: String, name: String) = CompendiumEntry(id, 1, 1, name, CompendiumCategory.MONSTERS)
 
@@ -37,7 +41,7 @@ class BossFiltersTest {
                 BossKind("lynel", "Lynel", "Lynels", variants = listOf("lynel", "white_maned_lynel")),
             ),
             spawns = listOf(
-                spawn(1, "hinox", "hinox", "Faron", "Eventide Island"),
+                spawn(1, "hinox", "hinox", "Faron", "Eventide Island", masterModeVariant = "blue_hinox"),
                 spawn(2, "hinox", "blue_hinox", "Faron", "Lurelin Village"),
                 spawn(3, "hinox", "stalnox", "Great Plateau", "Mount Hylia"),
                 spawn(4, "molduga", "molduga", "Wasteland", "Southern Oasis"),
@@ -85,6 +89,19 @@ class BossFiltersTest {
     fun masterModeOnlyBossesAreOnlyOnTheMasterModeFile() {
         assertEquals(listOf("6"), state().ids("lynel"))
         assertEquals(listOf("7", "6"), state(file = Games.BOTW.saveFiles.first { it.masterMode }).ids("lynel"))
+    }
+
+    /** A Master Mode file lists, names, filters and searches its ranked-up variants. */
+    @Test
+    fun aMasterModeFileHasItsRankedUpVariants() {
+        val master = Games.BOTW.saveFiles.first { it.masterMode }
+        val hinoxes = state(file = master).pages.first { it.kind.id == "hinox" }
+        assertEquals(listOf("stalnox", "blue_hinox", "blue_hinox"), hinoxes.groups.flatMap { (_, s) -> s.map { it.variant } })
+        // Hinox has no spawn of its own left, so its chip goes.
+        assertEquals(listOf("blue_hinox", "stalnox"), hinoxes.variants)
+        assertEquals(listOf("1", "2"), state(BossFilters(variants = setOf("blue_hinox")), file = master).ids("hinox"))
+        assertEquals(listOf("2"), state(BossFilters(variants = setOf("blue_hinox"))).ids("hinox"))
+        assertEquals(listOf("1", "2"), state(BossFilters(query = "blue"), file = master).ids("hinox"))
     }
 
     @Test
