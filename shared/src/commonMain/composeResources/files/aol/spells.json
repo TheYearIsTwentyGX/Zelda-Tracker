@@ -1,0 +1,33 @@
+{
+  "regions": ["Western Hyrule", "Eastern Hyrule"],
+  "noun": "spell",
+  "hiddenLabel": "Unlearned spell",
+  "sections": [
+    {
+      "id": "spells",
+      "title": "Spells",
+      "note": "Eight spells, one from the wise man in each town. The later ones want more magic bars.",
+      "items": [
+        {"id": "shield", "name": "Shield", "region": "Western Hyrule", "area": "Rauru", "howTo": "Talk to the woman who steps out of her house in the town's second part; she lets you in to the old man.", "reward": "Halves the damage Link takes", "notes": "MP at Magic level 1 / 8: 32 / 16."},
+        {"id": "jump", "name": "Jump", "region": "Western Hyrule", "area": "Ruto", "howTo": "Return the Trophy to the woman in Ruto.", "reward": "Jumps about twice as high and far", "notes": "MP at Magic level 1 / 8: 48 / 8."},
+        {"id": "life", "name": "Life", "region": "Western Hyrule", "area": "Saria", "howTo": "Return the Mirror to the woman in Saria.", "reward": "Restores about three bars of life", "notes": "MP at Magic level 1 / 8: 70 / 50."},
+        {"id": "fairy", "name": "Fairy", "region": "Western Hyrule", "area": "Mido", "howTo": "Bring the Water of Life to the old woman for her sick child.", "reward": "Link flies as a fairy, and through locked doors", "notes": "MP at Magic level 1 / 8: 80 / 40."},
+        {"id": "fire", "name": "Fire", "region": "Eastern Hyrule", "area": "Nabooru", "howTo": "Bring water from the fountain to the thirsty woman. StrategyWiki says the old man also wants 5 magic bars.", "reward": "The sword shoots fire", "notes": "MP at Magic level 1 / 8: 120 / 16."},
+        {"id": "reflect", "name": "Reflect", "region": "Eastern Hyrule", "area": "Darunia", "howTo": "Bring the Child home. StrategyWiki says the old man also wants 6 magic bars.", "reward": "Reflects Wizards' and Carock's beams", "notes": "MP at Magic level 1 / 8: 120 / 16."},
+        {"id": "spell", "name": "Spell", "region": "Eastern Hyrule", "area": "New Kasuto", "howTo": "Enter the house in the town's second part (through the fireplace) with at least 7 magic bars.", "reward": "Turns most enemies into Bots, and raises the building with the Magic Key", "notes": "MP at Magic level 1 / 8: 120 / 16. StrategyWiki gives 98 MP at level 3; Zelda Wiki and Zelda Dungeon give 96."},
+        {"id": "thunder", "name": "Thunder", "region": "Eastern Hyrule", "area": "Old Kasuto", "howTo": "The old man in the first ruined house teaches it once the magic meter is full (8 bars). The Cross shows the town's invisible Moas.", "reward": "Destroys every enemy on screen, and is the only way to hurt Thunderbird", "notes": "MP at Magic level 1 / 8: 120 / 64."}
+      ]
+    },
+    {
+      "id": "techniques",
+      "title": "Sword Techniques",
+      "noun": "technique",
+      "hiddenLabel": "Unlearned technique",
+      "note": "Two knights teach a sword thrust; both need Jump to reach.",
+      "items": [
+        {"id": "downward_thrust", "name": "Downward Thrust", "region": "Western Hyrule", "area": "Mido", "howTo": "The church's main door is locked: use Jump to reach its upper door, where a knight teaches it.", "requires": ["jump"], "reward": "Jump, then press Down to stab below", "notes": "Down Thrust on Zelda Wiki."},
+        {"id": "upward_thrust", "name": "Upward Thrust", "region": "Eastern Hyrule", "area": "Darunia", "howTo": "From the low building in the town's second part, use Jump to go roof to roof, then crouch on the chimney to drop in; a knight teaches it.", "requires": ["jump"], "reward": "Jump, then press Up to stab above", "notes": "Jump Thrust on Zelda Wiki and Zelda Dungeon's wiki."}
+      ]
+    }
+  ]
+}
