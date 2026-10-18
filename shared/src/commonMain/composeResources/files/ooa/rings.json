@@ -1,0 +1,658 @@
+{
+  "noun": "ring",
+  "hiddenLabel": "Unappraised ring",
+  "summaries": [
+    {
+      "label": "Rings",
+      "formula": "rings"
+    }
+  ],
+  "sections": [
+    {
+      "id": "ring_boxes",
+      "title": "Ring Box",
+      "noun": "upgrade",
+      "note": "The box Vasu gives you, and its two upgrades.",
+      "items": [
+        {
+          "id": "ring_box",
+          "name": "Ring Box",
+          "howTo": "Holds the rings you can wear (you wear one at a time); Vasu stores the rest.",
+          "tiers": [
+            {
+              "name": "L-1 Ring Box (1 ring)",
+              "howTo": "Vasu gives it free the first time you talk to him at Vasu Jewelers in Lynna City."
+            },
+            {
+              "name": "L-2 Ring Box (3 rings)",
+              "howTo": "Buy it for 300 Rupees in the hidden part of the Lynna Item Shop (present). Reach it by playing the Tune of Currents in the past where the shop's back room stands."
+            },
+            {
+              "name": "L-3 Ring Box (5 rings)",
+              "howTo": "Linked only. With Ages played first: tell the Symmetry Secret (from the girl in Holly's house in the linked Seasons, after Snake's Remains) to the twins in the Middle House of Symmetry Village. With Seasons played first: get it in Seasons with the Ruul Secret, then tell the return secret to Farore."
+            }
+          ],
+          "tags": [
+            "Vasu",
+            "Linked"
+          ],
+          "notes": "StrategyWiki says you need the L-2 box before the L-3 one; unverified."
+        }
+      ]
+    },
+    {
+      "id": "rings",
+      "title": "Magic Rings",
+      "noun": "ring",
+      "hiddenLabel": "Unappraised ring",
+      "note": "All 64 rings in ring-list order. Tick one once Vasu has appraised it; the Ring Secret shares them between linked files.",
+      "items": [
+        {
+          "id": "friendship_ring",
+          "name": "Friendship Ring",
+          "howTo": "Vasu gives it to you free the first time you talk to him, together with the L-1 Ring Box.",
+          "area": "Vasu Jewelers, Lynna City",
+          "notes": "Effect: Symbol of a meeting. No effect. TourianTourist's ring guide says Vasu also gives it in a game started with the Hero's Secret, but not in a linked game; there, bring it over with the Ring Secret.",
+          "tags": [
+            "Vasu"
+          ]
+        },
+        {
+          "id": "power_ring_l1",
+          "name": "Power Ring L-1",
+          "howTo": "Chest in the Spirit's Grave.",
+          "area": "Spirit's Grave",
+          "notes": "Effect: Sword damage ▲, damage taken ▲. TourianTourist: +1 sword damage, +¼ heart on every hit you take.",
+          "tags": [
+            "Chest"
+          ]
+        },
+        {
+          "id": "power_ring_l2",
+          "name": "Power Ring L-2",
+          "howTo": "In a cave on Crescent Island in the past, reached with the Long Hook. Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "area": "Crescent Island (Past)",
+          "notes": "Effect: Sword damage ▲▲, damage taken ▲▲. TourianTourist: +2 sword damage, +½ heart on every hit you take.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "power_ring_l3",
+          "name": "Power Ring L-3",
+          "howTo": "Not found in Ages. It comes from the linked Seasons game's Hero's Cave (Ages played first); bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Sword damage ▲▲▲, damage taken ▲▲▲. TourianTourist: +3 sword damage, +1 heart on every hit you take; only beats the Red Ring with the Wooden Sword.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "armor_ring_l1",
+          "name": "Armor Ring L-1",
+          "howTo": "Inside the Great Moblin's Keep on Rolling Ridge (present).",
+          "area": "Great Moblin's Keep, Rolling Ridge",
+          "notes": "Effect: Damage taken ▼, sword damage ▼."
+        },
+        {
+          "id": "armor_ring_l2",
+          "name": "Armor Ring L-2",
+          "howTo": "Not found in Ages. Get it in Seasons, in the Goron cave on Goron Mountain (needs the Roc's Cape), and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Damage taken ▼▼, sword damage ▼▼. TourianTourist: sword damage actually drops by only 1.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "armor_ring_l3",
+          "name": "Armor Ring L-3",
+          "howTo": "Linked game only, with Seasons played first: the Hero's Cave opens off the Maku Road in the linked Ages. Its last chest holds this ring. Zelda Wiki says you need the seventh dungeon's treasure to finish it.",
+          "area": "Hero's Cave, Lynna City",
+          "notes": "Effect: Damage taken ▼▼▼, sword damage ▼▼▼. TourianTourist: sword damage actually drops by only 1.",
+          "tags": [
+            "Linked",
+            "Chest"
+          ]
+        },
+        {
+          "id": "red_ring",
+          "name": "Red Ring",
+          "howTo": "Not found in Ages. Get it in Seasons from the Golden Sage in North Horon after slaying the four golden beasts, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Sword damage ×2.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "blue_ring",
+          "name": "Blue Ring",
+          "howTo": "On the Sea of No Return (past), under a statue by the Ancient Tomb. You need the Power Glove to move it.",
+          "area": "Sea of No Return (Past)",
+          "notes": "Effect: Damage taken = ½."
+        },
+        {
+          "id": "green_ring",
+          "name": "Green Ring",
+          "howTo": "Random ring, class 5: only from Gasha Nuts at the class 3–5 spots: Crescent Island in the past (south of the Tokay statue) and, in a linked game, the Sea of Storms.",
+          "notes": "Effect: Sword damage ▲, damage taken ▼. TourianTourist: sword damage ×1.5 and damage taken ×0.75.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "cursed_ring",
+          "name": "Cursed Ring",
+          "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "notes": "Effect: ½ sword damage, damage taken ×2. A challenge ring.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "experts_ring",
+          "name": "Expert's Ring",
+          "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
+          "notes": "Effect: Punch when nothing is equipped. TourianTourist: an explosive punch doing 4 damage.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "blast_ring",
+          "name": "Blast Ring",
+          "howTo": "Not found in Ages. Get it in Seasons by the pirate ship on the Western Coast, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Bomb damage ▲.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "rang_ring_l1",
+          "name": "Rang Ring L-1",
+          "howTo": "Not found in Ages. Get it in Seasons in Samasa Desert, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Boomerang damage ▲.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "gba_time_ring",
+          "name": "GBA Time Ring",
+          "howTo": "Buy it for 100 Rupees at the Advance Shop in Lynna Village (past). The shop only opens when Ages runs on a Game Boy Advance or Game Boy Player.",
+          "area": "Advance Shop, Lynna Village (Past)",
+          "notes": "Effect: Life Advanced! No effect. The Advance Shop stays closed on the 3DS Virtual Console. TourianTourist explains how to get the GBA rings there through Hero's and Ring Secrets.",
+          "tags": [
+            "GBA"
+          ]
+        },
+        {
+          "id": "maples_ring",
+          "name": "Maple's Ring",
+          "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "notes": "Effect: Maple meetings ▲. Maple appears after 15 kills instead of 30. TourianTourist: you only need to wear it when the meeting would happen, not while slaying.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "steadfast_ring",
+          "name": "Steadfast Ring",
+          "howTo": "Not found in Ages. Get it in Seasons in the Sword & Shield Maze, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Get knocked back less.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "pegasus_ring",
+          "name": "Pegasus Ring",
+          "howTo": "In a cave in the Sea of Storms, in the past (in the present in a linked game). You need the Zora Scale.",
+          "area": "Sea of Storms",
+          "notes": "Effect: Lengthens the Pegasus Seed effect (about twice as long)."
+        },
+        {
+          "id": "toss_ring",
+          "name": "Toss Ring",
+          "howTo": "At the entrance of Mermaid's Cave in the present, with the Mermaid Suit, or as a Big Bang Game prize. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "area": "Mermaid's Cave entrance (Present)",
+          "notes": "Effect: Throwing distance ▲ (twice as far, Bombs included).",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "heart_ring_l1",
+          "name": "Heart Ring L-1",
+          "howTo": "Linked: Temple Secret, with Seasons played first. Once the Great Fairy in Seasons gives you the ring, tell her return secret to Farore in the Hall of Secrets to get it here.",
+          "area": "Hall of Secrets (Farore)",
+          "notes": "Effect: Slowly recover lost Hearts while moving.",
+          "tags": [
+            "Linked",
+            "Secret"
+          ]
+        },
+        {
+          "id": "heart_ring_l2",
+          "name": "Heart Ring L-2",
+          "howTo": "Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "notes": "Effect: Recover lost Hearts while moving (about twice as fast as L-1).",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "swimmers_ring",
+          "name": "Swimmer's Ring",
+          "howTo": "Linked: Diver Secret, with Seasons played first. Once the Master Diver in Seasons gives you the ring, tell his return secret to Farore in the Hall of Secrets to get it here.",
+          "area": "Hall of Secrets (Farore)",
+          "notes": "Effect: Swimming speed ▲ (twice as fast).",
+          "tags": [
+            "Linked",
+            "Secret"
+          ]
+        },
+        {
+          "id": "charge_ring",
+          "name": "Charge Ring",
+          "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
+          "notes": "Effect: Spin Attack charges quickly.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "light_ring_l1",
+          "name": "Light Ring L-1",
+          "howTo": "In a cave in the Nuun Highlands.",
+          "area": "Nuun Highlands",
+          "notes": "Effect: Sword beams at -2 Hearts (Noble and Master Swords only)."
+        },
+        {
+          "id": "light_ring_l2",
+          "name": "Light Ring L-2",
+          "howTo": "A prize for scoring 350 points at the Lynna Village Shooting Gallery (past). Zelda Wiki says only 5% of wins give this ring, so expect to replay.",
+          "area": "Shooting Gallery, Lynna Village (Past)",
+          "notes": "Effect: Sword beams at -3 Hearts (Noble and Master Swords only)."
+        },
+        {
+          "id": "bombers_ring",
+          "name": "Bomber's Ring",
+          "howTo": "A perfect score on the Platinum level of the Goron Dance in the past (Rolling Ridge). The prize is either this ring or the Protection Ring.",
+          "area": "Goron Dance, Rolling Ridge (Past)",
+          "notes": "Effect: Set two Bombs at once."
+        },
+        {
+          "id": "green_luck_ring",
+          "name": "Green Luck Ring",
+          "howTo": "In Mayor Plen's house in Lynna City (present). You need the Long Hook.",
+          "area": "Mayor Plen's House, Lynna City",
+          "notes": "Effect: ½ damage from traps. TourianTourist calls it much easier to get in Ages."
+        },
+        {
+          "id": "blue_luck_ring",
+          "name": "Blue Luck Ring",
+          "howTo": "In a cave by Zora Village; Zelda Wiki says above the village in the present, behind a rock you need the Power Glove for. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "area": "Zora Village",
+          "notes": "Effect: ½ damage from beams (Beamos). Ages location disagreement: Zelda Wiki says the cave above Zora Village in the present; TourianTourist lists Zora Village (past) plus the Sea of Storms (linked).",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "gold_luck_ring",
+          "name": "Gold Luck Ring",
+          "howTo": "Inside Ambi's Palace (past).",
+          "area": "Ambi's Palace (Past)",
+          "notes": "Effect: ½ damage from falls."
+        },
+        {
+          "id": "red_luck_ring",
+          "name": "Red Luck Ring",
+          "howTo": "A Goron in a cave on Rolling Ridge in the past asks for 20 Ember Seeds and 20 Bombs. Come back later and pick one of his two chests. It's also a 350-point prize at the Lynna Village Shooting Gallery. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "area": "Rolling Ridge (Past)",
+          "notes": "Effect: ½ damage from spiked floors.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "green_holy_ring",
+          "name": "Green Holy Ring",
+          "howTo": "On the shore south of Fairies' Woods, reached through the Zora Seas, or for a perfect score on the Gold level of the Goron Dance. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "area": "Shore south of Fairies' Woods",
+          "notes": "Effect: No damage from electricity.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "blue_holy_ring",
+          "name": "Blue Holy Ring",
+          "howTo": "A 350-point prize at the Lynna Village Shooting Gallery (past). Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "area": "Shooting Gallery, Lynna Village (Past)",
+          "notes": "Effect: No damage from Zora's fire (River Zoras only).",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "red_holy_ring",
+          "name": "Red Holy Ring",
+          "howTo": "In an underwater cave in the Zora Seas (present). You need the Long Hook. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "area": "Zora Seas (Present)",
+          "notes": "Effect: No damage from small rocks (Octoroks). Seasons: Zelda Dungeon and StrategyWiki also list it as a Subrosian minigame prize, and TourianTourist marks it as having a fixed Seasons source without naming it. Unverified, so only the random sources are given here.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "snowshoe_ring",
+          "name": "Snowshoe Ring",
+          "howTo": "Linked: Mamamu Secret, with Ages played first. In the linked Seasons, after Poison Moth's Lair, Mamamu Yan's mother in the Floodgate Keeper's House tells you the secret. Tell it to Mamamu Yan in Lynna City, then find and carry back her lost dog.",
+          "area": "Mamamu Yan's house, Lynna City",
+          "notes": "Effect: No sliding on ice. Zelda Wiki warns of a glitch where the dog vanishes for good, so save before telling her the secret.",
+          "tags": [
+            "Linked",
+            "Secret"
+          ]
+        },
+        {
+          "id": "rocs_ring",
+          "name": "Roc's Ring",
+          "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "notes": "Effect: Cracked floors don't crumble.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "quicksand_ring",
+          "name": "Quicksand Ring",
+          "howTo": "A Big Bang Game prize. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "area": "Big Bang Game, Rolling Ridge",
+          "notes": "Effect: No sinking in quicksand. TourianTourist: also stops conveyor floors from moving you.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "red_joy_ring",
+          "name": "Red Joy Ring",
+          "howTo": "Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "notes": "Effect: Beasts drop double Rupees. TourianTourist: every Rupee picked up from the ground counts double.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "blue_joy_ring",
+          "name": "Blue Joy Ring",
+          "howTo": "Linked game only, with Seasons played first: Impa sends you into the Black Tower to save Princess Zelda from Vire (Zelda Wiki: after Moonlit Grotto). She gives you the ring.",
+          "area": "Black Tower",
+          "notes": "Effect: Beasts drop double Hearts.",
+          "tags": [
+            "Linked"
+          ]
+        },
+        {
+          "id": "gold_joy_ring",
+          "name": "Gold Joy Ring",
+          "howTo": "Behind a bombable wall in a cave on Rolling Ridge (present).",
+          "area": "Rolling Ridge (Present)",
+          "notes": "Effect: Find double items (Rupees, Hearts, Ore, Bombs and seeds from the ground)."
+        },
+        {
+          "id": "green_joy_ring",
+          "name": "Green Joy Ring",
+          "howTo": "Not found in Ages. Get it in Seasons on Mt. Cucco, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Find double Ore Chunks.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "discovery_ring",
+          "name": "Discovery Ring",
+          "howTo": "Chest in the Spirit's Grave.",
+          "area": "Spirit's Grave",
+          "notes": "Effect: Sense soft earth nearby: a chime plays on screens with a Gasha spot.",
+          "tags": [
+            "Chest"
+          ]
+        },
+        {
+          "id": "rang_ring_l2",
+          "name": "Rang Ring L-2",
+          "howTo": "Random ring, class 5: only from Gasha Nuts at the class 3–5 spots: Crescent Island in the past (south of the Tokay statue) and, in a linked game, the Sea of Storms.",
+          "notes": "Effect: Boomerang damage ▲▲.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "octo_ring",
+          "name": "Octo Ring",
+          "howTo": "A 350-point prize at the Lynna Village Shooting Gallery (past). Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "area": "Shooting Gallery, Lynna Village (Past)",
+          "notes": "Effect: Become an Octorok. You can't use items, but Like Likes can't eat your shield.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "moblin_ring",
+          "name": "Moblin Ring",
+          "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "notes": "Effect: Become a Moblin. You can't use items, but Like Likes can't eat your shield. TourianTourist: late in the game the hilltop stump is only reachable through Snake's Remains.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "like_like_ring",
+          "name": "Like Like Ring",
+          "howTo": "Inside Jabu-Jabu's Belly. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
+          "area": "Jabu-Jabu's Belly",
+          "notes": "Effect: Become a Like Like. You can't use items, but Like Likes can't eat your shield.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "subrosian_ring",
+          "name": "Subrosian Ring",
+          "howTo": "Not found in Ages. Get it in Seasons from Talon's Cave, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Become a Subrosian. You can't use items, but Like Likes can't eat your shield.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "first_gen_ring",
+          "name": "First Gen Ring",
+          "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
+          "notes": "Effect: Become something: Link as he looked in the first Zelda.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "spin_ring",
+          "name": "Spin Ring",
+          "howTo": "Linked: Plen Secret, with Ages played first. In the linked Seasons, after the power of Autumn, a golden Subrosian at Lava Lake (by the Bomb Flower) tells you the secret. Tell it to Mayor Plen in Lynna City.",
+          "area": "Mayor Plen's House, Lynna City",
+          "notes": "Effect: Double Spin Attack.",
+          "tags": [
+            "Linked",
+            "Secret"
+          ]
+        },
+        {
+          "id": "bombproof_ring",
+          "name": "Bombproof Ring",
+          "howTo": "A perfect score on the Gold level of the Goron Dance. Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
+          "area": "Goron Dance, Rolling Ridge",
+          "notes": "Effect: No damage from your own Bombs.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "energy_ring",
+          "name": "Energy Ring",
+          "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
+          "notes": "Effect: A sword beam replaces the Spin Attack.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "dbl_edged_ring",
+          "name": "Dbl. Edged Ring",
+          "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
+          "notes": "Effect: Sword damage ▲, but you get hurt on every hit you land. TourianTourist: +8 damage, 1 heart to you.",
+          "tags": [
+            "Gasha"
+          ]
+        },
+        {
+          "id": "gba_nature_ring",
+          "name": "GBA Nature Ring",
+          "howTo": "Not found in Ages. It's sold at the Seasons Advance Shop, open only on a Game Boy Advance or Game Boy Player; bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: Life Advanced! No effect. The Advance Shop stays closed on the 3DS Virtual Console. TourianTourist explains how to get the GBA rings there through Hero's and Ring Secrets.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "slayers_ring",
+          "name": "Slayer's Ring",
+          "howTo": "Defeat 1,000 enemies in this save file, then talk to Vasu and he hands it over.",
+          "area": "Vasu Jewelers, Lynna City",
+          "notes": "Effect: 1000 beasts slain. No effect. The count is per save file and isn't carried between games.",
+          "tags": [
+            "Vasu"
+          ]
+        },
+        {
+          "id": "rupee_ring",
+          "name": "Rupee Ring",
+          "howTo": "Collect 10,000 Rupees in this save file, then talk to Vasu and he hands it over.",
+          "area": "Vasu Jewelers, Lynna City",
+          "notes": "Effect: 10,000 Rupees collected. No effect. TourianTourist: every Rupee counts, even with a full wallet; digging with a Joy Ring is a quick way. StrategyWiki calls it the Wealth Ring; Zelda Wiki, Zelda Dungeon and TourianTourist all say Rupee Ring.",
+          "tags": [
+            "Vasu"
+          ]
+        },
+        {
+          "id": "victory_ring",
+          "name": "Victory Ring",
+          "howTo": "Start a new game with the Hero's Secret (from beating Ganon at the end of a linked game). The ring waits in your inventory to be appraised.",
+          "notes": "Effect: The Evil King Ganon defeated. No effect. StrategyWiki says you get it for beating the final boss of a linked game; Zelda Wiki, Zelda Dungeon and TourianTourist all say it comes with a Hero's Secret game.",
+          "tags": [
+            "Secret"
+          ]
+        },
+        {
+          "id": "sign_ring",
+          "name": "Sign Ring",
+          "howTo": "Not found in Ages. Get it from the Sign-Loving Subrosian in Seasons, and bring it over with the Ring Secret (Red Snake at Vasu's), which only works between linked files.",
+          "notes": "Effect: 100 signs broken. No effect.",
+          "tags": [
+            "Not in Ages"
+          ]
+        },
+        {
+          "id": "hundredth_ring",
+          "name": "100th Ring",
+          "howTo": "Have Vasu appraise 100 rings in this save file (duplicates count), then he hands it over.",
+          "area": "Vasu Jewelers, Lynna City",
+          "notes": "Effect: 100 rings appraised. No effect. The count is per save file.",
+          "tags": [
+            "Vasu"
+          ]
+        },
+        {
+          "id": "whisp_ring",
+          "name": "Whisp Ring",
+          "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "notes": "Effect: No effect from jinxes (Bubbles).",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "gasha_ring",
+          "name": "Gasha Ring",
+          "howTo": "Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "notes": "Effect: Grow great Gasha Trees: each kill counts double for Gasha growth, so a nut takes 20 kills instead of 40. TourianTourist: unlike Maple's Ring you must wear it while slaying for it to count.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "peace_ring",
+          "name": "Peace Ring",
+          "howTo": "Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "notes": "Effect: No explosion if holding a Bomb.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "zora_ring",
+          "name": "Zora Ring",
+          "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "notes": "Effect: Dive without breathing.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "fist_ring",
+          "name": "Fist Ring",
+          "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
+          "notes": "Effect: Punch when nothing is equipped (the weakest attack).",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "whimsical_ring",
+          "name": "Whimsical Ring",
+          "howTo": "Chest on the Zora Seas (present). Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "area": "Zora Seas (Present)",
+          "notes": "Effect: Sword damage ▼, sometimes deadly (a very rare one-hit kill).",
+          "tags": [
+            "Chest",
+            "Gasha",
+            "Maple"
+          ]
+        },
+        {
+          "id": "protection_ring",
+          "name": "Protection Ring",
+          "howTo": "A perfect score on the Platinum level of the Goron Dance in the past; the prize is either this or the Bomber's Ring. Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
+          "area": "Goron Dance, Rolling Ridge (Past)",
+          "notes": "Effect: Damage taken is always one Heart.",
+          "tags": [
+            "Gasha",
+            "Maple"
+          ]
+        }
+      ]
+    }
+  ]
+}

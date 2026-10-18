@@ -1,0 +1,171 @@
+{
+  "noun": "trade",
+  "hiddenLabel": "Untraded item",
+  "sections": [
+    {
+      "id": "trade",
+      "title": "Trading Sequence",
+      "noun": "step",
+      "note": "Twelve trades across the past and present, ending at the Noble Sword. Optional.",
+      "items": [
+        {
+          "id": "poe_clock",
+          "name": "Poe Clock",
+          "area": "Yoll Graveyard (Present)",
+          "howTo": "A Poe in Yoll Graveyard says a headstone blocks its way to the afterlife. Move it with the Power Bracelet, go down into the grave, and the Clock Poe gives you the Poe Clock.",
+          "after": "Spirit's Grave",
+          "tags": [
+            "Present",
+            "Power Bracelet"
+          ]
+        },
+        {
+          "id": "stationery",
+          "name": "Stationery",
+          "area": "Post Office, Lynna Village (Past)",
+          "howTo": "The Postman can't deliver on time without knowing the time. Give him the Poe Clock and he gives you Stationery.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "poe_clock"
+          ]
+        },
+        {
+          "id": "stink_bag",
+          "name": "Stink Bag",
+          "area": "The Toilet, Lynna Village (Past)",
+          "howTo": "A mysterious hand (???) in the Toilet just below the Post Office begs for paper. Give it the Stationery and it hands back the Stink Bag.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "stationery"
+          ]
+        },
+        {
+          "id": "tasty_meat",
+          "name": "Tasty Meat",
+          "area": "Crescent Island (Present)",
+          "howTo": "The Tokay Chef on Crescent Island has a stuffed nose and can't cook. One sniff of the Stink Bag clears it, and he gives you Tasty Meat.",
+          "tags": [
+            "Present"
+          ],
+          "requires": [
+            "stink_bag"
+          ]
+        },
+        {
+          "id": "doggie_mask",
+          "name": "Doggie Mask",
+          "area": "Mask Shop, Lynna City (Present)",
+          "howTo": "The starving Happy Mask Salesman eats the Tasty Meat and, grudgingly, gives you the Doggie Mask.",
+          "tags": [
+            "Present"
+          ],
+          "requires": [
+            "tasty_meat"
+          ]
+        },
+        {
+          "id": "dumbbell",
+          "name": "Dumbbell",
+          "area": "Mamamu Yan's house, Lynna City (Present)",
+          "howTo": "Mamamu Yan, in the small house in the southwest of Lynna City, wants to hide her shy dog's face. Give her the Doggie Mask for the dog's toy, a Dumbbell.",
+          "tags": [
+            "Present"
+          ],
+          "requires": [
+            "doggie_mask"
+          ]
+        },
+        {
+          "id": "cheesy_mustache",
+          "name": "Cheesy Mustache",
+          "area": "Middle House, Symmetry Village (Past)",
+          "howTo": "Skinny Thomas in the basement of the Middle House in Symmetry Village has only one Dumbbell. Give him yours and he rips off his Cheesy Mustache for you.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "dumbbell"
+          ]
+        },
+        {
+          "id": "funny_joke",
+          "name": "Funny Joke",
+          "area": "Lynna City (Present)",
+          "howTo": "The Comedian in the middle of Lynna City needs something funny. Give him the Cheesy Mustache and he teaches you his best gag, the Funny Joke.",
+          "tags": [
+            "Present"
+          ],
+          "requires": [
+            "cheesy_mustache"
+          ]
+        },
+        {
+          "id": "touching_book",
+          "name": "Touching Book",
+          "area": "Dekadin's house, Lynna Village (Past)",
+          "howTo": "Tell the Funny Joke to depressed Dekadin in the small dark house west of Lynna Village. He lets you take a book from his shelf: the Touching Book.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "funny_joke"
+          ]
+        },
+        {
+          "id": "magic_oar",
+          "name": "Magic Oar",
+          "area": "Wherever Maple appears",
+          "howTo": "Defeat 30 enemies (15 with Maple's Ring) to meet Maple. The Touching Book falls out when you bump into her; she reads it, sobs, and gives you the Magic Oar she made.",
+          "tags": [
+            "Maple"
+          ],
+          "requires": [
+            "touching_book"
+          ]
+        },
+        {
+          "id": "sea_ukulele",
+          "name": "Sea Ukulele",
+          "area": "Rafton's house, South Shore (Past)",
+          "howTo": "Rafton wants a good oar for a raft race. Give him the Magic Oar and he gives you the Sea Ukulele.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "magic_oar"
+          ]
+        },
+        {
+          "id": "broken_sword",
+          "name": "Broken Sword",
+          "area": "Cave on the Coast of No Return (Past)",
+          "howTo": "The Old Zora in a cave on the Coast of No Return was once the best Zora musician. Give him the Sea Ukulele and he hands you his ancestors' 'Hero's Sword', which turns out to be a Broken Sword.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "sea_ukulele"
+          ]
+        },
+        {
+          "id": "noble_sword",
+          "name": "Noble Sword",
+          "area": "Patch, atop the Restoration Wall (Past)",
+          "howTo": "Take the Broken Sword to Patch atop the Restoration Wall, just south of Symmetry Village in the past, and win his repair ceremony minigame. He mends it into the Noble Sword.",
+          "reward": "Noble Sword (Master Sword if a linked secret already gave you the Noble Sword)",
+          "notes": "In a linked game the King Zora Secret or the Clock Shop Secret can upgrade your sword early; if you already have the Noble Sword, Patch gives you the Master Sword instead.",
+          "tags": [
+            "Past"
+          ],
+          "requires": [
+            "broken_sword"
+          ]
+        }
+      ]
+    }
+  ]
+}
