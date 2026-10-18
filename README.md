@@ -10,8 +10,8 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- Breath of the Wild, Tears of the Kingdom, The Minish Cap, Ocarina of Time and Echoes of Wisdom have
-  trackers. The rest show as *Coming soon* until they get some.
+- Ocarina of Time, Majora's Mask, The Minish Cap, Breath of the Wild, Tears of the Kingdom and
+  Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -400,6 +400,34 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   `docs/checklist-trackers.md`). Tracks **File 1**, **File 2** and **File 3**, the cartridge's three
   save slots.
 
+**Majora's Mask**
+- Nine checklists and a Progress Overview, all data (`files/mm/`, see `docs/mm.md`), for the
+  original Nintendo 64 release. Where Majora's Mask 3D differs (a moved Piece of Heart and Bottle,
+  the swapped Woodfall and Snowhead Great Fairies, Shiro's new spot, the bigger notebook), the
+  item's notes say so.
+- **Main Quest**: the first cycle on the Clock Tower, the four temples with their bosses, Remains
+  and the Giant each frees, and Majora.
+- **Masks**: all 24, the four transformation masks and the 20 the Moon Children ask for. The
+  Fierce Deity's Mask lists all 20 as what it needs.
+- **Heart Pieces**: all 52 Pieces of Heart and the 4 Heart Containers by region, with a hearts
+  total (3 to start, 20 at most).
+- **Bombers' Notebook**: the notebook's 20 people in its order, each with their events by day and
+  hour and what they give you. Tick a person once their Happiness Seal is earned.
+- **Stray Fairies**: the Clock Town fairy, the 15 in each temple and the five Great Fairies'
+  rewards, each of which lists its temple's 15 as what it needs.
+- **Spider Houses**: the 30 Gold Skulltulas in each of the Swamp and Oceanside Spider Houses, and
+  their rewards (the Mask of Truth; the Giant's Wallet on Day 1).
+- **Songs**, **Items & Equipment** (items, the upgrades as tiers: swords, wallets, quivers, bomb
+  bags, magic; and the six Bottles) and **Owls, Maps & Bank** (the 10 Owl Statues, Tingle's six
+  maps and the bank's three rewards).
+- **The three-day cycle.** The trackers record what you keep through the Song of Time: masks,
+  hearts, songs, items, Remains and the rewards for finished side quests. Each item says when it
+  happens (day, night and hour) and is tagged *One cycle* when every step has to be done between
+  one Dawn of the First Day and the next: Stray Fairies, Gold Skulltulas, Anju and Kafei, the milk
+  run, and so on.
+- Two save files, **File 1** and **File 2**, as on the cartridge. An owl save is a temporary
+  quit-save on one of them, not a file of its own.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -698,6 +726,10 @@ BotW main quest data (towers, Divine Beasts and Recovered Memories) comes from Z
 memory list and Pikango's hints from its Memory and Captured Memories pages, and the beasts from
 each Divine Beast quest page. Tower climbing tips are cross-checked against Zelda Fandom, Zelda
 Dungeon, GameWith and RankedBoost, and memory directions against RPG Site and Nintendo Insider.
+
+Majora's Mask data (`files/mm/`) was compiled by hand from Zelda Wiki, Zelda Dungeon (its wiki and
+walkthrough), StrategyWiki's Majora's Mask guide and Zelda's Palace; `docs/mm.md` lists the sources
+for each checklist and where they disagree.
 
 Minish Cap main quest data (`files/mc/main_quest.json`: dungeons, items and Tiger Scrolls) comes
 from Zelda Wiki, cross-checked against StrategyWiki, Zelda Universe and Zelda Dungeon; see

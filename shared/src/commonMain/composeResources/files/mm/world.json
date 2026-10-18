@@ -1,0 +1,51 @@
+{
+  "noun": "entry",
+  "plural": "entries",
+  "sections": [
+    {
+      "id": "owl_statues",
+      "title": "Owl Statues",
+      "noun": "owl statue",
+      "hiddenLabel": "Unstruck owl statue",
+      "note": "Strike a statue with your sword to make it a Song of Soaring warp point. Struck statues stay struck through the Song of Time, and you can quit-save (an owl save) at any of them.",
+      "items": [
+        {"id": "owl_clock_town", "name": "Clock Town", "howTo": "In South Clock Town, the plaza around the Clock Tower."},
+        {"id": "owl_milk_road", "name": "Milk Road", "howTo": "On Milk Road, near where Tingle floats."},
+        {"id": "owl_southern_swamp", "name": "Southern Swamp", "howTo": "By the Swamp Tourist Center."},
+        {"id": "owl_woodfall", "name": "Woodfall", "howTo": "On one of the platforms around Woodfall Temple, reached by Deku flower.", "tags": ["Deku"]},
+        {"id": "owl_mountain_village", "name": "Mountain Village", "howTo": "In Mountain Village."},
+        {"id": "owl_snowhead", "name": "Snowhead", "howTo": "On the path up to Snowhead Temple."},
+        {"id": "owl_great_bay_coast", "name": "Great Bay Coast", "howTo": "On Great Bay Coast."},
+        {"id": "owl_zora_cape", "name": "Zora Cape", "howTo": "At Zora Cape."},
+        {"id": "owl_ikana_canyon", "name": "Ikana Canyon", "area": "Ikana Canyon", "howTo": "On the upper level of the canyon, which you reach by freezing the Octoroks in the river with Ice Arrows and Hookshotting up.", "after": "Ice Arrows, Hookshot"},
+        {"id": "owl_stone_tower", "name": "Stone Tower", "howTo": "At Stone Tower, once you've climbed it with the Elegy of Emptiness.", "after": "Elegy of Emptiness"}
+      ]
+    },
+    {
+      "id": "maps",
+      "title": "Tingle's Maps",
+      "noun": "map",
+      "hiddenLabel": "Unbought map",
+      "note": "Pop Tingle's balloon with a bubble, an arrow or the Hookshot, then buy from him. Each Tingle sells his own region's map and the next one's, which costs more. Maps stay through the Song of Time.",
+      "items": [
+        {"id": "map_clock_town", "name": "Map of Clock Town", "area": "North Clock Town", "howTo": "From Tingle in North Clock Town, for 5 Rupees. Tingle in Ikana Canyon sells it too."},
+        {"id": "map_woodfall", "name": "Map of Woodfall", "area": "Road to Southern Swamp", "howTo": "From Tingle on the Road to Southern Swamp, for 20 Rupees. Tingle in North Clock Town sells it too, for more."},
+        {"id": "map_snowhead", "name": "Map of Snowhead", "area": "Twin Islands, Snowhead", "howTo": "From Tingle on the way to Goron Village. Tingle on the Road to Southern Swamp sells it too."},
+        {"id": "map_romani_ranch", "name": "Map of Romani Ranch", "area": "Milk Road", "howTo": "From Tingle on Milk Road, for 20 Rupees. Tingle in Snowhead sells it too."},
+        {"id": "map_great_bay", "name": "Map of Great Bay", "area": "Great Bay Coast", "howTo": "From Tingle on Great Bay Coast. Tingle on Milk Road sells it too."},
+        {"id": "map_stone_tower", "name": "Map of Stone Tower", "area": "Ikana Canyon", "howTo": "From Tingle in Ikana Canyon. Tingle on Great Bay Coast sells it too."}
+      ]
+    },
+    {
+      "id": "bank",
+      "title": "Bank",
+      "noun": "reward",
+      "note": "The Clock Town Bank in West Clock Town keeps your deposits through the Song of Time, so its rewards build up over many cycles. Withdrawals cost 4 Rupees at night.",
+      "items": [
+        {"id": "bank_adult_wallet", "name": "200 Rupees deposited", "area": "Clock Town Bank, West Clock Town", "howTo": "Have 200 Rupees in the bank in all.", "reward": "Adult Wallet", "notes": "Also on the Wallet row in Items & Equipment."},
+        {"id": "bank_interest", "name": "1,000 Rupees deposited", "area": "Clock Town Bank, West Clock Town", "howTo": "Have 1,000 Rupees in the bank in all.", "reward": "Interest: a Blue Rupee (5 Rupees)"},
+        {"id": "bank_heart_piece", "name": "5,000 Rupees deposited", "area": "Clock Town Bank, West Clock Town", "howTo": "Have 5,000 Rupees in the bank in all.", "reward": "Piece of Heart", "notes": "Also in Heart Pieces."}
+      ]
+    }
+  ]
+}
