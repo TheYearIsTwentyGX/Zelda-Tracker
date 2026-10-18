@@ -11,10 +11,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -25,21 +27,39 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.Game
-import gx.zelda.core.Games
 import gx.zelda.core.TrackerKind
 
+/**
+ * The landing page: a card per game the user shows, in release order, the same games and order as
+ * the menu. [games] is null until the settings have loaded.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(onOpenTracker: (Game, TrackerKind) -> Unit) {
+fun HomeScreen(
+    games: List<Game>?,
+    onOpenTracker: (Game, TrackerKind) -> Unit,
+    onOpenMenu: () -> Unit,
+    onOpenSettings: () -> Unit,
+) {
     Scaffold(
-        topBar = { LargeTopAppBar(title = { Text("ZeldaGX", fontWeight = FontWeight.Bold) }) },
+        topBar = {
+            LargeTopAppBar(
+                title = { Text("ZeldaGX", fontWeight = FontWeight.Bold) },
+                navigationIcon = { MenuButton(onOpenMenu) },
+                actions = {
+                    IconButton(onClick = onOpenSettings) {
+                        Icon(Icons.Filled.Settings, contentDescription = "Settings")
+                    }
+                },
+            )
+        },
     ) { padding ->
         LazyColumn(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.fillMaxSize().padding(padding),
         ) {
-            items(Games.all, key = { it.id }) { game -> GameCard(game, onOpenTracker) }
+            items(games.orEmpty(), key = { it.id }) { game -> GameCard(game, onOpenTracker) }
         }
     }
 }
@@ -56,9 +76,11 @@ private fun GameCard(game: Game, onOpenTracker: (Game, TrackerKind) -> Unit) {
                 Text(game.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
                 Text("${game.year}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
-            if (!available) {
-                Text("Coming soon", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
+            Text(
+                if (available) game.platform else "${game.platform} · Coming soon",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
             game.trackers.forEach { tracker ->
                 Card(
                     onClick = { onOpenTracker(game, tracker.kind) },

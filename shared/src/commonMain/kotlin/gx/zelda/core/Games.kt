@@ -4,12 +4,28 @@ package gx.zelda.core
 data class Game(
     val id: String,
     val title: String,
-    val year: Int,
+    /** The first release anywhere; [Games.all] is in this order. */
+    val released: ReleaseDate,
+    /** The platform it first came out on, e.g. "Game Boy Advance". */
+    val platform: String,
     /** The save files the game keeps per user; each one is tracked separately. */
     val saveFiles: List<SaveFile>,
     val trackers: List<Tracker> = emptyList(),
 ) {
+    val year: Int get() = released.year
+
+    /** No trackers yet: shown as "Coming soon" and hidden until turned on in Settings. */
+    val comingSoon: Boolean get() = trackers.isEmpty()
+
     fun saveFile(id: String?): SaveFile = saveFiles.firstOrNull { it.id == id } ?: saveFiles.first()
+}
+
+/**
+ * A game's original release date. [sameDay] orders games released on the same day, lowest first
+ * (Oracle of Seasons before Oracle of Ages).
+ */
+data class ReleaseDate(val year: Int, val month: Int, val day: Int, val sameDay: Int = 0) : Comparable<ReleaseDate> {
+    override fun compareTo(other: ReleaseDate): Int = compareValuesBy(this, other, { it.year }, { it.month }, { it.day }, { it.sameDay })
 }
 
 data class SaveFile(
@@ -41,11 +57,46 @@ enum class TrackerKind {
 data class Tracker(val kind: TrackerKind, val title: String, val description: String)
 
 object Games {
+    /** Famicom Disk System in Japan, a year before the NES cartridge. */
+    val LOZ = comingSoon("loz", "The Legend of Zelda", ReleaseDate(1986, 2, 21), "NES")
+    val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
+    val ALTTP = comingSoon("alttp", "A Link to the Past", ReleaseDate(1991, 11, 21), "SNES")
+    val LA = comingSoon("la", "Link's Awakening", ReleaseDate(1993, 6, 6), "Game Boy")
+    val OOT = comingSoon("oot", "Ocarina of Time", ReleaseDate(1998, 11, 21), "Nintendo 64")
+
+    /** Two files on the Nintendo 64. */
+    val MM = comingSoon("mm", "Majora's Mask", ReleaseDate(2000, 4, 27), "Nintendo 64", files = 2)
+
+    /** Released together in Japan; Seasons is the one usually played first. */
+    val OOS = comingSoon("oos", "Oracle of Seasons", ReleaseDate(2001, 2, 27, sameDay = 0), "Game Boy Color")
+    val OOA = comingSoon("ooa", "Oracle of Ages", ReleaseDate(2001, 2, 27, sameDay = 1), "Game Boy Color")
+
+    /**
+     * The GBA multiplayer game bundled with A Link to the Past (North America first). Counted as
+     * mainline: its own story (Vaati's first appearance) placed in Nintendo's official timeline,
+     * and later sold on its own as the Anniversary Edition.
+     */
+    val FS = comingSoon("fs", "Four Swords", ReleaseDate(2002, 12, 2), "Game Boy Advance")
+    val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
+    val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
+    val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
+
+    /** The DS games keep two files. */
+    val PH = comingSoon("ph", "Phantom Hourglass", ReleaseDate(2007, 6, 23), "Nintendo DS", files = 2)
+    val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
+    val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
+    val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
+    val TFH = comingSoon("tfh", "Tri Force Heroes", ReleaseDate(2015, 10, 22), "Nintendo 3DS")
+
+    /** One game file per Switch user. */
+    val EOW = comingSoon("eow", "Echoes of Wisdom", ReleaseDate(2024, 9, 26), "Nintendo Switch", files = 1)
+
     /** Switch 2 Edition: two Normal Mode files, plus Master Mode's own separate file. */
     val BOTW = Game(
         id = "botw",
         title = "Breath of the Wild",
-        year = 2017,
+        released = ReleaseDate(2017, 3, 3),
+        platform = "Wii U & Switch",
         saveFiles = listOf(
             SaveFile("normal_1", "Save File 1"),
             SaveFile("normal_2", "Save File 2"),
@@ -69,7 +120,8 @@ object Games {
     val TOTK = Game(
         id = "totk",
         title = "Tears of the Kingdom",
-        year = 2023,
+        released = ReleaseDate(2023, 5, 12),
+        platform = "Nintendo Switch",
         saveFiles = listOf(SaveFile("file_1", "Save File 1"), SaveFile("file_2", "Save File 2")),
         trackers = listOf(
             Tracker(TrackerKind.ARMOR, "Armor Progress", "Collected armor, upgrade levels, set bonuses and materials"),
@@ -82,7 +134,8 @@ object Games {
     val MC = Game(
         id = "mc",
         title = "The Minish Cap",
-        year = 2004,
+        released = ReleaseDate(2004, 11, 4),
+        platform = "Game Boy Advance",
         saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
         trackers = listOf(
             Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
@@ -93,7 +146,20 @@ object Games {
         ),
     )
 
-    val all = listOf(BOTW, TOTK, MC)
+    /** Every game, oldest first: a new game slots in by its release date wherever it's listed here. */
+    val all: List<Game> = listOf(
+        BOTW, TOTK, MC,
+        LOZ, AOL, ALTTP, LA, OOT, MM, OOS, OOA, FS, WW, FSA, TP, PH, ST, SS, ALBW, TFH, EOW,
+    ).sortedBy { it.released }
 
     fun byId(id: String): Game = all.first { it.id == id }
+
+    /** A game with no trackers yet; [files] placeholder save files, as many as the game itself keeps. */
+    private fun comingSoon(id: String, title: String, released: ReleaseDate, platform: String, files: Int = 3) = Game(
+        id = id,
+        title = title,
+        released = released,
+        platform = platform,
+        saveFiles = (1..files).map { SaveFile("file_$it", "File $it") },
+    )
 }
