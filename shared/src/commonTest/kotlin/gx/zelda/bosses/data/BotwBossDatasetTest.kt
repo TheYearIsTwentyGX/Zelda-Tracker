@@ -7,10 +7,12 @@ import gx.zelda.compendium.data.CompendiumRepository
 import gx.zelda.compendium.model.CompendiumCatalog
 import gx.zelda.compendium.model.CompendiumCategory
 import gx.zelda.core.Games
+import gx.zelda.core.SaveFile
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /** Structural checks on the bundled BotW bosses.json, against Zelda Wiki's counts and the Compendium. */
@@ -61,6 +63,89 @@ class BotwBossDatasetTest {
         )
     }
 
+    /** On the Master Mode file, after the game's rank-up (see docs/overworld-bosses.md). */
+    @Test
+    fun masterModeVariantCounts() = withData { c, _ ->
+        assertEquals(
+            mapOf(
+                "hinox" to 1, "blue_hinox" to 7, "black_hinox" to 22, "stalnox" to 10,
+                "stone_talus" to 1, "stone_talus_luminous" to 10, "stone_talus_rare" to 19, "igneo_talus" to 5,
+                "frost_talus" to 5, "igneo_talus_titan" to 1,
+                "molduga" to 4, "molduking" to 1,
+                "blue_maned_lynel" to 6, "white_maned_lynel" to 8, "silver_lynel" to 8, "lynel" to 1,
+            ),
+            c.spawnsFor(master).groupingBy { it.variant }.eachCount(),
+        )
+    }
+
+    /**
+     * The user's report: Gerudo Taluses listed as Luminous that were Rare. The game's map data places
+     * Luminous ones (Enemy_Golem_Middle) there, and Master Mode ranks them up to Rare.
+     */
+    @Test
+    fun gerudoTalusesByMode() = withData { c, _ ->
+        fun gerudo(file: SaveFile) =
+            c.spawnsFor(file).filter { it.kind == "talus" && it.region == "Gerudo" }.associate { it.hashId to it.variant }
+        val luminous = listOf(3900382371, 3273877672, 372172601) // Rutimala Hill, Mount Nabooru, Gerudo Canyon Stable
+        assertEquals(
+            luminous.associateWith { "stone_talus_luminous" } +
+                mapOf(2455625785L to "stone_talus_rare", 648092042L to "frost_talus", 4007690024L to "frost_talus"),
+            gerudo(normal),
+        )
+        assertEquals(
+            luminous.associateWith { "stone_talus_rare" } +
+                mapOf(2455625785L to "stone_talus_rare", 648092042L to "frost_talus", 4007690024L to "frost_talus"),
+            gerudo(master),
+        )
+        assertEquals(
+            listOf("Rutimala Hill", "Mount Nabooru", "Gerudo Canyon Stable"),
+            luminous.map { id -> c.spawns.first { it.hashId == id }.nearestPlace },
+        )
+    }
+
+    /**
+     * Master Mode raises Hinoxes, Stone Taluses and Lynels one tier (HardModeManager::rankUpEnemy):
+     * the next variant in the kind's order, except where the game exempts the spawn. Stalnoxes,
+     * Igneo and Frost Taluses, Moldugas, Black Hinoxes, Rare Taluses and the Ploymus Mountain Lynel
+     * have no next tier.
+     */
+    @Test
+    fun masterModeRanksUpOneTier() = withData { c, _ ->
+        val chains = listOf(
+            listOf("hinox", "blue_hinox", "black_hinox"),
+            listOf("stone_talus", "stone_talus_luminous", "stone_talus_rare"),
+            listOf("lynel", "blue_maned_lynel", "white_maned_lynel", "silver_lynel"),
+        )
+        val ploymus = 1396251553L
+        for (s in c.spawns) {
+            val chain = chains.firstOrNull { s.variant in it }
+            val next = chain?.getOrNull(chain.indexOf(s.variant) + 1)
+            val expected = if (s.noMasterModeRankUp || s.hashId == ploymus) null else next
+            assertEquals(expected, s.masterModeVariant, "${s.id} ${s.variant} near ${s.nearestPlace}")
+            if (expected == null) assertNull(s.masterModeDrops, s.id)
+        }
+        assertEquals(64, c.spawns.count { it.masterModeVariant != null })
+        // The five the game exempts: the Great Plateau's Talus and extra Lynel, and three Hinoxes.
+        assertEquals(
+            mapOf("hinox" to 3, "talus" to 1, "lynel" to 1),
+            c.spawns.filter { it.noMasterModeRankUp }.groupingBy { it.kind }.eachCount(),
+        )
+    }
+
+    @Test
+    fun aMasterModeFileMeetsTheRankedUpVariant() = withData { c, comp ->
+        val eventide = c.spawns.first { it.hashId == 1925665429L }
+        assertEquals("blue_hinox", eventide.onFile(masterMode = false).variant)
+        with(c.spawnsFor(master).first { it.hashId == 1925665429L }) {
+            assertEquals("black_hinox", variant)
+            assertEquals(comp.entry("black_hinox")?.drops, drops)
+            assertEquals("blue_hinox", rankedUpFrom)
+        }
+        assertNull(c.spawnsFor(normal).first { it.hashId == 1925665429L }.rankedUpFrom)
+        // Ids don't change with the mode, so progress is kept under the same key.
+        assertEquals(c.spawnsFor(normal).map { it.id }, c.spawnsFor(master).filter { !it.masterModeOnly }.map { it.id })
+    }
+
     @Test
     fun onlyTheChampionsBalladTitansAreDlc() = withData { c, _ ->
         assertEquals(setOf("igneo_talus_titan", "molduking"), c.spawns.filter { it.dlc }.map { it.variant }.toSet())
@@ -101,6 +186,7 @@ class BotwBossDatasetTest {
         for (s in c.spawns) {
             val kind = assertNotNull(kinds[s.kind], "${s.id}: unknown kind ${s.kind}")
             assertTrue(s.variant in kind.variants, "${s.id}: ${s.variant} isn't a ${kind.name} variant")
+            s.masterModeVariant?.let { assertTrue(it in kind.variants, "${s.id}: $it isn't a ${kind.name} variant") }
         }
         for (variant in c.kinds.flatMap { it.variants }) {
             val entry = assertNotNull(comp.entry(variant), "$variant has no Compendium entry")
@@ -113,6 +199,7 @@ class BotwBossDatasetTest {
     fun dropsResolveToCompendiumNames() = withData { c, comp ->
         for (s in c.spawns) {
             assertEquals(comp.entry(s.variant)?.drops, s.drops, "${s.id} (${s.variant})")
+            s.masterModeVariant?.let { assertEquals(comp.entry(it)?.drops, s.masterModeDrops, "${s.id} ($it)") }
         }
         assertTrue(c.spawns.first { it.variant == "hinox" }.drops.containsAll(listOf("Hinox Toenail", "Hinox Tooth", "Hinox Guts")))
     }

@@ -261,11 +261,12 @@ private fun AboutDialog(onDismiss: () -> Unit) {
             Text(
                 "Map art © Nintendo, from Breath of the Wild's game files, via objmap.zeldamods.org. " +
                     "It is bundled with the app, so the map works offline.\n\n" +
-                    "Shrine, tower and Korok positions are objmap's too, and so are the shrine and tower icons, " +
-                    "traced from the game's. As in the game, a shrine's glyph is orange until it's completed and " +
-                    "a tower is orange until it's activated; both turn blue when done. Korok seeds sit on a blue " +
-                    "disc once collected and an orange one when found. Undiscovered places are grey. Numbers on " +
-                    "Korok clusters count the seeds not yet collected.",
+                    "Shrine, tower, Korok and boss positions are objmap's too, and so are the shrine and tower " +
+                    "icons, traced from the game's. As in the game, a shrine's glyph is orange until it's completed " +
+                    "and a tower is orange until it's activated; both turn blue when done. Korok seeds and bosses " +
+                    "sit on a blue disc once collected or defeated and an orange one when found. Bosses show " +
+                    "Kilton's Medal of Honor for their kind, or the Lynel Mask for Lynels. Undiscovered places " +
+                    "are grey. Numbers on Korok clusters count the seeds not yet collected.",
             )
         },
     )

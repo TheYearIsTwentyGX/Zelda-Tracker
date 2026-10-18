@@ -6,9 +6,13 @@ import gx.zelda.core.DiscoveryState.FOUND
 import gx.zelda.core.DiscoveryState.UNDISCOVERED
 import gx.zelda.map.model.MarkerIcon.DLC_SHRINE
 import gx.zelda.map.model.MarkerIcon.DLC_SHRINE_DONE
+import gx.zelda.map.model.MarkerIcon.HINOX
 import gx.zelda.map.model.MarkerIcon.KOROK
+import gx.zelda.map.model.MarkerIcon.LYNEL
+import gx.zelda.map.model.MarkerIcon.MOLDUGA
 import gx.zelda.map.model.MarkerIcon.SHRINE
 import gx.zelda.map.model.MarkerIcon.SHRINE_DONE
+import gx.zelda.map.model.MarkerIcon.TALUS
 import gx.zelda.map.model.MarkerIcon.TOWER
 import gx.zelda.map.model.MarkerIcon.TOWER_ACTIVE
 import gx.zelda.shrines.scan.WorldPoint
@@ -26,11 +30,26 @@ class MarkerLookTest {
         "towers", "Towers", "tower", linkedMapOf(UNDISCOVERED to "Not activated", COMPLETED to "Activated"), MarkerKind.TOWER,
     )
 
-    private fun marker(layer: MapLayer, state: DiscoveryState, dlc: Boolean = false, anonymous: Boolean = false) =
-        MapMarker(layer, MapEntry("id", "Name", "", "Region", WorldPoint(0.0, 0.0), state, dlc), anonymous)
+    private val bosses = MapLayer(
+        "bosses", "Bosses", "boss", linkedMapOf(UNDISCOVERED to "Not found", FOUND to "Found", COMPLETED to "Defeated"),
+        MarkerKind.BOSS,
+    )
 
-    private fun look(layer: MapLayer, state: DiscoveryState, dlc: Boolean = false, anonymous: Boolean = false) =
-        markerLook(marker(layer, state, dlc, anonymous))
+    private fun marker(
+        layer: MapLayer,
+        state: DiscoveryState,
+        dlc: Boolean = false,
+        anonymous: Boolean = false,
+        icon: MarkerIcon? = null,
+    ) = MapMarker(layer, MapEntry("id", "Name", "", "Region", WorldPoint(0.0, 0.0), state, dlc, icon), anonymous)
+
+    private fun look(
+        layer: MapLayer,
+        state: DiscoveryState,
+        dlc: Boolean = false,
+        anonymous: Boolean = false,
+        icon: MarkerIcon? = null,
+    ) = markerLook(marker(layer, state, dlc, anonymous, icon))
 
     @Test
     fun shrineGlyphTurnsBlueWhenCompleted() {
@@ -71,8 +90,36 @@ class MarkerLookTest {
     }
 
     @Test
+    fun bossesShowTheirKindsIconOnAStateDisc() {
+        assertEquals(listOf(HINOX, TALUS, MOLDUGA, LYNEL), listOf("hinox", "talus", "molduga", "lynel").map(::bossIcon))
+        for (icon in listOf(HINOX, TALUS, MOLDUGA, LYNEL)) {
+            for (state in DiscoveryState.entries) {
+                assertEquals(MarkerLook(icon, state, greyed = state == UNDISCOVERED, disc = true), look(bosses, state, icon = icon))
+            }
+        }
+        // The DLC Molduking is a Molduga like any other.
+        assertEquals(MOLDUGA, look(bosses, FOUND, dlc = true, icon = MOLDUGA).icon)
+    }
+
+    /** The boss tracker's hidden rows name the kind ("Unfound Talus"), so a hidden boss keeps its kind's icon. */
+    @Test
+    fun aHiddenBossKeepsItsKindButNotItsState() {
+        assertEquals(MarkerLook(TALUS, UNDISCOVERED, greyed = true, disc = true), look(bosses, COMPLETED, anonymous = true, icon = TALUS))
+    }
+
+    @Test
+    fun bossesStopShrinkingAtThreeQuarters() {
+        assertEquals(0.75f, layerIconScale(MarkerKind.BOSS, iconScale(0.0)))
+        assertEquals(0.75f, layerIconScale(MarkerKind.BOSS, iconScale(0.25)))
+        assertEquals(1f, layerIconScale(MarkerKind.BOSS, iconScale(0.5)))
+        // Other layers keep the plain zoom scale.
+        assertEquals(0.5f, layerIconScale(MarkerKind.KOROK, iconScale(0.0)))
+        assertEquals(0.5f, layerIconScale(MarkerKind.SHRINE, iconScale(0.0)))
+    }
+
+    @Test
     fun everyStateLooksDifferentWithinALayer() {
-        for (layer in listOf(shrines, koroks, towers)) {
+        for (layer in listOf(shrines, koroks, towers, bosses)) {
             val looks = layer.states.map { look(layer, it) }
             assertEquals(looks.size, looks.toSet().size, "${layer.id}: $looks")
         }

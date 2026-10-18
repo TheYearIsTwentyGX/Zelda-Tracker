@@ -2,7 +2,7 @@
 
 The map's markers use Breath of the Wild's own map icons. `scripts/build-map-icons.py` writes them to
 `shared/src/commonMain/composeResources/drawable/map_*`, and `MarkerIcon` (`map/model/MarkerLook.kt`) names
-each one. `markerLook()` picks a marker's icon from its layer, state and DLC flag.
+each one. `markerLook()` picks a marker's icon from its layer, state and DLC flag, or for a boss from its kind.
 
 ## Icons and sources
 
@@ -15,6 +15,10 @@ each one. `markerLook()` picks a marker's icon from its layer, state and DLC fla
 | `map_tower.xml` | Sheikah Tower, not activated | objmap `mapicon_tower.svg`, recoloured orange |
 | `map_tower_active.xml` | Sheikah Tower, activated | objmap `mapicon_tower.svg` |
 | `map_korok.png` | Korok seed, any state | Zelda Wiki `File:BotW Korok Seed Icon.png`, scaled from 144 to 64 px |
+| `map_boss_hinox.png` | Hinox, Blue/Black Hinox or Stalnox, any state | Zelda Wiki `File:BotW Medal of Honor： Hinox Icon.png`, 64 px |
+| `map_boss_talus.png` | Any Talus, Igneo Talus Titan included | Zelda Wiki `File:BotW Medal of Honor： Talus Icon.png`, 64 px |
+| `map_boss_molduga.png` | Molduga or Molduking | Zelda Wiki `File:BotW Medal of Honor： Molduga Icon.png`, 64 px |
+| `map_boss_lynel.png` | Any Lynel | Zelda Wiki `File:BotW Lynel Mask Icon.png`, 64 px |
 
 - **objmap icons:** from [github.com/zeldamods/objmap](https://github.com/zeldamods/objmap/tree/master/public/icons),
   fetched October 2026. They're vector tracings of the game's map icons. The script keeps objmap's path data,
@@ -24,6 +28,15 @@ each one. `markerLook()` picks a marker's icon from its layer, state and DLC fla
 - **Korok icon:** the Korok Seed's inventory icon, downloaded through Zelda Wiki's API the same way
   `scripts/fetch-armor-icons.py` gets armor icons. objmap's own Korok marker (`mapicon_korok.png`) is a
   30×28 bitmap, too small to scale up.
+- **Boss icons:** neither the game's map nor objmap has an icon for a Hinox, Talus, Molduga or Lynel (objmap draws
+  enemies as dots). The closest game art for each kind is the inventory icon of the Medal of Honor Kilton gives for
+  it:
+  - Hinox has a red ribbon, Talus teal and Molduga green, each with that boss on the medal.
+  - There's no Lynel medal, so Lynels use the Lynel Mask, the game's icon of a Lynel's head.
+  - One icon covers a whole kind; the marker's sheet names the variant.
+- **Bitmap sizes:** the bitmap icons are the wiki's own 64 px thumbnails of its 144 px files (MediaWiki
+  `iiurlwidth`), so the script needs nothing beyond Python. `map_korok.png` was scaled locally with Pillow before
+  this; it's only re-fetched with `--force`.
 
 ## States
 
@@ -44,22 +57,26 @@ objmap's icon.
 | Shrines | orange-glyph icon, greyscale and faded | orange glyph | blue glyph |
 | Koroks | seed in greyscale on a grey disc | seed on an orange disc | seed on a blue disc |
 | Towers | (no such state) | orange tower, not activated | blue tower, activated |
+| Bosses | kind's icon in greyscale on a grey disc | icon on an orange disc | icon on a blue disc (defeated) |
 
-- **Korok states:** the seed icon has no state variants, so a Korok shows its state on the disc behind it. The
-  disc uses the same blue, orange and grey as the layer chips and Korok clusters.
+- **Korok and boss states:** the seed and boss icons have no state variants, so they show their state on the disc
+  behind them. The disc uses the same blue, orange and grey as the layer chips and Korok clusters.
 - **Hidden markers:** a marker a tracker's *Hide undiscovered* setting hides (shown with *Show hidden
-  places*) always uses the plain undiscovered look. It never shows the DLC spire or the entry's real state.
-- **Size:** markers are full size from map scale 0.5 in (shrines 26 dp, towers 30 dp, Korok discs 20 dp). Zoomed
+  places*) always uses the plain undiscovered look. It never shows the DLC spire or the entry's real state. A hidden
+  boss keeps its kind's icon, since the boss tracker's hidden rows name the kind ("Unfound Talus").
+- **Size:** markers are full size from map scale 0.5 in (shrines 26 dp, towers 30 dp, Korok discs 20 dp, boss
+  discs 24 dp). Zoomed
   further out they shrink, down to half size at scale 0.125 and below, the most zoomed-out tile level. At that
   point the whole map fits a phone screen and 136 full-size shrines would pile on top of each other.
-  `iconScale()` rounds the size to 0.05 steps, so markers only recompose when the size changes a step.
+  `iconScale()` rounds the size to 0.05 steps, so markers only recompose when the size changes a step. Bosses stop
+  shrinking at three quarters (`layerIconScale()`). There are only about a hundred, spread out, and below 18 dp the
+  medals' ribbons, which tell the kinds apart, run together.
 
 ## Rebuilding
 
 ```bash
-python3 -m pip install Pillow          # only needed to fetch the Korok icon
-python3 scripts/build-map-icons.py     # rewrite the vectors; fetch map_korok.png if it's missing
-python3 scripts/build-map-icons.py --force   # re-download map_korok.png too
+python3 scripts/build-map-icons.py           # rewrite the vectors; fetch any missing bitmap icon
+python3 scripts/build-map-icons.py --force   # re-download the bitmap icons too
 ```
 
 The script carries objmap's path data inline, so rewriting the vectors needs no network.
@@ -70,7 +87,7 @@ The script carries objmap's path data inline, so rewriting the vectors needs no 
 The icon designs are Nintendo's.
 
 - **objmap's tracings** are in its repository, which is GPL-3.0.
-- **The Korok icon** is the game's own, as hosted by Zelda Wiki.
+- **The Korok and boss icons** are the game's own, as hosted by Zelda Wiki.
 
 The map art has the same status (see `tools/map-tiles/README.md`): fine for a personal, sideloaded build, but
 the icons would need replacing, or the app would need to meet the GPL's terms, before any store release.

@@ -112,7 +112,7 @@ object Games {
             Tracker(TrackerKind.KOROKS, "Korok Seeds", "All 900 seeds by region and puzzle type, and Hestu's upgrades"),
             Tracker(TrackerKind.SIDE_QUESTS, "Side Quests", "Side Quests, Shrine Quests and DLC quests by region, with givers and rewards"),
             Tracker(TrackerKind.BOSSES, "Overworld Bosses", "Every Hinox, Talus, Molduga and Lynel by region, and Kilton's Medals of Honor"),
-            Tracker(TrackerKind.MAP, "Map", "Shrines, Korok Seeds and Sheikah Towers on the map of Hyrule"),
+            Tracker(TrackerKind.MAP, "Map", "Shrines, Korok Seeds, Sheikah Towers and overworld bosses on the map of Hyrule"),
         ),
     )
 

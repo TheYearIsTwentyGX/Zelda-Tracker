@@ -5,6 +5,7 @@ import gx.zelda.compendium.model.CompendiumEntry
 import gx.zelda.core.SaveFile
 import gx.zelda.core.groupByRegion
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 /** A kind of overworld boss, which the tracker gives its own tab: Hinox, Talus, Molduga or Lynel. */
 @Serializable
@@ -29,7 +30,11 @@ data class BossSpawn(
     val mapSection: String,
     /** A [BossKind] id. */
     val kind: String,
-    /** The Compendium entry id of the boss placed here (e.g. `blue_hinox`); for a Lynel that scales, its weakest colour. */
+    /**
+     * The Compendium entry id of the boss placed here (e.g. `blue_hinox`); for a Lynel that scales, its
+     * weakest colour. In the dataset it is the Normal Mode variant; [BossCatalog.spawnsFor] gives a
+     * Master Mode file its [masterModeVariant] here instead.
+     */
     val variant: String,
     val region: String,
     /** World position in game units: x east, z south, y height. */
@@ -48,15 +53,27 @@ data class BossSpawn(
     val scalesWithWorldLevel: Boolean = false,
     /** The game exempts it from Master Mode raising enemies a tier. */
     val noMasterModeRankUp: Boolean = false,
+    /** The variant a Master Mode file has here, one tier up; null when it's the same as [variant]. */
+    val masterModeVariant: String? = null,
+    /** [masterModeVariant]'s Compendium drops. */
+    val masterModeDrops: List<String>? = null,
     /** Other actors that are the same fight at the same place (one per colour, or one per quest stage). */
     val otherHashIds: List<Long> = emptyList(),
     val note: String? = null,
+    /** On a Master Mode file, the Normal Mode variant this one was ranked up from; never in the dataset. */
+    @Transient val rankedUpFrom: String? = null,
 ) {
     /** The id progress is stored under. */
     val id: String get() = hashId.toString()
 
     /** Counts toward its kind's Medal of Honor, if the kind has one. */
     val countsForMedal: Boolean get() = !dlc && !masterModeOnly
+
+    /** This spawn as a file in [masterMode] meets it: on Master Mode, its ranked-up variant and drops. */
+    fun onFile(masterMode: Boolean): BossSpawn {
+        val ranked = masterModeVariant?.takeIf { masterMode } ?: return this
+        return copy(variant = ranked, drops = masterModeDrops ?: drops, rankedUpFrom = variant)
+    }
 
     /** objmap centred on this spawn with its details open; `?id=` takes MapType,MapName,HashId. */
     val objmapUrl: String get() = "https://objmap.zeldamods.org/#/map/z7,$x,$z?id=MainField,$mapSection,$hashId"
@@ -71,9 +88,12 @@ data class BossCatalog(
     val kinds: List<BossKind>,
     val spawns: List<BossSpawn>,
 ) {
-    /** The spawns a save file has: Master Mode-only ones are left out of Normal Mode files. */
+    /**
+     * The spawns a save file has, each as that file meets it: Master Mode-only ones are left out of
+     * Normal Mode files, and a Master Mode file has the ranked-up variants (see [BossSpawn.onFile]).
+     */
     fun spawnsFor(file: SaveFile): List<BossSpawn> =
-        if (file.masterMode) spawns else spawns.filter { !it.masterModeOnly }
+        if (file.masterMode) spawns.map { it.onFile(masterMode = true) } else spawns.filter { !it.masterModeOnly }
 
     /** [visible] split by region in [regions] order; regions with none are left out. */
     fun byRegion(visible: List<BossSpawn>): List<Pair<String, List<BossSpawn>>> = groupByRegion(regions, visible) { it.region }
