@@ -22,8 +22,8 @@ iOS port is mostly a matter of adding the iOS targets.
   - A game with trackers is a section that opens to list them; tap one to go there. A coming-soon
     game is a single row.
   - Which sections are open is remembered. The game you're in opens by itself when you switch to it.
-  - Trackers opened from inside another screen (the Overview, the map, a quest's page) and detail
-    pages keep a Back arrow. Overworld Bosses and the Map still show Back for now.
+  - Trackers opened from inside another screen (the Overview, the map's sheet, a quest's page, a
+    page's *Show on map*) and detail pages keep a Back arrow.
 - **Settings** (gear on the home screen, or the menu): a switch per game for whether it appears on
   the home screen and in the menu.
   - **Default:** every game with trackers is shown and every coming-soon game is hidden until you
