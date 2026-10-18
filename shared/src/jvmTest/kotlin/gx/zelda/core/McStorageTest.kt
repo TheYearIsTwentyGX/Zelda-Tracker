@@ -16,8 +16,9 @@ class McStorageTest {
     private fun newDataStore() = createDataStore(Files.createTempDirectory("zgx").toString())
 
     @Test
-    fun mcIsListedAfterTotkWithThreeSaveFiles() {
-        assertEquals(listOf("botw", "totk", "mc"), Games.all.map { it.id })
+    fun mcIsListedBeforeBotwWithThreeSaveFiles() {
+        // By release date: 2004, 2017, 2023.
+        assertEquals(listOf("mc", "botw", "totk"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(Games.MC, Games.byId("mc"))
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.MC.saveFiles.map { it.id })
         assertEquals(listOf("File 1", "File 2", "File 3"), Games.MC.saveFiles.map { it.label })

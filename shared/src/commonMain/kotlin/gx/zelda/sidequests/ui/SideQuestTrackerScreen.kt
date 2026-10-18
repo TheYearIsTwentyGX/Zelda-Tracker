@@ -15,7 +15,6 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.PlayArrow
@@ -48,6 +47,7 @@ import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.FoundToggleStyle
 import gx.zelda.core.ui.HiddenRow
 import gx.zelda.core.ui.LoadingOrError
+import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.RegionHeader
 import gx.zelda.core.ui.RowDivider
 import gx.zelda.core.ui.SaveFileOption
@@ -108,11 +108,7 @@ fun SideQuestTrackerScreen(
                         }
                     }
                 },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                },
+                navigationIcon = { MenuOrBackButton(onBack) },
                 actions = {
                     if (state != null) SideQuestMenu(state, viewModel)
                 },

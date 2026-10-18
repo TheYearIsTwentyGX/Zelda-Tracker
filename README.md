@@ -5,6 +5,33 @@ iOS port is mostly a matter of adding the iOS targets.
 
 ## Features
 
+**Games, menu and settings**
+- Every mainline Zelda game is listed, oldest first by original release date (first release
+  anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
+  are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
+  (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
+- Breath of the Wild, Tears of the Kingdom and The Minish Cap have trackers. The rest show as
+  *Coming soon* until they get some.
+- **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
+  its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
+  Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
+  Time, and it was later sold on its own as the Anniversary Edition. Remakes and HD versions aren't
+  separate entries.
+- **Menu** (☰ in the top bar of the home screen, Settings and every tracker opened from either):
+  Home, then each shown game in release order, then Settings.
+  - A game with trackers is a section that opens to list them; tap one to go there. A coming-soon
+    game is a single row.
+  - Which sections are open is remembered. The game you're in opens by itself when you switch to it.
+  - Trackers opened from inside another screen (the Overview, the map's sheet, a quest's page, a
+    page's *Show on map*) and detail pages keep a Back arrow.
+- **Settings** (gear on the home screen, or the menu): a switch per game for whether it appears on
+  the home screen and in the menu.
+  - **Default:** every game with trackers is shown and every coming-soon game is hidden until you
+    turn it on. A game you haven't touched follows this default, so a game that gets its first
+    tracker in an update appears without you turning it on.
+  - At least one game stays shown: the last one's switch is locked.
+  - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
+
 **Breath of the Wild: Progress Overview**
 - The first card under BotW: every tracker's progress on the active save file on one screen, each
   with a progress bar and its numbers. Tap a row to open that tracker.
@@ -356,7 +383,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/map/      ← world map, its layers (MapLayerProvider) and marker sheet
   src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/figurines/  ← Minish Cap figurine tracker and Carlov's odds
-  src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces both use
+  src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces and the menu (AppDrawer.kt)
+  src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies
@@ -382,6 +410,10 @@ androidApp/   Android application shell
 ```
 
 Each game's trackers are listed in `core/Games.kt`; storage keys are prefixed with the game id.
+`Games.all` is sorted by each game's `released` date (`ReleaseDate`, with a `sameDay` tiebreak),
+so a new game lands in release order wherever it's added to the list. App-wide settings (shown
+games, open menu sections) are one `AppSettings` value under the `app_settings` key
+(`core/AppSettings.kt`, `AppSettingsStorage` in `core/AppDataStore.kt`).
 
 ### Adding a tracker to the Progress Overview
 

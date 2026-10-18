@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Checkbox
@@ -49,6 +48,7 @@ import gx.zelda.compendium.model.CompendiumEntry
 import gx.zelda.compendium.model.EntrySource
 import gx.zelda.compendium.model.compendiumNumber
 import gx.zelda.core.ui.LoadingOrError
+import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
@@ -80,11 +80,7 @@ fun CompendiumTrackerScreen(
                         }
                     }
                 },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                },
+                navigationIcon = { MenuOrBackButton(onBack) },
             )
         },
     ) { padding ->

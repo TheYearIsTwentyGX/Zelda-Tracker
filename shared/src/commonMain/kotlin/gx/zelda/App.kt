@@ -73,6 +73,22 @@ import gx.zelda.sidequests.data.SideQuestStorage
 import gx.zelda.sidequests.ui.SideQuestDetailScreen
 import gx.zelda.sidequests.ui.SideQuestTrackerScreen
 import gx.zelda.sidequests.ui.SideQuestViewModel
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.rememberDrawerState
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.navigation.NavDestination.Companion.hasRoute
+import gx.zelda.core.AppSettings
+import gx.zelda.core.AppSettingsStorage
+import gx.zelda.core.ui.AppDrawerSheet
+import gx.zelda.core.ui.AppMenu
+import gx.zelda.core.ui.LocalAppMenu
+import gx.zelda.core.ui.MenuSelection
+import gx.zelda.settings.AppSettingsViewModel
+import gx.zelda.settings.SettingsScreen
+import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 
 @Serializable private data object Home
@@ -98,6 +114,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class Kinstones(val gameId: String)
 @Serializable private data class KinstoneDetail(val gameId: String, val fusionId: String)
 @Serializable private data class Figurines(val gameId: String)
+@Serializable private data object Settings
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
@@ -105,28 +122,25 @@ import kotlinx.serialization.Serializable
 fun App(dataStore: DataStore<Preferences>) {
     ZeldaTheme {
         val nav = rememberNavController()
+        val settingsVm = viewModel(key = "app_settings") { AppSettingsViewModel(AppSettingsStorage(dataStore)) }
+        val settings by settingsVm.settings.collectAsStateWithLifecycle()
+        // The NavHost keeps its old indent inside the drawer, so wrapping it didn't touch every route.
+        AppMenuDrawer(nav, settings, settingsVm) {
         // Edge-to-edge (forced from targetSdk 35) means adjustResize no longer shrinks the window
         // for the keyboard, so lift every screen above it here. imePadding consumes the IME
         // insets, so each Scaffold drops its own navigation-bar padding while the keyboard is up.
         NavHost(navController = nav, startDestination = Home, modifier = Modifier.fillMaxSize().imePadding()) {
             composable<Home> {
-                HomeScreen(onOpenTracker = { game, kind ->
-                    when (kind) {
-                        TrackerKind.ARMOR -> nav.navigate(ArmorTracker(game.id))
-                        TrackerKind.FAIRIES -> nav.navigate(Fairies(game.id))
-                        TrackerKind.MAIN_QUEST -> nav.navigate(MainQuest(game.id))
-                        TrackerKind.SHRINES -> nav.navigate(Shrines(game.id))
-                        TrackerKind.COMPENDIUM -> nav.navigate(Compendium(game.id))
-                        TrackerKind.KOROKS -> nav.navigate(Koroks(game.id))
-                        TrackerKind.OVERVIEW -> nav.navigate(Overview(game.id))
-                        TrackerKind.SIDE_QUESTS -> nav.navigate(SideQuests(game.id))
-                        TrackerKind.BOSSES -> nav.navigate(Bosses(game.id))
-                        TrackerKind.MAP -> nav.navigate(WorldMap(game.id))
-                        TrackerKind.HEART_PIECES -> nav.navigate(HeartPieces(game.id))
-                        TrackerKind.KINSTONES -> nav.navigate(Kinstones(game.id))
-                        TrackerKind.FIGURINES -> nav.navigate(Figurines(game.id))
-                    }
-                })
+                val menu = LocalAppMenu.current
+                HomeScreen(
+                    games = settings?.shownGames(),
+                    onOpenTracker = { game, kind -> nav.navigate(trackerRoute(game.id, kind)) },
+                    onOpenMenu = { menu?.open() },
+                    onOpenSettings = { nav.navigate(Settings) },
+                )
+            }
+            composable<Settings> {
+                SettingsScreen(settings, settingsVm, onBack = { nav.popBackStack() })
             }
             composable<Overview> { entry ->
                 val game = Games.byId(entry.toRoute<Overview>().gameId)
@@ -413,6 +427,7 @@ fun App(dataStore: DataStore<Preferences>) {
                 }
             }
         }
+        }
     }
 }
 
@@ -507,3 +522,112 @@ private fun kinstoneViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): KinstoneViewModel = viewModel(owner, key = game.id) { KinstoneViewModel(KinstoneStorage(dataStore, game)) }
+
+/**
+ * The navigation drawer around [content] (the NavHost). The menu button on the home screen and on
+ * trackers opened from it or from the menu opens it; it lists the shown games in release order,
+ * each opening to its trackers, and opens the current game's section when that game changes.
+ */
+@Composable
+private fun AppMenuDrawer(
+    nav: NavController,
+    settings: AppSettings?,
+    settingsVm: AppSettingsViewModel,
+    content: @Composable () -> Unit,
+) {
+    val drawerState = rememberDrawerState(DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+    val backStack by nav.currentBackStack.collectAsStateWithLifecycle()
+    // The screen directly on Home: the one the menu or the home screen opened.
+    val homeIndex = backStack.indexOfFirst { it.destination.hasRoute<Home>() }
+    val topLevel = backStack.getOrNull(homeIndex + 1).takeIf { homeIndex >= 0 } ?: backStack.lastOrNull()
+    val selection = topLevel?.menuSelection() ?: MenuSelection.None
+    val currentGameId = (selection as? MenuSelection.Tracker)?.gameId
+
+    LaunchedEffect(currentGameId) {
+        if (currentGameId != null && currentGameId !in settingsVm.settings.value?.expandedGames.orEmpty()) {
+            settingsVm.setExpanded(currentGameId, true)
+        }
+    }
+    val menu = remember(nav, drawerState) {
+        AppMenu(
+            open = { scope.launch { drawerState.open() } },
+            isTopLevel = { entry ->
+                // Read now rather than from the collected state, which lags a frame behind a new
+                // entry. What's under a live entry never changes, so no recomposition is needed.
+                val stack = nav.currentBackStack.value
+                val index = stack.indexOfFirst { it.id == entry.id }
+                if (index < 0) null else index > 0 && stack[index - 1].destination.hasRoute<Home>()
+            },
+        )
+    }
+    // Every menu choice lands directly on Home, so Back from it always returns home.
+    fun openFromMenu(route: Any) {
+        scope.launch { drawerState.close() }
+        nav.navigate(route) {
+            popUpTo<Home>()
+            launchSingleTop = true
+        }
+    }
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        // Only swipe to close: trackers' pagers and the map use horizontal swipes of their own.
+        gesturesEnabled = drawerState.isOpen,
+        drawerContent = {
+            AppDrawerSheet(
+                drawerState = drawerState,
+                sections = settings?.gameMenu().orEmpty(),
+                selection = selection,
+                onHome = {
+                    scope.launch { drawerState.close() }
+                    nav.popBackStack<Home>(inclusive = false)
+                },
+                onSettings = { openFromMenu(Settings) },
+                onToggleGame = { gameId, expanded -> settingsVm.setExpanded(gameId, expanded) },
+                onOpenTracker = { game, kind -> openFromMenu(trackerRoute(game.id, kind)) },
+            )
+        },
+    ) {
+        CompositionLocalProvider(LocalAppMenu provides menu, content = content)
+    }
+}
+
+/** The route of [kind]'s tracker for the game [gameId]. */
+private fun trackerRoute(gameId: String, kind: TrackerKind): Any = when (kind) {
+    TrackerKind.ARMOR -> ArmorTracker(gameId)
+    TrackerKind.FAIRIES -> Fairies(gameId)
+    TrackerKind.MAIN_QUEST -> MainQuest(gameId)
+    TrackerKind.SHRINES -> Shrines(gameId)
+    TrackerKind.COMPENDIUM -> Compendium(gameId)
+    TrackerKind.KOROKS -> Koroks(gameId)
+    TrackerKind.OVERVIEW -> Overview(gameId)
+    TrackerKind.SIDE_QUESTS -> SideQuests(gameId)
+    TrackerKind.BOSSES -> Bosses(gameId)
+    TrackerKind.MAP -> WorldMap(gameId)
+    TrackerKind.HEART_PIECES -> HeartPieces(gameId)
+    TrackerKind.KINSTONES -> Kinstones(gameId)
+    TrackerKind.FIGURINES -> Figurines(gameId)
+}
+
+/** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
+private fun NavBackStackEntry.menuSelection(): MenuSelection {
+    val d = destination
+    return when {
+        d.hasRoute<Home>() -> MenuSelection.Home
+        d.hasRoute<Settings>() -> MenuSelection.Settings
+        d.hasRoute<ArmorTracker>() -> MenuSelection.Tracker(toRoute<ArmorTracker>().gameId, TrackerKind.ARMOR)
+        d.hasRoute<Fairies>() -> MenuSelection.Tracker(toRoute<Fairies>().gameId, TrackerKind.FAIRIES)
+        d.hasRoute<MainQuest>() -> MenuSelection.Tracker(toRoute<MainQuest>().gameId, TrackerKind.MAIN_QUEST)
+        d.hasRoute<Shrines>() -> MenuSelection.Tracker(toRoute<Shrines>().gameId, TrackerKind.SHRINES)
+        d.hasRoute<Compendium>() -> MenuSelection.Tracker(toRoute<Compendium>().gameId, TrackerKind.COMPENDIUM)
+        d.hasRoute<Koroks>() -> MenuSelection.Tracker(toRoute<Koroks>().gameId, TrackerKind.KOROKS)
+        d.hasRoute<Overview>() -> MenuSelection.Tracker(toRoute<Overview>().gameId, TrackerKind.OVERVIEW)
+        d.hasRoute<SideQuests>() -> MenuSelection.Tracker(toRoute<SideQuests>().gameId, TrackerKind.SIDE_QUESTS)
+        d.hasRoute<Bosses>() -> MenuSelection.Tracker(toRoute<Bosses>().gameId, TrackerKind.BOSSES)
+        d.hasRoute<WorldMap>() -> MenuSelection.Tracker(toRoute<WorldMap>().gameId, TrackerKind.MAP)
+        d.hasRoute<HeartPieces>() -> MenuSelection.Tracker(toRoute<HeartPieces>().gameId, TrackerKind.HEART_PIECES)
+        d.hasRoute<Kinstones>() -> MenuSelection.Tracker(toRoute<Kinstones>().gameId, TrackerKind.KINSTONES)
+        d.hasRoute<Figurines>() -> MenuSelection.Tracker(toRoute<Figurines>().gameId, TrackerKind.FIGURINES)
+        else -> MenuSelection.None
+    }
+}
