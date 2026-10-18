@@ -54,6 +54,16 @@ class ChecklistProgressProviderTest {
     }
 
     @Test
+    fun aSeparateSectionHasItsCountButStaysOutOfTheBar() {
+        val v = ChecklistFixture.versions
+        val row = ChecklistProgressProvider.summarize("T", v, ChecklistProgress().withDone(v.item("remake_well")!!, true), ChecklistPrefs())
+        assertEquals(0, row.done)
+        assertEquals(2, row.total)
+        assertEquals("Hearts 3 / 3½ · Original 0 / 2 · Remake 1 / 3", row.secondary)
+        assertEquals("Well, in Mabe Village", row.next)
+    }
+
+    @Test
     fun aOneSectionFileHasNoSectionCounts() {
         val single = ChecklistRepository.parse("""{"sections": [{"id": "a", "title": "A", "items": [{"id": "x", "name": "X"}]}]}""")
         assertEquals(null, ChecklistProgressProvider.summarize("T", single, ChecklistProgress(), ChecklistPrefs()).secondary)

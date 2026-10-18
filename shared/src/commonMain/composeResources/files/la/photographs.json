@@ -1,0 +1,98 @@
+{
+  "noun": "photo",
+  "hiddenLabel": "Untaken photo",
+  "sections": [
+    {
+      "id": "photos",
+      "title": "Photographs",
+      "note": "DX only: the album The Travels of Link. No photos while BowWow or the Rooster follows you, and while Marin does only hers.",
+      "items": [
+        {
+          "id": "brave_man",
+          "name": "1. Here Stands A Brave Man",
+          "area": "Camera Shop",
+          "howTo": "Visit the Camera Shop and say yes to having your picture taken.",
+          "notes": "Keep refusing and you get the alternate \"Game Over\" photo instead; you can only ever have one of them. No other photo can be taken before this one."
+        },
+        {
+          "id": "marin_cliff",
+          "name": "2. Marin at the cliff",
+          "area": "Toronbo Shores",
+          "howTo": "While Marin follows you, take her to the seaside cliff in the south-west of Toronbo Shores.",
+          "missable": true,
+          "notes": "Marin only follows you until the Walrus wakes. Zelda Dungeon says the south-east."
+        },
+        {
+          "id": "heads_up",
+          "name": "3. Heads Up!",
+          "area": "Mabe Village",
+          "howTo": "Jump into the Mabe Village well while Marin follows you.",
+          "missable": true,
+          "notes": "Only until the Walrus wakes."
+        },
+        {
+          "id": "say_mushroom",
+          "name": "4. Say \"Mushroom!\"",
+          "area": "Mabe Village",
+          "howTo": "Stand by the Weathercock in Mabe Village with Marin; Tarin squeezes into the shot.",
+          "missable": true,
+          "notes": "Only until the Walrus wakes."
+        },
+        {
+          "id": "ulriras_secret",
+          "name": "5. Link Discovers Ulrira's Secret!",
+          "area": "Mabe Village",
+          "howTo": "Look in the right-hand window of Old Man Ulrira's house."
+        },
+        {
+          "id": "plays_with_bowwow",
+          "name": "6. Link Plays With BowWow!",
+          "area": "Mabe Village",
+          "howTo": "Walk up to BowWow outside Madam MeowMeow's house.",
+          "notes": "StrategyWiki: after you've brought him home from Bottle Grotto."
+        },
+        {
+          "id": "thief",
+          "name": "7. Are you proud of yourself?",
+          "area": "Town Tool Shop",
+          "howTo": "Steal something from the Town Tool Shop and come back.",
+          "notes": "The shopkeeper calls you THIEF from then on and the album becomes The Travels of THIEF."
+        },
+        {
+          "id": "fisherman",
+          "name": "8. Be more careful next time!",
+          "area": "Martha's Bay",
+          "howTo": "Talk to the fisherman under the Martha's Bay bridge.",
+          "notes": "StrategyWiki and Zelda's Palace say you need the Magnifying Lens first; Zelda Dungeon says after you've given him the Fishing Hook."
+        },
+        {
+          "id": "zora",
+          "name": "9. I Found Zora!",
+          "area": "Animal Village",
+          "howTo": "Look at the Zora in the north-east house of Animal Village through the Magnifying Lens."
+        },
+        {
+          "id": "richard_gate",
+          "name": "10. I've Just Decided to Wait at Home",
+          "area": "Kanalet Castle",
+          "howTo": "Stand at Kanalet Castle's closed gate; Richard comes along.",
+          "missable": true,
+          "notes": "Gone once the gate has been opened."
+        },
+        {
+          "id": "ghost_grave",
+          "name": "11. I Was Very Afraid",
+          "area": "Cemetery",
+          "howTo": "Go up to the Ghost's grave after you've taken him home."
+        },
+        {
+          "id": "close_call",
+          "name": "12. Close Call",
+          "area": "Tal Tal Heights",
+          "howTo": "Cross the bridge two screens east of the Hen House.",
+          "notes": "Not while carrying the Flying Rooster."
+        }
+      ]
+    }
+  ]
+}

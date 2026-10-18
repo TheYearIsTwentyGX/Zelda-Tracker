@@ -48,6 +48,17 @@ class ChecklistFiltersTest {
     }
 
     @Test
+    fun aSeparateSectionIsOnlyOnItsOwnTab() {
+        val v = ChecklistFixture.versions
+        val file = SaveFile("file_1", "File 1")
+        fun state(section: String?) = ChecklistUiState(v, ChecklistProgress(), ChecklistPrefs(), file, emptyList(), ChecklistFilters(section = section))
+        assertEquals(listOf("well", "maze"), state(null).ids())
+        assertEquals(ChecklistCount(0, 2), state(null).count)
+        assertEquals(listOf("remake_well", "remake_pond", "remake_tree"), state("remake_pieces").ids())
+        assertEquals(ChecklistCount(0, 3), state("remake_pieces").groupCounts.getValue("Mabe Village"))
+    }
+
+    @Test
     fun aStaleSectionFallsBackToAll() = assertEquals(7, state(ChecklistFilters(section = "gone")).ids().size)
 
     @Test
