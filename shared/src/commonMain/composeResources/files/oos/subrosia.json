@@ -1,0 +1,233 @@
+{
+  "noun": "entry",
+  "plural": "entries",
+  "hiddenLabel": "Unfinished entry",
+  "sections": [
+    {
+      "id": "visits",
+      "title": "Visits",
+      "note": "Subrosia's part in the story. The towers' seasons are in the Rod of Seasons tracker.",
+      "items": [
+        {
+          "id": "follow_rosa",
+          "name": "Follow Rosa to Subrosia",
+          "area": "Eastern Suburbs",
+          "howTo": "After the Gnarled Root Dungeon, a hooded girl panics about a falling temple east of Horon Village. Follow her north without being seen, then cut the grass where she vanishes to find the portal.",
+          "after": "Gnarled Root Dungeon",
+          "notes": "Subrosians trade in Ore Chunks, not Rupees; dig for them with the Shovel."
+        },
+        {
+          "id": "temple_of_seasons",
+          "name": "Temple of Seasons",
+          "area": "Temple of Seasons",
+          "howTo": "From the first portal, head southeast to the sunken temple. The Season Spirits greet you; stand on the pedestal at the central altar.",
+          "requires": ["follow_rosa"],
+          "reward": "Rod of Seasons",
+          "notes": "The same step as the Rod of Seasons tracker's first row."
+        },
+        {
+          "id": "date_with_rosa",
+          "name": "Date with Rosa",
+          "area": "Subrosia Seaside",
+          "howTo": "Give Rosa her Ribbon by the trees on the east of the seaside. She tags along and her key opens Subrosia's locked doors, including the Tower of Summer's.",
+          "requires": ["ribbon"],
+          "notes": "Later you can ask her along again to open other locked doors."
+        },
+        {
+          "id": "strange_brothers",
+          "name": "The Strange Brothers",
+          "area": "Treasure Grove",
+          "howTo": "Arriving through the Mt. Cucco portal, the Strange Brothers swap your Roc's Feather for Fool's Ore. Follow them through the Treasure Grove without being seen and dig up the feather where they bury it.",
+          "after": "Poison Moth's Lair",
+          "reward": "Roc's Feather back"
+        },
+        {
+          "id": "bomb_flower_for_smelter",
+          "name": "Bomb Flower for the Smelter",
+          "area": "Lava Lake",
+          "howTo": "From the Eyeglass Lake portal, cross Lava Lake with Roc's Feather, pull up the lone Bomb Flower with the Power Bracelet and carry it to the Subrosian Smelter at the Tower of Autumn.",
+          "requires": ["strange_brothers"],
+          "reward": "The way into the Tower of Autumn",
+          "notes": "The Bomb Flower is also a Quest Item."
+        },
+        {
+          "id": "pirates_depart",
+          "name": "The Piratians set sail",
+          "area": "House of Pirates, Subrosia Cemetery",
+          "howTo": "Bring the Cap'n the polished Pirate's Bell. The crew digs out and sails to Holodrum's Western Coast.",
+          "requires": ["pirates_bell"],
+          "after": "Ancient Ruins",
+          "notes": "Reach the house through the portal under Horon Village (hit its switch with the Magical Boomerang). A Piratian upstairs shows you the combination for the Samasa Desert gate."
+        },
+        {
+          "id": "volcano_eruption",
+          "name": "Wake the volcanoes",
+          "area": "Subrosian Volcanoes",
+          "howTo": "Through the winter portal in the Temple Remains, find the Subrosian throwing things into a pit and throw in a bomb. The eruption fills the Temple Remains with lava and burns away the trees in your way.",
+          "after": "Explorer's Crypt",
+          "notes": "The eruption also cracks a wall in the Temple Remains that hides a Piece of Heart. The Sword & Shield Maze is reached through the portal at the top of the remains."
+        }
+      ]
+    },
+    {
+      "id": "market",
+      "title": "Subrosia Market",
+      "note": "Five wares at a time; a sold-out ware is replaced by the next one on its tile. It also has endless Gasha Seeds (40 Ore Chunks the first time, then 100, plus Scent Seeds), Ember and Pegasus Seeds, hearts and Ore Chunks.",
+      "items": [
+        {
+          "id": "ribbon",
+          "name": "Ribbon",
+          "area": "Subrosia Market",
+          "howTo": "Trade the Star-Shaped Ore for it.",
+          "requires": ["star_shaped_ore"],
+          "notes": "Also a Quest Item."
+        },
+        {
+          "id": "members_card",
+          "name": "Member's Card",
+          "area": "Subrosia Market",
+          "howTo": "Buy it for 5 Ore Chunks.",
+          "notes": "Opens the Horon Village Shop's basement. Also a Quest Item."
+        },
+        {
+          "id": "rare_peach_stone",
+          "name": "Rare Peach Stone",
+          "area": "Subrosia Market",
+          "howTo": "Buy it for 20 Ore Chunks and 10 Ember Seeds.",
+          "reward": "Piece of Heart",
+          "notes": "Also counted in the heart pieces tracker.",
+          "tags": ["Heart Piece"]
+        },
+        {
+          "id": "market_wooden_shield",
+          "name": "Wooden Shield",
+          "area": "Subrosia Market",
+          "howTo": "Trade 5 Ember Seeds for the 'cutting board'. There's only one.",
+          "notes": "The cheapest Wooden Shield in the game. Pegasus Seeds take its place once it's gone."
+        },
+        {
+          "id": "big_bomb_bag",
+          "name": "Big Bomb Bag",
+          "area": "Subrosia Market",
+          "howTo": "On sale once the Ribbon is gone: 50 Ore Chunks and 10 Bombs. Lift the red bomb and it explodes harmlessly.",
+          "requires": ["ribbon"],
+          "reward": "Bomb capacity 30",
+          "notes": "Also under Upgrades in Items."
+        },
+        {
+          "id": "market_rings",
+          "name": "Magic Rings",
+          "area": "Subrosia Market",
+          "tiers": [
+            {"name": "First ring", "howTo": "On sale once the Rare Peach Stone is gone: 30 Ore Chunks."},
+            {"name": "Second ring", "howTo": "40 Ore Chunks."},
+            {"name": "Third ring", "howTo": "50 Ore Chunks."},
+            {"name": "Fourth ring", "howTo": "70 Ore Chunks."}
+          ],
+          "requires": ["rare_peach_stone"],
+          "notes": "Unappraised rings of random kinds; the rings tracker counts which ones you own."
+        }
+      ]
+    },
+    {
+      "id": "ores",
+      "title": "Ores & Smithy",
+      "note": "Rare ores from around Subrosia, and what the Great Furnace and the Subrosian Smithy make of them.",
+      "items": [
+        {
+          "id": "star_shaped_ore",
+          "name": "Star-Shaped Ore",
+          "area": "Subrosia Seaside",
+          "howTo": "Dig in the sand with the Shovel until you find it.",
+          "after": "Snake's Remains",
+          "notes": "Also a Quest Item."
+        },
+        {
+          "id": "red_ore",
+          "name": "Red Ore",
+          "area": "Subrosia Village",
+          "howTo": "Cross the pits in southeastern Subrosia Village with the Magnetic Gloves to the cave under the cliff, and climb to the chest on top.",
+          "after": "Unicorn's Cave",
+          "notes": "Also a Quest Item."
+        },
+        {
+          "id": "blue_ore",
+          "name": "Blue Ore",
+          "area": "Subrosian Wilds",
+          "howTo": "In a chest just inside the Subrosian Wilds in the far west, past boulders and pits you cross with the Magnetic Gloves and S stones.",
+          "after": "Unicorn's Cave",
+          "notes": "Also a Quest Item. A Magic Ring is buried in the Wilds' southwest corner."
+        },
+        {
+          "id": "hard_ore",
+          "name": "Hard Ore",
+          "area": "Great Furnace",
+          "howTo": "Bring the Red Ore and Blue Ore to the Subrosian Smelter at the Great Furnace.",
+          "requires": ["red_ore", "blue_ore"],
+          "notes": "Also a Quest Item."
+        },
+        {
+          "id": "iron_shield",
+          "name": "Iron Shield",
+          "area": "Subrosian Smithy",
+          "howTo": "Bring the Hard Ore and your Wooden Shield to the Subrosian Smithy.",
+          "requires": ["hard_ore"],
+          "notes": "In a Linked Game, if a secret already gave you the Iron Shield, the smithy makes the Mirror Shield. Also under Upgrades in Items."
+        },
+        {
+          "id": "pirates_bell",
+          "name": "Pirate's Bell",
+          "area": "Subrosian Smithy",
+          "tiers": [
+            {"name": "Rusty Bell", "howTo": "In the Samasa Desert, carry the pirate's skull from the oasis with the Power Bracelet and jump into the quicksand pit where it starts to shatter."},
+            {"name": "Pirate's Bell", "howTo": "Have the Subrosian Smithy polish it: insist rather than ask nicely."}
+          ],
+          "after": "Ancient Ruins",
+          "notes": "Also a Quest Item."
+        }
+      ]
+    },
+    {
+      "id": "pastimes",
+      "title": "Pastimes",
+      "note": "Optional fun in Subrosia.",
+      "items": [
+        {
+          "id": "dance_boomerang",
+          "name": "Dance Hall: Boomerang",
+          "area": "Subrosian Dance Hall",
+          "howTo": "Talk to the leader in red and follow the dancers for a whole round without bumping into anyone.",
+          "requires": ["follow_rosa"],
+          "reward": "Boomerang",
+          "notes": "Each win speeds up the next round. Later wins give Gasha Seeds or Ore Chunks."
+        },
+        {
+          "id": "dance_strange_flute",
+          "name": "Dance Hall: Strange Flute",
+          "area": "Subrosian Dance Hall",
+          "howTo": "Keep winning rounds after the Boomerang, between Snake's Remains and helping Ricky.",
+          "requires": ["dance_boomerang"],
+          "missable": true,
+          "reward": "Strange Flute (Dimitri's)",
+          "notes": "It makes Dimitri your partner instead of Ricky, so skip it if you want Ricky or Moosh (Moosh's flute is sold in Horon Village). Gone once you help Ricky."
+        },
+        {
+          "id": "strange_brothers_treasure",
+          "name": "Strange Brothers' buried treasure",
+          "area": "Treasure Grove",
+          "howTo": "Go back into the Strange Brothers' house and follow them unseen again; dig where they bury their treasure.",
+          "requires": ["strange_brothers"],
+          "notes": "Ore Chunks, Magic Rings or Gasha Seeds; they get harder to follow each time. A pot in their house holds Ore Chunks."
+        },
+        {
+          "id": "sign_loving_subrosian",
+          "name": "Sign-Loving Subrosian",
+          "area": "Subrosia Village",
+          "howTo": "Break 100 signs, then visit the Subrosian who loves signs, in the little house on the plateau by the Great Furnace.",
+          "reward": "Sign Ring",
+          "notes": "The ring itself is also in the rings tracker."
+        }
+      ]
+    }
+  ]
+}

@@ -34,7 +34,7 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
         assertTrue(settings.expandedGames.isEmpty())
     }
 
@@ -51,10 +51,10 @@ class AppSettingsViewModelTest {
         vm.setExpanded("botw", true).join()
 
         val reloaded = AppSettingsStorage(dataStore).settings.first()
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
         assertEquals(setOf("botw"), reloaded.expandedGames)
         assertEquals(
-            listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "tfh", "botw", "eow"),
+            listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "mc", "tfh", "botw", "eow"),
             vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames().map { it.id },
         )
     }
