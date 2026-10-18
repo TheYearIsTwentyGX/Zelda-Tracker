@@ -89,7 +89,32 @@ object Games {
             lozChecklist("Heart Containers", "All 13 in each quest, from bosses and secret caves, with your hearts", "heart_containers"),
         ),
     )
-    val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
+
+    /**
+     * Three save files. Replaying a beaten file keeps the levels and spells but not the items or
+     * containers; that isn't tracked separately. The data and its sources are in docs/aol.md.
+     */
+    val AOL = Game(
+        id = "aol",
+        title = "Zelda II: The Adventure of Link",
+        released = ReleaseDate(1987, 1, 14),
+        platform = "NES",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            aolChecklist("Palaces", "The six palaces and the Great Palace: crystals, items and all 8 bosses", "palaces"),
+            aolChecklist("Items", "The 14 items: palace treasures, the Hammer and Magic Key, and the townsfolk's quest items", "items"),
+            aolChecklist("Spells & Techniques", "The 8 spells and the towns that teach them, and the 2 sword thrusts", "spells"),
+            aolChecklist("Heart & Magic Containers", "All 4 of each, with your life and magic meters", "containers"),
+            aolChecklist("Levels & Link Dolls", "Attack, Magic and Life to level 8, and the 6 Link Dolls", "levels"),
+        ),
+    )
+
+    /**
+     * Three files on the SNES cartridge (StrategyWiki: "top, middle, or bottom"). Tracked as the
+     * original SNES release; GBA differences are in item notes. Every tracker is a checklist; the data
+     * and its sources are in docs/alttp.md.
+     */
 
     /**
      * Three files on the SNES cartridge (StrategyWiki: "top, middle, or bottom"). Tracked as the
@@ -290,6 +315,9 @@ object Games {
 
     private fun lozChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "loz/$file.json")
+
+    private fun aolChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "aol/$file.json")
 
     private fun laChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "la/$file.json")

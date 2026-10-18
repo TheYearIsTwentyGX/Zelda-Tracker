@@ -1,0 +1,28 @@
+{
+  "regions": ["Western Hyrule", "Death Mountain", "Eastern Hyrule"],
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "sections": [
+    {
+      "id": "items",
+      "title": "Items",
+      "note": "Six palace items, the Hammer and Magic Key, and the six things townsfolk need, in a rough order of play.",
+      "items": [
+        {"id": "candle", "name": "Candle", "region": "Western Hyrule", "area": "Parapa Palace", "howTo": "In Parapa Palace. Lights dark caves.", "tags": ["Palace"]},
+        {"id": "trophy", "name": "Trophy", "region": "Western Hyrule", "area": "Cave in the Tantari Desert", "howTo": "In a cave in the far north of the desert north of North Castle, guarded by a Goriya. Return it to the woman in Ruto.", "reward": "Jump spell", "notes": "The Statue on StrategyWiki.", "tags": ["Quest item"]},
+        {"id": "bagus_note", "name": "Bagu's note", "region": "Western Hyrule", "area": "Bagu's house, the woods north of Saria", "howTo": "A sleeping Bot in Saria points to Bagu. Show his note to the guard at Saria's river to cross the bridge toward Death Mountain.", "tags": ["Quest item"]},
+        {"id": "mirror", "name": "Mirror", "region": "Western Hyrule", "area": "Saria", "howTo": "Under the table in the first house of the town's second part. Return it to the woman in the second house of the first part.", "reward": "Life spell", "tags": ["Quest item"]},
+        {"id": "hammer", "name": "Hammer", "region": "Death Mountain", "area": "Cave east of Spectacle Rock", "howTo": "At the end of the Death Mountain cave maze, entered from the cave south of Saria. Breaks boulders and clears forest.", "requires": ["bagus_note"], "notes": "Guarded by Dairas. Zelda Wiki only says Death Mountain.", "tags": ["Overworld"]},
+        {"id": "water_of_life", "name": "Water of Life", "region": "Western Hyrule", "area": "Cave in the Moruge Swamp, north of Saria", "howTo": "Break the boulder in front of the cave with the Hammer; three Dairas guard it. Take it to the old woman in Mido for her sick child.", "requires": ["hammer"], "reward": "Fairy spell", "notes": "Medicine on StrategyWiki. Zelda Wiki puts the cave just west of Midoro Palace; StrategyWiki and both Zelda Dungeon guides put it in the Moruge Swamp.", "tags": ["Quest item"]},
+        {"id": "handy_glove", "name": "Handy Glove", "region": "Western Hyrule", "area": "Midoro Palace", "howTo": "In Midoro Palace. Breaks blocks with the sword, and is needed to reach the boss.", "requires": ["hammer"], "notes": "The Power Glove on StrategyWiki.", "tags": ["Palace"]},
+        {"id": "raft", "name": "Raft", "region": "Western Hyrule", "area": "Island Palace", "howTo": "In an outdoor room of the Island Palace. From the dock south of Mido it sails to Eastern Hyrule.", "tags": ["Palace"]},
+        {"id": "fountain_water", "name": "Water from the fountain", "region": "Eastern Hyrule", "area": "Nabooru", "howTo": "Fill up at the fountain in the town's second part and bring it to the thirsty woman next door.", "requires": ["raft"], "reward": "Fire spell", "tags": ["Quest item"]},
+        {"id": "child", "name": "Child", "region": "Eastern Hyrule", "area": "Maze Island", "howTo": "In a hidden pit in the southeast corner of Maze Island, guarded by an orange Geru. Bring the child home to Darunia.", "requires": ["raft"], "reward": "Reflect spell", "notes": "The Lost Child on StrategyWiki; the Kidnapped Child on Zelda Dungeon.", "tags": ["Quest item"]},
+        {"id": "boots", "name": "Boots", "region": "Eastern Hyrule", "area": "Maze Island Palace", "howTo": "In the Maze Island Palace. Link can walk on hidden paths over water.", "requires": ["raft"], "tags": ["Palace"]},
+        {"id": "flute", "name": "Flute", "region": "Eastern Hyrule", "area": "Palace on the Sea", "howTo": "In the Palace on the Sea. Scares off the River Devil and raises the Three-Eye Rock Palace.", "requires": ["boots"], "notes": "Zelda Wiki's palace page calls it the Whistle.", "tags": ["Palace"]},
+        {"id": "magic_key", "name": "Magic Key", "region": "Eastern Hyrule", "area": "New Kasuto", "howTo": "Hammer the forest tile in the eastern woods (through the Kasuto cave) to reveal New Kasuto. There, cast Spell at the dead end of the town's third part: a building rises with the key inside. It opens every locked door.", "requires": ["hammer"], "notes": "The Magical Key on Zelda Wiki.", "tags": ["Overworld"]},
+        {"id": "cross", "name": "Cross", "region": "Eastern Hyrule", "area": "Three-Eye Rock Palace", "howTo": "Dropped after the first Rebonack in the Three-Eye Rock Palace. Shows invisible enemies.", "requires": ["flute", "magic_key"], "tags": ["Palace"]}
+      ]
+    }
+  ]
+}
