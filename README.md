@@ -161,34 +161,43 @@ iOS port is mostly a matter of adding the iOS targets.
 - Search by place, variant, region or id; filter to bosses not yet defeated, or by variant (Blue Hinox, Frost
   Talus…).
 - Tap › for a spawn's page: its Compendium entry and number, drops, region, nearest place, coordinates, notes (the
-  Coliseum Lynel, the Hyrule Castle bosses, Eventide Island…) and **Open in objmap**. Lynels whose colour rises with
-  the world level are tagged *Scales* and listed at their weakest colour.
+  Coliseum Lynel, the Hyrule Castle bosses, Eventide Island…), **Show on map** and **Open in objmap**. Lynels whose
+  colour rises with the world level are tagged *Scales* and listed at their weakest colour.
+- **Master Mode:** the Master Mode file lists each boss as Master Mode places it. The game ranks Hinoxes, Stone
+  Taluses and Lynels up a tier there (a Luminous Talus is Rare, a Blue Hinox is Black), except five spawns it
+  exempts. A spawn's page says what it is in the other mode. Progress is kept per spawn, whatever the mode.
 - Shares the active save file with the other BotW trackers.
 
 **Breath of the Wild: Map**
 - The map of Hyrule, from the game's own map art. It's bundled with the app, so it works offline.
   Pan, pinch or double-tap to zoom.
-- Layers you can switch on and off: **Shrines** (136), **Korok Seeds** (900) and **Sheikah Towers** (15).
+- Layers you can switch on and off: **Shrines** (136), **Korok Seeds** (900), **Sheikah Towers** (15) and
+  **Bosses** (108, or 109 on the Master Mode file).
   - Each chip shows how many are done on the active save file.
   - Markers use the game's own map icons:
     - A shrine has an orange glyph until it's completed, then turns all blue, as in the game.
       The Champions' Ballad's shrines have their own icon, with a spire.
     - Towers are orange until activated, then blue.
     - Korok seeds sit on a disc: blue collected, orange found, grey undiscovered.
-    - Undiscovered shrines and Koroks are greyed out.
-    - Markers shrink as you zoom out, so the map stays readable fully zoomed out.
+    - Bosses sit on the same disc (blue defeated), each with its kind's icon: Kilton's Medal of Honor for
+      Hinoxes, Taluses and Moldugas, and the Lynel Mask for Lynels. The sheet names the variant the active
+      file has, so a Master Mode file shows its ranked-up bosses.
+    - Undiscovered shrines, Koroks and bosses are greyed out.
+    - Markers shrink as you zoom out, so the map stays readable fully zoomed out. Bosses stop at three
+      quarters size, so their icons stay readable.
   - At low zoom, nearby Koroks merge into a cluster numbered with the seeds still to collect. Tap
     it to zoom in.
 - Tap a marker for its sheet: name, region, state, and buttons to mark it found or done, or to
   open it in its tracker. Changes go to the active save file, the same one the trackers use.
-- **Spoilers:** each layer follows its tracker's own setting. With *Hide undiscovered shrines* or
-  *Hide undiscovered Koroks* on, undiscovered ones are left off the map, the way the game's map
-  leaves off what you haven't found.
+- **Spoilers:** each layer follows its tracker's own setting. With *Hide undiscovered shrines*,
+  *Hide undiscovered Koroks* or *Hide unfound bosses* on, undiscovered ones are left off the map, the
+  way the game's map leaves off what you haven't found.
   - *Show hidden places* (map menu) shows them as unnamed grey markers instead. A hidden marker
-    never shows the place's state, or whether it's a DLC shrine.
+    never shows the place's state, or whether it's a DLC shrine. A hidden boss keeps its kind's icon,
+    as the boss tracker's hidden rows name the kind.
   - Tap one to reveal it for the session.
 - *Hide completed* (map menu) leaves only what's left to do.
-- **Show on map** on a Korok's page centres the map on that seed.
+- **Show on map** on a Korok's or a boss's page centres the map on it.
 
 **Tears of the Kingdom: Armor Progress**
 - All 135 armor pieces in 35 sets plus single pieces, with the same collection, upgrade, set

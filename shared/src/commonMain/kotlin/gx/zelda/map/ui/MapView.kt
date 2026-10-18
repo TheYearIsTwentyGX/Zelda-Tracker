@@ -33,6 +33,7 @@ import gx.zelda.map.model.MarkerIcon
 import gx.zelda.map.model.MarkerKind
 import gx.zelda.map.model.clusterSummary
 import gx.zelda.map.model.iconScale
+import gx.zelda.map.model.layerIconScale
 import gx.zelda.map.model.markerLook
 import org.jetbrains.compose.resources.painterResource
 import ovh.plrapps.mapcompose.api.ClusterScaleThreshold
@@ -109,7 +110,7 @@ internal class MapView {
             clickableAreaScale = Offset(2f, 2f),
             renderingStrategy = clusterer?.let { RenderingStrategy.Clustering(it) } ?: RenderingStrategy.Default,
         ) {
-            shown[key]?.let { MapMarkerIcon(it, selected = selected == key, scale = markerScale) }
+            shown[key]?.let { MapMarkerIcon(it, selected = selected == key, scale = layerIconScale(it.layer.kind, markerScale)) }
         }
     }
 
@@ -127,6 +128,7 @@ internal class MapView {
 
         private fun zIndex(kind: MarkerKind): Float = when (kind) {
             MarkerKind.KOROK -> 0f
+            MarkerKind.BOSS -> 0.5f
             MarkerKind.SHRINE -> 1f
             MarkerKind.TOWER -> 2f
         }
@@ -143,6 +145,7 @@ internal fun stateColor(layer: MapLayer, state: DiscoveryState): Color = when {
 /** Each icon's size at [iconScale] 1. */
 private fun fullSize(icon: MarkerIcon): Dp = when (icon) {
     MarkerIcon.KOROK -> 20.dp
+    MarkerIcon.HINOX, MarkerIcon.TALUS, MarkerIcon.MOLDUGA, MarkerIcon.LYNEL -> 24.dp
     MarkerIcon.TOWER, MarkerIcon.TOWER_ACTIVE -> 30.dp
     else -> 26.dp
 }
@@ -151,7 +154,7 @@ private val GreyedOut = ColorFilter.colorMatrix(ColorMatrix().apply { setToSatur
 
 /**
  * A marker's in-game icon at [scale] of its full size (see [markerLook]): greyed out when
- * undiscovered, on a state-coloured disc for Koroks, and in a white ring when [selected].
+ * undiscovered, on a state-coloured disc for Koroks and bosses, and in a white ring when [selected].
  */
 @Composable
 internal fun MapMarkerIcon(marker: MapMarker, selected: Boolean, modifier: Modifier = Modifier, scale: Float = 1f) {

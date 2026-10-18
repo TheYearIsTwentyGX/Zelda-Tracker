@@ -2,6 +2,10 @@ package gx.zelda.map.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.bosses.data.BossRepository
+import gx.zelda.bosses.data.BossStorage
+import gx.zelda.bosses.model.BossData
+import gx.zelda.bosses.model.BossSpawn
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Game
 import gx.zelda.core.TrackerKind
@@ -16,12 +20,15 @@ import gx.zelda.mainquest.model.SheikahTower
 import gx.zelda.map.model.MapEntry
 import gx.zelda.map.model.MapLayer
 import gx.zelda.map.model.MarkerKind
+import gx.zelda.map.model.bossIcon
 import gx.zelda.shrines.data.ShrineRepository
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.Shrine
 import gx.zelda.shrines.scan.ShrineMapRepository
 import gx.zelda.shrines.scan.WorldPoint
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 
@@ -30,6 +37,7 @@ object MapLayers {
     const val SHRINES = "shrines"
     const val KOROKS = "koroks"
     const val TOWERS = "towers"
+    const val BOSSES = "bosses"
 }
 
 /** The layers [game] has trackers for, in the order the chips show them. */
@@ -39,6 +47,7 @@ fun botwMapLayers(dataStore: DataStore<Preferences>, game: Game): List<MapLayerP
         if (TrackerKind.SHRINES in kinds) add(ShrineLayer(ShrineStorage(dataStore, game)))
         if (TrackerKind.KOROKS in kinds) add(KorokLayer(KorokStorage(dataStore, game)))
         if (TrackerKind.MAIN_QUEST in kinds) add(TowerLayer(MainQuestStorage(dataStore, game)))
+        if (TrackerKind.BOSSES in kinds) add(BossLayer(BossStorage(dataStore, game)))
     }
 }
 
@@ -166,4 +175,63 @@ class TowerLayer(
 
     override suspend fun setState(saveFileId: String, id: String, state: DiscoveryState) =
         storage.setDone(saveFileId, MainQuestSection.TOWERS, id, state == DiscoveryState.COMPLETED)
+}
+
+/**
+ * Every overworld boss spawn a save file has, at its `bosses.json` position, in the boss tracker's
+ * three states. Each marker is its kind's icon and is named by its variant as the file meets it: a
+ * Master Mode file has the ranked-up variants and its extra Lynel (see [BossSpawn.onFile]).
+ */
+class BossLayer(
+    private val storage: BossStorage,
+    load: suspend () -> BossData = { BossRepository.loadData(storage.game) },
+) : MapLayerProvider {
+    override val layer = MapLayer(
+        id = MapLayers.BOSSES,
+        title = "Bosses",
+        noun = "boss",
+        stateLabels = linkedMapOf(
+            DiscoveryState.UNDISCOVERED to "Not found",
+            DiscoveryState.FOUND to "Found",
+            DiscoveryState.COMPLETED to "Defeated",
+        ),
+        kind = MarkerKind.BOSS,
+        spoilerSetting = "Hide unfound bosses",
+    )
+
+    private val data = LoadOnce(load)
+
+    override fun entries(saveFileId: String): Flow<List<MapEntry>> = flow {
+        val data = data.get()
+        val spawns = data.catalog.spawnsFor(storage.game.saveFile(saveFileId))
+        emitAll(
+            storage.progress(saveFileId).map { progress ->
+                spawns.map { spawn ->
+                    MapEntry(
+                        id = spawn.id,
+                        name = data.variantName(spawn.variant),
+                        subtitle = subtitle(spawn),
+                        region = spawn.region,
+                        world = WorldPoint(spawn.x, spawn.z),
+                        state = progress.state(spawn.id),
+                        dlc = spawn.dlc,
+                        icon = bossIcon(spawn.kind),
+                    )
+                }
+            },
+        )
+    }
+
+    override val hideUndiscovered: Flow<Boolean> = storage.prefs.map { it.hideUndiscovered }
+
+    override suspend fun setState(saveFileId: String, id: String, state: DiscoveryState) =
+        storage.setState(saveFileId, id, state)
+
+    private fun subtitle(spawn: BossSpawn): String = buildList {
+        add("Near ${spawn.nearestPlace}")
+        if (spawn.dlc) add("The Champions' Ballad")
+        if (spawn.masterModeOnly) add("Master Mode only")
+        if (spawn.rankedUpFrom != null) add("Ranked up by Master Mode")
+        if (spawn.scalesWithWorldLevel) add("Scales with the world level")
+    }.joinToString(" · ")
 }

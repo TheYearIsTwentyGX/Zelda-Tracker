@@ -12,6 +12,8 @@ Sources (see docs/overworld-bosses.md):
   and their LocationMarker/Dungeon text (nearest-place hints).
 - files/botw/compendium.json: each variant's Compendium name and drops.
 - files/botw/koroks.json: calibrates which MapTower polygon is which tower region.
+- The game's Master Mode rank-up table, HardModeManager::rankUpEnemy in the BotW decompilation
+  (github.com/zeldaret/botw, src/Game/AOC/aocHardModeManager.cpp): gives each spawn's Master Mode variant.
 
 Downloads are cached in build/bosses-cache. Exits non-zero if a sanity check fails.
 """
@@ -52,6 +54,23 @@ ACTORS = {
     "Enemy_Lynel_Gold": ("lynel", "golden_lynel"),
 }
 
+# Master Mode's rank-up: HardModeManager::rankUpEnemy (zeldaret/botw, src/Game/AOC/aocHardModeManager.cpp)
+# swaps these actors for the next tier on a Master Mode file, unless the placement has
+# DisableRankUpForHardMode or a UniqueName. Names match exactly, so Enemy_Giant_Bone (Stalnox),
+# Enemy_Golem_Fire/Ice, Enemy_Sandworm and Enemy_Lynel_Junior_Mountain (Ploymus Mountain) never
+# change. leoetlino's botw-re-notes (difficulty_scaling.md): the rank-up happens after world-level
+# scaling and ignores LevelSensorMode.
+MASTER_MODE_RANK_UP = {
+    "Enemy_Giant_Junior": "Enemy_Giant_Middle",
+    "Enemy_Giant_Middle": "Enemy_Giant_Senior",
+    "Enemy_Golem_Junior": "Enemy_Golem_Middle",
+    "Enemy_Golem_Middle": "Enemy_Golem_Senior",
+    "Enemy_Lynel_Junior": "Enemy_Lynel_Middle",
+    "Enemy_Lynel_Middle": "Enemy_Lynel_Senior",
+    "Enemy_Lynel_Senior": "Enemy_Lynel_Dark",
+    "Enemy_Lynel_Dark": "Enemy_Lynel_Gold",
+}
+
 KINDS = [
     {"id": "hinox", "name": "Hinox", "plural": "Hinoxes", "medal": "Medal of Honor: Hinox",
      "variants": ["hinox", "blue_hinox", "black_hinox", "stalnox"]},
@@ -78,12 +97,12 @@ GROUPS = {
 
 NOTES = {
     4200912374: "Coliseum Ruins. The game places one Lynel per colour here and shows one: Red, Blue-Maned, "
-                "White-Maned or Silver as more Divine Beasts are freed (BattleArena_Level1–4). Its colour "
-                "follows that, not the world level.",
+                "White-Maned or Silver as more Divine Beasts are freed (BattleArena_Level1–4), each a tier "
+                "higher on Master Mode (Blue-Maned up to Golden). Its colour follows that, not the world level.",
     1396251553: "Ploymus Mountain: the Lynel Sidon sends you to for Shock Arrows. The game swaps in a second "
                 "actor once Vah Ruta's quest reaches the mountain; it is the same fight. Never changes colour.",
-    2284947922: "Hyrule Castle, First Gatehouse. Never changes colour.",
-    3515533418: "Hyrule Castle, Second Gatehouse. Never changes colour.",
+    2284947922: "Hyrule Castle, First Gatehouse. Its colour doesn't rise with the world level.",
+    3515533418: "Hyrule Castle, Second Gatehouse. Its colour doesn't rise with the world level.",
     1288562591: "Master Mode only: not on Normal Mode files.",
     73882430: "Hyrule Castle Lockup. Unlike other Stalnoxes it is there day and night; beating it opens the "
               "chest with the Hylian Shield.",
@@ -121,6 +140,13 @@ def inside(ring, x, z) -> bool:
 def tower_keys(polygons, x, z):
     return [key for key, geoms in polygons.items() for poly in geoms
             if inside(poly[0], x, z) and not any(inside(h, x, z) for h in poly[1:])]
+
+
+def master_mode_actor(name: str, params: dict) -> str:
+    """The actor a Master Mode file places instead of [name]: one tier up, unless exempt."""
+    if params.get("DisableRankUpForHardMode") or "UniqueName" in params:
+        return name
+    return MASTER_MODE_RANK_UP.get(name, name)
 
 
 def main() -> int:
@@ -203,6 +229,12 @@ def main() -> int:
             spawn["scalesWithWorldLevel"] = True
         if params.get("DisableRankUpForHardMode"):
             spawn["noMasterModeRankUp"] = True
+        ranked = master_mode_actor(o["name"], params)
+        if ranked != o["name"]:
+            mm_kind, mm_variant = ACTORS[ranked]
+            assert mm_kind == kind, (h, ranked)
+            spawn["masterModeVariant"] = mm_variant
+            spawn["masterModeDrops"] = compendium[mm_variant].get("drops", [])
         if h in GROUPS:
             spawn["otherHashIds"] = GROUPS[h]
         if h in NOTES:
@@ -223,6 +255,13 @@ def main() -> int:
         print(f"Unexpected counts: {dict(counts)}", file=sys.stderr)
         return 1
 
+    for s in spawns:
+        variants = next(k["variants"] for k in KINDS if k["id"] == s["kind"])
+        mm = s.get("masterModeVariant")
+        if mm is not None and mm not in variants:
+            print(f"{s['hashId']}: Master Mode variant {mm} isn't listed for {s['kind']}", file=sys.stderr)
+            return 1
+
     kinds = []
     for k in KINDS:
         base = sum(1 for s in spawns if s["kind"] == k["id"] and not s.get("dlc") and not s.get("masterModeOnly"))
@@ -236,6 +275,10 @@ def main() -> int:
     (FILES / "bosses.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
     for (kind, dlc, mm), n in sorted(counts.items()):
         print(f"{kind:8} {'DLC ' if dlc else ''}{'Master Mode ' if mm else ''}{n}")
+    for s in spawns:
+        if "masterModeVariant" in s:
+            print(f"  Master Mode: {s['hashId']:>10} {s['region']:13} {s['nearestPlace']:24} "
+                  f"{s['variant']} -> {s['masterModeVariant']}")
     return 0
 
 
