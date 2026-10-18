@@ -230,7 +230,30 @@ object Games {
         ),
     )
 
-    val OOA = comingSoon("ooa", "Oracle of Ages", ReleaseDate(2001, 2, 27, sameDay = 1), "Game Boy Color")
+    /**
+     * Released the same day as Seasons. Three save files (Zelda Wiki, Saving). Every tracker is a
+     * checklist; linked-game content is tagged "Linked", and the ring ids match Seasons'. The data is
+     * written up in docs/ooa.md.
+     */
+    val OOA = Game(
+        id = "ooa",
+        title = "Oracle of Ages",
+        released = ReleaseDate(2001, 2, 27, sameDay = 1),
+        platform = "Game Boy Color",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The eight dungeons and their Essences of Time, Veran, and the linked finale", dataFile = "ooa/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item and seed, the upgrades as tiers, and the Quest Items", dataFile = "ooa/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Harp of Ages", "The Harp and its three tunes: Echoes, Currents and Ages", dataFile = "ooa/harp_songs.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 12 Pieces of Heart and 9 Heart Containers, with your hearts", dataFile = "ooa/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rings", "All 64 rings and the Ring Box, with where to get each in Ages", dataFile = "ooa/rings.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gasha Spots", "The 16 soft-soil spots for Gasha Seeds, and the ring classes each one gives", dataFile = "ooa/gasha.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequence", "From the Poe Clock to the Noble Sword", dataFile = "ooa/trading.json"),
+            Tracker(TrackerKind.CHECKLIST, "Animal Companions", "Ricky, Dimitri and Moosh, the flute and the Nuun Highlands", dataFile = "ooa/animal_companions.json"),
+            Tracker(TrackerKind.CHECKLIST, "Linked Secrets", "The passwords that link to Seasons, and the 20 secrets to tell and take back", dataFile = "ooa/linked_secrets.json"),
+        ),
+    )
 
     /**
      * The GBA multiplayer game bundled with A Link to the Past (North America first). Counted as

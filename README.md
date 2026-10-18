@@ -11,8 +11,8 @@ iOS port is mostly a matter of adding the iOS targets.
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
-  Mask, Oracle of Seasons, The Minish Cap, Breath of the Wild, Tears of the Kingdom and Echoes of
-  Wisdom have trackers. The rest show as *Coming soon* until they get some.
+  Mask, Oracle of Seasons, Oracle of Ages, The Minish Cap, Breath of the Wild, Tears of the Kingdom
+  and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -533,6 +533,30 @@ and disagreements are in `docs/la.md`.
   with its reward and the return secret for Farore.
 - **Subrosia**: the Subrosian story, the Market, the ores and Smithy, and the Dance Hall, buried
   treasure and Sign-Loving Subrosian.
+
+**Oracle of Ages**
+- Nine checklists and a Progress Overview, all data (`files/ooa/`, see `docs/ooa.md`), for the Game
+  Boy Color original.
+- **Linked games** are listed, not hidden: Twinrova and Ganon, Biggoron's Sword, the linked Heart
+  Container, the Sea of Storms Gasha spot and linked-only rings are tagged *Linked*, and upgrade
+  steps only a linked game reaches say so (*Master Sword (Linked)*).
+- **Main Quest**: the eight dungeons with their bosses, items, Essences of Time and Heart
+  Containers, rescuing Nayru, then Veran in the Black Tower and the linked finale. A total of
+  Essences (of 8).
+- **Items & Equipment**: the items and the five Mystical Seeds, the upgrades as tiers (sword,
+  shield, Power Bracelet to Glove, Flippers to Mermaid Suit, Switch Hook to Long Hook, seed and
+  bomb capacity, with totals for seeds and bombs) and the Quest Items.
+- **Harp of Ages**: the Harp and the Tunes of Echoes, Currents and Ages.
+- **Heart Pieces**: all 12 Pieces of Heart and 9 Heart Containers (the 8 bosses and one from a
+  linked secret) by region, with a hearts total (3 to start, 15 at most).
+- **Rings**: the Ring Box's three levels and all 64 rings in ring-list order, with where to get each
+  in Ages. The ids are the same as in Oracle of Seasons' ring list. Rings only found in Seasons
+  are tagged *Not in Ages*.
+- **Gasha Spots** (16, tagged Past or Present, with the ring classes each gives), **Trading
+  Sequence** (the Poe Clock to the Noble Sword, each step needing the one before) and **Animal
+  Companions** (Ricky, Dimitri, Moosh, and which flute decides your partner).
+- **Linked Secrets**: the passwords, and the ten secrets to tell here and ten to take to Seasons,
+  each with its reward and the return secret for Farore.
 - Three save files, **File 1** to **File 3**, as in the game.
 
 **Echoes of Wisdom**
@@ -844,6 +868,10 @@ for each checklist and where they disagree.
 
 Oracle of Seasons data (`files/oos/`) was compiled by hand from Zelda Wiki, Zelda Dungeon,
 TourianTourist's GameFAQs ring guide and StrategyWiki; `docs/oos.md` lists the sources and where
+they disagree.
+
+Oracle of Ages data (`files/ooa/`) was compiled by hand from Zelda Wiki, Zelda Dungeon,
+TourianTourist's GameFAQs ring guide and StrategyWiki; `docs/ooa.md` lists the sources and where
 they disagree.
 
 Minish Cap main quest data (`files/mc/main_quest.json`: dungeons, items and Tiger Scrolls) comes
