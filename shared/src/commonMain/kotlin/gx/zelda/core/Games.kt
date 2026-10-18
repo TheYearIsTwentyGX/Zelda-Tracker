@@ -71,8 +71,24 @@ data class Tracker(val kind: TrackerKind, val title: String, val description: St
 }
 
 object Games {
-    /** Famicom Disk System in Japan, a year before the NES cartridge. */
-    val LOZ = comingSoon("loz", "The Legend of Zelda", ReleaseDate(1986, 2, 21), "NES")
+    /**
+     * Famicom Disk System in Japan, a year before the NES cartridge. Three save files; the Second
+     * Quest carries on in the same file, so every checklist has a section per quest. The data and
+     * its sources are in docs/loz.md.
+     */
+    val LOZ = Game(
+        id = "loz",
+        title = "The Legend of Zelda",
+        released = ReleaseDate(1986, 2, 21),
+        platform = "NES",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            lozChecklist("Dungeons", "Levels 1–9 of both quests: entrances, bosses, items and Triforce pieces", "dungeons"),
+            lozChecklist("Items & Equipment", "All 27 items in each quest, with where to find or buy them", "items"),
+            lozChecklist("Heart Containers", "All 13 in each quest, from bosses and secret caves, with your hearts", "heart_containers"),
+        ),
+    )
     val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
 
     /**
@@ -271,6 +287,9 @@ object Games {
     ).sortedBy { it.released }
 
     fun byId(id: String): Game = all.first { it.id == id }
+
+    private fun lozChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "loz/$file.json")
 
     private fun laChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "la/$file.json")
