@@ -10,9 +10,10 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- A Link to the Past, Link's Awakening, Ocarina of Time, Majora's Mask, The Minish Cap, Twilight
-  Princess, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get
-  some.
+- The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
+  Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Minish Cap, Twilight Princess, Breath
+  of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming
+  soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -374,6 +375,45 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   later checkpoints read "Later in the story", and search only matches their number.
 - Three save files, **File 1–3**, as on the cartridge.
 
+**The Legend of Zelda**
+
+Every LoZ tracker is a [checklist](docs/checklist-trackers.md), with a **First Quest** and a
+**Second Quest** tab: the Second Quest carries on in the same save file once the first is beaten.
+Sources and disagreements are in `docs/loz.md`.
+- **Progress Overview** (first): a row per tracker with its count, the hearts totals and the next
+  thing to do.
+- **Dungeons:** Levels 1–9 of each quest (the Eagle to Death Mountain in the First Quest): where the
+  entrance is and what opens it, the boss, the items inside and the Old Man's hint. Levels 1–8 give
+  a Triforce piece; Level 9 needs all eight.
+- **Items & Equipment:** all 27 items in each quest, from the Wooden Sword to the Red Ring, with
+  where to find each or what it costs, the two bomb upgrades, and where the Second Quest moves them.
+- **Heart Containers:** 13 per quest, 8 from bosses and 5 hidden on the overworld, with each quest's
+  hearts (3 to 16). The "Take any one you want" caves are marked missable: take the potion and the
+  container is gone.
+- Places are a landmark plus the screen, column A–P west to east and row 1–8 north to south (the
+  start is H8).
+- Three save files, **File 1** to **File 3**, as on the cartridge.
+
+**Zelda II: The Adventure of Link**
+
+Every Zelda II tracker is a [checklist](docs/checklist-trackers.md). Sources, names (the NES, wiki
+and guide names differ a lot) and disagreements are in `docs/aol.md`.
+- **Progress Overview** (first): a row per tracker with its count, the life and magic meters and
+  the next thing to do.
+- **Palaces:** the six palaces and the Great Palace, each done when its crystal is set (or the
+  Triforce taken), with how to reach it and its item, and the 8 bosses from Horsehead to Dark Link
+  with the XP each gives.
+- **Items:** the 14 things Link carries: the six palace treasures, the Hammer and the Magic Key, and
+  the quest items townsfolk want (Trophy, Bagu's note, Mirror, Water of Life, fountain water, the
+  Child), each with the spell it earns.
+- **Spells & Techniques:** the 8 spells, one per town, with what each wise man wants, the effect and
+  the MP cost; the Downward and Upward Thrusts.
+- **Heart & Magic Containers:** 4 of each, with the life and magic meters (4 to 8 bars).
+- **Levels & Link Dolls:** Attack, Magic and Life as rows with a tier per level up to 8, showing the
+  XP each costs, and the 6 Link Dolls. The two inside palaces are missable.
+- Regions are Western Hyrule, Death Mountain and Eastern Hyrule.
+- Three save files, **File 1** to **File 3**, as on the cartridge.
+
 **A Link to the Past**
 
 Every ALttP tracker is a [checklist](docs/checklist-trackers.md), built for the original SNES
@@ -471,6 +511,74 @@ and disagreements are in `docs/la.md`.
   run, and so on.
 - Two save files, **File 1** and **File 2**, as on the cartridge. An owl save is a temporary
   quit-save on one of them, not a file of its own.
+
+**Oracle of Seasons**
+- Ten checklists and a Progress Overview, all data (`files/oos/`, see `docs/oos.md`), for the Game
+  Boy Color original.
+- **Linked games** are listed, not hidden: Twinrova and Ganon, Biggoron's Sword, the linked Heart
+  Container and linked-only rings are tagged *Linked*, and upgrade steps only a linked game reaches
+  say so (*Master Sword (Linked)*).
+- **Main Quest**: the eight dungeons with their bosses, items, Essences of Nature and Heart
+  Containers, then General Onox, then the linked finale. A total of Essences (of 8).
+- **Items & Equipment**: the items and the five Mystical Seeds, the upgrades as tiers (sword,
+  shield, Roc's Feather to Cape, Boomerang, Slingshot, seed and bomb capacity) and the Quest Items.
+- **Rod of Seasons**: the Rod and the four seasons from the Temple of Seasons' towers.
+- **Heart Pieces**: all 12 Pieces of Heart and 9 Heart Containers (the 8 bosses and one from a
+  linked secret) by region, with a hearts total (3 to start, 15 at most).
+- **Rings**: the Ring Box's three levels and all 64 rings in ring-list order, with where to get each
+  in Seasons. The ids match Ages' ring list. Rings only found in Ages are tagged *Not in Seasons*.
+- **Gasha Spots** (16, with the ring classes each gives), **Trading Sequence** (the Cuccodex to the
+  Noble Sword, each step needing the one before) and **Animal Companions** (Ricky, Dimitri, Moosh,
+  and which flute decides your partner).
+- **Linked Secrets**: the passwords, and the ten secrets to tell here and ten to take to Ages, each
+  with its reward and the return secret for Farore.
+- **Subrosia**: the Subrosian story, the Market, the ores and Smithy, and the Dance Hall, buried
+  treasure and Sign-Loving Subrosian.
+
+**Oracle of Ages**
+- Nine checklists and a Progress Overview, all data (`files/ooa/`, see `docs/ooa.md`), for the Game
+  Boy Color original.
+- **Linked games** are listed, not hidden: Twinrova and Ganon, Biggoron's Sword, the linked Heart
+  Container, the Sea of Storms Gasha spot and linked-only rings are tagged *Linked*, and upgrade
+  steps only a linked game reaches say so (*Master Sword (Linked)*).
+- **Main Quest**: the eight dungeons with their bosses, items, Essences of Time and Heart
+  Containers, rescuing Nayru, then Veran in the Black Tower and the linked finale. A total of
+  Essences (of 8).
+- **Items & Equipment**: the items and the five Mystical Seeds, the upgrades as tiers (sword,
+  shield, Power Bracelet to Glove, Flippers to Mermaid Suit, Switch Hook to Long Hook, seed and
+  bomb capacity, with totals for seeds and bombs) and the Quest Items.
+- **Harp of Ages**: the Harp and the Tunes of Echoes, Currents and Ages.
+- **Heart Pieces**: all 12 Pieces of Heart and 9 Heart Containers (the 8 bosses and one from a
+  linked secret) by region, with a hearts total (3 to start, 15 at most).
+- **Rings**: the Ring Box's three levels and all 64 rings in ring-list order, with where to get each
+  in Ages. The ids are the same as in Oracle of Seasons' ring list. Rings only found in Seasons
+  are tagged *Not in Ages*.
+- **Gasha Spots** (16, tagged Past or Present, with the ring classes each gives), **Trading
+  Sequence** (the Poe Clock to the Noble Sword, each step needing the one before) and **Animal
+  Companions** (Ricky, Dimitri, Moosh, and which flute decides your partner).
+- **Linked Secrets**: the passwords, and the ten secrets to tell here and ten to take to Seasons,
+  each with its reward and the return secret for Farore.
+- Three save files, **File 1** to **File 3**, as in the game.
+
+**Four Swords**
+
+One [checklist](docs/checklist-trackers.md), **Stages & Keys**, after a Progress Overview, covering
+the GBA original and the Anniversary Edition (DSiWare, 2011). Sources and disagreements are in
+`docs/fs.md`.
+- **Silver, Golden and Hero's Keys:** a tab per key tier. Each has the key from the Great Fairies of
+  the Sea of Trees, Talus Cave and Death Mountain (1,000, 3,000 or 5,000 Rupees), then the Vaati's
+  Palace door those keys open. The optional Chambers of Insight come first. Keys (of 9) and palace
+  doors (of 3) are totalled.
+- **Anniversary Edition tabs:** the Realm of Memories' 9 levels (its A Link to the Past, Link's
+  Awakening and NES doors, for the Master Sword) and the Hero's Trial's 9 levels (opened with 5
+  medals or 30,000 Rupees, for the Hurricane Spin), each level after the one before.
+- **ALttP Link-ups** (GBA only): Sword Beams from ALttP's Master Sword, 10 Medals of Courage, the
+  Hurricane Spin from the Lumberjack's Riddles and the Palace of the Four Sword.
+- The version-only tabs are `separate`: counted on their own, left out of the total and the next
+  step.
+- Items and hearts last only for a stage, so they aren't tracked; medals are tracked as the two
+  thresholds that unlock something.
+- Three save files, **File 1–3**: A Link to the Past's on the GBA, or the Anniversary Edition's own.
 
 **Twilight Princess**
 
@@ -572,9 +680,12 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/botw/map/  ← map tile pyramid (tools/map-tiles/build_tiles.py)
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
+  src/commonMain/composeResources/files/loz/*.json  ← The Legend of Zelda checklists (docs/loz.md)
+  src/commonMain/composeResources/files/aol/*.json  ← Zelda II checklists (docs/aol.md)
   src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
+  src/commonMain/composeResources/files/fs/stages.json  ← Four Swords checklist (docs/fs.md)
   src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
@@ -809,6 +920,14 @@ Majora's Mask data (`files/mm/`) was compiled by hand from Zelda Wiki, Zelda Dun
 walkthrough), StrategyWiki's Majora's Mask guide and Zelda's Palace; `docs/mm.md` lists the sources
 for each checklist and where they disagree.
 
+Oracle of Seasons data (`files/oos/`) was compiled by hand from Zelda Wiki, Zelda Dungeon,
+TourianTourist's GameFAQs ring guide and StrategyWiki; `docs/oos.md` lists the sources and where
+they disagree.
+
+Oracle of Ages data (`files/ooa/`) was compiled by hand from Zelda Wiki, Zelda Dungeon,
+TourianTourist's GameFAQs ring guide and StrategyWiki; `docs/ooa.md` lists the sources and where
+they disagree.
+
 Minish Cap main quest data (`files/mc/main_quest.json`: dungeons, items and Tiger Scrolls) comes
 from Zelda Wiki, cross-checked against StrategyWiki, Zelda Universe and Zelda Dungeon; see
 `docs/mc-main-quest.md`.
@@ -903,12 +1022,26 @@ cross-checked against Flying Omelette, Zelda Universe, Zelda's Palace, Jegged an
 zeldaret/oot decompilation settles disagreements (fishing weights, Dampé, Big Poe spawns) and the
 save-slot count. Sources and every disagreement are in `docs/oot.md`.
 
+Four Swords data (`files/fs/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and StrategyWiki, with the Anniversary Edition's text dump on GameFAQs settling exact
+names and speedrun.com's 100% rules deciding what's tracked. `docs/fs.md` covers each tracker, the
+save files and every disagreement between sources.
+
 Minish Cap figurine data (`files/mc/figurines.json`) comes from Zelda Wiki's *Figurines in The
 Minish Cap* (names, North American descriptions, who's pictured) and the zeldaret/tmc decompilation
 (each figurine's egg colour and the story flag or Kinstone fusion that unlocks it, plus the odds
 formula). It is cross-checked against Zelda Wiki's Figurine Gallery table, StrategyWiki and
 Zeldapedia. `scripts/build-mc-figurines.py` rebuilds it, and `docs/mc-figurines.md` covers the
 checkpoints, the odds and where the sources disagree.
+
+The Legend of Zelda data (`files/loz/`) comes from Zelda Wiki, Zelda Dungeon (through the Wayback
+Machine) and StrategyWiki, cross-checked against each other. `docs/loz.md` covers the save files and
+the two quests, the screen grid, what isn't tracked and why, and every disagreement between sources.
+
+Zelda II data (`files/aol/`) comes from Zelda Wiki, Zelda Dungeon (its old guide and current wiki,
+through the Wayback Machine) and StrategyWiki, with TASVideos' 100% definition as a tie-breaker.
+`docs/aol.md` covers the save files and replays, what's tracked and why, the name map between
+sources and every disagreement.
 
 Twilight Princess data (`files/tp/`) comes from Zelda Wiki, Zelda Dungeon (its HD Normal Mode
 walkthrough and wiki, via Wayback Machine snapshots where needed) and StrategyWiki, with Zelda's

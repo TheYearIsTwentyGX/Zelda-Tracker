@@ -71,9 +71,50 @@ data class Tracker(val kind: TrackerKind, val title: String, val description: St
 }
 
 object Games {
-    /** Famicom Disk System in Japan, a year before the NES cartridge. */
-    val LOZ = comingSoon("loz", "The Legend of Zelda", ReleaseDate(1986, 2, 21), "NES")
-    val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
+    /**
+     * Famicom Disk System in Japan, a year before the NES cartridge. Three save files; the Second
+     * Quest carries on in the same file, so every checklist has a section per quest. The data and
+     * its sources are in docs/loz.md.
+     */
+    val LOZ = Game(
+        id = "loz",
+        title = "The Legend of Zelda",
+        released = ReleaseDate(1986, 2, 21),
+        platform = "NES",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            lozChecklist("Dungeons", "Levels 1–9 of both quests: entrances, bosses, items and Triforce pieces", "dungeons"),
+            lozChecklist("Items & Equipment", "All 27 items in each quest, with where to find or buy them", "items"),
+            lozChecklist("Heart Containers", "All 13 in each quest, from bosses and secret caves, with your hearts", "heart_containers"),
+        ),
+    )
+
+    /**
+     * Three save files. Replaying a beaten file keeps the levels and spells but not the items or
+     * containers; that isn't tracked separately. The data and its sources are in docs/aol.md.
+     */
+    val AOL = Game(
+        id = "aol",
+        title = "Zelda II: The Adventure of Link",
+        released = ReleaseDate(1987, 1, 14),
+        platform = "NES",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            aolChecklist("Palaces", "The six palaces and the Great Palace: crystals, items and all 8 bosses", "palaces"),
+            aolChecklist("Items", "The 14 items: palace treasures, the Hammer and Magic Key, and the townsfolk's quest items", "items"),
+            aolChecklist("Spells & Techniques", "The 8 spells and the towns that teach them, and the 2 sword thrusts", "spells"),
+            aolChecklist("Heart & Magic Containers", "All 4 of each, with your life and magic meters", "containers"),
+            aolChecklist("Levels & Link Dolls", "Attack, Magic and Life to level 8, and the 6 Link Dolls", "levels"),
+        ),
+    )
+
+    /**
+     * Three files on the SNES cartridge (StrategyWiki: "top, middle, or bottom"). Tracked as the
+     * original SNES release; GBA differences are in item notes. Every tracker is a checklist; the data
+     * and its sources are in docs/alttp.md.
+     */
 
     /**
      * Three files on the SNES cartridge (StrategyWiki: "top, middle, or bottom"). Tracked as the
@@ -163,16 +204,82 @@ object Games {
         ),
     )
 
-    /** Released together in Japan; Seasons is the one usually played first. */
-    val OOS = comingSoon("oos", "Oracle of Seasons", ReleaseDate(2001, 2, 27, sameDay = 0), "Game Boy Color")
-    val OOA = comingSoon("ooa", "Oracle of Ages", ReleaseDate(2001, 2, 27, sameDay = 1), "Game Boy Color")
+    /**
+     * Released together with Ages in Japan; Seasons is the one usually played first. Three save files
+     * (Zelda Wiki, Saving). Every tracker is a checklist; linked-game content is tagged "Linked". The
+     * data is written up in docs/oos.md.
+     */
+    val OOS = Game(
+        id = "oos",
+        title = "Oracle of Seasons",
+        released = ReleaseDate(2001, 2, 27, sameDay = 0),
+        platform = "Game Boy Color",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The eight dungeons and their Essences of Nature, Onox, and the linked finale", dataFile = "oos/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item and seed, the upgrades as tiers, and the Quest Items", dataFile = "oos/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rod of Seasons", "The Rod and the four seasons from the Temple of Seasons' towers", dataFile = "oos/seasons.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 12 Pieces of Heart and 9 Heart Containers, with your hearts", dataFile = "oos/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rings", "All 64 rings and the Ring Box, with where to get each in Seasons", dataFile = "oos/rings.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gasha Spots", "The 16 soft-soil spots for Gasha Seeds, and the ring classes each one gives", dataFile = "oos/gasha.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequence", "From the Cuccodex to the Noble Sword", dataFile = "oos/trading.json"),
+            Tracker(TrackerKind.CHECKLIST, "Animal Companions", "Ricky, Dimitri and Moosh, the flute and Natzu", dataFile = "oos/animal_companions.json"),
+            Tracker(TrackerKind.CHECKLIST, "Linked Secrets", "The passwords that link to Ages, and the 20 secrets to tell and take back", dataFile = "oos/linked_secrets.json"),
+            Tracker(TrackerKind.CHECKLIST, "Subrosia", "The Subrosian story, the Market, ores and the Smithy, and pastimes", dataFile = "oos/subrosia.json"),
+        ),
+    )
+
+    /**
+     * Released the same day as Seasons. Three save files (Zelda Wiki, Saving). Every tracker is a
+     * checklist; linked-game content is tagged "Linked", and the ring ids match Seasons'. The data is
+     * written up in docs/ooa.md.
+     */
+    val OOA = Game(
+        id = "ooa",
+        title = "Oracle of Ages",
+        released = ReleaseDate(2001, 2, 27, sameDay = 1),
+        platform = "Game Boy Color",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The eight dungeons and their Essences of Time, Veran, and the linked finale", dataFile = "ooa/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item and seed, the upgrades as tiers, and the Quest Items", dataFile = "ooa/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Harp of Ages", "The Harp and its three tunes: Echoes, Currents and Ages", dataFile = "ooa/harp_songs.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 12 Pieces of Heart and 9 Heart Containers, with your hearts", dataFile = "ooa/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rings", "All 64 rings and the Ring Box, with where to get each in Ages", dataFile = "ooa/rings.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gasha Spots", "The 16 soft-soil spots for Gasha Seeds, and the ring classes each one gives", dataFile = "ooa/gasha.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequence", "From the Poe Clock to the Noble Sword", dataFile = "ooa/trading.json"),
+            Tracker(TrackerKind.CHECKLIST, "Animal Companions", "Ricky, Dimitri and Moosh, the flute and the Nuun Highlands", dataFile = "ooa/animal_companions.json"),
+            Tracker(TrackerKind.CHECKLIST, "Linked Secrets", "The passwords that link to Seasons, and the 20 secrets to tell and take back", dataFile = "ooa/linked_secrets.json"),
+        ),
+    )
 
     /**
      * The GBA multiplayer game bundled with A Link to the Past (North America first). Counted as
      * mainline: its own story (Vaati's first appearance) placed in Nintendo's official timeline,
      * and later sold on its own as the Anniversary Edition.
+     *
+     * Three files: on the GBA they're A Link to the Past's, which hold both games' progress; the
+     * Anniversary Edition (DSiWare, 2011) has three of its own. Its one checklist has the Anniversary
+     * Edition's and the GBA's own content as separate sections; the data and its sources are in docs/fs.md.
      */
-    val FS = comingSoon("fs", "Four Swords", ReleaseDate(2002, 12, 2), "Game Boy Advance")
+    val FS = Game(
+        id = "fs",
+        title = "Four Swords",
+        released = ReleaseDate(2002, 12, 2),
+        platform = "Game Boy Advance",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Stages & Keys",
+                "The 9 Great Fairy keys and Vaati's Palace's 3 doors, the Anniversary Edition's 18 levels and the GBA's ALttP link-ups",
+                dataFile = "fs/stages.json",
+            ),
+        ),
+    )
     val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
     val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
     /**
@@ -293,6 +400,12 @@ object Games {
     ).sortedBy { it.released }
 
     fun byId(id: String): Game = all.first { it.id == id }
+
+    private fun lozChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "loz/$file.json")
+
+    private fun aolChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "aol/$file.json")
 
     private fun laChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "la/$file.json")
