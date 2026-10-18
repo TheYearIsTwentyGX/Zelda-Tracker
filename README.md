@@ -10,8 +10,8 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- The Legend of Zelda, Breath of the Wild, Tears of the Kingdom, The Minish Cap and Echoes of
-  Wisdom have trackers. The rest show as *Coming soon* until they get some.
+- The Legend of Zelda, Ocarina of Time, Majora's Mask, The Minish Cap, Breath of the Wild, Tears of
+  the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -31,25 +31,6 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
-
-**The Legend of Zelda**
-
-Every LoZ tracker is a [checklist](docs/checklist-trackers.md), with a **First Quest** and a
-**Second Quest** tab: the Second Quest carries on in the same save file once the first is beaten.
-Sources and disagreements are in `docs/loz.md`.
-- **Progress Overview** (first): a row per tracker with its count, the hearts totals and the next
-  thing to do.
-- **Dungeons:** Levels 1–9 of each quest (the Eagle to Death Mountain in the First Quest): where the
-  entrance is and what opens it, the boss, the items inside and the Old Man's hint. Levels 1–8 give
-  a Triforce piece; Level 9 needs all eight.
-- **Items & Equipment:** all 27 items in each quest, from the Wooden Sword to the Red Ring, with
-  where to find each or what it costs, the two bomb upgrades, and where the Second Quest moves them.
-- **Heart Containers:** 13 per quest, 8 from bosses and 5 hidden on the overworld, with each quest's
-  hearts (3 to 16). The "Take any one you want" caves are marked missable: take the potion and the
-  container is gone.
-- Places are a landmark plus the screen, column A–P west to east and row 1–8 north to south (the
-  start is H8).
-- Three save files, **File 1** to **File 3**, as on the cartridge.
 
 **Breath of the Wild: Progress Overview**
 - The first card under BotW: every tracker's progress on the active save file on one screen, each
@@ -392,6 +373,80 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   later checkpoints read "Later in the story", and search only matches their number.
 - Three save files, **File 1–3**, as on the cartridge.
 
+**The Legend of Zelda**
+
+Every LoZ tracker is a [checklist](docs/checklist-trackers.md), with a **First Quest** and a
+**Second Quest** tab: the Second Quest carries on in the same save file once the first is beaten.
+Sources and disagreements are in `docs/loz.md`.
+- **Progress Overview** (first): a row per tracker with its count, the hearts totals and the next
+  thing to do.
+- **Dungeons:** Levels 1–9 of each quest (the Eagle to Death Mountain in the First Quest): where the
+  entrance is and what opens it, the boss, the items inside and the Old Man's hint. Levels 1–8 give
+  a Triforce piece; Level 9 needs all eight.
+- **Items & Equipment:** all 27 items in each quest, from the Wooden Sword to the Red Ring, with
+  where to find each or what it costs, the two bomb upgrades, and where the Second Quest moves them.
+- **Heart Containers:** 13 per quest, 8 from bosses and 5 hidden on the overworld, with each quest's
+  hearts (3 to 16). The "Take any one you want" caves are marked missable: take the potion and the
+  container is gone.
+- Places are a landmark plus the screen, column A–P west to east and row 1–8 north to south (the
+  start is H8).
+- Three save files, **File 1** to **File 3**, as on the cartridge.
+
+**Ocarina of Time**
+- Built from checklists (`files/oot/*.json`): nine trackers plus a Progress Overview, which lists
+  first and gives each one a row with its count, totals and a next step. Data is for the original
+  N64 release; where the 3DS version or Master Quest differ, the item's notes say so. Sources and
+  disagreements are in `docs/oot.md`.
+- **Main Quest**: Childhood (Deku Tree to the Master Sword) and Seven Years Later (the Chamber of
+  Sages to Ganon), dungeons and mini-dungeons in the order you'd play them, each with its boss,
+  dungeon item and Sage. Totals for the 3 Spiritual Stones and 6 Medallions.
+- **Items & Equipment**: the 18 inventory items (the Ocarina and Hookshot with their upgrades as
+  tiers), 11 swords, shields, tunics and boots, the capacity and strength upgrades, and the Stone
+  of Agony and Gerudo's Card. Upgrades that come in either order are named by capacity, with both
+  sources given. The Mask of Truth's Deku Nut upgrade is marked missable (the N64 Poacher's Saw
+  bug).
+- **Heart Pieces**: all 36 Pieces of Heart by area and the 8 bosses' Heart Containers, with a hearts
+  total (3 + pieces ÷ 4 + containers, of 20).
+- **Gold Skulltulas**: all 100 by area (56 overworld, 44 in dungeons). Tags give the age, *Night*
+  for the night-only ones and the items needed. The House of Skulltula's six rewards (10 to 100
+  tokens) are their own tab.
+- **Songs**: the 12 songs, the six warp songs on their own tab, with where each is taught and its
+  notes on the N64's buttons.
+- **Great Fairies** (6), **Bottles** (4) and **Big Poes** (10, for the Poe Collector's bottle).
+- **Trading Sequences**: the mask quest from the Weird Egg to the Mask of Truth, and the adult trade
+  from the Pocket Egg to Biggoron's Sword, each step needing the one before. Timed steps are noted.
+- Every tracker has spoiler hiding, search, a *Not done* filter and an item page (see
+  `docs/checklist-trackers.md`). Tracks **File 1**, **File 2** and **File 3**, the cartridge's three
+  save slots.
+
+**Majora's Mask**
+- Nine checklists and a Progress Overview, all data (`files/mm/`, see `docs/mm.md`), for the
+  original Nintendo 64 release. Where Majora's Mask 3D differs (a moved Piece of Heart and Bottle,
+  the swapped Woodfall and Snowhead Great Fairies, Shiro's new spot, the bigger notebook), the
+  item's notes say so.
+- **Main Quest**: the first cycle on the Clock Tower, the four temples with their bosses, Remains
+  and the Giant each frees, and Majora.
+- **Masks**: all 24, the four transformation masks and the 20 the Moon Children ask for. The
+  Fierce Deity's Mask lists all 20 as what it needs.
+- **Heart Pieces**: all 52 Pieces of Heart and the 4 Heart Containers by region, with a hearts
+  total (3 to start, 20 at most).
+- **Bombers' Notebook**: the notebook's 20 people in its order, each with their events by day and
+  hour and what they give you. Tick a person once their Happiness Seal is earned.
+- **Stray Fairies**: the Clock Town fairy, the 15 in each temple and the five Great Fairies'
+  rewards, each of which lists its temple's 15 as what it needs.
+- **Spider Houses**: the 30 Gold Skulltulas in each of the Swamp and Oceanside Spider Houses, and
+  their rewards (the Mask of Truth; the Giant's Wallet on Day 1).
+- **Songs**, **Items & Equipment** (items, the upgrades as tiers: swords, wallets, quivers, bomb
+  bags, magic; and the six Bottles) and **Owls, Maps & Bank** (the 10 Owl Statues, Tingle's six
+  maps and the bank's three rewards).
+- **The three-day cycle.** The trackers record what you keep through the Song of Time: masks,
+  hearts, songs, items, Remains and the rewards for finished side quests. Each item says when it
+  happens (day, night and hour) and is tagged *One cycle* when every step has to be done between
+  one Dawn of the First Day and the next: Stray Fairies, Gold Skulltulas, Anju and Kafei, the milk
+  run, and so on.
+- Two save files, **File 1** and **File 2**, as on the cartridge. An owl save is a temporary
+  quit-save on one of them, not a file of its own.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -462,6 +517,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
   src/commonMain/composeResources/files/loz/*.json  ← The Legend of Zelda checklists (docs/loz.md)
+  src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -691,6 +747,10 @@ memory list and Pikango's hints from its Memory and Captured Memories pages, and
 each Divine Beast quest page. Tower climbing tips are cross-checked against Zelda Fandom, Zelda
 Dungeon, GameWith and RankedBoost, and memory directions against RPG Site and Nintendo Insider.
 
+Majora's Mask data (`files/mm/`) was compiled by hand from Zelda Wiki, Zelda Dungeon (its wiki and
+walkthrough), StrategyWiki's Majora's Mask guide and Zelda's Palace; `docs/mm.md` lists the sources
+for each checklist and where they disagree.
+
 Minish Cap main quest data (`files/mc/main_quest.json`: dungeons, items and Tiger Scrolls) comes
 from Zelda Wiki, cross-checked against StrategyWiki, Zelda Universe and Zelda Dungeon; see
 `docs/mc-main-quest.md`.
@@ -769,6 +829,11 @@ The map's shrine and tower markers are objmap's vector tracings of the game's ma
 The Korok marker is the Korok Seed's inventory icon from Zelda Wiki. `docs/map-icons.md` lists the
 source of each icon and has licence notes: objmap's repository is GPL-3.0, so the icons have the same
 personal-build caveat as the map art.
+
+Ocarina of Time data (`files/oot/*.json`) comes from Zelda Wiki, StrategyWiki and Zelda Dungeon,
+cross-checked against Flying Omelette, Zelda Universe, Zelda's Palace, Jegged and GameWith. The
+zeldaret/oot decompilation settles disagreements (fishing weights, Dampé, Big Poe spawns) and the
+save-slot count. Sources and every disagreement are in `docs/oot.md`.
 
 Minish Cap figurine data (`files/mc/figurines.json`) comes from Zelda Wiki's *Figurines in The
 Minish Cap* (names, North American descriptions, who's pictured) and the zeldaret/tmc decompilation

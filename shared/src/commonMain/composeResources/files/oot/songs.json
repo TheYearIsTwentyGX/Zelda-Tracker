@@ -1,0 +1,118 @@
+{
+  "noun": "song",
+  "hiddenLabel": "Unlearned song",
+  "sections": [
+    {
+      "id": "songs",
+      "title": "Songs",
+      "note": "Notes are the N64's A and C buttons (▲ ▼ ◀ ▶); other versions map them to their own buttons.",
+      "items": [
+        {
+          "id": "zeldas_lullaby",
+          "name": "Zelda's Lullaby",
+          "area": "Hyrule Castle",
+          "howTo": "Impa teaches it as she escorts young Link out of the castle courtyard after he meets Zelda.",
+          "notes": "◀ ▲ ▶ ◀ ▲ ▶. Played on Triforce symbols, and to prove you're the Royal Family's messenger.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "sarias_song",
+          "name": "Saria's Song",
+          "area": "Sacred Forest Meadow",
+          "howTo": "Saria teaches it to young Link at the end of the meadow's maze, once he's met Zelda.",
+          "notes": "▼ ▶ ◀ ▼ ▶ ◀. Talks to Saria from anywhere, and cheers up Darunia and the Lost Woods Skull Kid.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "eponas_song",
+          "name": "Epona's Song",
+          "area": "Lon Lon Ranch",
+          "howTo": "Talk to Malon in the corral as young Link with the Ocarina out, by day.",
+          "notes": "▲ ◀ ▶ ▲ ◀ ▶. Calls Epona as adult Link, and gets milk from cows.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "suns_song",
+          "name": "Sun's Song",
+          "area": "Kakariko Graveyard",
+          "howTo": "Play Zelda's Lullaby on the Triforce on the Royal Family's Tomb at the back of the graveyard, then read the inscription at the end of the tomb.",
+          "requires": ["zeldas_lullaby"],
+          "notes": "▶ ▼ ▲ ▶ ▼ ▲. Switches between day and night, and freezes ReDeads.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "song_of_time",
+          "name": "Song of Time",
+          "area": "Hyrule Field",
+          "howTo": "Dive for the Ocarina of Time in the moat by the castle town drawbridge after Zelda flees; she teaches it in a vision.",
+          "notes": "▶ A ▼ ▶ A ▼. Opens the Door of Time and moves blue Song of Time blocks.",
+          "tags": ["Child"]
+        },
+        {
+          "id": "song_of_storms",
+          "name": "Song of Storms",
+          "area": "Kakariko Village",
+          "howTo": "As adult Link, talk to the man with the music box in the windmill, then play it back to him.",
+          "notes": "A ▼ ▲ A ▼ ▲. Young Link plays it in the windmill to drain the well, and it opens some grottos.",
+          "tags": ["Adult"]
+        }
+      ]
+    },
+    {
+      "id": "warp_songs",
+      "title": "Warp Songs",
+      "noun": "warp song",
+      "note": "Sheik teaches all six. The Scarecrow's Song you write yourself, so it isn't tracked.",
+      "items": [
+        {
+          "id": "minuet_of_forest",
+          "name": "Minuet of Forest",
+          "area": "Sacred Forest Meadow",
+          "howTo": "Sheik teaches it at the top of the meadow, by the Forest Temple, the first time adult Link goes there.",
+          "notes": "A ▲ ◀ ▶ ◀ ▶. Warps to Sacred Forest Meadow.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "bolero_of_fire",
+          "name": "Bolero of Fire",
+          "area": "Death Mountain Crater",
+          "howTo": "Sheik teaches it as adult Link enters the crater from the top of Death Mountain Trail.",
+          "notes": "▼ A ▼ A ▶ ▼ ▶ ▼. Warps to Death Mountain Crater.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "prelude_of_light",
+          "name": "Prelude of Light",
+          "area": "Temple of Time",
+          "howTo": "Sheik teaches it when adult Link enters the Temple of Time after the Forest Temple.",
+          "notes": "▲ ▶ ▲ ▶ ◀ ▲. Warps to the Temple of Time.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "serenade_of_water",
+          "name": "Serenade of Water",
+          "area": "Ice Cavern",
+          "howTo": "Sheik teaches it at the end of the Ice Cavern, where you find the Iron Boots.",
+          "notes": "A ▼ ▶ ▶ ◀. Warps to Lake Hylia.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "nocturne_of_shadow",
+          "name": "Nocturne of Shadow",
+          "area": "Kakariko Village",
+          "howTo": "Sheik teaches it in burning Kakariko Village when adult Link returns there with the Forest, Fire and Water Medallions.",
+          "notes": "◀ ▶ ▶ A ◀ ▶ ▼. Warps to the Shadow Temple's entrance in the graveyard.",
+          "tags": ["Adult"]
+        },
+        {
+          "id": "requiem_of_spirit",
+          "name": "Requiem of Spirit",
+          "area": "Desert Colossus",
+          "howTo": "Sheik teaches it when adult Link first reaches the Desert Colossus across the Haunted Wasteland.",
+          "notes": "A ▼ A ▶ ▼ A. Warps to the Desert Colossus, which is how young Link gets there for his half of the Spirit Temple.",
+          "tags": ["Adult"]
+        }
+      ]
+    }
+  ]
+}

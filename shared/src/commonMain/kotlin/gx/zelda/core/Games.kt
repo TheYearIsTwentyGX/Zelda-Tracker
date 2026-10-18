@@ -92,10 +92,51 @@ object Games {
     val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
     val ALTTP = comingSoon("alttp", "A Link to the Past", ReleaseDate(1991, 11, 21), "SNES")
     val LA = comingSoon("la", "Link's Awakening", ReleaseDate(1993, 6, 6), "Game Boy")
-    val OOT = comingSoon("oot", "Ocarina of Time", ReleaseDate(1998, 11, 21), "Nintendo 64")
 
-    /** Two files on the Nintendo 64. */
-    val MM = comingSoon("mm", "Majora's Mask", ReleaseDate(2000, 4, 27), "Nintendo 64", files = 2)
+    /** Three files on the Nintendo 64 cartridge (each with a backup copy), as on the 3DS. */
+    val OOT = Game(
+        id = "oot",
+        title = "Ocarina of Time",
+        released = ReleaseDate(1998, 11, 21),
+        platform = "Nintendo 64",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "Dungeons in order, the Spiritual Stones and the Medallions", dataFile = "oot/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item, sword, shield, tunic and boots, and each upgrade", dataFile = "oot/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 36 Pieces of Heart and 8 Heart Containers, with your hearts", dataFile = "oot/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gold Skulltulas", "All 100 by area, with age, time and items needed, and the rewards", dataFile = "oot/gold_skulltulas.json"),
+            Tracker(TrackerKind.CHECKLIST, "Songs", "All 12 songs: where to learn each one and its notes", dataFile = "oot/songs.json"),
+            Tracker(TrackerKind.CHECKLIST, "Great Fairies", "The six fountains: spells, magic and defense", dataFile = "oot/great_fairies.json"),
+            Tracker(TrackerKind.CHECKLIST, "Bottles", "All four bottles and how to win them", dataFile = "oot/bottles.json"),
+            Tracker(TrackerKind.CHECKLIST, "Big Poes", "All 10 in Hyrule Field, for the Poe Collector's bottle", dataFile = "oot/big_poes.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequences", "The mask quest and the trade for Biggoron's Sword", dataFile = "oot/trading.json"),
+        ),
+    )
+
+    /**
+     * Two files on the Nintendo 64. An owl save is a temporary quit-save on one of them, not a third
+     * file. Every tracker is a checklist (docs/checklist-trackers.md); the data is written up in docs/mm.md.
+     */
+    val MM = Game(
+        id = "mm",
+        title = "Majora's Mask",
+        released = ReleaseDate(2000, 4, 27),
+        platform = "Nintendo 64",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The four temples, their bosses and Remains, and Majora", dataFile = "mm/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Masks", "All 24 masks, with how and when to get each", dataFile = "mm/masks.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 52 Pieces of Heart and 4 Heart Containers, with your hearts total", dataFile = "mm/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Bombers' Notebook", "The notebook's 20 people: their schedules and rewards", dataFile = "mm/bombers_notebook.json"),
+            Tracker(TrackerKind.CHECKLIST, "Stray Fairies", "Clock Town's fairy, the 15 in each temple and the Great Fairies' rewards", dataFile = "mm/stray_fairies.json"),
+            Tracker(TrackerKind.CHECKLIST, "Spider Houses", "The 30 Gold Skulltulas in each of the Swamp and Oceanside Spider Houses", dataFile = "mm/spider_houses.json"),
+            Tracker(TrackerKind.CHECKLIST, "Songs", "Every song and where it's learned", dataFile = "mm/songs.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Items, swords, wallets, quivers, bomb bags, magic and the six Bottles", dataFile = "mm/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Owls, Maps & Bank", "Owl Statues, Tingle's maps and the bank's rewards", dataFile = "mm/world.json"),
+        ),
+    )
 
     /** Released together in Japan; Seasons is the one usually played first. */
     val OOS = comingSoon("oos", "Oracle of Seasons", ReleaseDate(2001, 2, 27, sameDay = 0), "Game Boy Color")

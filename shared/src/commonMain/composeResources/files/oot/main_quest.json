@@ -1,0 +1,206 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {"label": "Spiritual Stones", "formula": "childhood.value"},
+    {"label": "Medallions", "formula": "adulthood.value"}
+  ],
+  "sections": [
+    {
+      "id": "childhood",
+      "title": "Childhood",
+      "note": "The three Spiritual Stones open the Door of Time.",
+      "items": [
+        {
+          "id": "deku_tree",
+          "name": "Inside the Deku Tree",
+          "area": "Kokiri Forest",
+          "howTo": "Get the Kokiri Sword from the Hole of \"L\" in the Forest Training Center and buy a Deku Shield at the Kokiri Shop, so Mido lets you past to the Great Deku Tree.",
+          "reward": "Kokiri's Emerald, Heart Container",
+          "notes": "Boss: Queen Gohma. Dungeon item: Fairy Slingshot. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "meet_zelda",
+          "name": "Meet Princess Zelda",
+          "area": "Hyrule Castle",
+          "howTo": "Wake Talon with the Cucco from Malon's Weird Egg, push the crates into the moat to climb into the castle, then sneak past the guards to the courtyard.",
+          "reward": "Zelda's Letter, Zelda's Lullaby",
+          "value": 0,
+          "notes": "Impa teaches Zelda's Lullaby as she escorts you out.",
+          "tags": ["Story"]
+        },
+        {
+          "id": "dodongos_cavern",
+          "name": "Dodongo's Cavern",
+          "area": "Death Mountain Trail",
+          "howTo": "Show Zelda's Letter to the Kakariko guard to open the trail, play Saria's Song to Darunia for the Goron's Bracelet, then blow open the cavern with a Bomb Flower.",
+          "requires": ["meet_zelda"],
+          "reward": "Goron's Ruby, Heart Container",
+          "notes": "Boss: King Dodongo. Dungeon item: Bomb Bag. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "jabu_jabu",
+          "name": "Inside Jabu-Jabu's Belly",
+          "area": "Zora's Fountain",
+          "howTo": "Get Ruto's Letter from the bottle in Lake Hylia, show it to King Zora, and give Lord Jabu-Jabu a fish in a bottle.",
+          "reward": "Zora's Sapphire, Heart Container",
+          "notes": "Boss: Barinade. Dungeon item: Boomerang. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "ocarina_of_time",
+          "name": "The Ocarina of Time",
+          "area": "Hyrule Field",
+          "howTo": "With all three Spiritual Stones, head to Hyrule Castle Town: Zelda flees with Impa and throws the Ocarina of Time into the castle moat.",
+          "requires": ["deku_tree", "dodongos_cavern", "jabu_jabu"],
+          "reward": "Ocarina of Time, Song of Time",
+          "value": 0,
+          "tags": ["Story"]
+        },
+        {
+          "id": "master_sword",
+          "name": "The Master Sword",
+          "area": "Temple of Time",
+          "howTo": "Place the three Spiritual Stones on the altar and play the Song of Time to open the Door of Time, then draw the Master Sword.",
+          "requires": ["ocarina_of_time"],
+          "reward": "Master Sword",
+          "value": 0,
+          "notes": "Ganondorf follows you in and Link sleeps for seven years. Return the sword to the pedestal to become a child again.",
+          "tags": ["Story"]
+        }
+      ]
+    },
+    {
+      "id": "adulthood",
+      "title": "Seven Years Later",
+      "note": "The six Medallions awaken the Sages.",
+      "items": [
+        {
+          "id": "light_medallion",
+          "name": "Chamber of Sages",
+          "area": "Temple of Time",
+          "howTo": "Rauru gives it the first time you draw the Master Sword.",
+          "requires": ["master_sword"],
+          "reward": "Light Medallion",
+          "tags": ["Story"]
+        },
+        {
+          "id": "forest_temple",
+          "name": "Forest Temple",
+          "area": "Sacred Forest Meadow",
+          "howTo": "Hookshot (from Dampé's race in Kakariko Graveyard) up to the entrance in Sacred Forest Meadow.",
+          "requires": ["light_medallion"],
+          "reward": "Forest Medallion, Heart Container",
+          "notes": "Boss: Phantom Ganon. Dungeon item: Fairy Bow. Sage: Saria. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "fire_temple",
+          "name": "Fire Temple",
+          "area": "Death Mountain Crater",
+          "howTo": "Wear the Goron Tunic (from Darunia's son or the Goron Shop) and enter Death Mountain Crater through Darunia's room in Goron City. Sheik teaches the Bolero of Fire at the crater's top entrance.",
+          "requires": ["light_medallion"],
+          "reward": "Fire Medallion, Heart Container",
+          "notes": "Boss: Volvagia. Dungeon item: Megaton Hammer. Sage: Darunia. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "ice_cavern",
+          "name": "Ice Cavern",
+          "area": "Zora's Fountain",
+          "howTo": "Walk across the ice floes of the frozen Zora's Fountain to the cave in the far corner.",
+          "requires": ["light_medallion"],
+          "reward": "Iron Boots, Serenade of Water",
+          "value": 0,
+          "notes": "Mini-dungeon, no boss. Fill a bottle with Blue Fire here to thaw King Zora for the Zora Tunic.",
+          "tags": ["Mini-dungeon"]
+        },
+        {
+          "id": "water_temple",
+          "name": "Water Temple",
+          "area": "Lake Hylia",
+          "howTo": "Wear the Zora Tunic and the Iron Boots and sink to the entrance at the bottom of Lake Hylia.",
+          "requires": ["ice_cavern"],
+          "reward": "Water Medallion, Heart Container",
+          "notes": "Boss: Morpha. Dungeon item: Longshot. Sage: Ruto. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "bottom_of_the_well",
+          "name": "Bottom of the Well",
+          "area": "Kakariko Village",
+          "howTo": "As young Link, play the Song of Storms in the windmill to drain the well, then climb down into it.",
+          "requires": ["light_medallion"],
+          "reward": "Lens of Truth",
+          "value": 0,
+          "notes": "Mini-dungeon; young Link only. Dead Hand guards the Lens of Truth, which the Shadow Temple needs.",
+          "tags": ["Mini-dungeon"]
+        },
+        {
+          "id": "shadow_temple",
+          "name": "Shadow Temple",
+          "area": "Kakariko Graveyard",
+          "howTo": "Warp in with the Nocturne of Shadow, then light the torches at the entrance with Din's Fire.",
+          "requires": ["bottom_of_the_well"],
+          "reward": "Shadow Medallion, Heart Container",
+          "notes": "Boss: Bongo Bongo. Dungeon item: Hover Boots. Sage: Impa. Sheik teaches the Nocturne of Shadow in Kakariko once you have the Forest, Fire and Water Medallions. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "gerudo_fortress",
+          "name": "Rescue the carpenters",
+          "area": "Gerudo's Fortress",
+          "howTo": "Cross Gerudo Valley (Epona or the Longshot) and free the four carpenters from their cells, beating the Gerudo guard at each.",
+          "requires": ["light_medallion"],
+          "reward": "Gerudo's Card",
+          "value": 0,
+          "notes": "The card opens the gate to the Haunted Wasteland and the Gerudo Training Ground.",
+          "tags": ["Story"]
+        },
+        {
+          "id": "spirit_temple",
+          "name": "Spirit Temple",
+          "area": "Desert Colossus",
+          "howTo": "Cross the Haunted Wasteland, then play the Requiem of Spirit (taught by Sheik at the Colossus) and do the temple as young Link and as an adult.",
+          "requires": ["gerudo_fortress"],
+          "reward": "Spirit Medallion, Heart Container",
+          "notes": "Boss: Twinrova. Dungeon items: Silver Gauntlets (young Link's half) and Mirror Shield (adult half). Sage: Nabooru. Master Quest rearranges the dungeon.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "gerudo_training_ground",
+          "name": "Gerudo Training Ground",
+          "area": "Gerudo's Fortress",
+          "howTo": "Pay 10 Rupees to the Gerudo at the gate (needs Gerudo's Card) and clear the rooms to reach the treasure at the centre.",
+          "requires": ["gerudo_fortress"],
+          "reward": "Ice Arrows",
+          "value": 0,
+          "notes": "Optional mini-dungeon. Master Quest rearranges it.",
+          "tags": ["Mini-dungeon"]
+        },
+        {
+          "id": "ganons_castle",
+          "name": "Ganon's Castle",
+          "area": "Outside Ganon's Castle",
+          "howTo": "With all six Medallions the Sages build a rainbow bridge. Inside, clear the six trials (Forest, Water, Shadow, Fire, Light, Spirit) to dispel the barrier.",
+          "requires": ["light_medallion", "forest_temple", "fire_temple", "water_temple", "shadow_temple", "spirit_temple"],
+          "reward": "Golden Gauntlets",
+          "value": 0,
+          "notes": "Zelda gives you the Light Arrows in the Temple of Time once all six Sages are awake; they break the last barrier to the tower. The Golden Gauntlets are in a chest in the Shadow Trial.",
+          "tags": ["Dungeon"]
+        },
+        {
+          "id": "ganon",
+          "name": "Defeat Ganon",
+          "area": "Ganon's Tower",
+          "howTo": "Climb Ganon's Tower, beat Ganondorf, escape the collapsing castle with Zelda, then defeat Ganon.",
+          "requires": ["ganons_castle"],
+          "value": 0,
+          "tags": ["Story"]
+        }
+      ]
+    }
+  ]
+}
