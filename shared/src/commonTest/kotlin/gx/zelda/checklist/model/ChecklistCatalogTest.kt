@@ -97,6 +97,24 @@ class ChecklistCatalogTest {
     }
 
     @Test
+    fun aSeparateSectionIsLeftOutOfTheTotalAndNext() {
+        val v = ChecklistFixture.versions
+        assertEquals(emptyList(), v.problems())
+        assertEquals(listOf("well", "maze"), v.counted.map { it.id })
+        val remakeDone = v.section("remake_pieces")!!.items.fold(ChecklistProgress()) { p, i -> p.withDone(i, true) }
+        assertEquals(ChecklistCount(0, 2), v.count(remakeDone))
+        assertEquals(ChecklistCount(3, 3), v.count(remakeDone, v.section("remake_pieces")!!.items))
+        assertEquals("well", v.next(remakeDone)?.id)
+        val originalDone = remakeDone.withDone(v.item("well")!!, true).withDone(v.item("maze")!!, true)
+        assertNull(v.next(originalDone.withDone(v.item("remake_pond")!!, false)))
+        // Formulas still read a separate section.
+        assertEquals(SummaryValue("Remake hearts", 3.75, 3.75), v.evaluate(v.section("remake_pieces")!!.summary!!, remakeDone))
+
+        val allSeparate = ChecklistRepository.parse("""{"sections": [{"id": "a", "title": "A", "separate": true, "items": [{"id": "x", "name": "X"}]}]}""")
+        assertEquals(listOf("every section is separate, so nothing counts toward the total"), allSeparate.problems())
+    }
+
+    @Test
     fun groupsFollowTheRegionOrderThenSections() {
         assertEquals(
             listOf("Hyrule Field" to listOf("field_cave", "field_race", "field_tree"), "Jabul Waters" to listOf("zora_cove", "river_zora", "boss_jabul"), "Upgrades" to listOf("sword")),

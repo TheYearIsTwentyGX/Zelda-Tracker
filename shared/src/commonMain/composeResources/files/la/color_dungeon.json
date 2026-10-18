@@ -1,0 +1,78 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "sections": [
+    {
+      "id": "color_dungeon",
+      "title": "Color Dungeon",
+      "note": "Added in DX, and kept in the Switch remake. DX can't run it on a non-colour Game Boy.",
+      "items": [
+        {
+          "id": "color_dungeon_book",
+          "name": "The book in the Library",
+          "area": "Mabe Village Library",
+          "howTo": "Dash into the Library's bookshelf with the Pegasus Boots to knock down a book from the top shelf: it shows how to push the gravestones.",
+          "notes": "It reads 3↑ 4→ 5↑ / 2← 1↓."
+        },
+        {
+          "id": "color_dungeon_entrance",
+          "name": "Open the Color Dungeon",
+          "area": "Cemetery, Koholint Prairie",
+          "howTo": "Push the five gravestones in the Cemetery's south-east corner in order: 1 down, 2 left, 3 up, 4 right, 5 up. The stairs appear under the last.",
+          "requires": [
+            "color_dungeon_book"
+          ],
+          "after": "BowWow back home (Zelda Wiki)",
+          "notes": "Needs the Power Bracelet. Gar and Dion, the skeletons at the door, ask which colour you like on DX; on Switch they sell 20 Magic Powder for 100 Rupees."
+        },
+        {
+          "id": "giant_buzz_blob",
+          "name": "Giant Buzz Blob",
+          "area": "Color Dungeon",
+          "howTo": "Sprinkle Magic Powder on it, then hit it.",
+          "requires": [
+            "color_dungeon_entrance"
+          ],
+          "tags": [
+            "Mini-boss"
+          ]
+        },
+        {
+          "id": "avalaunch",
+          "name": "Avalaunch",
+          "area": "Color Dungeon",
+          "howTo": "The dungeon's second mini-boss.",
+          "requires": [
+            "color_dungeon_entrance"
+          ],
+          "tags": [
+            "Mini-boss"
+          ]
+        },
+        {
+          "id": "hardhit_beetle",
+          "name": "Hardhit Beetle",
+          "area": "Color Dungeon",
+          "howTo": "The dungeon's boss.",
+          "requires": [
+            "color_dungeon_entrance"
+          ],
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "color_tunic",
+          "name": "The Fairy's gift",
+          "area": "Color Dungeon",
+          "howTo": "Choose a tunic from the Great Fairy behind the boss: red or blue.",
+          "requires": [
+            "hardhit_beetle"
+          ],
+          "reward": "Red Mail (double sword damage) or Blue Mail (half the damage taken)",
+          "notes": "DX calls them Red and Blue Clothes; Switch, Powerful Red Mail and Sturdy Blue Mail, from the Fairy Queen. Come back to swap. Green can't be had again on DX; on Switch it can."
+        }
+      ]
+    }
+  ]
+}

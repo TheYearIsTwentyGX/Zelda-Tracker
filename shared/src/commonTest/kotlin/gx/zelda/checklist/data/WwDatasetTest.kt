@@ -124,7 +124,10 @@ class WwDatasetTest {
     @Test
     fun chartsNumberedAndLinked() = withCatalogs { all ->
         val c = all.getValue("charts")
-        assertEquals(mapOf("treasure_charts" to 41, "triforce_charts" to 8, "special_charts" to 12), c.sizes())
+        assertEquals(mapOf("treasure_charts" to 41, "hd_treasure_charts" to 5, "triforce_charts" to 8, "special_charts" to 12), c.sizes())
+        // HD's charts 42 to 46 have their own tab, left out of the GameCube totals.
+        assertEquals(listOf("hd_treasure_charts"), c.sections.filter { it.separate }.map { it.id })
+        assertEquals((42..46).map { "Treasure Chart $it" }, c.section("hd_treasure_charts")!!.items.map { it.name })
         val treasure = c.section("treasure_charts")!!.items
         assertEquals((1..41).map { "Treasure Chart $it" }, treasure.map { it.name })
         treasure.forEach { assertEquals(listOf(0.0, 1.0), it.tiers.map { t -> t.value ?: it.value }, it.id) }

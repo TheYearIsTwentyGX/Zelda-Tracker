@@ -24,7 +24,7 @@ Echoes of Wisdom and A Link to the Past).
 | Main Quest | `main_quest.json` | 20 story steps in order, from Outset Island to Ganondorf: the 6 dungeons with boss and treasure, the 3 Pearls, Hyrule Castle, the Master Sword's power, the Triforce of Courage and Ganon's Tower. A second tab has the 8 Triforce Shards. Pearls = `dins_pearl + farores_pearl + nayrus_pearl` (0–3) |
 | Items & Equipment | `items.json` | 5 equipment rows (sword with 4 tiers and shield with 2; Power Bracelets, Pirate's Charm, Hero's Charm), 17 items (Picto Box and Hero's Bow tiered), 4 Bottles and 5 upgrades (wallet, bomb bag, quiver, magic, Hurricane Spin). Wallet = `200 + wallet.value` (200–5,000); Bombs and Arrows = `30 + …` (30–99) |
 | Heart Pieces | `heart_pieces.json` | 44 Pieces of Heart and 6 Heart Containers. Hearts = `3 + floor(pieces / 4) + containers` (3–20) |
-| Charts | `charts.json` | 41 Treasure Charts (tiers: chart found, treasure salvaged), 8 Triforce Charts (found, deciphered) and 12 Special Charts. *Treasure Charts found* = `treasure_charts - treasure_charts.value` and *Treasures salvaged* = `treasure_charts.value` (each 0–41) |
+| Charts | `charts.json` | 41 Treasure Charts (tiers: chart found, treasure salvaged), Wind Waker HD's Treasure Charts 42–46 on a `separate` tab, 8 Triforce Charts (found, deciphered) and 12 Special Charts. *Treasure Charts found* = `treasure_charts - treasure_charts.value` and *Treasures salvaged* = `treasure_charts.value` (each 0–41) |
 | Sea Chart | `sea_chart.json` | The 49 squares, A1 to G7, a region per row. Each square's notes list what the other trackers have there |
 | Sea Secrets | `sea_secrets.json` | 20 Secret Caves, 7 Submarines, 20 lookout-platform groups and 6 Big Octos |
 | Nintendo Gallery | `figurines.json` | 134 figurines by gallery room; 16 are `missable` |
@@ -32,9 +32,10 @@ Echoes of Wisdom and A Link to the Past).
 | Great Fairies | `great_fairies.json` | The 7 Great Fairies and the Queen of Fairies |
 | Side Quests | `side_quests.json` | 8 quests (Joy Pendants, Mail Sorting and Lenzo as tiers; Skull Necklaces, Golden Feathers, Knight's Crests, Mila, the Traveling Merchants), 8 Withered Trees, and the 5 Tingle Statues plus Ankle's reward |
 
-No engine change was needed. The `separate` section flag mentioned for Link's Awakening wasn't
-needed either: no Wind Waker count changes enough between versions to need a tab per version (see
-*Wind Waker HD* below).
+No engine change was needed. The one list that exists only in HD, Treasure Charts 42 to 46, is a
+`separate` section (added for Link's Awakening): it has its own tab and count but stays out of the
+file's total, *All* and *Next*, so the GameCube's 41 stay the total. No other count differs enough
+between versions to need a tab of its own (see *Wind Waker HD* below).
 
 **Why these.** speedrun.com's Wind Waker categories say what completionists collect:
 - **100%** asks for: all hearts; double magic; the Hurricane Spin; every item on the Items screen
@@ -114,10 +115,10 @@ The differences, and where each is noted:
   row of its own, since the GameCube has none.
 - **Triforce Charts:** HD keeps only charts 1, 3 and 5 (renumbered 1 to 3); the other five
   shards are found where their charts were. The shards' and charts' notes say which.
-- **Treasure Charts 42 to 46** are HD-only. They lead to the five old Triforce Shard spots, now
-  holding Rupees, and to the Two-Eye Reef Piece of Heart. They aren't rows, since GameCube
-  completion counts 41. They're mentioned in the Treasure Charts tab note and in the Hero's Charm,
-  Savage Labyrinth, Pawprint Isle cave and lookout rows.
+- **Treasure Charts 42 to 46** are HD-only. They lead to the five old Triforce Shard spots, which
+  now hold Rupees except Two-Eye Reef's, which has the Piece of Heart. They're on the separate
+  *HD Charts 42–46* tab, out of the totals, since GameCube completion counts 41. The Hero's Charm,
+  Savage Labyrinth, Pawprint Isle cave and lookout rows also mention them.
 - **Hero's Charm:** on the Savage Labyrinth's floor 50 in HD, where the GameCube has a Piece of
   Heart. HD moves that piece to Treasure Chart 46 (Two-Eye Reef), so both versions have 44 pieces.
   Mrs. Marie's 40 Joy Pendants give Treasure Chart 45 instead.

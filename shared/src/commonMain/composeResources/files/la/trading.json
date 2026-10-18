@@ -1,0 +1,147 @@
+{
+  "noun": "trade",
+  "hiddenLabel": "Untraded item",
+  "sections": [
+    {
+      "id": "trading",
+      "title": "Trading Sequence",
+      "noun": "item",
+      "note": "From the Yoshi Doll to the Magnifying Lens, the same 14 items in every version. Tick each item when you get it.",
+      "items": [
+        {
+          "id": "yoshi_doll",
+          "name": "Yoshi Doll",
+          "area": "Trendy Game, Mabe Village",
+          "howTo": "Win it from the crane game in Mabe Village (10 Rupees a go).",
+          "notes": "On Switch the Trendy Game also has Mario figures to win: one more appears after each dungeon."
+        },
+        {
+          "id": "ribbon",
+          "name": "Ribbon",
+          "area": "The Quadruplets' house, Mabe Village",
+          "howTo": "Give the Yoshi Doll to Mamasha, the Quadruplets' mother, in Mabe Village.",
+          "requires": [
+            "yoshi_doll"
+          ],
+          "notes": "StrategyWiki spells her Mamahl."
+        },
+        {
+          "id": "dog_food",
+          "name": "Dog Food",
+          "area": "Madam MeowMeow's house, Mabe Village",
+          "howTo": "Give the Ribbon to CiaoCiao, the little dog in Madam MeowMeow's house.",
+          "requires": [
+            "ribbon"
+          ],
+          "notes": "Zelda Wiki's Dog Food page names the dog YipYip; StrategyWiki calls it a mini BowWow."
+        },
+        {
+          "id": "bananas",
+          "name": "Bananas",
+          "area": "Sale's House O' Bananas, Toronbo Shores",
+          "howTo": "Give the Dog Food to Sale the crocodile on Toronbo Shores.",
+          "requires": [
+            "dog_food"
+          ]
+        },
+        {
+          "id": "stick",
+          "name": "Stick",
+          "area": "Kiki's spot by the castle, Kanalet Castle",
+          "howTo": "Give the Bananas to Kiki the monkey outside Kanalet Castle. The monkeys build a bridge to the castle and leave a Stick.",
+          "requires": [
+            "bananas"
+          ],
+          "notes": "Needed for the main quest: the bridge leads to the Golden Leaves."
+        },
+        {
+          "id": "honeycomb",
+          "name": "Honeycomb",
+          "area": "Beehive tree, Ukuku Prairie",
+          "howTo": "Give the Stick to Tarin by the beehive tree; he knocks it down and runs from the bees.",
+          "requires": [
+            "stick"
+          ],
+          "notes": "Zelda Wiki puts it after Key Cavern, Zelda Dungeon once you've been in Kanalet Castle. On Game Boy and DX, Marin only goes with you to the Walrus after this trade."
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "area": "Chef Bear's house, Animal Village",
+          "howTo": "Give the Honeycomb to Chef Bear in Animal Village.",
+          "requires": [
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "hibiscus",
+          "name": "Hibiscus",
+          "area": "On the mountain paths, Tal Tal Heights",
+          "howTo": "Give the Pineapple to Papahl, the Quadruplets' father, who's lost in the mountains.",
+          "requires": [
+            "pineapple"
+          ]
+        },
+        {
+          "id": "letter",
+          "name": "Letter",
+          "area": "Christine's house, Animal Village",
+          "howTo": "Give the Hibiscus to Christine the goat in Animal Village.",
+          "requires": [
+            "hibiscus"
+          ],
+          "notes": "Called the Goat's Letter on Switch."
+        },
+        {
+          "id": "broom",
+          "name": "Broom",
+          "area": "Mr. Write's House, north-west of the forest, Mysterious Forest",
+          "howTo": "Give the Letter to Mr. Write.",
+          "requires": [
+            "letter"
+          ],
+          "notes": "Christine's photo is a picture of Princess Peach; on Switch it's parasol Peach art. On Switch, Christine then gives a seashell."
+        },
+        {
+          "id": "fishing_hook",
+          "name": "Fishing Hook",
+          "area": "Grandma Yahoo's yard, Mabe Village",
+          "howTo": "Give the Broom to Grandma Yahoo in Mabe Village.",
+          "requires": [
+            "broom"
+          ],
+          "notes": "Zelda Wiki and StrategyWiki also call her Grandma Ulrira."
+        },
+        {
+          "id": "necklace",
+          "name": "Necklace",
+          "area": "Under the bridge, Martha's Bay",
+          "howTo": "Swim under the Martha's Bay bridge and give the Fishing Hook to the fisherman there.",
+          "requires": [
+            "fishing_hook"
+          ],
+          "notes": "The original Japanese and European Game Boy releases have Martha's bikini top here; DX and Switch have the Necklace. His bridge also gives a DX photo."
+        },
+        {
+          "id": "scale",
+          "name": "Scale",
+          "area": "Martha's Bay",
+          "howTo": "Give the Necklace back to Martha the mermaid.",
+          "requires": [
+            "necklace"
+          ]
+        },
+        {
+          "id": "magnifying_lens",
+          "name": "Magnifying Lens",
+          "area": "The Mourning Mermaid statue, Martha's Bay",
+          "howTo": "Put the Scale back in the Mermaid Statue at the south of the bay, and Hookshot across to the cave that opens.",
+          "requires": [
+            "scale"
+          ],
+          "notes": "Shows hidden things: the Goriya with the Boomerang, the Library's book on the Egg, and the Zora in Animal Village."
+        }
+      ]
+    }
+  ]
+}
