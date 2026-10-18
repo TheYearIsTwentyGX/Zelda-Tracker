@@ -34,7 +34,7 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
-        assertEquals(listOf("alttp", "la", "oot", "mm", "ooa", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
+        assertEquals(listOf("loz", "alttp", "la", "oot", "mm", "ooa", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
         assertTrue(settings.expandedGames.isEmpty())
     }
 
@@ -51,10 +51,10 @@ class AppSettingsViewModelTest {
         vm.setExpanded("botw", true).join()
 
         val reloaded = AppSettingsStorage(dataStore).settings.first()
-        assertEquals(listOf("alttp", "la", "oot", "mm", "ooa", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
+        assertEquals(listOf("loz", "alttp", "la", "oot", "mm", "ooa", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
         assertEquals(setOf("botw"), reloaded.expandedGames)
         assertEquals(
-            listOf("alttp", "la", "oot", "mm", "ooa", "mc", "tfh", "botw", "eow"),
+            listOf("loz", "alttp", "la", "oot", "mm", "ooa", "mc", "tfh", "botw", "eow"),
             vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames().map { it.id },
         )
     }
@@ -64,16 +64,10 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         vm.settings.filterNotNull().first()
-        vm.setShown("alttp", false).join()
-        vm.setShown("la", false).join()
-        vm.setShown("oot", false).join()
-        vm.setShown("mm", false).join()
-        vm.setShown("ooa", false).join()
-        vm.setShown("botw", false).join()
-        vm.setShown("totk", false).join()
-        vm.setShown("eow", false).join()
+        val others = Games.all.filter { !it.comingSoon && it != Games.MC }
+        others.forEach { vm.setShown(it.id, false).join() }
         vm.setShown("mc", false).join()
-        val settings = vm.settings.filterNotNull().first { it.gameChoices.size == 8 }
+        val settings = vm.settings.filterNotNull().first { it.gameChoices.size == others.size }
         assertEquals(listOf("mc"), settings.shownGames().map { it.id })
         assertTrue("mc" !in settings.gameChoices)
     }
