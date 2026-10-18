@@ -10,8 +10,8 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- Breath of the Wild, Tears of the Kingdom, The Minish Cap and Ocarina of Time have trackers. The
-  rest show as *Coming soon* until they get some.
+- Breath of the Wild, Tears of the Kingdom, The Minish Cap, Ocarina of Time and Echoes of Wisdom have
+  trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -400,6 +400,32 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   `docs/checklist-trackers.md`). Tracks **File 1**, **File 2** and **File 3**, the cartridge's three
   save slots.
 
+**Echoes of Wisdom**
+
+Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
+counts, region cards, search, *Not done*, *Hide unchecked* and a page per item. Sources and
+disagreements are in `docs/eow.md`.
+- **Progress Overview** (first): a row per tracker with its count, its totals (hearts, crystals)
+  and the next thing to do. With *Hide unchecked* on, a row only says how many are left where.
+- **Main Quest:** the rifts, dungeons and bosses in story order, through Null. It also has Tri Rod,
+  Bind and Reverse Bond, Tri's Power Lv. 2–11 (one row, a tier per level) and the Swordfighter
+  weapons.
+- **Echoes:** all 127 in Notebook order, tagged Object or Monster, with where each is first
+  learned and its cost.
+- **Heart Pieces:** 40 Pieces of Heart and 7 Heart Containers by region, with the hearts total
+  (3 to 20).
+- **Might Crystals:** all 150 crystals in 85 places. The *Upgrades* tab has Lueburry's Sword, Bow,
+  Bombs and Energy levels as tiers and adds up the crystals spent, also 150.
+- **Side Quests** (50), **Accessories** (28, plus the Great Fairy's four slots), **Smoothie
+  Recipes** (59 smoothies and 10 potions), **Slumber Dojo** (15 challenges, their hidden goal times
+  and Shisho's six rewards) and **Stamp Stands** (25, and the stamp card rewards).
+- **Bottles, Automatons & More:** the 4 Fairy Bottles, Dampé's 6 Automatons, 11 outfits (3 amiibo)
+  and the mini-games, with each reward tier.
+- Regions follow Zelda Wiki's: Suthorn Prairie, Hyrule Castle, Hyrule Field, Eastern Hyrule Field,
+  Lake Hylia, Gerudo Desert, Jabul Waters, Eldin Volcano (with Kakariko Village), Hebra Mountain,
+  Faron Wetlands and the Eternal Forest.
+- Two save files, **File 1** and **File 2**, as the game keeps per Switch user.
+
 ## Layout
 
 ```
@@ -444,6 +470,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/mc/heart_pieces.json  ← MC Pieces of Heart and Heart Containers
   src/commonMain/composeResources/files/mc/figurines.json   ← Minish Cap figurines (scripts/build-mc-figurines.py)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
+  src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
 androidApp/   Android application shell
@@ -762,3 +789,8 @@ Minish Cap* (names, North American descriptions, who's pictured) and the zeldare
 formula). It is cross-checked against Zelda Wiki's Figurine Gallery table, StrategyWiki and
 Zeldapedia. `scripts/build-mc-figurines.py` rebuilds it, and `docs/mc-figurines.md` covers the
 checkpoints, the odds and where the sources disagree.
+
+Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
+Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
+three. `docs/eow.md` covers each tracker, the save files, the region convention and every
+disagreement between sources.
