@@ -71,6 +71,18 @@ class ChecklistCatalogTest {
         assertEquals(SummaryValue("Crystals spent", 15.0, 35.0), c.evaluate(spent, ChecklistProgress().withLevel(item("sword"), 2)))
     }
 
+    /** An item id reads that one item, like a section id reads its section. */
+    @Test
+    fun formulasCanReadOneItem() {
+        val progress = ChecklistProgress().withLevel(item("sword"), 2).withDone(item("field_cave"), true)
+        assertEquals(SummaryValue("Sword", 2.0, 3.0), c.evaluate(ChecklistSummary("Sword", "sword"), progress))
+        assertEquals(SummaryValue("Base + sword", 25.0, 45.0), c.evaluate(ChecklistSummary("Base + sword", "10 + sword.value"), progress))
+        assertEquals(1.0, c.evaluate(ChecklistSummary("Cave", "field_cave"), progress).value)
+        assertTrue(ChecklistRepository.parse(
+            """{"summaries": [{"label": "S", "formula": "x.value + a"}], "sections": [{"id": "a", "title": "A", "items": [{"id": "x", "name": "X"}]}]}""",
+        ).problems().isEmpty())
+    }
+
     @Test
     fun nextIsTheFirstUndoneItemWhosePrerequisitesAreDone() {
         val progress = listOf("field_cave", "field_race").fold(ChecklistProgress()) { p, id -> p.withDone(item(id), true) }
@@ -152,7 +164,7 @@ class ChecklistCatalogTest {
             "item 'x' has a negative value",
             "bad item id 'Bad Id'",
             "section 'b' has no items",
-            "summary 'Unknown' reads unknown section 'nope'",
+            "summary 'Unknown' reads unknown section or item 'nope'",
             "requires loop: y → w → y",
         ).forEach { expected -> assertTrue(problems.any { it == expected }, "missing \"$expected\" in $problems") }
         assertTrue(problems.any { it.startsWith("Formula \"3 +\"") }, problems.toString())

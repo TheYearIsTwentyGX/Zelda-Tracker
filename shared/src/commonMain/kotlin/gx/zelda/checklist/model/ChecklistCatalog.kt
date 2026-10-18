@@ -65,14 +65,16 @@ data class ChecklistCatalog(
 
     /**
      * What a formula name is worth on [progress]: a section id is its steps done, and
-     * `<section id>.value` the sum of their [ChecklistItem.value]s.
+     * `<section id>.value` the sum of their [ChecklistItem.value]s. An item id works the same for
+     * that one item, e.g. a tiered upgrade's `bomb_capacity.value`.
      */
     fun nameValue(name: String, progress: ChecklistProgress): Double {
-        val section = section(name.removeSuffix(".value")) ?: throw IllegalArgumentException("Unknown name '$name'")
+        val id = name.removeSuffix(".value")
+        val of = section(id)?.items ?: item(id)?.let(::listOf) ?: throw IllegalArgumentException("Unknown name '$name'")
         return if (name.endsWith(".value")) {
-            section.items.sumOf { it.valueOfSteps(progress.level(it)) }
+            of.sumOf { it.valueOfSteps(progress.level(it)) }
         } else {
-            section.items.sumOf { progress.level(it) }.toDouble()
+            of.sumOf { progress.level(it) }.toDouble()
         }
     }
 
@@ -132,8 +134,8 @@ data class ChecklistCatalog(
             val formula = runCatching { Formula.parse(summary.formula) }
                 .onFailure { add(it.message ?: "bad formula '${summary.formula}'") }
                 .getOrNull() ?: return@forEach
-            formula.names.filter { section(it.removeSuffix(".value")) == null }
-                .forEach { add("summary '${summary.label}' reads unknown section '$it'") }
+            formula.names.filter { it.removeSuffix(".value").let { id -> section(id) == null && item(id) == null } }
+                .forEach { add("summary '${summary.label}' reads unknown section or item '$it'") }
         }
         requireCycle()?.let { add("requires loop: ${it.joinToString(" → ")}") }
     }
