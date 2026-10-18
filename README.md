@@ -11,7 +11,8 @@ iOS port is mostly a matter of adding the iOS targets.
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
-  Mask, The Minish Cap, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers.
+  Mask, The Minish Cap, Skyward Sword, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom
+  have trackers.
   The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
@@ -511,6 +512,42 @@ and disagreements are in `docs/la.md`.
 - Two save files, **File 1** and **File 2**, as on the cartridge. An owl save is a temporary
   quit-save on one of them, not a file of its own.
 
+**Skyward Sword**
+
+Every SS tracker is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
+Skyward Sword HD differs (button controls, autosave, the amiibo's fast travel), the item's notes say
+so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** the story as one chain in play order: the seven dungeons with each boss and
+  dungeon item, the Goddess's Harp and the songs, the three battles with the Imprisoned, Levias, the
+  Stone of Trials, Sky Keep and Demise. Tabs for the four Silent Realms (and what each gives), the
+  four parts of the Song of the Hero, the three Sacred Flames, and the sword's five forms, Goddess
+  Sword to True Master Sword, as one row. Dungeons (of 7), Silent Realms (of 4) and Sacred Flames (of
+  3) are totalled.
+- **Items & Equipment:** the 13 items, with the Scrap Shop upgrades as tiers (Hook, Quick and Tough
+  Beetle; Scattershot; Iron and Sacred Bow; Big Bug Net) and the treasures, bugs and Rupees each
+  costs; the Seed Satchel, Bomb Bag and Quiver upgrades; potion infusions; the Adventure Pouch (4
+  slots and 4 expansions, totalled to 8); the 5 Bottles; and the wallets, with how many Rupees you
+  can carry (300 to 9,900).
+- **Heart Pieces:** 24 Pieces of Heart by area and the 6 bosses' Heart Containers, with the hearts
+  total (6 to 18).
+- **Goddess Cubes:** all 27, each a row with two steps: strike the cube, then open its Goddess Chest
+  in the Sky. Each chest's prize is on the row, and cubes struck and chests opened are totalled.
+- **Gratitude Crystals:** the 12 side quests that give them (65), the 15 loose crystals found at night
+  (15) and Batreaux's 7 rewards, with the crystals total (of 80).
+- **Side Quests & Minigames:** the 7 minigames with each prize tier (Clean Cut, Thrill Digger, the
+  harp, Dodoh's High Dive, the Rickety Coaster, Pumpkin Pull, Bug Heaven), the 3 side quests that give
+  no crystals, and the Thunder Dragon's Lightning Round (the boss rush to 11 wins, with the Hylian
+  Shield at 8, and the Silent Realm time trials).
+- **Shields:** all 10: the Wooden, Iron and Sacred shields with their upgrades as tiers and the
+  Hylian Shield, with costs and durability.
+- **Bugs & Treasures:** one of each of the 12 bugs and 16 treasures, with where to find it and which
+  upgrades and potions use it.
+- Regions are the game's areas (Skyloft, The Sky, Thunderhead, Faron Woods, Eldin Volcano, Lanayru
+  Desert…), with the exact place in each row. Tags give the items needed. Only one thing is
+  missable: Fledge's barrels, before the Wing Ceremony.
+- Three save files, **File 1–3**, as on the Wii and in HD.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -585,6 +622,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
+  src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists (docs/ss.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -927,6 +965,12 @@ Zelda II data (`files/aol/`) comes from Zelda Wiki, Zelda Dungeon (its old guide
 through the Wayback Machine) and StrategyWiki, with TASVideos' 100% definition as a tie-breaker.
 `docs/aol.md` covers the save files and replays, what's tracked and why, the name map between
 sources and every disagreement.
+
+Skyward Sword data (`files/ss/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and Samurai Gamers, with StrategyWiki and Zelda's Palace for spot checks. The Skyward
+Sword randomizer's check list, read from the game's files, settles where each item is and which cube
+opens which chest; the zeldaret/ss decompilation gives the save-file count. `docs/ss.md` covers each
+tracker, the HD differences and every disagreement.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all

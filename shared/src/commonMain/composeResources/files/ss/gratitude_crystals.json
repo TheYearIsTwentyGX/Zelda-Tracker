@@ -1,0 +1,483 @@
+{
+  "regions": [
+    "Skyloft",
+    "The Sky"
+  ],
+  "noun": "crystal",
+  "hiddenLabel": "Unfound Gratitude Crystal",
+  "summaries": [
+    {
+      "label": "Gratitude Crystals",
+      "formula": "crystal_quests.value + loose_crystals.value"
+    }
+  ],
+  "sections": [
+    {
+      "id": "crystal_quests",
+      "title": "Crystal Quests",
+      "noun": "quest",
+      "hiddenLabel": "Unfinished side quest",
+      "note": "12 side quests: 65 crystals, 5 each and 10 for Orielle's Loftwing.",
+      "items": [
+        {
+          "id": "wryna_finding_kukiel",
+          "name": "Finding Kukiel",
+          "region": "Skyloft",
+          "area": "Kukiel's house; Batreaux's House below the graveyard",
+          "howTo": "Wryna is outside the Statue of the Goddess calling for her daughter. Ask around (Orielle points you to Rusta in the Lumpy Pumpkin), then at night hit the graveyard tombstone nearest the tree and push it: the shed door opens. Go down the ladder to Batreaux's House, swing at Batreaux, and hear him out. Next morning, talk to Wryna in Kukiel's house.",
+          "after": "Placing the Ruby Tablet in the Statue of the Goddess",
+          "value": 5,
+          "reward": "5 Gratitude Crystals; meeting Batreaux unlocks every other crystal",
+          "notes": "Giver: Wryna. No Gratitude Crystal can be collected before you meet Batreaux."
+        },
+        {
+          "id": "parrow_orielles_loftwing",
+          "name": "Orielle's injured Loftwing",
+          "region": "Skyloft",
+          "area": "The Plaza; small island in the south-west Sky",
+          "howTo": "Parrow paces the Plaza: his sister Orielle hasn't come back. Fly south-west towards Fun Fun Island and land on the small green island where she crashed. Get Mushroom Spores from Parrow (he gives a Bottle of them), give them to Orielle for 5 crystals, then tell Parrow for 5 more.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "value": 10,
+          "reward": "10 Gratitude Crystals (5 from Orielle, 5 from Parrow) and an Empty Bottle",
+          "notes": "Giver: Parrow. The only quest worth 10 crystals. If you catch Mushroom Spores yourself in Faron Woods, Parrow gives you the Empty Bottle afterwards instead.",
+          "tags": [
+            "Bottle"
+          ]
+        },
+        {
+          "id": "peatrice_unwanted_admirer",
+          "name": "Peatrice's admirer",
+          "region": "Skyloft",
+          "area": "Item Check, Bazaar; Peatrice's house",
+          "howTo": "Keep using the Item Check on different days until Peatrice calls you her darling. Then talk to her father Peater at night in their house by the Bazaar's south entrance, and next day agree to see Peatrice there at night. Say you love her (5 crystals from her), or turn her down and talk to Peater the next night (5 crystals from him).",
+          "after": "Lanayru Mining Facility",
+          "value": 5,
+          "reward": "5 Gratitude Crystals",
+          "notes": "Giver: Peatrice or Peater. You can only take one branch; both give 5. Peater only introduces himself the first time you meet him, so sleep until the next night and talk to him again."
+        },
+        {
+          "id": "mallara_dusty_house",
+          "name": "Mallara's dusty house",
+          "region": "Skyloft",
+          "area": "Pipit's house, Skyloft Village",
+          "howTo": "In Pipit's house, agree to dust for Mallara and blow every bit of dust away with the Gust Bellows: floor, walls, shelves and windows. She stops you when it's done.",
+          "after": "Lanayru Mining Facility (Gust Bellows)",
+          "value": 5,
+          "reward": "5 Gratitude Crystals and 20 Rupees",
+          "notes": "Giver: Mallara. You can dust again later for more Rupees, but the crystals come only once.",
+          "tags": [
+            "Gust Bellows"
+          ]
+        },
+        {
+          "id": "cawlin_love_letter",
+          "name": "Cawlin's love letter",
+          "region": "Skyloft",
+          "area": "Knight Academy",
+          "howTo": "At night a voice in the Knight Academy's downstairs toilet begs for paper. Next morning Cawlin asks you to give his letter to Karane. Either give it to the hand in the toilet at night, then see Cawlin by day and the hand in Groose's room the next night; or give it to Karane in the classroom, talk to Pipit upstairs and follow them back to the classroom.",
+          "after": "Goddess's Harp (after the first fight with The Imprisoned)",
+          "value": 5,
+          "reward": "5 Gratitude Crystals",
+          "notes": "Giver: Cawlin. You can only take one branch: the hand or Pipit gives the 5 crystals."
+        },
+        {
+          "id": "dodoh_party_wheel",
+          "name": "Dodoh's Party Wheel",
+          "region": "The Sky",
+          "area": "Fun Fun Island",
+          "howTo": "Dodoh's Party Wheel has fallen to the surface. Land at the Lanayru Desert Entrance statue, bomb the rocks by the mine cart to the south, hit the Timeshift Stone, climb the vines and follow the ledge left to the wheel. Have Fi call Scrapper to carry it to Dodoh.",
+          "after": "Scrapper repaired and the Isle of Songs reached",
+          "value": 5,
+          "reward": "5 Gratitude Crystals; opens Dodoh's High Dive",
+          "notes": "Giver: Dodoh. Zelda Wiki says the reward includes a free play of the High Dive; Zelda Dungeon says a discount.",
+          "tags": [
+            "Scrapper"
+          ]
+        },
+        {
+          "id": "bertie_babys_rattle",
+          "name": "Bertie's missing rattle",
+          "region": "Skyloft",
+          "area": "Bertie and Luv's house, Skyloft Village",
+          "howTo": "At night Bertie is up with the crying baby: the rattle is lost. Clawshot up the floating islands to the top of the big waterfall island, then take a running jump off its south side and glide to the bird's nest on the windmill. Blow the junk away with the Gust Bellows, take the rattle and give it to Bertie at night.",
+          "after": "Clawshots",
+          "value": 5,
+          "reward": "5 Gratitude Crystals",
+          "notes": "Giver: Bertie.",
+          "tags": [
+            "Clawshots",
+            "Gust Bellows",
+            "Night"
+          ]
+        },
+        {
+          "id": "fledge_push_ups",
+          "name": "Fledge's confidence",
+          "region": "Skyloft",
+          "area": "Fledge's room, Knight Academy",
+          "howTo": "Buy a Stamina Potion from Luv in the Bazaar and visit Fledge in his room at night: he's trying to do push-ups. Give him the potion. After another dungeon, give him a second one at night. A good while later he shows off and thanks you.",
+          "after": "Lanayru Mining Facility (first potion); finished after the Sandship",
+          "value": 5,
+          "reward": "5 Gratitude Crystals; opens Pumpkin Pull",
+          "notes": "Giver: Fledge. Zelda Dungeon: the second potion can be given after the Ancient Cistern, the crystals after the Sandship.",
+          "tags": [
+            "Bottle",
+            "Night"
+          ]
+        },
+        {
+          "id": "kina_pumpkin_harvest",
+          "name": "Kina's pumpkin harvest",
+          "region": "The Sky",
+          "area": "Pumpkin patch, Pumpkin Landing",
+          "howTo": "By day, Kina wants someone to help in the pumpkin patch. Land at Eldin's Volcano East statue, ride the updraft into the small volcano and glide to the top-right pillar where the Mogma elder Guld sits. Talk to him and have Scrapper fly him to Kina.",
+          "after": "Fire Sanctuary, and Pumm's chores begun",
+          "value": 5,
+          "reward": "5 Gratitude Crystals",
+          "notes": "Giver: Kina. Zelda Dungeon lists it after the second fight with The Imprisoned and Pumm's chores.",
+          "tags": [
+            "Scrapper"
+          ]
+        },
+        {
+          "id": "sparrot_crystal_ball",
+          "name": "Sparrot's crystal ball",
+          "region": "Skyloft",
+          "area": "Sparrot's house, east Skyloft",
+          "howTo": "Sparrot has left the Bazaar: his crystal ball broke. Talk to him at home (reach it from the left, under the land bridge). In Eldin, at the Earth Temple statue, take the updraft left of the temple and clawshot to the orb on the lamp post by the entrance. Have Scrapper carry it to Sparrot.",
+          "after": "Freeing Levias in the Thunderhead",
+          "value": 5,
+          "reward": "5 Gratitude Crystals; his next fortune is half price",
+          "notes": "Giver: Sparrot.",
+          "tags": [
+            "Clawshots",
+            "Scrapper"
+          ]
+        },
+        {
+          "id": "beedle_horned_colossus_beetle",
+          "name": "Beedle's Horned Colossus Beetle",
+          "region": "The Sky",
+          "area": "Beedle's Island at night; Bug Rock",
+          "howTo": "After talking to Strich on Bug Rock, sleep in the bed in Beedle's Airshop to reach Beedle's Island at night: his beetle is missing. Strich has it. Beat his special bug-catching challenge in under three minutes to win it back, then return it to Beedle on his island at night.",
+          "after": "Freeing Levias (Bug Heaven open)",
+          "value": 5,
+          "reward": "5 Gratitude Crystals; half price on one item in Beedle's Airshop",
+          "notes": "Giver: Beedle. Use the discount on the Piece of Heart (1,600 Rupees) to pay 800.",
+          "tags": [
+            "Bug Net",
+            "Night"
+          ]
+        },
+        {
+          "id": "owlan_rare_plant",
+          "name": "Instructor Owlan's request",
+          "region": "Skyloft",
+          "area": "Owlan's room, Knight Academy",
+          "howTo": "Owlan has studied every plant in the Sky and wants something new. Dowse for it in Faron Woods: it leads to Oolo the Kikwi. Have Scrapper fly Oolo to Owlan.",
+          "after": "Freeing Levias; finished after Faron's part of the Song of the Hero",
+          "value": 5,
+          "reward": "5 Gratitude Crystals",
+          "notes": "Giver: Owlan. Zelda Wiki starts it after draining the flooded Faron Woods.",
+          "tags": [
+            "Scrapper"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loose_crystals",
+      "title": "Loose Crystals",
+      "noun": "crystal",
+      "hiddenLabel": "Unfound Gratitude Crystal",
+      "note": "15 single crystals, there only at night, after you meet Batreaux.",
+      "items": [
+        {
+          "id": "crystal_links_room",
+          "name": "Link's room",
+          "region": "Skyloft",
+          "area": "Knight Academy",
+          "howTo": "On the desk in Link's room. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ],
+          "notes": "To make it night, sleep in any bed in Skyloft (your room in the Knight Academy is handy)."
+        },
+        {
+          "id": "crystal_academy_plant",
+          "name": "Knight Academy plant",
+          "region": "Skyloft",
+          "area": "Knight Academy",
+          "howTo": "Upstairs in the Knight Academy, in the plant in the corner by the upper exit. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_sparring_hall",
+          "name": "Sparring Hall rafters",
+          "region": "Skyloft",
+          "area": "Sparring Hall",
+          "howTo": "Up in the rafters at the back of the Sparring Hall. Fly the Beetle up to grab it. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night",
+            "Beetle"
+          ]
+        },
+        {
+          "id": "crystal_orielle_parrow_house",
+          "name": "Orielle and Parrow's house",
+          "region": "Skyloft",
+          "area": "Orielle and Parrow's house",
+          "howTo": "In the corner of the room. Their house is the first on the left after the Knight Academy's lower gate. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_west_cliff",
+          "name": "Ledge south of the Academy",
+          "region": "Skyloft",
+          "area": "West cliff",
+          "howTo": "Just south of the Knight Academy, look west for vines leading down to a ledge by the southern windmill. Climb down to it, or grab it with the Beetle. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_light_tower",
+          "name": "Light Tower",
+          "region": "Skyloft",
+          "area": "The Plaza",
+          "howTo": "Climb to the base of the Light Tower in the Plaza and walk round the back. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_pumpkin_patch_tree",
+          "name": "Tree by the pumpkin patch",
+          "region": "Skyloft",
+          "area": "Skyloft Village",
+          "howTo": "Over the bridge in the houses to the east, behind the tree by the pumpkin patch. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_after_waterfall_cave",
+          "name": "Waterfall Cave exit",
+          "region": "Skyloft",
+          "area": "Waterfall Cave",
+          "howTo": "Cross the river on the stepping stones and fight through the Waterfall Cave; the crystal is at the far exit. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_loftwing_prison",
+          "name": "Loftwing's prison",
+          "region": "Skyloft",
+          "area": "Behind the waterfall",
+          "howTo": "In the alcove where Groose hid your Loftwing, through the Waterfall Cave. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_bazaar_planks",
+          "name": "Below the Bazaar's north exit",
+          "region": "Skyloft",
+          "area": "North of the Bazaar",
+          "howTo": "Leave the Bazaar by the north exit and go one level down to the east: cross the wooden planks to the grassy patch. The Beetle helps spot it. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_lumpy_pumpkin_inside",
+          "name": "Inside the Lumpy Pumpkin",
+          "region": "The Sky",
+          "area": "Lumpy Pumpkin, Pumpkin Landing",
+          "howTo": "Sleep in a bed in the Lumpy Pumpkin to make it night, then go upstairs: it's on the counter. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_lumpy_pumpkin_shed",
+          "name": "Pumpkin Landing shed",
+          "region": "The Sky",
+          "area": "Pumpkin Landing",
+          "howTo": "Facing the big pumpkin patch, turn right and follow the ramp down to the storage shed. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night"
+          ]
+        },
+        {
+          "id": "crystal_beedles_island",
+          "name": "Above Beedle's propeller",
+          "region": "The Sky",
+          "area": "Beedle's Island",
+          "howTo": "Enter Beedle's Airshop by day and sleep in his bed to wake on Beedle's Island at night. Outside, look up: the crystal floats above a propeller. Fetch it with the Beetle. Only there at night.",
+          "after": "Meeting Batreaux (Finding Kukiel)",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night",
+            "Beetle"
+          ]
+        },
+        {
+          "id": "crystal_waterfall_island",
+          "name": "Top of the waterfall",
+          "region": "Skyloft",
+          "area": "Waterfall island",
+          "howTo": "Clawshot up the vines of the floating islands to the big waterfall island; the crystal is at the mouth of the waterfall. A Tough Beetle can fetch it from the ground. Only there at night.",
+          "after": "Clawshots",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night",
+            "Clawshots"
+          ]
+        },
+        {
+          "id": "crystal_zeldas_room",
+          "name": "Zelda's room",
+          "region": "Skyloft",
+          "area": "Knight Academy",
+          "howTo": "Climb onto the Knight Academy roof, clawshot to the target on the bath chimney, drop in and crawl through to Zelda's room. The crystal is on the floor. Only there at night.",
+          "after": "Clawshots",
+          "reward": "1 Gratitude Crystal",
+          "tags": [
+            "Night",
+            "Clawshots"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "batreaux",
+      "title": "Batreaux's Rewards",
+      "noun": "reward",
+      "hiddenLabel": "Unclaimed reward",
+      "note": "Cumulative thresholds: crystals are shown to Batreaux, never spent.",
+      "items": [
+        {
+          "id": "batreaux_5",
+          "name": "5 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 5 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "reward": "Medium Wallet",
+          "notes": "Holds 500 Rupees. Cumulative: Batreaux counts every crystal you've found and nothing is spent."
+        },
+        {
+          "id": "batreaux_10",
+          "name": "10 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 10 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "requires": [
+            "batreaux_5"
+          ],
+          "reward": "Piece of Heart",
+          "notes": "Also listed in Heart Pieces. Cumulative: Batreaux counts every crystal you've found and nothing is spent.",
+          "tags": [
+            "Piece of Heart"
+          ]
+        },
+        {
+          "id": "batreaux_30",
+          "name": "30 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 30 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "requires": [
+            "batreaux_10"
+          ],
+          "reward": "Big Wallet and the Cursed Medal",
+          "notes": "The Big Wallet holds 1,000 Rupees. A chest with the Cursed Medal appears beside Batreaux. While it's in your Adventure Pouch you can't use the pouch; only Peatrice at the Item Check can take it off you. Cumulative: Batreaux counts every crystal you've found and nothing is spent."
+        },
+        {
+          "id": "batreaux_40",
+          "name": "40 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 40 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "requires": [
+            "batreaux_30"
+          ],
+          "reward": "Gold Rupee",
+          "notes": "Cumulative: Batreaux counts every crystal you've found and nothing is spent."
+        },
+        {
+          "id": "batreaux_50",
+          "name": "50 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 50 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "requires": [
+            "batreaux_40"
+          ],
+          "reward": "Giant Wallet",
+          "notes": "Holds 5,000 Rupees. Cumulative: Batreaux counts every crystal you've found and nothing is spent."
+        },
+        {
+          "id": "batreaux_70",
+          "name": "70 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 70 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "requires": [
+            "batreaux_50"
+          ],
+          "reward": "2 Gold Rupees",
+          "notes": "Cumulative: Batreaux counts every crystal you've found and nothing is spent."
+        },
+        {
+          "id": "batreaux_80",
+          "name": "80 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Talk to Batreaux once you've collected 80 Gratitude Crystals in all.",
+          "after": "Finding Kukiel",
+          "requires": [
+            "batreaux_70"
+          ],
+          "reward": "Tycoon Wallet",
+          "notes": "Holds 9,000 Rupees. Batreaux becomes human and moves to the Bazaar, and the night monsters leave Skyloft. Cumulative: Batreaux counts every crystal you've found and nothing is spent."
+        }
+      ]
+    }
+  ]
+}

@@ -221,7 +221,30 @@ object Games {
     /** The DS games keep two files. */
     val PH = comingSoon("ph", "Phantom Hourglass", ReleaseDate(2007, 6, 23), "Nintendo DS", files = 2)
     val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
-    val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
+
+    /**
+     * Three files on the Wii and in Skyward Sword HD, whose extra autosave slot isn't a file of its own.
+     * Every tracker is a checklist for the Wii original, with HD's differences in item notes. The
+     * data and its sources are in docs/ss.md.
+     */
+    val SS = Game(
+        id = "ss",
+        title = "Skyward Sword",
+        released = ReleaseDate(2011, 11, 18),
+        platform = "Wii",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            ssChecklist("Main Quest", "The seven dungeons, the Sacred Flames, the Silent Realms, the Song of the Hero and the Goddess Sword", "main_quest"),
+            ssChecklist("Items & Equipment", "Every item and its upgrades with their materials, the Adventure Pouch, Bottles and wallets", "items"),
+            ssChecklist("Heart Pieces", "All 24 Pieces of Heart and 6 Heart Containers, with your hearts total", "heart_pieces"),
+            ssChecklist("Goddess Cubes", "All 27 Goddess Cubes and the Goddess Chests they open in the sky", "goddess_cubes"),
+            ssChecklist("Gratitude Crystals", "All 80 crystals: the side quests that give them, the 15 loose ones and Batreaux's rewards", "gratitude_crystals"),
+            ssChecklist("Side Quests & Minigames", "The minigames and their prizes, the other side quests and the Lightning Round", "side_quests"),
+            ssChecklist("Shields", "All 10 shields, their upgrades and materials", "shields"),
+            ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
+        ),
+    )
     val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
     val TFH = comingSoon("tfh", "Tri Force Heroes", ReleaseDate(2015, 10, 22), "Nintendo 3DS")
 
@@ -324,6 +347,9 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun ssChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ss/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

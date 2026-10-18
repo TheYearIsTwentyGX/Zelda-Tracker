@@ -18,7 +18,7 @@ class McStorageTest {
     @Test
     fun mcIsListedBeforeBotwWithThreeSaveFiles() {
         // By release date: 1986, 1987, 1991, 1993, 1998, 2000, 2004, 2017, 2023, 2024.
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "ss", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(Games.MC, Games.byId("mc"))
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.MC.saveFiles.map { it.id })
         assertEquals(listOf("File 1", "File 2", "File 3"), Games.MC.saveFiles.map { it.label })

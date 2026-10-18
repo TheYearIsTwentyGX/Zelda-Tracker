@@ -1,0 +1,673 @@
+{
+  "regions": [
+    "Faron Woods",
+    "Lake Floria",
+    "Eldin Volcano",
+    "Volcano Summit",
+    "Lanayru Mine",
+    "Lanayru Desert",
+    "Lanayru Sand Sea",
+    "Lanayru Gorge"
+  ],
+  "noun": "cube",
+  "hiddenLabel": "Unstruck Goddess Cube",
+  "summaries": [
+    {
+      "label": "Goddess Cubes struck",
+      "formula": "cubes.value"
+    },
+    {
+      "label": "Goddess Chests opened",
+      "formula": "cubes - cubes.value"
+    }
+  ],
+  "sections": [
+    {
+      "id": "cubes",
+      "title": "Goddess Cubes",
+      "note": "27 cubes on the surface, each opening one Goddess Chest in the Sky. Strike, then open.",
+      "items": [
+        {
+          "id": "cube_deep_woods_gorko",
+          "name": "Deep Woods: Gorko's cube",
+          "region": "Faron Woods",
+          "area": "Deep Woods",
+          "howTo": "Cube: After the tightropes in the Deep Woods, Gorko is studying this cube. Chest: Pumpkin Landing.",
+          "after": "Deep Woods",
+          "reward": "Adventure Pouch expansion",
+          "notes": "HD: the Zelda & Loftwing amiibo can take you straight back to the Sky to open chests.",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "After the tightropes in the Deep Woods, Gorko is studying this cube. Hit it with a Skyward Strike; it's the first cube, so Gorko explains how they work."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "Just outside the front door of the Lumpy Pumpkin, on Pumpkin Landing."
+            }
+          ]
+        },
+        {
+          "id": "cube_deep_woods_skyview_entrance",
+          "name": "Deep Woods: by the Skyview Temple entrance",
+          "region": "Faron Woods",
+          "area": "Deep Woods",
+          "howTo": "Cube: Just outside the entrance to the Skyview Temple. Chest: island by the Faron pillar.",
+          "after": "Deep Woods",
+          "reward": "Piece of Heart",
+          "notes": "The chest holds a Piece of Heart (also listed in Heart Pieces).",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Just outside the entrance to the Skyview Temple. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the small island closest to the Faron pillar of light, near Pumpkin Landing."
+            }
+          ]
+        },
+        {
+          "id": "cube_skyview_spring",
+          "name": "Skyview Spring",
+          "region": "Faron Woods",
+          "area": "Skyview Spring",
+          "howTo": "Cube: In the Skyview Spring at the end of the Skyview Temple: drop into the water and go behind the goddess statue's platform. Chest: Lumpy Pumpkin roof.",
+          "after": "Skyview Temple",
+          "reward": "Gold Rupee",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "In the Skyview Spring at the end of the Skyview Temple: drop into the water and go behind the goddess statue's platform. If you missed it, go back through the temple and the boss room. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the canvas roof above the Lumpy Pumpkin's front door. Dive off your Loftwing and steer onto it."
+            }
+          ]
+        },
+        {
+          "id": "cube_eldin_entrance",
+          "name": "Eldin Volcano entrance",
+          "region": "Eldin Volcano",
+          "area": "Near the Volcano Entry Bird Statue",
+          "howTo": "Cube: Right at the start of Eldin Volcano: walk forward, take the first left and drop to the lower ledge. Chest: island north-west of Fun Fun Island.",
+          "after": "First visit to Eldin Volcano",
+          "reward": "Small Seed Satchel",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Right at the start of Eldin Volcano: walk forward, take the first left and drop to the lower ledge. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the upper part of the triple island just north-west of Fun Fun Island, in the south-west Sky."
+            }
+          ]
+        },
+        {
+          "id": "cube_eldin_volcano_east",
+          "name": "Volcano East three-way split",
+          "region": "Eldin Volcano",
+          "area": "Past the Volcano East Bird Statue",
+          "howTo": "Cube: After the Mogma who teaches you about Bomb Flowers, go past the Bird Statue to where the path splits three ways and go straight ahead. Chest: island next to Bamboo Island.",
+          "after": "First visit to Eldin Volcano",
+          "reward": "Silver Rupee",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "After the Mogma who teaches you about Bomb Flowers, go past the Bird Statue to where the path splits three ways and go straight ahead. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the upper part of the island between Beedle's Island and Bamboo Island."
+            }
+          ]
+        },
+        {
+          "id": "cube_eldin_volcano_pillar",
+          "name": "Pillar inside the small volcano",
+          "region": "Eldin Volcano",
+          "area": "Inside the small volcano (Mogma Turf)",
+          "howTo": "Cube: Jump down into the small volcano and steer your fall: the cube is on a pillar to the right. Chest: outside the Isle of Songs.",
+          "after": "First visit to Eldin Volcano",
+          "reward": "Gold Rupee",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Jump down into the small volcano and steer your fall: the cube is on a pillar to the right. Open the Sailcloth over it to land. If you miss, take the updraft at the north exit and try again. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the right side of the lower rim of the Isle of Songs, in the Thunderhead. The chest can only be reached once the Thunderhead opens (Light Tower raised)."
+            }
+          ]
+        },
+        {
+          "id": "cube_earth_temple_west",
+          "name": "West of the Earth Temple entrance",
+          "region": "Eldin Volcano",
+          "area": "Outside the Earth Temple",
+          "howTo": "Cube: West of the Earth Temple entrance, dig the soft soil: one spot uncovers an updraft. Chest: Bamboo Island.",
+          "after": "Earth Temple entrance",
+          "reward": "Gold Rupee",
+          "tags": [
+            "Digging Mitts"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "West of the Earth Temple entrance, dig the soft soil: one spot uncovers an updraft. Throw a Bomb Flower up it to blow up the boulder hiding the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "Behind the building on Bamboo Island, north-east of Skyloft."
+            }
+          ]
+        },
+        {
+          "id": "cube_earth_temple_east",
+          "name": "East of the Earth Temple entrance",
+          "region": "Eldin Volcano",
+          "area": "Outside the Earth Temple",
+          "howTo": "Cube: East of the Earth Temple entrance, past the Bokoblins and their huts, a ramp leads down to the cube. Chest: caged chest near Beedle's Island.",
+          "after": "Earth Temple entrance",
+          "reward": "Treasure Medal",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "East of the Earth Temple entrance, past the Bokoblins and their huts, a ramp leads down to the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the small island south-east of Beedle's Island, in the north-east Sky: land on its upper part and climb down the vines to the chest behind the gate."
+            }
+          ]
+        },
+        {
+          "id": "cube_eldin_sand_slide",
+          "name": "Below the sand slide",
+          "region": "Eldin Volcano",
+          "area": "North-east corner, big sand slide",
+          "howTo": "Cube: Slide down the big sand slide in the north-east and ride the left updraft to a higher platform. Chest: Skyloft shed.",
+          "after": "First visit to Eldin Volcano",
+          "reward": "Piece of Heart",
+          "notes": "The chest holds a Piece of Heart (also listed in Heart Pieces). Opening the chest needs: Water Dragon's Scale.",
+          "tags": [
+            "Water Dragon's Scale"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Slide down the big sand slide in the north-east and ride the left updraft to a higher platform. The cube is on a lower platform just in front of it; drop down to strike it. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "In the shed in Skyloft reached by swimming through the underwater passage at the base of the windmill. The chest can only be reached once Water Dragon's Scale."
+            }
+          ]
+        },
+        {
+          "id": "cube_lanayru_mine_entrance",
+          "name": "Lanayru Mine entrance",
+          "region": "Lanayru Mine",
+          "area": "By the first Bird Statue",
+          "howTo": "Cube: At the start of the Lanayru Mine, where the Bird Statue is, go to the far south. Chest: bombable wall near Beedle's Island.",
+          "after": "First visit to Lanayru",
+          "reward": "Silver Rupee",
+          "notes": "Opening the chest needs: Bombs.",
+          "tags": [
+            "Bombs"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "At the start of the Lanayru Mine, where the Bird Statue is, go to the far south. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the island south-east of Beedle's Island: drop to its lower part and bomb the rocky wall."
+            }
+          ]
+        },
+        {
+          "id": "cube_lanayru_sand_oasis",
+          "name": "South-west desert sands",
+          "region": "Lanayru Desert",
+          "area": "Sand Oasis, south-west Lanayru Desert",
+          "howTo": "Cube: In the sandy south-west of the desert, knock out an Ampilus with a bomb and stand on its shell to get your stamina back, then dash across the sand to the cube. Chest: outside the volcanic island.",
+          "after": "Lanayru Mining Facility",
+          "reward": "Heart Medal",
+          "notes": "Zelda Dungeon drops the bomb with the Hook Beetle.",
+          "tags": [
+            "Bombs"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "In the sandy south-west of the desert, knock out an Ampilus with a bomb and stand on its shell to get your stamina back, then dash across the sand to the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the outer ledge of the crater-shaped island just east of the Lanayru pillar of light."
+            }
+          ]
+        },
+        {
+          "id": "cube_temple_of_time_minecart",
+          "name": "Temple of Time mine cart",
+          "region": "Lanayru Desert",
+          "area": "Temple of Time, north-west",
+          "howTo": "Cube: At the north-west of the Temple of Time, hit the Timeshift Stone to power the mine cart, ride it across the gap and Skyward Strike the cube as you pass. Chest: Beedle's Island.",
+          "after": "Temple of Time",
+          "reward": "Piece of Heart",
+          "notes": "The chest holds a Piece of Heart (also listed in Heart Pieces).",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "At the north-west of the Temple of Time, hit the Timeshift Stone to power the mine cart, ride it across the gap and Skyward Strike the cube as you pass. If you miss, ride again."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On top of Beedle's Island, just above Beedle's hut."
+            }
+          ]
+        },
+        {
+          "id": "cube_great_tree_west",
+          "name": "Great Tree: west side",
+          "region": "Faron Woods",
+          "area": "Outside the Great Tree, west side",
+          "howTo": "Cube: Swim into the Great Tree and climb out of the top exit. Chest: Skyloft, south of the Knight Academy.",
+          "after": "Water Dragon's Scale",
+          "reward": "Silver Rupee",
+          "tags": [
+            "Water Dragon's Scale"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Swim into the Great Tree and climb out of the top exit. Look down: the cube is below on the west side of the tree. Drop down to it. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the small floating island just south of the Knight Academy. Glide to it from the diving platform nearby."
+            }
+          ]
+        },
+        {
+          "id": "cube_great_tree_southeast",
+          "name": "Great Tree: south-east ledge",
+          "region": "Faron Woods",
+          "area": "Outside the Great Tree, south-east side",
+          "howTo": "Cube: From the top of the Great Tree, walk anticlockwise round the outside to the south-east. Chest: inside the volcanic island.",
+          "after": "Water Dragon's Scale",
+          "reward": "Piece of Heart",
+          "notes": "The chest holds a Piece of Heart (also listed in Heart Pieces).",
+          "tags": [
+            "Water Dragon's Scale"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "From the top of the Great Tree, walk anticlockwise round the outside to the south-east. Drop to the ledge with the cube below, opening the Sailcloth to land. Later, the Clawshots get you there too. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On a high ledge inside the crater-shaped island east of the Lanayru pillar of light. Skydive onto it or clawshot up."
+            }
+          ]
+        },
+        {
+          "id": "cube_great_tree_tightrope",
+          "name": "Great Tree: tightrope ledge",
+          "region": "Faron Woods",
+          "area": "Outside the Great Tree, near the top",
+          "howTo": "Cube: Near the top of the Great Tree, where you met the Kikwi, hang off the ledge just south of the part facing the viewing platform. Chest: Thunderhead island north-east of the Isle of Songs.",
+          "after": "Water Dragon's Scale",
+          "reward": "Rupee Medal",
+          "tags": [
+            "Water Dragon's Scale"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Near the top of the Great Tree, where you met the Kikwi, hang off the ledge just south of the part facing the viewing platform. Drop to the platform below and cross the tightrope to the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the island north-east of the Isle of Songs, in the Thunderhead. Kill the Walltulas on the vines and climb up to the chest. The chest can only be reached once the Thunderhead opens (Light Tower raised)."
+            }
+          ]
+        },
+        {
+          "id": "cube_lake_floria_cavern",
+          "name": "Lake Floria: behind the Bird Statue",
+          "region": "Lake Floria",
+          "area": "Cavern by the Lake Floria Bird Statue",
+          "howTo": "Cube: At the Lake Floria Bird Statue on the surface, turn round and walk to the back of the cavern. Chest: Skyloft floating island.",
+          "after": "Lake Floria",
+          "reward": "Gold Rupee",
+          "notes": "Opening the chest needs: Clawshots.",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "At the Lake Floria Bird Statue on the surface, turn round and walk to the back of the cavern. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On a small island among Skyloft's floating islands: clawshot up to the big waterfall island, dive off its far side and glide down to the chest."
+            }
+          ]
+        },
+        {
+          "id": "cube_lanayru_secret_passage",
+          "name": "North-east desert passage",
+          "region": "Lanayru Desert",
+          "area": "Secret passageway, north-east Lanayru Desert",
+          "howTo": "Cube: Bomb the cracked wall in the north-east of the desert and follow the narrow corridor. Chest: underwater, island next to Bamboo Island.",
+          "after": "Clawshots",
+          "reward": "Heart Medal",
+          "notes": "Opening the chest needs: Water Dragon's Scale.",
+          "tags": [
+            "Bombs",
+            "Clawshots",
+            "Water Dragon's Scale"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Bomb the cracked wall in the north-east of the desert and follow the narrow corridor. Clawshot along the targets to the cube at the end. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the island west of Beedle's Island: land on its lower part, dive into the water and swim into the cave; a water dash gets you up to the chest."
+            }
+          ]
+        },
+        {
+          "id": "cube_lanayru_caged_robot",
+          "name": "South-west of the Mining Facility",
+          "region": "Lanayru Desert",
+          "area": "High platform near the caged robot",
+          "howTo": "Cube: Just south-west of the Lanayru Mining Facility, clawshot up to the higher platforms. Chest: island north-west of Fun Fun Island.",
+          "after": "Clawshots",
+          "reward": "Life Medal",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Just south-west of the Lanayru Mining Facility, clawshot up to the higher platforms. The cube is on one of them. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "At the bottom of the small triple island north-west of Fun Fun Island: land where you opened the earlier chest and climb down the vines."
+            }
+          ]
+        },
+        {
+          "id": "cube_ancient_harbour",
+          "name": "Ancient Harbour",
+          "region": "Lanayru Sand Sea",
+          "area": "Ancient Harbour, north end",
+          "howTo": "Cube: At the north end of the harbour where you first met Skipper, clawshot from a box into the northern cavern. Chest: Skyloft, behind Gondo's Scrap Shop.",
+          "after": "Lanayru Sand Sea",
+          "reward": "Gold Rupee",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "At the north end of the harbour where you first met Skipper, clawshot from a box into the northern cavern. Watch for the Arachas on the ceiling. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "In the storage area behind Gondo's Scrap Shop in the Bazaar."
+            }
+          ]
+        },
+        {
+          "id": "cube_skippers_retreat",
+          "name": "Skipper's Retreat pillar",
+          "region": "Lanayru Sand Sea",
+          "area": "Skipper's Retreat",
+          "howTo": "Cube: Past the bridge with the Moblin, where a Quadro Baba waits, look left for a pillar with vines. Chest: caged chest north-west of Fun Fun Island.",
+          "after": "Skipper's Retreat",
+          "reward": "Potion Medal",
+          "notes": "Opening the chest needs: Clawshots.",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Past the bridge with the Moblin, where a Quadro Baba waits, look left for a pillar with vines. Clawshot to it, climb round to the left, then clawshot to the pillar with the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the triple island north-west of Fun Fun Island: land on the smaller platform, clawshot to the vines above the gate and drop down to the chest."
+            }
+          ]
+        },
+        {
+          "id": "cube_pirate_stronghold",
+          "name": "Above the Pirate Stronghold door",
+          "region": "Lanayru Sand Sea",
+          "area": "Pirate Stronghold",
+          "howTo": "Cube: After the Pirate Stronghold, turn round as you come out: clawshot to the target above the door, then to the next one, up to the platform with the cube. Chest: top of Skyloft's waterfall.",
+          "after": "Pirate Stronghold",
+          "reward": "Piece of Heart",
+          "notes": "The chest holds a Piece of Heart (also listed in Heart Pieces). Opening the chest needs: Clawshots.",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "After the Pirate Stronghold, turn round as you come out: clawshot to the target above the door, then to the next one, up to the platform with the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "At the top of the waterfall island in Skyloft: clawshot to the vines on the floating rock outside the Waterfall Cave, then up to the top."
+            }
+          ]
+        },
+        {
+          "id": "cube_skyview_temple_roof",
+          "name": "On top of the Skyview Temple",
+          "region": "Faron Woods",
+          "area": "Deep Woods, Skyview Temple roof",
+          "howTo": "Cube: Walk to the right of the Skyview Temple entrance and clawshot to the vines to climb onto the roof. Chest: Beedle's Island at night.",
+          "after": "Clawshots",
+          "reward": "Rupee Medal",
+          "notes": "The chest can only be opened at night.",
+          "tags": [
+            "Clawshots",
+            "Night"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Walk to the right of the Skyview Temple entrance and clawshot to the vines to climb onto the roof. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "Inside Beedle's hut on Beedle's Island at night. Sleep in the bed at the back of Beedle's Airshop to wake on his island at night, then climb the ladder into the hut."
+            }
+          ]
+        },
+        {
+          "id": "cube_ancient_cistern_entrance",
+          "name": "Outside the Ancient Cistern",
+          "region": "Lake Floria",
+          "area": "Floria Waterfall, Ancient Cistern entrance",
+          "howTo": "Cube: Facing the path to the Water Dragon outside the Ancient Cistern, look up and slightly left for hanging vines. Chest: under Fun Fun Island.",
+          "after": "Clawshots",
+          "reward": "Gold Rupee",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Facing the path to the Water Dragon outside the Ancient Cistern, look up and slightly left for hanging vines. Clawshot over to the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On a small island beneath Fun Fun Island."
+            }
+          ]
+        },
+        {
+          "id": "cube_summit_waterfall",
+          "name": "Volcano Summit waterfall",
+          "region": "Volcano Summit",
+          "area": "Waterfall area",
+          "howTo": "Cube: In the Volcano Summit waterfall area, run off the diving ledge and glide forward. Chest: Bug Rock.",
+          "after": "Volcano Summit",
+          "reward": "Piece of Heart",
+          "notes": "The chest holds a Piece of Heart (also listed in Heart Pieces).",
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "In the Volcano Summit waterfall area, run off the diving ledge and glide forward. A lower platform behind a pillar comes into view: land on it with the Sailcloth. Climb the vines to get back. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On a wooden ledge on the south-west of Bug Rock, in the Thunderhead: drop to it from the castle-like overhang at the top, and clawshot the vines to leave."
+            }
+          ]
+        },
+        {
+          "id": "cube_fire_sanctuary_entrance",
+          "name": "Near the Fire Sanctuary entrance",
+          "region": "Volcano Summit",
+          "area": "Outside the Fire Sanctuary",
+          "howTo": "Cube: Facing the Fire Sanctuary entrance, turn left and climb out of the window ahead. Chest: top of the Isle of Songs.",
+          "after": "Volcano Summit",
+          "reward": "Small Bomb Bag",
+          "tags": [
+            "Clawshots"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "Facing the Fire Sanctuary entrance, turn left and climb out of the window ahead. Clawshot along the pillars to the cube. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "Right on top of the main tower of the Isle of Songs."
+            }
+          ]
+        },
+        {
+          "id": "cube_volcano_summit_eldin_lair",
+          "name": "Volcano Summit: by Eldin's lair",
+          "region": "Volcano Summit",
+          "area": "South-east platform near the Fire Dragon",
+          "howTo": "Cube: When you come back to the Volcano Summit for the Song of the Hero, the cube is in the room just to the right as you enter. Chest: first chest, Mogma Mitts island.",
+          "after": "Eldin's part of the Song of the Hero",
+          "reward": "Empty Bottle",
+          "notes": "Opening the chest needs: Mogma Mitts. With the True Master Sword's long-range Skyward Strike you can reach it from solid ground. In Hero Mode the long range is there from the start.",
+          "tags": [
+            "Fireshield Earrings",
+            "Mogma Mitts"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "When you come back to the Volcano Summit for the Song of the Hero, the cube is in the room just to the right as you enter. Ride a floating platform close enough to Skyward Strike it."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the island south-west of the Isle of Songs, in the Thunderhead: dig into the hole with the Mogma Mitts, get past the Moldorm, come out of the lower hole and climb the vines."
+            }
+          ]
+        },
+        {
+          "id": "cube_lanayru_gorge",
+          "name": "Lanayru Gorge",
+          "region": "Lanayru Gorge",
+          "area": "Near the Life Tree",
+          "howTo": "Cube: In the north-east of Lanayru Gorge, right by the spot where you plant the Life Tree Seedling. Chest: second chest, Mogma Mitts island.",
+          "after": "Lanayru's part of the Song of the Hero",
+          "reward": "Small Quiver",
+          "notes": "Opening the chest needs: Mogma Mitts.",
+          "tags": [
+            "Mogma Mitts"
+          ],
+          "tiers": [
+            {
+              "name": "Cube struck",
+              "value": 1,
+              "howTo": "In the north-east of Lanayru Gorge, right by the spot where you plant the Life Tree Seedling. Raise your sword until it glows, then swing to send a Skyward Strike into the cube."
+            },
+            {
+              "name": "Chest opened",
+              "value": 0,
+              "howTo": "On the same island south-west of the Isle of Songs: dig in with the Mogma Mitts, get past the Moldorm and come out of the upper hole."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
