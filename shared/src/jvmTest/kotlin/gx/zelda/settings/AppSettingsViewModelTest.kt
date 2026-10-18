@@ -34,7 +34,7 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
-        assertEquals(listOf("mc", "botw", "totk"), settings.shownGames().map { it.id })
+        assertEquals(listOf("mm", "mc", "botw", "totk"), settings.shownGames().map { it.id })
         assertTrue(settings.expandedGames.isEmpty())
     }
 
@@ -51,10 +51,10 @@ class AppSettingsViewModelTest {
         vm.setExpanded("botw", true).join()
 
         val reloaded = AppSettingsStorage(dataStore).settings.first()
-        assertEquals(listOf("oot", "mc", "botw"), reloaded.shownGames().map { it.id })
+        assertEquals(listOf("oot", "mm", "mc", "botw"), reloaded.shownGames().map { it.id })
         assertEquals(setOf("botw"), reloaded.expandedGames)
         assertEquals(
-            listOf("oot", "mc", "botw"),
+            listOf("oot", "mm", "mc", "botw"),
             vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames().map { it.id },
         )
     }
@@ -64,10 +64,11 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         vm.settings.filterNotNull().first()
+        vm.setShown("mm", false).join()
         vm.setShown("botw", false).join()
         vm.setShown("totk", false).join()
         vm.setShown("mc", false).join()
-        val settings = vm.settings.filterNotNull().first { it.gameChoices.size == 2 }
+        val settings = vm.settings.filterNotNull().first { it.gameChoices.size == 3 }
         assertEquals(listOf("mc"), settings.shownGames().map { it.id })
         assertTrue("mc" !in settings.gameChoices)
     }
