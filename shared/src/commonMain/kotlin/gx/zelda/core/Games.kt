@@ -71,8 +71,24 @@ data class Tracker(val kind: TrackerKind, val title: String, val description: St
 }
 
 object Games {
-    /** Famicom Disk System in Japan, a year before the NES cartridge. */
-    val LOZ = comingSoon("loz", "The Legend of Zelda", ReleaseDate(1986, 2, 21), "NES")
+    /**
+     * Famicom Disk System in Japan, a year before the NES cartridge. Three save files; the Second
+     * Quest carries on in the same file, so every checklist has a section per quest. The data and
+     * its sources are in docs/loz.md.
+     */
+    val LOZ = Game(
+        id = "loz",
+        title = "The Legend of Zelda",
+        released = ReleaseDate(1986, 2, 21),
+        platform = "NES",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            lozChecklist("Dungeons", "Levels 1–9 of both quests: entrances, bosses, items and Triforce pieces", "dungeons"),
+            lozChecklist("Items & Equipment", "All 27 items in each quest, with where to find or buy them", "items"),
+            lozChecklist("Heart Containers", "All 13 in each quest, from bosses and secret caves, with your hearts", "heart_containers"),
+        ),
+    )
 
     /**
      * Three save files. Replaying a beaten file keeps the levels and spells but not the items or
@@ -99,6 +115,12 @@ object Games {
      * original SNES release; GBA differences are in item notes. Every tracker is a checklist; the data
      * and its sources are in docs/alttp.md.
      */
+
+    /**
+     * Three files on the SNES cartridge (StrategyWiki: "top, middle, or bottom"). Tracked as the
+     * original SNES release; GBA differences are in item notes. Every tracker is a checklist; the data
+     * and its sources are in docs/alttp.md.
+     */
     val ALTTP = Game(
         id = "alttp",
         title = "A Link to the Past",
@@ -112,7 +134,30 @@ object Games {
             alttpChecklist("Heart Pieces", "All 24 Pieces of Heart and 11 Heart Containers, with your hearts total", "heart_pieces"),
         ),
     )
-    val LA = comingSoon("la", "Link's Awakening", ReleaseDate(1993, 6, 6), "Game Boy")
+
+    /**
+     * Three files on the Game Boy cartridge, as on DX (the disassembly's SaveGame1–3) and the Switch
+     * remake. Every tracker is a checklist for the original and DX; the Switch remake's own lists are
+     * `separate` tabs. The data and its sources are in docs/la.md.
+     */
+    val LA = Game(
+        id = "la",
+        title = "Link's Awakening",
+        released = ReleaseDate(1993, 6, 6),
+        platform = "Game Boy",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            laChecklist("Main Quest", "The eight dungeons, their keys and Instruments of the Sirens, and the Wind Fish's Egg", "main_quest"),
+            laChecklist("Items & Equipment", "Every item and its upgrades, the Mad Batters' capacity upgrades and the five Golden Leaves", "items"),
+            laChecklist("Heart Pieces", "All 12 Pieces of Heart and 8 Heart Containers, with your hearts, and the Switch remake's 32", "heart_pieces"),
+            laChecklist("Secret Seashells", "All 26 seashells and the Seashell Mansion, and the Switch remake's 50", "seashells"),
+            laChecklist("Trading Sequence", "From the Yoshi Doll to the Magnifying Lens: 14 trades", "trading"),
+            laChecklist("Songs", "The three Ocarina songs and where to learn them", "songs"),
+            laChecklist("Photographs", "DX: all 12 photos for The Travels of Link, and the ones you can miss", "photographs"),
+            laChecklist("Color Dungeon", "DX and Switch: the graveyard puzzle, the bosses and the Fairy's tunics", "color_dungeon"),
+        ),
+    )
 
     /** Three files on the Nintendo 64 cartridge (each with a backup copy), as on the 3DS. */
     val OOT = Game(
@@ -268,8 +313,14 @@ object Games {
 
     fun byId(id: String): Game = all.first { it.id == id }
 
+    private fun lozChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "loz/$file.json")
+
     private fun aolChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "aol/$file.json")
+
+    private fun laChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "la/$file.json")
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")

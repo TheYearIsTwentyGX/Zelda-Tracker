@@ -34,7 +34,7 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
-        assertEquals(listOf("aol", "alttp", "oot", "mm", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
         assertTrue(settings.expandedGames.isEmpty())
     }
 
@@ -46,15 +46,15 @@ class AppSettingsViewModelTest {
         backgroundScope.launchCollect(vm)
         // Let the state load before writing (see HeartViewModelTest).
         vm.settings.filterNotNull().first()
-        vm.setShown("la", true).join()
+        vm.setShown("tfh", true).join()
         vm.setShown("totk", false).join()
         vm.setExpanded("botw", true).join()
 
         val reloaded = AppSettingsStorage(dataStore).settings.first()
-        assertEquals(listOf("aol", "alttp", "la", "oot", "mm", "mc", "botw", "eow"), reloaded.shownGames().map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
         assertEquals(setOf("botw"), reloaded.expandedGames)
         assertEquals(
-            listOf("aol", "alttp", "la", "oot", "mm", "mc", "botw", "eow"),
+            listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "tfh", "botw", "eow"),
             vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames().map { it.id },
         )
     }
