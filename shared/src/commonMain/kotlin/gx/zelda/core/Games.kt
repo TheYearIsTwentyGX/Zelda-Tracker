@@ -123,8 +123,30 @@ object Games {
     val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
     val TFH = comingSoon("tfh", "Tri Force Heroes", ReleaseDate(2015, 10, 22), "Nintendo 3DS")
 
-    /** One game file per Switch user. */
-    val EOW = comingSoon("eow", "Echoes of Wisdom", ReleaseDate(2024, 9, 26), "Nintendo Switch", files = 1)
+    /**
+     * Two save files per Switch user, each with its own autosaves (Zelda Wiki, Saving; Game8). Every
+     * tracker is a checklist (docs/checklist-trackers.md); the data and its sources are in docs/eow.md.
+     */
+    val EOW = Game(
+        id = "eow",
+        title = "Echoes of Wisdom",
+        released = ReleaseDate(2024, 9, 26),
+        platform = "Nintendo Switch",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            eowChecklist("Main Quest", "Rifts, dungeons and bosses, Tri's Power and the Swordfighter weapons", "main_quest"),
+            eowChecklist("Echoes", "All 127 echoes: where each is first learned and what it costs", "echoes"),
+            eowChecklist("Heart Pieces", "All 40 Pieces of Heart and 7 Heart Containers by region, with your hearts total", "heart_pieces"),
+            eowChecklist("Might Crystals", "All 150 crystals in 85 places, and Lueburry's upgrades", "might_crystals"),
+            eowChecklist("Side Quests", "All 50 side quests: who gives them, where, and the reward", "side_quests"),
+            eowChecklist("Accessories", "All 28 accessories and the Great Fairy's accessory slots", "accessories"),
+            eowChecklist("Smoothie Recipes", "All 59 smoothies and 10 potions, with ingredients and effects", "smoothies"),
+            eowChecklist("Slumber Dojo", "The 15 battle challenges, their hidden goal times and Shisho's rewards", "slumber_dojo"),
+            eowChecklist("Stamp Stands", "All 25 Stamp Stands and the stamp card rewards", "stamp_stands"),
+            eowChecklist("Bottles, Automatons & More", "Fairy Bottles, Dampé's Automatons, outfits and mini-games", "collectibles"),
+        ),
+    )
 
     /** Switch 2 Edition: two Normal Mode files, plus Master Mode's own separate file. */
     val BOTW = Game(
@@ -188,6 +210,9 @@ object Games {
     ).sortedBy { it.released }
 
     fun byId(id: String): Game = all.first { it.id == id }
+
+    private fun eowChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
 
     /** A game with no trackers yet; [files] placeholder save files, as many as the game itself keeps. */
     private fun comingSoon(id: String, title: String, released: ReleaseDate, platform: String, files: Int = 3) = Game(

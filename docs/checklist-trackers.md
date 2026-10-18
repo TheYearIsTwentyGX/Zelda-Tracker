@@ -31,8 +31,9 @@ The code is in `shared/src/commonMain/kotlin/gx/zelda/checklist/`:
    checklist then gets a row, in the order the game lists them.
 4. Run `./gradlew :shared:jvmTest`. `ChecklistDatasetsTest` loads every checklist of every game
    with unknown keys rejected, so a misspelt field fails. It also checks `problems()` is empty.
-   Then add a dataset test for the game's own counts, and write the sources up in
-   `docs/<game>.md`.
+   Then add a dataset test for the game's own counts and the links between its files, and write
+   the sources up in `docs/<game>.md`. Echoes of Wisdom is the worked example: `EowDatasetTest`
+   and `docs/eow.md`.
 
 Progress is saved under `<game id>_checklist_<file name without .json>@<save file id>`, and the
 prefs under `<game id>_checklist_<file name>_prefs`. **Renaming a file or an item id loses saved

@@ -1,0 +1,61 @@
+{
+  "regions": ["Suthorn Prairie", "Hyrule Castle", "Hyrule Field", "Eastern Hyrule Field", "Lake Hylia", "Gerudo Desert", "Jabul Waters", "Eldin Volcano", "Hebra Mountain", "Faron Wetlands"],
+  "noun": "accessory",
+  "plural": "accessories",
+  "hiddenLabel": "Unknown accessory",
+  "summaries": [{"label": "Accessories", "formula": "accessories"}, {"label": "Accessory slots", "formula": "1 + slots"}],
+  "sections": [
+    {
+      "id": "accessories",
+      "title": "Accessories",
+      "noun": "accessory",
+      "plural": "accessories",
+      "hiddenLabel": "Unknown accessory",
+      "note": "28 accessories; the Survey Binoculars and Curious Charm replace the Scope and Ancient Charm.",
+      "items": [
+        {"id": "zoras_flippers", "name": "Zora's Flippers", "region": "Jabul Waters", "area": "River Zora Shop", "howTo": "Buy for 350 Rupees.", "reward": "Swim Speed Up"},
+        {"id": "zora_scale", "name": "Zora Scale", "region": "Jabul Waters", "area": "River Zora Village", "howTo": "Reward for the side quest 'The Zora Child's Fate'.", "after": "After Chaos at River Zora Village", "reward": "Dive Time Up"},
+        {"id": "gerudo_sandals", "name": "Gerudo Sandals", "region": "Gerudo Desert", "area": "Gerudo Shop (Gerudo Town)", "howTo": "Buy for 400 Rupees.", "reward": "Quicksand-Proof"},
+        {"id": "gold_sash", "name": "Gold Sash", "region": "Gerudo Desert", "area": "Gerudo Palace", "howTo": "Reward for the side quest 'Wild Sandstorms'.", "after": "After Still Missing", "reward": "Windproof"},
+        {"id": "climbing_band", "name": "Climbing Band", "region": "Eldin Volcano", "area": "Kakariko Village Shop", "howTo": "Buy for 500 Rupees.", "reward": "Wall-Climb Speed Up"},
+        {"id": "gorons_bracelet", "name": "Goron's Bracelet", "region": "Eldin Volcano", "area": "Summit Cave", "howTo": "Reward for the side quest 'A Mountainous Mystery'.", "after": "After The Rift on Eldin Volcano", "reward": "Carry Speed Up"},
+        {"id": "spin_brace", "name": "Spin Brace", "region": "Faron Wetlands", "area": "East Ruins (cave east of Scrubton, northeast Faron Wetlands)", "howTo": "Treasure Chest guarded by a Darknut Lv. 3.", "reward": "Knockback Spin"},
+        {"id": "ice_spikes", "name": "Ice Spikes", "region": "Hebra Mountain", "area": "Cave in central/western Hebra Mountain", "howTo": "Treasure Chest that appears after defeating the group of ice enemies in the cave.", "reward": "Slip Reduction"},
+        {"id": "frog_ring", "name": "Frog Ring", "region": "Hyrule Castle", "area": "Hyrule Castle (dungeon), B2", "howTo": "Treasure Chest in the northeast room with three chests on B2 of the Hyrule Castle dungeon.", "reward": "Jump Height Up"},
+        {"id": "charging_horn", "name": "Charging Horn", "region": "Hyrule Field", "area": "Hyrule Ranch", "howTo": "Clear the Flag Race Long Course in under 40 seconds.", "after": "After Impa's Gift (needs your horse)", "reward": "Horse Attack Up"},
+        {"id": "stone_anklet", "name": "Stone Anklet", "region": "Hyrule Castle", "area": "Hyrule Castle Town Shop", "howTo": "Buy for 400 Rupees.", "reward": "Knockback Reduced"},
+        {"id": "clockwork_bangle", "name": "Clockwork Bangle", "region": "Eastern Hyrule Field", "area": "Dampé Studio (Eastern Hyrule Field)", "howTo": "After building all six Automatons, talk to Dampé.", "reward": "Winding Speed Up", "notes": "Zelda Wiki: Dampé asks 5 Monster Stones for it. Game8's checklist instead lists '5 Monster Stones' as the reward for all Automatons; unverified."},
+        {"id": "first_mastery", "name": "First Mastery", "region": "Eldin Volcano", "area": "Slumber Dojo (Kakariko Village)", "howTo": "Clear 4 different Slumber Dojo challenges.", "reward": "Energy Consumption Reduced Lv. 1"},
+        {"id": "second_mastery", "name": "Second Mastery", "region": "Eldin Volcano", "area": "Slumber Dojo (Kakariko Village)", "howTo": "Clear 8 different Slumber Dojo challenges.", "requires": ["first_mastery"], "reward": "Energy Consumption Reduced Lv. 2"},
+        {"id": "final_mastery", "name": "Final Mastery", "region": "Eldin Volcano", "area": "Slumber Dojo (Kakariko Village)", "howTo": "Clear 14 different Slumber Dojo challenges.", "requires": ["second_mastery"], "reward": "Energy Consumption Reduced Lv. 3"},
+        {"id": "might_bell", "name": "Might Bell", "region": "Lake Hylia", "area": "Great Fairy Shrine (Lake Hylia)", "howTo": "Reward for the side quest 'The Great Fairy's Request'.", "requires": ["slot_5"], "after": "After The Rift on Eldin Volcano", "reward": "Might Crystal Detection"},
+        {"id": "heart_pin", "name": "Heart Pin", "region": "Suthorn Prairie", "area": "Suthorn Ruins, 2F", "howTo": "Treasure Chest on 2F of the Suthorn Ruins.", "reward": "Heart Appearance Up"},
+        {"id": "heart_barrette", "name": "Heart Barrette", "region": "Gerudo Desert", "area": "Gerudo Town", "howTo": "Reward for the side quest 'Beetle Ballyhoo'.", "after": "After Still Missing", "reward": "Heart Appearance Up +"},
+        {"id": "silver_brooch", "name": "Silver Brooch", "region": "Jabul Waters", "area": "Cliff west of the River Zora Village waypoint", "howTo": "Climb the cliff west of the River Zora Village waypoint and blow open the cracked wall (Bombfish or Bombs of Might); chest inside.", "reward": "Rupee Appearance Up"},
+        {"id": "gold_brooch", "name": "Gold Brooch", "region": "Jabul Waters", "area": "Zora Cove", "howTo": "Reward for the side quest 'Secret Chief Talks'.", "after": "After Still Missing", "reward": "Rupee Appearance Up +"},
+        {"id": "energy_glove", "name": "Energy Glove", "region": "Gerudo Desert", "area": "Northwestern Gerudo Desert", "howTo": "Treasure Chest guarded by several Boarblins.", "reward": "Extra Energy Appearance Up"},
+        {"id": "energy_belt", "name": "Energy Belt", "region": "Hebra Mountain", "area": "Cave north of the Moblin camp, eastern Hebra Mountain", "howTo": "Melt the ice in the cave; Treasure Chest guarded by a Sword Moblin Lv. 3.", "reward": "Extra Energy Appearance Up +"},
+        {"id": "survey_scope", "name": "Survey Scope", "area": "Any Smoothie Shop", "howTo": "'Recipes, Please!': register 10 different smoothie recipes.", "reward": "Material Appearance Up", "notes": "Replaced by the Survey Binoculars when you get them."},
+        {"id": "survey_binoculars", "name": "Survey Binoculars", "area": "Any Smoothie Shop", "howTo": "'Recipes, Please!': register 30 different recipes in total.", "requires": ["survey_scope"], "reward": "Material Appearance Up +"},
+        {"id": "fairy_flower", "name": "Fairy Flower", "region": "Eldin Volcano", "area": "Hidden cave in southwestern Eldin Volcano", "howTo": "Bomb the cracked wall near the western Eldin Volcano waypoint (Bombfish); chest inside.", "reward": "Fairy Appearance Up"},
+        {"id": "fairy_fragrance", "name": "Fairy Fragrance", "region": "Faron Wetlands", "area": "Scrubton", "howTo": "Reward for the side quest 'Looking for Bempu'.", "after": "After A Rift in the Faron Wetlands", "reward": "Fairy Appearance Up +"},
+        {"id": "ancient_charm", "name": "Ancient Charm", "region": "Eastern Hyrule Field", "area": "Eastern Temple (Eastern Hyrule Field)", "howTo": "Reward for the side quest 'Let's Play a Game'.", "reward": "Damage Reduced", "notes": "Replaced by the Curious Charm when you get it."},
+        {"id": "curious_charm", "name": "Curious Charm", "region": "Faron Wetlands", "area": "Scrubton / Hidden Ruins", "howTo": "Reward for the side quest 'Cotton-Candy Hunt'.", "requires": ["ancient_charm"], "after": "After A Rift in the Faron Wetlands", "reward": "Damage Reduced (stronger)"}
+      ]
+    },
+    {
+      "id": "slots",
+      "title": "Great Fairy accessory slots",
+      "noun": "slot",
+      "plural": "slots",
+      "hiddenLabel": "Locked slot",
+      "note": "Zelda starts with 1 slot; the Great Fairy on the island in Lake Hylia sells 4 more.",
+      "items": [
+        {"id": "slot_2", "name": "2nd accessory slot", "region": "Lake Hylia", "area": "Great Fairy Shrine (Lake Hylia)", "howTo": "Pay the Great Fairy 100 Rupees.", "reward": "Wear 2 accessories"},
+        {"id": "slot_3", "name": "3rd accessory slot", "region": "Lake Hylia", "area": "Great Fairy Shrine (Lake Hylia)", "howTo": "Pay the Great Fairy 300 Rupees.", "requires": ["slot_2"], "reward": "Wear 3 accessories"},
+        {"id": "slot_4", "name": "4th accessory slot", "region": "Lake Hylia", "area": "Great Fairy Shrine (Lake Hylia)", "howTo": "Pay the Great Fairy 500 Rupees.", "requires": ["slot_3"], "reward": "Wear 4 accessories"},
+        {"id": "slot_5", "name": "5th accessory slot", "region": "Lake Hylia", "area": "Great Fairy Shrine (Lake Hylia)", "howTo": "Pay the Great Fairy 1000 Rupees.", "requires": ["slot_4"], "reward": "Wear 5 accessories (maximum)"}
+      ]
+    }
+  ]
+}
