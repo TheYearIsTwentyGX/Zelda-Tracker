@@ -61,10 +61,10 @@ class GamesTest {
         }
     }
 
-    /** Ocarina of Time, Majora's Mask, The Minish Cap, BotW, TotK and Echoes of Wisdom have trackers; the rest are coming soon with placeholder files. */
+    /** Ocarina of Time, Majora's Mask, Oracle of Seasons, The Minish Cap, BotW, TotK and Echoes of Wisdom have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("oot", "mm", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("oot", "mm", "oos", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.OOT.saveFiles.map { it.id })
     }

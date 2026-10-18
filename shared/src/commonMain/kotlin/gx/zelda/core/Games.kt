@@ -122,8 +122,32 @@ object Games {
         ),
     )
 
-    /** Released together in Japan; Seasons is the one usually played first. */
-    val OOS = comingSoon("oos", "Oracle of Seasons", ReleaseDate(2001, 2, 27, sameDay = 0), "Game Boy Color")
+    /**
+     * Released together with Ages in Japan; Seasons is the one usually played first. Three save files
+     * (Zelda Wiki, Saving). Every tracker is a checklist; linked-game content is tagged "Linked". The
+     * data is written up in docs/oos.md.
+     */
+    val OOS = Game(
+        id = "oos",
+        title = "Oracle of Seasons",
+        released = ReleaseDate(2001, 2, 27, sameDay = 0),
+        platform = "Game Boy Color",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The eight dungeons and their Essences of Nature, Onox, and the linked finale", dataFile = "oos/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item and seed, the upgrades as tiers, and the Quest Items", dataFile = "oos/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rod of Seasons", "The Rod and the four seasons from the Temple of Seasons' towers", dataFile = "oos/seasons.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 12 Pieces of Heart and 9 Heart Containers, with your hearts", dataFile = "oos/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rings", "All 64 rings and the Ring Box, with where to get each in Seasons", dataFile = "oos/rings.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gasha Spots", "The 16 soft-soil spots for Gasha Seeds, and the ring classes each one gives", dataFile = "oos/gasha.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequence", "From the Cuccodex to the Noble Sword", dataFile = "oos/trading.json"),
+            Tracker(TrackerKind.CHECKLIST, "Animal Companions", "Ricky, Dimitri and Moosh, the flute and Natzu", dataFile = "oos/animal_companions.json"),
+            Tracker(TrackerKind.CHECKLIST, "Linked Secrets", "The passwords that link to Ages, and the 20 secrets to tell and take back", dataFile = "oos/linked_secrets.json"),
+            Tracker(TrackerKind.CHECKLIST, "Subrosia", "The Subrosian story, the Market, ores and the Smithy, and pastimes", dataFile = "oos/subrosia.json"),
+        ),
+    )
+
     val OOA = comingSoon("ooa", "Oracle of Ages", ReleaseDate(2001, 2, 27, sameDay = 1), "Game Boy Color")
 
     /**

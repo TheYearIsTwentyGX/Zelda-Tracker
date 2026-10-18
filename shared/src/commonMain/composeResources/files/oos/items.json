@@ -1,0 +1,346 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "sections": [
+    {
+      "id": "items",
+      "title": "Items",
+      "note": "The Item Screen and the five Mystical Seeds. Swords, shields and other upgradable items are under Upgrades.",
+      "items": [
+        {
+          "id": "seed_satchel",
+          "name": "Seed Satchel",
+          "area": "Gnarled Root Dungeon",
+          "howTo": "The dungeon item of the Gnarled Root Dungeon, down the stairs behind a pushable block past the Goriya Brothers.",
+          "notes": "Comes with 20 Ember Seeds. Its capacity is under Upgrades."
+        },
+        {
+          "id": "bombs",
+          "name": "Bombs",
+          "area": "Gnarled Root Dungeon",
+          "howTo": "A chest the mine cart passes in the Gnarled Root Dungeon holds 10 Bombs. The Horon Village Shop also sells 10 for 20 Rupees.",
+          "notes": "Bomb capacity is under Upgrades."
+        },
+        {
+          "id": "ember_seeds",
+          "name": "Ember Seeds",
+          "area": "Horon Village",
+          "howTo": "Twenty come with the Seed Satchel. The Ember Tree is in Horon Village, west of Dr. Left's house.",
+          "notes": "Burn trees and light torches. Holodrum's Mystical Trees bear seeds in one season each: the Ember Tree in winter."
+        },
+        {
+          "id": "rod_of_seasons",
+          "name": "Rod of Seasons",
+          "area": "Temple of Seasons, Subrosia",
+          "howTo": "Stand on the pedestal at the temple's central altar on your first trip to Subrosia.",
+          "notes": "Swing it on a tree stump to change the season. The four seasons are in the Rod of Seasons tracker."
+        },
+        {
+          "id": "shovel",
+          "name": "Shovel",
+          "area": "Woods of Winter",
+          "howTo": "In winter, walk up the snowdrift to Holly's chimney and drop in. She gives you the Shovel to clear her walkway."
+        },
+        {
+          "id": "mystery_seeds",
+          "name": "Mystery Seeds",
+          "area": "Woods of Winter",
+          "howTo": "The Mystery Tree stands past the snow you dig through near Holly's house, on the way to Snake's Remains.",
+          "notes": "Random effect; wakes Owl Statues for hints. The tree bears seeds in summer."
+        },
+        {
+          "id": "power_bracelet",
+          "name": "Power Bracelet",
+          "area": "Snake's Remains",
+          "howTo": "The dungeon item of Snake's Remains.",
+          "notes": "Oracle of Seasons has no Power Glove."
+        },
+        {
+          "id": "strange_flute",
+          "name": "Strange Flute",
+          "area": "Holodrum Plain",
+          "howTo": "Ricky gives you Ricky's Flute after you return his gloves, unless you already have a Strange Flute: buy one at the Horon Village Shop (150 Rupees) for Moosh, or win one at the Subrosian Dance Hall for Dimitri.",
+          "reward": "Ricky's, Dimitri's or Moosh's Flute",
+          "notes": "Both Strange Flutes are offered after Snake's Remains and only until you help Ricky. See Animal Companions."
+        },
+        {
+          "id": "scent_seeds",
+          "name": "Scent Seeds",
+          "area": "North Horon",
+          "howTo": "The Scent Tree is on the way from Ricky to Blaino's Gym.",
+          "notes": "Lure enemies; the strongest Slingshot ammunition. The tree bears seeds in spring."
+        },
+        {
+          "id": "pegasus_seeds",
+          "name": "Pegasus Seeds",
+          "area": "Spool Swamp",
+          "howTo": "The Pegasus Tree is at the entrance to Spool Swamp.",
+          "notes": "Run faster and jump farther; shot, they freeze enemies. The tree bears seeds in autumn."
+        },
+        {
+          "id": "fools_ore",
+          "name": "Fool's Ore",
+          "area": "Subrosia",
+          "howTo": "The Strange Brothers swap it for your Roc's Feather when you first cross the lava from the Mt. Cucco portal.",
+          "notes": "It replaces Roc's Feather until you follow the brothers through the Treasure Grove and dig the feather up, then it's gone for good. It hits harder than any sword.",
+          "tags": ["Temporary"]
+        },
+        {
+          "id": "gale_seeds",
+          "name": "Gale Seeds",
+          "area": "Sunken City",
+          "howTo": "From the Gale Tree in Sunken City, in summer. A second Gale Tree grows in the Tarm Ruins.",
+          "notes": "Warp to any Mystical Tree you've touched; shot, they blow enemies away."
+        },
+        {
+          "id": "magnetic_gloves",
+          "name": "Magnetic Gloves",
+          "area": "Unicorn's Cave",
+          "howTo": "The dungeon item of Unicorn's Cave.",
+          "notes": "Swap polarity to pull yourself to S stones or push and pull iron balls."
+        },
+        {
+          "id": "bombchus",
+          "name": "Bombchus",
+          "area": "Sunken City",
+          "howTo": "Only through linking secrets with Oracle of Ages: the Subrosian Secret (cut a cave's grass with three Boomerang throws) or the Troy Secret told to Farore. Afterwards Syrup sells them, 5 for 100 Rupees.",
+          "tags": ["Linked"]
+        },
+        {
+          "id": "biggorons_sword",
+          "name": "Biggoron's Sword",
+          "area": "Goron Mountain",
+          "howTo": "Only through linking secrets with Oracle of Ages: tell Biggoron the Biggoron Secret, or tell Farore the Elder Secret.",
+          "notes": "The strongest sword. It takes both the A and B slots.",
+          "tags": ["Linked"]
+        }
+      ]
+    },
+    {
+      "id": "upgrades",
+      "title": "Upgrades",
+      "note": "Each tap does the next upgrade in order. Linked-only steps say so. The Ring Box is in the rings tracker.",
+      "items": [
+        {
+          "id": "sword",
+          "name": "Sword",
+          "tiers": [
+            {"name": "Wooden Sword", "howTo": "In a chest in the Hero's Cave on the Western Coast. In a Linked Game you start with it."},
+            {"name": "Noble Sword", "howTo": "Finish the trading sequence: play the Phonograph for the Business Scrub in the Lost Woods, and he tells you the way to the sword's pedestal."},
+            {"name": "Master Sword (Linked)", "howTo": "Linked only: the Clock Shop Secret (beat the old man's 30-second challenge under the Horon Village clock shop) or the King Zora Secret told to Farore."}
+          ],
+          "notes": "If a secret gives you the Noble Sword first, the Lost Woods pedestal holds the Master Sword instead."
+        },
+        {
+          "id": "shield",
+          "name": "Shield",
+          "tiers": [
+            {"name": "Wooden Shield", "howTo": "Buy it at the Horon Village Shop for 30 Rupees, or trade 5 Ember Seeds for it at Subrosia Market (sold as a cutting board)."},
+            {"name": "Iron Shield", "howTo": "Have Red and Blue Ore smelted into Hard Ore at the Great Furnace, then bring it and your Wooden Shield to the Subrosian Smithy."},
+            {"name": "Mirror Shield (Linked)", "howTo": "Linked only: the Library Secret told to Farore, or the Smith Secret told to the master smith. With the Iron Shield already, the smithy's Hard Ore makes the Mirror Shield."}
+          ],
+          "notes": "If a Like Like eats your shield, shops sell a replacement."
+        },
+        {
+          "id": "roc_feather",
+          "name": "Roc's Feather",
+          "tiers": [
+            {"name": "Roc's Feather", "howTo": "The dungeon item of Poison Moth's Lair."},
+            {"name": "Roc's Cape", "howTo": "The dungeon item of the Explorer's Crypt. Jump, then glide over three spaces."}
+          ]
+        },
+        {
+          "id": "boomerang",
+          "name": "Boomerang",
+          "tiers": [
+            {"name": "Boomerang", "howTo": "Dance a whole round without bumping anyone at the Subrosian Dance Hall."},
+            {"name": "Magical Boomerang", "howTo": "The dungeon item of the Ancient Ruins. Steer it with the Control Pad."}
+          ],
+          "notes": "The first Boomerang is optional (a bomb also hits the Tower of Winter switch); the Magical Boomerang is required."
+        },
+        {
+          "id": "slingshot",
+          "name": "Slingshot",
+          "tiers": [
+            {"name": "Slingshot", "howTo": "The dungeon item of the Dancing Dragon Dungeon."},
+            {"name": "Hyper Slingshot", "howTo": "The dungeon item of the Sword & Shield Maze. Fires three seeds for the price of one."}
+          ]
+        },
+        {
+          "id": "seed_satchel_capacity",
+          "name": "Seed Satchel capacity",
+          "tiers": [
+            {"name": "50 of each seed", "howTo": "Buy the upgrade for 300 Rupees in the Horon Village Shop's basement, which needs the Member's Card."},
+            {"name": "99 of each seed (Linked)", "howTo": "Linked only: the Deku Secret told to the Deku Scrub in Natzu, or the Tingle Secret told to Farore."}
+          ],
+          "notes": "Starts at 20 of each. The shop and the secret can come in either order; the second makes it 99."
+        },
+        {
+          "id": "bomb_capacity",
+          "name": "Bomb capacity",
+          "tiers": [
+            {"name": "30 Bombs", "howTo": "Buy the Big Bomb Bag (a red bomb that explodes in your hands) at Subrosia Market for 50 Ore Chunks and 10 Bombs."},
+            {"name": "50 Bombs (Linked)", "howTo": "Linked only: tell the Pirate Secret to the Piratian at the House of Pirates while holding exactly 777 Ore Chunks, or tell Farore the Tokay Secret."}
+          ],
+          "notes": "Starts at 10."
+        }
+      ]
+    },
+    {
+      "id": "key_items",
+      "title": "Quest Items",
+      "note": "The Quest Status screen, roughly in the order you find them. Essences are in Main Quest; rings, Gasha Seeds and trade items have their own trackers.",
+      "items": [
+        {
+          "id": "gnarled_key",
+          "name": "Gnarled Key",
+          "area": "Horon Village",
+          "howTo": "The Maku Tree gives it when you wake him.",
+          "notes": "Opens the Gnarled Root Dungeon."
+        },
+        {
+          "id": "star_shaped_ore",
+          "name": "Star-Shaped Ore",
+          "area": "Subrosia Seaside",
+          "howTo": "Dig in the sand with the Shovel until you find it.",
+          "notes": "Traded for the Ribbon. Also in the Subrosia tracker."
+        },
+        {
+          "id": "ribbon",
+          "name": "Ribbon",
+          "area": "Subrosia Market",
+          "howTo": "Trade the Star-Shaped Ore for it.",
+          "notes": "Rosa's lost Ribbon. Give it back and she goes on a 'date' with you, opening the Tower of Summer. Also in the Subrosia tracker."
+        },
+        {
+          "id": "ricky_gloves",
+          "name": "Ricky's Gloves",
+          "area": "Blaino's Gym, North Horon",
+          "howTo": "Pay Blaino 10 Rupees and knock him out of the ring, using no items or rings.",
+          "notes": "Return them to Ricky. Also in Animal Companions."
+        },
+        {
+          "id": "floodgate_key",
+          "name": "Floodgate Key",
+          "area": "Spool Swamp",
+          "howTo": "In the Floodgate Keeper's House, where the keeper misplaced it.",
+          "notes": "Its keyhole is through the tunnel outside; opening the floodgate drains the way to Poison Moth's Lair."
+        },
+        {
+          "id": "masters_plaque",
+          "name": "Master's Plaque",
+          "area": "Sunken City",
+          "howTo": "In the cave above a waterfall only Dimitri can climb, push the four eye statues close together and hit them all with one spin attack.",
+          "notes": "Take it to the Master Diver."
+        },
+        {
+          "id": "zora_flippers",
+          "name": "Zora's Flippers",
+          "area": "Sunken City",
+          "howTo": "The Master Diver gives them for the Master's Plaque.",
+          "notes": "Swim, and dive with B. He also tells you of the underwater passage to Mt. Cucco near Ingo's house."
+        },
+        {
+          "id": "spring_banana",
+          "name": "Spring Banana",
+          "area": "Mt. Cucco",
+          "howTo": "In spring, carry a Flying Cucco with the Power Bracelet to fly up to the eastern summit, where the banana tree grows.",
+          "notes": "Feed it to Moosh."
+        },
+        {
+          "id": "dragon_key",
+          "name": "Dragon Key",
+          "area": "Goron Mountain",
+          "howTo": "Past a field of pits that only Moosh can fly over.",
+          "notes": "Stops the waterfall over the Dancing Dragon Dungeon."
+        },
+        {
+          "id": "bomb_flower",
+          "name": "Bomb Flower",
+          "area": "Lava Lake, Subrosia",
+          "howTo": "Jump across Lava Lake with Roc's Feather to the lone flower and pull it up with the Power Bracelet.",
+          "notes": "The Subrosian Smelter blasts the rubble at the Tower of Autumn with it. Also in the Subrosia tracker."
+        },
+        {
+          "id": "members_card",
+          "name": "Member's Card",
+          "area": "Subrosia Market",
+          "howTo": "Buy it for 5 Ore Chunks.",
+          "notes": "Lets you into the Horon Village Shop's basement (Treasure Map, satchel upgrade, Gasha Seeds). Also in the Subrosia tracker."
+        },
+        {
+          "id": "treasure_map",
+          "name": "Treasure Map",
+          "area": "Horon Village",
+          "howTo": "Buy it for 200 Rupees in the Horon Village Shop's basement.",
+          "notes": "Marks the four jewels on the map. Optional."
+        },
+        {
+          "id": "red_ore",
+          "name": "Red Ore",
+          "area": "Subrosia Village",
+          "howTo": "In a chest atop the cliff in southeastern Subrosia Village: cross the pits with the Magnetic Gloves to the cave below it.",
+          "notes": "Also in the Subrosia tracker."
+        },
+        {
+          "id": "blue_ore",
+          "name": "Blue Ore",
+          "area": "Subrosian Wilds",
+          "howTo": "In a chest in the western Subrosian Wilds, across pits you cross with the Magnetic Gloves.",
+          "notes": "Also in the Subrosia tracker."
+        },
+        {
+          "id": "hard_ore",
+          "name": "Hard Ore",
+          "area": "Great Furnace, Subrosia",
+          "howTo": "The Subrosian Smelter smelts it from the Red Ore and Blue Ore.",
+          "notes": "The Subrosian Smithy makes your shield from it. Also in the Subrosia tracker."
+        },
+        {
+          "id": "x_shaped_jewel",
+          "name": "X-Shaped Jewel",
+          "area": "Western Coast",
+          "howTo": "Light the brazier in the water with an Ember Seed from the Slingshot to raise a bridge to the islet, put a Mystery Seed on the question-mark rock and beat the monster that appears.",
+          "notes": "One of the four jewels for the Tarm Ruins gate."
+        },
+        {
+          "id": "pyramid_jewel",
+          "name": "Pyramid Jewel",
+          "area": "Mt. Cucco",
+          "howTo": "In spring, dive in the upper-right corner of the pool outside the Dancing Dragon Dungeon and follow the underwater cave.",
+          "notes": "In a Linked Game it's elsewhere: Vire throws it onto a ledge at the base of the Sunken Falls after you open a nearby chest."
+        },
+        {
+          "id": "square_jewel",
+          "name": "Square Jewel",
+          "area": "Spool Swamp",
+          "howTo": "In winter, reach the southeast corner of Spool Swamp, clear the snow and bomb open the cave.",
+          "notes": "In a Linked Game it's in a cave behind a bombable wall under Eyeglass Lake, in summer."
+        },
+        {
+          "id": "round_jewel",
+          "name": "Round Jewel",
+          "area": "Holodrum Plain",
+          "howTo": "An old man in a tree house in southern Holodrum Plain, reached by swimming, gives it once you have five Essences.",
+          "notes": "Zelda Dungeon says he wants all four season powers instead; Zelda Wiki and StrategyWiki say five Essences."
+        },
+        {
+          "id": "pirates_bell",
+          "name": "Pirate's Bell",
+          "tiers": [
+            {"name": "Rusty Bell", "howTo": "In the Samasa Desert, carry the pirate's skull from the oasis with the Power Bracelet; jump into the quicksand pit where it starts to shatter."},
+            {"name": "Pirate's Bell", "howTo": "Make the Subrosian Smithy polish it: insist rather than ask nicely."}
+          ],
+          "notes": "The Cap'n won't sail without it. The desert gate opens with the drawer combination a Piratian shows you at the House of Pirates. Also in the Subrosia tracker."
+        },
+        {
+          "id": "huge_maku_seed",
+          "name": "Huge Maku Seed",
+          "area": "Horon Village",
+          "howTo": "The Maku Tree gives it once you have all eight Essences of Nature.",
+          "notes": "Breaks the barrier around Onox's Castle."
+        }
+      ]
+    }
+  ]
+}
