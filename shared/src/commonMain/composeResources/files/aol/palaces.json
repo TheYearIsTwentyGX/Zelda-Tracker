@@ -1,0 +1,38 @@
+{
+  "regions": ["Western Hyrule", "Eastern Hyrule"],
+  "noun": "palace",
+  "hiddenLabel": "Unexplored palace",
+  "sections": [
+    {
+      "id": "palaces",
+      "title": "Palaces",
+      "note": "Six crystals go back into the six palaces' statues; then the Great Palace opens.",
+      "items": [
+        {"id": "parapa_palace", "name": "Parapa Palace", "region": "Western Hyrule", "area": "North coast of the Parapa Desert", "howTo": "Go through the dark cave north of Rauru into the Parapa Desert; the palace is on its north coast. No item or spell needed.", "reward": "Candle; the crystal set in the statue (a free level-up)", "notes": "Boss: Horsehead (50 XP). Item: Candle. Zelda Wiki calls the boss Mazura. A fairy waits in the east room of the first floor."},
+        {"id": "midoro_palace", "name": "Midoro Palace", "region": "Western Hyrule", "area": "Midoro Swamp, west of Mido", "howTo": "After Death Mountain, break the boulders with the Hammer and walk west through the swamp from Mido. The Handy Glove inside breaks the blocks on the way to the boss.", "reward": "Handy Glove; the crystal set in the statue (a free level-up)", "notes": "Boss: Helmethead (200 XP). Item: Handy Glove. Zelda Wiki calls the boss Jermafenser."},
+        {"id": "island_palace", "name": "Island Palace", "region": "Western Hyrule", "area": "Island southeast of Mido", "howTo": "Drop into the false grave south of the King's Tomb, then fly through the tunnel beyond it with the Fairy spell.", "reward": "Raft, in an outdoor room; the crystal set in the statue (a free level-up)", "notes": "Boss: Rebonack (300 XP). Item: Raft, in an outdoor room. StrategyWiki calls the boss the Horseback Ironknuckle."},
+        {"id": "maze_island_palace", "name": "Maze Island Palace", "region": "Eastern Hyrule", "area": "Northeast corner of Maze Island", "howTo": "Sail the Raft from the dock south of Mido to Eastern Hyrule, go through the cave north of Nabooru, and cross the long bridge east to Maze Island. Carock and the Wizards can only be hurt with Reflect.", "requires": ["island_palace"], "reward": "Boots; the crystal set in the statue (a free level-up)", "notes": "Boss: Carock (300 XP). Item: Boots. StrategyWiki calls it the Maze Palace."},
+        {"id": "palace_on_the_sea", "name": "Palace on the Sea", "region": "Eastern Hyrule", "area": "Island in the sea east of Nabooru", "howTo": "Wear the Boots and walk east over the sea along the hidden path from the coast east of Nabooru; there is no dock for the Raft.", "requires": ["maze_island_palace"], "reward": "Flute; the crystal set in the statue (a free level-up)", "notes": "Boss: Gooma (500 XP). Item: Flute. StrategyWiki calls it the Ocean Palace. In the Famicom Disk System version the boss is Helmethead again."},
+        {"id": "three_eye_rock_palace", "name": "Three-Eye Rock Palace", "region": "Eastern Hyrule", "area": "Three-Eye Rock, on the southeast coast", "howTo": "Play the Flute to clear the River Devil south of Nabooru, then play it again in the middle of Three-Eye Rock, east of Kasuto, and the palace rises. Bring the Magic Key: there are no small keys inside. The Fairy spell reaches the boss.", "requires": ["palace_on_the_sea"], "reward": "Cross, after the first Rebonack; the crystal set in the statue (a free level-up)", "notes": "Boss: Barba (700 XP). Item: Cross, after the first Rebonack. Mini-bosses: two Rebonacks. A Link Doll waits before Barba. StrategyWiki calls it the Hidden Palace."},
+        {"id": "great_palace", "name": "Great Palace", "region": "Eastern Hyrule", "area": "Head of the Valley of Death", "howTo": "With all six crystals set, walk the Valley of Death from the graveyard south of Old Kasuto; the Cross shows its invisible Moas. Thunderbird can only be hurt after casting Thunder.", "requires": ["parapa_palace", "midoro_palace", "island_palace", "maze_island_palace", "palace_on_the_sea", "three_eye_rock_palace"], "reward": "Triforce of Courage; Zelda wakes", "notes": "Boss: Thunderbird (1,000 XP). Then Dark Link (Shadow Link on StrategyWiki), worth no XP. The only palace Link can enter at night; a game over inside restarts at its door. StrategyWiki calls it the Grand Palace."}
+      ]
+    },
+    {
+      "id": "bosses",
+      "title": "Bosses",
+      "noun": "boss",
+      "plural": "bosses",
+      "hiddenLabel": "Unmet boss",
+      "items": [
+        {"id": "horsehead", "name": "Horsehead", "region": "Western Hyrule", "area": "Parapa Palace", "howTo": "At the end of Parapa Palace; the crystal statue is behind him.", "reward": "50 XP", "notes": "Mazura on Zelda Wiki."},
+        {"id": "helmethead", "name": "Helmethead", "region": "Western Hyrule", "area": "Midoro Palace", "howTo": "At the end of Midoro Palace, past the blocks the Handy Glove breaks.", "reward": "200 XP", "notes": "Jermafenser on Zelda Wiki."},
+        {"id": "rebonack", "name": "Rebonack", "region": "Western Hyrule", "area": "Island Palace", "howTo": "At the end of the Island Palace: an Iron Knuckle on horseback.", "reward": "300 XP", "notes": "The Horseback Ironknuckle on StrategyWiki. Two more Rebonacks guard the Three-Eye Rock Palace."},
+        {"id": "carock", "name": "Carock", "region": "Eastern Hyrule", "area": "Maze Island Palace", "howTo": "At the end of the Maze Island Palace. Only Reflect can hurt him: it bounces his beams back.", "reward": "300 XP"},
+        {"id": "gooma", "name": "Gooma", "region": "Eastern Hyrule", "area": "Palace on the Sea", "howTo": "At the end of the Palace on the Sea.", "reward": "500 XP", "notes": "NES only; the Famicom Disk System version has Helmethead here."},
+        {"id": "barba", "name": "Barba", "region": "Eastern Hyrule", "area": "Three-Eye Rock Palace", "howTo": "At the end of the Three-Eye Rock Palace, past the Link Doll; the Fairy spell reaches his room.", "reward": "700 XP"},
+        {"id": "thunderbird", "name": "Thunderbird", "region": "Eastern Hyrule", "area": "Great Palace", "howTo": "Cast Thunder to reveal his face, his only weak spot; without it he can't be hurt.", "reward": "1,000 XP"},
+        {"id": "dark_link", "name": "Dark Link", "region": "Eastern Hyrule", "area": "Great Palace", "howTo": "Straight after Thunderbird, the last fight.", "reward": "0 XP", "notes": "Shadow Link on StrategyWiki; Link's Shadow on Zelda Wiki's boss list."}
+      ]
+    }
+  ]
+}
