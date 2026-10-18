@@ -90,7 +90,25 @@ object Games {
         ),
     )
     val AOL = comingSoon("aol", "Zelda II: The Adventure of Link", ReleaseDate(1987, 1, 14), "NES")
-    val ALTTP = comingSoon("alttp", "A Link to the Past", ReleaseDate(1991, 11, 21), "SNES")
+
+    /**
+     * Three files on the SNES cartridge (StrategyWiki: "top, middle, or bottom"). Tracked as the
+     * original SNES release; GBA differences are in item notes. Every tracker is a checklist; the data
+     * and its sources are in docs/alttp.md.
+     */
+    val ALTTP = Game(
+        id = "alttp",
+        title = "A Link to the Past",
+        released = ReleaseDate(1991, 11, 21),
+        platform = "SNES",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            alttpChecklist("Main Quest", "The 3 Pendants and 7 Crystals: every dungeon and boss, Agahnim and Ganon", "main_quest"),
+            alttpChecklist("Items & Equipment", "Every item and its upgrades, the 4 Bottles, magic and bomb and arrow capacity", "items"),
+            alttpChecklist("Heart Pieces", "All 24 Pieces of Heart and 11 Heart Containers, with your hearts total", "heart_pieces"),
+        ),
+    )
     val LA = comingSoon("la", "Link's Awakening", ReleaseDate(1993, 6, 6), "Game Boy")
 
     /** Three files on the Nintendo 64 cartridge (each with a backup copy), as on the 3DS. */
@@ -249,6 +267,8 @@ object Games {
 
     private fun lozChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "loz/$file.json")
+    private fun alttpChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
