@@ -10,8 +10,8 @@ iOS port is mostly a matter of adding the iOS targets.
   anywhere): The Legend of Zelda (1986) through Echoes of Wisdom (2024). Games from the same year
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
-- A Link to the Past, Link's Awakening, Ocarina of Time, Majora's Mask, The Minish Cap, Breath of
-  the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get
+- A Link to the Past, Link's Awakening, Ocarina of Time, Majora's Mask, The Minish Cap, Twilight
+  Princess, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get
   some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
@@ -472,6 +472,37 @@ and disagreements are in `docs/la.md`.
 - Two save files, **File 1** and **File 2**, as on the cartridge. An owl save is a temporary
   quit-save on one of them, not a file of its own.
 
+**Twilight Princess**
+
+Every TP tracker is a [checklist](docs/checklist-trackers.md), built for the GameCube original
+(the Wii version is mirrored, with the same collectibles). Where Twilight Princess HD differs, the
+item's notes say so; HD-only lists (the 50 Miiverse stamps, the Cave of Shadows, the Ghost Lantern
+and Colossal Wallet) are their own tabs, counted apart. Sources and disagreements are in
+`docs/tp.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** the Ordon days, the three Twilights, the nine dungeons (each with its boss,
+  mini-boss and dungeon item) and the story steps between them, as one chain in play order.
+  Tears of Light (of 48; 36 in HD), Fused Shadows (of 3) and Mirror Shards (of 4) are totalled.
+- **Items & Equipment:** 15 items, with upgrades as tiers (Double Clawshots, the three bomb types,
+  the restored Dominion Rod, the Sky Book); swords, shields and clothing; the wallets and quivers
+  as tiers, the three Bomb Bags and the Giant Bomb Bag; and the 4 Bottles. Totals for Rupees (300
+  to 1,000), arrows (30 to 100), bomb bags and bombs per bag.
+- **Heart Pieces:** 45 Pieces of Heart and 8 Heart Containers, with the hearts total (3 to 20,
+  five pieces to a heart).
+- **Poe Souls:** all 60 by region, tagged *Night* and *Wolf* where they need it, and Jovani's
+  rewards (the Bottle at 20, the end of his curse at 60, Gengle's Rupees).
+- **Golden Bugs:** all 24, a male and a female of 12 species, and Agitha's two wallets.
+- **Hidden Skills:** the 7 skills in the order the Hero's Shade teaches them, each needing the
+  Howling Stone that calls the Golden Wolf, and the 7 Howling Stones.
+- **Cave of Ordeals:** all 50 floors with their enemies, the item each gate needs and the Great
+  Fairy's rewards every tenth floor; HD's 40-floor Cave of Shadows (Wolf Link amiibo) is its own tab.
+- **Sidequests & Collections:** 12 sidequests and minigames (Talo, Iza, Rollgoal, Charlo, the STAR
+  Game, the Malo Mart donations, the Snowpeak races…), the Postman's 16 letters (two from Ooccoo can
+  be missed), the 6 Fishing Journal fish and HD's 50 stamps.
+- Regions are the in-game map's provinces, with each dungeon as its own region. Tags give the
+  items or form needed.
+- Three save files, **File 1–3**, as on the GameCube, the Wii and HD.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -544,6 +575,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/alttp/*.json  ← A Link to the Past checklists (docs/alttp.md)
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
+  src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -877,6 +909,12 @@ Minish Cap* (names, North American descriptions, who's pictured) and the zeldare
 formula). It is cross-checked against Zelda Wiki's Figurine Gallery table, StrategyWiki and
 Zeldapedia. `scripts/build-mc-figurines.py` rebuilds it, and `docs/mc-figurines.md` covers the
 checkpoints, the odds and where the sources disagree.
+
+Twilight Princess data (`files/tp/`) comes from Zelda Wiki, Zelda Dungeon (its HD Normal Mode
+walkthrough and wiki, via Wayback Machine snapshots where needed) and StrategyWiki, with Zelda's
+Palace for the HD stamps and GameFAQs guides for spot checks. The zeldaret/tp decompilation settles
+the letters' triggers. Every count was checked against at least two sources. `docs/tp.md` covers
+each tracker, the HD differences and every disagreement.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all

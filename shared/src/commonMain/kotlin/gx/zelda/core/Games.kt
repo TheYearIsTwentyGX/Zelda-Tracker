@@ -175,7 +175,29 @@ object Games {
     val FS = comingSoon("fs", "Four Swords", ReleaseDate(2002, 12, 2), "Game Boy Advance")
     val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
     val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
-    val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
+    /**
+     * Three files on the GameCube, the Wii and HD (Zelda Wiki, Saving). Tracked as the GameCube
+     * original; the Wii version is mirrored but has the same collectibles, and HD's differences are
+     * item notes or `separate` tabs. Every tracker is a checklist; the data and its sources are in docs/tp.md.
+     */
+    val TP = Game(
+        id = "tp",
+        title = "Twilight Princess",
+        released = ReleaseDate(2006, 11, 19),
+        platform = "Wii & GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            tpChecklist("Main Quest", "The nine dungeons and their bosses, the Tears of Light, the Fused Shadows and Mirror Shards", "main_quest"),
+            tpChecklist("Items & Equipment", "Every item, sword, shield and tunic, the wallets, quivers and bomb bags, and the 4 Bottles", "items"),
+            tpChecklist("Heart Pieces", "All 45 Pieces of Heart and 8 Heart Containers, with your hearts total", "heart_pieces"),
+            tpChecklist("Poe Souls", "All 60 Poes by region, and Jovani's rewards", "poe_souls"),
+            tpChecklist("Golden Bugs", "All 24 Golden Bugs for Agitha, and her rewards", "golden_bugs"),
+            tpChecklist("Hidden Skills", "The 7 Hidden Skills and the Howling Stones that call the Golden Wolf", "hidden_skills"),
+            tpChecklist("Cave of Ordeals", "All 50 floors and the Great Fairy's rewards, and HD's Cave of Shadows", "cave_of_ordeals"),
+            tpChecklist("Sidequests & Collections", "Sidequests, the Postman's letters, the Fishing Journal and HD's 50 stamps", "sidequests"),
+        ),
+    )
 
     /** The DS games keep two files. */
     val PH = comingSoon("ph", "Phantom Hourglass", ReleaseDate(2007, 6, 23), "Nintendo DS", files = 2)
@@ -277,6 +299,9 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun tpChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "tp/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
