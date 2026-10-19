@@ -13,7 +13,7 @@ The files are in `shared/src/commonMain/composeResources/font/`, and `DisplayFon
 | `press_start_2p.ttf` | [Press Start 2P](https://github.com/google/fonts/tree/main/ofl/pressstart2p) Regular, by CodeMan38 | SIL OFL 1.1 ([text](licenses/press-start-2p-OFL.txt)) | `PIXEL_8BIT` | The Legend of Zelda, Zelda II, Link's Awakening | 113 KB |
 | `pixelify_sans_semibold.ttf` | [Pixelify Sans](https://github.com/google/fonts/tree/main/ofl/pixelifysans) SemiBold, by Stefie Justprince | SIL OFL 1.1 ([text](licenses/pixelify-sans-OFL.txt)) | `PIXEL_16BIT` | A Link to the Past, Oracle of Seasons, Oracle of Ages, Four Swords, The Minish Cap | 48 KB |
 | `fredoka_semibold.ttf` | [Fredoka](https://github.com/google/fonts/tree/main/ofl/fredoka) SemiBold, by Milena Brandão and Hafontia | SIL OFL 1.1 ([text](licenses/fredoka-OFL.txt)) | `ROUNDED` | The Wind Waker, Four Swords Adventures | 48 KB |
-| `josefin_sans_regular.ttf` | [Josefin Sans](https://github.com/google/fonts/tree/main/ofl/josefinsans) Regular, by Santiago Orozco | SIL OFL 1.1 ([text](licenses/josefin-sans-OFL.txt)) | `SHEIKAH` | Breath of the Wild | 56 KB |
+| `josefin_sans_regular.ttf` | [Josefin Sans](https://github.com/google/fonts/tree/main/ofl/josefinsans) Regular, by Santiago Orozco | SIL OFL 1.1 ([text](licenses/josefin-sans-OFL.txt)) | `SHEIKAH` | Breath of the Wild, Tears of the Kingdom | 56 KB |
 | `cinzel_bold.ttf` | [Cinzel](https://github.com/google/fonts/tree/main/ofl/cinzel) Bold, by Natanael Gama | SIL OFL 1.1 ([text](licenses/cinzel-OFL.txt)) | `SERIF` | Ocarina of Time, Majora's Mask, Twilight Princess, Skyward Sword, Hyrule Warriors: Definitive Edition | 45 KB |
 
 Total: 310 KB.

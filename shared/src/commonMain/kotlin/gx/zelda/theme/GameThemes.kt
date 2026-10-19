@@ -651,8 +651,323 @@ object GameThemes {
         progress = ProgressStyle.SEGMENTED,
     )
 
+    /**
+     * Ocarina of Time's pause screen: dark brown panels, parchment pages and gold lettering, with the
+     * buttons' blue and red. Light is the parchment. Sampled from Spriters Resource's Ocarina of Time 3D
+     * HUD sheet (the remake's art; the N64 pause-screen sheet isn't archived).
+     */
+    val OOT = GameTheme(
+        id = "oot",
+        light = GamePalette(
+            primary = Color(0xFF833900),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFF8E896),
+            onPrimaryContainer = Color(0xFF3E2515),
+            secondary = Color(0xFF3E5490),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFDCE4FF),
+            onSecondaryContainer = Color(0xFF0A1A4A),
+            tertiary = Color(0xFF8A3A3A),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFFDADA),
+            onTertiaryContainer = Color(0xFF3A0A0A),
+            surface = Color(0xFFFFFCE6),
+            onSurface = Color(0xFF2F1E0E),
+            surfaceVariant = Color(0xFFFFF8B6),
+            onSurfaceVariant = Color(0xFF4C331A),
+            outline = Color(0xFF8A6A40),
+            star = Color(0xFF7A5C00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFF8E88D),
+            onPrimary = Color(0xFF2F1E0E),
+            primaryContainer = Color(0xFF833900),
+            onPrimaryContainer = Color(0xFFFFF8B6),
+            secondary = Color(0xFF8091C0),
+            onSecondary = Color(0xFF2F1E0E),
+            secondaryContainer = Color(0xFF2A3A6A),
+            onSecondaryContainer = Color(0xFFDCE4FF),
+            tertiary = Color(0xFFC88080),
+            onTertiary = Color(0xFF2F1E0E),
+            tertiaryContainer = Color(0xFF6A2E2E),
+            onTertiaryContainer = Color(0xFFFFDADA),
+            surface = Color(0xFF2F1E0E),
+            onSurface = Color(0xFFFFF8B6),
+            surfaceVariant = Color(0xFF4C331A),
+            onSurfaceVariant = Color(0xFFE6C46F),
+            outline = Color(0xFFB68D64),
+            star = Color(0xFFF8E88D),
+        ),
+        display = DisplayFont.SERIF,
+        ornament = Ornament.CREST,
+    )
+
+    /**
+     * Majora's Mask's pause screen: olive-gold stone panels with pale lettering, heart red and the
+     * song notes' blue, over the map's night indigo. Light is the pale stone. Sampled from Spriters
+     * Resource's N64 pause-screen sheet.
+     */
+    val MM = GameTheme(
+        id = "mm",
+        light = GamePalette(
+            primary = Color(0xFF53532D),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFE4E4BC),
+            onPrimaryContainer = Color(0xFF31311B),
+            secondary = Color(0xFFCA1717),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFFDAD6),
+            onSecondaryContainer = Color(0xFF410000),
+            tertiary = Color(0xFF00668C),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFCCE8FF),
+            onTertiaryContainer = Color(0xFF001E2E),
+            surface = Color(0xFFF4F4E4),
+            onSurface = Color(0xFF212131),
+            surfaceVariant = Color(0xFFD3D3AE),
+            onSurfaceVariant = Color(0xFF31311B),
+            outline = Color(0xFF757540),
+            star = Color(0xFF646436),
+            error = Color(0xFFA01010),
+            onError = Color(0xFFFFFFFF),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFDCDCA0),
+            onPrimary = Color(0xFF212131),
+            primaryContainer = Color(0xFF646436),
+            onPrimaryContainer = Color(0xFFF4F4D8),
+            secondary = Color(0xFFF06060),
+            onSecondary = Color(0xFF240404),
+            secondaryContainer = Color(0xFF6E0D0D),
+            onSecondaryContainer = Color(0xFFFFDADA),
+            tertiary = Color(0xFF0096CC),
+            onTertiary = Color(0xFF212131),
+            tertiaryContainer = Color(0xFF00668C),
+            onTertiaryContainer = Color(0xFFE0F4FF),
+            surface = Color(0xFF212131),
+            onSurface = Color(0xFFD3D3AE),
+            surfaceVariant = Color(0xFF53532D),
+            onSurfaceVariant = Color(0xFFD3D3AE),
+            outline = Color(0xFF959551),
+            star = Color(0xFFC1C18C),
+        ),
+        display = DisplayFont.SERIF,
+        ornament = Ornament.CLOCK,
+    )
+
+    /**
+     * Skyward Sword's interface: silver and stone frames, goddess gold, the dowsing ring's teal and the
+     * hearts' pink-red. Light is scroll parchment; dark is the stone tablets' grey. Sampled from
+     * Spriters Resource's Interface and Pause Screen sheets.
+     */
+    val SS = GameTheme(
+        id = "ss",
+        light = GamePalette(
+            primary = Color(0xFF7A5E00),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFFFE66A),
+            onPrimaryContainer = Color(0xFF2A2000),
+            secondary = Color(0xFF3E6A6A),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFCDE6E6),
+            onSecondaryContainer = Color(0xFF0A2A2A),
+            tertiary = Color(0xFFB8303E),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFFD8DC),
+            onTertiaryContainer = Color(0xFF40000A),
+            surface = Color(0xFFFCFBF4),
+            onSurface = Color(0xFF2A2620),
+            surfaceVariant = Color(0xFFF6EBC8),
+            onSurfaceVariant = Color(0xFF4E4636),
+            outline = Color(0xFF7A7A7A),
+            star = Color(0xFF7A5E00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFFFD500),
+            onPrimary = Color(0xFF2A2A2A),
+            primaryContainer = Color(0xFF6E5800),
+            onPrimaryContainer = Color(0xFFFFFFFF),
+            secondary = Color(0xFF9CC4C4),
+            onSecondary = Color(0xFF2A2A2A),
+            secondaryContainer = Color(0xFF3E6A6A),
+            onSecondaryContainer = Color(0xFFE0F4F4),
+            tertiary = Color(0xFFFA8F9F),
+            onTertiary = Color(0xFF40000A),
+            tertiaryContainer = Color(0xFFA8303E),
+            onTertiaryContainer = Color(0xFFFFE4E8),
+            surface = Color(0xFF2A2A2A),
+            onSurface = Color(0xFFF4F4F0),
+            surfaceVariant = Color(0xFF434343),
+            onSurfaceVariant = Color(0xFFD8D8D8),
+            outline = Color(0xFF939393),
+            star = Color(0xFFFFD500),
+        ),
+        display = DisplayFont.SERIF,
+        shapes = ShapeStyle.SOFT,
+        ornament = Ornament.CLOUDS,
+        progress = ProgressStyle.ROUNDED,
+    )
+
+    /**
+     * Twilight Princess's logo: the rust-orange lettering on black, with the Twili teal of Midna's helmet
+     * and the wolf. Light is a pale warm grey with the same rust and teal darkened for text. Sampled
+     * from Spriters Resource's GameCube logo sheet; no menu sheet for the game is archived.
+     */
+    val TP = GameTheme(
+        id = "tp",
+        light = GamePalette(
+            primary = Color(0xFF932F01),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFFFDBCC),
+            onPrimaryContainer = Color(0xFF380E00),
+            secondary = Color(0xFF2E6E72),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFC8EEF0),
+            onSecondaryContainer = Color(0xFF002022),
+            tertiary = Color(0xFF5E5060),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFF0DEF0),
+            onTertiaryContainer = Color(0xFF20142A),
+            surface = Color(0xFFF6F2EE),
+            onSurface = Color(0xFF131313),
+            surfaceVariant = Color(0xFFE6E0DA),
+            onSurfaceVariant = Color(0xFF443F40),
+            outline = Color(0xFF646761),
+            star = Color(0xFF8A3A00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFFF7A48),
+            onPrimary = Color(0xFF131313),
+            primaryContainer = Color(0xFF6E2301),
+            onPrimaryContainer = Color(0xFFFFDCCC),
+            secondary = Color(0xFF58A8AC),
+            onSecondary = Color(0xFF131313),
+            secondaryContainer = Color(0xFF1E4A4C),
+            onSecondaryContainer = Color(0xFFCCF0F2),
+            tertiary = Color(0xFFB8A8B6),
+            onTertiary = Color(0xFF131313),
+            tertiaryContainer = Color(0xFF4A3E4A),
+            onTertiaryContainer = Color(0xFFF0E0F0),
+            surface = Color(0xFF131313),
+            onSurface = Color(0xFFF0F0EE),
+            surfaceVariant = Color(0xFF24282A),
+            onSurfaceVariant = Color(0xFFC8D0D0),
+            outline = Color(0xFF8A8F88),
+            star = Color(0xFFFF8A50),
+        ),
+        display = DisplayFont.SERIF,
+        shapes = ShapeStyle.CUT,
+        ornament = Ornament.TWILI,
+    )
+
+    /**
+     * Tears of the Kingdom's Zonai devices: jade stone with gold trim and cream panels, and the
+     * batteries' green glow. Dark is the stone's shadow; light is the cream. Sampled from Spriters
+     * Resource's Zonai Devices sheet (the inventory icons); no menu sheet for the game is archived.
+     */
+    val TOTK = GameTheme(
+        id = "totk",
+        light = GamePalette(
+            primary = Color(0xFF2E6450),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFC4E8D0),
+            onPrimaryContainer = Color(0xFF00281A),
+            secondary = Color(0xFF815100),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFFDDB0),
+            onSecondaryContainer = Color(0xFF2A1800),
+            tertiary = Color(0xFF006A4A),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFA8F2D0),
+            onTertiaryContainer = Color(0xFF002116),
+            surface = Color(0xFFF6F6EE),
+            onSurface = Color(0xFF1E2522),
+            surfaceVariant = Color(0xFFE4E4CE),
+            onSurfaceVariant = Color(0xFF4D4B42),
+            outline = Color(0xFF5B5F51),
+            star = Color(0xFF815100),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFF98C8A8),
+            onPrimary = Color(0xFF2A322E),
+            primaryContainer = Color(0xFF457E68),
+            onPrimaryContainer = Color(0xFFFFFFFF),
+            secondary = Color(0xFFD8A040),
+            onSecondary = Color(0xFF2A322E),
+            secondaryContainer = Color(0xFF5B3B00),
+            onSecondaryContainer = Color(0xFFFFE0B0),
+            tertiary = Color(0xFF1CC48E),
+            onTertiary = Color(0xFF002A1C),
+            tertiaryContainer = Color(0xFF00684A),
+            onTertiaryContainer = Color(0xFFC0FFE4),
+            surface = Color(0xFF2A322E),
+            onSurface = Color(0xFFEEEEDC),
+            surfaceVariant = Color(0xFF324038),
+            onSurfaceVariant = Color(0xFFBDBD95),
+            outline = Color(0xFF7C9F85),
+            star = Color(0xFFD8A040),
+        ),
+        display = DisplayFont.SHEIKAH,
+        shapes = ShapeStyle.CUT,
+        ornament = Ornament.SPIRAL,
+        progress = ProgressStyle.THIN,
+    )
+
+    /**
+     * Hyrule Warriors: Definitive Edition, a musou battlefield: charcoal panels, gold trim and war-banner
+     * red. From memory, unverified: no menu sheet for the game is archived, and its Adventure maps are
+     * deliberately 8-bit (they'd only repeat The Legend of Zelda's theme).
+     */
+    val HWDE = GameTheme(
+        id = "hwde",
+        light = GamePalette(
+            primary = Color(0xFF6A5008),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFF6E2A8),
+            onPrimaryContainer = Color(0xFF2A1E00),
+            secondary = Color(0xFFA01818),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFFDAD4),
+            onSecondaryContainer = Color(0xFF400000),
+            tertiary = Color(0xFF3A3A44),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFDEDEE8),
+            onTertiaryContainer = Color(0xFF16161E),
+            surface = Color(0xFFF7F5F0),
+            onSurface = Color(0xFF1E1E22),
+            surfaceVariant = Color(0xFFE6E2D8),
+            onSurfaceVariant = Color(0xFF46443E),
+            outline = Color(0xFF76726A),
+            star = Color(0xFF7A5C00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFE0B850),
+            onPrimary = Color(0xFF1E1E22),
+            primaryContainer = Color(0xFF6E5410),
+            onPrimaryContainer = Color(0xFFFFF0C8),
+            secondary = Color(0xFFF06050),
+            onSecondary = Color(0xFF1E1E22),
+            secondaryContainer = Color(0xFF8A1A1A),
+            onSecondaryContainer = Color(0xFFFFDAD4),
+            tertiary = Color(0xFFB8B8C8),
+            onTertiary = Color(0xFF1E1E22),
+            tertiaryContainer = Color(0xFF44444E),
+            onTertiaryContainer = Color(0xFFE6E6F0),
+            surface = Color(0xFF1E1E22),
+            onSurface = Color(0xFFF0EEE8),
+            surfaceVariant = Color(0xFF2E2E34),
+            onSurfaceVariant = Color(0xFFC8C6C0),
+            outline = Color(0xFF8A8880),
+            star = Color(0xFFE0B850),
+        ),
+        display = DisplayFont.SERIF,
+        shapes = ShapeStyle.CUT,
+        ornament = Ornament.TRIFORCES,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
     /** The themed games by id. The rest, Hyrule Warriors ("hwde") included, use [Neutral] until their batch. */
-    val byId: Map<String, GameTheme> = listOf(LOZ, AOL, ALTTP, LA, OOS, OOA, FS, WW, FSA, MC, BOTW).associateBy { it.id }
+    val byId: Map<String, GameTheme> = listOf(LOZ, AOL, ALTTP, LA, OOS, OOA, FS, WW, FSA, MC, BOTW, OOT, MM, SS, TP, TOTK, HWDE).associateBy { it.id }
 
     /** [gameId]'s theme; [Neutral] for no game or one without a theme yet. */
     fun of(gameId: String?): GameTheme = byId[gameId] ?: Neutral
