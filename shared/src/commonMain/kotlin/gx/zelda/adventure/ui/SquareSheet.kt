@@ -46,6 +46,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import gx.zelda.adventure.model.AdventureMap
+import gx.zelda.adventure.model.AdventureReach
 import gx.zelda.adventure.model.Reward
 import gx.zelda.adventure.model.RewardSlot
 import gx.zelda.adventure.model.RewardType
@@ -82,6 +83,9 @@ fun SquareSheet(
                 return@Column
             }
             Battle(state.map, square)
+            AdventureReach.unsealing(square)?.takeIf { AdventureReach.sealed(state.progress, square) }?.let { seal ->
+                Tag("Sealed: do its ${state.map.card(seal.card)?.name ?: seal.card} search before the battle")
+            }
             StatusRow(state, square, viewModel)
             if (square.rewards.isNotEmpty() || square.givesCards.isNotEmpty()) {
                 Section("Rewards")
@@ -136,7 +140,7 @@ private fun SquareHeader(state: AdventureUiState, square: Square) {
             if (square.finalBoss && !state.spoilers.isHidden(square)) {
                 Tag("Dark Ruler", container = MaterialTheme.colorScheme.errorContainer, content = MaterialTheme.colorScheme.onErrorContainer)
             }
-            if (square.id == map.start) Tag("Start")
+            if (square.id in map.starts) Tag("Start")
         }
         Text(
             "${square.altLabel} in SBAllen's guide · ${map.regionName(square.region)} square",

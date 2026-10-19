@@ -120,6 +120,8 @@ data class AdventureMap(
                     add("${search.id}: no square on the map gives the ${search.card} card")
                 }
             }
+            if (s.sealedBy.isNotEmpty() && s.searches.none { it.id in s.sealedBy }) add("${s.id}: sealed, but by none of its own searches")
+            s.sealedBy.filter { id -> squares.none { o -> o.searches.any { it.id == id } } }.forEach { add("${s.id}: sealed by '$it', which isn't a search") }
             for (side in s.blockades) {
                 val other = neighbour(s, side)
                 if (other != null && side.opposite !in other.blockades) add("${s.id}: blockade ${side.name.lowercase()} isn't on ${other.id} too")
@@ -208,6 +210,13 @@ data class Square(
     val givesCards: List<String> = emptyList(),
     val skulltulas: List<Skulltula> = emptyList(),
     val searches: List<Search> = emptyList(),
+    /**
+     * Searches, any one of which lets the square be played once it's done; until then it can be
+     * reached and searched but not challenged. One is the square's own. On Koholint a Nightmare
+     * seals a square: its own Instrument search banishes it, and so does the Egg's (the Wind Fish
+     * waking banishes them all).
+     */
+    val sealedBy: List<String> = emptyList(),
     /** A quiz battle's answers, in order. */
     val quiz: List<String> = emptyList(),
     /** Where the sources disagree about this square, in our words. */

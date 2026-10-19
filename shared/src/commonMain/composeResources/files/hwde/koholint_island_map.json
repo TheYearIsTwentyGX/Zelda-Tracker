@@ -354,6 +354,10 @@
     "Marin",
     "Medli",
     "Skull Kid"
+   ],
+   "sealedBy": [
+    "r1c2.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -563,7 +567,11 @@
      "card": "instrument",
      "wholeSquare": true
     }
-   ]
+   ],
+   "sealedBy": [
+    "r1c7.search_instrument"
+   ],
+   "note": "The Egg opens once each of the eight Instruments has been used on a Nightmare: tick its search then. The Wind Fish wakes, and every other Nightmare goes for good."
   },
   {
    "id": "r1c8",
@@ -1185,6 +1193,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r2c6.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -1242,6 +1254,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r2c8.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -1267,6 +1283,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r2c9.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -1358,6 +1378,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r2c11.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -1607,6 +1631,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r3c3.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -1701,6 +1729,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r3c5.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -2488,6 +2520,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r4c7.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -2721,6 +2757,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r4c14.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -3115,6 +3155,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r5c11.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -3401,6 +3445,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r6c4.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -3485,6 +3533,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r6c6.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {
@@ -3792,6 +3844,10 @@
      "card": "instrument",
      "wholeSquare": true
     }
+   ],
+   "sealedBy": [
+    "r6c13.search_instrument",
+    "r1c7.search_instrument"
    ]
   },
   {

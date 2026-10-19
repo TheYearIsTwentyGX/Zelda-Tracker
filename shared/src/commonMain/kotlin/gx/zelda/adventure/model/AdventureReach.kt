@@ -44,7 +44,7 @@ object AdventureReach {
     }
 
     /**
-     * The squares a save file can challenge now:
+     * The squares a save file has reached:
      * - the start (or starts);
      * - every square already cleared;
      * - each neighbour of a cleared square across an edge that isn't a wall;
@@ -52,9 +52,10 @@ object AdventureReach {
      * - and a gate's square once the squares it waits on are all cleared.
      *
      * A map with no start (the Rewards Map, whose squares open as Gold Skulltula illustrations are
-     * completed) has every square open.
+     * completed) has every square open. A reached square can be searched; it can be challenged
+     * unless it's [sealed].
      */
-    fun challengeable(map: AdventureMap, progress: AdventureProgress): Set<String> {
+    fun reached(map: AdventureMap, progress: AdventureProgress): Set<String> {
         if (map.starts.isEmpty()) return map.squares.mapTo(mutableSetOf()) { it.id }
         return buildSet {
             addAll(map.starts)
@@ -73,6 +74,20 @@ object AdventureReach {
             }
         }
     }
+
+    /** The squares a save file can challenge now: those it has [reached] that aren't [sealed]. */
+    fun challengeable(map: AdventureMap, progress: AdventureProgress): Set<String> =
+        reached(map, progress).filterTo(mutableSetOf()) { id -> map.square(id)?.let { !sealed(progress, it) } == true }
+
+    /**
+     * True while [square] waits on one of its [Square.sealedBy] searches (a Koholint Nightmare)
+     * before it can be played. A cleared square is never sealed.
+     */
+    fun sealed(progress: AdventureProgress, square: Square): Boolean =
+        square.sealedBy.isNotEmpty() && !progress.isCleared(square) && square.sealedBy.none(progress::isDone)
+
+    /** The search on [square] itself that lifts its seal. */
+    fun unsealing(square: Square): Search? = square.searches.firstOrNull { it.id in square.sealedBy }
 
     /** A path search done on [square] that opens its walls; one that opens somewhere else (a Fissure) doesn't. */
     private fun pathDone(map: AdventureMap, progress: AdventureProgress, square: Square): Boolean =

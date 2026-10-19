@@ -239,7 +239,7 @@ class HwdeDatasetTest {
         assertEquals("B-2", map.square(map.finalBoss!!)!!.label)
     }
 
-    /** Link's Awakening's island: 14×6, the Nightmares any Instrument banishes, and Marin at the start. */
+    /** Link's Awakening's island: 14×6, the Nightmares any Instrument banishes, the Egg, and Marin at the start. */
     @Test
     fun theKoholintIslandMapHasItsCounts() = withMaps { maps ->
         val map = maps.getValue("koholint_island_map")
@@ -251,6 +251,11 @@ class HwdeDatasetTest {
         assertEquals(8, instruments.anyOf.size)
         assertTrue(instruments.anyOf.all { map.card(it) != null })
         assertEquals(14, map.squares.sumOf { s -> s.searches.count { it.card == "instrument" && it.wholeSquare } })
+        // 13 Nightmares, each lifted by its own Instrument or by the Egg's; the Egg by its own only.
+        val sealed = map.squares.filter { it.sealedBy.isNotEmpty() }
+        assertEquals(listOf("r1c7.search_instrument"), map.square("r1c7")!!.sealedBy)
+        assertEquals(13, sealed.count { it.sealedBy == listOf("${it.id}.search_instrument", "r1c7.search_instrument") })
+        assertEquals(14, sealed.size)
         val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
         assertEquals(63, rewards[RewardType.HEART_CONTAINER])
         assertEquals(20, rewards[RewardType.WEAPON])

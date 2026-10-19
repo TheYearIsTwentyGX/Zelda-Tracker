@@ -299,11 +299,16 @@ Accepted, noted on the square:
 
 Link's Awakening's island, 14×6 (84 squares), from E-3, where Marin is unlocked, to the Wind Fish's
 Egg at A-7.
-- Fourteen squares are under a **Nightmare**. Any of the eight Instruments of the Sirens banishes
-  one; each Instrument used for the first time adds to the Egg Counter, and with all eight the Wind
-  Fish wakes.
-- The app models this as a whole-square search with a group card, *Any Instrument of the Sirens*.
-  It counts as held once any of the eight is.
+- Thirteen squares are under a **Nightmare**, which keeps you out of the battle until any of the
+  eight Instruments of the Sirens banishes it. Each Instrument used for the first time adds to the
+  Egg Counter. With all eight, the Wind Fish wakes: the Egg at A-7 opens and every Nightmare goes
+  for good (before that, a banished one can come back).
+- The app models each Instrument use as a whole-square search with a group card, *Any Instrument of
+  the Sirens*, which counts as held once any of the eight is. The Egg's search is ticked when the
+  counter is full.
+- The Nightmare squares and the Egg are **sealed** (`Square.sealedBy`). A sealed square can be
+  reached, and searched, but not challenged until its own search is done; the Egg's lifts every
+  seal. The converter writes this from `SEAL_MAPS`.
 
 Every check agrees apart from:
 - **A-7, the Egg**: SBAllen's "must have used all 8 Instruments" is the Wind Fish's condition, not
@@ -455,8 +460,10 @@ can still be opened). They are:
 - every square already cleared;
 - and each neighbour of a cleared square across an edge that isn't a wall.
 
-The Rewards Map has no start, so all its squares count. The same set is what spoiler-safe mode
-calls reached; that mode also hides the details of squares outside it.
+The Rewards Map has no start, so all its squares count. A **sealed** square (a Koholint Nightmare)
+is reached that way but can't be challenged, so it stays dim until its search is done; the sheet
+says so, and the next step names that search first. Spoiler-safe mode counts these squares and the
+sealed ones as reached, and hides the details of the rest.
 
 The *Challengeable now* chip filters to them. With *Not cleared* on, they're listed first. The
 overview's next step prefers them too.
@@ -511,8 +518,8 @@ now* filters to squares with an undone search whose card you have.
   the walls are known.
 - **The Great Sea's hazards** are shown as the square's rule. Using the card that lifts one counts
   as that square's search; the rule itself isn't tracked as lifted.
-- **Koholint's Nightmares**: their squares count as challengeable once next to a cleared one; the
-  game needs an Instrument first, and the Egg waits for all eight.
+- **Which Instruments have been used.** Each Nightmare's search is any Instrument, so the app
+  can't tell when all eight have been: tick the Egg's search when its counter is full.
 - **Twilight clouds and Termina's Owl Statues** are shown in the square's rule and searches; which
   squares are clear or protected right now isn't tracked.
 - **Termina's moon.** When it falls it resets the map, but not the rewards. The tracker records

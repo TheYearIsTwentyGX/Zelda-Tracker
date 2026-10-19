@@ -203,6 +203,11 @@ CARD_GROUPS = {
 # world, eight columns over (Zelda Wiki, Adventure Mode; SBAllen's H-7 opens his P-7).
 FISSURE_MAPS = {"lorule_map": ("wall_painting", 8)}
 
+# Koholint's Nightmares: a square with this card's whole-square search can't be played until it's
+# done. The Egg's search (all eight Instruments used: the Wind Fish wakes) banishes every Nightmare
+# for good, so it lifts them all (SBAllen's map notes).
+SEAL_MAPS = {"koholint_island_map": ("instrument", "r1c7")}
+
 REGION_ORDER = ["colorless", "green", "yellow", "purple", "orange", "blue", "red"]
 REGION_NAMES = {"colorless": "Black", "green": "Green", "yellow": "Yellow", "purple": "Purple",
                 "orange": "Orange", "blue": "Blue", "red": "Red"}
@@ -627,6 +632,13 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
                     other = square_id(x["row"], x["col"] + span if x["col"] <= span else x["col"] - span)
                     if other in ids:
                         search["opens"] = [other]
+    if map_id in SEAL_MAPS:
+        card_id, egg = SEAL_MAPS[map_id]
+        egg_search = next(s["id"] for x in squares if x["id"] == egg for s in x.get("searches", []) if s["card"] == card_id)
+        for x in squares:
+            own = [s["id"] for s in x.get("searches", []) if s["card"] == card_id and s.get("wholeSquare")]
+            if own:
+                x["sealedBy"] = own + ([egg_search] if egg_search not in own else [])
     regions_used = {s["region"] for s in squares}
     out = {
         "id": map_id,

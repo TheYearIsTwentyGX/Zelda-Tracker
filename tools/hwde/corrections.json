@@ -704,6 +704,13 @@
   },
   {
     "map": "koholint_island_map",
+    "square": "A-7",
+    "op": "note",
+    "note": "The Egg opens once each of the eight Instruments has been used on a Nightmare: tick its search then. The Wind Fish wakes, and every other Nightmare goes for good.",
+    "source": "SBAllen's map notes and his G-1"
+  },
+  {
+    "map": "koholint_island_map",
     "line": "D-2 (B-4) mission",
     "op": "accept",
     "source": "the Helper corrected this square's battle from its issue #24, a Switch player's report"
