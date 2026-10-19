@@ -65,6 +65,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import gx.zelda.adventure.model.AdventureChrome
 import gx.zelda.adventure.model.AdventureMap
+import gx.zelda.adventure.model.AdventureReach
 import gx.zelda.adventure.model.Reward
 import gx.zelda.adventure.model.RewardSlot
 import gx.zelda.adventure.model.RewardType
@@ -143,6 +144,9 @@ fun SquareDetails(
             OutlinedButton(onClick = { viewModel.reveal(square.id) }) { Text("Reveal") }
             return@Column
         }
+        AdventureReach.unsealing(square)?.takeIf { AdventureReach.sealed(state.progress, square) }?.let { seal ->
+            Tag("Sealed: do its ${state.map.card(seal.card)?.name ?: seal.card} search before the battle")
+        }
         CompletionControls(state, square, viewModel)
         Checks(state, square, viewModel)
         HorizontalDivider()
@@ -192,7 +196,7 @@ private fun SquareHeader(state: AdventureUiState, square: Square, hidden: Boolea
                 if (square.finalBoss && !hidden) {
                     Tag("Dark Ruler", container = MaterialTheme.colorScheme.errorContainer, content = MaterialTheme.colorScheme.onErrorContainer)
                 }
-                if (square.id == map.start) Tag("Start")
+                if (square.id in map.starts) Tag("Start")
             }
             val line = if (hidden) "${map.regionName(square.region)} square"
             else listOfNotNull(square.battle?.label, aRankLine(square)?.let { "A rank: $it" }).joinToString(" · ")
