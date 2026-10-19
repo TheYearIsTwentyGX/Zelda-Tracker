@@ -45,18 +45,22 @@ object AdventureReach {
 
     /**
      * The squares a save file can challenge now:
-     * - the start;
+     * - the start (or starts);
      * - every square already cleared;
-     * - and each neighbour of a cleared square across an edge that isn't a wall.
+     * - each neighbour of a cleared square across an edge that isn't a wall;
+     * - the squares a done search opens elsewhere (Lorule's Fissures);
+     * - and a gate's square once the squares it waits on are all cleared.
      *
      * A map with no start (the Rewards Map, whose squares open as Gold Skulltula illustrations are
      * completed) has every square open.
      */
     fun challengeable(map: AdventureMap, progress: AdventureProgress): Set<String> {
-        if (map.start == null) return map.squares.mapTo(mutableSetOf()) { it.id }
+        if (map.starts.isEmpty()) return map.squares.mapTo(mutableSetOf()) { it.id }
         return buildSet {
-            add(map.start)
+            addAll(map.starts)
             for (square in map.squares) {
+                // A search that opens somewhere else (a Fissure to the other world) opens it once done.
+                square.searches.filter { progress.isDone(it.id) }.forEach { addAll(it.opens) }
                 if (!progress.isCleared(square)) continue
                 add(square.id)
                 for (side in Side.entries) {
@@ -64,9 +68,13 @@ object AdventureReach {
                     if (style != EdgeStyle.WALL) add(map.neighbour(square, side)!!.id)
                 }
             }
+            for (gate in map.gates) {
+                if (gate.afterCleared.all { id -> map.square(id)?.let(progress::isCleared) == true }) add(gate.square)
+            }
         }
     }
 
+    /** A path search done on [square] that opens its walls; one that opens somewhere else (a Fissure) doesn't. */
     private fun pathDone(map: AdventureMap, progress: AdventureProgress, square: Square): Boolean =
-        square.searches.any { s -> progress.isDone(s.id) && map.card(s.card)?.effects?.contains(CardEffect.PATH) == true }
+        square.searches.any { s -> progress.isDone(s.id) && s.opens.isEmpty() && map.card(s.card)?.effects?.contains(CardEffect.PATH) == true }
 }

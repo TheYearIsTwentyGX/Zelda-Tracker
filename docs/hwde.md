@@ -21,9 +21,9 @@ DE has every map from both earlier games, all unlocked from the start:
 | Master Wind Waker Map | 98 | Yes (phase 2a) |
 | Twilight Map | 93 | Yes (phase 2c) |
 | Termina Map | 85 | Yes (phase 2c) |
-| Koholint Island Map | 84 | Planned |
-| Grand Travels Map | 128 | Planned |
-| Lorule Map | 128 | Planned |
+| Koholint Island Map | 84 | Yes (phase 2d) |
+| Grand Travels Map | 128 | Yes (phase 2d) |
+| Lorule Map | 128 | Yes (phase 2d) |
 | Rewards Map | 13 | Yes (phase 2b) |
 
 Sources: Zelda Wiki's *Adventure Mode* page (its gallery and per-map sections), the Koei Wiki and
@@ -295,6 +295,71 @@ Accepted, noted on the square:
   - On F-11 it has none, and draws no boulder.
 - **Nintendo Life's Great Fairy** at B-5: SBAllen and the Helper say B-7.
 
+### Cross-check: Koholint Island Map
+
+Link's Awakening's island, 14×6 (84 squares), from E-3, where Marin is unlocked, to the Wind Fish's
+Egg at A-7.
+- Fourteen squares are under a **Nightmare**. Any of the eight Instruments of the Sirens banishes
+  one; each Instrument used for the first time adds to the Egg Counter, and with all eight the Wind
+  Fish wakes.
+- The app models this as a whole-square search with a group card, *Any Instrument of the Sirens*.
+  It counts as held once any of the eight is.
+
+Every check agrees apart from:
+- **A-7, the Egg**: SBAllen's "must have used all 8 Instruments" is the Wind Fish's condition, not
+  a card use.
+- **D-2**: the battle, which the Helper corrected from its issue #24.
+- SBAllen's name for the Power Bracelet here, the "Power Wrist".
+
+### Cross-check: Grand Travels Map
+
+The Ocean King's seas and New Hyrule, 16×8 (128 squares). It has **two starts**, H-4 and E-11
+(SBAllen's D-8 and K-5), and the app opens both.
+- Each half has a Giant Boss, at H-1 and B-13. Once both are cleared, the Phantom Hourglass's middle
+  opens at D-10. The map records this as a *gate*, which `AdventureReach` follows.
+- The Dark Ruler is at E-7. The Helper also flags the two Giant Bosses as final bosses; SBAllen's
+  is used.
+
+| Check | Agree |
+|---|---|
+| Searches | 127 / 128 |
+| Every reward, by slot | 126 / 128 after 2 fixes |
+
+Fixed:
+- **F-11**: a Compass card on a clear.
+- **B-5**: Ordon Goat Cheese.
+- **A wall**: the Helper drew G-2's east wall on G-2 only. The converter now draws every wall on both
+  squares.
+
+Accepted:
+- **B-16**: SBAllen's guide has no entry for it.
+- **C-3**, noted on the square: SBAllen gives the A-rank Heart Container to Toon Zelda, the Helper
+  to Zelda. Every warrior but Toon Zelda has exactly two hearts on this map, so Zelda's is kept.
+- **C-4**: the battle, which the Helper corrected from its issue #28.
+- **E-2**, noted on the square: SBAllen's Railway Track search.
+
+### Cross-check: Lorule Map
+
+Hyrule (columns 1–8) and Lorule (9–16), from F-5 to the Dark Ruler at D-13.
+- The 18 **Fissures** take the Wall Painting, which opens the same square in the other world, eight
+  columns over (Zelda Wiki; SBAllen's H-7 opens his P-7). These searches carry `opens`, so a done
+  one makes its far square challengeable, and doesn't open the square's own walls.
+- On this map the Hero's Bow card is called the Bow (Zelda Wiki).
+
+The Helper is missing most of this map's Fairy Food. Its issue thread lists some of the gaps, and
+SBAllen's guide has all of them, so 23 foods and a Witch's Hat (D-7) are added from his entries.
+
+Fixed:
+- **G-5 and H-11**: cards SBAllen gives on a clear, alongside Ravio and Yuga: a Wall Painting at
+  G-5 and a Baby Maiamai at H-11.
+
+Accepted:
+- **F-8 and G-8's KO limits**: 1,600, which the Helper corrected F-8 to from its issue #29, against
+  SBAllen's 1,200.
+- **A-13, E-1 and E-5**, noted on the square: SBAllen and the Helper disagree on the search's card
+  (Sand Rod or Tornado Rod), or on whether there is one.
+- SBAllen's wording quirks ("Lv.4 Rental Hammer", "Epona" for the Horse).
+
 ### The Rewards Map
 
 Its 13 squares sit in a diamond in the middle of the game's 16×8 grid (SBAllen's I-1, H-2, J-2 …
@@ -446,6 +511,8 @@ now* filters to squares with an undone search whose card you have.
   the walls are known.
 - **The Great Sea's hazards** are shown as the square's rule. Using the card that lifts one counts
   as that square's search; the rule itself isn't tracked as lifted.
+- **Koholint's Nightmares**: their squares count as challengeable once next to a cleared one; the
+  game needs an Instrument first, and the Egg waits for all eight.
 - **Twilight clouds and Termina's Owl Statues** are shown in the square's rule and searches; which
   squares are clear or protected right now isn't tracked.
 - **Termina's moon.** When it falls it resets the map, but not the rewards. The tracker records

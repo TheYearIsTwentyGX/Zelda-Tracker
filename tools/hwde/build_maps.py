@@ -66,6 +66,15 @@ MAPS = {
                      "sballen": ("twilight-map", "20190514154018"), "wiki": "Twilight"},
     "termina_map": {"hwh": "termina", "name": "Termina Map",
                     "sballen": ("termina-map", "20190514154015"), "wiki": "Termina"},
+    "koholint_island_map": {"hwh": "koholint-island", "name": "Koholint Island Map",
+                            "sballen": ("koholint-island-map", "20210114211231"), "wiki": "Koholint"},
+    # Two starting squares (SBAllen: "Starting squares: D-8, K-5"), and the Phantom Hourglass's
+    # middle section, which opens at J-4 once both Giant Bosses (A-8, M-2) are beaten.
+    "grand_travels_map": {"hwh": "grand-travels", "name": "Grand Travels Map",
+                          "gates": [("J-4", ["A-8", "M-2"])],
+                          "sballen": ("grand-travels-map", "20250828115220"), "wiki": "Grand Travels"},
+    "lorule_map": {"hwh": "lorule", "name": "Lorule Map",
+                   "sballen": ("lorule-map", "20240308033435"), "wiki": "Lorule"},
     "master_wind_waker_map": {"hwh": "master-wind-waker", "name": "Master Wind Waker Map",
                               "sballen": ("master-wind-waker-map", "20190514154017"), "wiki": "Master Wind Waker"},
 }
@@ -177,6 +186,22 @@ WEAPON_NAMES = {"epona": "Horse"}
 # Card ids the Helper reuses across maps whose cards differ: the Master Wind Waker Map's Power
 # Bracelet is the Great Sea's (Stone Heads, its own icon), not the Adventure Map's.
 MAP_CARD_IDS = {"master_wind_waker_map": {"power-bracelet": "power-bracelet-2"}}
+
+# Card groups the Helper names but doesn't define: a whole-square search any of their cards does.
+CARD_GROUPS = {
+    "instrument": {
+        "name": "Any Instrument of the Sirens",
+        "anyOf": ["full_moon_cello", "conch_horn", "sea_lily_bell", "surf_harp", "wind_marimba", "coral_triangle",
+                  "organ_of_evening_calm", "thunder_drum"],
+        "effects": ["rule"],
+        "text": "Any of the eight Instruments banishes the Nightmare over a square. Each one used for the first "
+                "time adds to the Egg Counter; with all eight, the Wind Fish wakes.",
+    },
+}
+
+# Lorule's Fissures: a Wall Painting search on one world's square opens the same square in the other
+# world, eight columns over (Zelda Wiki, Adventure Mode; SBAllen's H-7 opens his P-7).
+FISSURE_MAPS = {"lorule_map": ("wall_painting", 8)}
 
 REGION_ORDER = ["colorless", "green", "yellow", "purple", "orange", "blue", "red"]
 REGION_NAMES = {"colorless": "Black", "green": "Green", "yellow": "Yellow", "purple": "Purple",
@@ -413,9 +438,13 @@ def sballen_page(map_id: str) -> dict:
                 if k < len(tds):
                     cells[html.unescape(re.sub(r"<[^>]+>", "", h)).strip()] = lines(tds[k])
         squares[html.unescape(m.group(1)).strip()] = cells
-    start = re.search(r"Starting square:\s*([A-P]-\d+)", re.sub(r"<[^>]+>", " ", text))
+    plain = re.sub(r"<[^>]+>", " ", text)
+    start = re.search(r"Starting square:\s*([A-P]-\d+)", plain)
+    starts = re.search(r"Starting squares:\s*([A-P]-\d+(?:\s*,\s*[A-P]-\d+)*)", plain)
     boss = re.search(r"Final Boss square:\s*([A-P]-\d+)", re.sub(r"<[^>]+>", " ", text))
-    return {"squares": squares, "start": start and start.group(1), "boss": boss and boss.group(1)}
+    labels = re.findall(r"[A-P]-\d+", starts.group(1)) if starts else ([start.group(1)] if start else [])
+    return {"squares": squares, "start": labels[0] if labels else None, "otherStarts": labels[1:],
+            "boss": boss and boss.group(1)}
 
 
 def wiki_cards() -> list[dict]:
@@ -458,6 +487,16 @@ def card_use(use: str, wiki_word: str) -> str:
     return (m.group(2) if m else parts[0]).strip()
 
 
+def card_name_on(use: str, wiki_word: str) -> str | None:
+    """The card's name on one map where the wiki gives it in the prefix: "Lorule (Bow): ..." -> "Bow"."""
+    for p in re.split(r"<br\s*/?>", use):
+        m = re.match(r"\s*([^:.]{1,80}):", re.sub(r"<[^>]+>", " ", p))
+        if m and norm(wiki_word) in [norm(n) for n in re.sub(r"\([^)]*\)", "", m.group(1)).split("/")]:
+            named = re.search(r"\(([^)]+)\)", m.group(1))
+            return named.group(1).strip() if named else None
+    return None
+
+
 def card_effects(use: str, card_id: str) -> list[str]:
     if card_id == "compass":
         return ["compass"]
@@ -466,9 +505,9 @@ def card_effects(use: str, card_id: str) -> list[str]:
         effects.append("reward")
     if re.search(r"reveal(ing)? (hidden )?enem|enemy locations", use):
         effects.append("enemies")
-    if re.search(r"removing locks|opening the square|reach new|unlock a hidden part", use):
+    if re.search(r"removing locks|opening the square|reach new|unlock a hidden part|allowing passage", use):
         effects.append("path")
-    if re.search(r"(removing|lifts?)[^.]*(restriction|rules?)|Dispels", use):
+    if re.search(r"(removing|lifts?)[^.]*(restriction|rules?)|Dispels|Eliminates Nightmares", use):
         effects.append("rule")
     return effects or ["other"]
 
@@ -561,6 +600,33 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
             sq["quiz"] = [lk.answer_name(a) for a in t["quizAnswers"]]
         squares.append(sq)
 
+    flagged = [x["id"] for x in squares if x.get("finalBoss")]
+    if len(flagged) > 1 and sb.get("boss"):
+        # The Helper also flags Grand Travels' two Giant Beasts; the Dark Ruler is SBAllen's.
+        boss = square_id(*sballen_to_square(sb["boss"]))
+        for x in squares:
+            if x.get("finalBoss") and x["id"] != boss:
+                del x["finalBoss"]
+    # A wall lies between two squares, so it's on both: the Helper has one (Grand Travels B7's east
+    # side) on one square only.
+    at = {(x["row"], x["col"]): x for x in squares}
+    step = {"north": (-1, 0, "south"), "south": (1, 0, "north"), "east": (0, 1, "west"), "west": (0, -1, "east")}
+    for x in squares:
+        for side in list(x.get("blockades", [])):
+            dr, dc, opp = step[side]
+            other = at.get((x["row"] + dr, x["col"] + dc))
+            if other is not None and opp not in other.get("blockades", []):
+                other["blockades"] = sorted(other.get("blockades", []) + [opp], key=["north", "east", "south", "west"].index)
+                print(f"   walls: {x['label']}'s {side} wall added to {other['label']} too")
+    if map_id in FISSURE_MAPS:
+        card_id, span = FISSURE_MAPS[map_id]
+        ids = {x["id"] for x in squares}
+        for x in squares:
+            for search in x.get("searches", []):
+                if search["card"] == card_id:
+                    other = square_id(x["row"], x["col"] + span if x["col"] <= span else x["col"] - span)
+                    if other in ids:
+                        search["opens"] = [other]
     regions_used = {s["region"] for s in squares}
     out = {
         "id": map_id,
@@ -568,6 +634,9 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
         "cols": cols,
         "rows": rows,
         "start": square_id(*sballen_to_square(sb["start"])) if sb.get("start") else None,
+        **({"otherStarts": [square_id(*sballen_to_square(x)) for x in sb["otherStarts"]]} if sb.get("otherStarts") else {}),
+        **({"gates": [{"square": square_id(*sballen_to_square(sq)), "afterCleared": [square_id(*sballen_to_square(x)) for x in after]}
+                      for sq, after in cfg["gates"]]} if cfg.get("gates") else {}),
         "finalBoss": next((s["id"] for s in squares if s.get("finalBoss")), None),
         **({"art": {"squares": f"hwde/{map_id}", "preview": f"hwde/{map_id}/preview.webp",
                     "squareWidth": SQUARE_W, "squareHeight": SQUARE_H}} if cfg.get("art", True) else {}),
@@ -649,20 +718,25 @@ def skulltula(text: str) -> dict:
 
 
 def map_cards(map_id: str, used: list[str], lk: Lookups, cards_wiki: list[dict]) -> list[dict]:
-    alias = {"goddessharp": "goddesssharp", "tearsoflight": "tearoflight", "seachart": "seamap"}
+    alias = {"goddessharp": "goddesssharp", "tearsoflight": "tearoflight", "seachart": "seamap", "bow": "herosbow"}
     wiki_by_name: dict[str, list[dict]] = {}
     for c in cards_wiki:
         wiki_by_name.setdefault(norm(c["name"]), []).append(c)
     out = []
     for cid in used:
+        if cid in CARD_GROUPS:
+            g = CARD_GROUPS[cid]
+            out.append({"id": cid, "name": g["name"], "effects": g["effects"], "text": g["text"], "anyOf": g["anyOf"]})
+            continue
         hwh_card = lk.cards[cid.replace("_", "-")]
         key = norm(hwh_card["name"])
         options = wiki_by_name.get(alias.get(key, key), [])
         w = next((c for c in options if map_id in c["maps"]), options[0] if options else None)
         use = card_use(w["use"], MAPS[map_id]["wiki"]) if w else ""
+        named = card_name_on(w["use"], MAPS[map_id]["wiki"]) if w else None
         out.append({
             "id": cid,
-            "name": re.sub(r"\s*\(.*\)$", "", w["name"]) if w else hwh_card["name"],
+            "name": named or (re.sub(r"\s*\(.*\)$", "", w["name"]) if w else hwh_card["name"]),
             "effects": card_effects(use, cid),
             "text": re.sub(r"\s+", " ", re.sub(r"\s*On the [A-Z][\w ]* [Mm]ap only,[^.]*\.", "", use)).strip(),
             **({"shopPrice": w["price"]} if w and w["price"] else {}),
@@ -766,7 +840,10 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
         for line in cells.get(key, []):
             line = re.sub(r"\s*\([^)]*\)\s*$", "", line)
             line = re.sub(r"^(.*?) (Heart Container|Piece of Heart)$", r"\2 - \1", line)  # "Skull Kid Heart Container"
-            out[norm(line).replace("conpass", "compass").replace("seachart", "seamap").replace("tearsoflight", "tearoflight")] += 1
+            line = re.sub(r"^Lv\.(\d\+?) (.*?) - ", r"\2 Lv.\1 - ", line)  # "Lv.4 Rental Hammer - Ravio"
+            line = re.sub(r"^Epona (Lv\.)", r"Horse \1", line)
+            out[norm(line).replace("conpass", "compass").replace("seachart", "seamap").replace("tearsoflight", "tearoflight")
+                .replace("powerwrist", "powerbracelet")] += 1
         return out
 
     for s in m["squares"]:
@@ -800,7 +877,9 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
         lines.append(f"final boss: ours {m.get('finalBoss')} / SBAllen {sb['boss']}")
 
     for c in m["cards"]:
-        w = [x for x in cards_wiki if norm(x["name"]).startswith(norm(c["name"]))]
+        w = [x for x in cards_wiki if norm(x["name"]).startswith(norm(c["name"])) or norm(c["name"]) in norm(x["use"])]
+        if c.get("anyOf"):
+            continue  # a group: its cards are checked one by one
         if not any(m["id"] in x["maps"] for x in w):
             lines.append(f"card {c['id']}: Zelda Wiki's table doesn't list it on this map")
     wiki_here = [x["name"] for x in cards_wiki if m["id"] in x["maps"]]
@@ -900,6 +979,9 @@ def self_test():
     assert card_use("Great Sea/Master Wind Waker: Hits switches.<br/>Lorule: Posts.", "Lorule") == "Posts."
     assert card_use("Reveals all secrets within a battle square.", "Adventure") == "Reveals all secrets within a battle square."
     assert card_effects("Destroys Warships, removing Great Sea rules from that square.", "cannon") == ["rule"]
+    assert card_name_on("Great Sea/Master Wind Waker (Hero's Bow): Cyclones.<br/>Lorule (Bow): Beamos.", "Lorule") == "Bow"
+    assert card_name_on("Great Sea/Master Wind Waker (Hero's Bow): Cyclones.<br/>Lorule (Bow): Beamos.", "Great Sea") == "Hero's Bow"
+    assert card_name_on("Burns bushes.", "Adventure") is None
     assert card_effects("Stops headwinds, removing locks on certain adjacent squares.", "windwaker") == ["path"]
     assert card_effects("Resets the map without waiting for the Moon and restores the time restriction.", "song_of_time") == ["other"]
     assert card_effects("Use all four on the clock tower to unlock a hidden part of the map.", "giant") == ["path"]

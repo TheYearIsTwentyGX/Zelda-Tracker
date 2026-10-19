@@ -78,7 +78,7 @@ data class SquareLook(
                 dimmed = !matches,
                 challengeable = challengeable,
                 selected = selected,
-                start = square.id == map.start,
+                start = square.id in map.starts,
                 finalBoss = square.finalBoss && !hidden,
                 markers = markers,
             )

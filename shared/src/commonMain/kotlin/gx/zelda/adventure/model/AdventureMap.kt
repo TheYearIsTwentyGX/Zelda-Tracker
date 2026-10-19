@@ -23,6 +23,10 @@ data class AdventureMap(
      * squares open as Gold Skulltula illustrations are completed.
      */
     val start: String? = null,
+    /** More squares open from the beginning, on a map with more than one start (Grand Travels). */
+    val otherStarts: List<String> = emptyList(),
+    /** Squares that open once other squares are cleared, rather than from a neighbour. */
+    val gates: List<MapGate> = emptyList(),
     /** The Dark Ruler's square. */
     val finalBoss: String? = null,
     /** The map's pictures; null for a map nobody has art for, whose squares are drawn as plain tiles. */
@@ -42,6 +46,9 @@ data class AdventureMap(
     private val warriorNames: Map<String, String> by lazy { warriors.associate { it.id to it.name } }
 
     fun square(id: String): Square? = byId[id]
+
+    /** Every square open from the beginning. */
+    val starts: List<String> get() = listOfNotNull(start) + otherStarts
 
     /** The square at [row] and [col] (both from 1), or null for a blank square or off the grid. */
     fun squareAt(row: Int, col: Int): Square? = byCell[row to col]
@@ -107,7 +114,9 @@ data class AdventureMap(
                 } else if (search.row !in 0 until SEARCH_ROWS || search.col !in 0 until SEARCH_COLS) {
                     add("${search.id}: cell (${search.row}, ${search.col}) is outside the ${SEARCH_COLS}x$SEARCH_ROWS grid")
                 }
-                if (sourcesOf(search.card).isEmpty() && card(search.card)?.effects != listOf(CardEffect.COMPASS)) {
+                search.opens.filter { square(it) == null }.forEach { add("${search.id}: opens '$it', which isn't a square") }
+                val card = card(search.card)
+                if (sourcesOf(search.card).isEmpty() && card?.effects != listOf(CardEffect.COMPASS) && card?.anyOf.isNullOrEmpty()) {
                     add("${search.id}: no square on the map gives the ${search.card} card")
                 }
             }
@@ -116,7 +125,11 @@ data class AdventureMap(
                 if (other != null && side.opposite !in other.blockades) add("${s.id}: blockade ${side.name.lowercase()} isn't on ${other.id} too")
             }
         }
-        start?.let { if (square(it) == null) add("start '$it' isn't a square") }
+        starts.filter { square(it) == null }.forEach { add("start '$it' isn't a square") }
+        for (gate in gates) {
+            (listOf(gate.square) + gate.afterCleared).filter { square(it) == null }.forEach { add("gate: '$it' isn't a square") }
+        }
+        cards.flatMap { c -> c.anyOf.filter { card(it) == null }.map { "card '${c.id}': '$it' isn't a card on this map" } }.forEach(::add)
         finalBoss?.let { if (square(it)?.finalBoss != true) add("final boss '$it' isn't a square marked finalBoss") }
         squares.filter { it.finalBoss && it.id != finalBoss }.forEach { add("${it.id}: marked finalBoss but the map's is '$finalBoss'") }
         cards.groupBy { it.id }.filter { it.value.size > 1 }.keys.forEach { add("duplicate card '$it'") }
@@ -157,6 +170,10 @@ data class MapArt(
 
 @Serializable
 data class MapRegion(val id: String, val name: String)
+
+/** [square] opens once every square in [afterCleared] is cleared (Grand Travels' Phantom Hourglass). */
+@Serializable
+data class MapGate(val square: String, val afterCleared: List<String>)
 
 @Serializable
 data class Warrior(val id: String, val name: String)
@@ -281,6 +298,8 @@ data class Search(
     val row: Int? = null,
     val col: Int? = null,
     val wholeSquare: Boolean = false,
+    /** Squares the search opens, when it opens somewhere other than the neighbours (Lorule's Fissures). */
+    val opens: List<String> = emptyList(),
 )
 
 @Serializable
@@ -293,6 +312,8 @@ data class ItemCard(
     val text: String = "",
     /** Rupees in DE's Item Card Shop, once found. */
     val shopPrice: Int? = null,
+    /** For a search any of several cards can do (any Instrument of the Sirens): those cards. */
+    val anyOf: List<String> = emptyList(),
 )
 
 @Serializable
