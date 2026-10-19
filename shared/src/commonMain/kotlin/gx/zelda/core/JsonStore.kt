@@ -29,6 +29,16 @@ class JsonStore<T>(
         dataStore.edit { prefs -> write(prefs, transform(read(prefs))) }
     }
 
+    /**
+     * Like [update], but returns the value it replaced, read inside the same edit: a bulk change
+     * snapshots what it overwrites this way, so its undo puts back exactly that.
+     */
+    suspend fun swap(transform: (T) -> T): T {
+        var before = default
+        dataStore.edit { prefs -> before = read(prefs); write(prefs, transform(before)) }
+        return before
+    }
+
     /** For multi-key transactions inside a single [DataStore.edit]. */
     fun read(prefs: Preferences): T = prefs[prefKey]?.let(::decode) ?: default
 

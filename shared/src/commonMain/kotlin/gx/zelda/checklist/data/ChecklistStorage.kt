@@ -7,6 +7,7 @@ import gx.zelda.checklist.model.ChecklistPrefs
 import gx.zelda.checklist.model.ChecklistProgress
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
+import gx.zelda.core.MapSnapshot
 import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.flow.Flow
 
@@ -38,6 +39,19 @@ class ChecklistStorage(dataStore: DataStore<Preferences>, val game: Game, val da
 
     suspend fun setDone(saveFileId: String, item: ChecklistItem, done: Boolean) =
         store(saveFileId).update { it.withDone(item, done) }
+
+    /**
+     * Sets each item's level in one write, so a "mark all" lands whole or not at all, and returns
+     * what those items had before (as stored, absent for 0) for its undo.
+     */
+    suspend fun setLevels(saveFileId: String, levels: Map<ChecklistItem, Int>): MapSnapshot<String, Int> {
+        val before = store(saveFileId).swap { it.withLevels(levels) }
+        return MapSnapshot.of(before.levels, levels.keys.map { it.id })
+    }
+
+    /** Puts back what [setLevels] replaced, in one write; items it didn't touch keep their levels. */
+    suspend fun restore(saveFileId: String, snapshot: MapSnapshot<String, Int>) =
+        store(saveFileId).update { ChecklistProgress(snapshot.restore(it.levels)) }
 
     suspend fun updatePrefs(transform: (ChecklistPrefs) -> ChecklistPrefs) = prefsStore.update(transform)
 

@@ -54,6 +54,12 @@ data class ChecklistCatalog(
     /** The section's plural, else its noun's regular plural, else the catalog's. Irregular ones ("echoes") are spelled out in the file. */
     fun pluralOf(section: ChecklistSection): String = section.plural ?: section.noun?.let(::regularPlural) ?: plural ?: regularPlural(noun)
 
+    /** The noun and plural for [items]: their section's when they're all from one, else the file's. */
+    fun nounsOf(items: List<ChecklistItem>): Pair<String, String> {
+        val section = items.map(::sectionOf).distinct().singleOrNull()
+        return if (section != null) nounOf(section) to pluralOf(section) else noun to (plural ?: regularPlural(noun))
+    }
+
     fun hiddenLabelOf(item: ChecklistItem): String {
         val section = sectionOf(item)
         return section.hiddenLabel ?: hiddenLabel ?: "Unchecked ${nounOf(section)}"

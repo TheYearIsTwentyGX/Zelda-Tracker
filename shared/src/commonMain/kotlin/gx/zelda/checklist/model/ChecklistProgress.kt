@@ -22,6 +22,10 @@ data class ChecklistProgress(val levels: Map<String, Int> = emptyMap()) {
         return copy(levels = if (clamped == 0) levels - item.id else levels + (item.id to clamped))
     }
 
+    /** Each item at its level, as [withLevel] does one. */
+    fun withLevels(levels: Map<ChecklistItem, Int>): ChecklistProgress =
+        levels.entries.fold(this) { progress, (item, level) -> progress.withLevel(item, level) }
+
     /** Ticks every step of [item], or clears them all. */
     fun withDone(item: ChecklistItem, done: Boolean): ChecklistProgress = withLevel(item, if (done) item.steps else 0)
 }
