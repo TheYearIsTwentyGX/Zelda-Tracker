@@ -40,6 +40,11 @@ data class GamePalette(
     /** Material's error red, unless it's too light for this [surface]. */
     val error: Color? = null,
     val onError: Color? = null,
+    /**
+     * Extra colours for a many-coloured ornament, like the Four Swords Links or the four seasons.
+     * Decoration only; each needs 3:1 on [surface].
+     */
+    val accents: List<Color> = emptyList(),
 ) {
     init {
         require(containers == null || containers.size == 5) { "containers lists Lowest, Low, plain, High and Highest" }

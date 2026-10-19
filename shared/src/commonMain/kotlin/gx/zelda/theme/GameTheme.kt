@@ -32,7 +32,7 @@ data class GameTheme(
 
     fun palette(dark: Boolean): GamePalette = if (dark) this.dark else light
 
-    fun decor(dark: Boolean): GameDecor = GameDecor(ornament, progress, palette(dark).star)
+    fun decor(dark: Boolean): GameDecor = palette(dark).let { GameDecor(ornament, progress, it.star, it.accents) }
 }
 
 /** The corners of cards, sheets and buttons. */
@@ -89,6 +89,18 @@ enum class Ornament {
 
     /** A thin line with a diamond and end ticks, Sheikah tech. */
     GLYPHS,
+
+    /** Two courses of offset bricks, Zelda II's palace stone. */
+    BRICKS,
+
+    /** A row of small Triforces. */
+    TRIFORCES,
+
+    /** A hairline broken by a dot in each season's colour ([GamePalette.accents]), in turn. */
+    SEASONS,
+
+    /** The accents as equal bands, one per Link in Four Swords. */
+    COLOUR_BANDS,
 }
 
 /** How [GameProgressBar] draws progress. */
@@ -108,7 +120,13 @@ enum class ProgressStyle {
 
 /** What shared components read from the current game's theme beyond Material's colours and shapes. */
 @Immutable
-data class GameDecor(val ornament: Ornament, val progress: ProgressStyle, val star: Color)
+data class GameDecor(
+    val ornament: Ornament,
+    val progress: ProgressStyle,
+    val star: Color,
+    /** [GamePalette.accents] for the current mode. */
+    val accents: List<Color> = emptyList(),
+)
 
 /** The neutral theme's decor until a [gx.zelda.core.ui.ZeldaTheme] provides one. */
 val LocalGameDecor = staticCompositionLocalOf { GameThemes.Neutral.decor(dark = true) }

@@ -27,6 +27,8 @@ fun OrnamentDivider(modifier: Modifier = Modifier) {
     if (ornament == Ornament.NONE) return
     val color = MaterialTheme.colorScheme.primary
     val accent = LocalGameDecor.current.star
+    // A many-coloured ornament falls back to the primary colour if the theme gives no accents.
+    val accents = LocalGameDecor.current.accents.ifEmpty { listOf(color) }
     Canvas(modifier.fillMaxWidth().height(8.dp)) {
         when (ornament) {
             Ornament.NONE -> Unit
@@ -34,6 +36,10 @@ fun OrnamentDivider(modifier: Modifier = Modifier) {
             Ornament.WAVES -> waves(color)
             Ornament.VINE -> vine(color, accent)
             Ornament.GLYPHS -> glyphs(color)
+            Ornament.BRICKS -> bricks(color)
+            Ornament.TRIFORCES -> triforces(color)
+            Ornament.SEASONS -> seasons(color, accents)
+            Ornament.COLOUR_BANDS -> colourBands(accents)
         }
     }
 }
@@ -114,3 +120,66 @@ private fun DrawScope.glyphs(color: Color) {
     drawLine(color, Offset(0f, mid - d), Offset(0f, mid + d), stroke * 2)
     drawLine(color, Offset(size.width, mid - d), Offset(size.width, mid + d), stroke * 2)
 }
+
+/** Two courses of bricks, outlined, each course offset by half a brick. */
+private fun DrawScope.bricks(color: Color) {
+    val stroke = 1.dp.toPx()
+    val course = size.height / 2
+    val brick = 4 * course
+    drawLine(color, Offset(0f, stroke / 2), Offset(size.width, stroke / 2), stroke)
+    drawLine(color, Offset(0f, course), Offset(size.width, course), stroke)
+    drawLine(color, Offset(0f, size.height - stroke / 2), Offset(size.width, size.height - stroke / 2), stroke)
+    for (row in 0..1) {
+        var x = if (row == 0) 0f else brick / 2
+        while (x <= size.width) {
+            drawLine(color, Offset(x, row * course), Offset(x, (row + 1) * course), stroke)
+            x += brick
+        }
+    }
+}
+
+/** Small filled Triforces, three triangles each, spaced along the line. */
+private fun DrawScope.triforces(color: Color) {
+    val h = size.height
+    val w = h * 1.15f
+    val gap = w * 1.6f
+    val count = ((size.width + gap - w) / (w + gap)).toInt().coerceAtLeast(1)
+    val start = (size.width - (count * w + (count - 1) * gap)) / 2
+    for (i in 0 until count) {
+        val left = start + i * (w + gap)
+        fun triangle(x: Float, y: Float, tw: Float, th: Float) = Path().apply {
+            moveTo(x + tw / 2, y)
+            lineTo(x + tw, y + th)
+            lineTo(x, y + th)
+            close()
+        }
+        drawPath(triangle(left + w / 4, 0f, w / 2, h / 2), color)
+        drawPath(triangle(left, h / 2, w / 2, h / 2), color)
+        drawPath(triangle(left + w / 2, h / 2, w / 2, h / 2), color)
+    }
+}
+
+/** A hairline with a dot every 24dp, the dots taking each of [colors] in turn. */
+private fun DrawScope.seasons(line: Color, colors: List<Color>) {
+    val mid = size.height / 2
+    drawLine(line, Offset(0f, mid), Offset(size.width, mid), 1.dp.toPx())
+    val step = 24.dp.toPx()
+    val r = size.height / 2.4f
+    var x = step / 2
+    var i = 0
+    while (x <= size.width) {
+        drawCircle(colors[i % colors.size], r, Offset(x, mid))
+        x += step
+        i++
+    }
+}
+
+/** [colors] as equal bands across the width, with a small gap between them. */
+private fun DrawScope.colourBands(colors: List<Color>) {
+    val gap = 3.dp.toPx()
+    val height = size.height / 2
+    val top = (size.height - height) / 2
+    val width = (size.width - gap * (colors.size - 1)) / colors.size
+    colors.forEachIndexed { i, c -> drawRect(c, Offset(i * (width + gap), top), Size(width, height)) }
+}
+

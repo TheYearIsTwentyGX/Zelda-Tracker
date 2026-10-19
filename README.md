@@ -38,12 +38,13 @@ iOS port is mostly a matter of adding the iOS targets.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
 - **Game themes**: inside a game (its trackers, overview, detail pages, scans and map) the screens
   take on that game's look: colours from its menus, header lettering in the style of its era, and
-  a small ornament under each region's header. So far The Legend of Zelda (NES subscreen black and
-  heart red, or overworld tan and green, in pixel lettering), The Wind Waker (sea-chart parchment or
-  the GameCube menu's forest green, with the cerulean sea and a wave rule), The Minish Cap (leaf green
-  and Kinstone gold on paper or bark, a vine rule) and Breath of the Wild (Zelda White on the Sheikah
-  Slate's dark glass, Sheikah blue, cut corners). The other games keep the app's own look until
-  theirs arrive; `docs/themes.md` has every game's brief.
+  a small ornament under each region's header. So far the 8- and 16-bit games and Four Swords
+  Adventures, each from its own menus (the NES pause screen's black and heart red, Zelda II's
+  file select, A Link to the Past's gold-bordered status screen, the Game Boy's four greens and Link's
+  Awakening DX, the Oracles' title screens and Nayru's blues, Four Swords' gold panel and Force Gems,
+  The Minish Cap's navy file select), plus The Wind Waker (sea-chart parchment or forest green, a
+  wave rule) and Breath of the Wild (Zelda White on the Sheikah Slate's dark glass, cut corners).
+  The other games keep the app's own look until theirs arrive; `docs/themes.md` has every game's brief.
   - The home screen, the menu and Settings keep the app's own look, with each themed game's accent
     colour on its card, its row in the menu and its switch in Settings, and its name on the home
     screen in its lettering.

@@ -13,8 +13,8 @@ class GameThemesTest {
     }
 
     @Test
-    fun theShowcaseGamesHaveTheirOwn() {
-        for (id in listOf("loz", "ww", "mc", "botw")) assertEquals(id, GameThemes.of(id).id)
+    fun theThemedGamesHaveTheirOwn() {
+        for (id in listOf("loz", "aol", "alttp", "la", "oos", "ooa", "fs", "ww", "fsa", "mc", "botw")) assertEquals(id, GameThemes.of(id).id)
     }
 
     /** Hyrule Warriors is named by id, so this holds before and after it joins [Games.all]. */
