@@ -305,6 +305,57 @@ only while they're on screen, keeping the last 48.
   `HwdeAssetsTest` checks every square has a lossless picture of the size the JSON gives. Captures
   carry the game's own icons and Link's sprite, so pick the display with the fewest.
 
+## Edges and squares you can challenge
+
+The map draws the line between each pair of neighbouring squares as the game does:
+- **Wavy (a wall):** clearing one square doesn't open the other. It's a grey zigzag with a light
+  outline and small dark posts at its ends, about eight zigzags along a square's long side and six
+  along its short one.
+- **Straight:** a thin light seam; clearing either square opens the other.
+- **Opened:** a wall that a path search done on either square (Hookshot, Raft, Ooccoo…) has
+  opened. It's drawn straight. The data doesn't say which neighbour such a search opens, so all
+  of that square's walls open.
+
+There are no one-way walls. A wall recorded on either square counts for both, and the converter
+writes each wall on both squares.
+
+The style is worked out by `AdventureReach.edge` (`adventure/model/AdventureReach.kt`), and tested
+for each kind. The look was checked against Zelda Wiki's DE screenshot (the 4× crop under *The
+map's art*). Lines are drawn at screen resolution on the pixel-snapped square edges, so they stay
+sharp at any zoom. Their colours are fixed, the game's, rather than the theme's.
+
+**Squares you can challenge now** are drawn at full brightness; the rest are dimmed, always (they
+can still be opened). They are:
+- the start;
+- every square already cleared;
+- and each neighbour of a cleared square across an edge that isn't a wall.
+
+The Rewards Map has no start, so all its squares count. The same set is what spoiler-safe mode
+calls reached; that mode also hides the details of squares outside it.
+
+The *Challengeable now* chip filters to them. With *Not cleared* on, they're listed first. The
+overview's next step prefers them too.
+
+**A simplification:** in the game a neighbour opens only if the clear earned the rank on the arrow
+between the two squares (C, B or A). No source lists those arrows (Zelda Wiki's per-square pages
+have them for only a few squares), so here any clear opens its neighbours. The map's *About* note
+says so.
+
+## Landscape
+
+On the Map tab, in a landscape window shorter than 480 dp (Material's compact height: a phone on
+its side, or a short split-screen window), the app hides the top bar, the Map/List tabs and the
+system bars, which a swipe from the edge brings back for a moment.
+- The filter row becomes the toolbar: ☰ at its start, then Cards, List and ⋮ at its end, plus the
+  save-file picker on a game with more than one file. Every target is at least 48 dp, and nothing
+  covers the map's row and column labels.
+- *List* switches tab, which brings the bars back. So do portrait and leaving the screen.
+- Turning the window between portrait and landscape opens the map afresh for the new shape, using
+  all the height it now has. A resize within the same shape keeps the zoom.
+
+`AdventureChrome.visible` decides from the window's own size, not the device's orientation, and is
+tested for orientation and tab.
+
 ## Spoiler-safe mode
 
 Off by default. It's one switch for every HW:DE map, in each map's ⋮ menu.

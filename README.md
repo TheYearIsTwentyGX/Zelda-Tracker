@@ -895,7 +895,13 @@ The Twilight, Termina, Koholint Island, Grand Travels and Lorule maps follow. Th
   - Each square shows a bronze edge when cleared, gold with an "A" when A-ranked and a star when
     complete, with dots for Heart Containers, Pieces of Heart, Gold Skulltulas and searches still
     to do.
-  - Wavy walls, row letters and column numbers are drawn on, as are the start and the Dark Ruler.
+  - The lines between squares are drawn as in the game: wavy where a wall stops the way, straight where
+    clearing one opens the other (and straight again once a path card like the Hookshot is used).
+  - Squares that can't be challenged yet are dimmed. Any clear opens its neighbours here; the game's
+    B/A-rank arrows aren't in any source.
+  - Row letters and column numbers are drawn on, as are the start and the Dark Ruler.
+  - In landscape on a phone, the Map tab hides the top bar, tabs and system bars, and the filter row
+    carries the menu, Cards, List and ⋮.
 - **A square's sheet**:
   - the battle type and victory condition, any rule, and which warriors it allows;
   - the A-rank limits (KOs, time, damage), which are the guides' findings, since the game doesn't
@@ -909,9 +915,9 @@ The Twilight, Termina, Koholint Island, Grand Travels and Lorule maps follow. Th
   - *Mark square complete*.
 - **List tab**: the same squares by colour (difficulty), with search over squares, rewards,
   warriors, keeps and cards.
-- **Filters** (both tabs): not cleared, not A-ranked, Heart Containers left, Pieces of Heart left,
-  Gold Skulltulas left, searches left, *Searchable now* (with the cards you have) and a warrior
-  ("what's left for Zelda").
+- **Filters** (both tabs): not cleared (squares you can challenge first), not A-ranked, Heart
+  Containers left, Pieces of Heart left, Gold Skulltulas left, searches left, *Searchable now* (with
+  the cards you have), *Challengeable now* and a warrior ("what's left for Zelda").
 - **Cards**: each item card with what it does on the map, the squares that give it, and its Item
   Card Shop price. A card counts as found once a square that gives it is cleared (DE's shop sells
   any card found before), and each can be set by hand.

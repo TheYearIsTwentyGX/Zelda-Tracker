@@ -169,6 +169,32 @@ class AdventureMapViewModelTest {
     }
 
     @Test
+    fun challengeableNowFollowsClearsAndWalls() = runTest {
+        val vm = viewModel()
+        vm.setFilter(SquareFilter.CHALLENGEABLE, true).join()
+        var state = vm.ready { SquareFilter.CHALLENGEABLE in it.mapPrefs.filters }
+        assertEquals(listOf("r1c1"), state.matching.map { it.id }, "only the start")
+        vm.setStatus("r1c1", SquareStatus.CLEARED)!!.join()
+        state = vm.ready { it.progress.isCleared(square("r1c1")) }
+        assertEquals(listOf("r1c1", "r2c1"), state.matching.map { it.id }, "the wall keeps r1c2 out")
+        assertFalse(state.look(square("r1c2"), selected = false).challengeable)
+        vm.setDone("r1c1.search_hookshot", true)!!.join()
+        state = vm.ready { it.progress.isDone("r1c1.search_hookshot") }
+        assertEquals(listOf("r1c1", "r1c2", "r2c1"), state.matching.map { it.id })
+        assertEquals(gx.zelda.adventure.model.EdgeStyle.OPENED, state.edgeStyles["r1c1" to gx.zelda.adventure.model.Side.EAST])
+    }
+
+    @Test
+    fun notClearedPutsTheChallengeableSquaresFirst() = runTest {
+        storage.setStatus("file_1", square("r1c1"), SquareStatus.CLEARED)
+        val vm = viewModel()
+        vm.setFilter(SquareFilter.NOT_CLEARED, true).join()
+        val state = vm.ready { SquareFilter.NOT_CLEARED in it.mapPrefs.filters && it.progress.isCleared(square("r1c1")) }
+        assertEquals(listOf("r2c1", "r1c2", "r1c3", "r2c2"), state.matching.map { it.id })
+        assertEquals(listOf("r2c1", "r1c3", "r2c2"), state.groups.single { it.first.id == "red" }.second.map { it.id })
+    }
+
+    @Test
     fun theListSearchesRewardsWarriorsAndKeeps() = runTest {
         val vm = viewModel()
         for ((query, ids) in listOf("Skyloft" to listOf("r2c1"), "North Keep" to listOf("r1c1"), "zelda" to listOf("r1c1", "r1c3", "r2c1"), "A-3" to listOf("r1c3"))) {
