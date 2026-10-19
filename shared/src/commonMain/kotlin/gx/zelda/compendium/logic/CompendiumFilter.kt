@@ -55,6 +55,7 @@ object CompendiumFilter {
         val categories = category?.let(::listOf) ?: CompendiumCategory.entries
         return categories.flatMap { cat ->
             val inCategory = entries.filter { it.category == cat }
+            // Keys match sectionKey.
             when {
                 cat == CompendiumCategory.CREATURES -> listOf(
                     section("creatures", "Creatures", inCategory.filterNot { it.food }),
@@ -64,6 +65,13 @@ object CompendiumFilter {
                 else -> listOf(section(cat.name.lowercase(), null, inCategory))
             }
         }.filter { it.entries.isNotEmpty() }
+    }
+
+    /** The [CompendiumSection.key] of the section [entry] is listed under on a tab with headers. */
+    fun sectionKey(entry: CompendiumEntry): String = when {
+        entry.category != CompendiumCategory.CREATURES -> entry.category.name.lowercase()
+        entry.food -> "food"
+        else -> "creatures"
     }
 
     /** Each category's progress over the save file's own [entries], ignoring any search or filter. */

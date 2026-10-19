@@ -14,9 +14,9 @@ import gx.zelda.bosses.model.tallies
 import gx.zelda.core.BulkAction
 import gx.zelda.core.BulkChange
 import gx.zelda.core.BulkScope
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
-import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -221,7 +221,7 @@ class BossViewModel(
         return viewModelScope.launch { storage.setState(file, spawnId, bossState) }
     }
 
-    private val _bulkChange = MutableStateFlow<BulkChange<Pair<SetSnapshot<String>, SetSnapshot<String>>>?>(null)
+    private val _bulkChange = MutableStateFlow<BulkChange<DiscoverySnapshot>?>(null)
 
     /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
     val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
@@ -238,8 +238,7 @@ class BossViewModel(
         val target = if (defeated) DiscoveryState.COMPLETED else DiscoveryState.UNDISCOVERED
         return viewModelScope.launch {
             val snapshot = storage.setAllStates(state.saveFile.id, ids, target)
-            val (before, found) = snapshot
-            val changed = ids.count { DiscoveryState.of(it, before.members, found.members) != target }
+            val changed = ids.count { DiscoveryState.of(it, snapshot.completed.members, snapshot.found.members) != target }
             if (changed > 0) {
                 val action = if (defeated) BulkAction.MARK else BulkAction.CLEAR
                 _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)

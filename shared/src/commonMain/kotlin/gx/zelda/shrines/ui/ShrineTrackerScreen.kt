@@ -27,6 +27,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -41,7 +43,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
 import gx.zelda.core.DiscoveryState
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.HiddenRow
@@ -54,6 +63,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.shrines.model.Lightroot
 import gx.zelda.shrines.model.Shrine
 import gx.zelda.shrines.model.ShrineLayer
@@ -79,7 +89,12 @@ fun ShrineTrackerScreen(
     /** Opens a shrine's page with its Lightroot; only offered for a game with Lightroots. */
     onOpenShrine: (String) -> Unit = {},
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -106,10 +121,11 @@ fun ShrineTrackerScreen(
             return@Scaffold
         }
         if (state.catalog.lightroots.isEmpty()) {
-            ShrineList(state, viewModel, padding, rememberLazyListState(), onOpenShrine = null)
+            ShrineList(state, viewModel, bulk, padding, rememberLazyListState(), onOpenShrine = null)
         } else {
-            ShrineAndLightrootTabs(state, viewModel, padding, onOpenShrine)
+            ShrineAndLightrootTabs(state, viewModel, bulk, padding, onOpenShrine)
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -127,6 +143,7 @@ private fun saveFileDetail(state: ShrineUiState, summary: ShrineSaveSummary): St
 private fun ShrineAndLightrootTabs(
     state: ShrineUiState,
     viewModel: ShrineViewModel,
+    bulk: BulkCompleteState,
     padding: PaddingValues,
     onOpenShrine: (String) -> Unit,
 ) {
@@ -157,9 +174,9 @@ private fun ShrineAndLightrootTabs(
         }
         HorizontalPager(pager, modifier = Modifier.fillMaxSize()) { page ->
             if (page == 0) {
-                ShrineList(state, viewModel, PaddingValues(0.dp), shrineList, onOpenShrine)
+                ShrineList(state, viewModel, bulk, PaddingValues(0.dp), shrineList, onOpenShrine)
             } else {
-                LightrootList(state, viewModel, lightrootList, onOpenShrine)
+                LightrootList(state, viewModel, bulk, lightrootList, onOpenShrine)
             }
         }
     }
@@ -197,6 +214,7 @@ private fun ShrineMenu(state: ShrineUiState, viewModel: ShrineViewModel, onScanM
 private fun ShrineList(
     state: ShrineUiState,
     viewModel: ShrineViewModel,
+    bulk: BulkCompleteState,
     contentPadding: PaddingValues,
     listState: LazyListState,
     onOpenShrine: ((String) -> Unit)?,
@@ -220,7 +238,7 @@ private fun ShrineList(
                 )
             }
         }
-        item(key = "_filters") { ShrineFilterBar(state, viewModel) }
+        item(key = "_filters") { ShrineFilterBar(state, viewModel, bulk) }
         if (groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
@@ -240,6 +258,11 @@ private fun ShrineList(
                     found = inRegion.count { progress.isFound(it.id) },
                     done = inRegion.count { it.id in progress.completed },
                     total = inRegion.size,
+                    leading = {
+                        BulkCompleteCheckbox(state.shrineScope(region), bulk, onApply = {
+                            viewModel.setAllCompleted(region, dlc = false, completed = it == BulkAction.MARK)
+                        })
+                    },
                 )
             }
             itemsIndexed(shrines, key = { _, shrine -> shrine.id }) { i, shrine ->
@@ -276,6 +299,7 @@ private fun ShrineList(
 private fun LightrootList(
     state: ShrineUiState,
     viewModel: ShrineViewModel,
+    bulk: BulkCompleteState,
     listState: LazyListState,
     onOpenShrine: (String) -> Unit,
 ) {
@@ -285,7 +309,7 @@ private fun LightrootList(
     val groups = catalog.lightrootsByRegion(state.matchingLightroots)
 
     LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
-        item(key = "_filters") { LightrootFilterBar(state, viewModel) }
+        item(key = "_filters") { LightrootFilterBar(state, viewModel, bulk) }
         if (groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
@@ -304,6 +328,9 @@ private fun LightrootList(
                     found = inRegion.count { lit.isFound(it.id) },
                     done = inRegion.count { it.id in lit.completed },
                     total = inRegion.size,
+                    leading = {
+                        BulkCompleteCheckbox(state.lightrootScope(region), bulk, onApply = { viewModel.setAllLit(region, it == BulkAction.MARK) })
+                    },
                 )
             }
             itemsIndexed(roots, key = { _, root -> root.id }) { i, root ->
@@ -336,7 +363,7 @@ private fun LightrootList(
 }
 
 @Composable
-private fun LightrootFilterBar(state: ShrineUiState, viewModel: ShrineViewModel) {
+private fun LightrootFilterBar(state: ShrineUiState, viewModel: ShrineViewModel, bulk: BulkCompleteState) {
     val filters = state.filters
     val catalog = state.catalog
     val lit = state.progress.lightroots
@@ -360,6 +387,9 @@ private fun LightrootFilterBar(state: ShrineUiState, viewModel: ShrineViewModel)
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+        if (state.matchingLightroots.isNotEmpty()) {
+            BulkCompleteRow(state.lightrootScope(), bulk, onApply = { viewModel.setAllLit(null, it == BulkAction.MARK) })
         }
     }
 }
@@ -417,7 +447,7 @@ internal fun DiscoveryState.pairLabel(lightroot: Boolean): String = when (this) 
 }
 
 @Composable
-private fun ShrineFilterBar(state: ShrineUiState, viewModel: ShrineViewModel) {
+private fun ShrineFilterBar(state: ShrineUiState, viewModel: ShrineViewModel, bulk: BulkCompleteState) {
     val filters = state.filters
     val progress = state.progress
     val catalog = state.catalog
@@ -453,6 +483,16 @@ private fun ShrineFilterBar(state: ShrineUiState, viewModel: ShrineViewModel) {
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+        // Acts on what the search and chips leave showing, so it sits under them. The DLC's shrines
+        // have a toggle of their own, so marking the base game never touches them.
+        if (state.bulkShrines().isNotEmpty()) {
+            BulkCompleteRow(state.shrineScope(), bulk, onApply = { viewModel.setAllCompleted(null, dlc = false, completed = it == BulkAction.MARK) })
+        }
+        if (state.bulkShrines(dlc = true).isNotEmpty()) {
+            BulkCompleteRow(state.shrineScope(dlc = true), bulk, onApply = {
+                viewModel.setAllCompleted(null, dlc = true, completed = it == BulkAction.MARK)
+            })
+        }
     }
 }
 

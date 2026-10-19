@@ -2,9 +2,9 @@ package gx.zelda.sidequests.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
-import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.sidequests.model.QuestState
 import gx.zelda.sidequests.model.SideQuestPrefs
@@ -41,17 +41,14 @@ class SideQuestStorage(dataStore: DataStore<Preferences>, val game: Game) {
         saveFileId: String,
         questIds: Collection<String>,
         state: QuestState,
-    ): Pair<SetSnapshot<String>, SetSnapshot<String>> {
+    ): DiscoverySnapshot {
         val before = store(saveFileId).swap { it.withStates(questIds, state) }
-        return SetSnapshot.of(before.completed, questIds) to SetSnapshot.of(before.started, questIds)
+        return DiscoverySnapshot.of(before, questIds)
     }
 
     /** Puts back what [setAllStates] replaced, in one write; quests it didn't touch stay as they are. */
-    suspend fun restore(saveFileId: String, snapshot: Pair<SetSnapshot<String>, SetSnapshot<String>>) =
-        store(saveFileId).update {
-            val (completed, started) = snapshot
-            it.copy(completed = completed.restore(it.completed), started = started.restore(it.started))
-        }
+    suspend fun restore(saveFileId: String, snapshot: DiscoverySnapshot) =
+        store(saveFileId).update { it.restored(snapshot) }
 
     /** Unticking a completed quest leaves it in progress. */
     suspend fun setCompleted(saveFileId: String, questId: String, completed: Boolean) =

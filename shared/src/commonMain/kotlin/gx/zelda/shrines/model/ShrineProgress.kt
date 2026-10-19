@@ -2,6 +2,7 @@ package gx.zelda.shrines.model
 
 import gx.zelda.core.Discoveries
 import gx.zelda.core.DiscoverySets
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -39,7 +40,23 @@ data class ShrineProgress(
 
     fun withLightrootState(lightrootId: String, state: DiscoveryState): ShrineProgress =
         copy(lightroots = lightroots.withState(lightrootId, state))
+
+    /** Every one of [shrineIds] completed (and found), or cleared back to found. */
+    fun withAll(shrineIds: Collection<String>, completed: Boolean): ShrineProgress =
+        setsWithAll(shrineIds, completed).let { (completed, found) -> copy(completed = completed, found = found) }
+
+    /** What [ShrineSnapshot] replaced put back; anything else stays as it is now. */
+    fun restored(snapshot: ShrineSnapshot): ShrineProgress =
+        snapshot.shrines.restore(this).let { (completed, found) ->
+            copy(completed = completed, found = found, lightroots = lightroots.restored(snapshot.lightroots))
+        }
 }
+
+/** What a bulk change to shrines or to Lightroots replaced; the other half is [DiscoverySnapshot.NONE]. */
+data class ShrineSnapshot(
+    val shrines: DiscoverySnapshot = DiscoverySnapshot.NONE,
+    val lightroots: DiscoverySnapshot = DiscoverySnapshot.NONE,
+)
 
 /** Viewing preferences, shared by every save file. */
 @Serializable

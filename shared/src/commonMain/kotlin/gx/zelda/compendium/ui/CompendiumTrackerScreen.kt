@@ -27,12 +27,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,17 +44,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import gx.zelda.compendium.logic.CompendiumFilter
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import gx.zelda.compendium.logic.CompendiumSection
 import gx.zelda.compendium.model.CompendiumCategory
 import gx.zelda.compendium.model.CompendiumEntry
 import gx.zelda.compendium.model.EntrySource
 import gx.zelda.compendium.model.compendiumNumber
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
+import gx.zelda.core.ui.rememberBulkCompleteState
 
 /** Hyrule Compendium: a tab per category, each entry tickable as photographed on the active save file. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,7 +73,12 @@ fun CompendiumTrackerScreen(
     onOpenEntry: (String) -> Unit,
     onBack: () -> Unit,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -90,8 +105,9 @@ fun CompendiumTrackerScreen(
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
             CategoryTabs(state, viewModel)
-            EntryList(state, viewModel, onOpenEntry)
+            EntryList(state, viewModel, bulk, onOpenEntry)
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -126,17 +142,15 @@ private fun CategoryTabs(state: CompendiumUiState, viewModel: CompendiumViewMode
 }
 
 @Composable
-private fun EntryList(state: CompendiumUiState, viewModel: CompendiumViewModel, onOpenEntry: (String) -> Unit) {
+private fun EntryList(state: CompendiumUiState, viewModel: CompendiumViewModel, bulk: BulkCompleteState, onOpenEntry: (String) -> Unit) {
     val masterMode = state.saveFile.masterMode
-    val sections = remember(state.entries, state.category, state.query, state.missingOnly, state.photographed) {
-        CompendiumFilter.sections(state.entries, state.category, state.query, state.missingOnly, state.photographed, masterMode)
-    }
+    val sections = state.sections
     // A new tab or save file starts at the top rather than mid-way down the previous list.
     val listState = rememberLazyListState()
     LaunchedEffect(state.category, state.saveFile) { listState.scrollToItem(0) }
 
     LazyColumn(state = listState, contentPadding = PaddingValues(bottom = 16.dp), modifier = Modifier.fillMaxSize()) {
-        item(key = "_filters") { Filters(state, viewModel) }
+        item(key = "_filters") { Filters(state, viewModel, bulk) }
         if (state.category == null && state.query.isBlank() && !state.missingOnly) {
             item(key = "_summary") { SummaryCard(state) }
         }
@@ -152,7 +166,13 @@ private fun EntryList(state: CompendiumUiState, viewModel: CompendiumViewModel, 
         }
         for (section in sections) {
             section.title?.let { title ->
-                stickyHeader(key = "h_${section.key}") { SectionHeader(section, title) }
+                stickyHeader(key = "h_${section.key}") {
+                    SectionHeader(section, title) {
+                        BulkCompleteCheckbox(state.bulkScope(section.key), bulk, onApply = {
+                            viewModel.setAllPhotographed(section.key, it == BulkAction.MARK)
+                        })
+                    }
+                }
             }
             itemsIndexed(section.entries, key = { _, entry -> entry.id }) { i, entry ->
                 EntryRow(
@@ -169,7 +189,7 @@ private fun EntryList(state: CompendiumUiState, viewModel: CompendiumViewModel, 
 }
 
 @Composable
-private fun Filters(state: CompendiumUiState, viewModel: CompendiumViewModel) {
+private fun Filters(state: CompendiumUiState, viewModel: CompendiumViewModel, bulk: BulkCompleteState) {
     Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         OutlinedTextField(
             value = state.query,
@@ -192,6 +212,10 @@ private fun Filters(state: CompendiumUiState, viewModel: CompendiumViewModel) {
             onClick = { viewModel.setMissingOnly(!state.missingOnly) },
             label = { Text("Missing only") },
         )
+        // Acts on what the search and chip leave showing on this tab, so it sits under them.
+        if (state.sections.isNotEmpty()) {
+            BulkCompleteRow(state.bulkScope(), bulk, onApply = { viewModel.setAllPhotographed(null, it == BulkAction.MARK) })
+        }
     }
 }
 
@@ -230,9 +254,10 @@ private fun SummaryCard(state: CompendiumUiState) {
 }
 
 @Composable
-private fun SectionHeader(section: CompendiumSection, title: String) {
+private fun SectionHeader(section: CompendiumSection, title: String, leading: @Composable () -> Unit) {
     Surface(color = MaterialTheme.colorScheme.surfaceContainerHighest, modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.padding(start = 4.dp, end = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+            leading()
             Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
             Text(
                 "${section.photographed} / ${section.total}",

@@ -4,14 +4,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import gx.zelda.armor.data.ArmorRepository
 import gx.zelda.armor.data.ArmorStorage
+import gx.zelda.armor.logic.ArmorGroup
+import gx.zelda.armor.logic.ArmorGrouping
 import gx.zelda.armor.logic.TotalsMode
 import gx.zelda.armor.model.ArmorCatalog
 import gx.zelda.armor.model.ArmorPrefs
 import gx.zelda.armor.model.ArmorProgress
 import gx.zelda.armor.model.ArmorGroupBy
 import gx.zelda.armor.model.ArmorOrder
+import gx.zelda.armor.model.ArmorPiece
 import gx.zelda.armor.model.MaterialSort
 import gx.zelda.armor.model.PieceProgress
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
+import gx.zelda.core.MapSnapshot
 import gx.zelda.core.SaveFile
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
@@ -24,6 +31,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 enum class OwnershipFilter(val label: String) { ALL("All"), OWNED("Owned"), MISSING("Missing") }
@@ -46,6 +54,57 @@ data class ArmorUiState(
 
     /** The saved order, or A–Z when the game has no in-game sort data. */
     val order: ArmorOrder get() = progress.order.takeIf { it in orders } ?: ArmorOrder.ALPHABETICAL
+
+    /** The pieces the DLC and amiibo filters leave in the list, which its count is out of. */
+    val visible: List<ArmorPiece> = catalog.pieces.filter { progress.isVisible(it.source) }
+
+    /** What the list shows: [visible] narrowed by the ownership filter and search, under its headers. */
+    val groups: List<ArmorGroup> = run {
+        val q = query.trim()
+        val matching = visible.filter { piece ->
+            val owned = progress.of(piece.id).owned
+            val ownershipOk = when (ownershipFilter) {
+                OwnershipFilter.ALL -> true
+                OwnershipFilter.OWNED -> owned
+                OwnershipFilter.MISSING -> !owned
+            }
+            val setName = catalog.set(piece.setId)?.name.orEmpty()
+            ownershipOk && (q.isEmpty() || piece.name.contains(q, true) || setName.contains(q, true))
+        }
+        ArmorGrouping.group(catalog, matching, order, progress.group)
+    }
+
+    /** True when a search or the Owned/Missing filter is on, so a toggle acts on the rows shown only. */
+    val filtered: Boolean get() = query.isNotBlank() || ownershipFilter != OwnershipFilter.ALL
+
+    /**
+     * What a "mark all collected" toggle acts on: the pieces the list shows, or only those under
+     * the header of the group keyed [group]. Pieces the DLC and amiibo filters hide are never in it.
+     */
+    fun bulkPieces(group: String? = null): List<ArmorPiece> =
+        if (group == null) groups.flatMap { it.pieces } else groups.firstOrNull { it.key == group }?.pieces.orEmpty()
+
+    /**
+     * The toggle for [bulkPieces]: collecting each piece, or uncollecting it, as its row's box
+     * does. Upgrade levels are left alone; the set header's stars already raise those. Its text
+     * names the list or set, never a piece.
+     */
+    fun bulkScope(group: String? = null): BulkScope {
+        val hidden = catalog.pieces.size - visible.size
+        val note = listOfNotNull(
+            "Armor the DLC and amiibo filters hide isn't changed.".takeIf { group == null && hidden > 0 },
+            "Upgrade levels aren't changed.",
+        )
+        return BulkScope.of(
+            label = group?.let { key -> groups.firstOrNull { it.key == key }?.title } ?: "Armor",
+            items = bulkPieces(group),
+            noun = "piece",
+            filtered = filtered,
+            note = note.joinToString(" "),
+            isDone = { progress.of(it.id).owned },
+            isStarted = { progress.of(it.id).owned },
+        )
+    }
 }
 
 private data class ViewOptions(val totalsMode: TotalsMode, val ownershipFilter: OwnershipFilter, val query: String)
@@ -66,7 +125,9 @@ class ArmorViewModel(
 
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
 
-    private val activePieces: Flow<Map<String, PieceProgress>> = activeFile.flatMapLatest { storage.pieces(it.id) }
+    /** The file and its pieces together, so a switch never pairs the new file with the old file's armor. */
+    private val activePieces: Flow<Pair<SaveFile, Map<String, PieceProgress>>> =
+        activeFile.flatMapLatest { file -> storage.pieces(file.id).map { file to it } }
 
     private val summaries: Flow<List<SaveFileSummary>> = combine(
         storage.game.saveFiles.map { file ->
@@ -78,7 +139,7 @@ class ArmorViewModel(
 
     val state: StateFlow<ArmorUiState?> = combine(
         catalog.filterNotNull(),
-        combine(activeFile, activePieces, ::Pair),
+        activePieces,
         storage.prefs,
         summaries,
         viewOptions,
@@ -115,6 +176,42 @@ class ArmorViewModel(
                 pieces + levels.mapValues { (id, level) -> (pieces[id] ?: PieceProgress()).copy(owned = true, level = level) }
             }
         }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<MapSnapshot<String, PieceProgress>>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Marks every piece [ArmorUiState.bulkPieces] gives for [group] collected, or uncollected, on
+     * the file on screen, leaving levels alone. It's one write, and what it replaced is kept in
+     * [bulkChange] for an undo. Null when there's nothing to change.
+     */
+    fun setAllOwned(group: String?, owned: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkPieces(group).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(group)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllOwned(state.saveFile.id, ids, owned)
+            val changed = ids.count { (snapshot.before[it]?.owned ?: false) != owned }
+            if (changed > 0) {
+                val action = if (owned) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back what [change] replaced, on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setShowDlc(show: Boolean) = editPrefs { it.copy(showDlc = show) }

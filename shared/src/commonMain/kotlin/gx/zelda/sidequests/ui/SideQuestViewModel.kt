@@ -5,9 +5,9 @@ import androidx.lifecycle.viewModelScope
 import gx.zelda.core.BulkAction
 import gx.zelda.core.BulkChange
 import gx.zelda.core.BulkScope
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
-import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import gx.zelda.shrines.data.ShrineStorage
@@ -206,7 +206,7 @@ class SideQuestViewModel(
         return viewModelScope.launch { storage.setState(file, questId, questState) }
     }
 
-    private val _bulkChange = MutableStateFlow<BulkChange<Pair<SetSnapshot<String>, SetSnapshot<String>>>?>(null)
+    private val _bulkChange = MutableStateFlow<BulkChange<DiscoverySnapshot>?>(null)
 
     /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
     val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
@@ -223,8 +223,7 @@ class SideQuestViewModel(
         val target = if (done) QuestState.COMPLETED else QuestState.UNDISCOVERED
         return viewModelScope.launch {
             val snapshot = storage.setAllStates(state.saveFile.id, ids, target)
-            val (completed, started) = snapshot
-            val changed = ids.count { DiscoveryState.of(it, completed.members, started.members) != target }
+            val changed = ids.count { DiscoveryState.of(it, snapshot.completed.members, snapshot.found.members) != target }
             if (changed > 0) {
                 val action = if (done) BulkAction.MARK else BulkAction.CLEAR
                 _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)

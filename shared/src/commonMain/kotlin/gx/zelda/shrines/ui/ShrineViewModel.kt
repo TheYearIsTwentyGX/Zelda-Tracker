@@ -2,8 +2,13 @@ package gx.zelda.shrines.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
+import gx.zelda.core.countOf
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import gx.zelda.mainquest.data.MainQuestStorage
@@ -15,6 +20,7 @@ import gx.zelda.shrines.model.Shrine
 import gx.zelda.shrines.model.ShrineCatalog
 import gx.zelda.shrines.model.ShrinePrefs
 import gx.zelda.shrines.model.ShrineProgress
+import gx.zelda.shrines.model.ShrineSnapshot
 import gx.zelda.shrines.model.ShrineState
 import gx.zelda.shrines.model.UpgradeKind
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -83,8 +89,8 @@ data class ShrineUiState(
      * [shown] narrowed by search and filters. A hidden shrine only matches on its region and never
      * on the Shrine Quests filter, so neither can leak what the row hides.
      */
-    val matching: List<Shrine>
-        get() = shown.filter { shrine ->
+    val matching: List<Shrine> =
+        shown.filter { shrine ->
             val hidden = isHidden(shrine)
             (!filters.incompleteOnly || shrine.id !in progress.completed) &&
                 (!filters.questsOnly || (!hidden && shrine.quest != null)) &&
@@ -98,13 +104,80 @@ data class ShrineUiState(
      * matches on its region. A visible one also matches its shrine's name, which its own name
      * already spells backwards, but not the shrine's trial or location.
      */
-    val matchingLightroots: List<Lightroot>
-        get() = catalog.lightroots.filter { root ->
+    val matchingLightroots: List<Lightroot> =
+        catalog.lightroots.filter { root ->
             (!filters.incompleteOnly || root.id !in progress.lightroots.completed) &&
                 matchesQuery(filters.query, isHidden(root), catalog.regionOf(root)) {
                     listOf(root.name, catalog.shrineOf(root).name, catalog.regionOf(root))
                 }
         }
+
+    /** True when a search or filter chip is on, so a shrine toggle acts on the rows shown only. */
+    val filtered: Boolean get() = filters.query.isNotBlank() || filters.incompleteOnly || filters.questsOnly
+
+    /** The same for the Lightroots tab, whose only chip is Unlit. */
+    val lightrootsFiltered: Boolean get() = filters.query.isNotBlank() || filters.incompleteOnly
+
+    /**
+     * What a shrine toggle acts on: the shrines the filters leave showing (hidden ones included)
+     * under [region]'s card, DLC ones too while the DLC chip shows them. With no region it's the
+     * list's base-game shrines, or with [dlc] its DLC ones, which have a toggle of their own.
+     */
+    fun bulkShrines(region: String? = null, dlc: Boolean = false): List<Shrine> =
+        if (region != null) matching.filter { it.region == region } else matching.filter { it.dlc == dlc }
+
+    /**
+     * The toggle for [bulkShrines]. Marking completes each shrine, which finds it too; clearing
+     * leaves each one found, as unticking a row does. Its text names the list or region, never a shrine.
+     */
+    fun shrineScope(region: String? = null, dlc: Boolean = false): BulkScope {
+        val shrines = bulkShrines(region, dlc)
+        val scope = BulkScope.of(
+            label = when {
+                region != null -> "$region Tower"
+                dlc -> DLC_LABEL
+                else -> "Shrines"
+            },
+            items = shrines,
+            noun = "shrine",
+            filtered = filtered,
+            isDone = { it.id in progress.completed },
+            isStarted = { it.id in progress.completed },
+        )
+        val dlcHere = if (region != null) shrines.count { it.dlc } else 0
+        val note = listOfNotNull(
+            ("$DLC_LABEL's shrines aren't changed" + if (prefs.showDlc) ": they have their own toggle." else ".")
+                .takeIf { region == null && !dlc && catalog.dlc.isNotEmpty() },
+            "That includes ${countOf(dlcHere, "shrine")} from $DLC_LABEL.".takeIf { dlcHere > 0 },
+            KEPT_FOUND.takeIf { scope.action == BulkAction.CLEAR },
+        )
+        return scope.copy(note = note.joinToString(" ").ifEmpty { null })
+    }
+
+    /** What a Lightroot toggle acts on: the Lightroots the filters leave showing, or only those under [region]. */
+    fun bulkLightroots(region: String? = null): List<Lightroot> =
+        if (region == null) matchingLightroots else matchingLightroots.filter { catalog.regionOf(it) == region }
+
+    /** The toggle for [bulkLightroots]: lighting each one, or clearing it back to found. Shrines aren't touched. */
+    fun lightrootScope(region: String? = null): BulkScope {
+        val lit = progress.lightroots.completed
+        val scope = BulkScope.of(
+            label = region?.let { "$it Tower" } ?: "Lightroots",
+            items = bulkLightroots(region),
+            noun = "Lightroot",
+            filtered = lightrootsFiltered,
+            isDone = { it.id in lit },
+            isStarted = { it.id in lit },
+        )
+        return scope.copy(note = KEPT_FOUND.takeIf { scope.action == BulkAction.CLEAR })
+    }
+
+    companion object {
+        /** The only DLC with shrines: BotW's second pack. */
+        const val DLC_LABEL = "The Champions' Ballad"
+
+        private const val KEPT_FOUND = "Each one stays marked found."
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -123,10 +196,14 @@ class ShrineViewModel(
 
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
 
-    private val activeProgress: Flow<ShrineProgress> = activeFile.flatMapLatest { storage.progress(it.id) }
-
-    private val activeBeastsFreed: Flow<Int?> = activeFile.flatMapLatest { file ->
-        mainQuest?.divineBeastsFreed(file.id)?.map { it.size } ?: flowOf(null)
+    /**
+     * The file with its progress and freed Divine Beasts, together, so a switch never pairs the new
+     * file with the old file's shrines; a bulk toggle counts and writes on the same file.
+     */
+    private val activeProgress: Flow<Triple<SaveFile, ShrineProgress, Int?>> = activeFile.flatMapLatest { file ->
+        combine(storage.progress(file.id), mainQuest?.divineBeastsFreed(file.id)?.map { it.size } ?: flowOf(null)) { progress, beasts ->
+            Triple(file, progress, beasts)
+        }
     }
 
     private val progressByFile: Flow<List<Pair<SaveFile, ShrineProgress>>> = combine(
@@ -135,7 +212,7 @@ class ShrineViewModel(
 
     val state: StateFlow<ShrineUiState?> = combine(
         catalog.filterNotNull(),
-        combine(activeFile, activeProgress, activeBeastsFreed, ::Triple),
+        activeProgress,
         storage.prefs,
         progressByFile,
         filters,
@@ -193,6 +270,58 @@ class ShrineViewModel(
     fun setLightrootState(lightrootId: String, lightrootState: DiscoveryState): Job? {
         val file = state.value?.saveFile?.id ?: return null
         return viewModelScope.launch { storage.setLightrootState(file, lightrootId, lightrootState) }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<ShrineSnapshot>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Completes every shrine [ShrineUiState.bulkShrines] gives for [region] and [dlc], or clears
+     * them back to found, on the file on screen. It's one write, and what it replaced is kept in
+     * [bulkChange] for an undo. Null when there's nothing to change.
+     */
+    fun setAllCompleted(region: String?, dlc: Boolean, completed: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkShrines(region, dlc).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.shrineScope(region, dlc)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllCompleted(state.saveFile.id, ids, completed)
+            keep(snapshot, snapshot.shrines, ids, completed, scope, state.saveFile)
+        }
+    }
+
+    /** The same for Lightroots: lights every one [ShrineUiState.bulkLightroots] gives, or clears them back to found. */
+    fun setAllLit(region: String?, lit: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkLightroots(region).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.lightrootScope(region)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllLit(state.saveFile.id, ids, lit)
+            keep(snapshot, snapshot.lightroots, ids, lit, scope, state.saveFile)
+        }
+    }
+
+    /** Keeps the change for its undo, counting the ids whose completed state actually changed. */
+    private fun keep(snapshot: ShrineSnapshot, sets: DiscoverySnapshot, ids: List<String>, done: Boolean, scope: BulkScope, file: SaveFile) {
+        val changed = ids.count { (it in sets.completed.members) != done }
+        if (changed > 0) {
+            val action = if (done) BulkAction.MARK else BulkAction.CLEAR
+            _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, file, snapshot)
+        }
+    }
+
+    /** Puts back what [change] replaced, on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setShowDlc(show: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(showDlc = show) } }

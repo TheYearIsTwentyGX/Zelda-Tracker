@@ -4,10 +4,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.bosses.model.BossPrefs
 import gx.zelda.bosses.model.BossProgress
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
-import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.flow.Flow
 
@@ -41,17 +41,14 @@ class BossStorage(dataStore: DataStore<Preferences>, val game: Game) {
         saveFileId: String,
         spawnIds: Collection<String>,
         state: DiscoveryState,
-    ): Pair<SetSnapshot<String>, SetSnapshot<String>> {
+    ): DiscoverySnapshot {
         val before = store(saveFileId).swap { it.withStates(spawnIds, state) }
-        return SetSnapshot.of(before.defeated, spawnIds) to SetSnapshot.of(before.found, spawnIds)
+        return DiscoverySnapshot.of(before, spawnIds)
     }
 
     /** Puts back what [setAllStates] replaced, in one write; spawns it didn't touch stay as they are. */
-    suspend fun restore(saveFileId: String, snapshot: Pair<SetSnapshot<String>, SetSnapshot<String>>) =
-        store(saveFileId).update {
-            val (defeated, found) = snapshot
-            it.copy(defeated = defeated.restore(it.defeated), found = found.restore(it.found))
-        }
+    suspend fun restore(saveFileId: String, snapshot: DiscoverySnapshot) =
+        store(saveFileId).update { it.restored(snapshot) }
 
     /** Unticking a defeated boss leaves it found. */
     suspend fun setDefeated(saveFileId: String, spawnId: String, defeated: Boolean) =

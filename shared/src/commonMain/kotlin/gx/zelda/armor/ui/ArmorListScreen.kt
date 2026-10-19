@@ -30,7 +30,6 @@ import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,7 +39,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import gx.zelda.armor.logic.ArmorCalculator
 import gx.zelda.armor.logic.ArmorGroup
-import gx.zelda.armor.logic.ArmorGrouping
 import gx.zelda.armor.logic.SetBonusStatus
 import gx.zelda.armor.logic.SetUpgrade
 import gx.zelda.armor.model.ArmorCatalog
@@ -49,6 +47,10 @@ import gx.zelda.armor.model.ArmorProgress
 import gx.zelda.armor.model.ArmorGroupBy
 import gx.zelda.armor.model.ArmorOrder
 import gx.zelda.armor.model.Source
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
 import gx.zelda.core.ui.SortMenu
 import gx.zelda.core.ui.SortOption
 import gx.zelda.core.ui.SortSection
@@ -61,35 +63,22 @@ import kotlin.math.roundToInt
 fun ArmorListScreen(
     state: ArmorUiState,
     viewModel: ArmorViewModel,
+    bulk: BulkCompleteState,
     onOpenPiece: (String) -> Unit,
     contentPadding: PaddingValues,
 ) {
     val catalog = state.catalog
     val progress = state.progress
 
-    val visible = catalog.pieces.filter { progress.isVisible(it.source) }
+    val visible = state.visible
     val ownedCount = visible.count { progress.of(it.id).owned }
-
-    val groups = remember(catalog, progress, state.ownershipFilter, state.query) {
-        val q = state.query.trim()
-        val matching = visible.filter { piece ->
-            val owned = progress.of(piece.id).owned
-            val ownershipOk = when (state.ownershipFilter) {
-                OwnershipFilter.ALL -> true
-                OwnershipFilter.OWNED -> owned
-                OwnershipFilter.MISSING -> !owned
-            }
-            val setName = catalog.set(piece.setId)?.name.orEmpty()
-            ownershipOk && (q.isEmpty() || piece.name.contains(q, true) || setName.contains(q, true))
-        }
-        ArmorGrouping.group(catalog, matching, state.order, progress.group)
-    }
+    val groups = state.groups
     // Without set headers, each row names its set alongside its slot.
     val showSetOnRows = progress.group == ArmorGroupBy.NONE
 
     LazyColumn(contentPadding = contentPadding, modifier = Modifier.fillMaxWidth()) {
         item(key = "_filters") {
-            ArmorFilters(state, viewModel, ownedCount, visible.size)
+            ArmorFilters(state, viewModel, bulk, ownedCount, visible.size)
         }
         if (groups.isEmpty()) {
             item(key = "_empty") {
@@ -109,6 +98,11 @@ fun ArmorListScreen(
                 item(key = "h_${group.key}") {
                     GroupHeader(
                         group,
+                        toggle = {
+                            BulkCompleteCheckbox(state.bulkScope(group.key), bulk, onApply = {
+                                viewModel.setAllOwned(group.key, it == BulkAction.MARK)
+                            })
+                        },
                         bonus = group.set?.let { ArmorCalculator.setBonusStatus(catalog, it, progress) },
                         setStars = group.set?.let {
                             SetUpgrade.targets(group.pieces, progress).takeIf { t -> t.isNotEmpty() }
@@ -152,7 +146,7 @@ fun ArmorListScreen(
 }
 
 @Composable
-private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, owned: Int, total: Int) {
+private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, bulk: BulkCompleteState, owned: Int, total: Int) {
     Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         OutlinedTextField(
             value = state.query,
@@ -202,6 +196,10 @@ private fun ArmorFilters(state: ArmorUiState, viewModel: ArmorViewModel, owned: 
                 ),
             )
         }
+        // Acts on what the search and filters leave showing, so it sits under them.
+        if (state.groups.isNotEmpty()) {
+            BulkCompleteRow(state.bulkScope(), bulk, onApply = { viewModel.setAllOwned(null, it == BulkAction.MARK) })
+        }
     }
 }
 
@@ -242,15 +240,16 @@ private fun formatLevel(value: Float): String {
 }
 
 @Composable
-private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?, setStars: SetStars?) {
+private fun GroupHeader(group: ArmorGroup, toggle: @Composable () -> Unit, bonus: SetBonusStatus?, setStars: SetStars?) {
     val title = group.title ?: return
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         shape = CardTop,
         modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
     ) {
-        Column(Modifier.padding(horizontal = 16.dp, vertical = 10.dp)) {
+        Column(Modifier.padding(start = 4.dp, end = 16.dp, bottom = 10.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                toggle()
                 Text(
                     title,
                     style = MaterialTheme.typography.titleMedium,
@@ -272,8 +271,8 @@ private fun GroupHeader(group: ArmorGroup, bonus: SetBonusStatus?, setStars: Set
                 }
             }
             if (bonus != null && bonus.hasBonus) {
-                Spacer(Modifier.padding(top = 4.dp))
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                // Lined up with the title, past the toggle.
+                Row(Modifier.padding(start = 48.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         "Set bonus: ${bonus.set.bonus}",
                         style = MaterialTheme.typography.bodySmall,

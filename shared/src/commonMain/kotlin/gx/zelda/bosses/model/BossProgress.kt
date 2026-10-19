@@ -1,6 +1,7 @@
 package gx.zelda.bosses.model
 
 import gx.zelda.core.DiscoverySets
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -26,6 +27,10 @@ data class BossProgress(
     /** Each of [spawnIds] moved to [state], as [withState] does one. */
     fun withStates(spawnIds: Collection<String>, state: DiscoveryState): BossProgress =
         spawnIds.fold(this) { progress, id -> progress.withState(id, state) }
+
+    /** What [snapshot] replaced put back; every other spawn stays as it is now. */
+    fun restored(snapshot: DiscoverySnapshot): BossProgress =
+        snapshot.restore(this).let { (defeated, found) -> copy(defeated = defeated, found = found) }
 }
 
 /** Viewing preferences, shared by every save file. */
