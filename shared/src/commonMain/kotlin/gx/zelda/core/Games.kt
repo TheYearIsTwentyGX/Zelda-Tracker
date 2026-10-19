@@ -222,7 +222,26 @@ object Games {
     val PH = comingSoon("ph", "Phantom Hourglass", ReleaseDate(2007, 6, 23), "Nintendo DS", files = 2)
     val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
     val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
-    val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
+
+    /**
+     * Three files (StrategyWiki, Gameplay). Every tracker is a checklist; the data and its sources
+     * are in docs/albw.md.
+     */
+    val ALBW = Game(
+        id = "albw",
+        title = "A Link Between Worlds",
+        released = ReleaseDate(2013, 11, 22),
+        platform = "Nintendo 3DS",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            albwChecklist("Main Quest", "The three Pendants and Yuga, then the seven Sages' dungeons, Lorule Castle and Yuga Ganon", "main_quest"),
+            albwChecklist("Items & Equipment", "Ravio's nine items rented, bought and made Nice, your gear, the Master Ore and the five Bottles", "items"),
+            albwChecklist("Lost Maiamai", "All 100, 50 in each world, by Maiamai Map area, and Mother Maiamai's rewards", "maiamais"),
+            albwChecklist("Heart Pieces", "All 28 Pieces of Heart and 10 Heart Containers, with your hearts", "heart_pieces"),
+            albwChecklist("Mini-games", "Every prize game worth winning once and the Treacherous Tower's courses", "minigames"),
+        ),
+    )
     val TFH = comingSoon("tfh", "Tri Force Heroes", ReleaseDate(2015, 10, 22), "Nintendo 3DS")
 
     /**
@@ -324,6 +343,9 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun albwChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "albw/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

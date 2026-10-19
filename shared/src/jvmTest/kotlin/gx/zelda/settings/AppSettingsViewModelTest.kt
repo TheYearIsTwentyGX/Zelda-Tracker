@@ -4,8 +4,11 @@ import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.core.AppSettingsStorage
 import gx.zelda.core.TestMain
+import gx.zelda.core.comingSoonGame
 import gx.zelda.core.createDataStore
 import gx.zelda.core.Games
+import gx.zelda.core.gamesWithComingSoon
+import gx.zelda.core.gamesWithTrackers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNotNull
@@ -34,29 +37,31 @@ class AppSettingsViewModelTest {
         val vm = main.track(AppSettingsViewModel(AppSettingsStorage(newDataStore())))
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "botw", "totk", "eow"), settings.shownGames().map { it.id })
+        assertEquals(gamesWithTrackers, settings.shownGames().map { it.id })
         assertTrue(settings.expandedGames.isEmpty())
     }
 
-    /** Choices and open sections are written to the DataStore, so a new view model sees them. */
+    /**
+     * Choices and open sections are written to the DataStore, so a new view model sees them. Uses
+     * [comingSoonGame] as the game turned on, whichever real games are still coming soon.
+     */
     @Test
     fun choicesPersist() = runTest {
         val dataStore = newDataStore()
-        val vm = main.track(AppSettingsViewModel(AppSettingsStorage(dataStore)))
+        val games = gamesWithComingSoon
+        val vm = main.track(AppSettingsViewModel(AppSettingsStorage(dataStore, games)))
         backgroundScope.launchCollect(vm)
         // Let the state load before writing (see HeartViewModelTest).
         vm.settings.filterNotNull().first()
-        vm.setShown("tfh", true).join()
+        vm.setShown(comingSoonGame.id, true).join()
         vm.setShown("totk", false).join()
         vm.setExpanded("botw", true).join()
 
-        val reloaded = AppSettingsStorage(dataStore).settings.first()
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "tfh", "botw", "eow"), reloaded.shownGames().map { it.id })
+        val expected = games.filter { (!it.comingSoon || it == comingSoonGame) && it != Games.TOTK }.map { it.id }
+        val reloaded = AppSettingsStorage(dataStore, games).settings.first()
+        assertEquals(expected, reloaded.shownGames(games).map { it.id })
         assertEquals(setOf("botw"), reloaded.expandedGames)
-        assertEquals(
-            listOf("loz", "aol", "alttp", "la", "oot", "mm", "mc", "tfh", "botw", "eow"),
-            vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames().map { it.id },
-        )
+        assertEquals(expected, vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames(games).map { it.id })
     }
 
     @Test
