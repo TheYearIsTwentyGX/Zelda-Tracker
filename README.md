@@ -12,9 +12,9 @@ iOS port is mostly a matter of adding the iOS targets.
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
   Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Wind Waker, Four Swords Adventures, The
-  Minish Cap, Twilight Princess, Phantom Hourglass, Spirit Tracks, Skyward Sword, Breath of the Wild,
-  Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they
-  get some.
+  Minish Cap, Twilight Princess, Phantom Hourglass, Spirit Tracks, Skyward Sword, A Link Between
+  Worlds, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show
+  as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -744,6 +744,28 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   missable: Fledge's barrels, before the Wing Ceremony.
 - Three save files, **File 1–3**, as on the Wii and in HD.
 
+**A Link Between Worlds**
+
+Every ALBW tracker is a [checklist](docs/checklist-trackers.md). Sources and disagreements are in
+`docs/albw.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** Hyrule (the Captain's sword, Zelda's Pendant of Courage, the Eastern Palace, the
+  House of Gales and Tower of Hera, the Master Sword and Yuga at Hyrule Castle) and Lorule (the
+  seven Sages' dungeons, the Triforce of Courage, Lorule Castle and Yuga Ganon), with each
+  dungeon's boss, entry items and treasure. Pendants (of 3) and Sages (of 7) are totalled.
+- **Items & Equipment:** Ravio's nine items as one row each, a tier for renting, buying and
+  Mother Maiamai's Nice upgrade (Nice upgrades totalled, of 9); 14 pieces of gear with the sword,
+  shield, mail, gloves, Lamp and Net upgrades as tiers; the 4 Master Ore; and the 5 Bottles.
+- **Lost Maiamai:** all 100, 50 per world, in the Maiamai Map's areas, with the item each needs.
+  Mother Maiamai's rewards are totalled (one per 10, of 10: nine Nice upgrades and the Great Spin).
+- **Heart Pieces:** 28 Pieces of Heart (18 Hyrule, 10 Lorule) and 10 Heart Containers, with the
+  hearts total (3 to 20). The seven won in mini-games are tagged.
+- **Mini-games:** the seven prize games worth winning once, with each prize level as a tier:
+  Cucco Ranch, both Rupee Rushes, Hyrule Hotfoot, Lorule's Fortune's Choice, Octoball Derby and
+  the Treacherous Tower's courses (the Super Lamp and Super Net).
+- Regions are Hyrule and Lorule, with the exact place in each row.
+- Three save files, **File 1–3**.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -825,6 +847,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/ph/*.json   ← Phantom Hourglass checklists (docs/ph.md)
   src/commonMain/composeResources/files/st/*.json   ← Spirit Tracks checklists (docs/st.md)
   src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists (docs/ss.md)
+  src/commonMain/composeResources/files/albw/*.json        ← A Link Between Worlds checklists (docs/albw.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -1212,6 +1235,10 @@ snapshots) and Samurai Gamers, with StrategyWiki and Zelda's Palace for spot che
 Sword randomizer's check list, read from the game's files, settles where each item is and which cube
 opens which chest; the zeldaret/ss decompilation gives the save-file count. `docs/ss.md` covers each
 tracker, the HD differences and every disagreement.
+
+A Link Between Worlds data (`files/albw/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback
+Machine snapshots), IGN and Zelda Universe. Every count was checked against at least three of
+them. `docs/albw.md` covers each tracker, the save files and every disagreement.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
