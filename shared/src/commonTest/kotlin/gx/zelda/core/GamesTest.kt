@@ -174,7 +174,7 @@ class GamesTest {
         assertEquals(
             listOf(
                 "hwde/adventure_map.json", "hwde/great_sea_map.json", "hwde/master_quest_map.json",
-                "hwde/master_wind_waker_map.json", "hwde/rewards_map.json",
+                "hwde/master_wind_waker_map.json", "hwde/twilight_map.json", "hwde/termina_map.json", "hwde/rewards_map.json",
             ),
             Games.HWDE.trackers.drop(1).map { it.dataFile },
             "in DE's own order of maps, as listed so far",

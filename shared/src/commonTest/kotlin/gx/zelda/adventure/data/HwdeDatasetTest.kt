@@ -26,7 +26,10 @@ class HwdeDatasetTest {
 
     @Test
     fun everyMapLoadsStrictlyAndIsSound() = withMaps { maps ->
-        assertEquals(setOf("adventure_map", "great_sea_map", "master_quest_map", "master_wind_waker_map", "rewards_map"), maps.keys)
+        assertEquals(
+            setOf("adventure_map", "great_sea_map", "master_quest_map", "master_wind_waker_map", "twilight_map", "termina_map", "rewards_map"),
+            maps.keys,
+        )
         maps.forEach { (name, map) ->
             assertEquals(emptyList(), map.problems(), name)
             assertEquals(name, map.id)
@@ -194,6 +197,43 @@ class HwdeDatasetTest {
             ),
             outfits,
         )
+    }
+
+    /** Twilight Princess's Hyrule: 15×8 with blank squares, Twilight clouds the Tears of Light clear, and level-4 weapons. */
+    @Test
+    fun theTwilightMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("twilight_map")
+        assertEquals(15 to 8, map.cols to map.rows)
+        assertEquals(93, map.squares.size, "the rest of the grid is blank")
+        assertEquals(21, map.squares.count { it.rule?.startsWith("Twilight Rule") == true })
+        assertEquals(20, map.squares.sumOf { s -> s.searches.count { it.wholeSquare && it.card == "tears_of_light" } })
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(67, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(1, rewards[RewardType.HEART_PIECE])
+        assertEquals(17, rewards[RewardType.WEAPON])
+        assertTrue(map.squares.flatMap { it.rewards }.filter { it.type == RewardType.WEAPON }.all { it.level == "4" })
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(listOf(CardEffect.PATH), map.card("ooccoo")!!.effects, "warps between portals")
+        val d12 = map.squares.single { it.label == "D-12" }
+        assertTrue(d12.rewards.any { it.name == "Fairy Bottom - Twilight Skirt" } && d12.rewards.none { "Magic Skirt" in it.name }, "the Switch's skirt")
+    }
+
+    /** Majora's Mask's Termina: 16×8 with blank squares, the masks, the four Giants and level-4 weapons. */
+    @Test
+    fun theTerminaMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("termina_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertEquals(85, map.squares.size)
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(48, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(2, rewards[RewardType.HEART_PIECE])
+        assertEquals(18, rewards[RewardType.WEAPON])
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(66, map.squares.sumOf { it.searches.size })
+        assertEquals(listOf(CardEffect.PATH), map.card("giant")!!.effects, "all four open a hidden part of the map")
+        assertEquals(listOf(CardEffect.OTHER), map.card("song_of_time")!!.effects)
+        assertTrue(map.squares.single { it.label == "C-6" }.rewards.any { it.id == "r3c6.fairy_food_ember_seeds" })
+        assertEquals("B-2", map.square(map.finalBoss!!)!!.label)
     }
 
     @Test
