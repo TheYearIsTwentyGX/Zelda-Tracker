@@ -1,0 +1,4609 @@
+{
+ "id": "master_wind_waker_map",
+ "name": "Master Wind Waker Map",
+ "cols": 14,
+ "rows": 7,
+ "start": "r7c3",
+ "finalBoss": "r7c4",
+ "art": {
+  "squares": "hwde/master_wind_waker_map",
+  "preview": "hwde/master_wind_waker_map/preview.webp",
+  "squareWidth": 256,
+  "squareHeight": 176
+ },
+ "regions": [
+  {
+   "id": "colorless",
+   "name": "Black"
+  },
+  {
+   "id": "green",
+   "name": "Green"
+  },
+  {
+   "id": "yellow",
+   "name": "Yellow"
+  },
+  {
+   "id": "purple",
+   "name": "Purple"
+  },
+  {
+   "id": "orange",
+   "name": "Orange"
+  },
+  {
+   "id": "blue",
+   "name": "Blue"
+  },
+  {
+   "id": "red",
+   "name": "Red"
+  }
+ ],
+ "cards": [
+  {
+   "id": "hyoi_pear",
+   "name": "Hyoi Pear",
+   "effects": [
+    "reward"
+   ],
+   "text": "Uses Seagulls to find hidden treasure, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "deku_leaf",
+   "name": "Deku Leaf",
+   "effects": [
+    "reward"
+   ],
+   "text": "Spins windmills, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "salvage_arm",
+   "name": "Salvage Arm",
+   "effects": [
+    "reward"
+   ],
+   "text": "Hoists up buried treasure, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "windwaker",
+   "name": "Wind Waker",
+   "effects": [
+    "path"
+   ],
+   "text": "Stops headwinds, removing locks on certain adjacent squares so that they can be opened normally."
+  },
+  {
+   "id": "cannon",
+   "name": "Cannon",
+   "effects": [
+    "rule"
+   ],
+   "text": "Destroys Warships, removing Great Sea rules from that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "effects": [
+    "rule"
+   ],
+   "text": "Defeats Big Octos, removing Great Sea rules from that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "power_bracelet_2",
+   "name": "Power Bracelet",
+   "effects": [
+    "enemies"
+   ],
+   "text": "Lifts Stone Heads, revealing enemies in that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "hammer",
+   "name": "Hammer",
+   "effects": [
+    "enemies"
+   ],
+   "text": "Hits switches, revealing enemies in that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "compass",
+   "name": "Compass",
+   "effects": [
+    "compass"
+   ],
+   "text": "Reveals all secrets within a battle square, making their tiles sparkle.",
+   "shopPrice": 5000
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "effects": [
+    "path"
+   ],
+   "text": "Pulls Warrior to a marked target, removing locks on certain adjacent squares so that they can be opened normally.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "sea_chart",
+   "name": "Sea Map",
+   "effects": [
+    "enemies"
+   ],
+   "text": "Updated by Fishman, revealing enemies in that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "heros_bow",
+   "name": "Hero's Bow",
+   "effects": [
+    "rule"
+   ],
+   "text": "Destroys Cyclones, removing Great Sea rules from that square.",
+   "shopPrice": 10000
+  }
+ ],
+ "warriors": [
+  {
+   "id": "agitha",
+   "name": "Agitha"
+  },
+  {
+   "id": "cia",
+   "name": "Cia"
+  },
+  {
+   "id": "darunia",
+   "name": "Darunia"
+  },
+  {
+   "id": "fi",
+   "name": "Fi"
+  },
+  {
+   "id": "ganondorf",
+   "name": "Ganondorf"
+  },
+  {
+   "id": "ghirahim",
+   "name": "Ghirahim"
+  },
+  {
+   "id": "impa",
+   "name": "Impa"
+  },
+  {
+   "id": "king_daphnes",
+   "name": "King Daphnes"
+  },
+  {
+   "id": "lana",
+   "name": "Lana"
+  },
+  {
+   "id": "link",
+   "name": "Link"
+  },
+  {
+   "id": "linkle",
+   "name": "Linkle"
+  },
+  {
+   "id": "medli",
+   "name": "Medli"
+  },
+  {
+   "id": "midna",
+   "name": "Midna"
+  },
+  {
+   "id": "ruto",
+   "name": "Ruto"
+  },
+  {
+   "id": "sheik",
+   "name": "Sheik"
+  },
+  {
+   "id": "skull_kid",
+   "name": "Skull Kid"
+  },
+  {
+   "id": "tetra",
+   "name": "Tetra"
+  },
+  {
+   "id": "tingle",
+   "name": "Tingle"
+  },
+  {
+   "id": "toon_link",
+   "name": "Toon Link"
+  },
+  {
+   "id": "twili_midna",
+   "name": "Twili Midna"
+  },
+  {
+   "id": "volga",
+   "name": "Volga"
+  },
+  {
+   "id": "wizzro",
+   "name": "Wizzro"
+  },
+  {
+   "id": "young_link",
+   "name": "Young Link"
+  },
+  {
+   "id": "zant",
+   "name": "Zant"
+  },
+  {
+   "id": "zelda",
+   "name": "Zelda"
+  }
+ ],
+ "squares": [
+  {
+   "id": "r1c1",
+   "label": "A-1",
+   "altLabel": "A-1",
+   "row": 1,
+   "col": 1,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Don't leave your troops hanging!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "volga"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c1.outfit_cia_masked_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Masked (Wind Waker)"
+    },
+    {
+     "id": "r1c1.outfit_cia_unmasked_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Unmasked (Wind Waker)"
+    },
+    {
+     "id": "r1c1.outfit_cia_hatless_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Hatless (Wind Waker)"
+    },
+    {
+     "id": "r1c1.hc_volga",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container",
+     "keep": "Glutton's Keep"
+    },
+    {
+     "id": "r1c1.fairy_food_life_tree_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Life Tree Fruit",
+     "container": "pot",
+     "keep": "Beast's Refuge"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r1c1.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 8,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r1c2",
+   "label": "A-2",
+   "altLabel": "B-1",
+   "row": 1,
+   "col": 2,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Send the ghosts packing!",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c2.outfit_volga_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "volga",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r1c2.hc_darunia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container",
+     "keep": "Central Keep"
+    },
+    {
+     "id": "r1c2.fairy_clothing_twilight_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Twilight Aura",
+     "keep": "Arbiter's Keep"
+    },
+    {
+     "id": "r1c2.fairy_food_all_purpose_bait",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - All-Purpose Bait",
+     "container": "pot",
+     "keep": "Enemy Base"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r1c2.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 3,
+     "col": 4
+    },
+    {
+     "id": "r1c2.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r1c3",
+   "label": "A-3",
+   "altLabel": "C-1",
+   "row": 1,
+   "col": 3,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Trounce the champions of the sky!",
+   "rule": "Endless Night Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "volga"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c3.outfit_darunia_standard_outift_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "darunia",
+     "name": "Standard Outift (Wind Waker)"
+    },
+    {
+     "id": "r1c3.hc_volga",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container",
+     "keep": "N. Rockface Keep"
+    },
+    {
+     "id": "r1c3.fairy_food_stamina_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Stamina Fruit",
+     "container": "pot",
+     "keep": "S. Rockface Keep"
+    }
+   ],
+   "givesCards": [
+    "windwaker"
+   ],
+   "searches": [
+    {
+     "id": "r1c3.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 3,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r1c4",
+   "label": "A-4",
+   "altLabel": "D-1",
+   "row": 1,
+   "col": 4,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "The Cucco army rises once more!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "warriors": [
+    {
+     "warrior": "king_daphnes"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c4.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c4.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the middle of the eastern path in a small alcove"
+    },
+    {
+     "id": "r1c4.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c4.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 4,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r1c5",
+   "label": "A-5",
+   "altLabel": "E-1",
+   "row": 1,
+   "col": 5,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.5",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c5.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r1c5.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 9,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r1c6",
+   "label": "A-6",
+   "altLabel": "F-1",
+   "row": 1,
+   "col": 6,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Battle across the field!",
+   "rule": "Great Sea Rule: Double Damage!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r1c6.search_cannon",
+     "card": "cannon",
+     "row": 9,
+     "col": 2
+    },
+    {
+     "id": "r1c6.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r1c7",
+   "label": "A-7",
+   "altLabel": "G-1",
+   "row": 1,
+   "col": 7,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Watch out for falling artillery fire!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "trident"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c7.outfit_toon_link_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "toon_link",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r1c7.hc_ganondorf",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container",
+     "keep": "South Garden"
+    },
+    {
+     "id": "r1c7.fairy_food_hyoi_pear",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyoi Pear",
+     "container": "pot",
+     "keep": "South Garden"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r1c7.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 5,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r1c8",
+   "label": "A-8",
+   "altLabel": "H-1",
+   "row": 1,
+   "col": 8,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Fight through the hometown quiz!",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c8.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "boomerang"
+   ],
+   "quiz": [
+    "Darunia",
+    "Medli",
+    "Toon Link"
+   ]
+  },
+  {
+   "id": "r1c9",
+   "label": "A-9",
+   "altLabel": "I-1",
+   "row": 1,
+   "col": 9,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of Crescent Moon Island!",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c9.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "windwaker"
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c9.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "On the wall east and slightly south from the Temple Square"
+    },
+    {
+     "id": "r1c9.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c9.search_power_bracelet_2",
+     "card": "power_bracelet_2",
+     "row": 9,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r1c10",
+   "label": "A-10",
+   "altLabel": "J-1",
+   "row": 1,
+   "col": 10,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.3",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c10.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hammer"
+   ]
+  },
+  {
+   "id": "r1c11",
+   "label": "A-11",
+   "altLabel": "K-1",
+   "row": 1,
+   "col": 11,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisibe plan! Lv.5",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r1c11.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r1c11.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 2,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r1c12",
+   "label": "A-12",
+   "altLabel": "L-1",
+   "row": 1,
+   "col": 12,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "A distant voice cries out for help!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "trident"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c12.outfit_zelda_standard_robes_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Standard Robes (Wind Waker)"
+    },
+    {
+     "id": "r1c12.hc_ganondorf",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container",
+     "keep": "Lakeside Keep"
+    },
+    {
+     "id": "r1c12.fairy_clothing_usurper_pants",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Usurper Pants",
+     "keep": "Temple Face Keep"
+    },
+    {
+     "id": "r1c12.fairy_food_elixir_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Elixir Soup",
+     "container": "pot",
+     "keep": "East Room"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r1c12.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r1c13",
+   "label": "A-13",
+   "altLabel": "M-1",
+   "row": 1,
+   "col": 13,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.4",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c13.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r1c13.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 8,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r1c14",
+   "label": "A-14",
+   "altLabel": "N-1",
+   "row": 1,
+   "col": 14,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the enemy celebrities!",
+   "rule": "Great Sea Rule: Don't Get Hit!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c14.material_darunias_bracelet",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Darunia's Bracelet"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c14.search_boomerang",
+     "card": "boomerang",
+     "row": 2,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r2c1",
+   "label": "B-1",
+   "altLabel": "A-2",
+   "row": 2,
+   "col": 1,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight your way through fire and flames!",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "great_swords"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r2c1.outfit_link_heros_clothes_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Hero's Clothes (Wind Waker)"
+    },
+    {
+     "id": "r2c1.hc_ganondorf",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container",
+     "keep": "Town Center Keep"
+    },
+    {
+     "id": "r2c1.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r2c1.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r2c2",
+   "label": "B-2",
+   "altLabel": "B-2",
+   "row": 2,
+   "col": 2,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Protect the Bombchus! Lv.2",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r2c2.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r2c2.search_hookshot",
+     "card": "hookshot",
+     "row": 1,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r2c3",
+   "label": "B-3",
+   "altLabel": "C-2",
+   "row": 2,
+   "col": 3,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Trust in your troops' resilience!",
+   "rule": "Endless Night Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "impa"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r2c3.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r2c3.fairy_clothing_insect_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Insect Aura",
+     "keep": "West Ruins"
+    },
+    {
+     "id": "r2c3.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "West Temple"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r2c3.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 13
+    },
+    {
+     "id": "r2c3.search_sea_chart",
+     "card": "sea_chart",
+     "row": 9,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r2c4",
+   "label": "B-4",
+   "altLabel": "D-2",
+   "row": 2,
+   "col": 4,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.2",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c4.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r2c4.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 8,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r2c5",
+   "label": "B-5",
+   "altLabel": "E-2",
+   "row": 2,
+   "col": 5,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.1",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 7
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c5.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ]
+  },
+  {
+   "id": "r2c6",
+   "label": "B-6",
+   "altLabel": "F-2",
+   "row": 2,
+   "col": 6,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of the bay!",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r2c6.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r2c6.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "Stronghold"
+    }
+   ],
+   "givesCards": [
+    "sea_chart"
+   ],
+   "skulltulas": [
+    {
+     "id": "r2c6.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the circular area just south of the Enemy Base"
+    },
+    {
+     "id": "r2c6.gs2",
+     "condition": "Complete the first mission and KO 150 enemies with special attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r2c7",
+   "label": "B-7",
+   "altLabel": "G-2",
+   "row": 2,
+   "col": 7,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Help fight fire with fire!",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r2c7.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r2c7.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "SW Sage Keep"
+    },
+    {
+     "id": "r2c7.fairy_clothing_gerudo_jewel",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Accessory - Gerudo Jewel",
+     "keep": "SE Sage Keep"
+    },
+    {
+     "id": "r2c7.fairy_food_carrot",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Carrot",
+     "container": "pot",
+     "keep": "Wind Plaza"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ]
+  },
+  {
+   "id": "r2c8",
+   "label": "B-8",
+   "altLabel": "H-2",
+   "row": 2,
+   "col": 8,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "It's royalty's time to take the spotlight!",
+   "rule": "Great Sea Rule: Don't Get Hit!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "searches": [
+    {
+     "id": "r2c8.search_boomerang",
+     "card": "boomerang",
+     "row": 1,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r2c9",
+   "label": "B-9",
+   "altLabel": "I-2",
+   "row": 2,
+   "col": 9,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.4",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "warriors": [
+    {
+     "warrior": "twili_midna"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c9.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "cannon"
+   ],
+   "searches": [
+    {
+     "id": "r2c9.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 3,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r2c10",
+   "label": "B-10",
+   "altLabel": "J-2",
+   "row": 2,
+   "col": 10,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.2",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r2c10.hc_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ]
+  },
+  {
+   "id": "r2c11",
+   "label": "B-11",
+   "altLabel": "K-2",
+   "row": 2,
+   "col": 11,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the Wizard Forces!",
+   "rule": "Great Sea Rule: Double Damage!",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r2c11.search_cannon",
+     "card": "cannon",
+     "row": 1,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r2c12",
+   "label": "B-12",
+   "altLabel": "L-2",
+   "row": 2,
+   "col": 12,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.6",
+   "rule": "Endless Night Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "medli"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c12.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "boomerang"
+   ],
+   "searches": [
+    {
+     "id": "r2c12.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 1,
+     "col": 12
+    },
+    {
+     "id": "r2c12.search_hammer",
+     "card": "hammer",
+     "row": 8,
+     "col": 4
+    },
+    {
+     "id": "r2c12.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r2c13",
+   "label": "B-13",
+   "altLabel": "M-2",
+   "row": 2,
+   "col": 13,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight alongside the women of the battlefield!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "medli"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c13.weapon_rito_harp_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "medli",
+     "weapon": "rito_harp",
+     "level": "4",
+     "name": "Rito Harp Lv. 4"
+    },
+    {
+     "id": "r2c13.hc_medli",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container",
+     "keep": "Dragon Roost"
+    },
+    {
+     "id": "r2c13.fairy_clothing_rito_dress",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Rito Dress",
+     "keep": "Jail Watch Keep"
+    },
+    {
+     "id": "r2c13.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "Bomb Shop"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r2c13.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 15
+    }
+   ]
+  },
+  {
+   "id": "r2c14",
+   "label": "B-14",
+   "altLabel": "N-2",
+   "row": 2,
+   "col": 14,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Confronting the opposing sorceress!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r2c14.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "sea_chart"
+   ],
+   "skulltulas": [
+    {
+     "id": "r2c14.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just north of West Town Keep"
+    },
+    {
+     "id": "r2c14.gs2",
+     "condition": "Complete the first mission and defeat 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c14.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 2,
+     "col": 15
+    },
+    {
+     "id": "r2c14.search_power_bracelet_2",
+     "card": "power_bracelet_2",
+     "row": 5,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r3c1",
+   "label": "C-1",
+   "altLabel": "A-3",
+   "row": 3,
+   "col": 1,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.6",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r3c1.hc_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_2"
+   ],
+   "searches": [
+    {
+     "id": "r3c1.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 13
+    },
+    {
+     "id": "r3c1.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ],
+   "note": "Guides disagree: the Helper puts a Wind Waker search here; SBAllen's guide puts it on D-1, the square below."
+  },
+  {
+   "id": "r3c2",
+   "label": "C-2",
+   "altLabel": "B-3",
+   "row": 3,
+   "col": 2,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Turn the tables on the assassin!",
+   "rule": "Great Sea Rule: No Item Attacks!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c2.material_manhandlas_sapling",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Manhandla's Sapling"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c2.search_heros_bow",
+     "card": "heros_bow",
+     "row": 8,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r3c3",
+   "label": "C-3",
+   "altLabel": "C-3",
+   "row": 3,
+   "col": 3,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.1",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c3.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r3c3.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r3c4",
+   "label": "C-4",
+   "altLabel": "D-3",
+   "row": 3,
+   "col": 4,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.2",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r3c4.hc_darunia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "cannon"
+   ]
+  },
+  {
+   "id": "r3c5",
+   "label": "C-5",
+   "altLabel": "E-3",
+   "row": 3,
+   "col": 5,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Win the Rupee competition! Lv.2",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "aRank": {
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c5.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "heros_bow"
+   ],
+   "searches": [
+    {
+     "id": "r3c5.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 4,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r3c6",
+   "label": "C-6",
+   "altLabel": "F-3",
+   "row": 3,
+   "col": 6,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat 700 enemies before the Rogue Forces do!",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r3c6.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r3c6.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 4,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r3c7",
+   "label": "C-7",
+   "altLabel": "G-3",
+   "row": 3,
+   "col": 7,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.7",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c7.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ]
+  },
+  {
+   "id": "r3c8",
+   "label": "C-8",
+   "altLabel": "H-3",
+   "row": 3,
+   "col": 8,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat 1,000 enemies before the Rogue Forces do! Lv.2",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c8.hc_sheik",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "boomerang"
+   ]
+  },
+  {
+   "id": "r3c9",
+   "label": "C-9",
+   "altLabel": "I-3",
+   "row": 3,
+   "col": 9,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight the heroes of the Wind Waker!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c9.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r3c9.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "Central Keep"
+    },
+    {
+     "id": "r3c9.fairy_clothing_usurper_crown",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Usurper Crown",
+     "keep": "North Square"
+    },
+    {
+     "id": "r3c9.fairy_food_stamina_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Stamina Fruit",
+     "container": "pot",
+     "keep": "S. Entrance Keep"
+    }
+   ],
+   "givesCards": [
+    "hookshot"
+   ],
+   "searches": [
+    {
+     "id": "r3c9.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 4,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r3c10",
+   "label": "C-10",
+   "altLabel": "J-3",
+   "row": 3,
+   "col": 10,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.3",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c10.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r3c10.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 5,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r3c11",
+   "label": "C-11",
+   "altLabel": "K-3",
+   "row": 3,
+   "col": 11,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat 1,000 enemies before the Rogue Forces do! Lv.1",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r3c11.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "boomerang"
+   ],
+   "searches": [
+    {
+     "id": "r3c11.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r3c12",
+   "label": "C-12",
+   "altLabel": "L-3",
+   "row": 3,
+   "col": 12,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.4",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c12.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "sea_chart"
+   ]
+  },
+  {
+   "id": "r3c13",
+   "label": "C-13",
+   "altLabel": "M-3",
+   "row": 3,
+   "col": 13,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Fight through the action quiz!",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c13.hc_fi",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "quiz": [
+    "Volga",
+    "Medli",
+    "Toon Link"
+   ]
+  },
+  {
+   "id": "r3c14",
+   "label": "C-14",
+   "altLabel": "N-3",
+   "row": 3,
+   "col": 14,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of Star Belt Archipelago!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r3c14.outfit_midna_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "midna",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r3c14.hc_zant",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container",
+     "keep": "South Mine Keep"
+    },
+    {
+     "id": "r3c14.fairy_clothing_fox_mask",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Fox Mask",
+     "keep": "NE Sage Keep"
+    },
+    {
+     "id": "r3c14.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "northern empty keep"
+    }
+   ],
+   "givesCards": [
+    "hammer"
+   ],
+   "searches": [
+    {
+     "id": "r3c14.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 2,
+     "col": 14
+    },
+    {
+     "id": "r3c14.search_sea_chart",
+     "card": "sea_chart",
+     "row": 9,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r4c1",
+   "label": "D-1",
+   "altLabel": "A-4",
+   "row": 4,
+   "col": 1,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.1",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c1.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "cannon"
+   ],
+   "searches": [
+    {
+     "id": "r4c1.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 8
+    }
+   ],
+   "note": "Guides disagree: SBAllen's guide has a Wind Waker search here as well as the Hyoi Pear; the Helper puts it on C-1, the square above."
+  },
+  {
+   "id": "r4c2",
+   "label": "D-2",
+   "altLabel": "B-4",
+   "row": 4,
+   "col": 2,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.2",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c2.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r4c2.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 1,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r4c3",
+   "label": "D-3",
+   "altLabel": "C-4",
+   "row": 4,
+   "col": 3,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of west Greatfish Isle!",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "warriors": [
+    {
+     "warrior": "wizzro"
+    }
+   ],
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c3.outfit_king_daphnes_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "king_daphnes",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r4c3.hc_wizzro",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container",
+     "keep": "North Square"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "skulltulas": [
+    {
+     "id": "r4c3.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the dead end west of the Fairy Fountain. Use the hookshot to reach it"
+    },
+    {
+     "id": "r4c3.gs2",
+     "condition": "Complete the first mission and capture five or more enemy Keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c3.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r4c4",
+   "label": "D-4",
+   "altLabel": "D-4",
+   "row": 4,
+   "col": 4,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of Greatfish Isle!",
+   "rule": "Endless Night Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "medli"
+    }
+   ],
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c4.weapon_rito_harp_2",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "medli",
+     "weapon": "rito_harp",
+     "level": "2",
+     "name": "Rito Harp Lv. 2"
+    },
+    {
+     "id": "r4c4.hc_medli",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container",
+     "keep": "Fairy Fountain"
+    },
+    {
+     "id": "r4c4.fairy_food_all_purpose_bait",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - All-Purpose Bait",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r4c4.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 2,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r4c5",
+   "label": "D-5",
+   "altLabel": "E-4",
+   "row": 4,
+   "col": 5,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Calm dissenters and crush your foe!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "skull_kid"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c5.outfit_tingle_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "tingle",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r4c5.hc_skull_kid",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container",
+     "keep": "W. Boulder Keep"
+    },
+    {
+     "id": "r4c5.fairy_clothing_merchant_coat",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Merchant Coat",
+     "keep": "Stronghold"
+    },
+    {
+     "id": "r4c5.fairy_food_hyoi_pear",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyoi Pear",
+     "container": "pot",
+     "keep": "Stronghold"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r4c5.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 9,
+     "col": 14
+    },
+    {
+     "id": "r4c5.search_power_bracelet_2",
+     "card": "power_bracelet_2",
+     "row": 4,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r4c6",
+   "label": "D-6",
+   "altLabel": "F-4",
+   "row": 4,
+   "col": 6,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.2",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c6.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "heros_bow"
+   ]
+  },
+  {
+   "id": "r4c7",
+   "label": "D-7",
+   "altLabel": "G-4",
+   "row": 4,
+   "col": 7,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Run swiftly across the battlefield!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c7.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_2"
+   ],
+   "skulltulas": [
+    {
+     "id": "r4c7.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just southwest of the Enemy Base"
+    },
+    {
+     "id": "r4c7.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c7.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 1,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r4c8",
+   "label": "D-8",
+   "altLabel": "H-4",
+   "row": 4,
+   "col": 8,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Will you fall, or will you bloom?",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c8.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c8.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "Lakeside Keep"
+    },
+    {
+     "id": "r4c8.fairy_clothing_hyrule_crown",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Hyrule Crown",
+     "keep": "East Room"
+    },
+    {
+     "id": "r4c8.fairy_food_sacred_water",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Sacred Water",
+     "container": "pot",
+     "keep": "Lakeside Keep"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r4c8.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r4c9",
+   "label": "D-9",
+   "altLabel": "I-4",
+   "row": 4,
+   "col": 9,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "It's curtain call for Medli's band!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "cia"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c9.outfit_twili_midna_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "twili_midna",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r4c9.hc_cia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container",
+     "keep": "Southeast Keep"
+    },
+    {
+     "id": "r4c9.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "West Cannon Keep"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r4c9.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r4c10",
+   "label": "D-10",
+   "altLabel": "J-4",
+   "row": 4,
+   "col": 10,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Best the secretive enemies!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "impa"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c10.outfit_sheik_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "sheik",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r4c10.hc_impa",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container",
+     "keep": "King's Hall"
+    },
+    {
+     "id": "r4c10.fairy_food_elixir_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Elixir Soup",
+     "container": "pot",
+     "keep": "King's Hall"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r4c10.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 7,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r4c11",
+   "label": "D-11",
+   "altLabel": "K-4",
+   "row": 4,
+   "col": 11,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.2",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r4c11.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ]
+  },
+  {
+   "id": "r4c12",
+   "label": "D-12",
+   "altLabel": "L-4",
+   "row": 4,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Lurking treachery, lurking shadows!",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r4c12.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c12.fairy_clothing_heros_trousers",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Hero's Trousers",
+     "keep": "Sacred Pedestal"
+    },
+    {
+     "id": "r4c12.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "South Square"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r4c12.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 5,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r4c13",
+   "label": "D-13",
+   "altLabel": "M-4",
+   "row": 4,
+   "col": 13,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the summoners before it's too late!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c13.outfit_fi_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "fi",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r4c13.hc_ghirahim",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container",
+     "keep": "West Cannon Keep"
+    },
+    {
+     "id": "r4c13.fairy_food_hyoi_pear",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyoi Pear",
+     "container": "pot",
+     "keep": "Enemy Base"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r4c13.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r4c14",
+   "label": "D-14",
+   "altLabel": "N-4",
+   "row": 4,
+   "col": 14,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.5",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c14.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "cannon"
+   ],
+   "searches": [
+    {
+     "id": "r4c14.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 6,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r5c1",
+   "label": "E-1",
+   "altLabel": "A-5",
+   "row": 5,
+   "col": 1,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat your enemies...with kindness!",
+   "rule": "Great Sea Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c1.material_king_dodongos_crystal",
+     "slot": "aRank",
+     "type": "material",
+     "name": "King Dodongo's Crystal"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c1.search_heros_bow",
+     "card": "heros_bow",
+     "row": 2,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r5c2",
+   "label": "E-2",
+   "altLabel": "B-5",
+   "row": 5,
+   "col": 2,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.1",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r5c2.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "windwaker"
+   ]
+  },
+  {
+   "id": "r5c3",
+   "label": "E-3",
+   "altLabel": "C-5",
+   "row": 5,
+   "col": 3,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Win the Rupee competition! Lv.1",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r5c3.hc_fi",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "heros_bow"
+   ],
+   "searches": [
+    {
+     "id": "r5c3.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 9,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r5c4",
+   "label": "E-4",
+   "altLabel": "D-5",
+   "row": 5,
+   "col": 4,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Fight through the forgetful foe quiz!",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r5c4.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "quiz": [
+    "ReDead Knight",
+    "Lana",
+    "Medli"
+   ]
+  },
+  {
+   "id": "r5c5",
+   "label": "E-5",
+   "altLabel": "E-5",
+   "row": 5,
+   "col": 5,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.1",
+   "rule": "Great Sea Rule: Double Damage!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c5.material_gohmas_lens",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Gohma's Lens"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c5.search_cannon",
+     "card": "cannon",
+     "row": 9,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r5c6",
+   "label": "E-6",
+   "altLabel": "F-5",
+   "row": 5,
+   "col": 6,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.2",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r5c6.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ]
+  },
+  {
+   "id": "r5c7",
+   "label": "E-7",
+   "altLabel": "G-5",
+   "row": 5,
+   "col": 7,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Win the Rupee competition! Lv.5",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "damage": 199
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c7.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r5c7.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r5c8",
+   "label": "E-8",
+   "altLabel": "H-5",
+   "row": 5,
+   "col": 8,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.3",
+   "rule": "Great Sea Rule: Don't Get Hit!",
+   "warriors": [
+    {
+     "warrior": "tetra"
+    }
+   ],
+   "aRank": {
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c8.material_helmaroc_kings_mask",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Helmaroc King's Mask"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c8.search_boomerang",
+     "card": "boomerang",
+     "row": 1,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r5c9",
+   "label": "E-9",
+   "altLabel": "I-5",
+   "row": 5,
+   "col": 9,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "A leader never sleeps!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c9.outfit_lana_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "lana",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r5c9.hc_linkle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container",
+     "keep": "W. Rockface Keep"
+    },
+    {
+     "id": "r5c9.fairy_clothing_usurper_robe",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Usurper Robe",
+     "keep": "Castle Keep"
+    },
+    {
+     "id": "r5c9.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r5c9.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 3,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r5c10",
+   "label": "E-10",
+   "altLabel": "J-5",
+   "row": 5,
+   "col": 10,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Stand united! Join forces on the front line!",
+   "rule": "Great Sea Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r5c10.search_heros_bow",
+     "card": "heros_bow",
+     "row": 1,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r5c11",
+   "label": "E-11",
+   "altLabel": "K-5",
+   "row": 5,
+   "col": 11,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of Bomb Island!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c11.hc_linkle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_2"
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c11.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Southwest from the Statue Keep past the tree"
+    },
+    {
+     "id": "r5c11.gs2",
+     "condition": "Complete the first mission and capture five or more enemy Keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c11.search_hammer",
+     "card": "hammer",
+     "row": 7,
+     "col": 1
+    },
+    {
+     "id": "r5c11.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r5c12",
+   "label": "E-12",
+   "altLabel": "L-5",
+   "row": 5,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Enjoy a leisurely Cucco-outing!",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r5c12.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "heros_bow"
+   ]
+  },
+  {
+   "id": "r5c13",
+   "label": "E-13",
+   "altLabel": "M-5",
+   "row": 5,
+   "col": 13,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.3",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r5c13.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r5c13.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 9,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r5c14",
+   "label": "E-14",
+   "altLabel": "N-5",
+   "row": 5,
+   "col": 14,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat those who would borrow a weapon!",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "link"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c14.outfit_ghirahim_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ghirahim",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r5c14.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "Eastern Room"
+    }
+   ],
+   "givesCards": [
+    "windwaker"
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c14.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "North of the Eastern Room"
+    },
+    {
+     "id": "r5c14.gs2",
+     "condition": "Complete the first mission and defeat 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c14.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 1,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r6c1",
+   "label": "F-1",
+   "altLabel": "A-6",
+   "row": 6,
+   "col": 1,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.1",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "kos": 1000,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c1.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "note": "Guides disagree: SBAllen's guide lists a Hyoi Pear search on a seagull here; the Helper has none, and draws no seagull."
+  },
+  {
+   "id": "r6c2",
+   "label": "F-2",
+   "altLabel": "B-6",
+   "row": 6,
+   "col": 2,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Final Battle! Defeat the beast of Diamond Steppe Island!",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c2.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c2.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "Central Keep"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "skulltulas": [
+    {
+     "id": "r6c2.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the dead end north of East Field Keep. Use the hookshot to reach it"
+    },
+    {
+     "id": "r6c2.gs2",
+     "condition": "Complete the first mission and KO 150 enemies with special attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r6c3",
+   "label": "F-3",
+   "altLabel": "C-6",
+   "row": 6,
+   "col": 3,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Hustle in the east and bustle in the west!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c3.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c3.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "South Square"
+    },
+    {
+     "id": "r6c3.fairy_food_carrot",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Carrot",
+     "container": "pot",
+     "keep": "West Square"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r6c3.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 4,
+     "col": 2
+    },
+    {
+     "id": "r6c3.search_sea_chart",
+     "card": "sea_chart",
+     "row": 1,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r6c4",
+   "label": "F-4",
+   "altLabel": "D-6",
+   "row": 6,
+   "col": 4,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Those birds are so soft! Do we really need to fight?",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c4.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c4.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "SE Sage Keep"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "searches": [
+    {
+     "id": "r6c4.search_hookshot",
+     "card": "hookshot",
+     "row": 9,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r6c5",
+   "label": "F-5",
+   "altLabel": "E-6",
+   "row": 6,
+   "col": 5,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Claim revenge against your foes!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c5.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c5.fairy_clothing_rancher_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Rancher Skirt",
+     "keep": "East Keep"
+    },
+    {
+     "id": "r6c5.fairy_food_all_purpose_bait",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - All-Purpose Bait",
+     "container": "pot",
+     "keep": "Eastern Room"
+    }
+   ],
+   "givesCards": [
+    "sea_chart"
+   ]
+  },
+  {
+   "id": "r6c6",
+   "label": "F-6",
+   "altLabel": "F-6",
+   "row": 6,
+   "col": 6,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.3",
+   "rule": "Endless Night Rule: No Fairy Skills!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c6.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "heros_bow"
+   ],
+   "searches": [
+    {
+     "id": "r6c6.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r6c7",
+   "label": "F-7",
+   "altLabel": "G-6",
+   "row": 6,
+   "col": 7,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.2",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c7.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r6c8",
+   "label": "F-8",
+   "altLabel": "H-6",
+   "row": 6,
+   "col": 8,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Yesterday's foes are today's allies!",
+   "rule": "Great Sea Rule: Double Damage!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c8.material_wizzros_ring",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Wizzro's Ring"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c8.search_cannon",
+     "card": "cannon",
+     "row": 4,
+     "col": 7
+    },
+    {
+     "id": "r6c8.search_power_bracelet_2",
+     "card": "power_bracelet_2",
+     "row": 1,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r6c9",
+   "label": "F-9",
+   "altLabel": "I-6",
+   "row": 6,
+   "col": 9,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.1",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c9.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "windwaker"
+   ],
+   "searches": [
+    {
+     "id": "r6c9.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 8,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r6c10",
+   "label": "F-10",
+   "altLabel": "J-6",
+   "row": 6,
+   "col": 10,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "The hero and the sage back each other up!",
+   "rule": "Great Sea Rule: Don't Get Hit!",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r6c10.material_fis_crystal",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Fi's Crystal"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c10.search_boomerang",
+     "card": "boomerang",
+     "row": 4,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r6c11",
+   "label": "F-11",
+   "altLabel": "K-6",
+   "row": 6,
+   "col": 11,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Attend the Festival of Cuccos!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "medli"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c11.weapon_rito_harp_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "medli",
+     "weapon": "rito_harp",
+     "level": "3",
+     "name": "Rito Harp Lv. 3"
+    },
+    {
+     "id": "r6c11.hc_medli",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container",
+     "keep": "East Field Keep"
+    },
+    {
+     "id": "r6c11.fairy_clothing_korok_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Korok Aura",
+     "keep": "W. Rockface Keep"
+    },
+    {
+     "id": "r6c11.fairy_food_life_tree_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Life Tree Fruit",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "givesCards": [
+    "windwaker"
+   ],
+   "searches": [
+    {
+     "id": "r6c11.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 6,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r6c12",
+   "label": "F-12",
+   "altLabel": "L-6",
+   "row": 6,
+   "col": 12,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.3",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c12.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "cannon"
+   ],
+   "searches": [
+    {
+     "id": "r6c12.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 6,
+     "col": 2
+    },
+    {
+     "id": "r6c12.search_windwaker",
+     "card": "windwaker",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r6c13",
+   "label": "F-13",
+   "altLabel": "M-6",
+   "row": 6,
+   "col": 13,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.4",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r6c13.hc_fi",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ]
+  },
+  {
+   "id": "r6c14",
+   "label": "F-14",
+   "altLabel": "N-6",
+   "row": 6,
+   "col": 14,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Win the Rupee competition! Lv.4",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "aRank": {
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c14.hc_sheik",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r6c14.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 3,
+     "col": 14
+    },
+    {
+     "id": "r6c14.search_sea_chart",
+     "card": "sea_chart",
+     "row": 10,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r7c1",
+   "label": "G-1",
+   "altLabel": "A-7",
+   "row": 7,
+   "col": 1,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.1",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r7c1.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "searches": [
+    {
+     "id": "r7c1.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 3,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r7c2",
+   "label": "G-2",
+   "altLabel": "B-7",
+   "row": 7,
+   "col": 2,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Join the Rogue Forces to defeat the enemy!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r7c2.hc_linkle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r7c2.fairy_clothing_skull_dress",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skull Dress",
+     "keep": "Eastern Tree"
+    },
+    {
+     "id": "r7c2.fairy_food_elixir_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Elixir Soup",
+     "container": "pot",
+     "keep": "Western Tree"
+    }
+   ]
+  },
+  {
+   "id": "r7c3",
+   "label": "G-3",
+   "altLabel": "C-7",
+   "row": 7,
+   "col": 3,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Defeat 400 enemies before the Rogue Forces do!",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r7c3.hc_medli",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container"
+    }
+   ]
+  },
+  {
+   "id": "r7c4",
+   "label": "G-4",
+   "altLabel": "D-7",
+   "row": 7,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of Outset Island!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "finalBoss": true,
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r7c4.hc_medli",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "medli",
+     "name": "Heart Container",
+     "keep": "South Field Keep"
+    }
+   ]
+  },
+  {
+   "id": "r7c5",
+   "label": "G-5",
+   "altLabel": "E-7",
+   "row": 7,
+   "col": 5,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Stop the fortifiers and barrier specialists!",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "wizzro"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r7c5.outfit_ruto_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ruto",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r7c5.hc_wizzro",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container",
+     "keep": "N. Entrance Keep"
+    },
+    {
+     "id": "r7c5.fairy_clothing_star_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Star Aura",
+     "keep": "S. Entrance Keep"
+    },
+    {
+     "id": "r7c5.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "Enemy Base"
+    }
+   ],
+   "givesCards": [
+    "hookshot"
+   ],
+   "searches": [
+    {
+     "id": "r7c5.search_deku_leaf",
+     "card": "deku_leaf",
+     "row": 7,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r7c6",
+   "label": "G-6",
+   "altLabel": "F-7",
+   "row": 7,
+   "col": 6,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Stamp out the enemy bosses!",
+   "rule": "Endless Night Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "tingle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r7c6.outfit_tetra_standard_outfit_wind_waker",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "tetra",
+     "name": "Standard Outfit (Wind Waker)"
+    },
+    {
+     "id": "r7c6.hc_tingle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container",
+     "keep": "Central Chamber"
+    },
+    {
+     "id": "r7c6.fairy_food_sacred_water",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Sacred Water",
+     "container": "pot",
+     "keep": "Enemy Base"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ],
+   "searches": [
+    {
+     "id": "r7c6.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 1,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r7c7",
+   "label": "G-7",
+   "altLabel": "G-7",
+   "row": 7,
+   "col": 7,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Grow your forces and face your foes!",
+   "rule": "Great Sea Rule: No Item Attacks!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r7c7.material_zants_helmet",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Zant's Helmet"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c7.search_heros_bow",
+     "card": "heros_bow",
+     "row": 1,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r7c8",
+   "label": "G-8",
+   "altLabel": "H-7",
+   "row": 7,
+   "col": 8,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Fight through the travel memories quiz!",
+   "rule": "Endless Night Rule: No Healing!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c8.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hyoi_pear"
+   ],
+   "quiz": [
+    "Lizalfos",
+    "Wizzro",
+    "Cia"
+   ]
+  },
+  {
+   "id": "r7c9",
+   "label": "G-9",
+   "altLabel": "I-7",
+   "row": 7,
+   "col": 9,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Pierce through enemy defenses",
+   "rule": "Endless Night Rule: Speed Run!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r7c9.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r7c9.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "South Field Keep"
+    }
+   ],
+   "givesCards": [
+    "deku_leaf"
+   ],
+   "skulltulas": [
+    {
+     "id": "r7c9.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Southeast from the Enemy Base"
+    },
+    {
+     "id": "r7c9.gs2",
+     "condition": "Complete the first mission and KO 150 enemies with special attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c9.search_hyoi_pear",
+     "card": "hyoi_pear",
+     "row": 5,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r7c10",
+   "label": "G-10",
+   "altLabel": "J-7",
+   "row": 7,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.3",
+   "rule": "Endless Night Rule: No Special Attacks!",
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c10.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r7c11",
+   "label": "G-11",
+   "altLabel": "K-7",
+   "row": 7,
+   "col": 11,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Win the Rupee competition! Lv.3",
+   "rule": "Endless Night Rule: No Focus Spirit!",
+   "aRank": {
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r7c11.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "salvage_arm"
+   ]
+  },
+  {
+   "id": "r7c12",
+   "label": "G-12",
+   "altLabel": "L-7",
+   "row": 7,
+   "col": 12,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu! Lv.3",
+   "rule": "Endless Night Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r7c12.hc_darunia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "boomerang"
+   ],
+   "searches": [
+    {
+     "id": "r7c12.search_salvage_arm",
+     "card": "salvage_arm",
+     "row": 7,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r7c13",
+   "label": "G-13",
+   "altLabel": "M-7",
+   "row": 7,
+   "col": 13,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of the Five-Star Isles!",
+   "rule": "Endless Night Rule: No Fairy Magic!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c13.hc_sheik",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r7c13.poh_medli",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "medli",
+     "name": "Piece of Heart",
+     "keep": "Central Square"
+    },
+    {
+     "id": "r7c13.fairy_clothing_rancher_poncho",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Rancher Poncho",
+     "keep": "West Square"
+    },
+    {
+     "id": "r7c13.fairy_food_carrot",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Carrot",
+     "container": "pot",
+     "keep": "North Palace"
+    }
+   ],
+   "givesCards": [
+    "sea_chart"
+   ],
+   "searches": [
+    {
+     "id": "r7c13.search_sea_chart",
+     "card": "sea_chart",
+     "row": 1,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r7c14",
+   "label": "G-14",
+   "altLabel": "N-7",
+   "row": 7,
+   "col": 14,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat your enemies...with kindness!",
+   "rule": "Great Sea Rule: Double Damage!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c14.material_linkles_compass",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Linkle's Compass"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c14.search_cannon",
+     "card": "cannon",
+     "row": 9,
+     "col": 9
+    }
+   ]
+  }
+ ]
+}

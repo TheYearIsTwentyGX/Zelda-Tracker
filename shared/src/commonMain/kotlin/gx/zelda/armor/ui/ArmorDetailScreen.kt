@@ -39,10 +39,10 @@ import gx.zelda.armor.logic.UpgradeTier
 import gx.zelda.armor.model.Acquisition
 import gx.zelda.armor.model.ArmorCatalog
 import gx.zelda.armor.model.ArmorPiece
-import gx.zelda.core.ui.StarGold
 import gx.zelda.core.ui.StarLevelButton
 import gx.zelda.core.ui.Stars
 import gx.zelda.core.ui.Tag
+import gx.zelda.theme.LocalGameDecor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -165,7 +165,7 @@ private fun PieceDetail(state: ArmorUiState, piece: ArmorPiece, viewModel: Armor
                 Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             if (remaining.isEmpty()) {
-                Text("Fully upgraded.", style = MaterialTheme.typography.bodyMedium, color = StarGold)
+                Text("Fully upgraded.", style = MaterialTheme.typography.bodyMedium, color = LocalGameDecor.current.star)
             }
             remaining.forEach { tier -> TierCosts(state.catalog, tier, piece.maxLevel) }
         }

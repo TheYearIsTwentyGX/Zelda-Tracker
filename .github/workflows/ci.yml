@@ -51,4 +51,5 @@ jobs:
           path: |
             shared/build/reports/tests/
             shared/build/test-results/
+            shared/build/reports/theme-sheets/
           if-no-files-found: warn

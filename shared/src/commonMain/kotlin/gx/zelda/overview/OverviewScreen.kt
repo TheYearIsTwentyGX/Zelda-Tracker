@@ -34,6 +34,7 @@ import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
+import gx.zelda.theme.GameProgressBar
 
 /** Every tracker's progress on the active save file; tapping a row opens that tracker (and checklist, by its dataFile). */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -122,7 +123,7 @@ private fun Count(summary: ProgressSummary) {
 
 @Composable
 private fun Details(summary: ProgressSummary) {
-    LinearProgressIndicator(progress = { summary.fraction }, modifier = Modifier.fillMaxWidth())
+    GameProgressBar(progress = { summary.fraction }, modifier = Modifier.fillMaxWidth())
     summary.secondary?.let {
         Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
@@ -147,7 +148,7 @@ private fun MapItemsCard(items: List<ItemCount>) {
                     "${grouped(done)} of ${grouped(total)} items toward 100%",
                 style = MaterialTheme.typography.bodyMedium,
             )
-            LinearProgressIndicator(progress = { if (total == 0) 0f else done.toFloat() / total }, modifier = Modifier.fillMaxWidth())
+            GameProgressBar(progress = { if (total == 0) 0f else done.toFloat() / total }, modifier = Modifier.fillMaxWidth())
             Text(
                 "The map's percentage also counts the named locations you discover. They aren't tracked here, " +
                     "so this isn't the percentage itself.",
