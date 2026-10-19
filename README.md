@@ -12,8 +12,8 @@ iOS port is mostly a matter of adding the iOS targets.
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
   Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Wind Waker, Four Swords Adventures, The
-  Minish Cap, Twilight Princess, Phantom Hourglass, Breath of the Wild, Tears of the Kingdom and
-  Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
+  Minish Cap, Twilight Princess, Phantom Hourglass, Spirit Tracks, Breath of the Wild, Tears of the
+  Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -681,6 +681,29 @@ in each row. Sources and disagreements are in `docs/ph.md`.
 - **Sea Chart & Islands** (16 islands, hidden ones included, and the 6 Golden Frogs) and
   **Sidequests** (the fishing journal, the five-step trading quest, the mini-games' prizes and
   Beedle's cards).
+
+**Spirit Tracks**
+
+Every ST tracker is a [checklist](docs/checklist-trackers.md), listed by realm (Forest, Snow,
+Ocean, Fire, Sand, with the Tower of Spirits and the Dark Realm where they matter) with the exact
+place in each row. Force Gems, rabbits and deliveries are named by giver or place, because the
+guides number them differently. Sources and disagreements are in `docs/st.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** 27 steps in story order, from the engineer's ceremony to Malladus: the five
+  temples and their bosses, the six climbs of the Tower of Spirits, the five Lokomo duets and the
+  Demon Train. Totals for the 5 temples, 4 Rail Maps and 5 duets.
+- **Items & Equipment:** 12 items (the Lokomo Sword and Bow of Light as tiers), the Bomb Bag
+  (10/20/30) and Quiver (20/30/50) with capacity totals, and both Swordsman's Scrolls.
+- **Heart Containers:** all 13, five from bosses and eight from minigames, Bunnio, shops and the
+  Ends of the Earth, with the hearts total (3 to 16).
+- **Force Gems** (20, with the tracks each opens) and **Passengers & Cargo** (25 runs: 15
+  passengers and 10 cargo jobs, each Force Gem named as its reward).
+- **Rabbits** (50, ten per realm, and Bunnio's 8 prizes), **Stamp Stations** (20 and Niko's three
+  rewards) and **Songs** (the five Spirit Flute songs).
+- **Stations & Warp Gates:** the 22 stations and Warp Gates A–H.
+- **Train Parts:** all 32 parts in 8 sets with each one's Treasure cost, and a complete-sets total.
+- **Minigames & Secrets:** Take 'Em All On!, Russell, the Whip Race, Beedle's club, the target
+  ranges and the hidden stations' lasting prizes, as tiers where there are several.
 - Nothing in the game can be missed for good.
 - Two save files, **File 1** and **File 2**, as on the DS card.
 
@@ -763,6 +786,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/fsa/*.json  ← Four Swords Adventures checklists (docs/fsa.md)
   src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
   src/commonMain/composeResources/files/ph/*.json   ← Phantom Hourglass checklists (docs/ph.md)
+  src/commonMain/composeResources/files/st/*.json   ← Spirit Tracks checklists (docs/st.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -1139,6 +1163,11 @@ Phantom Hourglass data (`files/ph/`) comes from Zelda Wiki, Zelda Dungeon (via W
 snapshots) and IGN's guide, with StrategyWiki's walkthrough for story order and Nintendo's manual
 for the save files. Every count was checked against all three. `docs/ph.md` covers each tracker
 and every disagreement, including the Treasure Map numbers the sources don't agree on.
+
+Spirit Tracks data (`files/st/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and IGN's guide, with StrategyWiki as a fourth source, speedrun.com's 100% rules
+deciding what's tracked and Nintendo's manual for the save files. Every count was checked against
+all three. `docs/st.md` covers each tracker and every disagreement.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all

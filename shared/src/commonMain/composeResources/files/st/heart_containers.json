@@ -1,0 +1,173 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm",
+    "Sand Realm"
+  ],
+  "noun": "Heart Container",
+  "hiddenLabel": "Uncollected Heart Container",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "3 + containers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "note": "No Pieces of Heart: 13 whole containers, 5 from bosses and 8 from side activities. Link starts with 3 hearts and ends with 16.",
+      "items": [
+        {
+          "id": "stagnox_heart",
+          "name": "Stagnox",
+          "region": "Forest Realm",
+          "area": "Forest Temple",
+          "howTo": "Defeat Stagnox, the Forest Temple's boss.",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "take_em_all_on_heart",
+          "name": "Take 'Em All On! level 1",
+          "region": "Forest Realm",
+          "area": "Castle Town",
+          "howTo": "In the building at the south-east of Castle Town, pay 50 Rupees for the green door and clear its 10 rooms, ending with Stagnox. No hearts drop inside, so bring potions.",
+          "after": "Forest Temple",
+          "notes": "Later clears give Treasure.",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "bunnio_heart",
+          "name": "Bunnio: five rabbits",
+          "region": "Forest Realm",
+          "area": "Rabbitland Rescue",
+          "howTo": "Catch any five rabbits and take them to Bunnio at Rabbitland Rescue.",
+          "after": "Rabbit Net",
+          "notes": "The first four Grass Rabbits and the Snow Rabbit west of Anouki Village are enough. The rabbits are in their own tracker.",
+          "tags": [
+            "Rabbits"
+          ]
+        },
+        {
+          "id": "fraaz_heart",
+          "name": "Fraaz",
+          "region": "Snow Realm",
+          "area": "Snow Temple",
+          "howTo": "Defeat Fraaz, the Snow Temple's boss.",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "russell_heart",
+          "name": "Russell's sword training",
+          "region": "Forest Realm",
+          "area": "Hyrule Castle",
+          "howTo": "After the Snow Temple a letter from Russell invites you back. In the training room on the castle's east side, land 60 hits on his three guards before they hit you three times. Stand between the right and bottom guards and turn on whichever winds up.",
+          "after": "Snow Temple",
+          "notes": "The fee is 20 Rupees (Zelda Wiki, IGN) or 50 (Zelda Dungeon). Higher scores give Treasure; 200 hits gives a Regal Ring or Alchemy Stone (Zelda Wiki).",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "snow_sanctuary_heart",
+          "name": "Snow Sanctuary shop",
+          "region": "Snow Realm",
+          "area": "Snow Sanctuary",
+          "howTo": "Buy it for 2,000 Rupees in the Anouki shop by the Snow Sanctuary's station.",
+          "notes": "Sell Treasure to Linebeck III at the Trading Post for the Rupees.",
+          "tags": [
+            "Shop"
+          ]
+        },
+        {
+          "id": "phytops_heart",
+          "name": "Phytops",
+          "region": "Ocean Realm",
+          "area": "Ocean Temple",
+          "howTo": "Defeat Phytops, the Ocean Temple's boss.",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "whip_race_heart",
+          "name": "Whip Race",
+          "region": "Forest Realm",
+          "area": "Whittleton",
+          "howTo": "With the Whip, swing across north Whittleton to the race at the north-east corner (50 Rupees) and finish in under 1:15.",
+          "after": "Ocean Temple (Whip)",
+          "notes": "Under 1:30 wins the Medium Bomb Bag.",
+          "tags": [
+            "Minigame",
+            "Whip"
+          ]
+        },
+        {
+          "id": "cragma_heart",
+          "name": "Cragma",
+          "region": "Fire Realm",
+          "area": "Fire Temple",
+          "howTo": "Defeat Cragma, the Fire Temple's boss.",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "pirate_hideout_heart",
+          "name": "Pirate Hideout",
+          "region": "Ocean Realm",
+          "area": "Pirate Hideout",
+          "howTo": "Rescue Wadatsumi from the Pirate Hideout first (his Force Gem), then play the shooting minigame again and score 4,000 or more.",
+          "after": "Niboshi's Force Gem (Mega Ice to Papuchia Village)",
+          "notes": "IGN says 4,000–4,500 and that higher scores give Treasure instead; Zelda Wiki and Zelda Dungeon say 4,000 or more. Keep the multiplier going by not missing.",
+          "tags": [
+            "Minigame",
+            "Bow"
+          ]
+        },
+        {
+          "id": "skeldritch_heart",
+          "name": "Skeldritch",
+          "region": "Sand Realm",
+          "area": "Sand Temple",
+          "howTo": "Defeat Skeldritch, the Sand Temple's boss.",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "ends_of_the_earth_heart",
+          "name": "Braintwister Block Puzzle",
+          "region": "Fire Realm",
+          "area": "Ends of the Earth Station, west cave",
+          "howTo": "Solve the three block-rolling puzzles in the Braintwister cave (the western one) at the Ends of the Earth Station.",
+          "after": "Rael's Force Gem (five Cuccos to the Sand Sanctuary)",
+          "notes": "The other two caves give a Treasure (Brainteaser, centre) and a Regal Ring (Brainmasher, east).",
+          "tags": [
+            "Sand Wand",
+            "Puzzle"
+          ]
+        },
+        {
+          "id": "beedle_heart",
+          "name": "Beedle's Gold Card",
+          "area": "Beedle's Air Shop",
+          "howTo": "Join Beedle's club (100 Rupees, after your first purchase) and earn 500 points, one per 10 Rupees spent, to become a Gold Member.",
+          "notes": "5,000 Rupees in all. His stock changes daily: buy his Treasure and sell what you don't need to Linebeck III.",
+          "tags": [
+            "Shop"
+          ]
+        }
+      ]
+    }
+  ]
+}
