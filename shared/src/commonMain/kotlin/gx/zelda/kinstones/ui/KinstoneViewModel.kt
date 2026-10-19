@@ -2,7 +2,11 @@ package gx.zelda.kinstones.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
 import gx.zelda.core.SaveFile
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import gx.zelda.kinstones.data.KinstoneRepository
@@ -107,6 +111,26 @@ data class KinstoneUiState(
 
     /** The reward kinds some fusion gives, in [FusionReward] order, for the filter chips. */
     val rewardKinds: List<FusionReward> = FusionReward.entries.filter { r -> catalog.fusions.any { r in it.rewards } }
+
+    /** True when a search or filter is on, so a bulk toggle acts on the fusions shown only. */
+    val filtered: Boolean get() = filters.query.isNotBlank() || filters.isFiltering
+
+    /**
+     * What a "mark all complete" toggle acts on: the fusions the filters leave showing (those with
+     * hidden results included), or only [region]'s.
+     */
+    fun bulkFusions(region: String? = null): List<KinstoneFusion> =
+        if (region == null) groups.flatMap { it.second } else groups.firstOrNull { it.first == region }?.second.orEmpty()
+
+    /** The toggle for the whole list, or for [region]'s header. Its text names the region, never a result. */
+    fun bulkScope(region: String? = null): BulkScope = BulkScope.of(
+        label = region ?: filters.region ?: "All regions",
+        items = bulkFusions(region),
+        noun = "fusion",
+        filtered = filtered,
+        isDone = { progress.isFused(it.id) },
+        isStarted = { progress.isFused(it.id) },
+    )
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -163,6 +187,42 @@ class KinstoneViewModel(
     fun setFused(fusionId: String, done: Boolean): Job? {
         val file = state.value?.saveFile?.id ?: return null
         return viewModelScope.launch { storage.setFused(file, fusionId, done) }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<SetSnapshot<String>>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Marks every fusion [KinstoneUiState.bulkFusions] gives for [region] done, or none of them, on
+     * the file on screen. It's one write, and what it replaced is kept in [bulkChange] for an undo.
+     * Null when there's nothing to change.
+     */
+    fun setAllFused(region: String?, done: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkFusions(region).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(region)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllFused(state.saveFile.id, ids, done)
+            val changed = ids.count { (it in snapshot.members) != done }
+            if (changed > 0) {
+                val action = if (done) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back what [change] replaced, on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setHideResults(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideResults = hide) } }

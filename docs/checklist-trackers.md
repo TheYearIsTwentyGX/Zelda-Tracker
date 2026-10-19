@@ -231,3 +231,21 @@ The rules the shared pieces apply: a toggle marks everything complete, or clears
 is; a clear always asks first, and a mark asks once it changes more than `BulkScope.CONFIRM_ABOVE`
 (3) entries; the checkbox and the row are at least 48dp to tap and describe themselves for a
 screen reader ("Mark all complete in Hyrule Field, 2 of 5 done").
+
+The bespoke trackers that use it follow the same steps; each view model has `setAll…`,
+`undoBulkChange` and `dismissBulkChange`, and its storage a one-write `setAll…` and a `restore`.
+
+| Tracker | Toggles | Notes |
+|---|---|---|
+| Main Quest (BotW, MC) | each tab; MC's item groups and technique upgrades | the Tiger Scrolls tab's row takes the upgrades too |
+| Great Fairy Fountains (BotW, TotK) | the one list | BotW's note says what the costs left come to |
+| Side Quests (BotW) | each tab and region | three states, see below |
+| Overworld Bosses (BotW) | each tab and region | three states; the active file's spawns, so a Master Mode file's own |
+| Heart Pieces, Kinstone Fusions (MC) | the list and each region | |
+| Carlov's Figurines (MC) | the list and each checkpoint | only `owned`; the note counts figurines not yet available |
+
+**Three states.** A side quest is not started, in progress or completed, and a boss not found,
+found or defeated. A mark sets each to the last state and a clear sets it to the first, so a clear
+resets the middle state as well (`BulkScope`'s `started` counts it). The snapshot is a pair of
+`SetSnapshot`s, one per stored set (completed and started, or defeated and found), so the undo
+puts back each one's exact state, including the middle one.

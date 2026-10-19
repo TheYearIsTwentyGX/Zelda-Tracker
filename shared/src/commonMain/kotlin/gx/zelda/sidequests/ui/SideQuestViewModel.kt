@@ -2,7 +2,12 @@ package gx.zelda.sidequests.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
+import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import gx.zelda.shrines.data.ShrineStorage
@@ -102,6 +107,39 @@ data class SideQuestUiState(
     }
 
     fun shrineName(quest: SideQuest): String? = quest.shrineId?.let { data.shrineNames[it] }
+
+    /** True when a search or the Incomplete chip is on, so a bulk toggle acts on the quests shown only. */
+    val filtered: Boolean get() = filters.query.isNotBlank() || filters.incompleteOnly
+
+    /**
+     * What a "mark all complete" toggle acts on: the quests the filters leave on [kind]'s tab
+     * (hidden ones included), or only those under [region].
+     */
+    fun bulkQuests(kind: QuestKind, region: String? = null): List<SideQuest> = groups(kind).let { groups ->
+        if (region == null) groups.flatMap { it.second } else groups.firstOrNull { it.first == region }?.second.orEmpty()
+    }
+
+    /**
+     * The toggle for [kind]'s tab, or for [region]'s header on it. A mark completes every quest; a
+     * clear puts each back to not started, in progress ones too. Its text names the tab or region,
+     * never a quest.
+     */
+    fun bulkScope(kind: QuestKind, region: String? = null): BulkScope {
+        val scope = BulkScope.of(
+            label = region ?: kind.label,
+            items = bulkQuests(kind, region),
+            noun = kind.noun,
+            plural = kind.noun + "s",
+            filtered = filtered,
+            isDone = { it.id in progress.completed },
+            isStarted = { progress.isStarted(it.id) },
+        )
+        val note = listOfNotNull(
+            if (scope.action == BulkAction.CLEAR) "Each goes back to not started, in progress ones too." else null,
+            if (kind == QuestKind.SHRINE) "Their shrines stay as they are in the Shrine tracker." else null,
+        )
+        return scope.copy(note = note.joinToString(" ").ifEmpty { null })
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -166,6 +204,44 @@ class SideQuestViewModel(
     fun setState(questId: String, questState: QuestState): Job? {
         val file = state.value?.saveFile?.id ?: return null
         return viewModelScope.launch { storage.setState(file, questId, questState) }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<Pair<SetSnapshot<String>, SetSnapshot<String>>>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Completes every quest [SideQuestUiState.bulkQuests] gives for [kind] and [region], or puts
+     * them all back to not started, on the file on screen. It's one write, and each quest's state
+     * before it is kept in [bulkChange] for an undo. Null when there's nothing to change.
+     */
+    fun setAllDone(kind: QuestKind, region: String?, done: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkQuests(kind, region).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(kind, region)
+        val target = if (done) QuestState.COMPLETED else QuestState.UNDISCOVERED
+        return viewModelScope.launch {
+            val snapshot = storage.setAllStates(state.saveFile.id, ids, target)
+            val (completed, started) = snapshot
+            val changed = ids.count { DiscoveryState.of(it, completed.members, started.members) != target }
+            if (changed > 0) {
+                val action = if (done) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back each quest's state before [change], on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }

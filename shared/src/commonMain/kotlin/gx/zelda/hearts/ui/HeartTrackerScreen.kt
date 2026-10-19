@@ -28,6 +28,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -44,6 +46,13 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.FoundToggleStyle
 import gx.zelda.core.ui.HiddenRow
 import gx.zelda.core.ui.LoadingOrError
@@ -55,6 +64,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.hearts.model.HeartEntry
 import gx.zelda.hearts.model.HeartKind
 import gx.zelda.hearts.model.HeartTotal
@@ -69,7 +79,12 @@ fun HeartTrackerScreen(
     onBack: () -> Unit,
     title: String = "Heart Pieces",
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -95,7 +110,8 @@ fun HeartTrackerScreen(
             LoadingOrError(loadFailed, "The heart list couldn't be loaded.", padding)
             return@Scaffold
         }
-        HeartList(state, viewModel, Modifier.fillMaxSize().padding(padding))
+        HeartList(state, viewModel, bulk, Modifier.fillMaxSize().padding(padding))
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -120,13 +136,13 @@ private fun HeartMenu(state: HeartUiState, viewModel: HeartViewModel) {
 private val HeartToggle = FoundToggleStyle(Icons.Filled.Favorite, Icons.Filled.FavoriteBorder, "Collected", "Mark collected")
 
 @Composable
-private fun HeartList(state: HeartUiState, viewModel: HeartViewModel, modifier: Modifier) {
+private fun HeartList(state: HeartUiState, viewModel: HeartViewModel, bulk: BulkCompleteState, modifier: Modifier) {
     LazyColumn(modifier) {
         // While searching, the meter would push the results down under the keyboard.
         if (state.filters.query.isBlank()) {
             item(key = "_meter") { HeartMeterCard(state.total) }
         }
-        item(key = "_filters") { HeartFilterBar(state, viewModel) }
+        item(key = "_filters") { HeartFilterBar(state, viewModel, bulk) }
         if (state.groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
@@ -140,7 +156,11 @@ private fun HeartList(state: HeartUiState, viewModel: HeartViewModel, modifier: 
         for ((region, entries) in state.groups) {
             // The header counts the whole region, not just the entries the filters leave showing.
             val count = state.regionCounts.getValue(region)
-            item(key = "h_$region", contentType = "header") { RegionHeader(region, found = null, done = count.collected, total = count.total, suffix = "") }
+            item(key = "h_$region", contentType = "header") {
+                RegionHeader(region, found = null, done = count.collected, total = count.total, suffix = "", leading = {
+                    BulkCompleteCheckbox(state.bulkScope(region), bulk, onApply = { viewModel.setAllCollected(region, it == BulkAction.MARK) })
+                })
+            }
             itemsIndexed(entries, key = { _, entry -> entry.id }, contentType = { _, _ -> "heart" }) { i, entry ->
                 val last = i == entries.lastIndex
                 if (state.isHidden(entry)) {
@@ -233,7 +253,7 @@ private fun HeartIcon(fill: Float) {
 }
 
 @Composable
-private fun HeartFilterBar(state: HeartUiState, viewModel: HeartViewModel) {
+private fun HeartFilterBar(state: HeartUiState, viewModel: HeartViewModel, bulk: BulkCompleteState) {
     val filters = state.filters
     Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         SearchField(filters.query, viewModel::setQuery, "Search place, item or region")
@@ -250,6 +270,10 @@ private fun HeartFilterBar(state: HeartUiState, viewModel: HeartViewModel) {
                     label = { Text(requirement.label) },
                 )
             }
+        }
+        // Acts on what the search and chips leave showing, so it sits under them.
+        if (state.groups.isNotEmpty()) {
+            BulkCompleteRow(state.bulkScope(), bulk, onApply = { viewModel.setAllCollected(null, it == BulkAction.MARK) })
         }
     }
 }

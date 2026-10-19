@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.mainquest.model.MainQuestProgress
 import gx.zelda.mainquest.model.MainQuestSection
@@ -33,6 +34,19 @@ class MainQuestStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setDone(saveFileId: String, section: MainQuestSection, id: String, done: Boolean) =
         store(saveFileId).update { it.with(section, id, done) }
+
+    /**
+     * Marks every one of [ids] in [section] done, or none, in one write, so a "mark all" lands
+     * whole or not at all; returns which of them were done before, for its undo.
+     */
+    suspend fun setAllDone(saveFileId: String, section: MainQuestSection, ids: Collection<String>, done: Boolean): SetSnapshot<String> {
+        val before = store(saveFileId).swap { it.withAll(section, ids, done) }
+        return SetSnapshot.of(before.done(section), ids)
+    }
+
+    /** Puts back what [setAllDone] replaced, in one write; ids it didn't touch stay as they are. */
+    suspend fun restore(saveFileId: String, section: MainQuestSection, snapshot: SetSnapshot<String>) =
+        store(saveFileId).update { it.withDone(section, snapshot.restore(it.done(section))) }
 
     private fun store(saveFileId: String): JsonStore<MainQuestProgress> = progressStores.getValue(game.saveFile(saveFileId).id)
 }

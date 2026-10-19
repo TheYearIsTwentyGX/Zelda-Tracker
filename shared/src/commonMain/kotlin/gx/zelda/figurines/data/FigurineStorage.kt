@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.figurines.model.FigurinePrefs
 import gx.zelda.figurines.model.FigurineProgress
@@ -30,6 +31,19 @@ class FigurineStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setOwned(saveFileId: String, number: Int, owned: Boolean) =
         store(saveFileId).update { it.withOwned(number, owned) }
+
+    /**
+     * Marks every one of [numbers] owned, or none, in one write; returns which of them were owned
+     * before, for its undo. Nothing else on the file changes.
+     */
+    suspend fun setAllOwned(saveFileId: String, numbers: Collection<Int>, owned: Boolean): SetSnapshot<Int> {
+        val before = store(saveFileId).swap { it.withAllOwned(numbers, owned) }
+        return SetSnapshot.of(before.owned, numbers)
+    }
+
+    /** Puts back what [setAllOwned] replaced, in one write; figurines it didn't touch stay as they are. */
+    suspend fun restore(saveFileId: String, snapshot: SetSnapshot<Int>) =
+        store(saveFileId).update { it.copy(owned = snapshot.restore(it.owned)) }
 
     suspend fun setRequirementMet(saveFileId: String, number: Int, met: Boolean) =
         store(saveFileId).update { it.withRequirementMet(number, met) }

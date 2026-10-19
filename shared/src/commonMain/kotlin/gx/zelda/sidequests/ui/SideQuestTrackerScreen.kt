@@ -29,6 +29,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -43,6 +45,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.FoundToggleStyle
 import gx.zelda.core.ui.HiddenRow
@@ -55,6 +64,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.shrines.model.ShrineState
 import gx.zelda.sidequests.model.QuestKind
 import gx.zelda.sidequests.model.QuestState
@@ -86,7 +96,12 @@ fun SideQuestTrackerScreen(
     onOpenQuest: (String) -> Unit,
     onBack: () -> Unit,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -120,8 +135,9 @@ fun SideQuestTrackerScreen(
             return@Scaffold
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
-            SideQuestTabs(state, viewModel, onOpenQuest)
+            SideQuestTabs(state, viewModel, bulk, onOpenQuest)
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -144,7 +160,7 @@ private fun SideQuestMenu(state: SideQuestUiState, viewModel: SideQuestViewModel
 }
 
 @Composable
-private fun SideQuestTabs(state: SideQuestUiState, viewModel: SideQuestViewModel, onOpenQuest: (String) -> Unit) {
+private fun SideQuestTabs(state: SideQuestUiState, viewModel: SideQuestViewModel, bulk: BulkCompleteState, onOpenQuest: (String) -> Unit) {
     val kinds = state.kinds
     val pager = rememberPagerState { kinds.size }
     // Hoisted so each tab keeps its scroll position while its page is off screen.
@@ -172,7 +188,7 @@ private fun SideQuestTabs(state: SideQuestUiState, viewModel: SideQuestViewModel
         }
     }
     HorizontalPager(pager, modifier = Modifier.fillMaxSize()) { page ->
-        QuestList(state, kinds[page], viewModel, onOpenQuest, listStates[page])
+        QuestList(state, kinds[page], viewModel, bulk, onOpenQuest, listStates[page])
     }
 }
 
@@ -194,6 +210,7 @@ private fun QuestList(
     state: SideQuestUiState,
     kind: QuestKind,
     viewModel: SideQuestViewModel,
+    bulk: BulkCompleteState,
     onOpenQuest: (String) -> Unit,
     listState: LazyListState,
 ) {
@@ -214,6 +231,17 @@ private fun QuestList(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
             )
         }
+        // Acts on what the search and chip leave showing on this tab.
+        if (groups.isNotEmpty()) {
+            item(key = "_bulk") {
+                BulkCompleteRow(
+                    state.bulkScope(kind),
+                    bulk,
+                    onApply = { viewModel.setAllDone(kind, null, it == BulkAction.MARK) },
+                    modifier = Modifier.padding(horizontal = 4.dp),
+                )
+            }
+        }
         if (groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
@@ -228,7 +256,9 @@ private fun QuestList(
             // The header counts the whole region, not just the quests the filters leave showing.
             val count = counts.getValue(region)
             item(key = "h_$region", contentType = "header") {
-                RegionHeader(region, found = count.started, done = count.completed, total = count.total, foundLabel = "Started")
+                RegionHeader(region, found = count.started, done = count.completed, total = count.total, foundLabel = "Started", leading = {
+                    BulkCompleteCheckbox(state.bulkScope(kind, region), bulk, onApply = { viewModel.setAllDone(kind, region, it == BulkAction.MARK) })
+                })
             }
             itemsIndexed(inRegion, key = { _, quest -> quest.id }, contentType = { _, _ -> "quest" }) { i, quest ->
                 val last = i == inRegion.lastIndex

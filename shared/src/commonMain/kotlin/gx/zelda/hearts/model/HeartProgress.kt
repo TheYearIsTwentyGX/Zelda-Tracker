@@ -9,6 +9,10 @@ data class HeartProgress(val collected: Set<String> = emptySet()) {
 
     fun with(id: String, collected: Boolean): HeartProgress =
         copy(collected = if (collected) this.collected + id else this.collected - id)
+
+    /** Every one of [ids] collected, or none of them. */
+    fun withAll(ids: Collection<String>, collected: Boolean): HeartProgress =
+        copy(collected = if (collected) this.collected + ids else this.collected - ids.toSet())
 }
 
 /** Viewing preferences, shared by every save file. */

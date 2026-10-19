@@ -34,8 +34,8 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
-- **Mark all complete** (every checklist tracker; the BotW, TotK and Minish Cap trackers are to
-  follow): a row under the filters marks everything on the tab complete, and a box on each region
+- **Mark all complete** (every checklist tracker, and the bespoke trackers below that say so; BotW's
+  shrines, Koroks, Compendium and armor are to follow): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
   the box shows a dash when some are done. Upgrades go to their top level, or back to none.
   - It acts on the active save file, and on the rows the search and filter chips leave showing
@@ -78,6 +78,8 @@ iOS port is mostly a matter of adding the iOS targets.
 - Where to find Cotera, Kaysa, Mija and Tera: region, directions and nearby landmarks.
 - Mark each fountain as open. The screen shows what the next one costs (100 / 500 / 1,000 /
   10,000 rupees, by how many are already open) and how far armor can be upgraded.
+- **Mark all complete** (a row on the summary card) opens all four at once, or closes them all. With
+  every fountain open there are no costs left to pay; the dialog says how much that skips.
 - Shares the active save file with the armor tracker.
 
 **Breath of the Wild: Main Quest Progress**
@@ -90,6 +92,8 @@ iOS port is mostly a matter of adding the iOS targets.
   triggers them.
 - Mark towers activated, beasts freed and memories recovered. Each tab shows its count, and the
   save file picker shows all three.
+- **Mark all complete** per tab (a row on its summary card): every tower, beast or memory, or clear
+  them all.
 - Shares the active save file with the other BotW trackers.
 
 **Breath of the Wild: Shrines**
@@ -192,6 +196,10 @@ iOS port is mostly a matter of adding the iOS targets.
   Moon). Reward armor opens in Armor Progress.
 - A Shrine Quest's page shows its shrine's state from the shrine tracker on the same save file.
   Completing the quest doesn't complete the shrine, since the trial inside is still to do.
+- **Mark all complete** per tab (a row under its count) and per region (a box on the region's card)
+  completes every quest the search and filter leave showing. Once they're all complete it reads
+  *Clear all*, which puts each back to **Not started**, in progress ones too. **Undo** puts back each
+  quest's exact state: completed, in progress or not started. Shrine Quests' shrines aren't changed.
 - EX quests are here because the Adventure Log lists them under Side Quests. The DLC's five main
   quests (EX The Champions' Ballad and the four EX Champion … Song quests) are Main Quests in the
   log, so they aren't.
@@ -215,6 +223,9 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Master Mode:** the Master Mode file lists each boss as Master Mode places it. The game ranks Hinoxes, Stone
   Taluses and Lynels up a tier there (a Luminous Talus is Rare, a Blue Hinox is Black), except five spawns it
   exempts. A spawn's page says what it is in the other mode. Progress is kept per spawn, whatever the mode.
+- **Mark all complete** per tab and per region marks every boss shown **Defeated**; *Clear all* puts
+  each back to **Not found**, found ones too, and **Undo** puts back each one's exact state. It acts
+  on the active file's spawns, so Master Mode's extra Lynel only ever changes on the Master Mode file.
 - Shares the active save file with the other BotW trackers.
 
 **Breath of the Wild: Map**
@@ -261,6 +272,7 @@ iOS port is mostly a matter of adding the iOS targets.
   each one (Tera first; she unlocks the other three).
 - Mark each fairy as freed; the screen shows how far armor can be upgraded and the per-upgrade
   rupee fee (10 / 50 / 200 / 500).
+- **Mark all complete** (a row on the summary card) frees all four at once, or none.
 
 **Tears of the Kingdom: Shrines & Lightroots**
 - All 152 Shrines of Light and the 120 Lightroots beneath them, as two swipeable tabs with their
@@ -315,6 +327,8 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
 - **Hide uncollected** (top-bar menu) is a spoiler-safe mode, like the BotW trackers'. An uncollected
   entry shows only its region until you tap to reveal it, and a search or filter chip can't give it
   away.
+- **Mark all complete**: a row under the filters collects every entry they leave showing, and a box
+  on each region's card collects that region.
 - Tracks **File 1**, **File 2** and **File 3** separately, as on the cartridge. The save file picker
   shows each file's hearts.
 
@@ -350,6 +364,8 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   - the result, where it appears and notes.
 - The only fusion that can be lost for good is Eenie's on the European version. It's marked, as is
   Strato's, whose follow-up side quest can be missed.
+- **Mark all complete**: a row above the list marks every fusion the search and filters leave showing,
+  and a box on each region's card marks that region. Hidden results stay hidden in its dialog.
 - Tracks **File 1**, **File 2** and **File 3** separately and shares the active file with MC's other trackers.
 
 **The Minish Cap: Main Quest & Items**
@@ -367,6 +383,8 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
 - Mark dungeons cleared, items obtained and techniques learned on **File 1**, **File 2** or
   **File 3**. Each tab shows its count, and the save file picker shows all three. Sources and
   known disagreements are in `docs/mc-main-quest.md`.
+- **Mark all complete** per tab (a row on its summary card), per item group and for the technique
+  upgrades (a box on each heading). The Tiger Scrolls tab's row takes the upgrades too.
 
 **The Minish Cap: Carlov's Figurines**
 - All 136 figurines with their gallery numbers, names and in-game descriptions (North American
@@ -383,6 +401,10 @@ All three TotK trackers track **Save File 1** and **Save File 2** separately and
   and about how many shells the next one, and the rest of what's available, will cost.
 - **Hide figurines not yet available** (top-bar menu): they show only their number until tapped,
   later checkpoints read "Later in the story", and search only matches their number.
+- **Mark all complete**: a row above the list marks every figurine the filters leave showing owned,
+  and a box on each checkpoint's card marks that checkpoint's. Figurines the story hasn't unlocked
+  yet are marked too if you choose (the dialog says how many). The story checkpoint, side tasks and
+  Mysterious Shells never change.
 - Three save files, **File 1–3**, as on the cartridge.
 
 **The Legend of Zelda**

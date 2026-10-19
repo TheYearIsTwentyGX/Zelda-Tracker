@@ -33,6 +33,10 @@ data class SideQuestProgress(
 
     fun withState(questId: String, state: QuestState): SideQuestProgress =
         setsWith(questId, state).let { (completed, started) -> copy(completed = completed, started = started) }
+
+    /** Each of [questIds] moved to [state], as [withState] does one. */
+    fun withStates(questIds: Collection<String>, state: QuestState): SideQuestProgress =
+        questIds.fold(this) { progress, id -> progress.withState(id, state) }
 }
 
 /** Viewing preferences, shared by every save file. */

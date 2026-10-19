@@ -204,15 +204,19 @@ data class MainQuestProgress(
         MainQuestSection.TIGER_SCROLLS -> tigerScrolls
     }
 
-    fun with(section: MainQuestSection, id: String, done: Boolean): MainQuestProgress {
-        val ids = done(section).let { if (done) it + id else it - id }
-        return when (section) {
-            MainQuestSection.TOWERS -> copy(towers = ids)
-            MainQuestSection.DIVINE_BEASTS -> copy(divineBeasts = ids)
-            MainQuestSection.MEMORIES -> copy(memories = ids)
-            MainQuestSection.DUNGEONS -> copy(dungeons = ids)
-            MainQuestSection.ITEMS -> copy(items = ids)
-            MainQuestSection.TIGER_SCROLLS -> copy(tigerScrolls = ids)
-        }
+    fun with(section: MainQuestSection, id: String, done: Boolean): MainQuestProgress = withAll(section, listOf(id), done)
+
+    /** Every one of [ids] in [section] done, or none of them. */
+    fun withAll(section: MainQuestSection, ids: Collection<String>, done: Boolean): MainQuestProgress =
+        withDone(section, done(section).let { if (done) it + ids else it - ids.toSet() })
+
+    /** [section]'s done ids replaced by [ids]. */
+    fun withDone(section: MainQuestSection, ids: Set<String>): MainQuestProgress = when (section) {
+        MainQuestSection.TOWERS -> copy(towers = ids)
+        MainQuestSection.DIVINE_BEASTS -> copy(divineBeasts = ids)
+        MainQuestSection.MEMORIES -> copy(memories = ids)
+        MainQuestSection.DUNGEONS -> copy(dungeons = ids)
+        MainQuestSection.ITEMS -> copy(items = ids)
+        MainQuestSection.TIGER_SCROLLS -> copy(tigerScrolls = ids)
     }
 }

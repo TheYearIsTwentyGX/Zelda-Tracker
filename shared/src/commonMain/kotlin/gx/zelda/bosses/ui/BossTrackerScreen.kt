@@ -28,6 +28,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -42,8 +44,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import gx.zelda.bosses.model.BossSpawn
+import gx.zelda.core.BulkAction
 import gx.zelda.core.DiscoveryState
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.HiddenRow
 import gx.zelda.core.ui.LoadingOrError
@@ -55,6 +64,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import kotlinx.coroutines.launch
 
 /**
@@ -70,7 +80,12 @@ fun BossTrackerScreen(
     onOpenSpawn: (String) -> Unit,
     onBack: () -> Unit,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -96,7 +111,8 @@ fun BossTrackerScreen(
             LoadingOrError(loadFailed, "The boss list couldn't be loaded.", padding)
             return@Scaffold
         }
-        BossPages(state, viewModel, onOpenSpawn, Modifier.fillMaxSize().padding(padding))
+        BossPages(state, viewModel, bulk, onOpenSpawn, Modifier.fillMaxSize().padding(padding))
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -120,7 +136,7 @@ private fun BossMenu(state: BossUiState, viewModel: BossViewModel) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun BossPages(state: BossUiState, viewModel: BossViewModel, onOpenSpawn: (String) -> Unit, modifier: Modifier) {
+private fun BossPages(state: BossUiState, viewModel: BossViewModel, bulk: BulkCompleteState, onOpenSpawn: (String) -> Unit, modifier: Modifier) {
     val pages = state.pages
     if (pages.isEmpty()) return
     val pager = rememberPagerState { pages.size }
@@ -149,7 +165,7 @@ private fun BossPages(state: BossUiState, viewModel: BossViewModel, onOpenSpawn:
         // The search and filters stay put above the pages, so swiping keeps what was typed.
         BossFilterBar(state, pages[pager.targetPage], viewModel)
         HorizontalPager(pager, modifier = Modifier.fillMaxSize()) { i ->
-            BossList(state, pages[i], viewModel, onOpenSpawn, listStates[i])
+            BossList(state, pages[i], viewModel, bulk, onOpenSpawn, listStates[i])
         }
     }
 }
@@ -184,13 +200,26 @@ private fun BossList(
     state: BossUiState,
     page: BossPage,
     viewModel: BossViewModel,
+    bulk: BulkCompleteState,
     onOpenSpawn: (String) -> Unit,
     listState: LazyListState,
 ) {
+    val kindId = page.kind.id
     LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
         // While searching, the summary would push the results down under the keyboard.
         if (state.filters.query.isBlank()) {
             item(key = "_summary") { KindSummary(state, page) }
+        }
+        // Acts on what the search and chips leave showing on this tab.
+        if (page.groups.isNotEmpty()) {
+            item(key = "_bulk") {
+                BulkCompleteRow(
+                    state.bulkScope(kindId),
+                    bulk,
+                    onApply = { viewModel.setAllDefeated(kindId, null, it == BulkAction.MARK) },
+                    modifier = Modifier.padding(horizontal = 4.dp),
+                )
+            }
         }
         if (page.groups.isEmpty()) {
             item(key = "_empty") {
@@ -206,7 +235,9 @@ private fun BossList(
             // The header counts the whole region, not just the spawns the filters leave showing.
             val count = page.regionCounts.getValue(region)
             item(key = "h_$region", contentType = "header") {
-                RegionHeader(region, found = count.found, done = count.defeated, total = count.total)
+                RegionHeader(region, found = count.found, done = count.defeated, total = count.total, leading = {
+                    BulkCompleteCheckbox(state.bulkScope(kindId, region), bulk, onApply = { viewModel.setAllDefeated(kindId, region, it == BulkAction.MARK) })
+                })
             }
             itemsIndexed(spawns, key = { _, spawn -> spawn.id }, contentType = { _, _ -> "boss" }) { i, spawn ->
                 val last = i == spawns.lastIndex

@@ -22,11 +22,15 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,11 +39,19 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.mainquest.model.DivineBeast
 import gx.zelda.mainquest.model.Dungeon
 import gx.zelda.mainquest.model.InventoryItem
@@ -51,16 +63,6 @@ import kotlinx.coroutines.launch
 
 /** The most checklists a game's catalog can have: one scroll position is kept per page. */
 private val MAX_SECTIONS = MainQuestSection.entries.size
-
-private val MainQuestSection.label: String
-    get() = when (this) {
-        MainQuestSection.TOWERS -> "Towers"
-        MainQuestSection.DIVINE_BEASTS -> "Divine Beasts"
-        MainQuestSection.MEMORIES -> "Memories"
-        MainQuestSection.DUNGEONS -> "Dungeons"
-        MainQuestSection.ITEMS -> "Items"
-        MainQuestSection.TIGER_SCROLLS -> "Tiger Scrolls"
-    }
 
 /** "Activated", "Freed" or "Recovered": the tag on a finished item. */
 private val MainQuestSection.doneWord: String
@@ -105,7 +107,12 @@ fun MainQuestScreen(
     // Hoisted so each checklist keeps its scroll position while its page is off screen.
     val listStates = List(MAX_SECTIONS) { rememberLazyListState() }
     val scope = rememberCoroutineScope()
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -162,7 +169,11 @@ fun MainQuestScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp),
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    item(key = "summary") { SummaryCard(state, section) }
+                    item(key = "summary") {
+                        SummaryCard(state, section) {
+                            BulkCompleteRow(state.bulkScope(section), bulk, onApply = { viewModel.setAllDone(section, null, it == BulkAction.MARK) })
+                        }
+                    }
                     when (section) {
                         MainQuestSection.TOWERS -> items(state.catalog.towers, key = { it.id }) { tower ->
                             TowerCard(tower, state.isDone(section, tower.id)) { viewModel.setDone(section, tower.id, it) }
@@ -178,7 +189,9 @@ fun MainQuestScreen(
                         }
                         MainQuestSection.ITEMS -> state.catalog.itemsByCategory.forEach { (category, inCategory) ->
                             item(key = "_${category.name}") {
-                                GroupHeader(category.label, inCategory.count { state.isDone(section, it.id) }, inCategory.size)
+                                GroupHeader(category.label, inCategory.count { state.isDone(section, it.id) }, inCategory.size) {
+                                    GroupToggle(state, viewModel, bulk, section, category.label)
+                                }
                             }
                             items(inCategory, key = { it.id }) { item ->
                                 InventoryItemCard(item, state.isDone(section, item.id)) { viewModel.setDone(section, item.id, it) }
@@ -190,7 +203,11 @@ fun MainQuestScreen(
                             }
                             val upgrades = state.catalog.techniqueUpgrades
                             if (upgrades.isNotEmpty()) {
-                                item(key = "_upgrades") { GroupHeader("Technique upgrades", state.upgradeCount, upgrades.size) }
+                                item(key = "_upgrades") {
+                                    GroupHeader(UPGRADES_GROUP, state.upgradeCount, upgrades.size) {
+                                        GroupToggle(state, viewModel, bulk, section, UPGRADES_GROUP)
+                                    }
+                                }
                                 items(upgrades, key = { it.id }) { upgrade ->
                                     TigerScrollCard(upgrade, state.isDone(section, upgrade.id)) { viewModel.setDone(section, upgrade.id, it) }
                                 }
@@ -200,11 +217,18 @@ fun MainQuestScreen(
                 }
             }
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
 @Composable
-private fun SummaryCard(state: MainQuestUiState, section: MainQuestSection) {
+private fun GroupToggle(state: MainQuestUiState, viewModel: MainQuestViewModel, bulk: BulkCompleteState, section: MainQuestSection, group: String) {
+    BulkCompleteCheckbox(state.bulkScope(section, group), bulk, onApply = { viewModel.setAllDone(section, group, it == BulkAction.MARK) })
+}
+
+/** The tab's count and notes, with [bulk] (its mark-all row) at the bottom. */
+@Composable
+private fun SummaryCard(state: MainQuestUiState, section: MainQuestSection, bulk: @Composable () -> Unit) {
     val done = state.doneCount(section)
     val total = state.catalog.total(section)
     SectionCard {
@@ -233,6 +257,7 @@ private fun SummaryCard(state: MainQuestUiState, section: MainQuestSection) {
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+        bulk()
     }
 }
 
@@ -358,10 +383,11 @@ private fun TigerScrollCard(scroll: TigerScroll, done: Boolean, onDoneChange: (B
     }
 }
 
-/** A heading inside a checklist, with how much of the group is done. */
+/** A heading inside a checklist, with how much of the group is done; [leading] is its mark-all box. */
 @Composable
-private fun GroupHeader(label: String, done: Int, total: Int) {
+private fun GroupHeader(label: String, done: Int, total: Int, leading: @Composable () -> Unit) {
     Row(Modifier.fillMaxWidth().padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        leading()
         Text(label, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
         Text("$done / $total", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }

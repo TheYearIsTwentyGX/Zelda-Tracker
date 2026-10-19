@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.kinstones.model.KinstonePrefs
 import gx.zelda.kinstones.model.KinstoneProgress
@@ -30,6 +31,19 @@ class KinstoneStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setFused(saveFileId: String, fusionId: String, done: Boolean) =
         store(saveFileId).update { it.withFused(fusionId, done) }
+
+    /**
+     * Marks every one of [fusionIds] done, or none, in one write; returns which of them were done
+     * before, for its undo.
+     */
+    suspend fun setAllFused(saveFileId: String, fusionIds: Collection<String>, done: Boolean): SetSnapshot<String> {
+        val before = store(saveFileId).swap { it.withAllFused(fusionIds, done) }
+        return SetSnapshot.of(before.fused, fusionIds)
+    }
+
+    /** Puts back what [setAllFused] replaced, in one write; fusions it didn't touch stay as they are. */
+    suspend fun restore(saveFileId: String, snapshot: SetSnapshot<String>) =
+        store(saveFileId).update { it.copy(fused = snapshot.restore(it.fused)) }
 
     suspend fun updatePrefs(transform: (KinstonePrefs) -> KinstonePrefs) = prefsStore.update(transform)
 

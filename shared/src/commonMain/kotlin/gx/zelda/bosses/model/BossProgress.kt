@@ -22,6 +22,10 @@ data class BossProgress(
 
     fun withState(spawnId: String, state: DiscoveryState): BossProgress =
         setsWith(spawnId, state).let { (defeated, found) -> copy(defeated = defeated, found = found) }
+
+    /** Each of [spawnIds] moved to [state], as [withState] does one. */
+    fun withStates(spawnIds: Collection<String>, state: DiscoveryState): BossProgress =
+        spawnIds.fold(this) { progress, id -> progress.withState(id, state) }
 }
 
 /** Viewing preferences, shared by every save file. */

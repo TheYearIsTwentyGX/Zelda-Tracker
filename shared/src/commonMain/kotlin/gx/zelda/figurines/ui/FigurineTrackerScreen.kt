@@ -35,6 +35,8 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -56,6 +58,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
@@ -65,6 +74,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.figurines.model.Figurine
 import gx.zelda.figurines.model.FigurineProgress
 
@@ -81,7 +91,12 @@ fun FigurineTrackerScreen(
     viewModel: FigurineViewModel,
     onBack: () -> Unit,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -109,8 +124,9 @@ fun FigurineTrackerScreen(
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
             FigurineFilterBar(state, viewModel)
-            FigurineList(state, viewModel)
+            FigurineList(state, viewModel, bulk)
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -159,13 +175,24 @@ private fun FigurineFilterBar(state: FigurineUiState, viewModel: FigurineViewMod
 }
 
 @Composable
-private fun FigurineList(state: FigurineUiState, viewModel: FigurineViewModel) {
+private fun FigurineList(state: FigurineUiState, viewModel: FigurineViewModel, bulk: BulkCompleteState) {
     // Which rows show their description; not saved.
     var expanded by remember { mutableStateOf(setOf<Int>()) }
     LazyColumn(Modifier.fillMaxSize()) {
         // While searching, the card would push the results down under the keyboard.
         if (state.filters.query.isBlank()) {
             item(key = "_collection") { CollectionCard(state, viewModel) }
+        }
+        // Acts on what the search and chips leave showing; the shells and checkpoint above stay.
+        if (state.groups.isNotEmpty()) {
+            item(key = "_bulk") {
+                BulkCompleteRow(
+                    state.bulkScope(),
+                    bulk,
+                    onApply = { viewModel.setAllOwned(null, it == BulkAction.MARK) },
+                    modifier = Modifier.padding(horizontal = 4.dp),
+                )
+            }
         }
         if (state.groups.isEmpty()) {
             item(key = "_empty") {
@@ -178,7 +205,11 @@ private fun FigurineList(state: FigurineUiState, viewModel: FigurineViewModel) {
             }
         }
         for (group in state.groups) {
-            item(key = "h_${group.checkpoint.id}", contentType = "header") { CheckpointHeader(group) }
+            item(key = "h_${group.checkpoint.id}", contentType = "header") {
+                CheckpointHeader(group) {
+                    BulkCompleteCheckbox(state.bulkScope(group.checkpoint.id), bulk, onApply = { viewModel.setAllOwned(group.checkpoint.id, it == BulkAction.MARK) })
+                }
+            }
             itemsIndexed(group.figurines, key = { _, f -> f.number }, contentType = { _, _ -> "figurine" }) { i, figurine ->
                 val last = i == group.figurines.lastIndex
                 if (state.isHidden(figurine)) {
@@ -307,16 +338,17 @@ private fun ShellCounter(shells: Int, onChange: (Int) -> Unit) {
     }
 }
 
-/** The top of a checkpoint's card: its name and what reaches it, and owned / total. */
+/** The top of a checkpoint's card: its mark-all box ([leading]), its name and what reaches it, and owned / total. */
 @Composable
-private fun CheckpointHeader(group: FigurineGroup) {
+private fun CheckpointHeader(group: FigurineGroup, leading: @Composable () -> Unit) {
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
         modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
     ) {
-        Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f)) {
+        Row(Modifier.padding(start = 4.dp, end = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+            leading()
+            Column(Modifier.weight(1f).padding(vertical = 10.dp)) {
                 Text(
                     if (group.hidden) "Later in the story" else group.checkpoint.name,
                     style = MaterialTheme.typography.titleMedium,

@@ -19,6 +19,10 @@ data class FigurineProgress(
     fun withOwned(number: Int, owned: Boolean): FigurineProgress =
         copy(owned = if (owned) this.owned + number else this.owned - number)
 
+    /** Every one of [numbers] owned, or none of them; the checkpoint, side tasks and shells stay. */
+    fun withAllOwned(numbers: Collection<Int>, owned: Boolean): FigurineProgress =
+        copy(owned = if (owned) this.owned + numbers else this.owned - numbers.toSet())
+
     fun withRequirementMet(number: Int, met: Boolean): FigurineProgress =
         copy(requirementsMet = if (met) requirementsMet + number else requirementsMet - number)
 

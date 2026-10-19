@@ -16,10 +16,14 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
@@ -27,20 +31,32 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import gx.zelda.core.ui.MenuOrBackButton
-import gx.zelda.fairies.model.FairyCatalog
-import gx.zelda.fairies.model.GreatFairy
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.LoadingOrError
+import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Stars
 import gx.zelda.core.ui.Tag
+import gx.zelda.core.ui.rememberBulkCompleteState
+import gx.zelda.fairies.model.FairyCatalog
+import gx.zelda.fairies.model.GreatFairy
 
 /** Great Fairy Fountains: where each one is, and which are open on the active save file. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FairyTrackerScreen(state: FairyUiState?, loadFailed: Boolean, viewModel: FairyViewModel, onBack: () -> Unit) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -70,7 +86,7 @@ fun FairyTrackerScreen(state: FairyUiState?, loadFailed: Boolean, viewModel: Fai
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.fillMaxSize().padding(padding),
         ) {
-            item(key = "summary") { SummaryCard(state) }
+            item(key = "summary") { SummaryCard(state, viewModel, bulk) }
             items(state.catalog.fairies, key = { it.id }) { fairy ->
                 FairyCard(
                     fairy,
@@ -80,11 +96,12 @@ fun FairyTrackerScreen(state: FairyUiState?, loadFailed: Boolean, viewModel: Fai
                 )
             }
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
 @Composable
-private fun SummaryCard(state: FairyUiState) {
+private fun SummaryCard(state: FairyUiState, viewModel: FairyViewModel, bulk: BulkCompleteState) {
     val catalog = state.catalog
     val open = state.unlockedCount
     val total = catalog.fairies.size
@@ -94,6 +111,7 @@ private fun SummaryCard(state: FairyUiState) {
             Stars(open, total, modifier = Modifier.semantics { contentDescription = "Armor upgradable to $open stars" })
         }
         if (catalog.isPaid) PaidSummary(catalog, open, total) else QuestSummary(catalog, open, total)
+        BulkCompleteRow(state.bulkScope, bulk, onApply = { viewModel.setAllUnlocked(it == BulkAction.MARK) })
     }
 }
 

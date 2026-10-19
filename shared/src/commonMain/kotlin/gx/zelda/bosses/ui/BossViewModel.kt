@@ -11,8 +11,12 @@ import gx.zelda.bosses.model.BossPrefs
 import gx.zelda.bosses.model.BossProgress
 import gx.zelda.bosses.model.BossSpawn
 import gx.zelda.bosses.model.tallies
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -113,6 +117,44 @@ data class BossUiState(
             uncounted = all.filterNot { it.countsForMedal },
         )
     }
+
+    /** True when a search or chip is on for [page], so a bulk toggle acts on the bosses shown only. */
+    fun isFiltered(page: BossPage): Boolean =
+        filters.query.isNotBlank() || filters.incompleteOnly || filters.variants.any { it in page.kind.variants }
+
+    /**
+     * What a "mark all complete" toggle acts on: the spawns the filters leave on [kindId]'s tab
+     * (hidden ones included), or only those under [region]. They're this save file's spawns, so a
+     * Master Mode file's own Lynels are in and a Normal Mode file never touches them.
+     */
+    fun bulkSpawns(kindId: String, region: String? = null): List<BossSpawn> {
+        val groups = pages.firstOrNull { it.kind.id == kindId }?.groups.orEmpty()
+        return if (region == null) groups.flatMap { it.second } else groups.firstOrNull { it.first == region }?.second.orEmpty()
+    }
+
+    /**
+     * The toggle for [kindId]'s tab, or for [region]'s header on it. A mark defeats every boss; a
+     * clear puts each back to not found, found ones too. Its text names the tab or region, never
+     * a boss.
+     */
+    fun bulkScope(kindId: String, region: String? = null): BulkScope {
+        val page = pages.first { it.kind.id == kindId }
+        val scope = BulkScope.of(
+            label = region ?: page.kind.plural,
+            items = bulkSpawns(kindId, region),
+            noun = "boss",
+            plural = "bosses",
+            filtered = isFiltered(page),
+            isDone = { progress.isDefeated(it.id) },
+            isStarted = { progress.isFound(it.id) },
+        )
+        val leftOut = !saveFile.masterMode && catalog.spawns.any { it.kind == kindId && it.masterModeOnly && (region == null || it.region == region) }
+        val note = listOfNotNull(
+            if (scope.action == BulkAction.MARK) "Each is marked defeated." else "Each goes back to not found, found ones too.",
+            if (leftOut) "Master Mode's own spawns aren't on this file, so they don't change." else null,
+        )
+        return scope.copy(note = note.joinToString(" "))
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -129,7 +171,9 @@ class BossViewModel(
 
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
 
-    private val activeProgress: Flow<BossProgress> = activeFile.flatMapLatest { storage.progress(it.id) }
+    /** The file and its progress together, so a switch never pairs the new file with the old file's bosses. */
+    private val activeProgress: Flow<Pair<SaveFile, BossProgress>> =
+        activeFile.flatMapLatest { file -> storage.progress(file.id).map { file to it } }
 
     private val progressByFile: Flow<List<Pair<SaveFile, BossProgress>>> = combine(
         storage.game.saveFiles.map { file -> storage.progress(file.id).map { file to it } },
@@ -137,7 +181,7 @@ class BossViewModel(
 
     val state: StateFlow<BossUiState?> = combine(
         data.filterNotNull(),
-        combine(activeFile, activeProgress, ::Pair),
+        activeProgress,
         storage.prefs,
         progressByFile,
         filters,
@@ -175,6 +219,44 @@ class BossViewModel(
     fun setState(spawnId: String, bossState: DiscoveryState): Job? {
         val file = state.value?.saveFile?.id ?: return null
         return viewModelScope.launch { storage.setState(file, spawnId, bossState) }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<Pair<SetSnapshot<String>, SetSnapshot<String>>>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Defeats every boss [BossUiState.bulkSpawns] gives for [kindId] and [region], or puts them all
+     * back to not found, on the file on screen. It's one write, and each spawn's state before it
+     * is kept in [bulkChange] for an undo. Null when there's nothing to change.
+     */
+    fun setAllDefeated(kindId: String, region: String?, defeated: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkSpawns(kindId, region).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(kindId, region)
+        val target = if (defeated) DiscoveryState.COMPLETED else DiscoveryState.UNDISCOVERED
+        return viewModelScope.launch {
+            val snapshot = storage.setAllStates(state.saveFile.id, ids, target)
+            val (before, found) = snapshot
+            val changed = ids.count { DiscoveryState.of(it, before.members, found.members) != target }
+            if (changed > 0) {
+                val action = if (defeated) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back each spawn's state before [change], on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }

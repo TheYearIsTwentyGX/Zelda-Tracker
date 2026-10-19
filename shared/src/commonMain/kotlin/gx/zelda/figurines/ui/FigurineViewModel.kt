@@ -2,7 +2,11 @@ package gx.zelda.figurines.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
 import gx.zelda.core.SaveFile
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import gx.zelda.figurines.data.FigurineRepository
@@ -120,6 +124,49 @@ data class FigurineUiState(
             )
         }
     }
+
+    /** True when a search or chip is on, so a bulk toggle acts on the figurines shown only. */
+    val filtered: Boolean get() = filters.query.isNotBlank() || filters.categories.isNotEmpty() || filters.show != FigurineShow.ALL
+
+    /**
+     * What a "mark all complete" toggle acts on: the figurines the filters leave showing (hidden
+     * ones included), or only those under the checkpoint [checkpointId].
+     */
+    fun bulkFigurines(checkpointId: String? = null): List<Figurine> =
+        if (checkpointId == null) groups.flatMap { it.figurines } else groups.firstOrNull { it.checkpoint.id == checkpointId }?.figurines.orEmpty()
+
+    /**
+     * The toggle for the whole list, or for [checkpointId]'s header. Its text names the checkpoint
+     * as the header does ("Later in the story" while that's a spoiler), never a figurine. Marking
+     * all is the user's call even for figurines Carlov can't give yet, so the note says how many
+     * those are; the checkpoint, side tasks and Mysterious Shells never change.
+     */
+    fun bulkScope(checkpointId: String? = null): BulkScope {
+        val group = checkpointId?.let { id -> groups.firstOrNull { it.checkpoint.id == id } }
+        val figurines = bulkFigurines(checkpointId)
+        val scope = BulkScope.of(
+            label = when {
+                group == null -> "All checkpoints"
+                group.hidden -> "Later in the story"
+                else -> group.checkpoint.name
+            },
+            items = figurines,
+            noun = "figurine",
+            filtered = filtered,
+            isDone = { progress.isOwned(it.number) },
+            isStarted = { progress.isOwned(it.number) },
+        )
+        val locked = figurines.count { !isAvailable(it) }
+        val note = listOfNotNull(
+            when {
+                scope.action != BulkAction.MARK || locked == 0 -> null
+                locked == 1 -> "1 of them isn't available from Carlov yet on this file; it's marked owned anyway."
+                else -> "$locked of them aren't available from Carlov yet on this file; they're marked owned anyway."
+            },
+            "The story checkpoint, side tasks and Mysterious Shells stay as they are.",
+        )
+        return scope.copy(note = note.joinToString(" "))
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -179,6 +226,42 @@ class FigurineViewModel(
     }
 
     fun setOwned(number: Int, owned: Boolean) = edit { storage.setOwned(it, number, owned) }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<SetSnapshot<Int>>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Marks every figurine [FigurineUiState.bulkFigurines] gives for [checkpointId] owned, or none
+     * of them, on the file on screen. It's one write, and what it replaced is kept in [bulkChange]
+     * for an undo. Null when there's nothing to change.
+     */
+    fun setAllOwned(checkpointId: String?, owned: Boolean): Job? {
+        val state = state.value ?: return null
+        val numbers = state.bulkFigurines(checkpointId).map { it.number }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(checkpointId)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllOwned(state.saveFile.id, numbers, owned)
+            val changed = numbers.count { (it in snapshot.members) != owned }
+            if (changed > 0) {
+                val action = if (owned) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back what [change] replaced, on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
+    }
 
     fun setRequirementMet(number: Int, met: Boolean) = edit { storage.setRequirementMet(it, number, met) }
 
