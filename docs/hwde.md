@@ -19,8 +19,8 @@ DE has every map from both earlier games, all unlocked from the start:
 | Great Sea Map | 98 | Yes (phase 2a) |
 | Master Quest Map | 128 | Yes (phase 2b) |
 | Master Wind Waker Map | 98 | Yes (phase 2a) |
-| Twilight Map | 93 | Planned |
-| Termina Map | 85 | Planned |
+| Twilight Map | 93 | Yes (phase 2c) |
+| Termina Map | 85 | Yes (phase 2c) |
 | Koholint Island Map | 84 | Planned |
 | Grand Travels Map | 128 | Planned |
 | Lorule Map | 128 | Planned |
@@ -235,6 +235,66 @@ Accepted:
   Switch player's report); SBAllen's guide lists none.
 - SBAllen calls the Recorder the "Whistle" on this map.
 
+### Cross-check: Twilight Map
+
+Twilight Princess's Hyrule, 15×8 with blank squares (93 squares), from F-15 to the Dark Ruler at
+E-5.
+- 21 squares are under Twilight clouds (a **Twilight Rule**), and 20 of them take the Tear of Light
+  on the whole square to clear it.
+- Warp portals take the Ooccoo, which opens the portal's partner square.
+- All 17 weapons are level 4.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 93 / 93 |
+| A-rank KOs, time and damage | 93 / 93 each |
+| Searches | 92 / 93 (B-3 below) |
+| Every reward, by slot | 90 / 93 after 1 fix |
+| Nintendo Life weapon squares | 16 / 17 |
+
+Fixed:
+- **D-12** (SBAllen L-4): the Magic Skirt is the 3DS's. SBAllen gives the Switch's Twilight Skirt
+  (Upper Level East), and the Helper had copied the 3DS line.
+
+Accepted:
+- **B-3** (SBAllen C-2): the Helper's Ooccoo search is on the square's warp portal. SBAllen doesn't
+  list Ooccoo uses as searches.
+- **E-13, G-6 and H-3**: the Lantern, Compass and Lantern cards on a clear, added to the Helper
+  from its issue #12 (a Switch player's report). SBAllen's guide lists only the Tear of Light there.
+- **Nintendo Life's Great Swords** at H-2: SBAllen and the Helper both say H-4.
+- **The Tears of Twilight card**: it only appears once every cloud is gone, to bring them back, so
+  no square uses or gives it.
+- **The card's name**: Zelda Wiki calls it the Tear of Light; the guides write "Tears of Light".
+
+### Cross-check: Termina Map
+
+Majora's Mask's Termina, 16×8 with blank squares (85 squares), from E-10 to the Dark Ruler at B-2.
+- The masks (Deku, Goron, Zora) and the Deku Stick are its search cards.
+- The four Giant cards, used together on Clock Town, open a hidden part of the map.
+- Several cards act on the whole map rather than a square: the Song of Time, the Inverted Song of
+  Time, the Mask of Truth and Majora's Mask. They're listed with the cards, but aren't searches.
+- All 18 weapons are level 4.
+
+| Check | Agree |
+|---|---|
+| Mission text | 85 / 85 |
+| A-rank KOs, time and damage | 85 / 85 each |
+| Searches | 82 / 85 |
+| Every reward, by slot | 85 / 85 after 1 fix |
+| Nintendo Life weapon squares | 17 / 18 |
+
+Fixed:
+- **C-6** (SBAllen F-3): Fairy Food - Ember Seeds (a pot at West Keep), which SBAllen lists for both
+  versions, is added.
+
+Accepted, noted on the square:
+- **B-9, C-11 and F-11** (SBAllen I-2, K-3, K-6): SBAllen's guide has a Bomb search on a boulder on
+  each, in nearly the same words.
+  - On B-9 the Helper has none.
+  - On C-11 it uses the Goron Mask on a switch; its picture has the switch and no boulder.
+  - On F-11 it has none, and draws no boulder.
+- **Nintendo Life's Great Fairy** at B-5: SBAllen and the Helper say B-7.
+
 ### The Rewards Map
 
 Its 13 squares sit in a diamond in the middle of the game's 16×8 grid (SBAllen's I-1, H-2, J-2 …
@@ -335,6 +395,8 @@ now* filters to squares with an undone search whose card you have.
   the walls are known.
 - **The Great Sea's hazards** are shown as the square's rule. Using the card that lifts one counts
   as that square's search; the rule itself isn't tracked as lifted.
+- **Twilight clouds and Termina's Owl Statues** are shown in the square's rule and searches; which
+  squares are clear or protected right now isn't tracked.
 - **Termina's moon.** When it falls it resets the map, but not the rewards. The tracker records
   what's been done at least once and doesn't reset.
 

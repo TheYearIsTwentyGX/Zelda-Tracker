@@ -62,6 +62,10 @@ MAPS = {
     # app draws plain tiles named by each square's illustration; SBAllen lists them by that name.
     "rewards_map": {"hwh": "rewards", "name": "Rewards Map", "grid": (16, 8), "art": False, "titles": True,
                     "sballen": ("rewards-map", "20190514154019"), "wiki": "Rewards"},
+    "twilight_map": {"hwh": "twilight", "name": "Twilight Map",
+                     "sballen": ("twilight-map", "20190514154018"), "wiki": "Twilight"},
+    "termina_map": {"hwh": "termina", "name": "Termina Map",
+                    "sballen": ("termina-map", "20190514154015"), "wiki": "Termina"},
     "master_wind_waker_map": {"hwh": "master-wind-waker", "name": "Master Wind Waker Map",
                               "sballen": ("master-wind-waker-map", "20190514154017"), "wiki": "Master Wind Waker"},
 }
@@ -120,6 +124,45 @@ NINTENDO_LIFE_WEAPONS = {
         ("scimitars", "G-16"),
         ("demon_blade", "D-1"),
         ("zora_scale", "A-12"),
+    ],
+    "twilight_map": [
+        ("hylian_sword", "C-2"),
+        ("magic_rod", "E-1"),
+        ("gauntlets", "G-5"),
+        ("spinner", "D-5"),
+        ("giant_blade", "G-8"),
+        ("book_of_sorcery", "A-9"),
+        ("spear", "E-3"),
+        ("rapier", "D-10"),
+        ("shackle", "E-4"),
+        ("scimitars", "A-3"),
+        ("parasol", "A-11"),
+        ("crossbows", "D-6"),  # written column first: SBAllen F-4
+        ("light_sword", "F-6"),
+        ("cutlass", "D-4"),
+        ("sail", "F-5"),  # written column first: SBAllen E-6
+        ("balloon", "A-7"),  # written column first: SBAllen G-1
+            ("great_swords", "H-2"),  # Nintendo Life; SBAllen and the Helper: H-4
+    ],
+    "termina_map": [
+        ("epona", "H-8"),
+        ("naginata", "C-7"),
+        ("harp", "H-13"),
+        ("summoning_gate", "D-16"),
+        ("hammer", "H-7"),
+        ("baton", "F-13"),
+        ("dominion_rod", "A-3"),
+        ("goddess_blade", "C-6"),
+        ("demon_blade", "F-6"),
+        ("zora_scale", "G-14"),
+        ("scepter", "F-7"),
+        ("dragon_spear", "D-14"),
+        ("ring", "C-15"),
+        ("mirror", "A-14"),  # written column first: SBAllen N-1
+        ("mask", "A-1"),
+        ("ocarina", "B-6"),  # written column first: SBAllen F-2
+        ("trident", "B-1"),
+            ("great_fairy", "B-5"),  # Nintendo Life; SBAllen and the Helper: B-7
     ],
 }
 # RPG Site, "Hyrule Warriors: Definitive Edition: How to unlock every character".
@@ -423,9 +466,9 @@ def card_effects(use: str, card_id: str) -> list[str]:
         effects.append("reward")
     if re.search(r"reveal(ing)? (hidden )?enem|enemy locations", use):
         effects.append("enemies")
-    if re.search(r"removing locks|opening the square|reach new", use):
+    if re.search(r"removing locks|opening the square|reach new|unlock a hidden part", use):
         effects.append("path")
-    if re.search(r"restriction|Dispels|rules? from", use):
+    if re.search(r"(removing|lifts?)[^.]*(restriction|rules?)|Dispels", use):
         effects.append("rule")
     return effects or ["other"]
 
@@ -723,7 +766,7 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
         for line in cells.get(key, []):
             line = re.sub(r"\s*\([^)]*\)\s*$", "", line)
             line = re.sub(r"^(.*?) (Heart Container|Piece of Heart)$", r"\2 - \1", line)  # "Skull Kid Heart Container"
-            out[norm(line).replace("conpass", "compass").replace("seachart", "seamap")] += 1
+            out[norm(line).replace("conpass", "compass").replace("seachart", "seamap").replace("tearsoflight", "tearoflight")] += 1
         return out
 
     for s in m["squares"]:
@@ -746,7 +789,7 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
             if theirs_v != ours_v:
                 lines.append(f"{tag} {field}: ours {ours_v or '-'} / SBAllen {theirs_v or '-'}")
         ours_search = sorted(norm(card_names[x["card"]]).rstrip("s") for x in s.get("searches", []))
-        theirs_search = sorted(norm(re.sub(r"^ONLY\s*-?\s*", "", t.split(":")[0])).replace("seachart", "seamap").replace("whistle", "recorder").rstrip("s") for t in b.get("Search", []))
+        theirs_search = sorted(norm(re.sub(r"^ONLY\s*-?\s*", "", t.split(":")[0])).replace("seachart", "seamap").replace("whistle", "recorder").replace("tearsoflight", "tearoflight").rstrip("s") for t in b.get("Search", []))
         if ours_search != theirs_search:
             lines.append(f"{tag} searches: ours {ours_search} / SBAllen {theirs_search}")
         for slot, key in (("aRank", "A-Rank Victory"), ("clear", "Battle Victory"), ("treasure", "Treasure")):
@@ -858,6 +901,8 @@ def self_test():
     assert card_use("Reveals all secrets within a battle square.", "Adventure") == "Reveals all secrets within a battle square."
     assert card_effects("Destroys Warships, removing Great Sea rules from that square.", "cannon") == ["rule"]
     assert card_effects("Stops headwinds, removing locks on certain adjacent squares.", "windwaker") == ["path"]
+    assert card_effects("Resets the map without waiting for the Moon and restores the time restriction.", "song_of_time") == ["other"]
+    assert card_effects("Use all four on the clock tower to unlock a hidden part of the map.", "giant") == ["path"]
     assert card_effects("Burns bushes, unlocking a secret reward.", "candle") == ["reward"]
     assert card_effects("Opens caves, unlocking a secret reward or revealing enemies in that square.", "bomb") == ["reward", "enemies"]
     rs = [{"slot": "aRank", "type": "heart_container", "warrior": "zelda", "name": "Heart Container"},

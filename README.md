@@ -866,9 +866,11 @@ what's done and what's left marked on each. So far:
 - the **Great Sea Map** (98, with its Great Sea Rules and the cards that lift them);
 - the **Master Quest Map** (128, every square under a Master Quest Rule);
 - the **Master Wind Waker Map** (the Great Sea under Endless Night Rules);
+- the **Twilight Map** (93, with the Twilight clouds and the Tears of Light that clear them);
+- the **Termina Map** (85, with the masks and the Giants);
 - the **Rewards Map** (its 13 illustration battles, drawn as named tiles, since there's no art).
 
-The Twilight, Termina, Koholint Island, Grand Travels and Lorule maps follow. The data, its sources and disagreements, and how the art lines up are in
+The Koholint Island, Grand Travels and Lorule maps follow. The data, its sources and disagreements, and how the art lines up are in
 `docs/hwde.md`.
 - **Progress Overview** (first): a row per map with everything done of all, squares cleared and
   A-ranked, Heart Containers, Pieces of Heart, Gold Skulltulas and weapons, and the next step.

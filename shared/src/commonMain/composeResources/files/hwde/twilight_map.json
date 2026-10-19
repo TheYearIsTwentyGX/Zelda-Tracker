@@ -1,0 +1,4554 @@
+{
+ "id": "twilight_map",
+ "name": "Twilight Map",
+ "cols": 15,
+ "rows": 8,
+ "start": "r6c15",
+ "finalBoss": "r5c5",
+ "art": {
+  "squares": "hwde/twilight_map",
+  "preview": "hwde/twilight_map/preview.webp",
+  "squareWidth": 256,
+  "squareHeight": 176
+ },
+ "regions": [
+  {
+   "id": "colorless",
+   "name": "Black"
+  },
+  {
+   "id": "green",
+   "name": "Green"
+  },
+  {
+   "id": "yellow",
+   "name": "Yellow"
+  },
+  {
+   "id": "purple",
+   "name": "Purple"
+  },
+  {
+   "id": "orange",
+   "name": "Orange"
+  },
+  {
+   "id": "blue",
+   "name": "Blue"
+  },
+  {
+   "id": "red",
+   "name": "Red"
+  }
+ ],
+ "cards": [
+  {
+   "id": "spinner",
+   "name": "Spinner",
+   "effects": [
+    "reward"
+   ],
+   "text": "Operates cog-shaped mechanisms, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "tears_of_light",
+   "name": "Tear of Light",
+   "effects": [
+    "enemies",
+    "rule"
+   ],
+   "text": "Dispels Twilight clouds from battle squares, removing the Twilight restriction and revealing enemy locations."
+  },
+  {
+   "id": "bomb",
+   "name": "Bomb",
+   "effects": [
+    "reward",
+    "enemies"
+   ],
+   "text": "Opens cave entrances in mountain walls and destroys boulders on land, unlocking a secret reward or revealing enemies in that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "water_bomb",
+   "name": "Water Bomb",
+   "effects": [
+    "reward"
+   ],
+   "text": "Destroys boulders in bodies of water, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "clawshot",
+   "name": "Clawshot",
+   "effects": [
+    "path"
+   ],
+   "text": "Pulls Warrior to a marked target, removing locks on certain adjacent squares so that they can be opened normally.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "jar",
+   "name": "Jar",
+   "effects": [
+    "reward"
+   ],
+   "text": "Weighs down switches, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "lantern",
+   "name": "Lantern",
+   "effects": [
+    "enemies"
+   ],
+   "text": "Lights torches, revealing enemies in that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "ooccoo",
+   "name": "Ooccoo",
+   "effects": [
+    "path"
+   ],
+   "text": "Teleports from an activated (green) Warp Portal to its partner, opening the square on the other end. Portals are activated by completing the battle square."
+  },
+  {
+   "id": "digging_mitts",
+   "name": "Digging Mitts",
+   "effects": [
+    "reward"
+   ],
+   "text": "Digs up green, X-marked plots of soil, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "fishing_rod",
+   "name": "Fishing Rod",
+   "effects": [
+    "reward"
+   ],
+   "text": "Catches Fish in bodies of water, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "compass",
+   "name": "Compass",
+   "effects": [
+    "compass"
+   ],
+   "text": "Reveals all secrets within a battle square, making their tiles sparkle.",
+   "shopPrice": 5000
+  }
+ ],
+ "warriors": [
+  {
+   "id": "agitha",
+   "name": "Agitha"
+  },
+  {
+   "id": "cia",
+   "name": "Cia"
+  },
+  {
+   "id": "darunia",
+   "name": "Darunia"
+  },
+  {
+   "id": "fi",
+   "name": "Fi"
+  },
+  {
+   "id": "ganondorf",
+   "name": "Ganondorf"
+  },
+  {
+   "id": "ghirahim",
+   "name": "Ghirahim"
+  },
+  {
+   "id": "impa",
+   "name": "Impa"
+  },
+  {
+   "id": "king_daphnes",
+   "name": "King Daphnes"
+  },
+  {
+   "id": "lana",
+   "name": "Lana"
+  },
+  {
+   "id": "link",
+   "name": "Link"
+  },
+  {
+   "id": "linkle",
+   "name": "Linkle"
+  },
+  {
+   "id": "midna",
+   "name": "Midna"
+  },
+  {
+   "id": "ruto",
+   "name": "Ruto"
+  },
+  {
+   "id": "sheik",
+   "name": "Sheik"
+  },
+  {
+   "id": "skull_kid",
+   "name": "Skull Kid"
+  },
+  {
+   "id": "tetra",
+   "name": "Tetra"
+  },
+  {
+   "id": "tingle",
+   "name": "Tingle"
+  },
+  {
+   "id": "toon_link",
+   "name": "Toon Link"
+  },
+  {
+   "id": "twili_midna",
+   "name": "Twili Midna"
+  },
+  {
+   "id": "volga",
+   "name": "Volga"
+  },
+  {
+   "id": "wizzro",
+   "name": "Wizzro"
+  },
+  {
+   "id": "young_link",
+   "name": "Young Link"
+  },
+  {
+   "id": "zant",
+   "name": "Zant"
+  },
+  {
+   "id": "zelda",
+   "name": "Zelda"
+  }
+ ],
+ "squares": [
+  {
+   "id": "r1c3",
+   "label": "A-3",
+   "altLabel": "C-1",
+   "row": 1,
+   "col": 3,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Use a Magic Circle to defeat the enemy forces! Lv.2",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r1c3.weapon_scimitars_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "zant",
+     "weapon": "scimitars",
+     "level": "4",
+     "name": "Scimitars Lv. 4"
+    },
+    {
+     "id": "r1c3.hc_zant",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container",
+     "keep": "West Keep"
+    },
+    {
+     "id": "r1c3.fairy_food_hylian_pike",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hylian Pike",
+     "container": "jar",
+     "keep": "Southwest Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c3.search_spinner",
+     "card": "spinner",
+     "row": 4,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r1c4",
+   "label": "A-4",
+   "altLabel": "D-1",
+   "row": 1,
+   "col": 4,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.3",
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c4.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light"
+   ],
+   "searches": [
+    {
+     "id": "r1c4.search_bomb",
+     "card": "bomb",
+     "row": 7,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r1c5",
+   "label": "A-5",
+   "altLabel": "E-1",
+   "row": 1,
+   "col": 5,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the beast of the ruins!",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    },
+    {
+     "warrior": "toon_link"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c5.outfit_ghirahim_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ghirahim",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r1c5.hc_ghirahim",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container",
+     "keep": "S. Rockface Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c5.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just north of S. Rockface Keep"
+    },
+    {
+     "id": "r1c5.gs2",
+     "condition": "Complete the first mission and capture five or more keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c5.search_water_bomb",
+     "card": "water_bomb",
+     "row": 5,
+     "col": 0
+    },
+    {
+     "id": "r1c5.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r1c6",
+   "label": "A-6",
+   "altLabel": "F-1",
+   "row": 1,
+   "col": 6,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the summoners before it's too late!",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "warriors": [
+    {
+     "warrior": "link"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r1c6.hc_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r1c6.my_fairy_light",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Light",
+     "container": "pot",
+     "keep": "Southwest Keep"
+    },
+    {
+     "id": "r1c6.fairy_food_bombfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Bombfish",
+     "container": "pot",
+     "keep": "West Cannon Keep"
+    }
+   ],
+   "givesCards": [
+    "water_bomb"
+   ],
+   "searches": [
+    {
+     "id": "r1c6.search_clawshot",
+     "card": "clawshot",
+     "row": 5,
+     "col": 0
+    },
+    {
+     "id": "r1c6.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r1c7",
+   "label": "A-7",
+   "altLabel": "G-1",
+   "row": 1,
+   "col": 7,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of the palace!",
+   "warriors": [
+    {
+     "warrior": "tingle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c7.weapon_balloon_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "tingle",
+     "weapon": "balloon",
+     "level": "4",
+     "name": "Balloon Lv. 4"
+    },
+    {
+     "id": "r1c7.hc_tingle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container",
+     "keep": "S. Entrance Keep"
+    },
+    {
+     "id": "r1c7.fairy_food_bee_larvae",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Bee Larvae",
+     "container": "pot",
+     "keep": "S. Entrance Keep"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light"
+   ],
+   "searches": [
+    {
+     "id": "r1c7.search_jar",
+     "card": "jar",
+     "row": 9,
+     "col": 1
+    },
+    {
+     "id": "r1c7.search_lantern",
+     "card": "lantern",
+     "row": 1,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r1c8",
+   "label": "A-8",
+   "altLabel": "H-1",
+   "row": 1,
+   "col": 8,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Strengthen your army and defeat the enemy!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r1c8.search_ooccoo",
+     "card": "ooccoo",
+     "row": 2,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r1c9",
+   "label": "A-9",
+   "altLabel": "I-1",
+   "row": 1,
+   "col": 9,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the desert dragon!",
+   "warriors": [
+    {
+     "warrior": "lana",
+     "weapon": "book_of_sorcery"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c9.weapon_book_of_sorcery_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "lana",
+     "weapon": "book_of_sorcery",
+     "level": "4",
+     "name": "Book of Sorcery Lv. 4"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "lantern"
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c9.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just outside west exit of S. Desert Keep"
+    },
+    {
+     "id": "r1c9.gs2",
+     "condition": "Complete the first mission and defeat 150 enemies with Special Attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c9.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 0
+    }
+   ]
+  },
+  {
+   "id": "r1c10",
+   "label": "A-10",
+   "altLabel": "J-1",
+   "row": 1,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu! Lv.5",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    },
+    {
+     "warrior": "link"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r1c10.outfit_agitha_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "agitha",
+     "name": "Standard Outfit (Twilight)"
+    }
+   ],
+   "givesCards": [
+    "spinner"
+   ],
+   "searches": [
+    {
+     "id": "r1c10.search_jar",
+     "card": "jar",
+     "row": 9,
+     "col": 15
+    }
+   ]
+  },
+  {
+   "id": "r1c11",
+   "label": "A-11",
+   "altLabel": "K-1",
+   "row": 1,
+   "col": 11,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Look for a solution!",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r1c11.weapon_parasol_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "agitha",
+     "weapon": "parasol",
+     "level": "4",
+     "name": "Parasol Lv. 4"
+    },
+    {
+     "id": "r1c11.hc_agitha",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container",
+     "keep": "West Temple"
+    },
+    {
+     "id": "r1c11.fairy_clothing_butterfly_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Butterfly Skirt",
+     "keep": "East Keep"
+    },
+    {
+     "id": "r1c11.fairy_food_great_fairys_tears",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Great Fairy's Tears",
+     "container": "pot",
+     "keep": "Eastern Room"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c11.search_lantern",
+     "card": "lantern",
+     "row": 2,
+     "col": 10
+    },
+    {
+     "id": "r1c11.search_spinner",
+     "card": "spinner",
+     "row": 4,
+     "col": 14
+    },
+    {
+     "id": "r1c11.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r2c1",
+   "label": "B-1",
+   "altLabel": "A-2",
+   "row": 2,
+   "col": 1,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of light! Lv.1",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    },
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r2c1.search_ooccoo",
+     "card": "ooccoo",
+     "row": 5,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r2c2",
+   "label": "B-2",
+   "altLabel": "B-2",
+   "row": 2,
+   "col": 2,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Watch for traps on the battlefield!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c2.outfit_midna_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "midna",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r2c2.hc_midna",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container",
+     "keep": "North Field Keep"
+    },
+    {
+     "id": "r2c2.fairy_clothing_butterfly_headband",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Butterfly Headband",
+     "keep": "East Field Keep"
+    },
+    {
+     "id": "r2c2.fairy_food_hylian_pike",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hylian Pike",
+     "container": "pot",
+     "keep": "South Field Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c2.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 4,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r2c3",
+   "label": "B-3",
+   "altLabel": "C-2",
+   "row": 2,
+   "col": 3,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the Darknut Forces!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r2c3.search_ooccoo",
+     "card": "ooccoo",
+     "row": 3,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r2c4",
+   "label": "B-4",
+   "altLabel": "D-2",
+   "row": 2,
+   "col": 4,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the Disorderly Forces! Lv.5",
+   "warriors": [
+    {
+     "warrior": "volga"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c4.outfit_volga_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "volga",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r2c4.hc_volga",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container",
+     "keep": "Town Center Keep"
+    },
+    {
+     "id": "r2c4.fairy_food_skullfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Skullfish",
+     "container": "pot",
+     "keep": "Northmost Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c4.search_spinner",
+     "card": "spinner",
+     "row": 4,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r2c5",
+   "label": "B-5",
+   "altLabel": "E-2",
+   "row": 2,
+   "col": 5,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r2c5.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "jar"
+   ],
+   "searches": [
+    {
+     "id": "r2c5.search_bomb",
+     "card": "bomb",
+     "row": 8,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r2c6",
+   "label": "B-6",
+   "altLabel": "F-2",
+   "row": 2,
+   "col": 6,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Use a Magic Circle to defeat the enemy forces! Lv.1",
+   "rule": "Twilight Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    },
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c6.outfit_fi_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "fi",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r2c6.hc_fi",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container",
+     "keep": "N. Rockface Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r2c6.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "On the northern outside wall of West Town Keep"
+    },
+    {
+     "id": "r2c6.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c6.search_fishing_rod",
+     "card": "fishing_rod",
+     "row": 0,
+     "col": 1
+    },
+    {
+     "id": "r2c6.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r2c7",
+   "label": "B-7",
+   "altLabel": "G-2",
+   "row": 2,
+   "col": 7,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.5",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c7.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ooccoo"
+   ]
+  },
+  {
+   "id": "r2c8",
+   "label": "B-8",
+   "altLabel": "H-2",
+   "row": 2,
+   "col": 8,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu! Lv.4",
+   "warriors": [
+    {
+     "warrior": "midna"
+    },
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "searches": [
+    {
+     "id": "r2c8.search_lantern",
+     "card": "lantern",
+     "row": 2,
+     "col": 4
+    },
+    {
+     "id": "r2c8.search_ooccoo",
+     "card": "ooccoo",
+     "row": 2,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r2c9",
+   "label": "B-9",
+   "altLabel": "I-2",
+   "row": 2,
+   "col": 9,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.4",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r2c9.hc_linkle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ooccoo"
+   ],
+   "searches": [
+    {
+     "id": "r2c9.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 2,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r2c10",
+   "label": "B-10",
+   "altLabel": "J-2",
+   "row": 2,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.5",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c10.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r2c10.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r2c11",
+   "label": "B-11",
+   "altLabel": "K-2",
+   "row": 2,
+   "col": 11,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.7",
+   "warriors": [
+    {
+     "warrior": "impa"
+    },
+    {
+     "warrior": "king_daphnes"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r2c11.outfit_impa_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "impa",
+     "name": "Standard Outfit (Twilight)"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "lantern"
+   ],
+   "searches": [
+    {
+     "id": "r2c11.search_spinner",
+     "card": "spinner",
+     "row": 10,
+     "col": 0
+    }
+   ]
+  },
+  {
+   "id": "r3c1",
+   "label": "C-1",
+   "altLabel": "A-3",
+   "row": 3,
+   "col": 1,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Team up and defeat enemy forces! Lv.8",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    },
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "searches": [
+    {
+     "id": "r3c1.search_ooccoo",
+     "card": "ooccoo",
+     "row": 4,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r3c2",
+   "label": "C-2",
+   "altLabel": "B-3",
+   "row": 3,
+   "col": 2,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the Barrier Specialist Forces! Lv.2",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "hylian_sword"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c2.weapon_hylian_sword_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "hylian_sword",
+     "level": "4",
+     "name": "Hylian Sword Lv. 4"
+    },
+    {
+     "id": "r3c2.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "East Garden"
+    },
+    {
+     "id": "r3c2.fairy_clothing_heros_clothes",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Hero's Clothes",
+     "keep": "Northeast Keep"
+    },
+    {
+     "id": "r3c2.fairy_food_hyrule_bass",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyrule Bass",
+     "container": "pot",
+     "keep": "West Garden"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c2.search_bomb",
+     "card": "bomb",
+     "row": 5,
+     "col": 5
+    },
+    {
+     "id": "r3c2.search_lantern",
+     "card": "lantern",
+     "row": 0,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r3c3",
+   "label": "C-3",
+   "altLabel": "C-3",
+   "row": 3,
+   "col": 3,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.6",
+   "rule": "Twilight Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c3.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c3.search_jar",
+     "card": "jar",
+     "row": 9,
+     "col": 3
+    },
+    {
+     "id": "r3c3.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r3c4",
+   "label": "C-4",
+   "altLabel": "D-3",
+   "row": 3,
+   "col": 4,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Protect the bombchu! Lv.6",
+   "warriors": [
+    {
+     "warrior": "fi"
+    },
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r3c4.search_ooccoo",
+     "card": "ooccoo",
+     "row": 5,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r3c5",
+   "label": "C-5",
+   "altLabel": "E-3",
+   "row": 3,
+   "col": 5,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the commanders of two armies! Lv.1",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c5.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r3c5.fairy_clothing_heros_clothes",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Hero's Clothes",
+     "keep": "N. Rockface Keep"
+    },
+    {
+     "id": "r3c5.fairy_food_ordon_goat_cheese",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Ordon Goat Cheese",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "fishing_rod"
+   ]
+  },
+  {
+   "id": "r3c6",
+   "label": "C-6",
+   "altLabel": "F-3",
+   "row": 3,
+   "col": 6,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.2",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c6.hc_fi",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "clawshot"
+   ]
+  },
+  {
+   "id": "r3c7",
+   "label": "C-7",
+   "altLabel": "G-3",
+   "row": 3,
+   "col": 7,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.4",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r3c7.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ooccoo"
+   ],
+   "searches": [
+    {
+     "id": "r3c7.search_spinner",
+     "card": "spinner",
+     "row": 9,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r3c8",
+   "label": "C-8",
+   "altLabel": "H-3",
+   "row": 3,
+   "col": 8,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the disorderly forces! Lv.4",
+   "warriors": [
+    {
+     "warrior": "zant"
+    },
+    {
+     "warrior": "tetra"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c8.outfit_zant_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zant",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r3c8.hc_zant",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container",
+     "keep": "Exit Square"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r3c8.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the dead end south of Central Square"
+    },
+    {
+     "id": "r3c8.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c8.search_jar",
+     "card": "jar",
+     "row": 3,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r3c9",
+   "label": "C-9",
+   "altLabel": "I-3",
+   "row": 3,
+   "col": 9,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.4",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r3c9.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "jar"
+   ]
+  },
+  {
+   "id": "r3c10",
+   "label": "C-10",
+   "altLabel": "J-3",
+   "row": 3,
+   "col": 10,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Behold the power of teamwork!",
+   "rule": "Twilight Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    },
+    {
+     "warrior": "cia"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r3c10.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r3c10.fairy_clothing_heros_clothes",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Hero's Clothes",
+     "keep": "Central Square"
+    },
+    {
+     "id": "r3c10.fairy_food_chu_jelly",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Chu Jelly",
+     "container": "pot",
+     "keep": "Central Square"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c10.search_jar",
+     "card": "jar",
+     "row": 3,
+     "col": 2
+    },
+    {
+     "id": "r3c10.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r3c11",
+   "label": "C-11",
+   "altLabel": "K-3",
+   "row": 3,
+   "col": 11,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu! Lv.7",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    },
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r3c11.outfit_zelda_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Standard Outfit (Twilight)"
+    }
+   ],
+   "givesCards": [
+    "ooccoo"
+   ],
+   "searches": [
+    {
+     "id": "r3c11.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 9,
+     "col": 1
+    },
+    {
+     "id": "r3c11.search_lantern",
+     "card": "lantern",
+     "row": 3,
+     "col": 0
+    }
+   ]
+  },
+  {
+   "id": "r3c12",
+   "label": "C-12",
+   "altLabel": "L-3",
+   "row": 3,
+   "col": 12,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.7",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r3c12.search_ooccoo",
+     "card": "ooccoo",
+     "row": 5,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r4c1",
+   "label": "D-1",
+   "altLabel": "A-4",
+   "row": 4,
+   "col": 1,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the Wizard Forces!",
+   "warriors": [
+    {
+     "warrior": "cia"
+    },
+    {
+     "warrior": "wizzro"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "searches": [
+    {
+     "id": "r4c1.search_ooccoo",
+     "card": "ooccoo",
+     "row": 6,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r4c2",
+   "label": "D-2",
+   "altLabel": "B-4",
+   "row": 4,
+   "col": 2,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.6",
+   "warriors": [
+    {
+     "warrior": "midna"
+    },
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "searches": [
+    {
+     "id": "r4c2.search_ooccoo",
+     "card": "ooccoo",
+     "row": 7,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r4c3",
+   "label": "D-3",
+   "altLabel": "C-4",
+   "row": 4,
+   "col": 3,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.6",
+   "warriors": [
+    {
+     "warrior": "zant"
+    },
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r4c3.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "compass"
+   ]
+  },
+  {
+   "id": "r4c4",
+   "label": "D-4",
+   "altLabel": "D-4",
+   "row": 4,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the commanders of two armies! Lv.2",
+   "warriors": [
+    {
+     "warrior": "tetra"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r4c4.weapon_cutlass_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "tetra",
+     "weapon": "cutlass",
+     "level": "4",
+     "name": "Cutlass Lv. 4"
+    },
+    {
+     "id": "r4c4.hc_tetra",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container",
+     "keep": "East Field Keep"
+    },
+    {
+     "id": "r4c4.fairy_clothing_twilight_top",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Twilight Top",
+     "keep": "North Field Keep"
+    }
+   ],
+   "givesCards": [
+    "spinner"
+   ],
+   "searches": [
+    {
+     "id": "r4c4.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 5,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r4c5",
+   "label": "D-5",
+   "altLabel": "E-4",
+   "row": 4,
+   "col": 5,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of water or lightning!",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "spinner"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c5.weapon_spinner_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "spinner",
+     "level": "4",
+     "name": "Spinner Lv. 4"
+    },
+    {
+     "id": "r4c5.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "West Keep"
+    },
+    {
+     "id": "r4c5.fairy_clothing_fused_shadow_mask",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Fused Shadow Mask",
+     "keep": "West Ruins"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r4c5.search_spinner",
+     "card": "spinner",
+     "row": 8,
+     "col": 15
+    },
+    {
+     "id": "r4c5.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r4c6",
+   "label": "D-6",
+   "altLabel": "F-4",
+   "row": 4,
+   "col": 6,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the barrier specialist forces! Lv.3",
+   "rule": "Twilight Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r4c6.weapon_crossbows_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "linkle",
+     "weapon": "crossbows",
+     "level": "4",
+     "name": "Crossbows Lv. 4"
+    },
+    {
+     "id": "r4c6.hc_linkle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container",
+     "keep": "Central Keep"
+    },
+    {
+     "id": "r4c6.fairy_clothing_heros_clothes",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Hero's Clothes",
+     "keep": "Fairy Fountain"
+    },
+    {
+     "id": "r4c6.fairy_food_ordon_catfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Ordon Catfish",
+     "container": "pot",
+     "keep": "Central Keep"
+    }
+   ],
+   "givesCards": [
+    "lantern"
+   ],
+   "searches": [
+    {
+     "id": "r4c6.search_bomb",
+     "card": "bomb",
+     "row": 4,
+     "col": 1
+    },
+    {
+     "id": "r4c6.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r4c7",
+   "label": "D-7",
+   "altLabel": "G-4",
+   "row": 4,
+   "col": 7,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the dragon of the lake!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    },
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c7.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c7.fairy_clothing_butterfly_blouse",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Butterfly Blouse",
+     "keep": "Bridge Keep"
+    },
+    {
+     "id": "r4c7.fairy_food_hylian_loach",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hylian Loach",
+     "container": "pot",
+     "keep": "Rocky Square"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r4c7.search_fishing_rod",
+     "card": "fishing_rod",
+     "row": 1,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r4c8",
+   "label": "D-8",
+   "altLabel": "H-4",
+   "row": 4,
+   "col": 8,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the mountain beast!",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    },
+    {
+     "warrior": "impa"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c8.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c8.fairy_clothing_butterfly_headband",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Butterfly Headband",
+     "keep": "SE Room"
+    },
+    {
+     "id": "r4c8.fairy_food_hyrule_bass",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyrule Bass",
+     "container": "pot",
+     "keep": "Hall of Mirrors"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c8.search_lantern",
+     "card": "lantern",
+     "row": 6,
+     "col": 9
+    },
+    {
+     "id": "r4c8.search_water_bomb",
+     "card": "water_bomb",
+     "row": 6,
+     "col": 2
+    },
+    {
+     "id": "r4c8.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r4c9",
+   "label": "D-9",
+   "altLabel": "I-4",
+   "row": 4,
+   "col": 9,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.7",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r4c9.outfit_ganondorf_era_of_twilight_armor",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ganondorf",
+     "name": "Era of Twilight Armor"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "spinner"
+   ],
+   "searches": [
+    {
+     "id": "r4c9.search_bomb",
+     "card": "bomb",
+     "row": 6,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r4c10",
+   "label": "D-10",
+   "altLabel": "J-4",
+   "row": 4,
+   "col": 10,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the barrier specialist forces! Lv.1",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r4c10.weapon_rapier_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "zelda",
+     "weapon": "rapier",
+     "level": "4",
+     "name": "Rapier Lv. 4"
+    },
+    {
+     "id": "r4c10.hc_zelda",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container",
+     "keep": "East Room"
+    },
+    {
+     "id": "r4c10.fairy_clothing_twilight_top",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Twilight Top",
+     "keep": "Lakeside Keep"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "water_bomb"
+   ],
+   "searches": [
+    {
+     "id": "r4c10.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 8,
+     "col": 4
+    },
+    {
+     "id": "r4c10.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r4c11",
+   "label": "D-11",
+   "altLabel": "K-4",
+   "row": 4,
+   "col": 11,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of the temple!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c11.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "digging_mitts"
+   ],
+   "skulltulas": [
+    {
+     "id": "r4c11.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Beside the outside of the northwest wall of Temple Square"
+    },
+    {
+     "id": "r4c11.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r4c12",
+   "label": "D-12",
+   "altLabel": "L-4",
+   "row": 4,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of light! Lv.2",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "cia"
+    },
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c12.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c12.fairy_clothing_twilight_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Twilight Skirt",
+     "keep": "Upper Level East"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c12.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r4c13",
+   "label": "D-13",
+   "altLabel": "M-4",
+   "row": 4,
+   "col": 13,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c13.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ]
+  },
+  {
+   "id": "r4c14",
+   "label": "D-14",
+   "altLabel": "N-4",
+   "row": 4,
+   "col": 14,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.1",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    },
+    {
+     "warrior": "twili_midna"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r4c14.outfit_zelda_ilias_clothes",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Ilia's Clothes"
+    }
+   ],
+   "givesCards": [
+    "jar"
+   ],
+   "searches": [
+    {
+     "id": "r4c14.search_bomb",
+     "card": "bomb",
+     "row": 5,
+     "col": 0
+    }
+   ]
+  },
+  {
+   "id": "r5c1",
+   "label": "E-1",
+   "altLabel": "A-5",
+   "row": 5,
+   "col": 1,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.8",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "magic_rod"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r5c1.weapon_magic_rod_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "magic_rod",
+     "level": "4",
+     "name": "Magic Rod Lv. 4"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r5c1.search_jar",
+     "card": "jar",
+     "row": 8,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r5c2",
+   "label": "E-2",
+   "altLabel": "B-5",
+   "row": 5,
+   "col": 2,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Protect the bombchu! Lv.8",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c2.outfit_zelda_era_of_twilight_robes",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Era of Twilight Robes"
+    }
+   ],
+   "givesCards": [
+    "ooccoo"
+   ],
+   "searches": [
+    {
+     "id": "r5c2.search_water_bomb",
+     "card": "water_bomb",
+     "row": 5,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r5c3",
+   "label": "E-3",
+   "altLabel": "C-5",
+   "row": 5,
+   "col": 3,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "A collision of cuccos! Lv.6",
+   "warriors": [
+    {
+     "warrior": "lana",
+     "weapon": "spear"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r5c3.weapon_spear_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "lana",
+     "weapon": "spear",
+     "level": "4",
+     "name": "Spear Lv. 4"
+    },
+    {
+     "id": "r5c3.hc_lana",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container",
+     "keep": "Northwest Keep"
+    },
+    {
+     "id": "r5c3.fairy_food_bee_larvae",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Bee Larvae",
+     "container": "pot",
+     "keep": "Northeast Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c3.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 7,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r5c4",
+   "label": "E-4",
+   "altLabel": "D-5",
+   "row": 5,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Rescue the allied forces!",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r5c4.weapon_shackle_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "midna",
+     "weapon": "shackle",
+     "level": "4",
+     "name": "Shackle Lv. 4"
+    },
+    {
+     "id": "r5c4.hc_midna",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container",
+     "keep": "S. Entrance Keep"
+    },
+    {
+     "id": "r5c4.fairy_clothing_butterfly_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Butterfly Skirt",
+     "keep": "South Square"
+    },
+    {
+     "id": "r5c4.fairy_food_greengill",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Greengill",
+     "container": "pot",
+     "keep": "N. Entrance Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c4.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 3,
+     "col": 9
+    },
+    {
+     "id": "r5c4.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r5c5",
+   "label": "E-5",
+   "altLabel": "E-5",
+   "row": 5,
+   "col": 5,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the Demon King of the castle!",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "finalBoss": true,
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r5c5.hc_sheik",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container",
+     "keep": "Mountain Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c5.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "North of East Field Keep, on the cliff reached via Hookshot"
+    },
+    {
+     "id": "r5c5.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c5.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r5c6",
+   "label": "E-6",
+   "altLabel": "F-5",
+   "row": 5,
+   "col": 6,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat 1,000 enemies in time!",
+   "warriors": [
+    {
+     "warrior": "link"
+    },
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r5c6.outfit_link_era_of_twilight_tunic",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Era of Twilight Tunic"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c6.search_clawshot",
+     "card": "clawshot",
+     "row": 5,
+     "col": 0
+    },
+    {
+     "id": "r5c6.search_fishing_rod",
+     "card": "fishing_rod",
+     "row": 7,
+     "col": 0
+    },
+    {
+     "id": "r5c6.search_lantern",
+     "card": "lantern",
+     "row": 2,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r5c7",
+   "label": "E-7",
+   "altLabel": "G-5",
+   "row": 5,
+   "col": 7,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.3",
+   "rule": "Twilight Rule: No Focus Spirit!",
+   "warriors": [
+    {
+     "warrior": "impa"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c7.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r5c7.search_jar",
+     "card": "jar",
+     "row": 7,
+     "col": 3
+    },
+    {
+     "id": "r5c7.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r5c8",
+   "label": "E-8",
+   "altLabel": "H-5",
+   "row": 5,
+   "col": 8,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the disorderly forces! Lv.2",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c8.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r5c8.fairy_clothing_butterfly_makeup",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Butterfly Makeup",
+     "keep": "Mountain Keep"
+    },
+    {
+     "id": "r5c8.fairy_food_greengill",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Greengill",
+     "container": "pot",
+     "keep": "Castle Keep"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ]
+  },
+  {
+   "id": "r5c9",
+   "label": "E-9",
+   "altLabel": "I-5",
+   "row": 5,
+   "col": 9,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.2",
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c9.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "fishing_rod"
+   ]
+  },
+  {
+   "id": "r5c10",
+   "label": "E-10",
+   "altLabel": "J-5",
+   "row": 5,
+   "col": 10,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.2",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    },
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c10.hc_darunia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "lantern"
+   ]
+  },
+  {
+   "id": "r5c11",
+   "label": "E-11",
+   "altLabel": "K-5",
+   "row": 5,
+   "col": 11,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Defeat 400 enemies in time!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "searches": [
+    {
+     "id": "r5c11.search_ooccoo",
+     "card": "ooccoo",
+     "row": 4,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r5c12",
+   "label": "E-12",
+   "altLabel": "L-5",
+   "row": 5,
+   "col": 12,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Recruit more allies and overwhelm the enemy!",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c12.outfit_lana_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "lana",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r5c12.hc_lana",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container",
+     "keep": "East Temple"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c12.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the pointy dead end in the northeast corner of the map"
+    },
+    {
+     "id": "r5c12.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c12.search_jar",
+     "card": "jar",
+     "row": 8,
+     "col": 4
+    },
+    {
+     "id": "r5c12.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r5c13",
+   "label": "E-13",
+   "altLabel": "M-5",
+   "row": 5,
+   "col": 13,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of the jungle!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c13.hc_fi",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container",
+     "keep": "North Square"
+    },
+    {
+     "id": "r5c13.fairy_clothing_goron_facepaint",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Goron Facepaint",
+     "keep": "Southeast Tree"
+    },
+    {
+     "id": "r5c13.fairy_food_ordon_catfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Ordon Catfish",
+     "container": "pot",
+     "keep": "Eastern Tree"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "lantern"
+   ]
+  },
+  {
+   "id": "r5c14",
+   "label": "E-14",
+   "altLabel": "N-5",
+   "row": 5,
+   "col": 14,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu!",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c14.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r5c14.search_jar",
+     "card": "jar",
+     "row": 2,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r6c1",
+   "label": "F-1",
+   "altLabel": "A-6",
+   "row": 6,
+   "col": 1,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.5",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r6c1.search_ooccoo",
+     "card": "ooccoo",
+     "row": 6,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r6c2",
+   "label": "F-2",
+   "altLabel": "B-6",
+   "row": 6,
+   "col": 2,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the Disorderly Forces! Lv.6",
+   "warriors": [
+    {
+     "warrior": "cia"
+    },
+    {
+     "warrior": "impa"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c2.outfit_cia_masked_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Masked (Twilight)"
+    },
+    {
+     "id": "r6c2.outfit_cia_unmasked_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Unmasked (Twilight)"
+    },
+    {
+     "id": "r6c2.outfit_cia_hatless_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Hatless (Twilight)"
+    },
+    {
+     "id": "r6c2.hc_impa",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container",
+     "keep": "South Garden"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r6c2.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the winding tunnel just south of Southeast Keep"
+    },
+    {
+     "id": "r6c2.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c2.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 9,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r6c3",
+   "label": "F-3",
+   "altLabel": "C-6",
+   "row": 6,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Protect the bombchu! Lv.9",
+   "warriors": [
+    {
+     "warrior": "link"
+    },
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r6c3.outfit_link_heros_clothes_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Hero's Clothes (Twilight)"
+    }
+   ],
+   "givesCards": [
+    "fishing_rod"
+   ],
+   "searches": [
+    {
+     "id": "r6c3.search_spinner",
+     "card": "spinner",
+     "row": 6,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r6c4",
+   "label": "F-4",
+   "altLabel": "D-6",
+   "row": 6,
+   "col": 4,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.9",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c4.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light"
+   ]
+  },
+  {
+   "id": "r6c5",
+   "label": "F-5",
+   "altLabel": "E-6",
+   "row": 6,
+   "col": 5,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "A leader never sleeps!",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "king_daphnes"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c5.weapon_sail_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "king_daphnes",
+     "weapon": "sail",
+     "level": "4",
+     "name": "Sail Lv. 4"
+    },
+    {
+     "id": "r6c5.hc_king_daphnes",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container",
+     "keep": "W. Rockface Keep"
+    },
+    {
+     "id": "r6c5.fairy_clothing_butterfly_blouse",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Butterfly Blouse",
+     "keep": "Castle Keep"
+    },
+    {
+     "id": "r6c5.fairy_food_bombfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Bombfish",
+     "container": "pot",
+     "keep": "Central Keep"
+    }
+   ],
+   "givesCards": [
+    "clawshot"
+   ],
+   "searches": [
+    {
+     "id": "r6c5.search_jar",
+     "card": "jar",
+     "row": 10,
+     "col": 2
+    },
+    {
+     "id": "r6c5.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r6c6",
+   "label": "F-6",
+   "altLabel": "F-6",
+   "row": 6,
+   "col": 6,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.2",
+   "warriors": [
+    {
+     "warrior": "toon_link"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c6.weapon_light_sword_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "toon_link",
+     "weapon": "light_sword",
+     "level": "4",
+     "name": "Light Sword Lv. 4"
+    },
+    {
+     "id": "r6c6.hc_toon_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container",
+     "keep": "Abandoned Fort"
+    },
+    {
+     "id": "r6c6.fairy_clothing_twilight_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Twilight Skirt",
+     "keep": "North Field Keep"
+    }
+   ],
+   "givesCards": [
+    "spinner"
+   ],
+   "searches": [
+    {
+     "id": "r6c6.search_spinner",
+     "card": "spinner",
+     "row": 3,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r6c7",
+   "label": "F-7",
+   "altLabel": "G-6",
+   "row": 6,
+   "col": 7,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu! Lv.3",
+   "warriors": [
+    {
+     "warrior": "link"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c7.outfit_link_postman_uniform",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Postman Uniform"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r6c7.search_water_bomb",
+     "card": "water_bomb",
+     "row": 4,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r6c8",
+   "label": "F-8",
+   "altLabel": "H-6",
+   "row": 6,
+   "col": 8,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c8.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "jar"
+   ],
+   "searches": [
+    {
+     "id": "r6c8.search_fishing_rod",
+     "card": "fishing_rod",
+     "row": 2,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r6c9",
+   "label": "F-9",
+   "altLabel": "I-6",
+   "row": 6,
+   "col": 9,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Enjoy a leisurely Cucco-outing!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c9.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c9.fairy_clothing_heros_trousers",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Hero's Trousers",
+     "keep": "W. Mountain Keep"
+    }
+   ],
+   "givesCards": [
+    "clawshot"
+   ]
+  },
+  {
+   "id": "r6c10",
+   "label": "F-10",
+   "altLabel": "J-6",
+   "row": 6,
+   "col": 10,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.1",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "wizzro"
+    },
+    {
+     "warrior": "skull_kid"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c10.outfit_wizzro_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "wizzro",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r6c10.hc_wizzro",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container",
+     "keep": "Stock Room"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r6c10.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the path north then west from the Tunnel Square before the dropoff"
+    },
+    {
+     "id": "r6c10.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c10.search_jar",
+     "card": "jar",
+     "row": 9,
+     "col": 3
+    },
+    {
+     "id": "r6c10.search_lantern",
+     "card": "lantern",
+     "row": 9,
+     "col": 11
+    },
+    {
+     "id": "r6c10.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r6c11",
+   "label": "F-11",
+   "altLabel": "K-6",
+   "row": 6,
+   "col": 11,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.1",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    },
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "searches": [
+    {
+     "id": "r6c11.search_clawshot",
+     "card": "clawshot",
+     "row": 7,
+     "col": 15
+    },
+    {
+     "id": "r6c11.search_ooccoo",
+     "card": "ooccoo",
+     "row": 3,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r6c12",
+   "label": "F-12",
+   "altLabel": "L-6",
+   "row": 6,
+   "col": 12,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike!",
+   "warriors": [
+    {
+     "warrior": "sheik"
+    },
+    {
+     "warrior": "tingle"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r6c12.outfit_sheik_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "sheik",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r6c12.hc_sheik",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container",
+     "keep": "Eastern Tree"
+    },
+    {
+     "id": "r6c12.fairy_food_ordon_goat_cheese",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Ordon Goat Cheese",
+     "container": "pot",
+     "keep": "Eastern Tree"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c12.search_jar",
+     "card": "jar",
+     "row": 3,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r6c13",
+   "label": "F-13",
+   "altLabel": "M-6",
+   "row": 6,
+   "col": 13,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Defeat the disorderly forces! Lv.1",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r6c13.search_ooccoo",
+     "card": "ooccoo",
+     "row": 4,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r6c14",
+   "label": "F-14",
+   "altLabel": "N-6",
+   "row": 6,
+   "col": 14,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Show no fear to the enemies of Twilight!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c14.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c14.fairy_clothing_heros_clothes",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Hero's Clothes",
+     "keep": "South Field Keep"
+    }
+   ]
+  },
+  {
+   "id": "r6c15",
+   "label": "F-15",
+   "altLabel": "O-6",
+   "row": 6,
+   "col": 15,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c15.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ]
+  },
+  {
+   "id": "r7c2",
+   "label": "G-2",
+   "altLabel": "B-7",
+   "row": 7,
+   "col": 2,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.9",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r7c2.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "jar",
+    "tears_of_light"
+   ]
+  },
+  {
+   "id": "r7c3",
+   "label": "G-3",
+   "altLabel": "C-7",
+   "row": 7,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "The hunters are on the move!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r7c3.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r7c3.my_fairy_darkness",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Darkness",
+     "container": "pot",
+     "keep": "South Field Keep"
+    },
+    {
+     "id": "r7c3.fairy_food_skullfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Skullfish",
+     "container": "pot",
+     "keep": "Rocky Square"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c3.search_lantern",
+     "card": "lantern",
+     "row": 4,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r7c4",
+   "label": "G-4",
+   "altLabel": "D-7",
+   "row": 7,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike!",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    },
+    {
+     "warrior": "cia"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r7c4.outfit_ganondorf_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ganondorf",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r7c4.hc_cia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container",
+     "keep": "E. Mountain Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r7c4.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "On the path north of the E. Boulder Keep behind a wall that must be bombed"
+    },
+    {
+     "id": "r7c4.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c4.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 7,
+     "col": 4
+    },
+    {
+     "id": "r7c4.search_lantern",
+     "card": "lantern",
+     "row": 3,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r7c5",
+   "label": "G-5",
+   "altLabel": "E-7",
+   "row": 7,
+   "col": 5,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the disorderly forces! Lv.7",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "gauntlets"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c5.weapon_gauntlets_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "gauntlets",
+     "level": "4",
+     "name": "Gauntlets Lv. 4"
+    },
+    {
+     "id": "r7c5.poh_link",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "link",
+     "name": "Piece of Heart",
+     "keep": "Abandoned Fort"
+    },
+    {
+     "id": "r7c5.fairy_clothing_twilight_jewel",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Accessory - Twilight Jewel",
+     "keep": "W. Rockface Keep"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r7c5.search_clawshot",
+     "card": "clawshot",
+     "row": 4,
+     "col": 0
+    },
+    {
+     "id": "r7c5.search_spinner",
+     "card": "spinner",
+     "row": 7,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r7c6",
+   "label": "G-6",
+   "altLabel": "F-7",
+   "row": 7,
+   "col": 6,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.8",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c6.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r7c6.search_bomb",
+     "card": "bomb",
+     "row": 4,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r7c7",
+   "label": "G-7",
+   "altLabel": "G-7",
+   "row": 7,
+   "col": 7,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c7.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r7c7.search_water_bomb",
+     "card": "water_bomb",
+     "row": 3,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r7c8",
+   "label": "G-8",
+   "altLabel": "H-7",
+   "row": 7,
+   "col": 8,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Stop the fortifiers and barrier specialists!",
+   "warriors": [
+    {
+     "warrior": "impa",
+     "weapon": "giant_blade"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c8.weapon_giant_blade_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "impa",
+     "weapon": "giant_blade",
+     "level": "4",
+     "name": "Giant Blade Lv. 4"
+    },
+    {
+     "id": "r7c8.hc_impa",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container",
+     "keep": "North Oasis"
+    },
+    {
+     "id": "r7c8.fairy_food_reekfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Reekfish",
+     "container": "pot",
+     "keep": "Central Keep"
+    }
+   ],
+   "givesCards": [
+    "water_bomb"
+   ],
+   "searches": [
+    {
+     "id": "r7c8.search_fishing_rod",
+     "card": "fishing_rod",
+     "row": 6,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r7c9",
+   "label": "G-9",
+   "altLabel": "I-7",
+   "row": 7,
+   "col": 9,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c9.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ooccoo"
+   ],
+   "searches": [
+    {
+     "id": "r7c9.search_bomb",
+     "card": "bomb",
+     "row": 2,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r7c10",
+   "label": "G-10",
+   "altLabel": "J-7",
+   "row": 7,
+   "col": 10,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Put an end to the enemy's divisive plan! Lv.3",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c10.hc_linkle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "jar"
+   ]
+  },
+  {
+   "id": "r7c11",
+   "label": "G-11",
+   "altLabel": "K-7",
+   "row": 7,
+   "col": 11,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.1",
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c11.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "spinner"
+   ]
+  },
+  {
+   "id": "r8c3",
+   "label": "H-3",
+   "altLabel": "C-8",
+   "row": 8,
+   "col": 3,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Learn the key to a balanced attack! Lv.9",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r8c3.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "lantern"
+   ],
+   "searches": [
+    {
+     "id": "r8c3.search_clawshot",
+     "card": "clawshot",
+     "row": 7,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r8c4",
+   "label": "H-4",
+   "altLabel": "D-8",
+   "row": 8,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of twilight!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "great_swords"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r8c4.weapon_great_swords_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "ganondorf",
+     "weapon": "great_swords",
+     "level": "4",
+     "name": "Great Swords Lv. 4"
+    },
+    {
+     "id": "r8c4.outfit_ganondorf_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ganondorf",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r8c4.hc_ganondorf",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container",
+     "keep": "King's Hall"
+    },
+    {
+     "id": "r8c4.fairy_clothing_goron_facepaint",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Goron Facepaint",
+     "keep": "Lower Level East"
+    },
+    {
+     "id": "r8c4.fairy_food_reekfish",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Reekfish",
+     "container": "pot",
+     "keep": "King's Hall"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r8c4.search_bomb",
+     "card": "bomb",
+     "row": 5,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r8c5",
+   "label": "H-5",
+   "altLabel": "E-8",
+   "row": 8,
+   "col": 5,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.3",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r8c5.search_ooccoo",
+     "card": "ooccoo",
+     "row": 4,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r8c6",
+   "label": "H-6",
+   "altLabel": "F-8",
+   "row": 8,
+   "col": 6,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Calm dissenters and crush your foe!",
+   "rule": "Twilight Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    },
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c6.outfit_ruto_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ruto",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r8c6.hc_darunia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container",
+     "keep": "W. Boulder Keep"
+    },
+    {
+     "id": "r8c6.fairy_food_great_fairys_tears",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Great Fairy's Tears",
+     "container": "pot",
+     "keep": "E. Boulder Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r8c6.search_jar",
+     "card": "jar",
+     "row": 2,
+     "col": 1
+    },
+    {
+     "id": "r8c6.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r8c7",
+   "label": "H-7",
+   "altLabel": "G-8",
+   "row": 8,
+   "col": 7,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the dragon of the volcano!",
+   "rule": "Twilight Rule: No Special Attacks!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c7.hc_sheik",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r8c7.fairy_clothing_goron_facepaint",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Goron Facepaint",
+     "keep": "Stock Room"
+    },
+    {
+     "id": "r8c7.fairy_food_hylian_loach",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hylian Loach",
+     "container": "pot",
+     "keep": "Central Square"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light",
+    "fishing_rod"
+   ],
+   "searches": [
+    {
+     "id": "r8c7.search_tears_of_light",
+     "card": "tears_of_light",
+     "wholeSquare": true
+    }
+   ]
+  },
+  {
+   "id": "r8c8",
+   "label": "H-8",
+   "altLabel": "H-8",
+   "row": 8,
+   "col": 8,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Protect the Bombchu! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r8c8.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "lantern"
+   ],
+   "searches": [
+    {
+     "id": "r8c8.search_spinner",
+     "card": "spinner",
+     "row": 6,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r8c9",
+   "label": "H-9",
+   "altLabel": "I-8",
+   "row": 8,
+   "col": 9,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the disorderly forces! Lv.3",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    },
+    {
+     "warrior": "young_link"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r8c9.outfit_darunia_standard_outfit_twilight",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "darunia",
+     "name": "Standard Outfit (Twilight)"
+    },
+    {
+     "id": "r8c9.hc_darunia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container",
+     "keep": "East Goron Keep"
+    },
+    {
+     "id": "r8c9.fairy_food_chu_jelly",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Chu Jelly",
+     "container": "pot",
+     "keep": "E. Boulder Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r8c9.search_bomb",
+     "card": "bomb",
+     "row": 4,
+     "col": 6
+    },
+    {
+     "id": "r8c9.search_lantern",
+     "card": "lantern",
+     "row": 5,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r8c10",
+   "label": "H-10",
+   "altLabel": "J-8",
+   "row": 8,
+   "col": 10,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r8c10.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "tears_of_light"
+   ]
+  }
+ ]
+}
