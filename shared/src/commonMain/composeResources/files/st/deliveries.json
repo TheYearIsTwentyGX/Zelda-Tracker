@@ -1,0 +1,388 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm",
+    "Sand Realm"
+  ],
+  "noun": "delivery",
+  "plural": "deliveries",
+  "hiddenLabel": "Undelivered job",
+  "summaries": [
+    {
+      "label": "Passengers",
+      "formula": "ride_alfonzo + ride_kenzo_bridge + ride_carben + ride_dovok + ride_mona + ride_joe + ride_teacher + ride_noko + ride_kenzo_anouki + ride_ferrus_alfonzo + ride_goron_to_anouki + ride_kofu + ride_goron_child + ride_wadatsumi + ride_ferrus_ocean_temple"
+    },
+    {
+      "label": "Cargo",
+      "formula": "cargo_mega_ice_kagoron + cargo_mega_ice_goron + cargo_fish_lucia + cargo_cuccos_harry + cargo_goron_iron_mash + cargo_lumber_yeko + cargo_vessel_steem + cargo_mega_ice_niboshi + cargo_cuccos_rael + cargo_dark_ore_linebeck"
+    }
+  ],
+  "sections": [
+    {
+      "id": "deliveries",
+      "title": "Passengers & Cargo",
+      "note": "Listed under the realm you deliver to, in the order you can do them. Passengers want you to obey the signs (speed limits, whistle signs, no sudden stops); cargo is lost when the train is hit. Most rewards are Force Gems, which are also in the Force Gems tracker.",
+      "items": [
+        {
+          "id": "ride_alfonzo",
+          "name": "Alfonzo",
+          "region": "Forest Realm",
+          "area": "Castle Town to Aboda Village",
+          "howTo": "After the second climb of the Tower of Spirits, collect his letter at the Castle Town mailbox, pick him up in Hyrule Castle's rest room and drive him home.",
+          "reward": "Cannon (Practical Cannon)",
+          "notes": "Main Quest step.",
+          "tags": [
+            "Passenger",
+            "Story"
+          ]
+        },
+        {
+          "id": "ride_kenzo_bridge",
+          "name": "Kenzo the bridge worker",
+          "region": "Forest Realm",
+          "area": "Bridge Worker's Home to the Trading Post",
+          "howTo": "Linebeck III sends you for him. Pick Kenzo up at the Bridge Worker's Home, the first stop in the east of the Snow Realm, and drive him to the Trading Post obeying every sign.",
+          "after": "Ocean Rail Map",
+          "reward": "The bridge to the Ocean Realm (paid with the Regal Ring)",
+          "notes": "Main Quest step. If he's unhappy he gets off and you have to go back for him.",
+          "tags": [
+            "Passenger",
+            "Story"
+          ]
+        },
+        {
+          "id": "ride_carben",
+          "name": "Carben",
+          "region": "Ocean Realm",
+          "area": "Papuchia Village to the Ocean Sanctuary",
+          "howTo": "After bringing him down with the Song of Birds, drive him to the Ocean Sanctuary; Miniblins and a Big Blin board on the way.",
+          "reward": "Force Gem: Carben",
+          "tags": [
+            "Passenger",
+            "Force Gem",
+            "Story"
+          ]
+        },
+        {
+          "id": "ride_dovok",
+          "name": "Dovok, Whittleton's chief",
+          "region": "Ocean Realm",
+          "area": "Whittleton to Papuchia Village",
+          "howTo": "Orca in Papuchia Village wants a burly, bearded husband: take Dovok from his hut at the north of Whittleton to her.",
+          "after": "Ocean Temple",
+          "reward": "Force Gem: Orca's husband",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_mona",
+          "name": "Mona",
+          "region": "Forest Realm",
+          "area": "Castle Town to Rabbitland Rescue",
+          "howTo": "From her house on the west side of Castle Town to Bunnio at Rabbitland Rescue; talk to her again by the train.",
+          "after": "Ocean Temple",
+          "reward": "Force Gem: Mona",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_joe",
+          "name": "Joe",
+          "region": "Forest Realm",
+          "area": "Aboda Village to Beedle's Air Shop",
+          "howTo": "From Aboda Village's station to Beedle's Air Shop: whistle to land the balloon, then stop beside it.",
+          "after": "Ocean Temple",
+          "reward": "Force Gem: Joe",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_teacher",
+          "name": "Teacher in disguise",
+          "region": "Forest Realm",
+          "area": "Castle Town station",
+          "howTo": "The disguised man by Castle Town's station is Teacher, looking for Zelda. Depending on the day he asks for Aboda Village, Anouki Village or Papuchia Village, and later for a ride back or to another village.",
+          "after": "Ocean Temple",
+          "reward": "Rupees, more the happier he is",
+          "notes": "From Zelda Dungeon's walkthrough only. He can be driven again; tick it after the first ride.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "ride_noko",
+          "name": "Noko",
+          "region": "Snow Realm",
+          "area": "Anouki Village to Wellspring Station",
+          "howTo": "From the water at the west end of Anouki Village to the lake at Wellspring Station.",
+          "reward": "Force Gem: Noko",
+          "notes": "Required for the Mega Ice that cools Goron Village.",
+          "tags": [
+            "Passenger",
+            "Force Gem",
+            "Story"
+          ]
+        },
+        {
+          "id": "cargo_mega_ice_kagoron",
+          "name": "Mega Ice for Kagoron",
+          "region": "Fire Realm",
+          "area": "Wellspring Station to Goron Village",
+          "howTo": "Buy Mega Ice from Noko at Wellspring Station with the freight car Kagoron lent you and hurry it to him in Goron Village before it melts.",
+          "after": "Fire Rail Map",
+          "reward": "The lava in Goron Village cools",
+          "notes": "Main Quest step.",
+          "tags": [
+            "Cargo",
+            "Story"
+          ]
+        },
+        {
+          "id": "cargo_mega_ice_goron",
+          "name": "Mega Ice for the Goron's house",
+          "region": "Fire Realm",
+          "area": "Wellspring Station to Goron Village",
+          "howTo": "Reach the Goron at the east end of Goron Village with at least 10 units of Mega Ice.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Goron's lava-blocked house",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_fish_lucia",
+          "name": "Fish for Lucia",
+          "region": "Forest Realm",
+          "area": "Papuchia Village to Castle Town",
+          "howTo": "Buy fish from Niboshi in Papuchia Village and reach Lucia by the Castle Town fountain with at least 10.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Lucia's fish",
+          "notes": "Fish spoil over time and attract Snurgles.",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_cuccos_harry",
+          "name": "Cuccos for Harry",
+          "region": "Forest Realm",
+          "area": "Castle Town to Aboda Village",
+          "howTo": "Two loads of five Cuccos (50 Rupees each) from the Cucco man in north-west Castle Town to Harry's pen in Aboda Village.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Harry's Cuccos",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_goron_iron_mash",
+          "name": "Goron Iron for Mash",
+          "region": "Forest Realm",
+          "area": "Goron Village to Whittleton",
+          "howTo": "Goron Iron from the Goron in west Goron Village to Mash in Whittleton, with at least 5 units left.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Mash's Goron Iron",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_kenzo_anouki",
+          "name": "Kenzo to Anouki Village",
+          "region": "Snow Realm",
+          "area": "Trading Post to Anouki Village",
+          "howTo": "Pick Kenzo up where he still stands by the Trading Post bridge and drive him to Yeko in Anouki Village to build the fence.",
+          "requires": [
+            "ride_kenzo_bridge"
+          ],
+          "reward": "Treasure; with the lumber, Yeko's Force Gem",
+          "notes": "Zelda Wiki: possible as soon as Carben's duet is done.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "cargo_lumber_yeko",
+          "name": "Lumber for Yeko",
+          "region": "Snow Realm",
+          "area": "Whittleton to Anouki Village",
+          "howTo": "Buy lumber in Whittleton (100 Rupees) and reach Yeko in Anouki Village with at least 15 logs.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Yeko's fence (with Kenzo)",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_ferrus_alfonzo",
+          "name": "Ferrus to Alfonzo",
+          "region": "Forest Realm",
+          "area": "Snow Realm tracks to Aboda Village",
+          "howTo": "After his letter, find Ferrus on the north-south tracks just south-east of the Snow Temple and drive him to Alfonzo's house in Aboda Village.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Ferrus meets Alfonzo",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_vessel_steem",
+          "name": "Vessel for Steem",
+          "region": "Snow Realm",
+          "area": "Papuchia Village to the Snow Sanctuary",
+          "howTo": "Buy the Wise One's Vessel (50 Rupees) in Papuchia Village and get it to Steem at the Snow Sanctuary without the train being hit once.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "reward": "Force Gem: Steem's vessel",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_goron_to_anouki",
+          "name": "Goron to Anouki Village",
+          "region": "Snow Realm",
+          "area": "Goron Village to Anouki Village",
+          "howTo": "The Goron near Goron Village's station wants to see snow.",
+          "after": "Fire Temple",
+          "reward": "Force Gem: Goron visits Anouki Village",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_kofu",
+          "name": "Kofu to Goron Village",
+          "region": "Fire Realm",
+          "area": "Anouki Village to Goron Village",
+          "howTo": "Kofu, in Honcho's house, wants to see Goron Village.",
+          "requires": [
+            "ride_goron_to_anouki"
+          ],
+          "reward": "Force Gem: Kofu visits Goron Village",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_goron_child",
+          "name": "Goron child to Castle Town",
+          "region": "Forest Realm",
+          "area": "Goron Village to Castle Town",
+          "howTo": "The Goron Elder's grandson wants to meet Zelda in the big city: drive him to Castle Town and talk to him as he explores.",
+          "after": "Fire Temple",
+          "reward": "Force Gem: Goron child in Castle Town",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_mega_ice_niboshi",
+          "name": "Mega Ice for Niboshi",
+          "region": "Ocean Realm",
+          "area": "Wellspring Station to Papuchia Village",
+          "howTo": "At least 10 units of Mega Ice to Niboshi, the fish seller in Papuchia Village. Warp Gate B saves time.",
+          "requires": [
+            "cargo_mega_ice_kagoron"
+          ],
+          "after": "Fire Temple",
+          "reward": "Force Gem: Niboshi's Mega Ice",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_wadatsumi",
+          "name": "Wadatsumi",
+          "region": "Ocean Realm",
+          "area": "Pirate Hideout to Papuchia Village",
+          "howTo": "Free him in the Pirate Hideout's shooting gallery and drive him home, beating the pirate ships and the Miniblins who board.",
+          "requires": [
+            "cargo_mega_ice_niboshi"
+          ],
+          "reward": "Force Gem: Wadatsumi",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_cuccos_rael",
+          "name": "Cuccos for Rael",
+          "region": "Sand Realm",
+          "area": "Castle Town to the Sand Sanctuary",
+          "howTo": "Five Cuccos from the Cucco man in Castle Town to Rael at the Sand Sanctuary.",
+          "after": "Sand Temple",
+          "reward": "Force Gem: Rael's Cuccos",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ride_ferrus_ocean_temple",
+          "name": "Ferrus to the Ocean Temple",
+          "region": "Ocean Realm",
+          "area": "Fire Realm tracks to the Ocean Temple",
+          "howTo": "After the Sand Temple and a visit to the Tower of Spirits, his letter puts him north of the Goron Target Range. Drive him to the Ocean Temple on the Ocean Floor.",
+          "requires": [
+            "ride_ferrus_alfonzo"
+          ],
+          "reward": "Force Gem: Ferrus on the Ocean Floor",
+          "tags": [
+            "Passenger",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "cargo_dark_ore_linebeck",
+          "name": "Dark Ore for Linebeck",
+          "region": "Forest Realm",
+          "area": "Dark Ore Mine to the Trading Post",
+          "howTo": "Dark Ore (10 for 200 Rupees) from the Dark Ore Mine to Linebeck III at the Trading Post, with at least 5 units left: kill the cave's Rocktite first, then use Warp Gates H and G.",
+          "requires": [
+            "ride_ferrus_ocean_temple"
+          ],
+          "reward": "Force Gem: Linebeck's Dark Ore",
+          "notes": "Sunlight ruins it. Repeat deliveries pay a Treasure or Rupees.",
+          "tags": [
+            "Cargo",
+            "Force Gem"
+          ]
+        }
+      ]
+    }
+  ]
+}

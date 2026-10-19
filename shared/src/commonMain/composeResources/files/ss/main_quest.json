@@ -1,0 +1,663 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {
+      "label": "Dungeons",
+      "formula": "quest.value"
+    },
+    {
+      "label": "Silent Realms",
+      "formula": "silent_realms"
+    }
+  ],
+  "sections": [
+    {
+      "id": "quest",
+      "title": "Main Quest",
+      "note": "Seven dungeons, the three Sacred Flames, the Imprisoned and the Song of the Hero, in play order.",
+      "items": [
+        {
+          "id": "wing_ceremony",
+          "name": "The Wing Ceremony",
+          "area": "Skyloft",
+          "howTo": "Groose has hidden your Crimson Loftwing behind the Waterfall Cave. Borrow the Practice Sword at the Sparring Hall, go through the cave to free your Loftwing, then win the race by catching the Bird Statuette from the yellow Loftwing.",
+          "value": 0,
+          "reward": "Sailcloth",
+          "notes": "Zelda gives you the Sailcloth on top of the Statue of the Goddess and pushes you off to try it. On your flight together afterwards, a dark tornado throws her below the clouds.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "statue_of_the_goddess",
+          "name": "The Goddess Sword",
+          "area": "Statue of the Goddess",
+          "howTo": "That night, follow Fi into the Statue of the Goddess and draw the sword. Gaepora then gives you the knight's uniform, Fledge the Adventure Pouch and Owlan a Wooden Shield; Luv in the Bazaar gives you an Empty Bottle.",
+          "value": 0,
+          "reward": "Goddess Sword, Emerald Tablet",
+          "notes": "Setting the Emerald Tablet in the statue opens a column of light down to Faron Woods.",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "wing_ceremony"
+          ]
+        },
+        {
+          "id": "faron_woods",
+          "name": "The Kikwis",
+          "area": "Faron Woods",
+          "howTo": "Dive into the green light to the Sealed Grounds and meet the old woman in the Sealed Temple. In Faron Woods, find Bucha, the Kikwi elder, then the three Kikwis hiding from the Bokoblins: Lopsa (roll into his tree), Erla and Oolo.",
+          "value": 0,
+          "reward": "Slingshot",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "statue_of_the_goddess"
+          ]
+        },
+        {
+          "id": "skyview_temple",
+          "name": "Skyview Temple",
+          "area": "Deep Woods",
+          "howTo": "Cross the Deep Woods with the Slingshot to the temple.",
+          "reward": "Heart Container, Ruby Tablet",
+          "notes": "Boss: Ghirahim. Dungeon item: Beetle. The Ruby Tablet comes from the crest at Skyview Spring, past the boss, and opens the way to Eldin Volcano.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "faron_woods"
+          ]
+        },
+        {
+          "id": "key_pieces",
+          "name": "The Key Pieces",
+          "area": "Eldin Volcano",
+          "howTo": "Land at Eldin Volcano. Underground, a Mogma gives you the Digging Mitts once you've beaten the Bokoblins that invaded his cavern. Dig up the five Key Pieces around the volcano (Fi can dowse for them) and set them in the Earth Temple's door.",
+          "value": 0,
+          "reward": "Digging Mitts",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "skyview_temple"
+          ]
+        },
+        {
+          "id": "earth_temple",
+          "name": "Earth Temple",
+          "area": "Eldin Volcano",
+          "howTo": "Open the door with the five Key Pieces.",
+          "reward": "Heart Container, Amber Tablet",
+          "notes": "Boss: Scaldera. Dungeon item: Bomb Bag (Ledd the Mogma gives it to you after you beat two Lizalfos). The Amber Tablet comes from the crest at the Earth Spring, past the boss, and opens the way to Lanayru Desert.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "key_pieces"
+          ]
+        },
+        {
+          "id": "power_generator",
+          "name": "The Power Generator",
+          "area": "Lanayru Desert",
+          "howTo": "Land at the Lanayru Mine and cross into the desert. Save the robot held by two Technoblins (he fits your Beetle with a hook), then use Timeshift Stones to turn on the three power nodes and set the generator's three dials in front of the Lanayru Mining Facility.",
+          "value": 0,
+          "reward": "Hook Beetle",
+          "notes": "The Temple of Time's own entrance is blocked; a robot tells you the mine leads to it underground.",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "earth_temple"
+          ]
+        },
+        {
+          "id": "lanayru_mining_facility",
+          "name": "Lanayru Mining Facility",
+          "area": "Lanayru Desert",
+          "howTo": "Enter through the power generator once its dials are set.",
+          "reward": "Heart Container",
+          "notes": "Boss: Moldarach. Dungeon item: Gust Bellows.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "power_generator"
+          ]
+        },
+        {
+          "id": "temple_of_time",
+          "name": "The Temple of Time",
+          "area": "Lanayru Desert",
+          "howTo": "Ride the rails past the boss to the Temple of Time and hold off Ghirahim while Impa and Zelda escape through the Gate of Time.",
+          "value": 0,
+          "reward": "Goddess's Harp",
+          "notes": "Zelda gives you her harp before the gate closes.",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "lanayru_mining_facility"
+          ]
+        },
+        {
+          "id": "imprisoned_first",
+          "name": "The Imprisoned (first battle)",
+          "area": "Sealed Grounds",
+          "howTo": "At the Sealed Temple the old woman starts teaching you the harp until the Imprisoned breaks out of the seal. Slash its toes to topple it, strike the spike on its head from below, and finish with a Skyward Strike on the seal.",
+          "value": 0,
+          "notes": "Groose arrives here and stays. Rupin's Gear Shop now sells the Sacred Shield.",
+          "tags": [
+            "Boss"
+          ],
+          "requires": [
+            "temple_of_time"
+          ]
+        },
+        {
+          "id": "ballad_of_the_goddess",
+          "name": "The Light Tower",
+          "area": "Skyloft",
+          "howTo": "The old woman teaches you the Ballad of the Goddess. Ask Gaepora about its lyrics, find the missing propeller so both windmills turn to face the Light Tower, then play the Ballad on top of the tower to open the Thunderhead.",
+          "value": 0,
+          "reward": "Ballad of the Goddess",
+          "tags": [
+            "Song"
+          ],
+          "requires": [
+            "imprisoned_first"
+          ]
+        },
+        {
+          "id": "farores_courage",
+          "name": "Farore's Courage",
+          "area": "Isle of Songs",
+          "howTo": "Fly into the Thunderhead to the Isle of Songs, turn its center pedestal to complete the bridge (the stone tablet explains), crawl inside and Skyward Strike the crest.",
+          "value": 0,
+          "reward": "Farore's Courage",
+          "notes": "Opens Farore's Silent Realm in Faron Woods (Silent Realms tab), which gives the Water Dragon's Scale.",
+          "tags": [
+            "Song"
+          ],
+          "requires": [
+            "ballad_of_the_goddess"
+          ]
+        },
+        {
+          "id": "lake_floria",
+          "name": "Lake Floria and the Water Dragon",
+          "area": "Lake Floria",
+          "howTo": "With the Water Dragon's Scale, dive into the pond south of Bucha and climb inside the Great Tree to Yerbal, the Kikwi hermit. Trace the symbol on the door at the far south of Faron Woods with your raised sword and dive into Lake Floria. Faron, the Water Dragon, is wounded: bring her Sacred Water from Skyview Spring, back through Skyview Temple, where three Stalfos now wait.",
+          "value": 0,
+          "notes": "Healed, Faron stops the waterfall in front of the Ancient Cistern.",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "farores_courage"
+          ]
+        },
+        {
+          "id": "ancient_cistern",
+          "name": "Ancient Cistern",
+          "area": "Lake Floria",
+          "howTo": "Behind Floria Waterfall, once Faron has stopped it.",
+          "reward": "Farore's Flame, Heart Container",
+          "notes": "Boss: Koloktos. Dungeon item: Whip. Farore's Flame makes your sword the Goddess Longsword.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "lake_floria"
+          ]
+        },
+        {
+          "id": "nayrus_wisdom",
+          "name": "Nayru's Wisdom",
+          "area": "Isle of Songs",
+          "howTo": "Go back into the Isle of Songs and Skyward Strike the crest again.",
+          "value": 0,
+          "reward": "Nayru's Wisdom",
+          "notes": "Opens Nayru's Silent Realm in Lanayru Desert, which gives the Clawshots.",
+          "tags": [
+            "Song"
+          ],
+          "requires": [
+            "ancient_cistern"
+          ]
+        },
+        {
+          "id": "lanayru_sand_sea",
+          "name": "The Lanayru Sand Sea",
+          "area": "Lanayru Sand Sea",
+          "howTo": "With the Clawshots, go through Lanayru Caves to the Sand Sea and take Skipper's boat. Fetch the Ancient Sea Chart from his cabin at Skipper's Retreat (blow the dust off with the Gust Bellows), beat Moldarach again at the Shipyard, and power up the Pirate Stronghold with its Timeshift Orb. Fi can then dowse for the invisible Sandship: hit it with the boat's cannon.",
+          "value": 0,
+          "reward": "Ancient Sea Chart",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "nayrus_wisdom"
+          ]
+        },
+        {
+          "id": "sandship",
+          "name": "Sandship",
+          "area": "Lanayru Sand Sea",
+          "howTo": "Board the ship once you've shot it into view.",
+          "reward": "Nayru's Flame, Heart Container",
+          "notes": "Boss: Tentalus. Dungeon item: Bow (after the Scervo fight). Nayru's Flame makes your sword the Goddess White Sword.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "lanayru_sand_sea"
+          ]
+        },
+        {
+          "id": "dins_power",
+          "name": "Din's Power",
+          "area": "Isle of Songs",
+          "howTo": "Go back into the Isle of Songs and Skyward Strike the crest a third time.",
+          "value": 0,
+          "reward": "Din's Power",
+          "notes": "Opens Din's Silent Realm in Eldin Volcano, which gives the Fireshield Earrings.",
+          "tags": [
+            "Song"
+          ],
+          "requires": [
+            "sandship"
+          ]
+        },
+        {
+          "id": "volcano_summit",
+          "name": "The Water Basin",
+          "area": "Volcano Summit",
+          "howTo": "With the Fireshield Earrings, climb to the Volcano Summit. Douse the first two frog statues blocking the Fire Sanctuary with water from a Bottle; the third needs Faron's Water Basin from Lake Floria, which Scrapper carries up the volcano while you protect him.",
+          "value": 0,
+          "reward": "The way into the Fire Sanctuary",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "dins_power"
+          ]
+        },
+        {
+          "id": "fire_sanctuary",
+          "name": "Fire Sanctuary",
+          "area": "Volcano Summit",
+          "howTo": "Cross the bridge once the third frog's flames are out.",
+          "reward": "Din's Flame, Heart Container",
+          "notes": "Boss: Ghirahim. Dungeon item: Mogma Mitts (from Silva the Mogma). Din's Flame makes your sword the Master Sword.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "volcano_summit"
+          ]
+        },
+        {
+          "id": "imprisoned_second",
+          "name": "The Imprisoned (second battle)",
+          "area": "Sealed Grounds",
+          "howTo": "Back at the Sealed Grounds the Imprisoned breaks out again, now with arms. Groose's new catapult, the Groosenator, fires bombs to knock it down; strike the spike on its head and seal it again.",
+          "value": 0,
+          "tags": [
+            "Boss"
+          ],
+          "requires": [
+            "fire_sanctuary"
+          ]
+        },
+        {
+          "id": "temple_of_hylia",
+          "name": "The Temple of Hylia",
+          "area": "Sealed Temple",
+          "howTo": "Skyward Strike the Gate of Time in the Sealed Temple and go through to the Temple of Hylia in the past.",
+          "value": 0,
+          "reward": "True Master Sword",
+          "notes": "Zelda tells you she is Hylia reborn, blesses your sword and seals herself in crystal to keep Demise imprisoned. Impa tells you to find the Triforce.",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "imprisoned_second"
+          ]
+        },
+        {
+          "id": "levias",
+          "name": "Levias and Bilocyte",
+          "area": "Thunderhead",
+          "howTo": "Owlan sends you to Pumm at the Lumpy Pumpkin, who brews his yearly Pumpkin Soup offering. Scrapper carries the pot to the island with the everlasting rainbow in the Thunderhead, Levias comes to it, and you fight the parasite Bilocyte on his back.",
+          "value": 0,
+          "reward": "Levias's clue: the Song of the Hero",
+          "notes": "Strich now sells and buys bugs on Bug Rock in the Thunderhead.",
+          "tags": [
+            "Boss"
+          ],
+          "requires": [
+            "temple_of_hylia"
+          ]
+        },
+        {
+          "id": "imprisoned_third",
+          "name": "The Imprisoned (third battle)",
+          "area": "Sealed Grounds",
+          "howTo": "Fly down to Faron Woods: you can only land at the Sealed Grounds, and the Imprisoned breaks out a third time, now able to fly. Shoot it down with the Groosenator; when the bombs run out, have Groose catapult you onto its head.",
+          "value": 0,
+          "notes": "Your first trip to Faron Woods after meeting Levias starts this fight; Eldin and Lanayru don't need it.",
+          "tags": [
+            "Boss"
+          ],
+          "requires": [
+            "levias"
+          ]
+        },
+        {
+          "id": "song_of_the_hero",
+          "name": "The Song of the Hero",
+          "howTo": "Learn its four parts: from Faron, Eldin and Lanayru in any order, then from Levias. Each part is in the Song of the Hero tab.",
+          "value": 0,
+          "reward": "Song of the Hero",
+          "notes": "Opens Hylia's Silent Realm in Skyloft, which gives the Stone of Trials.",
+          "tags": [
+            "Song"
+          ],
+          "requires": [
+            "imprisoned_third"
+          ]
+        },
+        {
+          "id": "stone_of_trials",
+          "name": "The Stone of Trials",
+          "area": "Skyloft",
+          "howTo": "Pass Hylia's Silent Realm by the Light Tower (Silent Realms tab), then set the Stone of Trials in the one-eyed bird statue across the water on the way to the Waterfall Cave. It fires at the Statue of the Goddess and opens the Sky Keep beneath it.",
+          "value": 0,
+          "reward": "The way into the Sky Keep",
+          "notes": "The statue turns away at night, so set the stone by day.",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "song_of_the_hero"
+          ]
+        },
+        {
+          "id": "sky_keep",
+          "name": "Sky Keep",
+          "area": "Statue of the Goddess",
+          "howTo": "Clawshot across the targets the bird statue fires out.",
+          "reward": "Triforce of Courage, Triforce of Power, Triforce of Wisdom",
+          "notes": "No boss: Dreadfuse is a mini-boss guarding a Small Key. Dungeon item: none. Its rooms slide like a puzzle, and three of them hold the pieces of the Triforce.",
+          "tags": [
+            "Dungeon"
+          ],
+          "requires": [
+            "stone_of_trials"
+          ]
+        },
+        {
+          "id": "the_triforce",
+          "name": "The Triforce",
+          "area": "Statue of the Goddess",
+          "howTo": "With all three pieces you're taken up the Statue of the Goddess, where you wish for Demise's destruction. The isle falls to the Sealed Grounds and crushes the Imprisoned.",
+          "value": 0,
+          "reward": "Triforce",
+          "tags": [
+            "Story"
+          ],
+          "requires": [
+            "sky_keep"
+          ]
+        },
+        {
+          "id": "ghirahim_final",
+          "name": "Ghirahim's Last Stand",
+          "area": "Sealed Grounds (the past)",
+          "howTo": "When Zelda wakes at the Sealed Temple, Ghirahim snatches her and takes her back through the Gate of Time to revive Demise. Follow him, fight down the spiral of the Sealed Grounds past waves of Bokoblins and Moblins, then beat Ghirahim in his true form.",
+          "value": 0,
+          "tags": [
+            "Boss"
+          ],
+          "requires": [
+            "the_triforce"
+          ]
+        },
+        {
+          "id": "demise",
+          "name": "Demise",
+          "area": "Sealed Grounds (the past)",
+          "howTo": "Demise takes you into a stormy realm. Catch his lightning on your raised sword and strike back with a Lightning Skyward Strike.",
+          "value": 0,
+          "reward": "The ending",
+          "notes": "Finishing unlocks Hero Mode. On Wii the Hero Mode file is saved over your cleared file. HD: you can save it to its own slot instead.",
+          "tags": [
+            "Boss"
+          ],
+          "requires": [
+            "ghirahim_final"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silent_realms",
+      "title": "Silent Realms",
+      "noun": "trial",
+      "hiddenLabel": "Unpassed trial",
+      "note": "Collect 15 Sacred Tears without a weapon; one hit from a Guardian restarts the trial.",
+      "items": [
+        {
+          "id": "trial_farore",
+          "name": "Farore's Silent Realm",
+          "area": "Faron Woods",
+          "howTo": "Dowse for the Trial Gate in the north-east of Faron Woods, in front of the Viewing Platform. Play Farore's Courage on it and thrust your sword in.",
+          "requires": [
+            "farores_courage"
+          ],
+          "reward": "Water Dragon's Scale",
+          "notes": "Lets you dive and swim, for Lake Floria.",
+          "tags": [
+            "Faron Woods"
+          ]
+        },
+        {
+          "id": "trial_nayru",
+          "name": "Nayru's Silent Realm",
+          "area": "Lanayru Desert",
+          "howTo": "Dowse for the Trial Gate just north of the North Desert Bird Statue, outside the Lanayru Mining Facility. Play Nayru's Wisdom on it and thrust your sword in.",
+          "requires": [
+            "nayrus_wisdom"
+          ],
+          "reward": "Clawshots",
+          "notes": "Watch for quicksand and invisible platforms.",
+          "tags": [
+            "Lanayru Desert"
+          ]
+        },
+        {
+          "id": "trial_din",
+          "name": "Din's Silent Realm",
+          "area": "Eldin Volcano",
+          "howTo": "Dowse for the Trial Gate at the Volcano Ascent, near the bridge. Play Din's Power on it and thrust your sword in.",
+          "requires": [
+            "dins_power"
+          ],
+          "reward": "Fireshield Earrings",
+          "notes": "Waking Water and the slides make this the hardest of the first three.",
+          "tags": [
+            "Eldin Volcano"
+          ]
+        },
+        {
+          "id": "trial_hylia",
+          "name": "Hylia's Silent Realm",
+          "area": "Skyloft",
+          "howTo": "Dowse for the Trial Gate by the Light Tower in Skyloft. Play the Song of the Hero on it and thrust your sword in.",
+          "requires": [
+            "song_of_the_hero"
+          ],
+          "reward": "Stone of Trials",
+          "notes": "Zelda Wiki and Zelda Dungeon call it the Goddess's Silent Realm.",
+          "tags": [
+            "Skyloft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hero_song",
+      "title": "Song of the Hero",
+      "noun": "part",
+      "hiddenLabel": "Unlearned part",
+      "note": "Four parts: the three dragons in any order, then Levias.",
+      "items": [
+        {
+          "id": "hero_song_faron",
+          "name": "Faron's part",
+          "area": "Faron Woods",
+          "howTo": "Faron Woods is flooded: have Groose catapult you in from the Sealed Grounds, then swim into the Great Tree to Faron. Collect all the Tadtones, the musical notes swimming around the woods, and bring them to her. Each color group must be caught whole within its time limit.",
+          "requires": [
+            "imprisoned_third"
+          ],
+          "reward": "Part of the Song of the Hero",
+          "notes": "Seventeen groups of Tadtones. A dash attack underwater catches a group quickly.",
+          "tags": [
+            "Water Dragon"
+          ]
+        },
+        {
+          "id": "hero_song_eldin",
+          "name": "Eldin's part",
+          "area": "Eldin Volcano",
+          "howTo": "Your Loftwing is blown off course and you wake in a Bokoblin prison with only the harp. Plats the Mogma returns your Mogma Mitts. Sneak through the Bokoblin base taking your items back from chests (a Bokoblin that spots you sends you back), get the Adventure Pouch back near the Volcano Summit, then lower the drawbridge to Eldin.",
+          "requires": [
+            "levias"
+          ],
+          "reward": "Part of the Song of the Hero",
+          "tags": [
+            "Fire Dragon"
+          ]
+        },
+        {
+          "id": "hero_song_lanayru",
+          "name": "Lanayru's part",
+          "area": "Lanayru Gorge",
+          "howTo": "In Lanayru Caves, bomb open the passage Golo the Goron has been digging and squeeze through to Lanayru Gorge. Follow the Timeshift Stone minecart to Lanayru, who is dying. At the dead tree, uncover a Timeshift Stone with the Gust Bellows and take the Life Tree Seedling. Plant it beside the Temple of Hylia through the Gate of Time, then in the present roll into the grown tree to drop the Life Tree Fruit. The fruit cures him.",
+          "requires": [
+            "levias"
+          ],
+          "reward": "Part of the Song of the Hero",
+          "notes": "Afterwards he runs the Thunder Dragon's Lightning Round, where the Hylian Shield is won. On Wii, getting this part before Faron's and Eldin's and then talking to Golo can leave the quest impossible to finish (Zelda Dungeon); Nintendo fixed affected saves with a Wii channel. HD: the bug is gone (Zelda Wiki).",
+          "tags": [
+            "Thunder Dragon"
+          ]
+        },
+        {
+          "id": "hero_song_levias",
+          "name": "Levias's part",
+          "area": "Thunderhead",
+          "howTo": "With the other three parts, fly into the Thunderhead, land on Levias's head and talk to him.",
+          "requires": [
+            "hero_song_faron",
+            "hero_song_eldin",
+            "hero_song_lanayru"
+          ],
+          "reward": "Song of the Hero",
+          "notes": "The three dragons join him in singing the whole song.",
+          "tags": [
+            "Levias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sacred_flames",
+      "title": "Sacred Flames",
+      "noun": "flame",
+      "hiddenLabel": "Unfound flame",
+      "note": "Each one tempers the Goddess Sword.",
+      "summary": {
+        "label": "Sacred Flames",
+        "formula": "sacred_flames"
+      },
+      "items": [
+        {
+          "id": "farores_flame",
+          "name": "Farore's Flame",
+          "area": "Ancient Cistern",
+          "howTo": "At the end of the Ancient Cistern, after Koloktos.",
+          "requires": [
+            "ancient_cistern"
+          ],
+          "reward": "Goddess Longsword: twice the damage and a longer reach"
+        },
+        {
+          "id": "nayrus_flame",
+          "name": "Nayru's Flame",
+          "area": "Sandship",
+          "howTo": "At the end of the Sandship, after Tentalus.",
+          "requires": [
+            "sandship"
+          ],
+          "reward": "Goddess White Sword: Fi can dowse for more kinds of things"
+        },
+        {
+          "id": "dins_flame",
+          "name": "Din's Flame",
+          "area": "Fire Sanctuary",
+          "howTo": "At the end of the Fire Sanctuary, after Ghirahim.",
+          "requires": [
+            "fire_sanctuary"
+          ],
+          "reward": "Master Sword: three times the Goddess Sword's strength"
+        }
+      ]
+    },
+    {
+      "id": "sword",
+      "title": "Sword",
+      "noun": "form",
+      "hiddenLabel": "Unfound sword",
+      "note": "One row: tap it for the next form.",
+      "items": [
+        {
+          "id": "goddess_sword",
+          "name": "Sword",
+          "notes": "Before the Goddess Sword you only borrow the Practice Sword from the Sparring Hall, for the Waterfall Cave. HD: with button controls you swing with the right stick instead of the Wii Remote.",
+          "tiers": [
+            {
+              "name": "Goddess Sword",
+              "howTo": "Draw it inside the Statue of the Goddess the night Zelda falls. Fi lives in it."
+            },
+            {
+              "name": "Goddess Longsword",
+              "howTo": "Farore's Flame, at the end of the Ancient Cistern.",
+              "reward": "Twice the damage and a longer reach"
+            },
+            {
+              "name": "Goddess White Sword",
+              "howTo": "Nayru's Flame, at the end of the Sandship.",
+              "reward": "Fi can dowse for more kinds of things"
+            },
+            {
+              "name": "Master Sword",
+              "howTo": "Din's Flame, at the end of the Fire Sanctuary.",
+              "reward": "Three times the Goddess Sword's strength"
+            },
+            {
+              "name": "True Master Sword",
+              "howTo": "Zelda blesses it at the Temple of Hylia, through the Gate of Time after the second battle with the Imprisoned.",
+              "reward": "The only blade that can defeat Demise"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

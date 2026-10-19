@@ -1,0 +1,662 @@
+{
+  "noun": "floor",
+  "hiddenLabel": "Uncleared floor",
+  "sections": [
+    {
+      "id": "floors",
+      "title": "Cave of Ordeals",
+      "noun": "floor",
+      "hiddenLabel": "Uncleared floor",
+      "note": "Gerudo Mesa, beside the warp point. Clear every enemy to open each floor's exit; a Great Fairy waits every tenth floor.",
+      "items": [
+        {
+          "id": "floor_01",
+          "name": "Floor 1",
+          "howTo": "Enemies: 1 Bokoblin.",
+          "after": "Gerudo Desert (Bridge of Eldin piece warped back)",
+          "notes": "The entrance is beside the Gerudo Mesa warp point, uncovered once Midna warps the stray Bridge of Eldin segment home."
+        },
+        {
+          "id": "floor_02",
+          "name": "Floor 2",
+          "howTo": "Enemies: 3 Rats and 3 Keese."
+        },
+        {
+          "id": "floor_03",
+          "name": "Floor 3",
+          "howTo": "Enemies: 4 Baba Serpents: kill the one on the floor first, then drop the hanging ones with the Gale Boomerang.",
+          "notes": "A Heart is buried here (Wolf digging spot)."
+        },
+        {
+          "id": "floor_04",
+          "name": "Floor 4",
+          "howTo": "Enemies: 3 Skulltulas."
+        },
+        {
+          "id": "floor_05",
+          "name": "Floor 5",
+          "howTo": "Enemies: 3 Bulblins (Bulblin Archers in some guides)."
+        },
+        {
+          "id": "floor_06",
+          "name": "Floor 6",
+          "howTo": "Enemies: 9 Torch Slugs: Clawshot the ones on the ceiling down before you drop in."
+        },
+        {
+          "id": "floor_07",
+          "name": "Floor 7",
+          "howTo": "Enemies: 2 Dodongos and 5 Fire Keese.",
+          "notes": "Three Hearts are buried here."
+        },
+        {
+          "id": "floor_08",
+          "name": "Floor 8",
+          "howTo": "Enemies: 6 Tektites (2 blue, 4 red)."
+        },
+        {
+          "id": "floor_09",
+          "name": "Floor 9",
+          "howTo": "Enemies: 2 Bulblin Archers and Lizalfos (2 or 4 by source)."
+        },
+        {
+          "id": "floor_10",
+          "name": "Floor 10: Great Fairy",
+          "howTo": "The Great Fairy's fountain: talk to her.",
+          "reward": "Fairies released to Ordon Spring",
+          "notes": "The Great Fairy hints at the next item needed (the Spinner) and can return you to the surface. HD: the Surprised Link stamp is here."
+        },
+        {
+          "id": "floor_11",
+          "name": "Floor 11",
+          "howTo": "Enemies: 3 Helmasaurs and about 13 Rats. Ride the Spinner to reach the exit.",
+          "after": "Arbiter's Grounds (Spinner)",
+          "tags": [
+            "Spinner"
+          ]
+        },
+        {
+          "id": "floor_12",
+          "name": "Floor 12",
+          "howTo": "Enemies: 1 large Purple Chu, which splits; you can fight it from the ledge with the Clawshot."
+        },
+        {
+          "id": "floor_13",
+          "name": "Floor 13",
+          "howTo": "Enemies: 4 Chu Worms: Clawshot them out of their bubbles."
+        },
+        {
+          "id": "floor_14",
+          "name": "Floor 14",
+          "howTo": "Enemies: 15 Bubbles: Wolf area attack or Spin Attack hits several at once.",
+          "notes": "An Orange Rupee (100) is buried here."
+        },
+        {
+          "id": "floor_15",
+          "name": "Floor 15",
+          "howTo": "Enemies: 10 Bulblins."
+        },
+        {
+          "id": "floor_16",
+          "name": "Floor 16",
+          "howTo": "Enemies: 6 Rats and 6 Keese (8 and 8 in some guides)."
+        },
+        {
+          "id": "floor_17",
+          "name": "Floor 17",
+          "howTo": "Enemies: 10 Stalhounds and an Imp Poe: kill the Stalhounds first, then the Poe as a wolf with senses.",
+          "reward": "Poe Soul",
+          "notes": "One of the three Imp Poes in the cave; it doesn't return once beaten.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "floor_18",
+          "name": "Floor 18",
+          "howTo": "Enemies: 8 Leevers (10 by some counts): a Spin Attack in the middle of the ring clears them.",
+          "notes": "A Heart is buried here."
+        },
+        {
+          "id": "floor_19",
+          "name": "Floor 19",
+          "howTo": "Enemies: A swarm of Chus (about 36 Purple plus Yellow, Red and Blue ones) that merge into big ones.",
+          "notes": "A Rare Chu may appear."
+        },
+        {
+          "id": "floor_20",
+          "name": "Floor 20: Great Fairy",
+          "howTo": "The Great Fairy's fountain: talk to her.",
+          "reward": "Fairies released to Faron Spring",
+          "notes": "The next ordeal needs the Ball and Chain. HD: the Angry Zelda stamp is here."
+        },
+        {
+          "id": "floor_21",
+          "name": "Floor 21",
+          "howTo": "Enemies: 5 Bokoblins and 5 Ice Keese. Smash the way out with the Ball and Chain.",
+          "after": "Snowpeak Ruins (Ball and Chain)",
+          "tags": [
+            "Ball and Chain"
+          ]
+        },
+        {
+          "id": "floor_22",
+          "name": "Floor 22",
+          "howTo": "Enemies: 5 Keese, 7 Rats and 10 Ghoul Rats; the Ghoul Rats can only be seen and hit by the wolf with senses on.",
+          "notes": "Three Hearts are buried in the centre.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "floor_23",
+          "name": "Floor 23",
+          "howTo": "Enemies: About 25 Stalkin: swing the Ball and Chain downward to crush groups."
+        },
+        {
+          "id": "floor_24",
+          "name": "Floor 24",
+          "howTo": "Enemies: 5 ReDead Knights (Gibdos): the Ball and Chain keeps them at a distance."
+        },
+        {
+          "id": "floor_25",
+          "name": "Floor 25",
+          "howTo": "Enemies: Bulblins and Bulblin Archers (about 11): shoot the archer on the tower before you drop in."
+        },
+        {
+          "id": "floor_26",
+          "name": "Floor 26",
+          "howTo": "Enemies: 3 Stalfos: Bomb Arrows from the ledge, then the Ball and Chain to finish the bones."
+        },
+        {
+          "id": "floor_27",
+          "name": "Floor 27",
+          "howTo": "Enemies: 3 Skulltulas and 6 Bubbles: deal with the Bubbles first.",
+          "notes": "A Heart is buried here."
+        },
+        {
+          "id": "floor_28",
+          "name": "Floor 28",
+          "howTo": "Enemies: 2 Lizalfos and 6 Bokoblins."
+        },
+        {
+          "id": "floor_29",
+          "name": "Floor 29",
+          "howTo": "Enemies: 2 Stalfos, 3 Fire Bubbles and about 12 Stalkin."
+        },
+        {
+          "id": "floor_30",
+          "name": "Floor 30: Great Fairy",
+          "howTo": "The Great Fairy's fountain: talk to her.",
+          "reward": "Fairies released to Eldin Spring (Kakariko)",
+          "notes": "The next ordeal needs the Dominion Rod. HD: the Happy Midna stamp is here."
+        },
+        {
+          "id": "floor_31",
+          "name": "Floor 31",
+          "howTo": "Enemies: 5 Beamos and 8 Keese: destroy the Beamos from the ledge, then move the two statues blocking the door with the Dominion Rod.",
+          "after": "Dominion Rod restored (Ancient Sky Book)",
+          "tags": [
+            "Dominion Rod"
+          ]
+        },
+        {
+          "id": "floor_32",
+          "name": "Floor 32",
+          "howTo": "Enemies: 2 Dodongos, 6 Torch Slugs, 6 Fire Keese and 6 Fire Bubbles: clear the ceiling slugs before dropping in."
+        },
+        {
+          "id": "floor_33",
+          "name": "Floor 33",
+          "howTo": "Enemies: 4 ReDead Knights (Gibdos) and an Imp Poe: Ball and Chain the knights, then the Poe as a wolf.",
+          "reward": "Poe Soul",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "floor_34",
+          "name": "Floor 34",
+          "howTo": "Enemies: 10 Ghoul Rats plus Yellow, Red and 7 Purple Chus; the Ghoul Rats need wolf senses.",
+          "notes": "A Heart is buried here.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "floor_35",
+          "name": "Floor 35",
+          "howTo": "Enemies: 1 Freezard and 6 Ice Keese: Gale Boomerang the Keese from the ledge, then smash the Freezard with the Ball and Chain."
+        },
+        {
+          "id": "floor_36",
+          "name": "Floor 36",
+          "howTo": "Enemies: 4 Chilfos (8 on later runs)."
+        },
+        {
+          "id": "floor_37",
+          "name": "Floor 37",
+          "howTo": "Enemies: Leevers, Bubbles and Ice Bubbles (8 Leevers, 4 of each Bubble by Zelda Wiki)."
+        },
+        {
+          "id": "floor_38",
+          "name": "Floor 38",
+          "howTo": "Enemies: 4 Chilfos, 2 Freezards, 3 Ice Bubbles and 3 Ice Keese. The Magic Armor helps."
+        },
+        {
+          "id": "floor_39",
+          "name": "Floor 39",
+          "howTo": "Enemies: 2 Darknuts (3 on later runs). Fight them one at a time.",
+          "notes": "A Silver Rupee (200) is buried here."
+        },
+        {
+          "id": "floor_40",
+          "name": "Floor 40: Great Fairy",
+          "howTo": "The Great Fairy's fountain: talk to her.",
+          "reward": "Fairies released to Lanayru Spring (Lake Hylia)",
+          "notes": "The next ordeal needs the Double Clawshots. HD: the Heart Container stamp is here."
+        },
+        {
+          "id": "floor_41",
+          "name": "Floor 41",
+          "howTo": "Enemies: 9 Armos. Wake them a few at a time; Double Clawshots are needed to reach the exit.",
+          "after": "City in the Sky (Double Clawshots)",
+          "tags": [
+            "Double Clawshots"
+          ]
+        },
+        {
+          "id": "floor_42",
+          "name": "Floor 42",
+          "howTo": "Enemies: 6 Baba Serpents and 6 Bokoblins."
+        },
+        {
+          "id": "floor_43",
+          "name": "Floor 43",
+          "howTo": "Enemies: 3 Lizalfos and 6 Bulblin Archers: shoot the archers from the ledge."
+        },
+        {
+          "id": "floor_44",
+          "name": "Floor 44",
+          "howTo": "Enemies: 4 Dynalfos and an Imp Poe: Bomb Arrows from the ledge, then the Poe as a wolf.",
+          "reward": "Poe Soul",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "floor_45",
+          "name": "Floor 45",
+          "howTo": "Enemies: Bulblin Archers on towers, 5 ReDead Knights (Gibdos) and a mix of Chus.",
+          "notes": "Three Hearts are buried here."
+        },
+        {
+          "id": "floor_46",
+          "name": "Floor 46",
+          "howTo": "Enemies: 3 Chilfos, 2 Freezards (one under the ledge) and 10 Ghoul Rats that need wolf senses.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "floor_47",
+          "name": "Floor 47",
+          "howTo": "Enemies: 1 Bokoblin, about 10 Stalkin and 10-17 Rats."
+        },
+        {
+          "id": "floor_48",
+          "name": "Floor 48",
+          "howTo": "Enemies: 1 Darknut and 2 Aeralfos: take out the Aeralfos first."
+        },
+        {
+          "id": "floor_49",
+          "name": "Floor 49",
+          "howTo": "Enemies: 3 Darknuts (4 on later runs). Bombs held until they flash strip their armour; the Magic Armor helps.",
+          "notes": "HD: the Fairy stamp. On a second full run the Postman squats on the last ledge reading a letter."
+        },
+        {
+          "id": "floor_50",
+          "name": "Floor 50: Great Fairy",
+          "howTo": "The final Great Fairy: talk to her for her blessing.",
+          "reward": "Great Fairy's Tears (fills an empty Bottle)",
+          "notes": "After this every Spirit Spring refills a Bottle with Great Fairy's Tears whenever you carry none. You are returned to Lanayru Spring."
+        }
+      ]
+    },
+    {
+      "id": "cave_of_shadows",
+      "title": "HD Cave of Shadows",
+      "noun": "floor",
+      "hiddenLabel": "Uncleared floor",
+      "separate": true,
+      "note": "Twilight Princess HD only, opened with the Wolf Link amiibo. 40 floors as Wolf Link, in three runs (to 6, to 20, to 40).",
+      "items": [
+        {
+          "id": "shadows_floor_01",
+          "name": "Floor 1",
+          "howTo": "Enemies: 3 Shadow Beasts.",
+          "after": "Faron Province restored",
+          "notes": "Scan the Wolf Link amiibo on the Collection screen. Link stays a wolf the whole way and bottled fairies won't revive him.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_02",
+          "name": "Floor 2",
+          "howTo": "Enemies: 4 Shadow Beasts.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_03",
+          "name": "Floor 3",
+          "howTo": "Enemies: 3 Shadow Deku Babas and 4 Shadow Vermin.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_04",
+          "name": "Floor 4",
+          "howTo": "Enemies: 4 Shadow Keese and 4 Shadow Vermin.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_05",
+          "name": "Floor 5",
+          "howTo": "Enemies: 4 Shadow Beasts and 4 Shadow Vermin.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_06",
+          "name": "Floor 6: chest and exit",
+          "howTo": "A chest, then the way out. The first run ends here; leave and scan the amiibo again to go on.",
+          "reward": "Red Rupee (20)",
+          "notes": "A Heart can be dug up in the middle of the room."
+        },
+        {
+          "id": "shadows_floor_07",
+          "name": "Floor 7",
+          "howTo": "Enemies: 4 Bokoblins (blue).",
+          "after": "Arbiter's Grounds (Ganondorf's execution scene)",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_08",
+          "name": "Floor 8",
+          "howTo": "Enemies: 8 Keese.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_09",
+          "name": "Floor 9",
+          "howTo": "Enemies: 6 Baba Serpents.",
+          "notes": "A Heart can be dug up in the middle of the room.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_10",
+          "name": "Floor 10",
+          "howTo": "Enemies: 4 Helmasaurs.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_11",
+          "name": "Floor 11",
+          "howTo": "Enemies: 9 Torch Slugs.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_12",
+          "name": "Floor 12",
+          "howTo": "Enemies: 6 Tektites.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_13",
+          "name": "Floor 13",
+          "howTo": "Enemies: 3 Bulblin Archers.",
+          "notes": "A Heart can be dug up in the middle of the room.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_14",
+          "name": "Floor 14",
+          "howTo": "Enemies: 3 Dodongos.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_15",
+          "name": "Floor 15",
+          "howTo": "Enemies: 20 Chus.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_16",
+          "name": "Floor 16",
+          "howTo": "Enemies: 15 Ghoul Rats.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_17",
+          "name": "Floor 17",
+          "howTo": "Enemies: 15 Bubbles.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_18",
+          "name": "Floor 18",
+          "howTo": "Enemies: 26 Stalkin.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_19",
+          "name": "Floor 19",
+          "howTo": "Enemies: 2 ReDead Knights (Gibdos) and 55 Poison Mites.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_20",
+          "name": "Floor 20: chest and exit",
+          "howTo": "A chest, then the way out. The second run ends here; you must replay floors 1-19 to reach floor 21.",
+          "reward": "Purple Rupee (50)",
+          "notes": "A Heart can be dug up in the middle of the room."
+        },
+        {
+          "id": "shadows_floor_21",
+          "name": "Floor 21",
+          "howTo": "Enemies: 3 Skulltulas and 5 Deku Babas.",
+          "after": "Palace of Twilight (light-filled Master Sword)",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_22",
+          "name": "Floor 22",
+          "howTo": "Enemies: 3 Helmasaurs and 12 Ghoul Rats.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_23",
+          "name": "Floor 23",
+          "howTo": "Enemies: 2 Lizalfos, 6 Bokoblins and 4 Armos.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_24",
+          "name": "Floor 24",
+          "howTo": "Enemies: 4 ReDead Knights (Gibdos) and 8 Deku Babas.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_25",
+          "name": "Floor 25",
+          "howTo": "Enemies: 2 Dodongos, 14 Torch Slugs and 6 Fire Keese.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_26",
+          "name": "Floor 26",
+          "howTo": "Enemies: 5 Keese, 5 blue Bokoblins and 10 Ghoul Rats.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_27",
+          "name": "Floor 27",
+          "howTo": "Enemies: 2 Bulblin Archers and 3 ReDead Knights (Gibdos).",
+          "notes": "A Heart can be dug up in the middle of the room.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_28",
+          "name": "Floor 28",
+          "howTo": "Enemies: 6 Ice Keese and 8 White Wolfos.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_29",
+          "name": "Floor 29",
+          "howTo": "Enemies: 12 Chus and 12 Ghoul Rats.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_30",
+          "name": "Floor 30",
+          "howTo": "Enemies: 1 Chilfos, 5 Mini Freezards and 7 Ice Keese.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_31",
+          "name": "Floor 31",
+          "howTo": "Enemies: 4 Armos, 10 Baby Gohmas, 6 Keese and 7 Rats.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_32",
+          "name": "Floor 32",
+          "howTo": "Enemies: 1 Dynalfos, 1 Lizalfos and 2 Bokoblins.",
+          "notes": "A Heart can be dug up in the middle of the room.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_33",
+          "name": "Floor 33",
+          "howTo": "Enemies: 2 Chilfos, 4 Mini Freezards and 7 Ice Keese.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_34",
+          "name": "Floor 34",
+          "howTo": "Enemies: 11 Chus, 3 Lizalfos and 1 Dynalfos.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_35",
+          "name": "Floor 35",
+          "howTo": "Enemies: 2 Helmasaurs, 5 Deku Babas and 10 Keese.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_36",
+          "name": "Floor 36",
+          "howTo": "Enemies: 2 Shadow Bulblin archers and 6 Shadow Bulblins.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_37",
+          "name": "Floor 37",
+          "howTo": "Enemies: 4 Zant Masks and 4 Shadow Keese.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_38",
+          "name": "Floor 38",
+          "howTo": "Enemies: 3 Bulblin Archers and 4 Bokoblins.",
+          "notes": "A Heart can be dug up in the middle of the room.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_39",
+          "name": "Floor 39",
+          "howTo": "Enemies: in phases: 2 Dodongos and 4 Baba Serpents; then 2 Fire Bubbles, 2 Ice Bubbles and 6 Stalkin; then 3 Zant Masks; then four switches, each calling its own group (Dynalfos, Lizalfos, Bulblins and Bokoblins, Skulltulas and Baby Gohmas).",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "shadows_floor_40",
+          "name": "Floor 40: Great Fairy and Wolf statue",
+          "howTo": "The Great Fairy gives a wallet upgrade, then a door opens on a giant Wolf Link statue. A Silver Rupee chest is here, and an Orange Rupee is dug up on the statue's head.",
+          "reward": "Colossal Wallet (9,999 Rupees) if you hold the Giant Wallet; otherwise the next wallet size",
+          "notes": "Without the Giant Wallet you get the next size up, and Agitha's last reward becomes the Colossal Wallet."
+        }
+      ]
+    }
+  ]
+}

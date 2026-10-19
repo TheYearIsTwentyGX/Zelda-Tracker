@@ -1,0 +1,789 @@
+{
+  "regions": [
+    "Faron Province",
+    "Eldin Province",
+    "Lanayru Province",
+    "Gerudo Desert",
+    "Arbiter's Grounds",
+    "Snowpeak",
+    "Snowpeak Ruins",
+    "Temple of Time",
+    "City in the Sky"
+  ],
+  "noun": "Poe Soul",
+  "plural": "Poe Souls",
+  "hiddenLabel": "Unclaimed Poe Soul",
+  "sections": [
+    {
+      "id": "poes",
+      "title": "Poe Souls",
+      "noun": "Poe Soul",
+      "hiddenLabel": "Unclaimed Poe Soul",
+      "note": "Imp Poes can only be seen and beaten as a wolf with senses on. Outdoors most appear only at night (tag Night).",
+      "items": [
+        {
+          "id": "jovani_house_poe",
+          "name": "Jovani's house",
+          "region": "Lanayru Province",
+          "area": "Jovani's house, Castle Town",
+          "howTo": "As a wolf, dig under the wall where the cats gather in Castle Town to get into Jovani's house. The Poe floats over his pile of gold; Jovani then asks you to hunt the rest.",
+          "after": "After Lakebed Temple, on your way to Zelda as a wolf",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "sacred_grove_boulder_poe",
+          "name": "Sacred Grove boulder",
+          "region": "Faron Province",
+          "area": "Sacred Grove, the clearing where you first fight Skull Kid",
+          "howTo": "Bomb the big boulder in the middle of the clearing to free the Poe.",
+          "after": "After the Master Sword",
+          "notes": "No source says whether this one is night-only.",
+          "tags": [
+            "Wolf",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "faron_woods_mist_poe",
+          "name": "Faron Woods mist stump",
+          "region": "Faron Province",
+          "area": "Faron Woods, the purple-fog area",
+          "howTo": "In the misty part of the woods, follow Midna's jumps as a wolf to a round clearing with a large hollow stump. The Poe floats there at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "faron_field_cliff_poe",
+          "name": "Faron Field cliff",
+          "region": "Faron Province",
+          "area": "Hyrule Field (Faron), small cliff north of the shallow water",
+          "howTo": "At night, look on the small cliff just north of the shallow water in the field between Faron Woods and Castle Town.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "kakariko_gorge_tree_poe",
+          "name": "Kakariko Gorge tree",
+          "region": "Eldin Province",
+          "area": "Kakariko Gorge, raised cliff by the bridge",
+          "howTo": "At night, climb the raised cliff with a tree next to the Kakariko Gorge bridge; the Poe's lantern is by the tree.",
+          "after": "After the Master Sword",
+          "notes": "Zelda Wiki puts the cliff east of the gorge (GameCube), StrategyWiki west of the bridge; Zelda Dungeon says the middle of the area.",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "kakariko_gorge_cavern_poe",
+          "name": "Kakariko Gorge lantern cavern",
+          "region": "Eldin Province",
+          "area": "Cave south of the Kakariko Gorge bridge",
+          "howTo": "Bomb open the cave south of the gorge bridge and take a full Lantern. At the forks go right, right, left, left to the deepest room. Any time of day.",
+          "after": "After the Master Sword",
+          "notes": "Fork directions are GameCube/HD Normal (Zelda Dungeon); mirrored on Wii and in Hero Mode.",
+          "tags": [
+            "Wolf",
+            "Bombs",
+            "Lantern"
+          ]
+        },
+        {
+          "id": "kakariko_storehouse_poe",
+          "name": "Kakariko bomb storehouse",
+          "region": "Eldin Province",
+          "area": "Kakariko Village, the ruined storehouse above Barnes Bombs",
+          "howTo": "Go up through Barnes Bombs and out of the top floor to the wrecked storehouse. The Poe floats over the ruins at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "kakariko_lookout_poe",
+          "name": "Kakariko lookout",
+          "region": "Eldin Province",
+          "area": "Kakariko Village, by Talo's lookout tower",
+          "howTo": "Follow the slope up from the ruined storehouse; the Poe is beside the lookout tower at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "graveyard_center_poe",
+          "name": "Graveyard",
+          "region": "Eldin Province",
+          "area": "Kakariko Graveyard",
+          "howTo": "Floats in the middle of the graveyard at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "graveyard_gravestone_poe",
+          "name": "Graveyard gravestone",
+          "region": "Eldin Province",
+          "area": "Kakariko Graveyard, south-west corner",
+          "howTo": "At night, push the gravestone in the south-west corner of the graveyard (the first on the right) as a wolf and the Poe pops out.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "death_mountain_ledge_poe",
+          "name": "Death Mountain ledge",
+          "region": "Eldin Province",
+          "area": "Death Mountain Trail, the upper ledge",
+          "howTo": "Get a boost from the second Goron on the trail but aim west and grab the ledge. At night the Poe is just to the south.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "castle_town_east_bridge_poe",
+          "name": "Castle Town east bridge",
+          "region": "Eldin Province",
+          "area": "Hyrule Field (Eldin), wooden bridge outside Castle Town's east gate",
+          "howTo": "Hovers over the wooden bridge just outside Castle Town's east gate at night.",
+          "after": "After the Master Sword",
+          "notes": "Zelda Dungeon lists this under Sacred Grove by mistake.",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "castle_town_south_stairs_poe",
+          "name": "Castle Town south stairs",
+          "region": "Lanayru Province",
+          "area": "Hyrule Field, the stone patio below Castle Town's south gate",
+          "howTo": "Leave Castle Town by the south gate; the Poe is on the stairs down to the stone patio at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "lanayru_amphitheater_poe",
+          "name": "Field ruins amphitheatre",
+          "region": "Lanayru Province",
+          "area": "Hyrule Field west of Castle Town, the ruined amphitheatre with an Owl Statue",
+          "howTo": "Go south-west from the Castle Town portal, over a small hill, to the ruined amphitheatre. The Poe is there at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "north_field_grotto_poe_1",
+          "name": "North field grotto: first Poe",
+          "region": "Lanayru Province",
+          "area": "Hyrule Field north of Castle Town, ring of tall grass by two trees",
+          "howTo": "West of the stone bridge, dig as a wolf in the middle of the ring of tall grass by two trees. The grotto below has Deku Babas and two Poes.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "north_field_grotto_poe_2",
+          "name": "North field grotto: second Poe",
+          "region": "Lanayru Province",
+          "area": "Same grotto",
+          "howTo": "The second of the two Poes in the grass-ring grotto.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "north_field_bridge_poe",
+          "name": "North field stone bridge",
+          "region": "Lanayru Province",
+          "area": "Hyrule Field north of Castle Town, the stone bridge",
+          "howTo": "On the stone bridge in the middle of the field north of Castle Town, at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "great_bridge_crag_poe",
+          "name": "Crag below the Great Bridge",
+          "region": "Lanayru Province",
+          "area": "Road up from Faron Field to the Great Bridge of Hylia",
+          "howTo": "On the road with the fire-arrow Bulblin Archers, Bomb-Arrow the boulders high on the cliff to uncover Clawshot targets, then follow them up to the Poe at night.",
+          "after": "After the Master Sword",
+          "notes": "Zelda Wiki says south of the bridge; Zelda Dungeon's text says north.",
+          "tags": [
+            "Wolf",
+            "Night",
+            "Clawshot",
+            "Hero's Bow",
+            "Bombs"
+          ]
+        },
+        {
+          "id": "isle_of_riches_poe",
+          "name": "Isle of Riches",
+          "region": "Lanayru Province",
+          "area": "Lake Hylia, Isle of Riches",
+          "howTo": "Play Falbi's Flight-by-Fowl at night and glide a Cucco onto the Isle of Riches. The Poe is on one of its tiers.",
+          "after": "After the Master Sword",
+          "notes": "Sources disagree on the tier: Zelda Dungeon says the second from the bottom, Zelda's Palace the third or higher, StrategyWiki the prize platform.",
+          "tags": [
+            "Wolf",
+            "Night",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "below_flight_by_fowl_poe",
+          "name": "Ledge below Flight-by-Fowl",
+          "region": "Lanayru Province",
+          "area": "Lake Hylia, ledge on the north wall under Falbi's",
+          "howTo": "Start Flight-by-Fowl at night and U-turn straight away to land on the ledge directly under the launch platform.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "lake_hylia_island_poe",
+          "name": "Lake Hylia east islet",
+          "region": "Lanayru Province",
+          "area": "Lake Hylia, the patch of land on the east side",
+          "howTo": "Swim to the small patch of land on the east side of the lake at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "lake_hylia_south_shore_poe",
+          "name": "Lake Hylia south shore",
+          "region": "Lanayru Province",
+          "area": "Lake Hylia, grassy ledges on the south shore",
+          "howTo": "Walk the grassy ledges along the south shore at night; the lantern shows near the middle.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "lake_hylia_watchtower_poe",
+          "name": "Lake Hylia watchtower",
+          "region": "Lanayru Province",
+          "area": "Lake Hylia, foot of the stone lookout tower",
+          "howTo": "Climb up to the base of the lookout tower in the south-west of the lake at night.",
+          "after": "After the Master Sword",
+          "notes": "Zelda Wiki and StrategyWiki give south-west (GameCube); Zelda Dungeon says west.",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "lake_hylia_cavern_poe_1",
+          "name": "Lake Hylia lantern cavern: first Poe",
+          "region": "Lanayru Province",
+          "area": "Cave in the south of Lake Hylia, up the ladder",
+          "howTo": "Bomb open the long dark cavern at the top of the ladder in the south of the lake. The first Poe is in a lantern room near the start.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Bombs",
+            "Lantern"
+          ]
+        },
+        {
+          "id": "lake_hylia_cavern_poe_2",
+          "name": "Lake Hylia lantern cavern: second Poe",
+          "region": "Lanayru Province",
+          "area": "Same cavern, about halfway",
+          "howTo": "The second Poe is in another lantern room about halfway through.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Bombs",
+            "Lantern"
+          ]
+        },
+        {
+          "id": "lake_hylia_cavern_poe_3",
+          "name": "Lake Hylia lantern cavern: third Poe",
+          "region": "Lanayru Province",
+          "area": "Same cavern, last chamber",
+          "howTo": "The third is in the final chamber with the Piece of Heart.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Bombs",
+            "Lantern"
+          ]
+        },
+        {
+          "id": "zoras_river_poe",
+          "name": "Zora's River fork",
+          "region": "Lanayru Province",
+          "area": "Upper Zora's River, grassy land where the river forks",
+          "howTo": "Swim to the grassy knoll between the branches of the river in the south of the area at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "zoras_domain_east_ledge_poe",
+          "name": "Zora's Domain east ledge",
+          "region": "Lanayru Province",
+          "area": "Zora's Domain, below the waterfall",
+          "howTo": "From the pool below the waterfall, swim to the land on the east side and follow it to the end at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "zoras_domain_midna_jumps_poe",
+          "name": "Zora's Domain cliffs",
+          "region": "Lanayru Province",
+          "area": "Zora's Domain, cliffs from the west side of the pool to the north",
+          "howTo": "As a wolf, use Midna's jumps up the cliffs from the west side of the pool round to the north. The Poe waits in one of the gaps at night.",
+          "after": "After the Master Sword",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "desert_entrance_rock_poe",
+          "name": "Desert rock by the landing spot",
+          "region": "Gerudo Desert",
+          "area": "Gerudo Desert, the rock south of where Fyer's cannon lands you",
+          "howTo": "Head south from where you land in the desert to the small rock platform. The Poe is there at night.",
+          "after": "After reaching Gerudo Desert",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "gerudo_mesa_poe",
+          "name": "Gerudo Mesa",
+          "region": "Gerudo Desert",
+          "area": "Gerudo Mesa, by the Cave of Ordeals",
+          "howTo": "Once the Bridge of Eldin's middle is warped home, the Poe floats high on the mesa by the Cave of Ordeals entrance at night.",
+          "after": "After the Bridge of Eldin is restored",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "desert_west_path_poe",
+          "name": "Desert path to the camp",
+          "region": "Gerudo Desert",
+          "area": "Gerudo Desert, narrow sandy paths in the north-west before the Bulblin Camp",
+          "howTo": "Just before the far north area, turn west along the narrow path and follow it to the end at night; enemies ambush you there.",
+          "after": "After reaching Gerudo Desert",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "desert_three_skulls_poe",
+          "name": "Three skulls bluff",
+          "region": "Gerudo Desert",
+          "area": "Gerudo Desert, bluff with a tree and three skulls",
+          "howTo": "Clawshot to the Peahat/tree on the bluff in the north of the desert and run on to the ring of three skulls. The Poe floats there at night.",
+          "after": "After reaching Gerudo Desert",
+          "tags": [
+            "Wolf",
+            "Night",
+            "Clawshot"
+          ]
+        },
+        {
+          "id": "desert_skull_grotto_poe_1",
+          "name": "Three skulls grotto: first Poe",
+          "region": "Gerudo Desert",
+          "area": "Grotto inside the ring of three skulls",
+          "howTo": "Dig as a wolf between the three skulls to drop into a grotto with two Poes.",
+          "after": "After reaching Gerudo Desert",
+          "tags": [
+            "Wolf",
+            "Clawshot"
+          ]
+        },
+        {
+          "id": "desert_skull_grotto_poe_2",
+          "name": "Three skulls grotto: second Poe",
+          "region": "Gerudo Desert",
+          "area": "Same grotto",
+          "howTo": "The second Poe attacks once the first is beaten.",
+          "after": "After reaching Gerudo Desert",
+          "tags": [
+            "Wolf",
+            "Clawshot"
+          ]
+        },
+        {
+          "id": "bulblin_camp_poe",
+          "name": "King Bulblin's arena",
+          "region": "Gerudo Desert",
+          "area": "Bulblin Camp, where you fight King Bulblin",
+          "howTo": "Go back at night to the spot in the camp where you fought King Bulblin.",
+          "after": "After beating King Bulblin at the Bulblin Camp",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "arbiters_approach_poe",
+          "name": "Steps to Arbiter's Grounds",
+          "region": "Gerudo Desert",
+          "area": "Outside Arbiter's Grounds, west of the entrance",
+          "howTo": "Climbing the steps to the Arbiter's Grounds, go west at the landing and follow the side corridor to the Poe at night.",
+          "after": "After beating King Bulblin at the Bulblin Camp",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "arbiters_central_poe",
+          "name": "Arbiter's Grounds: central chamber Poe",
+          "region": "Arbiter's Grounds",
+          "area": "Central chamber, first floor",
+          "howTo": "Four Poes snatch the flames in the central chamber and three leave: beat the one that stays. All four are needed to open the way on.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "arbiters_round_room_poe",
+          "name": "Arbiter's Grounds: round room Poe",
+          "region": "Arbiter's Grounds",
+          "area": "Round room in the north-east, after the basement",
+          "howTo": "Track the Poe scent to the round room you reach on coming back up from the basement.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "arbiters_chain_poe",
+          "name": "Arbiter's Grounds: chain Poe",
+          "region": "Arbiter's Grounds",
+          "area": "Sinking-sand room with Stalfos and ReDeads",
+          "howTo": "Beat the skeletons and ReDeads, dig up the chain as a wolf and pull it to reveal the third Poe.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "arbiters_copies_poe",
+          "name": "Arbiter's Grounds: Poe with copies",
+          "region": "Arbiter's Grounds",
+          "area": "Room just west of the central chamber",
+          "howTo": "The last Poe splits into three copies; the real one glows brighter.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "snowpeak_two_rocks_poe",
+          "name": "Snowpeak: past the two rocks",
+          "region": "Snowpeak",
+          "area": "Snowpeak, path up the mountain",
+          "howTo": "Going up the mountain, pass between two large rocks close together; the Poe is just beyond, to the right, at night.",
+          "after": "After getting the Reekfish Scent",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "snowpeak_lone_tree_poe",
+          "name": "Snowpeak: lone tree",
+          "region": "Snowpeak",
+          "area": "Snowpeak, by a lone tree off the scent trail",
+          "howTo": "Where the Reekfish Scent goes up a cliff, take the ramp to the left back to the trail, then go left at the top to a lone tree. The Poe is there at night.",
+          "after": "After getting the Reekfish Scent",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "snowpeak_fork_tree_poe",
+          "name": "Snowpeak: tree at the fork",
+          "region": "Snowpeak",
+          "area": "Snowpeak, first tree after the fork in the trail",
+          "howTo": "Follow the Reekfish Scent to a fork, go right and look by the first tree at night.",
+          "after": "After getting the Reekfish Scent",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "snowpeak_bluff_poe",
+          "name": "Snowpeak: bluff by the ruins",
+          "region": "Snowpeak",
+          "area": "The spiralling snowy bluff south-east of the Snowpeak Ruins entrance",
+          "howTo": "As a wolf, climb the spiralling bluff outside the ruins; the Poe is on top at night. Don't fall off the edge.",
+          "after": "After getting the Reekfish Scent",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "snowpeak_ruins_foyer_poe",
+          "name": "Snowpeak Ruins: foyer",
+          "region": "Snowpeak Ruins",
+          "area": "Entrance hall",
+          "howTo": "Floats over the ice in the middle of the first room.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "snowpeak_ruins_armor_poe",
+          "name": "Snowpeak Ruins: suit of armour",
+          "region": "Snowpeak Ruins",
+          "area": "Entrance hall, middle suit of armour on the east side",
+          "howTo": "Of the three suits of armour on each side of the entrance hall, smash the middle one on the east side with two hits of the Ball and Chain.",
+          "tags": [
+            "Wolf",
+            "Ball and Chain"
+          ]
+        },
+        {
+          "id": "snowpeak_ruins_ice_wall_poe",
+          "name": "Snowpeak Ruins: ice wall",
+          "region": "Snowpeak Ruins",
+          "area": "Second floor, south-east room (above the kitchen)",
+          "howTo": "Break the ice barrier on the east wall with the Ball and Chain to reveal the Poe in an alcove.",
+          "tags": [
+            "Wolf",
+            "Ball and Chain"
+          ]
+        },
+        {
+          "id": "snowpeak_cave_ice_poe",
+          "name": "Snowpeak Top cave ice",
+          "region": "Snowpeak",
+          "area": "Cave leading up to Snowpeak Top",
+          "howTo": "In the cave up to Snowpeak Top, smash the ice chunk on the left (at the foot of the ladder) with the Ball and Chain.",
+          "after": "After Snowpeak Ruins",
+          "tags": [
+            "Wolf",
+            "Ball and Chain"
+          ]
+        },
+        {
+          "id": "sacred_grove_waterfall_poe",
+          "name": "Sacred Grove waterfall",
+          "region": "Faron Province",
+          "area": "Sacred Grove, the maze where you chase Skull Kid",
+          "howTo": "Pass under the small waterfall and climb the roots and blocks to a large hollow stump where the Poe floats.",
+          "after": "After Snowpeak Ruins",
+          "notes": "No source says whether this one is night-only.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "sacred_grove_pedestal_poe",
+          "name": "Master Sword pedestal",
+          "region": "Faron Province",
+          "area": "Sacred Grove, the Master Sword's clearing",
+          "howTo": "Floats in the open in the clearing where the Master Sword lay, at night.",
+          "after": "After Snowpeak Ruins",
+          "notes": "StrategyWiki says to come back after the Temple of Time.",
+          "tags": [
+            "Wolf",
+            "Night"
+          ]
+        },
+        {
+          "id": "tot_gold_gate_poe",
+          "name": "Temple of Time: behind the gold gate",
+          "region": "Temple of Time",
+          "area": "Third floor, large round elevator room, west side",
+          "howTo": "Walk a small statue with the Dominion Rod onto the switch behind the gold gate (or smash the gate with the big statue), then go in as a wolf.",
+          "tags": [
+            "Wolf",
+            "Dominion Rod"
+          ]
+        },
+        {
+          "id": "tot_scale_room_poe",
+          "name": "Temple of Time: above the scales",
+          "region": "Temple of Time",
+          "area": "Scale room near the top, before the Boss Key",
+          "howTo": "Weigh down one side of the scales with statues, stand on the other to rise, Clawshot to the ceiling target and ride the Spinner rail to the high southern ledge with the Poe.",
+          "notes": "Zelda Wiki and StrategyWiki call it the sixth floor, Zelda Dungeon the seventh.",
+          "tags": [
+            "Wolf",
+            "Dominion Rod",
+            "Clawshot",
+            "Spinner"
+          ]
+        },
+        {
+          "id": "hidden_village_balcony_poe",
+          "name": "Hidden Village balcony",
+          "region": "Eldin Province",
+          "area": "Hidden Village, a house balcony",
+          "howTo": "Clawshot up to the balcony of the house at the village's far corner; the Poe is there at night.",
+          "after": "After clearing the Hidden Village",
+          "notes": "Zelda Wiki says the north-east house (GameCube), StrategyWiki the north-west corner.",
+          "tags": [
+            "Wolf",
+            "Night",
+            "Clawshot"
+          ]
+        },
+        {
+          "id": "tot_entrance_owl_poe",
+          "name": "Temple of Time: owl statue",
+          "region": "Temple of Time",
+          "area": "Entrance hall, south-west corner",
+          "howTo": "Move the Owl Statue in the south-west corner of the entrance hall (right at the foot of the stairs) with the Dominion Rod and a Poe flies out.",
+          "after": "Once the Dominion Rod's power is restored",
+          "notes": "Zelda Dungeon calls this Sacred Grove (Past).",
+          "tags": [
+            "Wolf",
+            "Dominion Rod"
+          ]
+        },
+        {
+          "id": "city_peahat_island_poe",
+          "name": "City in the Sky: Peahat island",
+          "region": "City in the Sky",
+          "area": "West wing, third floor, room of moving Peahats",
+          "howTo": "Clawshot along the Peahats to the small island on the far side of the room.",
+          "tags": [
+            "Wolf",
+            "Double Clawshots"
+          ]
+        },
+        {
+          "id": "city_big_key_room_poe",
+          "name": "City in the Sky: Big Key room",
+          "region": "City in the Sky",
+          "area": "Fourth floor, outdoor room before the Big Key",
+          "howTo": "Climb the vines as Link and walk the ropes as a wolf to the platform with a chest on the west side; the Poe is beside it.",
+          "tags": [
+            "Wolf",
+            "Double Clawshots"
+          ]
+        },
+        {
+          "id": "cave_of_ordeals_17_poe",
+          "name": "Cave of Ordeals floor 17",
+          "region": "Gerudo Desert",
+          "area": "Cave of Ordeals, floor 17",
+          "howTo": "Beat the Stalhounds first, then the Poe.",
+          "after": "After the Bridge of Eldin is restored",
+          "notes": "The Spinner is needed past floor 11 (StrategyWiki says the Clawshot).",
+          "tags": [
+            "Wolf",
+            "Spinner"
+          ]
+        },
+        {
+          "id": "cave_of_ordeals_33_poe",
+          "name": "Cave of Ordeals floor 33",
+          "region": "Gerudo Desert",
+          "area": "Cave of Ordeals, floor 33",
+          "howTo": "Beat the four ReDeads (Ball and Chain), then the Poe.",
+          "after": "After the Bridge of Eldin is restored",
+          "tags": [
+            "Wolf",
+            "Dominion Rod"
+          ]
+        },
+        {
+          "id": "cave_of_ordeals_44_poe",
+          "name": "Cave of Ordeals floor 44",
+          "region": "Gerudo Desert",
+          "area": "Cave of Ordeals, floor 44",
+          "howTo": "Clear the Armored Lizalfos (Bomb Arrows from the ledge help), then the Poe.",
+          "after": "After the Bridge of Eldin is restored",
+          "tags": [
+            "Wolf",
+            "Double Clawshots"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rewards",
+      "title": "Jovani's rewards",
+      "noun": "reward",
+      "hiddenLabel": "Unclaimed reward",
+      "note": "Talk to Jovani as your soul count passes 20 and 60.",
+      "items": [
+        {
+          "id": "jovani_20_souls",
+          "name": "20 Poe Souls",
+          "region": "Lanayru Province",
+          "area": "Jovani's house, Castle Town",
+          "howTo": "Return to Jovani with 20 or more Poe Souls. Gengle is freed and Jovani can move again, but he stays golden and asks for 60.",
+          "reward": "Bottle of Great Fairy's Tears",
+          "notes": "HD: he also gives the Ghost Lantern, which lights up when an Imp Poe is in the area, day or night, and goes out when the area's Poes are all gone."
+        },
+        {
+          "id": "jovani_60_souls",
+          "name": "60 Poe Souls",
+          "region": "Lanayru Province",
+          "area": "Jovani's house, Castle Town",
+          "howTo": "Bring all 60 Poe Souls to Jovani. The curse lifts completely and he thanks you before leaving to find his girlfriend.",
+          "reward": "200 Rupees",
+          "notes": "Zelda's Palace says Jovani gives 200 Rupees here; other sources only mention Gengle's."
+        },
+        {
+          "id": "gengle_rupees",
+          "name": "Gengle's Rupees",
+          "region": "Lanayru Province",
+          "area": "Jovani's house, Castle Town",
+          "howTo": "After 60 souls, find Jovani crying in Telma's Bar, then go back to his house: Gengle gives you 200 Rupees from the hoard every time you visit.",
+          "reward": "200 Rupees each visit",
+          "notes": "HD: Gengle also gives the Rupee stamp."
+        }
+      ]
+    }
+  ]
+}

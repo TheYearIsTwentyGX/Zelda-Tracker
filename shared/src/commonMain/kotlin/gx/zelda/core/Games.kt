@@ -334,12 +334,103 @@ object Games {
             ),
         ),
     )
-    val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
 
-    /** The DS games keep two files. */
-    val PH = comingSoon("ph", "Phantom Hourglass", ReleaseDate(2007, 6, 23), "Nintendo DS", files = 2)
-    val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
-    val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
+    /**
+     * Three files on the GameCube, the Wii and HD (Zelda Wiki, Saving). Tracked as the GameCube
+     * original; the Wii version is mirrored but has the same collectibles, and HD's differences are
+     * item notes or `separate` tabs. Every tracker is a checklist; the data and its sources are in docs/tp.md.
+     */
+    val TP = Game(
+        id = "tp",
+        title = "Twilight Princess",
+        released = ReleaseDate(2006, 11, 19),
+        platform = "Wii & GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            tpChecklist("Main Quest", "The nine dungeons and their bosses, the Tears of Light, the Fused Shadows and Mirror Shards", "main_quest"),
+            tpChecklist("Items & Equipment", "Every item, sword, shield and tunic, the wallets, quivers and bomb bags, and the 4 Bottles", "items"),
+            tpChecklist("Heart Pieces", "All 45 Pieces of Heart and 8 Heart Containers, with your hearts total", "heart_pieces"),
+            tpChecklist("Poe Souls", "All 60 Poes by region, and Jovani's rewards", "poe_souls"),
+            tpChecklist("Golden Bugs", "All 24 Golden Bugs for Agitha, and her rewards", "golden_bugs"),
+            tpChecklist("Hidden Skills", "The 7 Hidden Skills and the Howling Stones that call the Golden Wolf", "hidden_skills"),
+            tpChecklist("Cave of Ordeals", "All 50 floors and the Great Fairy's rewards, and HD's Cave of Shadows", "cave_of_ordeals"),
+            tpChecklist("Sidequests & Collections", "Sidequests, the Postman's letters, the Fishing Journal and HD's 50 stamps", "sidequests"),
+        ),
+    )
+
+    /**
+     * Two files ("You can create up to two different files", Nintendo's manual), the placeholder's
+     * ids. Every tracker is a checklist; the data and its sources are in docs/ph.md.
+     */
+    val PH = Game(
+        id = "ph",
+        title = "Phantom Hourglass",
+        released = ReleaseDate(2007, 6, 23),
+        platform = "Nintendo DS",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            phChecklist("Main Quest", "The temples and the Ghost Ship, the Temple of the Ocean King's floors, the Spirits and the Pure Metals", "main_quest"),
+            phChecklist("Items & Equipment", "Every item, the Bomb Bag, Quiver and Bombchu Bag upgrades, and the Phantom Hourglass's 25 minutes", "items"),
+            phChecklist("Heart Containers", "All 13: seven bosses and six from shops, mini-games and fishing, with your hearts", "heart_containers"),
+            phChecklist("Spirit Gems", "All 20 Power, Wisdom and Courage Gems, and the spirits' upgrades at 10 and 20", "spirit_gems"),
+            phChecklist("Treasure Maps", "All 31 maps and their Sunken Treasures, by the sea each map is found in", "treasure_maps"),
+            phChecklist("Ship Parts & Treasure", "The eight sets of eight parts, Golden included, and the eight kinds of Treasure", "ship_parts"),
+            phChecklist("Sea Chart & Islands", "Every island, hidden ones included, and the six Golden Frogs' warps", "sea_chart"),
+            phChecklist("Sidequests", "Fishing, the trading quest, the mini-games' prizes and Beedle's cards", "sidequests"),
+        ),
+    )
+
+    /**
+     * Two files ("a maximum of two save files at any time", Nintendo's manual), the placeholder's
+     * ids. Every tracker is a checklist; the data and its sources are in docs/st.md.
+     */
+    val ST = Game(
+        id = "st",
+        title = "Spirit Tracks",
+        released = ReleaseDate(2009, 12, 7),
+        platform = "Nintendo DS",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            stChecklist("Main Quest", "Five temples, six climbs of the Tower of Spirits, the Rail Maps and the Lokomo duets", "main_quest"),
+            stChecklist("Items & Equipment", "Every item, the Bomb Bag and Quiver upgrades and both Swordsman's Scrolls", "items"),
+            stChecklist("Heart Containers", "All 13: five bosses and eight side activities, with your hearts", "heart_containers"),
+            stChecklist("Force Gems", "All 20 Force Gems: who gives each and the tracks it opens", "force_gems"),
+            stChecklist("Passengers & Cargo", "Every passenger and cargo run, and what it pays", "deliveries"),
+            stChecklist("Rabbits", "All 50 rabbits by realm, and Bunnio's prizes", "rabbits"),
+            stChecklist("Stamp Stations", "All 20 stamps and Niko's rewards", "stamps"),
+            stChecklist("Songs", "The five Spirit Flute songs", "songs"),
+            stChecklist("Stations & Warp Gates", "All 22 stations and the 8 Warp Gates to open", "stations"),
+            stChecklist("Train Parts", "All 32 train parts in 8 sets, and the Treasure each costs", "train_parts"),
+            stChecklist("Minigames & Secrets", "Each minigame's and hidden station's lasting prizes", "minigames"),
+        ),
+    )
+
+    /**
+     * Three files on the Wii and in Skyward Sword HD, whose extra autosave slot isn't a file of its own.
+     * Every tracker is a checklist for the Wii original, with HD's differences in item notes. The
+     * data and its sources are in docs/ss.md.
+     */
+    val SS = Game(
+        id = "ss",
+        title = "Skyward Sword",
+        released = ReleaseDate(2011, 11, 18),
+        platform = "Wii",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            ssChecklist("Main Quest", "The seven dungeons, the Sacred Flames, the Silent Realms, the Song of the Hero and the Goddess Sword", "main_quest"),
+            ssChecklist("Items & Equipment", "Every item and its upgrades with their materials, the Adventure Pouch, Bottles and wallets", "items"),
+            ssChecklist("Heart Pieces", "All 24 Pieces of Heart and 6 Heart Containers, with your hearts total", "heart_pieces"),
+            ssChecklist("Goddess Cubes", "All 27 Goddess Cubes and the Goddess Chests they open in the sky", "goddess_cubes"),
+            ssChecklist("Gratitude Crystals", "All 80 crystals: the side quests that give them, the 15 loose ones and Batreaux's rewards", "gratitude_crystals"),
+            ssChecklist("Side Quests & Minigames", "The minigames and their prizes, the other side quests and the Lightning Round", "side_quests"),
+            ssChecklist("Shields", "All 10 shields, their upgrades and materials", "shields"),
+            ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
+        ),
+    )
 
     /**
      * Three files (StrategyWiki, Gameplay). Every tracker is a checklist; the data and its sources
@@ -462,11 +553,23 @@ object Games {
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
 
+    private fun stChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "st/$file.json")
+
     private fun albwChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "albw/$file.json")
 
     private fun wwChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ww/$file.json")
+
+    private fun tpChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "tp/$file.json")
+
+    private fun phChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ph/$file.json")
+
+    private fun ssChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ss/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

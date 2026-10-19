@@ -1,0 +1,329 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {
+      "label": "Spirits",
+      "formula": "temple_of_fire + temple_of_wind + temple_of_courage"
+    },
+    {
+      "label": "Sea Charts",
+      "formula": "totok_1f + totok_b1_b3 + totok_b7_b9 + totok_b10_b13"
+    },
+    {
+      "label": "Pure Metals",
+      "formula": "goron_temple + temple_of_ice + mutohs_temple"
+    }
+  ],
+  "sections": [
+    {
+      "id": "quest",
+      "title": "Main Quest",
+      "note": "Six temples and the Ghost Ship, the Temple of the Ocean King's floors, the three spirits and the three Pure Metals, in story order.",
+      "items": [
+        {
+          "id": "oshus_sword",
+          "name": "Oshus's Sword",
+          "area": "Mercay Island",
+          "howTo": "Wake on Mercay Island's beach with Ciela and talk to Oshus in his house. After the earthquake, open the chest in his storehouse, the cave next door: the password is the number of palm trees on the beach.",
+          "reward": "Oshus's Sword",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "totok_1f",
+          "name": "Temple of the Ocean King: 1F",
+          "area": "Mercay Island",
+          "howTo": "Cross the repaired bridge through the North Woods to the temple. On 1F, hit the switch that frees Linebeck from the spikes, take his Small Key and open the chest with the Southwestern Sea Chart. The temple's curse drains your hearts outside the Safe Zones.",
+          "requires": [
+            "oshus_sword"
+          ],
+          "reward": "Southwestern Sea Chart",
+          "notes": "Linebeck then lets you sail the SS Linebeck.",
+          "tags": [
+            "Temple of the Ocean King",
+            "Sea Chart"
+          ]
+        },
+        {
+          "id": "temple_of_fire",
+          "name": "Temple of Fire",
+          "area": "Isle of Ember",
+          "howTo": "Sail east to the Isle of Ember. Astrid is locked in her basement: Kayo's ghost, at the island's east tip, says its three torches open her door. Then climb the volcano's rings to the temple at the summit.",
+          "requires": [
+            "totok_1f"
+          ],
+          "reward": "Spirit of Power (Leaf), Heart Container",
+          "notes": "Boss: Blaaz, Master of Fire. Dungeon item: Boomerang. Astrid then foresees a clue in the Temple of the Ocean King.",
+          "tags": [
+            "Dungeon",
+            "Spirit"
+          ]
+        },
+        {
+          "id": "totok_b1_b3",
+          "name": "Temple of the Ocean King: B1–B3",
+          "area": "Mercay Island",
+          "howTo": "Return to the temple. Oshus has you take the Phantom Hourglass from the altar in the Entry Hall; Leaf opens the Door of Power on 1F. On B3, carry the three Force Gems to the Triforce pedestals to open the Checkpoint Chamber.",
+          "requires": [
+            "temple_of_fire"
+          ],
+          "reward": "Phantom Hourglass (10 minutes), Northwestern Sea Chart",
+          "notes": "Blow into the microphone on the dusty chart to reveal the Isle of Gust.",
+          "tags": [
+            "Temple of the Ocean King",
+            "Sea Chart"
+          ]
+        },
+        {
+          "id": "eddos_cannon",
+          "name": "Eddo's Cannon",
+          "area": "Cannon Island",
+          "howTo": "A storm turns you back from the Northwestern Sea. Sail to Cannon Island, south-west of Mercay, go the long way round through the beehive paths and the Bomb Garden, and buy the Cannon from Eddo in his garage.",
+          "requires": [
+            "totok_b1_b3"
+          ],
+          "reward": "Cannon (50 Rupees)",
+          "notes": "The Cannon blasts the dark rocks that block the way to Molida Island.",
+          "tags": [
+            "Story",
+            "Ship"
+          ]
+        },
+        {
+          "id": "molida_fog_route",
+          "name": "The Route Through the Fog",
+          "area": "Molida Island",
+          "howTo": "On Molida Island, get the Shovel from the Old Wayfarer's hideaway in the cave. Mark the island's four Stone Tablets on your map, dig under the palm tree where the lines between them cross, and copy the route drawn on the wall of the second hideaway onto your Northwestern Sea Chart.",
+          "requires": [
+            "eddos_cannon"
+          ],
+          "reward": "Shovel, the fog route",
+          "notes": "Treasure Map #2 is in the second hideaway. The sun-crested door there opens later with the Sun Key.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "temple_of_wind",
+          "name": "Temple of Wind",
+          "area": "Isle of Gust",
+          "howTo": "Follow the fog route to the Isle of Gust. Cross the windy south with the Shovel's Updrafts. In the Sandworm desert, blow into the microphone in front of each of the three sacred windmills to open the way down to the temple.",
+          "requires": [
+            "molida_fog_route"
+          ],
+          "reward": "Spirit of Wisdom (Neri), Heart Container",
+          "notes": "Boss: Cyclok, Stirrer of Winds. Dungeon item: Bombs. Cyclok's Sand of Hours adds 2 minutes to the Phantom Hourglass.",
+          "tags": [
+            "Dungeon",
+            "Spirit"
+          ]
+        },
+        {
+          "id": "totok_b4_b6",
+          "name": "Temple of the Ocean King: B4–B6",
+          "area": "Mercay Island",
+          "howTo": "Neri opens the Door of Wisdom from the Checkpoint Chamber. On B6, read the four Stone Tablets, draw the Sacred Crest on the Crested Door, then press the Southwestern Sea Chart against the tablet in the Sacred Crest Chamber by closing the DS.",
+          "requires": [
+            "temple_of_wind"
+          ],
+          "reward": "The Courage Crest on the Southwestern Sea Chart",
+          "notes": "Ojibe on Mercay's dock then sells Treasure Map #9.",
+          "tags": [
+            "Temple of the Ocean King"
+          ]
+        },
+        {
+          "id": "buy_salvage_arm",
+          "name": "Eddo's Salvage Arm",
+          "area": "Cannon Island",
+          "howTo": "A letter from Eddo announces the Salvage Arm. Buy it at his garage; the price (200 to 1,000 Rupees) depends on how loud you yell into the microphone.",
+          "requires": [
+            "totok_b4_b6"
+          ],
+          "reward": "Salvage Arm",
+          "notes": "It raises every Sunken Treasure from the Treasure Maps.",
+          "tags": [
+            "Story",
+            "Ship"
+          ]
+        },
+        {
+          "id": "salvage_sun_key",
+          "name": "The Sun Key",
+          "area": "Southwestern Sea",
+          "howTo": "Sail to the crest copied onto the Southwestern Sea Chart, near the middle of the sea, and salvage the chest there.",
+          "requires": [
+            "buy_salvage_arm"
+          ],
+          "reward": "Sun Key",
+          "tags": [
+            "Story",
+            "Key"
+          ]
+        },
+        {
+          "id": "temple_of_courage",
+          "name": "Temple of Courage",
+          "area": "Molida Island",
+          "howTo": "Beat the Giant Eye Plant off Molida, open the sun door in the second hideaway with the Sun Key and cross the Northern Woods. Turn the statues' light beams onto the temple door to open it.",
+          "requires": [
+            "salvage_sun_key"
+          ],
+          "reward": "Ciela's memory: the Spirit of Courage, Heart Container",
+          "notes": "Boss: Crayk, Bane of Courage. Mini-boss: Pols Voice. Dungeon item: Bow. Crayk's Sand of Hours adds 2 minutes.",
+          "tags": [
+            "Dungeon",
+            "Spirit"
+          ]
+        },
+        {
+          "id": "ghost_ship",
+          "name": "The Ghost Ship",
+          "area": "Northwestern Sea",
+          "howTo": "With all three spirits, sail into the fog until the engine breaks down, then steer by the spirits' directions to the Ghost Ship. Lead the four Cubus Sisters, one per floor, back to the first, avoiding Reaplings and Skulltulas.",
+          "requires": [
+            "temple_of_courage"
+          ],
+          "reward": "Ghost Key, Heart Container",
+          "notes": "Boss: the Diabolical Cubus Sisters (Dead Man's Volley). Their Ghost Key opens Tetra's room, but Bellum turns her to stone, and Oshus reveals he is the Ocean King. Jolene attacks the SS Linebeck on the way.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "totok_b7_b9",
+          "name": "Temple of the Ocean King: B7–B9",
+          "area": "Mercay Island",
+          "howTo": "Oshus sends you to Zauz's Island; Zauz says the Crested Door hides more floors. Ciela opens the Door of Courage below the Sacred Crest Chamber. Carry the Round, Square and Triangle Crystals to their pedestals on B9.",
+          "requires": [
+            "ghost_ship"
+          ],
+          "reward": "Southeastern Sea Chart",
+          "notes": "Swift Phantoms replace most Phantoms. Placing the crystals Square, Round, Triangle in the Elevator Chamber takes it down to B10.",
+          "tags": [
+            "Temple of the Ocean King",
+            "Sea Chart"
+          ]
+        },
+        {
+          "id": "goron_temple",
+          "name": "Goron Temple",
+          "area": "Goron Island",
+          "howTo": "On Goron Island, talk to every Goron, answer Biggoron's six questions to join the tribe, and follow Gongoron through the North Maze. In the temple, switch between Link and Gongoron.",
+          "requires": [
+            "totok_b7_b9"
+          ],
+          "reward": "Crimsonine, Heart Container",
+          "notes": "Boss: Dongorongo, Armored Lizard. Dungeon item: Bombchus (with a Bombchu Bag of 10). Dongorongo's Sand of Hours adds 2 minutes.",
+          "tags": [
+            "Dungeon",
+            "Pure Metal"
+          ]
+        },
+        {
+          "id": "temple_of_ice",
+          "name": "Temple of Ice",
+          "area": "Isle of Frost",
+          "howTo": "Shoot down the ice walls to dock on the Isle of Frost. Question the Anouki to find the Yook disguised as one of them, then cross the Great Ice Field to the temple.",
+          "requires": [
+            "goron_temple"
+          ],
+          "reward": "Azurine, Heart Container",
+          "notes": "Boss: Gleeok, Two-Headed Dragon. Dungeon item: Grappling Hook. Gleeok's Sand of Hours adds 2 minutes. A Yook then tells you where Harrow Island is.",
+          "tags": [
+            "Dungeon",
+            "Pure Metal"
+          ]
+        },
+        {
+          "id": "totok_b10_b13",
+          "name": "Temple of the Ocean King: B10–B13",
+          "area": "Mercay Island",
+          "howTo": "From the Elevator Chamber, cross B10–B12, where Gold Phantoms warp to you when they spot you. Bring three Force Gems to the pedestals on B12 to open B13.",
+          "requires": [
+            "temple_of_ice"
+          ],
+          "reward": "Northeastern Sea Chart",
+          "notes": "The door on B13 stays shut until you can defeat Phantoms.",
+          "tags": [
+            "Temple of the Ocean King",
+            "Sea Chart"
+          ]
+        },
+        {
+          "id": "isle_of_the_dead",
+          "name": "The Regal Necklace",
+          "area": "Isle of the Dead",
+          "howTo": "Follow McNey's journal across the king's-head island and through the Phantom Corridor to King Brant's tomb.",
+          "requires": [
+            "totok_b10_b13"
+          ],
+          "reward": "Regal Necklace",
+          "notes": "The necklace calms the cyclone around the Isle of Ruins.",
+          "tags": [
+            "Story",
+            "Key"
+          ]
+        },
+        {
+          "id": "mutohs_temple",
+          "name": "Mutoh's Temple",
+          "area": "Isle of Ruins",
+          "howTo": "Dispel the cyclone with the Regal Necklace. Get the King's Key from Doylan's pyramid, use it on the golden pedestal by Bremeur's tomb to lower the water, find Max, and enter Mutoh's Temple.",
+          "requires": [
+            "isle_of_the_dead"
+          ],
+          "reward": "Aquanine, Heart Container",
+          "notes": "Boss: Eox, Ancient Stone Soldier. Dungeon item: Hammer. Eox's Sand of Hours adds 2 minutes. King Mutoh later mails a Power Gem.",
+          "tags": [
+            "Dungeon",
+            "Pure Metal"
+          ]
+        },
+        {
+          "id": "phantom_sword",
+          "name": "The Phantom Sword",
+          "area": "Zauz's Island",
+          "howTo": "Take the three Pure Metals to Zauz to forge the blade, then to Oshus on Mercay Island, who fuses the Phantom Hourglass into its hilt.",
+          "requires": [
+            "mutohs_temple"
+          ],
+          "reward": "Phantom Sword",
+          "notes": "Jolene challenges you one last time while Zauz works. The Phantom Sword can defeat Phantoms.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "bellum",
+          "name": "Bellum",
+          "area": "Mercay Island",
+          "howTo": "Go back down to B13 of the Temple of the Ocean King, defeat the three Phantoms, Swift Phantoms and Gold Phantoms, and take the Stairway to Bellum.",
+          "requires": [
+            "phantom_sword"
+          ],
+          "notes": "Freeze time with Ciela's Phantom Spheres (draw a figure eight) to strike the eye. Bellum then takes Tetra and the Ghost Ship.",
+          "tags": [
+            "Temple of the Ocean King",
+            "Boss"
+          ]
+        },
+        {
+          "id": "bellumbeck",
+          "name": "Bellumbeck",
+          "area": "Northwestern Sea",
+          "howTo": "Shoot the eyes off the possessed Ghost Ship from the SS Linebeck, then fight Bellumbeck on its wreck.",
+          "requires": [
+            "bellum"
+          ],
+          "notes": "The last battle. Afterwards the Temple shows your Best Time on the Collection Screen.",
+          "tags": [
+            "Boss"
+          ]
+        }
+      ]
+    }
+  ]
+}
