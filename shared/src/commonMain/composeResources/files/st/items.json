@@ -1,0 +1,194 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "summaries": [
+    {
+      "label": "Bombs",
+      "formula": "bomb_bag.value"
+    },
+    {
+      "label": "Arrows",
+      "formula": "quiver.value"
+    }
+  ],
+  "sections": [
+    {
+      "id": "equipment",
+      "title": "Items",
+      "note": "Potions go in two potion slots; Spirit Tracks has no bottles. Train cars are in Train Parts, songs in Songs.",
+      "items": [
+        {
+          "id": "sword",
+          "name": "Sword",
+          "area": "Hyrule Castle",
+          "tiers": [
+            {
+              "name": "Recruit's Sword",
+              "howTo": "After the disaster at the tower, pass Captain Russell's lesson in the training room on the east side of Hyrule Castle's first floor."
+            },
+            {
+              "name": "Lokomo Sword",
+              "howTo": "Anjean gives it in the Spirit Train after you bring the Bow of Light out of the Sand Temple.",
+              "reward": "Stuns Phantoms without Tears of Light"
+            }
+          ]
+        },
+        {
+          "id": "spirit_flute",
+          "name": "Spirit Flute",
+          "area": "Hyrule Castle",
+          "howTo": "After the disaster, Zelda's spirit asks you to bring it from her chamber in Hyrule Castle.",
+          "notes": "Played by blowing into the microphone while sliding the pipes. Anjean gave it to Zelda's ancestors."
+        },
+        {
+          "id": "shield",
+          "name": "Shield",
+          "area": "Castle Town Shop",
+          "howTo": "Buy it for 80 Rupees at the Castle Town Shop (east of the castle entrance) or the Whittleton shop.",
+          "notes": "Pricier elsewhere: 200 Rupees at the Goron Country Store, more at the Snow Sanctuary. A Like Like can eat it; buy another."
+        },
+        {
+          "id": "whirlwind",
+          "name": "Whirlwind",
+          "area": "Forest Temple",
+          "howTo": "The dungeon item of the Forest Temple: the chest after the four Vengas on 2F."
+        },
+        {
+          "id": "stamp_book",
+          "name": "Stamp Book",
+          "area": "Aboda Village",
+          "howTo": "Niko gives it in your house after you bring Alfonzo home to Aboda Village.",
+          "notes": "The stamps are in their own tracker."
+        },
+        {
+          "id": "rabbit_net",
+          "name": "Rabbit Net",
+          "area": "Rabbitland Rescue",
+          "howTo": "Stop at Rabbitland Rescue on the north-west line towards the Snow Realm and tell Bunnio how much you love rabbits.",
+          "notes": "The rabbits are in their own tracker."
+        },
+        {
+          "id": "boomerang",
+          "name": "Boomerang",
+          "area": "Snow Temple",
+          "howTo": "The dungeon item of the Snow Temple: the chest after the three Ice Keese on B1."
+        },
+        {
+          "id": "shield_of_antiquity",
+          "name": "Shield of Antiquity",
+          "area": "Aboda Village",
+          "howTo": "Show Niko 10 stamps in the Stamp Book.",
+          "notes": "The Hero of Winds' shield from Phantom Hourglass. Like Likes can't eat it. Swap shields at the fireplace in your house. Needed for speedrun.com's 100%."
+        },
+        {
+          "id": "whip",
+          "name": "Whip",
+          "area": "Ocean Temple",
+          "howTo": "The dungeon item of the Ocean Temple: beat the Snapper on 3F."
+        },
+        {
+          "id": "engineers_clothes",
+          "name": "Engineer's Clothes",
+          "area": "Aboda Village",
+          "howTo": "Show Niko 15 stamps in the Stamp Book; talk to him to switch between them and the Recruit Uniform.",
+          "notes": "The clothes Link starts in. No effect in play. Needed for speedrun.com's 100%."
+        },
+        {
+          "id": "bow",
+          "name": "Bow",
+          "tiers": [
+            {
+              "name": "Bow",
+              "howTo": "The Fire Temple's item: beat the Heatoise mini-boss on 2F.",
+              "reward": "Quiver of 20 arrows"
+            },
+            {
+              "name": "Bow of Light",
+              "howTo": "In the Sand Temple, in the chest down the stairs past Skeldritch.",
+              "reward": "Light Arrows: hold the stylus to charge"
+            }
+          ]
+        },
+        {
+          "id": "sand_wand",
+          "name": "Sand Wand",
+          "area": "Sand Temple",
+          "howTo": "The dungeon item of the Sand Temple: past the three Stalfos Warriors on 3F."
+        }
+      ]
+    },
+    {
+      "id": "upgrades",
+      "title": "Upgrades",
+      "noun": "upgrade",
+      "note": "Bombs are optional: the first Bomb Bag is bought, the next two are minigame prizes.",
+      "items": [
+        {
+          "id": "bomb_bag",
+          "name": "Bomb Bag",
+          "value": 10,
+          "notes": "IGN says the first bag holds 20; Zelda Wiki and Zelda Dungeon say 10, 20 and 30.",
+          "tiers": [
+            {
+              "name": "Bomb Bag (10)",
+              "howTo": "Buy it from Beedle's Air Shop for 500 Rupees. His balloon appears on the map after the Snow Temple: whistle when it's near the tracks and stop beside it."
+            },
+            {
+              "name": "Medium Bomb Bag (20)",
+              "howTo": "Whittleton's Whip Race (north-east of the village, 50 Rupees): finish under 1:30 (1:15 or better wins the Heart Container)."
+            },
+            {
+              "name": "Big Bomb Bag (30)",
+              "howTo": "Clear level 2 (blue door) of Take 'Em All On! in Castle Town, open after the Ocean Temple."
+            }
+          ]
+        },
+        {
+          "id": "quiver",
+          "name": "Quiver",
+          "notes": "The two upgrades are 30 and 50 arrows. Which source gives which differs: the Goron store gives 30 and the Pirate Hideout 50 (Zelda Wiki, IGN), or the reverse (Zelda Dungeon). Most likely whichever you get first gives 30.",
+          "tiers": [
+            {
+              "name": "Quiver (20)",
+              "howTo": "Comes with the Bow in the Fire Temple.",
+              "value": 20
+            },
+            {
+              "name": "Quiver (30)",
+              "howTo": "Buy the Quiver at the Goron Country Store in Goron Village for 2,000 Rupees after the Fire Temple, or score 3,000–3,999 at the Pirate Hideout.",
+              "value": 10
+            },
+            {
+              "name": "Quiver (50)",
+              "howTo": "The other of the two: the Goron Country Store's 2,000-Rupee Quiver, or 3,000–3,999 points at the Pirate Hideout minigame.",
+              "value": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "techniques",
+      "title": "Swordsman's Scrolls",
+      "noun": "scroll",
+      "note": "Both are needed for speedrun.com's 100%.",
+      "items": [
+        {
+          "id": "great_spin_attack",
+          "name": "Great Spin Attack",
+          "area": "Aboda Village",
+          "howTo": "Show Niko all 20 stamps.",
+          "reward": "Swordsman's Scroll: three spin attacks in a row",
+          "notes": "Zelda Wiki calls it the second Swordsman's Scroll, Zelda Dungeon's walkthrough the first. Leaves Link dizzy."
+        },
+        {
+          "id": "sword_beam",
+          "name": "Sword Beam",
+          "area": "Rabbitland Rescue",
+          "howTo": "Bring all 50 rabbits to Bunnio at Rabbitland Rescue.",
+          "reward": "Swordsman's Scroll: sword beams at full health"
+        }
+      ]
+    }
+  ]
+}

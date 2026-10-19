@@ -1,0 +1,274 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Tower of Spirits",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm",
+    "Sand Realm"
+  ],
+  "noun": "stamp",
+  "hiddenLabel": "Unstamped station",
+  "sections": [
+    {
+      "id": "stamps",
+      "title": "Stamp Stations",
+      "noun": "stamp",
+      "note": "20 Stamp Stations, each with its own stamp. Niko gives the Stamp Book once Alfonzo is home. Tags give the items you need.",
+      "items": [
+        {
+          "id": "stamp_aboda_village",
+          "name": "Aboda Village",
+          "region": "Forest Realm",
+          "area": "Aboda Village",
+          "howTo": "At the north of the village, just west of Alfonzo's house."
+        },
+        {
+          "id": "stamp_forest_sanctuary",
+          "name": "Forest Sanctuary",
+          "region": "Forest Realm",
+          "area": "Forest Sanctuary",
+          "howTo": "On the way to Gage's chamber: hit the switch on the higher platform (or bomb the cracked blocks) to extend the bridge west, and the station is across it.",
+          "tags": [
+            "Bomb Flowers"
+          ]
+        },
+        {
+          "id": "stamp_whittleton",
+          "name": "Whittleton",
+          "region": "Forest Realm",
+          "area": "Whittleton",
+          "howTo": "Leave the village by the trees at the north-east into the northern part; the station is just north, behind the tree with the beehive."
+        },
+        {
+          "id": "stamp_forest_temple",
+          "name": "Forest Temple",
+          "region": "Forest Realm",
+          "area": "Forest Temple, 1F",
+          "howTo": "In the north-east of the first floor, inside the poison fog: blow it away with the Whirlwind and follow the path east.",
+          "tags": [
+            "Whirlwind"
+          ]
+        },
+        {
+          "id": "stamp_anouki_village",
+          "name": "Anouki Village",
+          "region": "Snow Realm",
+          "area": "Anouki Village",
+          "howTo": "From the station go east as far as you can, then north through the trees: the station is hidden in the north-east corner."
+        },
+        {
+          "id": "stamp_snow_sanctuary",
+          "name": "Snow Sanctuary",
+          "region": "Snow Realm",
+          "area": "Snow Sanctuary",
+          "howTo": "On the west side, on the way to Steem's chamber: climb the narrow staircase."
+        },
+        {
+          "id": "stamp_snow_temple",
+          "name": "Snow Temple",
+          "region": "Snow Realm",
+          "area": "Snow Temple, B1",
+          "howTo": "In the north-east of B1, in the big water room with the Octives and torches: make an ice bridge to the corner with the Boomerang and the cold flame.",
+          "tags": [
+            "Boomerang"
+          ]
+        },
+        {
+          "id": "stamp_wellspring_station",
+          "name": "Wellspring Station",
+          "region": "Snow Realm",
+          "area": "Wellspring Station",
+          "howTo": "Behind Ferrus's hut, at the lake: carry the cold flame across the water with the Boomerang to freeze a path, and the station is just west of the ice torch.",
+          "tags": [
+            "Boomerang"
+          ]
+        },
+        {
+          "id": "stamp_castle_town",
+          "name": "Castle Town",
+          "region": "Forest Realm",
+          "area": "Castle Town",
+          "howTo": "Bomb the blocks at the top of the north-east staircase, then walk west along the town walls to the north-west corner.",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "stamp_trading_post",
+          "name": "Trading Post",
+          "region": "Forest Realm",
+          "area": "Trading Post cave",
+          "howTo": "In the Like Like cave west of Linebeck's house, near the north exit: bomb the block in the way and jump west to the station across the water.",
+          "after": "Trading Post bridge quest begun (Kenzo)",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "stamp_ocean_temple",
+          "name": "Ocean Temple",
+          "region": "Ocean Realm",
+          "area": "Ocean Temple, 2F hidden section",
+          "howTo": "Bomb the cracked walls left and then right of the stairs at the north of 2F. In the hidden part, clear the spiky vines with the Whip and hit the crystal switch with the Boomerang, swing across the poles on the west side, pull the fish statue's handle, then drop onto the moving platform to reach the station.",
+          "tags": [
+            "Bombs",
+            "Boomerang",
+            "Whip"
+          ]
+        },
+        {
+          "id": "stamp_ocean_sanctuary",
+          "name": "Ocean Sanctuary",
+          "region": "Ocean Realm",
+          "area": "Ocean Sanctuary",
+          "howTo": "Just south of the entrance to Carben's cave, play the Song of Birds and hang from the bird with the Whip; it carries you up to the station above the entrance.",
+          "tags": [
+            "Song of Birds",
+            "Whip"
+          ]
+        },
+        {
+          "id": "stamp_papuchia_village",
+          "name": "Papuchia Village",
+          "region": "Ocean Realm",
+          "area": "Papuchia Village, southern islands",
+          "howTo": "Where Carben was flying, hang from a bird with the Whip to reach the island to the south-east, walk south to the southern islands and hop island to island by bird to the south-western one.",
+          "tags": [
+            "Song of Birds",
+            "Whip"
+          ]
+        },
+        {
+          "id": "stamp_goron_village",
+          "name": "Goron Village",
+          "region": "Fire Realm",
+          "area": "Goron Village, west side",
+          "howTo": "In the west part of the village dodge the rolling boulders to the south-west corner, whip across the two poles, then north across another pole and past the Fire Babas to the north-west corner.",
+          "tags": [
+            "Whip"
+          ]
+        },
+        {
+          "id": "stamp_fire_sanctuary",
+          "name": "Fire Sanctuary",
+          "region": "Fire Realm",
+          "area": "Fire Sanctuary",
+          "howTo": "Beat the Fire Babas and light every torch with the Boomerang to raise the bridges. Climb the steps, cross the west bridge, go north and cross the long bridge east.",
+          "tags": [
+            "Boomerang"
+          ]
+        },
+        {
+          "id": "stamp_fire_temple",
+          "name": "Fire Temple",
+          "region": "Fire Realm",
+          "area": "Fire Temple, B1",
+          "howTo": "In the circular mine-cart room, after hitting the wall switches in order (2, 1, 4, 3), ride clockwise and shoot the hidden switch in the south-west corner with an arrow as you pass; the cart takes you to the station in the north-west.",
+          "tags": [
+            "Bow"
+          ]
+        },
+        {
+          "id": "stamp_pirate_hideout",
+          "name": "Pirate Hideout",
+          "region": "Ocean Realm",
+          "area": "Pirate Hideout",
+          "howTo": "From the station go east then north; play the Song of Birds by the cave entrance and hang from the bird with the Whip up to the ledge.",
+          "after": "Niboshi's Force Gem",
+          "tags": [
+            "Song of Birds",
+            "Whip"
+          ]
+        },
+        {
+          "id": "stamp_sand_temple",
+          "name": "Sand Temple",
+          "region": "Sand Realm",
+          "area": "Sand Temple, B1",
+          "howTo": "In the north of B1: use the Gerune to open the door on the right, then raise a path through the quicksand with the Sand Wand, left, up and right to the station.",
+          "tags": [
+            "Sand Wand"
+          ]
+        },
+        {
+          "id": "stamp_sand_sanctuary",
+          "name": "Sand Sanctuary",
+          "region": "Sand Realm",
+          "area": "Sand Sanctuary",
+          "howTo": "Once Rael has his five Cuccos, carry one to the south-east shore and glide to the small island, then on to the further one with the station.",
+          "after": "Rael's Force Gem",
+          "tags": [
+            "Cuccos"
+          ]
+        },
+        {
+          "id": "stamp_tower_of_spirits",
+          "name": "Tower of Spirits",
+          "region": "Tower of Spirits",
+          "area": "Top of the Tower of Spirits",
+          "howTo": "After the Sand Temple, take the warp at the top of the stairs, go through Byrne's chamber and outside, and climb to the very top: the station is by the altar.",
+          "after": "Sand Temple"
+        }
+      ]
+    },
+    {
+      "id": "stamp_rewards",
+      "title": "Niko's rewards",
+      "noun": "reward",
+      "note": "Show Niko the Stamp Book in your house in Aboda Village.",
+      "items": [
+        {
+          "id": "niko_ten_stamps",
+          "name": "10 stamps",
+          "region": "Forest Realm",
+          "area": "Link and Niko's House",
+          "howTo": "Show Niko 10 stamps.",
+          "reward": "Shield of Antiquity"
+        },
+        {
+          "id": "niko_fifteen_stamps",
+          "name": "15 stamps",
+          "region": "Forest Realm",
+          "area": "Link and Niko's House",
+          "howTo": "Show Niko 15 stamps.",
+          "requires": [
+            "niko_ten_stamps"
+          ],
+          "reward": "Engineer's Clothes"
+        },
+        {
+          "id": "niko_twenty_stamps",
+          "name": "All 20 stamps",
+          "region": "Forest Realm",
+          "area": "Link and Niko's House",
+          "howTo": "Show Niko all 20 stamps.",
+          "requires": [
+            "niko_fifteen_stamps",
+            "stamp_aboda_village",
+            "stamp_forest_sanctuary",
+            "stamp_whittleton",
+            "stamp_forest_temple",
+            "stamp_anouki_village",
+            "stamp_snow_sanctuary",
+            "stamp_snow_temple",
+            "stamp_wellspring_station",
+            "stamp_castle_town",
+            "stamp_trading_post",
+            "stamp_ocean_temple",
+            "stamp_ocean_sanctuary",
+            "stamp_papuchia_village",
+            "stamp_goron_village",
+            "stamp_fire_sanctuary",
+            "stamp_fire_temple",
+            "stamp_pirate_hideout",
+            "stamp_sand_temple",
+            "stamp_sand_sanctuary",
+            "stamp_tower_of_spirits"
+          ],
+          "reward": "Swordsman's Scroll: Great Spin Attack"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm"
+  ],
+  "noun": "challenge",
+  "hiddenLabel": "Unbeaten challenge",
+  "sections": [
+    {
+      "id": "challenges",
+      "title": "Minigames & Secrets",
+      "note": "The minigames and hidden stations with a lasting prize: upgrades, Heart Containers, and the Alchemy Stones and Regal Rings the Golden Train needs. Prizes also counted elsewhere say so.",
+      "items": [
+        {
+          "id": "take_em_all_on_1",
+          "name": "Take 'Em All On! level 1",
+          "region": "Forest Realm",
+          "area": "Castle Town",
+          "howTo": "The green door in the building at the south-east of Castle Town (50 Rupees): 10 rooms ending with Stagnox. No hearts drop, so bring potions.",
+          "after": "Forest Temple",
+          "reward": "Heart Container (also in Heart Containers)",
+          "notes": "Later clears give Treasure.",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "russell_training",
+          "name": "Russell's training",
+          "region": "Forest Realm",
+          "area": "Hyrule Castle",
+          "howTo": "After the Snow Temple, answer Russell's letter: land 60 hits on his three guards before taking three hits.",
+          "after": "Snow Temple",
+          "reward": "Heart Container (also in Heart Containers)",
+          "notes": "Zelda Wiki: 60–119 hits then give an uncommon Treasure, 120–199 a rare one, 200+ a Regal Ring or Alchemy Stone, and 900 hits makes you captain.",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "beedle_membership",
+          "name": "Beedle's club",
+          "area": "Beedle's Air Shop",
+          "howTo": "Buy something from Beedle, then join his club for 100 Rupees; the cards come by post. One point per 10 Rupees spent.",
+          "after": "Snow Temple",
+          "notes": "His stock changes daily. After the Diamond Card no more points are counted.",
+          "tags": [
+            "Shop"
+          ],
+          "tiers": [
+            {
+              "name": "Club Card",
+              "howTo": "Join for 100 Rupees after your first purchase."
+            },
+            {
+              "name": "Silver Card",
+              "howTo": "200 points.",
+              "reward": "10% off and a Freebie Card"
+            },
+            {
+              "name": "Gold Card",
+              "howTo": "500 points.",
+              "reward": "20% off and a Heart Container (also in Heart Containers)"
+            },
+            {
+              "name": "Platinum Card",
+              "howTo": "1,000 points.",
+              "reward": "30% off and a Quintuple Points Card"
+            },
+            {
+              "name": "Diamond Card",
+              "howTo": "2,000 points.",
+              "reward": "50% off and a Regal Ring"
+            }
+          ]
+        },
+        {
+          "id": "whip_race_bomb_bag",
+          "name": "Whip Race: under 1:30",
+          "region": "Forest Realm",
+          "area": "Whittleton, north-east",
+          "howTo": "Swing across north Whittleton with the Whip to the race in the north-east corner (50 Rupees) and finish in under 1:30.",
+          "after": "Ocean Temple",
+          "reward": "Medium Bomb Bag (20 bombs)",
+          "notes": "IGN says under 2:00 in one place; Zelda Wiki says beat the current record.",
+          "tags": [
+            "Minigame",
+            "Whip"
+          ]
+        },
+        {
+          "id": "whip_race_fast",
+          "name": "Whip Race: under 1:15",
+          "region": "Forest Realm",
+          "area": "Whittleton, north-east",
+          "howTo": "Finish the Whip Race in under 1:15 without falling.",
+          "requires": [
+            "whip_race_bomb_bag"
+          ],
+          "reward": "Heart Container (also in Heart Containers)",
+          "notes": "Later fast runs give rare Treasure; under 1:05 also cuts the fee to 25 Rupees (IGN).",
+          "tags": [
+            "Minigame",
+            "Whip"
+          ]
+        },
+        {
+          "id": "take_em_all_on_2",
+          "name": "Take 'Em All On! level 2",
+          "region": "Forest Realm",
+          "area": "Castle Town",
+          "howTo": "The blue door (50 Rupees): 14 rooms with Stagnox, Fraaz and Phytops.",
+          "requires": [
+            "take_em_all_on_1"
+          ],
+          "after": "Ocean Temple",
+          "reward": "Big Bomb Bag (30 bombs)",
+          "notes": "Purple Potions don't revive you here; drink them yourself (IGN).",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "snowdrift_station_dungeon",
+          "name": "Snowdrift Station",
+          "region": "Snow Realm",
+          "area": "Snowdrift Station cave",
+          "howTo": "The four side chambers each hold a clue to the five switches. From the high platform hit, left to right, the 1st, 4th, 2nd and 5th with one Boomerang throw (not the middle one), then beat the Freezards.",
+          "after": "Yeko's Force Gem",
+          "reward": "Alchemy Stone",
+          "tags": [
+            "Hidden station",
+            "Boomerang"
+          ]
+        },
+        {
+          "id": "slippery_station_rink",
+          "name": "Slippery Station skating rink",
+          "region": "Snow Realm",
+          "area": "Slippery Station cave",
+          "howTo": "Step on a course's switch and skate to its door before it shuts: bottom switch Amateur, middle Pro, top Champion. Cut the corners and use the patches of solid ground.",
+          "after": "Steem's Force Gem",
+          "tags": [
+            "Hidden station"
+          ],
+          "tiers": [
+            {
+              "name": "Amateur Course",
+              "reward": "Big Gold Rupee (300)"
+            },
+            {
+              "name": "Pro Course",
+              "reward": "Rare Treasure"
+            },
+            {
+              "name": "Champion Course",
+              "reward": "Alchemy Stone"
+            }
+          ]
+        },
+        {
+          "id": "goron_target_range",
+          "name": "Goron Target Range",
+          "region": "Fire Realm",
+          "area": "Goron Target Range",
+          "howTo": "20 Rupees a go: shoot blue targets (10 points) and red ones (30, up to three hits), not the Goron targets (minus 30). Pick one of two chests at the end.",
+          "after": "Fire Temple",
+          "notes": "Prizes are only Treasure and Rupees.",
+          "tags": [
+            "Minigame"
+          ],
+          "tiers": [
+            {
+              "name": "1,000 points",
+              "reward": "A longer course"
+            },
+            {
+              "name": "2,000 points",
+              "reward": "Rare Treasure"
+            }
+          ]
+        },
+        {
+          "id": "disorientation_station_cave",
+          "name": "Disorientation Station",
+          "region": "Fire Realm",
+          "area": "Disorientation Station cave",
+          "howTo": "Climb to the Castle Guard (Song of Birds and Whip for the ledges), then in the maze go east, south, north and north. Beat the Fire Babas and play the Song of Discovery by the stone block in the north-east.",
+          "after": "Force Gem: Goron child in Castle Town",
+          "reward": "Alchemy Stone",
+          "notes": "Answer the guard \"well\" afterwards for a Big Green Rupee.",
+          "tags": [
+            "Hidden station",
+            "Song of Discovery"
+          ]
+        },
+        {
+          "id": "pirate_hideout_quiver",
+          "name": "Pirate Hideout: 3,000 points",
+          "region": "Ocean Realm",
+          "area": "Pirate Hideout",
+          "howTo": "After freeing Wadatsumi, play the shooting gallery again (a Goron is the prisoner now) and score 3,000–3,999. Hit Miniblins in a row for the multiplier.",
+          "after": "Wadatsumi's Force Gem",
+          "reward": "Quiver upgrade",
+          "notes": "Zelda Dungeon says 3,500–4,000. Light Arrows add 10 points each.",
+          "tags": [
+            "Minigame",
+            "Bow"
+          ]
+        },
+        {
+          "id": "pirate_hideout_high_score",
+          "name": "Pirate Hideout: 4,000 points",
+          "region": "Ocean Realm",
+          "area": "Pirate Hideout",
+          "howTo": "Score 4,000 or more in the Pirate Hideout's shooting gallery.",
+          "requires": [
+            "pirate_hideout_quiver"
+          ],
+          "reward": "Heart Container (also in Heart Containers)",
+          "notes": "IGN: 4,000–4,500; above that, rare Treasure.",
+          "tags": [
+            "Minigame",
+            "Bow"
+          ]
+        },
+        {
+          "id": "take_em_all_on_3",
+          "name": "Take 'Em All On! level 3",
+          "region": "Forest Realm",
+          "area": "Castle Town",
+          "howTo": "The red door (50 Rupees): 15 rooms with all five temple bosses, then Dark Link. Bring two potions and the Great Spin Attack.",
+          "requires": [
+            "take_em_all_on_2"
+          ],
+          "after": "Sand Temple",
+          "reward": "Rare Treasure",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "ends_of_the_earth_puzzles",
+          "name": "Ends of the Earth block puzzles",
+          "region": "Fire Realm",
+          "area": "Ends of the Earth Station",
+          "howTo": "Each of the three caves has three Sand Wand block-rolling puzzles: roll every block until its blue spike sits in a blue panel.",
+          "after": "Rael's Force Gem",
+          "notes": "Each cave also has a Big Green Rupee on the way out.",
+          "tags": [
+            "Hidden station",
+            "Sand Wand"
+          ],
+          "tiers": [
+            {
+              "name": "Brainteaser (centre cave)",
+              "reward": "Rare Treasure"
+            },
+            {
+              "name": "Braintwister (west cave)",
+              "reward": "Heart Container (also in Heart Containers)"
+            },
+            {
+              "name": "Brainmasher (east cave)",
+              "reward": "Regal Ring"
+            }
+          ]
+        },
+        {
+          "id": "lost_at_sea_station_dungeon",
+          "name": "Lost at Sea Station",
+          "region": "Ocean Realm",
+          "area": "Lost at Sea Station",
+          "howTo": "Ride a bird (Song of Birds and Whip) up the cliff, play the Song of Light at the beacon and bomb the wall it lights. Then clear five Phantom floors without the sword or bow: light the torches, blow out 13 torches, pull the right handles, smash every block and open all four chests.",
+          "after": "Linebeck's Force Gem",
+          "reward": "Regal Ring",
+          "notes": "It can be repeated for more Regal Rings. The station also hides a rare Treasure where its two beacons' beams cross (Song of Discovery).",
+          "tags": [
+            "Hidden station"
+          ]
+        }
+      ]
+    }
+  ]
+}

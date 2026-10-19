@@ -1,0 +1,432 @@
+{
+  "regions": [
+    "Skyloft",
+    "The Sky",
+    "Thunderhead",
+    "Sealed Grounds",
+    "Faron Woods",
+    "Lake Floria",
+    "Eldin Volcano",
+    "Volcano Summit",
+    "Lanayru Desert",
+    "Lanayru Sand Sea",
+    "Lanayru Gorge"
+  ],
+  "noun": "heart",
+  "plural": "hearts",
+  "hiddenLabel": "Uncollected heart",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "6 + pieces / 4 + containers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "pieces",
+      "title": "Pieces of Heart",
+      "noun": "piece",
+      "hiddenLabel": "Uncollected Piece of Heart",
+      "note": "24 pieces; every four make a heart. Tags give the items you need.",
+      "items": [
+        {
+          "id": "lumpy_pumpkin_chandelier",
+          "name": "Lumpy Pumpkin chandelier",
+          "region": "The Sky",
+          "area": "Lumpy Pumpkin, Pumpkin Landing",
+          "howTo": "Go upstairs in the Lumpy Pumpkin and roll into the balcony railing twice in quick succession. The chandelier crashes down; pick up the piece and the Rupees from the ground floor.",
+          "after": "Goddess Sword (when you can first fly around the Sky)",
+          "reward": "Piece of Heart",
+          "notes": "Pumm then makes you work off the damage. Finishing his chores gives a second piece (Pumm's chores)."
+        },
+        {
+          "id": "faron_great_tree_tightrope",
+          "name": "Great Tree tightrope platform",
+          "region": "Faron Woods",
+          "area": "Great Tree, Faron Woods",
+          "howTo": "Where a natural land bridge makes an \"m\" shape with a ramp in the middle, climb up and head left towards the Great Tree. Cross the tightrope to the platform sticking out of the tree.",
+          "after": "First visit to Faron Woods",
+          "reward": "Piece of Heart",
+          "notes": "HD: with button controls, keep your balance with the left stick instead of tilting the Wii Remote."
+        },
+        {
+          "id": "goddess_chest_faron_pillar",
+          "name": "Goddess Chest by the Faron pillar",
+          "region": "The Sky",
+          "area": "Small island closest to the Faron pillar of light, near Pumpkin Landing",
+          "howTo": "Strike the Goddess Cube just outside the Skyview Temple entrance in the Deep Woods, then fly to the small island beside the Faron pillar of light and open the chest.",
+          "after": "Deep Woods",
+          "reward": "Piece of Heart",
+          "notes": "Goddess Chest: its cube is the second one in the Deep Woods, by the Skyview Temple entrance.",
+          "tags": [
+            "Goddess Chest"
+          ]
+        },
+        {
+          "id": "skyview_bird_statue_bars",
+          "name": "Behind bars in Skyview Temple",
+          "region": "Faron Woods",
+          "area": "Skyview Temple, room with the giant bird statue",
+          "howTo": "In the round room where you found the Beetle, go behind the bird statue: the piece is behind bars. Fly the Beetle up to the statue's neck and hit the crystal switch in the alcove, which is open on the north side, to lift the bars.",
+          "after": "Skyview Temple (Beetle)",
+          "reward": "Piece of Heart",
+          "notes": "You can come back for it after the dungeon.",
+          "tags": [
+            "Beetle",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "batreaux_heart_piece",
+          "name": "Batreaux: 10 Gratitude Crystals",
+          "region": "Skyloft",
+          "area": "Batreaux's House, below the graveyard",
+          "howTo": "Show Batreaux 10 Gratitude Crystals: Wryna's 5 from finding Kukiel plus five loose crystals found at night are enough. Crystals aren't used up.",
+          "after": "Finding Kukiel (after placing the Ruby Tablet)",
+          "reward": "Piece of Heart",
+          "notes": "Batreaux's second reward for Gratitude Crystals, a side quest. Zelda's Palace and one Zelda Wiki table say 15 crystals; the game's data, Zelda Dungeon and StrategyWiki say 10.",
+          "tags": [
+            "Side quest"
+          ]
+        },
+        {
+          "id": "eldin_cliff_ledge",
+          "name": "Ledge near the bone bridge",
+          "region": "Eldin Volcano",
+          "area": "Above the lava, by the skeletal bridge",
+          "howTo": "When you reach the skeletal bridge over the lava, don't cross. Climb the rocks to the right and follow the upper ledges round to the east and south. The piece is on a lower ledge just past an enemy with a shell.",
+          "after": "First visit to Eldin Volcano",
+          "reward": "Piece of Heart"
+        },
+        {
+          "id": "faron_bombable_rock_cave",
+          "name": "Behind a bombable rock in Faron Woods",
+          "region": "Faron Woods",
+          "area": "Start of Faron Woods, among the big mushrooms",
+          "howTo": "Go back to the start of Faron Woods, near the Sealed Grounds, where the big mushrooms are. Bomb the rocks on the right of the path to open a small cave with the piece.",
+          "after": "Earth Temple (Bomb Bag)",
+          "reward": "Piece of Heart",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "lanayru_secret_passage_chest",
+          "name": "Secret passageway chest",
+          "region": "Lanayru Desert",
+          "area": "North-east corner of Lanayru Desert",
+          "howTo": "In the north-east of the desert, follow the raised road to the end of the narrow passage, drop down and bomb the cracked wall at its entrance. The chest with the piece is at the end of the passage.",
+          "after": "First visit to Lanayru Desert",
+          "reward": "Piece of Heart",
+          "tags": [
+            "Bombs"
+          ]
+        },
+        {
+          "id": "goddess_chest_beedles_island",
+          "name": "Goddess Chest on Beedle's Island",
+          "region": "The Sky",
+          "area": "Beedle's Island, above Beedle's hut",
+          "howTo": "Strike the Goddess Cube by the mine-cart ride at the Temple of Time, then land on top of Beedle's Island, east of Bamboo Island, and open the chest above Beedle's hut.",
+          "after": "Temple of Time",
+          "reward": "Piece of Heart",
+          "notes": "Goddess Chest: its cube is hit from the mine cart at the north-west of the Temple of Time.",
+          "tags": [
+            "Goddess Chest"
+          ]
+        },
+        {
+          "id": "pumm_chores_reward",
+          "name": "Pumm's chores",
+          "region": "The Sky",
+          "area": "Lumpy Pumpkin, Pumpkin Landing",
+          "howTo": "After breaking the chandelier, do Pumm's three jobs: take a Bottle of Hot Pumpkin Soup to Eagus in the Sparring Hall before it cools, carry Kina's stack of pumpkins to the shed without dropping one, then at night play the Goddess's Harp in time with the swaying customers while Kina sings. Pumm then gives you the piece.",
+          "requires": [
+            "lumpy_pumpkin_chandelier"
+          ],
+          "after": "Goddess's Harp",
+          "reward": "Piece of Heart",
+          "notes": "Side quest: Pumm's chandelier debt. Zelda's Palace says the pumpkin job opens after the Earth Temple. HD: with button controls, balance the pumpkins with the left stick and strum the harp with the right stick.",
+          "tags": [
+            "Bottle",
+            "Goddess's Harp",
+            "Side quest"
+          ]
+        },
+        {
+          "id": "fun_fun_island_dive",
+          "name": "Dodoh's High Dive",
+          "region": "The Sky",
+          "area": "Fun Fun Island",
+          "howTo": "Pay Dodoh 20 Rupees and get shot up from the cannon. Fall through the rings while dodging the Dodoh balls to build up the ×10 multiplier, then land on the 50-Rupee space of the spinning wheel: 500 Rupees and, the first time, the piece.",
+          "after": "Dodoh's Party Wheel (Gratitude Crystal side quest)",
+          "reward": "Piece of Heart",
+          "notes": "Minigame. Tip from Zelda Dungeon: the wheel turns about two-thirds of a turn between the last ring and your landing. HD: with button controls, steer your fall with the left stick.",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "skyloft_shed_goddess_chest",
+          "name": "Goddess Chest in the locked shed",
+          "region": "Skyloft",
+          "area": "Shed reached by an underwater passage",
+          "howTo": "Strike the Goddess Cube by the Eldin Volcano sand slide. Then dive into Skyloft's river and swim through the underwater passage at the base of the windmill to the pond inside the shed.",
+          "after": "Water Dragon's Scale",
+          "reward": "Piece of Heart",
+          "notes": "Goddess Chest: its cube is below the big sand slide in Eldin Volcano.",
+          "tags": [
+            "Water Dragon's Scale",
+            "Goddess Chest"
+          ]
+        },
+        {
+          "id": "goddess_chest_volcanic_island",
+          "name": "Goddess Chest inside the volcanic island",
+          "region": "The Sky",
+          "area": "Crater-shaped island east of the Lanayru pillar of light",
+          "howTo": "Strike the Goddess Cube below the south-east side of Faron's Great Tree. Then fly to the crater-shaped island east of the Lanayru pillar: the chest is on a high ledge inside the crater. Skydive straight onto the ledge, or clawshot up to it.",
+          "after": "Water Dragon's Scale (top of the Great Tree)",
+          "reward": "Piece of Heart",
+          "notes": "Goddess Chest: its cube is on a ledge below the south-east of the Great Tree. The Clawshots make the chest easier.",
+          "tags": [
+            "Goddess Chest"
+          ]
+        },
+        {
+          "id": "zeldas_room_wardrobe",
+          "name": "Zelda's wardrobe",
+          "region": "Skyloft",
+          "area": "Knight Academy, Zelda's room",
+          "howTo": "Climb onto the Knight Academy roof, clawshot to the target on the bath chimney, drop in and crawl through to Zelda's room. Open the wardrobe.",
+          "after": "Clawshots",
+          "reward": "Piece of Heart",
+          "tags": [
+            "Clawshots"
+          ]
+        },
+        {
+          "id": "sandship_stern_chest",
+          "name": "Sandship stern chest",
+          "region": "Lanayru Sand Sea",
+          "area": "Sandship",
+          "howTo": "Climb the main mast and ride the pulleys all the way to the stern. Clawshot the target on the beam at the back of the ship and drop down to the chest on the ledge you saw on the map.",
+          "after": "Sandship",
+          "reward": "Piece of Heart",
+          "notes": "Zelda's Palace gets it after the Bow.",
+          "tags": [
+            "Clawshots",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "skyloft_waterfall_goddess_chest",
+          "name": "Goddess Chest atop the waterfall",
+          "region": "Skyloft",
+          "area": "Top of the waterfall island",
+          "howTo": "Strike the Goddess Cube above the door of the Pirate Stronghold. In Skyloft, clawshot to the vines on the floating rock outside the Waterfall Cave, then on up to the top of the waterfall island.",
+          "after": "Pirate Stronghold (Lanayru Sand Sea)",
+          "reward": "Piece of Heart",
+          "notes": "Goddess Chest: its cube is above the Pirate Stronghold door, reached by Clawshot targets.",
+          "tags": [
+            "Clawshots",
+            "Goddess Chest"
+          ]
+        },
+        {
+          "id": "rickety_coaster_record",
+          "name": "Rickety Coaster: Heart Stopping! track",
+          "region": "Lanayru Sand Sea",
+          "area": "Shipyard",
+          "howTo": "Pay Gortram 20 Rupees and choose the Heart Stopping! track. Lean into the curves without flying off and finish in under 1:05 for the piece (first time only).",
+          "after": "Shipyard (Moldarach)",
+          "reward": "Piece of Heart",
+          "notes": "Minigame. Zelda Dungeon's heart list says after the Sandship; its minigame page and Zelda Wiki say after the Shipyard's Moldarach. HD: with button controls, lean with the left stick.",
+          "tags": [
+            "Minigame"
+          ]
+        },
+        {
+          "id": "pumpkin_pull_score",
+          "name": "Fledge's Pumpkin Pull",
+          "region": "Skyloft",
+          "area": "Outside the Sparring Hall",
+          "howTo": "Once Fledge has finished his training, pay him 20 Rupees and shoot the pumpkins he throws with the Bow. Hits in a row are worth 10, 20, 30, 40, then 50 points, and sparkling pumpkins double. Score 600 within 90 seconds for the piece.",
+          "after": "Sandship (Bow) and Fledge's training",
+          "reward": "Piece of Heart",
+          "notes": "Minigame, sometimes called Pumpkin Archery. It opens after Fledge's Gratitude Crystal side quest. HD: with button controls, aim the Bow with the right stick.",
+          "tags": [
+            "Bow",
+            "Minigame"
+          ]
+        },
+        {
+          "id": "fire_sanctuary_mogma",
+          "name": "Mogma in the Fire Sanctuary",
+          "region": "Volcano Summit",
+          "area": "Fire Sanctuary, far north-west",
+          "howTo": "In the far north-west of the Fire Sanctuary, dig into the soft soil with the Mogma Mitts. Corner the Mogma underground and he hands over the piece.",
+          "after": "Fire Sanctuary (Mogma Mitts)",
+          "reward": "Piece of Heart",
+          "tags": [
+            "Mogma Mitts",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "volcano_summit_dig",
+          "name": "Dig spot on the way to the Fire Sanctuary",
+          "region": "Volcano Summit",
+          "area": "Where the second wall of fire was",
+          "howTo": "On the path to the Fire Sanctuary, where the second wall of fire blocked the way (the frog statue you watered), dig the spots on the right with the Mogma Mitts. One leads underground to the piece.",
+          "after": "Fire Sanctuary (Mogma Mitts)",
+          "reward": "Piece of Heart",
+          "tags": [
+            "Mogma Mitts"
+          ]
+        },
+        {
+          "id": "goddess_chest_bug_rock",
+          "name": "Goddess Chest on Bug Rock",
+          "region": "Thunderhead",
+          "area": "Bug Rock",
+          "howTo": "Strike the Goddess Cube in the Volcano Summit waterfall area. On Bug Rock, stand on the castle-like overhang above the water at the top and drop to the wooden ledge below on the south-west side. Clawshot the vines to leave.",
+          "after": "Volcano Summit",
+          "reward": "Piece of Heart",
+          "notes": "Goddess Chest: its cube is on a ledge you glide to from the Volcano Summit waterfall.",
+          "tags": [
+            "Goddess Chest"
+          ]
+        },
+        {
+          "id": "gorko_wall_riddle",
+          "name": "Gorko's Goddess Wall riddle",
+          "region": "Sealed Grounds",
+          "area": "Behind the Sealed Temple",
+          "howTo": "Near the Behind the Temple Bird Statue, play the Goddess's Harp by the Blessed Butterflies to reveal a Goddess Wall. Talk to Gorko, charge a Skyward Strike and draw the shape his riddle describes in one stroke. The first right answer earns the piece.",
+          "after": "The Imprisoned (first fight), with the Goddess's Harp",
+          "reward": "Piece of Heart",
+          "notes": "Side quest: Gorko's Goddess Wall. If Gorko isn't there, come back later in the story; Zelda's Palace has it after the Fire Sanctuary.",
+          "tags": [
+            "Goddess's Harp",
+            "Side quest"
+          ]
+        },
+        {
+          "id": "beedle_airshop_piece",
+          "name": "Beedle's Airshop",
+          "region": "Skyloft",
+          "area": "Beedle's Airshop, flying over Skyloft by day",
+          "howTo": "Buy it for 1,600 Rupees. Beedle stocks it only after you've bought the Life Medal (800 Rupees), and you need a wallet that holds 1,600. Return his beetle first and it costs 800.",
+          "after": "Life Medal bought from Beedle",
+          "reward": "Piece of Heart",
+          "notes": "Guides differ on what unlocks it: after the Life Medal (Zelda's Palace, Gamer Guides), after the Big Wallet (Zelda's Palace) or after the other health items.",
+          "tags": [
+            "Shop",
+            "Rupees"
+          ]
+        },
+        {
+          "id": "lightning_round_four_wins",
+          "name": "Thunder Dragon's Lightning Round: 4 wins",
+          "region": "Lanayru Gorge",
+          "area": "Thunder Dragon's lair",
+          "howTo": "Talk to the Thunder Dragon and take on the boss battles. Win four in a row, then stop: only the last battle's prize is given, so quit after the fourth for the piece (first time only).",
+          "after": "Giving the Thunder Dragon the Life Tree Fruit",
+          "reward": "Piece of Heart",
+          "notes": "Minigame. You can't use pouch items such as potions inside, only the shield you have equipped.",
+          "tags": [
+            "Minigame"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "containers",
+      "title": "Heart Containers",
+      "noun": "container",
+      "hiddenLabel": "Uncollected Heart Container",
+      "note": "One from each of the six dungeon bosses. You start with 6 hearts; the most is 18.",
+      "items": [
+        {
+          "id": "container_ghirahim_skyview",
+          "name": "Ghirahim (Skyview Temple)",
+          "region": "Faron Woods",
+          "area": "Skyview Temple",
+          "howTo": "Defeat Ghirahim, the boss of the Skyview Temple, and pick up the Heart Container.",
+          "after": "Skyview Temple",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "container_scaldera",
+          "name": "Scaldera (Earth Temple)",
+          "region": "Eldin Volcano",
+          "area": "Earth Temple",
+          "howTo": "Defeat Scaldera, the boss of the Earth Temple, and pick up the Heart Container.",
+          "after": "Earth Temple",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "container_moldarach",
+          "name": "Moldarach (Lanayru Mining Facility)",
+          "region": "Lanayru Desert",
+          "area": "Lanayru Mining Facility",
+          "howTo": "Defeat Moldarach, the boss of the Lanayru Mining Facility, and pick up the Heart Container.",
+          "after": "Lanayru Mining Facility",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "container_koloktos",
+          "name": "Koloktos (Ancient Cistern)",
+          "region": "Lake Floria",
+          "area": "Ancient Cistern",
+          "howTo": "Defeat Koloktos, the boss of the Ancient Cistern, and pick up the Heart Container.",
+          "after": "Ancient Cistern",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "container_tentalus",
+          "name": "Tentalus (Sandship)",
+          "region": "Lanayru Sand Sea",
+          "area": "Sandship",
+          "howTo": "Defeat Tentalus, the boss of the Sandship, and pick up the Heart Container.",
+          "after": "Sandship",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss",
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "container_ghirahim_fire_sanctuary",
+          "name": "Ghirahim (Fire Sanctuary)",
+          "region": "Volcano Summit",
+          "area": "Fire Sanctuary",
+          "howTo": "Defeat Ghirahim, the boss of the Fire Sanctuary, and pick up the Heart Container.",
+          "after": "Fire Sanctuary",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss",
+            "Dungeon"
+          ]
+        }
+      ]
+    }
+  ]
+}

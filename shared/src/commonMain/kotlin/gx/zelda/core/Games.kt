@@ -382,9 +382,55 @@ object Games {
         ),
     )
 
-    /** The DS games keep two files. */
-    val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
-    val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
+    /**
+     * Two files ("a maximum of two save files at any time", Nintendo's manual), the placeholder's
+     * ids. Every tracker is a checklist; the data and its sources are in docs/st.md.
+     */
+    val ST = Game(
+        id = "st",
+        title = "Spirit Tracks",
+        released = ReleaseDate(2009, 12, 7),
+        platform = "Nintendo DS",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            stChecklist("Main Quest", "Five temples, six climbs of the Tower of Spirits, the Rail Maps and the Lokomo duets", "main_quest"),
+            stChecklist("Items & Equipment", "Every item, the Bomb Bag and Quiver upgrades and both Swordsman's Scrolls", "items"),
+            stChecklist("Heart Containers", "All 13: five bosses and eight side activities, with your hearts", "heart_containers"),
+            stChecklist("Force Gems", "All 20 Force Gems: who gives each and the tracks it opens", "force_gems"),
+            stChecklist("Passengers & Cargo", "Every passenger and cargo run, and what it pays", "deliveries"),
+            stChecklist("Rabbits", "All 50 rabbits by realm, and Bunnio's prizes", "rabbits"),
+            stChecklist("Stamp Stations", "All 20 stamps and Niko's rewards", "stamps"),
+            stChecklist("Songs", "The five Spirit Flute songs", "songs"),
+            stChecklist("Stations & Warp Gates", "All 22 stations and the 8 Warp Gates to open", "stations"),
+            stChecklist("Train Parts", "All 32 train parts in 8 sets, and the Treasure each costs", "train_parts"),
+            stChecklist("Minigames & Secrets", "Each minigame's and hidden station's lasting prizes", "minigames"),
+        ),
+    )
+
+    /**
+     * Three files on the Wii and in Skyward Sword HD, whose extra autosave slot isn't a file of its own.
+     * Every tracker is a checklist for the Wii original, with HD's differences in item notes. The
+     * data and its sources are in docs/ss.md.
+     */
+    val SS = Game(
+        id = "ss",
+        title = "Skyward Sword",
+        released = ReleaseDate(2011, 11, 18),
+        platform = "Wii",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            ssChecklist("Main Quest", "The seven dungeons, the Sacred Flames, the Silent Realms, the Song of the Hero and the Goddess Sword", "main_quest"),
+            ssChecklist("Items & Equipment", "Every item and its upgrades with their materials, the Adventure Pouch, Bottles and wallets", "items"),
+            ssChecklist("Heart Pieces", "All 24 Pieces of Heart and 6 Heart Containers, with your hearts total", "heart_pieces"),
+            ssChecklist("Goddess Cubes", "All 27 Goddess Cubes and the Goddess Chests they open in the sky", "goddess_cubes"),
+            ssChecklist("Gratitude Crystals", "All 80 crystals: the side quests that give them, the 15 loose ones and Batreaux's rewards", "gratitude_crystals"),
+            ssChecklist("Side Quests & Minigames", "The minigames and their prizes, the other side quests and the Lightning Round", "side_quests"),
+            ssChecklist("Shields", "All 10 shields, their upgrades and materials", "shields"),
+            ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
+        ),
+    )
     val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
     val TFH = comingSoon("tfh", "Tri Force Heroes", ReleaseDate(2015, 10, 22), "Nintendo 3DS")
 
@@ -488,6 +534,9 @@ object Games {
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
 
+    private fun stChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "st/$file.json")
+
     private fun wwChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ww/$file.json")
 
@@ -496,6 +545,9 @@ object Games {
 
     private fun phChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ph/$file.json")
+
+    private fun ssChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ss/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

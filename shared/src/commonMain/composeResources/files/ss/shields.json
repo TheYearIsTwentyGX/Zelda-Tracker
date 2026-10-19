@@ -1,0 +1,81 @@
+{
+  "noun": "shield",
+  "hiddenLabel": "Unfound shield",
+  "sections": [
+    {
+      "id": "shields",
+      "title": "Shields",
+      "note": "Shields wear out as they block. Gondo repairs them at the Scrap Shop; a Revitalizing Potion does too.",
+      "items": [
+        {
+          "id": "wooden_shield",
+          "name": "Wooden Shield",
+          "area": "Skyloft",
+          "notes": "Strength 4, 6 and 8 (hits of one heart it takes before breaking). Wood: safe from electricity, so good in Lanayru, but it burns. Arrows that stick in it can be collected. Rupin's Gear Shop sells it again if it breaks.",
+          "tiers": [
+            {
+              "name": "Wooden Shield",
+              "howTo": "Owlan gives you one outside the Knight Academy once you have the Goddess Sword, or buy it at Rupin's Gear Shop for 50 Rupees."
+            },
+            {
+              "name": "Banded Shield",
+              "howTo": "Upgrade a Wooden Shield at Gondo's Scrap Shop in the Bazaar: 2 Amber Relics, 1 Monster Claw, 1 Jelly Blob and 30 Rupees."
+            },
+            {
+              "name": "Braced Shield",
+              "howTo": "Upgrade a Banded Shield at Gondo's Scrap Shop in the Bazaar: 3 Amber Relics, 2 Monster Claws, 2 Tumbleweeds, 1 Ornamental Skull and 50 Rupees."
+            }
+          ]
+        },
+        {
+          "id": "iron_shield",
+          "name": "Iron Shield",
+          "area": "Skyloft Bazaar",
+          "notes": "Strength 6, 9 and 12, the toughest you can break. Iron: fireproof, but conducts electricity unless you Shield Bash it. Zelda Wiki prices the Reinforced Shield at 20 Rupees; Zelda Dungeon and Samurai Gamers say 50.",
+          "tiers": [
+            {
+              "name": "Iron Shield",
+              "howTo": "Buy it at Rupin's Gear Shop for 100 Rupees, on sale after Skyview Temple."
+            },
+            {
+              "name": "Reinforced Shield",
+              "howTo": "Upgrade a Iron Shield at Gondo's Scrap Shop in the Bazaar: 2 Eldin Ore, 2 Monster Claws, 2 Ornamental Skulls and 50 Rupees."
+            },
+            {
+              "name": "Fortified Shield",
+              "howTo": "Upgrade a Reinforced Shield at Gondo's Scrap Shop in the Bazaar: 3 Eldin Ore, 3 Monster Claws, 3 Tumbleweeds, 1 Blue Bird Feather and 100 Rupees."
+            }
+          ]
+        },
+        {
+          "id": "sacred_shield",
+          "name": "Sacred Shield",
+          "area": "Skyloft Bazaar",
+          "notes": "Strength 2.5, 3.75 and 5, but it slowly repairs itself. Blocks fire, electricity and curses, and Cursed Bokoblins back away from it.",
+          "tiers": [
+            {
+              "name": "Sacred Shield",
+              "howTo": "Buy it at Rupin's Gear Shop for 500 Rupees, on sale after the first battle with the Imprisoned."
+            },
+            {
+              "name": "Divine Shield",
+              "howTo": "Upgrade a Sacred Shield at Gondo's Scrap Shop in the Bazaar: 1 Dusk Relic, 2 Bird Feathers, 3 Ornamental Skulls and 100 Rupees."
+            },
+            {
+              "name": "Goddess Shield",
+              "howTo": "Upgrade a Divine Shield at Gondo's Scrap Shop in the Bazaar: 4 Dusk Relics, 3 Bird Feathers, 3 Monster Horns, 1 Blue Bird Feather and 150 Rupees."
+            }
+          ]
+        },
+        {
+          "id": "hylian_shield",
+          "name": "Hylian Shield",
+          "area": "Lanayru Gorge",
+          "howTo": "Once you've cured Lanayru with the Life Tree Fruit, talk to him in Lanayru Gorge to play the Thunder Dragon's Lightning Round. Win eight boss battles in a row, then stop to take your prize.",
+          "reward": "Hylian Shield",
+          "notes": "Never breaks, and blocks fire and electricity. If you already have it, or your pouch and the Item Check are full, he pays 1,000 Rupees instead."
+        }
+      ]
+    }
+  ]
+}

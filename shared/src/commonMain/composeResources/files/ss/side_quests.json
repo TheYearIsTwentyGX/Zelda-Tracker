@@ -1,0 +1,301 @@
+{
+  "regions": [
+    "Skyloft",
+    "The Sky",
+    "Thunderhead",
+    "Sealed Grounds",
+    "Eldin Volcano",
+    "Lanayru Sand Sea",
+    "Lanayru Gorge"
+  ],
+  "noun": "activity",
+  "plural": "activities",
+  "hiddenLabel": "Unchecked activity",
+  "sections": [
+    {
+      "id": "minigames",
+      "title": "Minigames",
+      "noun": "minigame",
+      "note": "Three give a Piece of Heart: the High Dive, Rickety Coaster and Pumpkin Pull.",
+      "items": [
+        {
+          "id": "clean_cut",
+          "name": "Clean Cut",
+          "region": "The Sky",
+          "area": "Bamboo Island",
+          "howTo": "Pay Peater 10 Rupees and slice the giant bamboo as many times as you can before its top touches the ground.",
+          "after": "Goddess Sword (when you can first fly around the Sky)",
+          "notes": "Host: Peater. Prizes in each band are random. A stab makes the bamboo drop straight down, which helps; a Spin Attack counts as two cuts. HD: with button controls, swing with the right stick.",
+          "tiers": [
+            {
+              "name": "15 cuts",
+              "reward": "30 Rupees"
+            },
+            {
+              "name": "20 cuts",
+              "reward": "Evil Crystal or Monster Horn"
+            },
+            {
+              "name": "28 cuts",
+              "reward": "Blue Bird Feather, Golden Skull or Goddess Plume"
+            }
+          ]
+        },
+        {
+          "id": "thrill_digger",
+          "name": "Thrill Digger",
+          "region": "Eldin Volcano",
+          "area": "Thrill Digger cave",
+          "howTo": "Bomb the rubble blocking the cave near the Bokoblin camp (a rolled Bomb Flower works). Pay Tubert and dig the grid with the Digging Mitts like Minesweeper: the colour of each Rupee hints at how many bombs are next to it. Digging up every Rupee without hitting a bomb also wins a rare treasure.",
+          "after": "First visit to Eldin Volcano (Digging Mitts)",
+          "reward": "Rupees you dig up; a rare treasure for clearing the grid",
+          "notes": "Host: Tubert. Beginner (30 Rupees) is a 5×4 grid with 4 bombs; Intermediate (50) is 6×5 with 4 bombs and 4 Rupoors; Expert (70) is 8×5 with 8 of each. A bomb costs you a heart; rest on the stool to heal.",
+          "tags": [
+            "Digging Mitts",
+            "Bombs"
+          ],
+          "tiers": [
+            {
+              "name": "Beginner cleared",
+              "reward": "Rupees and a rare treasure"
+            },
+            {
+              "name": "Intermediate cleared",
+              "reward": "Rupees and a rare treasure"
+            },
+            {
+              "name": "Expert cleared",
+              "reward": "Rupees and a rare treasure"
+            }
+          ]
+        },
+        {
+          "id": "harp_performance",
+          "name": "Harp performance with Kina",
+          "region": "The Sky",
+          "area": "Lumpy Pumpkin, Pumpkin Landing",
+          "howTo": "At night, play the Goddess's Harp in time with the swaying customers while Kina sings. The better you keep time, the more Rupees.",
+          "requires": [
+            "pumm_chandelier_debt"
+          ],
+          "after": "Goddess's Harp",
+          "reward": "Rupees",
+          "notes": "The first performance is the last of Pumm's chores; after that you can play every night. HD: with button controls, strum with the right stick.",
+          "tags": [
+            "Goddess's Harp",
+            "Night"
+          ]
+        },
+        {
+          "id": "dodohs_high_dive",
+          "name": "Dodoh's High Dive",
+          "region": "The Sky",
+          "area": "Fun Fun Island",
+          "howTo": "Pay Dodoh 20 Rupees and get fired up from the cannon. Steer through the rings to raise the multiplier (and slow the wheel), dodge the Dodoh balls that reset it, and land on a coloured space. Landing on 50 with ×10 wins 500 Rupees and, the first time, a Piece of Heart.",
+          "after": "Dodoh's Party Wheel (Gratitude Crystal side quest)",
+          "reward": "Piece of Heart (first ×10 landing on 50); Rupees",
+          "notes": "Spaces: 50 (pink and blue), 20 (red), 5 (blue), 1 (green), nothing (brown), lose 10 (grey). Missing the wheel counts as brown. HD: with button controls, steer with the left stick.",
+          "tags": [
+            "Piece of Heart"
+          ]
+        },
+        {
+          "id": "rickety_coaster",
+          "name": "Rickety Coaster",
+          "region": "Lanayru Sand Sea",
+          "area": "Shipyard",
+          "howTo": "Pay Gortram 20 Rupees and ride the mine cart round the Scary! or the Heart Stopping! track. Lean into the curves to keep speed without falling off.",
+          "after": "Shipyard (Moldarach)",
+          "notes": "Host: Gortram. Scary!: under 0:40 for 20–50 Rupees, under 0:30 for 100. Heart Stopping!: under 1:15 for 20 Rupees, under 1:10 for a treasure. HD: with button controls, lean with the left stick.",
+          "tags": [
+            "Piece of Heart"
+          ],
+          "tiers": [
+            {
+              "name": "Scary! under 0:30",
+              "reward": "Silver Rupee (100 Rupees)"
+            },
+            {
+              "name": "Heart Stopping! under 1:05",
+              "reward": "Piece of Heart (first time; later a rare treasure)"
+            }
+          ]
+        },
+        {
+          "id": "pumpkin_pull",
+          "name": "Pumpkin Pull",
+          "region": "Skyloft",
+          "area": "Outside the Sparring Hall",
+          "howTo": "Pay Fledge 20 Rupees. For 90 seconds he throws pumpkins; shoot them with the Bow. Hits in a row score 10, 20, 30, 40, then 50 points each, and sparkling pumpkins double. A pumpkin can't be hit while Fledge is holding it.",
+          "after": "Fledge's confidence (Gratitude Crystal side quest) and the Bow",
+          "notes": "Host: Fledge. Some guides call it Pumpkin Archery. HD: with button controls, aim with the right stick.",
+          "tags": [
+            "Bow",
+            "Piece of Heart"
+          ],
+          "tiers": [
+            {
+              "name": "100 points",
+              "reward": "50 Rupees"
+            },
+            {
+              "name": "400 points",
+              "reward": "A rare treasure"
+            },
+            {
+              "name": "600 points",
+              "reward": "Piece of Heart"
+            }
+          ]
+        },
+        {
+          "id": "bug_heaven",
+          "name": "Bug Heaven",
+          "region": "Thunderhead",
+          "area": "Bug Rock",
+          "howTo": "Pay Strich and catch the bugs he shows you with the Bug Net within five minutes: five different ones on Bug Beginner (20 Rupees), ten on Bug Wrangler (50 Rupees). The faster, the better the prize.",
+          "after": "Freeing Levias (Bilocyte)",
+          "notes": "Host: Strich. Beginner: under 5:00 for 30 Rupees, under 3:00 for 50, under 2:00 for five bugs. Wrangler: under 5:00 for 80 Rupees, under 3:00 for five bugs, under 2:00 for five rare bugs.",
+          "tags": [
+            "Bug Net"
+          ],
+          "tiers": [
+            {
+              "name": "Bug Beginner under 2:00",
+              "reward": "5 bugs"
+            },
+            {
+              "name": "Bug Wrangler under 2:00",
+              "reward": "5 rare bugs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "side_quests",
+      "title": "Side Quests",
+      "noun": "side quest",
+      "note": "Favours that give no Gratitude Crystals.",
+      "items": [
+        {
+          "id": "fledge_barrels",
+          "name": "Help Fledge with the barrels",
+          "region": "Skyloft",
+          "area": "Knight Academy",
+          "howTo": "Before the Wing Ceremony, Fledge is struggling to carry barrels near the Knight Academy toilet. Carry one into Henya's kitchen for him.",
+          "missable": true,
+          "reward": "20 Rupees",
+          "notes": "Only before the Wing Ceremony."
+        },
+        {
+          "id": "pumm_chandelier_debt",
+          "name": "Pumm's chandelier debt",
+          "region": "The Sky",
+          "area": "Lumpy Pumpkin, Pumpkin Landing",
+          "howTo": "Break the Lumpy Pumpkin's chandelier (roll into the upstairs railing twice) and Pumm makes you work off the damage with three jobs.",
+          "after": "Goddess's Harp (for the last job)",
+          "reward": "Piece of Heart",
+          "notes": "The chandelier itself also holds a Piece of Heart. Afterwards Kina pays 50 Rupees each time you carry her pumpkins, and you can play the harp with her at night. HD: with button controls, balance the pumpkins with the left stick.",
+          "tags": [
+            "Bottle",
+            "Goddess's Harp",
+            "Piece of Heart"
+          ],
+          "tiers": [
+            {
+              "name": "Soup delivered to Eagus",
+              "howTo": "Fill a Bottle with Hot Pumpkin Soup and take it to Eagus in the Sparring Hall within five minutes, before it goes cold."
+            },
+            {
+              "name": "Pumpkins carried for Kina",
+              "howTo": "Carry Kina's stack of pumpkins to the shed without dropping any. Move steadily and lean against the way the stack tips."
+            },
+            {
+              "name": "Harp played with Kina",
+              "howTo": "At night, play the Goddess's Harp in time with the swaying customers while Kina sings.",
+              "reward": "Piece of Heart"
+            }
+          ]
+        },
+        {
+          "id": "gorko_goddess_wall",
+          "name": "Gorko's Goddess Wall riddles",
+          "region": "Sealed Grounds",
+          "area": "Behind the Sealed Temple",
+          "howTo": "Near the Behind the Temple Bird Statue, play the Goddess's Harp by the Blessed Butterflies to reveal a Goddess Wall. Gorko reads a riddle from his ancient texts; charge a Skyward Strike and draw the shape in one stroke.",
+          "after": "The Imprisoned (first fight), with the Goddess's Harp",
+          "reward": "Piece of Heart (first riddle); later Rupees, arrows, bombs, hearts or fairies",
+          "notes": "Answers: Glimmering Hexagon is a Rupee, Arrow in Repose an arrow, Closed Circle a circle (bombs), Life's Crimson Vessel a heart, and the half-legible one the Triforce (fairies). The wall recharges after a while. If Gorko isn't there, come back later in the story.",
+          "tags": [
+            "Goddess's Harp",
+            "Piece of Heart"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lightning_round",
+      "title": "Lightning Round",
+      "noun": "challenge",
+      "note": "The Thunder Dragon's rematches in Lanayru Gorge.",
+      "items": [
+        {
+          "id": "thunder_dragon_boss_rush",
+          "name": "Lightning Round: boss battles",
+          "region": "Lanayru Gorge",
+          "area": "Thunder Dragon's lair",
+          "howTo": "Talk to the Thunder Dragon and choose the boss battles. Pick the first boss; the dragon picks the rest. Prizes depend on how many you beat in a row, and only the last battle's prize is given, so stop after the win you want. Lose and you get nothing but record bonuses.",
+          "after": "Giving the Thunder Dragon the Life Tree Fruit",
+          "notes": "You can't use pouch items inside, only the shield you have equipped; potions drunk beforehand keep working. Only bosses you've already beaten appear, so Normal Mode offers 9 to 11; Demise is in Hero Mode only. Each first win and new record also pays 50 Rupees. Wins: 1 = 20 Rupees, 2 = small treasure, 3 = 100, 5 = 300, 6 = rare treasure, 7 = 500, 9 = 2,000, 10 = three rare treasures. The Hylian Shield is also tracked with the shields.",
+          "tags": [
+            "Piece of Heart",
+            "Hylian Shield"
+          ],
+          "tiers": [
+            {
+              "name": "4 wins in a row",
+              "reward": "Piece of Heart (first time; later 200 Rupees)"
+            },
+            {
+              "name": "8 wins in a row",
+              "reward": "Hylian Shield (first time; later, or with a full pouch and Item Check, 1,000 Rupees)"
+            },
+            {
+              "name": "11 wins in a row",
+              "reward": "3,000 Rupees",
+              "howTo": "Every boss Normal Mode offers. In Hero Mode a 12th win, Demise, fills your wallet."
+            }
+          ]
+        },
+        {
+          "id": "thunder_dragon_silent_realms",
+          "name": "Lightning Round: Silent Realm trials",
+          "region": "Lanayru Gorge",
+          "area": "Thunder Dragon's lair",
+          "howTo": "Choose the Silent Realm trials and beat the Thunder Dragon's time in each. Slower times earn 5 to 100 Rupees.",
+          "after": "Giving the Thunder Dragon the Life Tree Fruit",
+          "notes": "Only trials you've already finished are offered.",
+          "tiers": [
+            {
+              "name": "Farore's Silent Realm under 3:00",
+              "reward": "Blue Bird Feather, Golden Skull or Goddess Plume"
+            },
+            {
+              "name": "Nayru's Silent Realm under 4:15",
+              "reward": "Blue Bird Feather, Golden Skull or Goddess Plume"
+            },
+            {
+              "name": "Din's Silent Realm under 6:00",
+              "reward": "Blue Bird Feather, Golden Skull or Goddess Plume"
+            },
+            {
+              "name": "The Goddess's Silent Realm under 4:00",
+              "reward": "Blue Bird Feather, Golden Skull or Goddess Plume"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
