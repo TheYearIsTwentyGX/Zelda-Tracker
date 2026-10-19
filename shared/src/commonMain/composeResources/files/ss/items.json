@@ -1,0 +1,480 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "summaries": [
+    {
+      "label": "Pouch slots",
+      "formula": "pouch.value"
+    },
+    {
+      "label": "Rupees you can carry",
+      "formula": "300 + wallet.value + extra_wallets.value"
+    }
+  ],
+  "sections": [
+    {
+      "id": "equipment",
+      "title": "Items",
+      "note": "Upgrades of one item are its tiers.",
+      "items": [
+        {
+          "id": "sailcloth",
+          "name": "Sailcloth",
+          "area": "Skyloft",
+          "howTo": "Zelda gives it to you on the Statue of the Goddess for winning the Wing Ceremony.",
+          "notes": "Open it while falling to land safely, as when you jump off your Loftwing. HD: the Zelda & Loftwing amiibo takes you up to the Sky from anywhere on the Surface, even in a dungeon, and back to the same spot."
+        },
+        {
+          "id": "slingshot",
+          "name": "Slingshot",
+          "area": "Faron Woods",
+          "notes": "Zelda Wiki prices the Scattershot at 20 Rupees; Zelda Dungeon and Samurai Gamers say 50. HD: with button controls you aim it with the right stick instead of pointing the Wii Remote.",
+          "tiers": [
+            {
+              "name": "Slingshot",
+              "howTo": "Bucha, the Kikwi elder in Faron Woods, gives it to you once you've found the three hiding Kikwis."
+            },
+            {
+              "name": "Scattershot",
+              "howTo": "Upgrade a Slingshot at Gondo's Scrap Shop in the Bazaar: 2 Dusk Relics, 2 Amber Relics, 3 Jelly Blobs and 50 Rupees.",
+              "reward": "Charge a shot to scatter one Deku Seed over a wide area"
+            }
+          ]
+        },
+        {
+          "id": "bug_net",
+          "name": "Bug Net",
+          "area": "Beedle's Airshop",
+          "notes": "Catches bugs, Fairies, Tumbleweeds and Chirris (whose feathers are treasures). Beedle's shop flies over Skyloft by day: hit the bell underneath with the Slingshot or Beetle to be pulled up.",
+          "tiers": [
+            {
+              "name": "Bug Net",
+              "howTo": "Buy it at Beedle's Airshop for 50 Rupees."
+            },
+            {
+              "name": "Big Bug Net",
+              "howTo": "Upgrade a Bug Net at Gondo's Scrap Shop in the Bazaar: 3 Tumbleweeds, 2 Ancient Flowers, 1 Evil Crystal and 100 Rupees.",
+              "reward": "Twice the size"
+            }
+          ]
+        },
+        {
+          "id": "beetle",
+          "name": "Beetle",
+          "area": "Skyview Temple",
+          "notes": "HD: with button controls you steer it with the right stick; with motion controls you tilt the Joy-Con, as with the Wii Remote.",
+          "tiers": [
+            {
+              "name": "Beetle",
+              "howTo": "The dungeon item of Skyview Temple, in the chest after the Stalfos fight."
+            },
+            {
+              "name": "Hook Beetle",
+              "howTo": "Free: in Lanayru Desert, the robot you save from two Technoblins fits it with a claw.",
+              "reward": "Carries and drops Bombs and other items"
+            },
+            {
+              "name": "Quick Beetle",
+              "howTo": "Upgrade a Hook Beetle at Gondo's Scrap Shop in the Bazaar: 2 Ancient Flowers, 2 Hornet Larvae, 1 Golden Skull and 50 Rupees.",
+              "reward": "Can fly faster"
+            },
+            {
+              "name": "Tough Beetle",
+              "howTo": "Upgrade a Quick Beetle at Gondo's Scrap Shop in the Bazaar: 3 Ancient Flowers, 4 Amber Relics, 1 Blue Bird Feather, 1 Goddess Plume and 50 Rupees.",
+              "reward": "Flies much farther"
+            }
+          ]
+        },
+        {
+          "id": "digging_mitts",
+          "name": "Digging Mitts",
+          "area": "Eldin Volcano",
+          "notes": "Zelda Wiki's Upgrade table lists the two the other way round; its item pages, Zelda Dungeon and the story order agree the Digging Mitts come first.",
+          "tiers": [
+            {
+              "name": "Digging Mitts",
+              "howTo": "In Eldin Volcano, a Mogma gives them to you after you beat the Bokoblins that invaded his underground cavern.",
+              "reward": "Dig up soft soil"
+            },
+            {
+              "name": "Mogma Mitts",
+              "howTo": "The dungeon item of the Fire Sanctuary: Silva the Mogma gives them to you for rescuing him.",
+              "reward": "Burrow through soft soil underground"
+            }
+          ]
+        },
+        {
+          "id": "bomb_bag",
+          "name": "Bomb Bag",
+          "area": "Earth Temple",
+          "howTo": "The dungeon item of the Earth Temple: Ledd the Mogma gives it to you after you win it back from two Lizalfos.",
+          "notes": "Holds 10 Bombs, picked from Bomb Flowers or bought at Rupin's Gear Shop (10 for 20 Rupees). Extra bags for the Adventure Pouch are under Capacity."
+        },
+        {
+          "id": "gust_bellows",
+          "name": "Gust Bellows",
+          "area": "Lanayru Mining Facility",
+          "howTo": "The dungeon item of the Lanayru Mining Facility, in the sand-filled warehouse patrolled by Froaks.",
+          "notes": "Blows away sand and dust, and opens Mallara's house cleaning in Skyloft."
+        },
+        {
+          "id": "goddess_harp",
+          "name": "Goddess's Harp",
+          "area": "Temple of Time",
+          "howTo": "Zelda gives it to you at the Temple of Time, at the end of the Lanayru Mining Facility.",
+          "notes": "The old woman teaches you to play it. HD: with button controls you strum with the right stick."
+        },
+        {
+          "id": "water_dragons_scale",
+          "name": "Water Dragon's Scale",
+          "area": "Faron Woods",
+          "howTo": "The reward for Farore's Silent Realm in Faron Woods.",
+          "notes": "Lets you dive and swim underwater; needed to reach Lake Floria."
+        },
+        {
+          "id": "whip",
+          "name": "Whip",
+          "area": "Ancient Cistern",
+          "howTo": "The dungeon item of the Ancient Cistern.",
+          "notes": "Also steals Monster Horns from Bokoblins."
+        },
+        {
+          "id": "clawshots",
+          "name": "Clawshots",
+          "area": "Lanayru Desert",
+          "howTo": "The reward for Nayru's Silent Realm in Lanayru Desert.",
+          "notes": "A pair: you can chain from target to target. HD: with button controls you aim it with the right stick instead of pointing the Wii Remote."
+        },
+        {
+          "id": "bow",
+          "name": "Bow",
+          "area": "Sandship",
+          "notes": "Each upgrade adds power and range. HD: with button controls you aim it with the right stick instead of pointing the Wii Remote.",
+          "tiers": [
+            {
+              "name": "Bow",
+              "howTo": "The dungeon item of the Sandship, won from the Scervo fight."
+            },
+            {
+              "name": "Iron Bow",
+              "howTo": "Upgrade a Bow at Gondo's Scrap Shop in the Bazaar: 3 Tumbleweeds, 1 Evil Crystal, 3 Monster Claws, 2 Eldin Ore and 50 Rupees."
+            },
+            {
+              "name": "Sacred Bow",
+              "howTo": "Upgrade a Iron Bow at Gondo's Scrap Shop in the Bazaar: 5 Tumbleweeds, 2 Evil Crystals, 3 Lizard Tails, 1 Goddess Plume and 100 Rupees."
+            }
+          ]
+        },
+        {
+          "id": "fireshield_earrings",
+          "name": "Fireshield Earrings",
+          "area": "Eldin Volcano",
+          "howTo": "The reward for Din's Silent Realm in Eldin Volcano.",
+          "notes": "Stop your clothes catching fire in the heat of the Volcano Summit. They don't protect you from lava or fire attacks."
+        }
+      ]
+    },
+    {
+      "id": "capacity",
+      "title": "Capacity",
+      "noun": "upgrade",
+      "hiddenLabel": "Unfound upgrade",
+      "note": "Pouch items: each one carried adds ammunition. Buy more at Rupin's Gear Shop; Gondo upgrades each one.",
+      "items": [
+        {
+          "id": "seed_satchel",
+          "name": "Seed Satchel",
+          "notes": "The Slingshot comes with a satchel for 20 seeds that takes no pouch slot. Samurai Gamers lists 2 Ornamental Skulls for the Medium Seed Satchel; Zelda Wiki and Zelda Dungeon say 3.",
+          "tiers": [
+            {
+              "name": "Small Seed Satchel",
+              "howTo": "Buy one at Rupin's Gear Shop for 100 Rupees once you have the Slingshot, or open the Goddess Chest west of Fun Fun Island (its Goddess Cube is on Eldin Volcano).",
+              "reward": "10 more Deku Seeds"
+            },
+            {
+              "name": "Medium Seed Satchel",
+              "howTo": "Upgrade a Small Seed Satchel at Gondo's Scrap Shop in the Bazaar: 4 Amber Relics, 3 Monster Claws, 3 Ornamental Skulls and 50 Rupees.",
+              "reward": "20 more Deku Seeds"
+            },
+            {
+              "name": "Large Seed Satchel",
+              "howTo": "Upgrade a Medium Seed Satchel at Gondo's Scrap Shop in the Bazaar: 5 Amber Relics, 3 Monster Claws, 1 Golden Skull, 1 Blue Bird Feather and 100 Rupees.",
+              "reward": "30 more Deku Seeds"
+            }
+          ]
+        },
+        {
+          "id": "extra_bomb_bag",
+          "name": "Small Bomb Bag",
+          "notes": "Separate from the Bomb Bag you find in the Earth Temple, which holds 10 and takes no pouch slot.",
+          "tiers": [
+            {
+              "name": "Small Bomb Bag",
+              "howTo": "Buy one at Rupin's Gear Shop for 150 Rupees after the Earth Temple, or open the Goddess Chest on top of the Isle of Songs.",
+              "reward": "5 more Bombs"
+            },
+            {
+              "name": "Medium Bomb Bag",
+              "howTo": "Upgrade a Small Bomb Bag at Gondo's Scrap Shop in the Bazaar: 1 Lizard Tail, 3 Ornamental Skulls, 1 Blue Bird Feather and 50 Rupees.",
+              "reward": "10 more Bombs"
+            },
+            {
+              "name": "Large Bomb Bag",
+              "howTo": "Upgrade a Medium Bomb Bag at Gondo's Scrap Shop in the Bazaar: 3 Lizard Tails, 4 Jelly Blobs, 2 Hornet Larvae, 1 Golden Skull and 100 Rupees.",
+              "reward": "15 more Bombs"
+            }
+          ]
+        },
+        {
+          "id": "quiver",
+          "name": "Quiver",
+          "tiers": [
+            {
+              "name": "Small Quiver",
+              "howTo": "Buy one at Rupin's Gear Shop for 150 Rupees once you have the Bow, or open the Goddess Chest on the dig-in island in the Thunderhead (its Goddess Cube is on the way to the Fire Dragon at the Volcano Summit).",
+              "reward": "5 more Arrows"
+            },
+            {
+              "name": "Medium Quiver",
+              "howTo": "Upgrade a Small Quiver at Gondo's Scrap Shop in the Bazaar: 3 Monster Horns, 3 Dusk Relics, 5 Amber Relics and 50 Rupees.",
+              "reward": "10 more Arrows"
+            },
+            {
+              "name": "Large Quiver",
+              "howTo": "Upgrade a Medium Quiver at Gondo's Scrap Shop in the Bazaar: 2 Monster Horns, 3 Dusk Relics, 1 Golden Skull, 1 Goddess Plume and 100 Rupees.",
+              "reward": "15 more Arrows"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "potions",
+      "title": "Potion Infusions",
+      "noun": "potion",
+      "hiddenLabel": "Unmade potion",
+      "note": "An infused potion lasts until you drink it; tick each one you've made.",
+      "items": [
+        {
+          "id": "heart_potion",
+          "name": "Heart Potion",
+          "notes": "Luv sells the Heart Potion for 20 Rupees; it heals 8 hearts. Zelda Dungeon lists 1 Deku Hornet for the Heart Potion++; Zelda Wiki and Samurai Gamers say 3.",
+          "tiers": [
+            {
+              "name": "Heart Potion+",
+              "howTo": "Have Bertie infuse a Heart Potion at the Infusion Shop: 3 Blessed Butterflies, 1 Woodland Rhino Beetle, 1 Volcanic Ladybug and 20 Rupees.",
+              "reward": "Heals all your hearts"
+            },
+            {
+              "name": "Heart Potion++",
+              "howTo": "Have Bertie infuse a Heart Potion+ at the Infusion Shop: 3 Blessed Butterflies, 3 Deku Hornets, 1 Sand Cicada, 1 Eldin Roller and 30 Rupees.",
+              "reward": "Heals all your hearts, two servings"
+            }
+          ]
+        },
+        {
+          "id": "revitalizing_potion",
+          "name": "Revitalizing Potion",
+          "notes": "Luv sells it for 30 Rupees. It repairs your shield, heals 4 hearts and saves a shield that would break.",
+          "tiers": [
+            {
+              "name": "Revitalizing Potion+",
+              "howTo": "Have Bertie infuse a Revitalizing Potion at the Infusion Shop: 2 Woodland Rhino Beetles, 2 Skyloft Mantises, 3 Deku Hornets and 20 Rupees.",
+              "reward": "Heals 8 hearts as well"
+            },
+            {
+              "name": "Revitalizing Potion++",
+              "howTo": "Have Bertie infuse a Revitalizing Potion+ at the Infusion Shop: 2 Woodland Rhino Beetles, 3 Lanayru Ants, 1 Gerudo Dragonfly, 1 Sand Cicada and 30 Rupees.",
+              "reward": "Heals 8 hearts, two servings"
+            }
+          ]
+        },
+        {
+          "id": "stamina_potion",
+          "name": "Stamina Potion+",
+          "howTo": "Have Bertie infuse a Stamina Potion at the Infusion Shop: 3 Volcanic Ladybugs, 2 Sky Stag Beetles, 2 Gerudo Dragonflies, 1 Faron Grasshopper and 20 Rupees.",
+          "reward": "The Stamina Gauge doesn't drain for 3 minutes",
+          "notes": "Luv sells the Stamina Potion for 50 Rupees; it only slows the drain."
+        },
+        {
+          "id": "air_potion",
+          "name": "Air Potion+",
+          "howTo": "Have Bertie infuse a Air Potion at the Infusion Shop: 2 Sky Stag Beetles, 2 Skyloft Mantises, 2 Lanayru Ants and 20 Rupees.",
+          "reward": "Your air doesn't run out underwater for 3 minutes",
+          "notes": "Luv sells the Air Potion for 20 Rupees; it only slows the loss."
+        },
+        {
+          "id": "guardian_potion",
+          "name": "Guardian Potion+",
+          "howTo": "Have Bertie infuse a Guardian Potion at the Infusion Shop: 1 Faron Grasshopper, 2 Eldin Rollers, 3 Blessed Butterflies, 3 Starry Fireflies and 40 Rupees.",
+          "reward": "No damage for 3 minutes",
+          "notes": "The Guardian Potion halves damage. Zelda Wiki prices it at 200 Rupees at Luv's shop; Samurai Gamers says 60."
+        }
+      ]
+    },
+    {
+      "id": "pouch",
+      "title": "Adventure Pouch",
+      "noun": "slot",
+      "hiddenLabel": "Unfound expansion",
+      "note": "4 slots, and 4 expansions for 8.",
+      "items": [
+        {
+          "id": "pouch_fledge",
+          "name": "Adventure Pouch",
+          "area": "Skyloft",
+          "value": 4,
+          "howTo": "Fledge gives it to you outside the Knight Academy once you have the Goddess Sword.",
+          "reward": "4 slots",
+          "notes": "Holds shields, Bottles, medals, quivers, bomb bags and seed satchels. If it's full, a new pouch item goes to the Item Check in the Bazaar."
+        },
+        {
+          "id": "pouch_goddess_chest",
+          "name": "Pouch expansion (Pumpkin Landing)",
+          "area": "Pumpkin Landing",
+          "howTo": "Strike the Goddess Cube in the Deep Woods near Gorko, on the way to Skyview Temple, then open its Goddess Chest on Pumpkin Landing.",
+          "reward": "1 more slot"
+        },
+        {
+          "id": "pouch_beedle_300",
+          "name": "Pouch expansion (300 Rupees)",
+          "area": "Beedle's Airshop",
+          "howTo": "Buy it at Beedle's Airshop for 300 Rupees.",
+          "reward": "1 more slot"
+        },
+        {
+          "id": "pouch_beedle_600",
+          "name": "Pouch expansion (600 Rupees)",
+          "area": "Beedle's Airshop",
+          "howTo": "Buy it at Beedle's Airshop for 600 Rupees, after the 300-Rupee one.",
+          "requires": [
+            "pouch_beedle_300"
+          ],
+          "reward": "1 more slot"
+        },
+        {
+          "id": "pouch_beedle_1200",
+          "name": "Pouch expansion (1,200 Rupees)",
+          "area": "Beedle's Airshop",
+          "howTo": "Buy it at Beedle's Airshop for 1,200 Rupees, after the 600-Rupee one.",
+          "requires": [
+            "pouch_beedle_600"
+          ],
+          "reward": "1 more slot",
+          "notes": "Beedle's last one."
+        }
+      ]
+    },
+    {
+      "id": "bottles",
+      "title": "Bottles",
+      "noun": "bottle",
+      "hiddenLabel": "Unfound Bottle",
+      "note": "Five Empty Bottles. Each takes a pouch slot.",
+      "items": [
+        {
+          "id": "bottle_luv",
+          "name": "Luv's Bottle",
+          "area": "Skyloft Bazaar",
+          "howTo": "Talk to Luv at the Potion Shop in the Bazaar after Zelda falls; she gives you one free.",
+          "after": "After the Goddess Sword"
+        },
+        {
+          "id": "bottle_sealed_temple",
+          "name": "Sealed Temple Bottle",
+          "area": "Sealed Temple",
+          "howTo": "Open the chest to the right of the old woman in the Sealed Temple.",
+          "reward": "Empty Bottle, filled with a Revitalizing Potion"
+        },
+        {
+          "id": "bottle_parrow",
+          "name": "Parrow's Bottle",
+          "area": "Skyloft",
+          "howTo": "Parrow paces the Plaza looking for his sister Orielle. Find her stranded with her hurt Loftwing on the small round island just east of Fun Fun Island, then tell Parrow: he gives you his medicine in a Bottle to keep.",
+          "after": "After meeting Batreaux",
+          "reward": "Empty Bottle, filled with Mushroom Spores",
+          "notes": "Part of Orielle's Gratitude Crystal quest; the Gratitude Crystals tracker has the rest."
+        },
+        {
+          "id": "bottle_fire_sanctuary",
+          "name": "Fire Sanctuary Bottle",
+          "area": "Fire Sanctuary",
+          "howTo": "With the Mogma Mitts, go back to the first room with a lone Magmanos, open the gate to the water plants, beat the Magmanos with a water bulb and take the ground-level passage west to the chest."
+        },
+        {
+          "id": "bottle_thunderhead",
+          "name": "Thunderhead Bottle",
+          "area": "Thunderhead",
+          "howTo": "Strike the Goddess Cube on a floating platform in the cave to the Fire Dragon, during the Song of the Hero. Its Goddess Chest is on a small island in the west of the Thunderhead: dig in with the Mogma Mitts, break the boulders in one corner and climb the vines.",
+          "after": "During the Song of the Hero",
+          "notes": "The same island's other corner has the Goddess Chest with a Small Quiver."
+        }
+      ]
+    },
+    {
+      "id": "wallets",
+      "title": "Wallets",
+      "noun": "wallet",
+      "hiddenLabel": "Unfound wallet",
+      "note": "Batreaux's four wallets and Beedle's three Extra Wallets.",
+      "items": [
+        {
+          "id": "wallet",
+          "name": "Wallet",
+          "area": "Batreaux's House",
+          "notes": "You start with the Small Wallet (300 Rupees). Batreaux, in his house under the Skyloft graveyard, swaps it for a bigger one as you bring him Gratitude Crystals; his rewards are also in the Gratitude Crystals tracker.",
+          "tiers": [
+            {
+              "name": "Medium Wallet",
+              "howTo": "Bring Batreaux 5 Gratitude Crystals.",
+              "reward": "Holds 500 Rupees",
+              "value": 200
+            },
+            {
+              "name": "Big Wallet",
+              "howTo": "Bring Batreaux 30 Gratitude Crystals.",
+              "reward": "Holds 1,000 Rupees",
+              "value": 500
+            },
+            {
+              "name": "Giant Wallet",
+              "howTo": "Bring Batreaux 50 Gratitude Crystals.",
+              "reward": "Holds 5,000 Rupees",
+              "value": 4000
+            },
+            {
+              "name": "Tycoon Wallet",
+              "howTo": "Bring Batreaux 80 Gratitude Crystals.",
+              "reward": "Holds 9,000 Rupees",
+              "value": 4000
+            }
+          ]
+        },
+        {
+          "id": "extra_wallets",
+          "name": "Extra Wallets",
+          "area": "Beedle's Airshop",
+          "value": 300,
+          "notes": "Each adds 300 Rupees to whatever wallet you have, up to 9,900 with the Tycoon Wallet.",
+          "tiers": [
+            {
+              "name": "Extra Wallet 1",
+              "howTo": "Buy it at Beedle's Airshop for 100 Rupees.",
+              "reward": "300 more Rupees"
+            },
+            {
+              "name": "Extra Wallet 2",
+              "howTo": "Buy it at Beedle's Airshop for 100 Rupees.",
+              "reward": "300 more Rupees"
+            },
+            {
+              "name": "Extra Wallet 3",
+              "howTo": "Buy it at Beedle's Airshop for 100 Rupees.",
+              "reward": "300 more Rupees"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -64,7 +64,7 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
     }
 
@@ -107,6 +107,14 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.FSA.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.FSA.trackers.first().kind)
         assertTrue(Games.FSA.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /** Three files on the Wii and in HD (docs/ss.md); every tracker after the overview is a checklist. */
+    @Test
+    fun skywardSwordHasThreeSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2", "file_3"), Games.SS.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.SS.trackers.first().kind)
+        assertTrue(Games.SS.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     /** Two files per Switch user (Zelda Wiki, Saving; Game8); autosaves live inside each file. */
