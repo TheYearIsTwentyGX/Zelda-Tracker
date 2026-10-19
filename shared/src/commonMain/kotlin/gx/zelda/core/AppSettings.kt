@@ -35,6 +35,12 @@ data class AppSettings(
         shownGames(games).map { GameMenuSection(it, expanded = !it.comingSoon && it.id in expandedGames) }
 }
 
+/**
+ * [items] as the home screen, the menu and Settings list them: the mainline games, then the
+ * spin-offs under their own heading, each part in [items]' order.
+ */
+fun <T> splitSpinOffs(items: List<T>, gameOf: (T) -> Game): Pair<List<T>, List<T>> = items.partition { !gameOf(it).spinOff }
+
 /** Every game with trackers is shown until turned off; "coming soon" games are hidden until turned on. */
 val Game.shownByDefault: Boolean get() = !comingSoon
 

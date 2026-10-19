@@ -48,6 +48,18 @@ class AppSettingsTest {
         assertEquals(listOf(soon.id), two.withShown(Games.MC, false, games).shownGames(games).map { it.id })
     }
 
+    /** The home screen, menu and Settings list the spin-offs after the mainline games, each part in order. */
+    @Test
+    fun spinOffsAreListedAfterTheMainlineGames() {
+        val (mainline, spinOffs) = splitSpinOffs(AppSettings().gameMenu(games)) { it.game }
+        assertEquals(listOf("hwde"), spinOffs.map { it.game.id })
+        assertTrue(mainline.none { it.game.spinOff })
+        assertEquals(gamesWithTrackers - "hwde", mainline.map { it.game.id })
+        // Hidden in Settings, it leaves no empty heading behind.
+        val hidden = AppSettings().withShown(Games.HWDE, false, games)
+        assertTrue(splitSpinOffs(hidden.gameMenu(games)) { it.game }.second.isEmpty())
+    }
+
     /** Stored choices that somehow hide everything fall back to the defaults rather than an empty app. */
     @Test
     fun choicesHidingEveryGameFallBackToTheDefaults() {

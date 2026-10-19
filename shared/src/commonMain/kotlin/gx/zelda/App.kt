@@ -30,6 +30,9 @@ import gx.zelda.compendium.ui.CompendiumTrackerScreen
 import gx.zelda.compendium.ui.CompendiumViewModel
 import gx.zelda.core.Game
 import gx.zelda.core.Games
+import gx.zelda.adventure.data.AdventureStorage
+import gx.zelda.adventure.ui.AdventureMapScreen
+import gx.zelda.adventure.ui.AdventureMapViewModel
 import gx.zelda.checklist.data.ChecklistStorage
 import gx.zelda.checklist.ui.ChecklistDetailScreen
 import gx.zelda.checklist.ui.ChecklistScreen
@@ -125,6 +128,8 @@ import kotlinx.serialization.Serializable
 /** A checklist tracker, named by its dataset since a game can have several. */
 @Serializable private data class Checklist(val gameId: String, val dataFile: String)
 @Serializable private data class ChecklistDetail(val gameId: String, val dataFile: String, val itemId: String)
+/** A Hyrule Warriors Adventure Mode map, named by its dataset since a game has several. */
+@Serializable private data class AdventureMap(val gameId: String, val dataFile: String)
 @Serializable private data object Settings
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
@@ -451,6 +456,18 @@ fun App(dataStore: DataStore<Preferences>) {
                     ChecklistDetailScreen(it, route.itemId, vm, onBack = { nav.popBackStack() })
                 }
             }
+            composable<AdventureMap> { entry ->
+                val route = entry.toRoute<AdventureMap>()
+                val game = Games.byId(route.gameId)
+                val vm = viewModel(key = "adventure_${game.id}_${route.dataFile}") {
+                    AdventureMapViewModel(AdventureStorage(dataStore, game, route.dataFile))
+                }
+                AdventureMapScreen(
+                    vm,
+                    title = game.trackers.firstOrNull { it.dataFile == route.dataFile }?.title ?: "Adventure Map",
+                    onBack = { nav.popBackStack() },
+                )
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -532,7 +549,7 @@ private fun checklistViewModel(
 }
 
 /**
- * Opens [kind]'s tracker for [game] from the Progress Overview ([dataFile] names a checklist). The same mapping as the home
+ * Opens [kind]'s tracker for [game] from the Progress Overview ([dataFile] names a checklist or an Adventure map). The same mapping as the home
  * screen's; kept separate only so this change didn't edit lines other branches were changing.
  */
 private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind, dataFile: String?) {
@@ -551,6 +568,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind,
         TrackerKind.KINSTONES -> navigate(Kinstones(game.id))
         TrackerKind.FIGURINES -> navigate(Figurines(game.id))
         TrackerKind.CHECKLIST -> if (dataFile != null) navigate(Checklist(game.id, dataFile))
+        TrackerKind.ADVENTURE_MAP -> if (dataFile != null) navigate(AdventureMap(game.id, dataFile))
     }
 }
 
@@ -670,6 +688,7 @@ private fun trackerRoute(gameId: String, tracker: Tracker): Any = when (tracker.
     TrackerKind.KINSTONES -> Kinstones(gameId)
     TrackerKind.FIGURINES -> Figurines(gameId)
     TrackerKind.CHECKLIST -> Checklist(gameId, tracker.dataFile!!)
+    TrackerKind.ADVENTURE_MAP -> AdventureMap(gameId, tracker.dataFile!!)
 }
 
 /** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
@@ -692,6 +711,7 @@ private fun NavBackStackEntry.menuSelection(): MenuSelection {
         d.hasRoute<Kinstones>() -> MenuSelection.Tracker(toRoute<Kinstones>().gameId, TrackerKind.KINSTONES)
         d.hasRoute<Figurines>() -> MenuSelection.Tracker(toRoute<Figurines>().gameId, TrackerKind.FIGURINES)
         d.hasRoute<Checklist>() -> toRoute<Checklist>().let { MenuSelection.Tracker(it.gameId, TrackerKind.CHECKLIST, it.dataFile) }
+        d.hasRoute<AdventureMap>() -> toRoute<AdventureMap>().let { MenuSelection.Tracker(it.gameId, TrackerKind.ADVENTURE_MAP, it.dataFile) }
         else -> MenuSelection.None
     }
 }

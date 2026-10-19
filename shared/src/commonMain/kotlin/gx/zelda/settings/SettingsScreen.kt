@@ -22,7 +22,9 @@ import androidx.compose.ui.unit.dp
 import gx.zelda.core.AppSettings
 import gx.zelda.core.Game
 import gx.zelda.core.Games
+import gx.zelda.core.splitSpinOffs
 import gx.zelda.core.ui.MenuOrBackButton
+import gx.zelda.core.ui.SpinOffsHeading
 
 /** App-wide settings: for now, which games the home screen and the menu show. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,7 +55,12 @@ fun SettingsScreen(settings: AppSettings?, viewModel: AppSettingsViewModel, onBa
                     )
                 }
             }
-            items(Games.all, key = { it.id }) { game -> GameToggle(game, settings, viewModel) }
+            val (mainline, spinOffs) = splitSpinOffs(Games.all) { it }
+            items(mainline, key = { it.id }) { game -> GameToggle(game, settings, viewModel) }
+            if (spinOffs.isNotEmpty()) {
+                item(key = "_spin_offs") { SpinOffsHeading(Modifier.padding(horizontal = 16.dp).padding(top = 16.dp, bottom = 4.dp)) }
+                items(spinOffs, key = { it.id }) { game -> GameToggle(game, settings, viewModel) }
+            }
         }
     }
 }

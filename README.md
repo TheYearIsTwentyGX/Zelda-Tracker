@@ -15,13 +15,15 @@ iOS port is mostly a matter of adding the iOS targets.
   Minish Cap, Twilight Princess, Phantom Hourglass, Spirit Tracks, Skyward Sword, A Link Between
   Worlds, Tri Force Heroes, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have
   trackers, so every game does. A game without any would show as *Coming soon*.
+- **Spin-offs** come after the mainline games, under a heading of their own, in release order:
+  Hyrule Warriors: Definitive Edition (2018), with its Adventure Mode maps.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
   Time, and it was later sold on its own as the Anniversary Edition. Remakes and HD versions aren't
   separate entries.
 - **Menu** (☰ in the top bar of the home screen, Settings and every tracker opened from either):
-  Home, then each shown game in release order, then Settings.
+  Home, then each shown game in release order (the spin-offs after a heading), then Settings.
   - A game with trackers is a section that opens to list them; tap one to go there. A coming-soon
     game is a single row.
   - Which sections are open is remembered. The game you're in opens by itself when you switch to it.
@@ -34,8 +36,8 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
-- **Mark all complete** (every checklist tracker, and every BotW, TotK and Minish Cap tracker except
-  the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
+- **Mark all complete** (every checklist tracker, each HW:DE Adventure map, and every BotW, TotK and
+  Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
   the box shows a dash when some are done. Upgrades go to their top level, or back to none.
   - It acts on the active save file, and on the rows the search and filter chips leave showing
@@ -856,6 +858,50 @@ disagreements are in `docs/eow.md`.
   Faron Wetlands and the Eternal Forest.
 - Two save files, **File 1** and **File 2**, as the game keeps per Switch user.
 
+**Hyrule Warriors: Definitive Edition** (spin-off)
+
+Each Adventure Mode map is a tracker of its own, drawn as the in-game map: its 16×8 squares with
+what's done and what's left marked on each. Phase 1 has the **Adventure Map** (128 squares); the
+other nine maps follow. The data, its sources and disagreements, and how the art lines up are in
+`docs/hwde.md`.
+- **Progress Overview** (first): a row per map with everything done of all, squares cleared and
+  A-ranked, Heart Containers, Pieces of Heart, Gold Skulltulas and weapons, and the next step.
+- **The map**:
+  - Pinch to zoom, drag to pan, and tap a square. The + / − / Fit buttons zoom too.
+  - Upright, it opens filling the screen's height around the start square.
+  - Each square shows a bronze edge when cleared, gold with an "A" when A-ranked and a star when
+    complete, with dots for Heart Containers, Pieces of Heart, Gold Skulltulas and searches still
+    to do.
+  - Wavy walls, row letters and column numbers are drawn on, as are the start and the Dark Ruler.
+- **A square's sheet**:
+  - the battle type and victory condition, any rule, and which warriors it allows;
+  - the A-rank limits (KOs, time, damage), which are the guides' findings, since the game doesn't
+    show them;
+  - Not cleared / Cleared / A rank;
+  - each reward to tick, with whose it is and how to earn it ("A rank as Zelda", "Capture East
+    Goron Keep as Zelda"), and the item cards a clear gives;
+  - both Gold Skulltulas with their condition and place, and quiz answers;
+  - each item-card search, with the square's picture under the search screen's 16×11 grid and the
+    cell to use it on outlined;
+  - *Mark square complete*.
+- **List tab**: the same squares by colour (difficulty), with search over squares, rewards,
+  warriors, keeps and cards.
+- **Filters** (both tabs): not cleared, not A-ranked, Heart Containers left, Pieces of Heart left,
+  Gold Skulltulas left, searches left, *Searchable now* (with the cards you have) and a warrior
+  ("what's left for Zelda").
+- **Cards**: each item card with what it does on the map, the squares that give it, and its Item
+  Card Shop price. A card counts as found once a square that gives it is cleared (DE's shop sells
+  any card found before), and each can be set by hand.
+- **Spoiler-safe** (⋮ menu, off by default):
+  - Squares the save file hasn't reached show as *Unexplored* until revealed.
+  - Search spots, quiz answers and Skulltula places stay hidden until you *Use the Compass* on the
+    square, as the game's Compass card shows a square's secrets.
+- **Mark all complete** on the List tab, for the map and for each colour, over the squares the
+  filters leave. A complete square is A-ranked, with every reward, Skulltula and search ticked.
+- Labels follow Prima's guide and Zelda Wiki: a row letter, then the column (start H-8, Dark Ruler
+  A-6). Each sheet also gives SBAllen's form, which puts the column first (F-1).
+- One save file, **Save File**: the game keeps one per Switch user.
+
 ## Layout
 
 ```
@@ -878,6 +924,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/figurines/  ← Minish Cap figurine tracker and Carlov's odds
   src/commonMain/kotlin/gx/zelda/checklist/  ← the generic, data-driven checklist tracker (docs/checklist-trackers.md)
+  src/commonMain/kotlin/gx/zelda/adventure/  ← Hyrule Warriors Adventure Mode maps: the grid view, square sheet and list (docs/hwde.md)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces, the menu (AppDrawer.kt) and Mark all complete (BulkCompleteControl.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
@@ -914,8 +961,11 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/albw/*.json        ← A Link Between Worlds checklists (docs/albw.md)
   src/commonMain/composeResources/files/tfh/*.json  ← Tri Force Heroes checklists (docs/tfh.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
+  src/commonMain/composeResources/files/hwde/<map>.json  ← an HW:DE Adventure Mode map (tools/hwde/build_maps.py, docs/hwde.md)
+  src/commonMain/composeResources/files/hwde/<map>/  ← its picture per square and preview
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
+  src/commonMain/composeResources/drawable/hwde_*            ← HW:DE item-card and reward icons (tools/hwde/build_maps.py)
 androidApp/   Android application shell
 ```
 
@@ -1314,3 +1364,11 @@ Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guid
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
 three. `docs/eow.md` covers each tracker, the save files, the region convention and every
 disagreement between sources.
+
+Hyrule Warriors: Definitive Edition data (`files/hwde/`) is built by `tools/hwde/build_maps.py`
+from the Hyrule Warriors Helper's DE data and art at a pinned commit. Every square is checked
+against SBAllen's GameFAQs guide (archived on the Wayback Machine). Card names and uses come from
+Zelda Wiki's Item Card table, and Nintendo Life and RPG Site independently confirm the weapon and
+warrior squares. The few fixes are in `tools/hwde/corrections.json`, each with its source.
+`docs/hwde.md` covers the cross-check, the open disagreements, the coordinate conventions, the
+single save file, how the art lines up and the licences.

@@ -6,8 +6,8 @@ package gx.zelda.core
  */
 val comingSoonGame = Game("coming_soon", "Coming Soon Game", ReleaseDate(2016, 1, 1), "Test", listOf(SaveFile("file_1", "File 1")))
 
-/** [Games.all] with [comingSoonGame] in its place by release date. */
-val gamesWithComingSoon: List<Game> = (Games.all + comingSoonGame).sortedBy { it.released }
+/** [Games.all] with [comingSoonGame] in its place by release date, among the mainline games. */
+val gamesWithComingSoon: List<Game> = (Games.all + comingSoonGame).sortedWith(Games.order)
 
 /** The ids of the games with trackers, oldest first: the ones shown on a fresh install. */
 val gamesWithTrackers: List<String> get() = Games.all.filterNot { it.comingSoon }.map { it.id }
