@@ -341,7 +341,25 @@ object Games {
     val ST = comingSoon("st", "Spirit Tracks", ReleaseDate(2009, 12, 7), "Nintendo DS", files = 2)
     val SS = comingSoon("ss", "Skyward Sword", ReleaseDate(2011, 11, 18), "Wii")
     val ALBW = comingSoon("albw", "A Link Between Worlds", ReleaseDate(2013, 11, 22), "Nintendo 3DS")
-    val TFH = comingSoon("tfh", "Tri Force Heroes", ReleaseDate(2015, 10, 22), "Nintendo 3DS")
+
+    /**
+     * One save file, the only mainline game without a choice of files (Zelda Wiki, Saving; the
+     * Japanese site's "Save data files: 1"). Every tracker is a checklist; the data and its sources
+     * are in docs/tfh.md.
+     */
+    val TFH = Game(
+        id = "tfh",
+        title = "Tri Force Heroes",
+        released = ReleaseDate(2015, 10, 22),
+        platform = "Nintendo 3DS",
+        saveFiles = listOf(SaveFile("file_1", "Save File")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the save file"),
+            tfhChecklist("Adventure", "All 32 Drablands levels, their 96 challenges and King Tuft's rewards", "adventure"),
+            tfhChecklist("Outfits", "All 38 outfits: what each does, and Madame Couture's materials and price", "outfits"),
+            tfhChecklist("Den of Trials", "The eight zones of the 40-floor Den, and the Fierce Deity Armor", "den_of_trials"),
+        ),
+    )
 
     /**
      * Two save files per Switch user, each with its own autosaves (Zelda Wiki, Saving; Game8). Every
@@ -445,6 +463,9 @@ object Games {
 
     private fun wwChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ww/$file.json")
+
+    private fun tfhChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "tfh/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")

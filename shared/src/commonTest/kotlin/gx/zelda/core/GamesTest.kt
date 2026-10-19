@@ -2,6 +2,7 @@ package gx.zelda.core
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 /** Every mainline game, in the order it came out. */
@@ -64,9 +65,11 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tfh", "botw", "totk", "eow"), gamesWithTrackers)
+        Games.all.forEach { assertEquals(it.trackers.isEmpty(), it.comingSoon, it.id) }
+        assertTrue(comingSoonGame.comingSoon)
+        assertFalse(comingSoonGame.shownByDefault)
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
-        assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
     }
 
     @Test
@@ -100,6 +103,17 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.FSA.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.FSA.trackers.first().kind)
         assertTrue(Games.FSA.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /**
+     * One save file (Zelda Wiki, Saving: the only mainline game without a choice of files). It keeps
+     * the placeholder's first id, so nothing stored under `file_1` moves.
+     */
+    @Test
+    fun triForceHeroesHasOneSaveFileAndAnOverviewFirst() {
+        assertEquals(listOf("file_1"), Games.TFH.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.TFH.trackers.first().kind)
+        assertTrue(Games.TFH.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     /** Two files per Switch user (Zelda Wiki, Saving; Game8); autosaves live inside each file. */
