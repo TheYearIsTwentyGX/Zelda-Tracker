@@ -2,10 +2,11 @@ package gx.zelda.core
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-/** Every mainline game, in the order it came out. */
+/** Every mainline game in the order it came out, then the spin-offs. */
 class GamesTest {
     @Test
     fun gamesAreInReleaseOrder() {
@@ -13,10 +14,24 @@ class GamesTest {
             listOf(
                 "loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww",
                 "fsa", "mc", "tp", "ph", "st", "ss", "albw", "tfh", "botw", "totk", "eow",
+                "hwde",
             ),
             Games.all.map { it.id },
         )
-        assertEquals(Games.all.sortedBy { it.released }, Games.all)
+        assertEquals(Games.all.sortedWith(Games.order), Games.all)
+        val (mainline, spinOffs) = Games.all.partition { !it.spinOff }
+        assertEquals(mainline.sortedBy { it.released }, mainline)
+        assertEquals(spinOffs.sortedBy { it.released }, spinOffs)
+    }
+
+    /** Spin-offs follow every mainline game, whatever their dates: HW:DE (2018) comes after Echoes of Wisdom (2024). */
+    @Test
+    fun spinOffsComeAfterTheMainlineGames() {
+        assertEquals(listOf("hwde"), Games.all.filter { it.spinOff }.map { it.id })
+        assertTrue(Games.all.indexOf(Games.HWDE) > Games.all.indexOf(Games.EOW))
+        assertTrue(Games.HWDE.released < Games.EOW.released)
+        val later = Game("later", "Later Game", ReleaseDate(2030, 1, 1), "Test", listOf(SaveFile("file_1", "File 1")))
+        assertEquals("hwde", (Games.all + later).sortedWith(Games.order).last().id)
     }
 
     /** Same-year games order by the full date, and same-day ones by their tiebreak. */
@@ -46,7 +61,7 @@ class GamesTest {
             "loz" to 1986, "aol" to 1987, "alttp" to 1991, "la" to 1993, "oot" to 1998, "mm" to 2000,
             "oos" to 2001, "ooa" to 2001, "fs" to 2002, "ww" to 2002, "fsa" to 2004, "mc" to 2004,
             "tp" to 2006, "ph" to 2007, "st" to 2009, "ss" to 2011, "albw" to 2013, "tfh" to 2015,
-            "botw" to 2017, "totk" to 2023, "eow" to 2024,
+            "botw" to 2017, "totk" to 2023, "eow" to 2024, "hwde" to 2018,
         )
         assertEquals(years, Games.all.associate { it.id to it.year })
     }
@@ -65,7 +80,7 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "albw", "tfh", "botw", "totk", "eow"), gamesWithTrackers)
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "albw", "tfh", "botw", "totk", "eow", "hwde"), gamesWithTrackers)
         Games.all.forEach { assertEquals(it.trackers.isEmpty(), it.comingSoon, it.id) }
         assertTrue(comingSoonGame.comingSoon)
         assertFalse(comingSoonGame.shownByDefault)
@@ -145,6 +160,28 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2"), Games.EOW.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.EOW.trackers.first().kind)
         assertTrue(Games.EOW.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /**
+     * One save per Switch user (docs/hwde.md); the overview first, then one tracker per Adventure Mode
+     * map, each named by its data file.
+     */
+    @Test
+    fun hyruleWarriorsHasOneSaveFileAndAnOverviewThenItsMaps() {
+        assertEquals(listOf("file_1"), Games.HWDE.saveFiles.map { it.id })
+        assertTrue(Games.HWDE.spinOff)
+        assertEquals(TrackerKind.OVERVIEW, Games.HWDE.trackers.first().kind)
+        assertEquals(listOf("hwde/adventure_map.json"), Games.HWDE.trackers.drop(1).map { it.dataFile })
+        assertTrue(Games.HWDE.trackers.drop(1).all { it.kind == TrackerKind.ADVENTURE_MAP })
+    }
+
+    /** Only the kinds that read a data file name one, and those always do. */
+    @Test
+    fun onlyDataFileKindsNameADataFile() {
+        assertEquals(setOf(TrackerKind.CHECKLIST, TrackerKind.ADVENTURE_MAP), TrackerKind.entries.filter { it.usesDataFile }.toSet())
+        Games.all.flatMap { it.trackers }.forEach { assertEquals(it.kind.usesDataFile, it.dataFile != null, it.title) }
+        assertFailsWith<IllegalArgumentException> { Tracker(TrackerKind.ADVENTURE_MAP, "No file", "") }
+        assertFailsWith<IllegalArgumentException> { Tracker(TrackerKind.MAP, "A file", "", dataFile = "x.json") }
     }
 
     /** Two files on the DS (Nintendo's manual), the placeholder's ids; every tracker after the overview is a checklist. */

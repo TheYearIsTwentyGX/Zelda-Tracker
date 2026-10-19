@@ -2,6 +2,8 @@ package gx.zelda.overview
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.adventure.data.AdventureProgressProvider
+import gx.zelda.adventure.data.AdventureStorage
 import gx.zelda.armor.data.ArmorProgressProvider
 import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.bosses.data.BossProgressProvider
@@ -69,6 +71,9 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             // One generic row per checklist, so a game made of checklists gets its overview for free.
             TrackerKind.CHECKLIST -> listOf(
                 ChecklistProgressProvider(ChecklistStorage(dataStore, game, tracker.dataFile!!), tracker.title),
+            )
+            TrackerKind.ADVENTURE_MAP -> listOf(
+                AdventureProgressProvider(AdventureStorage(dataStore, game, tracker.dataFile!!), tracker.title),
             )
         }
     }

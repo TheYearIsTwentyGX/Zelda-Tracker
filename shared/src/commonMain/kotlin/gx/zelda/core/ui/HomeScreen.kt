@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.Game
 import gx.zelda.core.Tracker
+import gx.zelda.core.splitSpinOffs
 import gx.zelda.theme.titleStyle
 
 /**
@@ -62,7 +63,12 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.fillMaxSize().padding(padding),
         ) {
-            items(games.orEmpty(), key = { it.id }) { game -> GameCard(game, onOpenTracker) }
+            val (mainline, spinOffs) = splitSpinOffs(games.orEmpty()) { it }
+            items(mainline, key = { it.id }) { game -> GameCard(game, onOpenTracker) }
+            if (spinOffs.isNotEmpty()) {
+                item(key = "_spin_offs") { SpinOffsHeading(Modifier.padding(top = 8.dp)) }
+                items(spinOffs, key = { it.id }) { game -> GameCard(game, onOpenTracker) }
+            }
         }
     }
 }

@@ -4,13 +4,18 @@ package gx.zelda.core
 data class Game(
     val id: String,
     val title: String,
-    /** The first release anywhere; [Games.all] is in this order. */
+    /** The first release anywhere; [Games.all] is in this order, mainline games before spin-offs. */
     val released: ReleaseDate,
     /** The platform it first came out on, e.g. "Game Boy Advance". */
     val platform: String,
     /** The save files the game keeps per user; each one is tracked separately. */
     val saveFiles: List<SaveFile>,
     val trackers: List<Tracker> = emptyList(),
+    /**
+     * Not a mainline Zelda game (Hyrule Warriors, say). Spin-offs are listed after every mainline
+     * game, under their own "Spin-offs" heading on the home screen, in the menu and in Settings.
+     */
+    val spinOff: Boolean = false,
 ) {
     val year: Int get() = released.year
 
@@ -58,15 +63,27 @@ enum class TrackerKind {
      * The format is in docs/checklist-trackers.md.
      */
     CHECKLIST,
+
+    /**
+     * One of Hyrule Warriors' Adventure Mode maps, drawn as the in-game map with its squares to tap
+     * and track; [Tracker.dataFile] names the map (e.g. `"hwde/adventure_map.json"`). The format is
+     * in docs/hwde.md.
+     */
+    ADVENTURE_MAP,
+    ;
+
+    /** True for the kinds that read their data from a [Tracker.dataFile], so a game can list several. */
+    val usesDataFile: Boolean get() = this == CHECKLIST || this == ADVENTURE_MAP
 }
 
 /**
- * One tracker a game offers. A [TrackerKind.CHECKLIST] names its dataset in [dataFile], relative to
- * the bundled `files/` folder (e.g. `"eow/echoes.json"`); other kinds find their data by game id.
+ * One tracker a game offers. A [TrackerKind.CHECKLIST] or [TrackerKind.ADVENTURE_MAP] names its
+ * dataset in [dataFile], relative to the bundled `files/` folder (e.g. `"eow/echoes.json"`); other
+ * kinds find their data by game id.
  */
 data class Tracker(val kind: TrackerKind, val title: String, val description: String, val dataFile: String? = null) {
     init {
-        require((kind == TrackerKind.CHECKLIST) == (dataFile != null)) { "$title: only a checklist has a dataFile, and it needs one" }
+        require(kind.usesDataFile == (dataFile != null)) { "$title: only a checklist or an Adventure map has a dataFile, and it needs one" }
     }
 }
 
@@ -535,6 +552,26 @@ object Games {
         ),
     )
 
+    /**
+     * A spin-off, tracked as the Definitive Edition: its Adventure Mode maps, squares and rewards
+     * are DE's own (they differ from the Wii U and 3DS releases'), so it's dated by DE's first
+     * release, in Japan, rather than Hyrule Warriors' 2014 one. One save per Switch user: no file
+     * select, and the save is a single file. Each Adventure Mode map is its own tracker; the data
+     * and its sources are in docs/hwde.md.
+     */
+    val HWDE = Game(
+        id = "hwde",
+        title = "Hyrule Warriors: Definitive Edition",
+        released = ReleaseDate(2018, 3, 22),
+        platform = "Nintendo Switch",
+        saveFiles = listOf(SaveFile("file_1", "Save File")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every Adventure Mode map at a glance"),
+            hwdeMap("Adventure Map", "The 128 squares of the first map: battles, A-rank limits, rewards, Gold Skulltulas and item-card searches", "adventure_map"),
+        ),
+        spinOff = true,
+    )
+
     /** Three save files, as on the GBA cartridge. */
     val MC = Game(
         id = "mc",
@@ -551,11 +588,15 @@ object Games {
         ),
     )
 
-    /** Every game, oldest first: a new game slots in by its release date wherever it's listed here. */
+    /** Mainline games oldest first, then spin-offs oldest first: the order of [all]. */
+    val order: Comparator<Game> = compareBy<Game>({ it.spinOff }, { it.released })
+
+    /** Every game in [order]: a new game slots in by its release date wherever it's listed here. */
     val all: List<Game> = listOf(
         BOTW, TOTK, MC,
         LOZ, AOL, ALTTP, LA, OOT, MM, OOS, OOA, FS, WW, FSA, TP, PH, ST, SS, ALBW, TFH, EOW,
-    ).sortedBy { it.released }
+        HWDE,
+    ).sortedWith(order)
 
     fun byId(id: String): Game = all.first { it.id == id }
 
@@ -594,6 +635,9 @@ object Games {
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
+
+    private fun hwdeMap(title: String, description: String, file: String) =
+        Tracker(TrackerKind.ADVENTURE_MAP, title, description, dataFile = "hwde/$file.json")
 
     /** A game with no trackers yet; [files] placeholder save files, as many as the game itself keeps. */
     private fun comingSoon(id: String, title: String, released: ReleaseDate, platform: String, files: Int = 3) = Game(

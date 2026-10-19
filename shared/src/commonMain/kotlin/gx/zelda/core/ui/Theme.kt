@@ -18,6 +18,12 @@ import gx.zelda.theme.LocalGameDecor
 import gx.zelda.theme.typography
 
 /**
+ * A fixed gold for things that are gold in the game whatever the theme, like a medal. Upgrade stars
+ * use the current theme's star colour instead ([LocalGameDecor]), which is checked for contrast.
+ */
+val StarGold = Color(0xFFE8C15A)
+
+/**
  * [theme]'s colours, header lettering, shapes and decor, light or dark as Settings chose. With game
  * themes turned off in Settings every [theme] shows as [GameThemes.Neutral].
  */

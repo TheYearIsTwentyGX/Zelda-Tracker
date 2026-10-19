@@ -39,6 +39,12 @@ data class AppSettings(
         shownGames(games).map { GameMenuSection(it, expanded = !it.comingSoon && it.id in expandedGames) }
 }
 
+/**
+ * [items] as the home screen, the menu and Settings list them: the mainline games, then the
+ * spin-offs under their own heading, each part in [items]' order.
+ */
+fun <T> splitSpinOffs(items: List<T>, gameOf: (T) -> Game): Pair<List<T>, List<T>> = items.partition { !gameOf(it).spinOff }
+
 /** The app's light or dark look, chosen in Settings. */
 @Serializable
 enum class ThemeMode { SYSTEM, LIGHT, DARK }
