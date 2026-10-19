@@ -23,7 +23,6 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
@@ -63,6 +62,7 @@ import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
 import gx.zelda.core.ui.rememberBulkCompleteState
+import gx.zelda.theme.GameProgressBar
 
 /**
  * Any checklist tracker on the active save file: a tab per section (with "All" first), the file's
@@ -230,7 +230,7 @@ private fun SummaryCard(state: ChecklistUiState) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            LinearProgressIndicator(
+            GameProgressBar(
                 progress = { if (count.total == 0) 0f else count.done.toFloat() / count.total },
                 modifier = Modifier.fillMaxWidth(),
             )

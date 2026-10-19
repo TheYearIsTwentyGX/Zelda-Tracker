@@ -18,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
@@ -60,6 +59,7 @@ import gx.zelda.mainquest.model.Memory
 import gx.zelda.mainquest.model.SheikahTower
 import gx.zelda.mainquest.model.TigerScroll
 import kotlinx.coroutines.launch
+import gx.zelda.theme.GameProgressBar
 
 /** The most checklists a game's catalog can have: one scroll position is kept per page. */
 private val MAX_SECTIONS = MainQuestSection.entries.size
@@ -233,7 +233,7 @@ private fun SummaryCard(state: MainQuestUiState, section: MainQuestSection, bulk
     val total = state.catalog.total(section)
     SectionCard {
         Text("$done / $total ${section.label.lowercase()} ${section.doneWord.lowercase()}", style = MaterialTheme.typography.titleMedium)
-        LinearProgressIndicator(progress = { if (total == 0) 0f else done.toFloat() / total }, modifier = Modifier.fillMaxWidth())
+        GameProgressBar(progress = { if (total == 0) 0f else done.toFloat() / total }, modifier = Modifier.fillMaxWidth())
         Text(
             when (section) {
                 MainQuestSection.TOWERS ->
