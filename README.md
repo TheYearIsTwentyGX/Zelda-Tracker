@@ -36,6 +36,23 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
+- **Game themes**: inside a game (its trackers, overview, detail pages, scans and map) the screens
+  take on that game's look: colours from its menus, header lettering in the style of its era, and
+  a small ornament under each region's header. So far The Legend of Zelda (NES subscreen black and
+  heart red, or overworld tan and green, in pixel lettering), The Wind Waker (sea-chart parchment or
+  the GameCube menu's forest green, with the cerulean sea and a wave rule), The Minish Cap (leaf green
+  and Kinstone gold on paper or bark, a vine rule) and Breath of the Wild (Zelda White on the Sheikah
+  Slate's dark glass, Sheikah blue, cut corners). The other games keep the app's own look until
+  theirs arrive; `docs/themes.md` has every game's brief.
+  - The home screen, the menu and Settings keep the app's own look, with each themed game's accent
+    colour on its card, its row in the menu and its switch in Settings, and its name on the home
+    screen in its lettering.
+  - Every theme has a light and a dark side. **Settings → Appearance** picks *System* (the
+    default), *Light* or *Dark*; before themes the app was always dark, so *Dark* brings that back.
+  - **Game themes** in Settings (on by default) turns them off: every screen in the app's own look.
+  - Every colour pair meets WCAG AA contrast (4.5:1 for text, 3:1 for outlines, bars and stars),
+    checked by a test for every theme, light and dark. Body text stays in the system font; only
+    headers use a theme's lettering.
 - **Mark all complete** (every checklist tracker, each HW:DE Adventure map, and every BotW, TotK and
   Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
@@ -880,7 +897,13 @@ The Koholint Island, Grand Travels and Lorule maps follow. The data, its sources
   - Each square shows a bronze edge when cleared, gold with an "A" when A-ranked and a star when
     complete, with dots for Heart Containers, Pieces of Heart, Gold Skulltulas and searches still
     to do.
-  - Wavy walls, row letters and column numbers are drawn on, as are the start and the Dark Ruler.
+  - The lines between squares are drawn as in the game: wavy where a wall stops the way, straight where
+    clearing one opens the other (and straight again once a path card like the Hookshot is used).
+  - Squares that can't be challenged yet are dimmed. Any clear opens its neighbours here; the game's
+    B/A-rank arrows aren't in any source.
+  - Row letters and column numbers are drawn on, as are the start and the Dark Ruler.
+  - In landscape on a phone, the Map tab hides the top bar, tabs and system bars, and the filter row
+    carries the menu, Cards, List and ⋮.
 - **A square's sheet**:
   - the battle type and victory condition, any rule, and which warriors it allows;
   - the A-rank limits (KOs, time, damage), which are the guides' findings, since the game doesn't
@@ -894,9 +917,9 @@ The Koholint Island, Grand Travels and Lorule maps follow. The data, its sources
   - *Mark square complete*.
 - **List tab**: the same squares by colour (difficulty), with search over squares, rewards,
   warriors, keeps and cards.
-- **Filters** (both tabs): not cleared, not A-ranked, Heart Containers left, Pieces of Heart left,
-  Gold Skulltulas left, searches left, *Searchable now* (with the cards you have) and a warrior
-  ("what's left for Zelda").
+- **Filters** (both tabs): not cleared (squares you can challenge first), not A-ranked, Heart
+  Containers left, Pieces of Heart left, Gold Skulltulas left, searches left, *Searchable now* (with
+  the cards you have), *Challengeable now* and a warrior ("what's left for Zelda").
 - **Cards**: each item card with what it does on the map, the squares that give it, and its Item
   Card Shop price. A card counts as found once a square that gives it is cleared (DE's shop sells
   any card found before), and each can be set by hand.
@@ -1380,3 +1403,9 @@ Zelda Wiki's Item Card table, and Nintendo Life and RPG Site independently confi
 warrior squares. The few fixes are in `tools/hwde/corrections.json`, each with its source.
 `docs/hwde.md` covers the cross-check, the open disagreements, the coordinate conventions, the
 single save file, how the art lines up and the licences.
+
+The game themes' header fonts are Press Start 2P, Pixelify Sans, Fredoka and Josefin Sans, all
+from Google Fonts under the SIL Open Font License 1.1; `docs/fonts.md` lists their sources and
+which games use them, and the licences are in `docs/licenses/`. No Nintendo font or art is
+bundled for the themes: the colours are picked from the games' menus, and the ornaments are drawn
+in code.

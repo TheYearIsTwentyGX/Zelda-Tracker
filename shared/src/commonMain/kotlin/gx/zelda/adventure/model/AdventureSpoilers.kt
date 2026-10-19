@@ -31,27 +31,8 @@ class AdventureSpoilers(
         if (secretsHidden(square)) square.searches.filter { progress.isDone(it.id) } else square.searches
 
     companion object {
-        /**
-         * The squares a save file has reached: the start, every cleared square, and each neighbour
-         * of a cleared square across an open side. A side is open when neither square has a
-         * blockade there, or when a path search (Hookshot, Raft…) has been done on the cleared
-         * square: the data doesn't say which neighbour such a search opens, so all of them count.
-         * A map with no start (the Rewards Map, opened square by square by Gold Skulltula
-         * illustrations rather than by its neighbours) has every square reached.
-         */
-        fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = buildSet {
-            if (map.start == null) return map.squares.mapTo(mutableSetOf()) { it.id }
-            add(map.start)
-            for (square in map.squares) {
-                if (!progress.isCleared(square)) continue
-                add(square.id)
-                val opened = square.searches.any { s -> progress.isDone(s.id) && map.card(s.card)?.effects?.contains(CardEffect.PATH) == true }
-                for (side in Side.entries) {
-                    val next = map.neighbour(square, side) ?: continue
-                    if (opened || map.isOpen(square, side)) add(next.id)
-                }
-            }
-        }
+        /** The squares a save file has reached: those it can challenge now ([AdventureReach.challengeable]). */
+        fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = AdventureReach.challengeable(map, progress)
     }
 }
 
@@ -63,6 +44,8 @@ data class SquareLook(
     val hidden: Boolean,
     /** Doesn't match the filters, so it's drawn dim. */
     val dimmed: Boolean,
+    /** Can be played now ([AdventureReach.challengeable]); the rest are drawn dim, as in the game. */
+    val challengeable: Boolean,
     val selected: Boolean,
     val start: Boolean,
     val finalBoss: Boolean,
@@ -77,6 +60,7 @@ data class SquareLook(
             spoilers: AdventureSpoilers,
             matches: Boolean,
             selected: Boolean,
+            challengeable: Boolean = square.id in spoilers.explored,
         ): SquareLook {
             val hidden = spoilers.isHidden(square)
             fun left(type: RewardType) = square.rewards.count { it.type == type && !progress.isDone(it.id) }
@@ -92,6 +76,7 @@ data class SquareLook(
                 complete = progress.isComplete(square),
                 hidden = hidden,
                 dimmed = !matches,
+                challengeable = challengeable,
                 selected = selected,
                 start = square.id == map.start,
                 finalBoss = square.finalBoss && !hidden,
