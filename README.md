@@ -11,9 +11,9 @@ iOS port is mostly a matter of adding the iOS targets.
   are ordered by date, so Four Swords Adventures (March 2004) comes before The Minish Cap
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
-  Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Minish Cap, Twilight Princess, Breath
-  of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming
-  soon* until they get some.
+  Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Wind Waker, Four Swords Adventures, The
+  Minish Cap, Twilight Princess, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have
+  trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -580,6 +580,51 @@ the GBA original and the Anniversary Edition (DSiWare, 2011). Sources and disagr
   thresholds that unlock something.
 - Three save files, **File 1–3**: A Link to the Past's on the GBA, or the Anniversary Edition's own.
 
+**The Wind Waker**
+
+Every Wind Waker tracker is a [checklist](docs/checklist-trackers.md), built for the GameCube
+original. Where Wind Waker HD differs (the Swift Sail, three Triforce Charts instead of eight,
+Treasure Charts 42–46, the Tingle Bottle, the Hero's Charm and Picto Box changes, Carlov's twelve
+figurines a day), the item's notes say so. Sources and disagreements are in `docs/ww.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** the story in order, from Outset Island to Ganondorf: each dungeon with its boss
+  and treasure, the three Pearls (totalled), Hyrule Castle, the Master Sword's power, and a tab
+  for the 8 Triforce Shards.
+- **Items & Equipment:** the sword (Hero's Sword to the full-power Master Sword) and shield as
+  tiers, 17 items (the Picto Box and Hero's Bow with their upgrades), the Hero's Charm, the 4
+  Bottles, and the wallet (200 to 5,000), bomb bag and quiver (30 to 99), double magic and the
+  Hurricane Spin.
+- **Heart Pieces:** all 44 Pieces of Heart by island and the 6 bosses' Heart Containers, with the
+  hearts total (3 to 20).
+- **Charts:** the 41 Treasure Charts (tap once for the chart, again for its salvaged treasure,
+  with both counted), the 8 Triforce Charts (found, then deciphered by Tingle) and the 12 Special
+  Charts. HD's Treasure Charts 42–46 have a tab of their own, left out of the totals.
+- **Sea Chart:** the 49 squares, A1 to G7 by row, charted by feeding each fishman. Each square
+  lists what's there.
+- **Sea Secrets:** the 20 Secret Caves, 7 Submarines, 20 groups of lookout platforms and 6 Big Octos.
+- **Nintendo Gallery:** all 134 figurines by gallery room, with the 16 missable ones flagged and
+  Lenzo's Legendary Pictographs by moon phase.
+- **Songs** (6), **Great Fairies** (7, plus the Queen of Fairies) and **Side Quests** (Joy
+  Pendants, Mail Sorting, Lenzo, Skull Necklaces, Golden Feathers, the Traveling Merchants, the 8
+  Withered Trees and the 5 Tingle Statues).
+- Regions are the Great Sea's islands, in Sea Chart order.
+
+**Four Swords Adventures**
+
+Every FSA tracker is a [checklist](docs/checklist-trackers.md), for the GameCube's Hyrulean
+Adventure and its multiplayer extras. Sources and disagreements are in `docs/fsa.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Hyrulean Adventure:** all 24 stages, 3 in each of the 8 levels (Whereabouts of the Wind to the
+  Realm of the Heavens), in order. Each row has the stage's boss, the items found there and what it
+  gives. The 6 Shrine Maidens and Princess Zelda (of 7) and the 4 Royal Jewels are totalled. Every
+  stage needs 2,000 Force Gems to break its barrier.
+- **Tingle's Tower & Shadow Battle** (multiplayer, with Game Boy Advances): the 8 Tingle's Tower
+  mini-games, one per level, opened by its second stage, and the 5 Dark World Shadow Battle arenas
+  that finishing the game unlocks.
+- Items, Heart Containers and the Four Sword's power last only for a stage, and there are no Pieces
+  of Heart, so none are tracked. Navi Trackers, the Japan-only mode, isn't tracked either.
+- Three save files, **File 1–3**, as on the memory card.
+
 **Twilight Princess**
 
 Every TP tracker is a [checklist](docs/checklist-trackers.md), built for the GameCube original
@@ -686,6 +731,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/la/*.json          ← Link's Awakening checklists (docs/la.md)
   src/commonMain/composeResources/files/oot/*.json         ← Ocarina of Time checklists (docs/oot.md)
   src/commonMain/composeResources/files/fs/stages.json  ← Four Swords checklist (docs/fs.md)
+  src/commonMain/composeResources/files/ww/*.json   ← The Wind Waker checklists (docs/ww.md)
+  src/commonMain/composeResources/files/fsa/*.json  ← Four Swords Adventures checklists (docs/fsa.md)
   src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
@@ -928,6 +975,11 @@ Oracle of Ages data (`files/ooa/`) was compiled by hand from Zelda Wiki, Zelda D
 TourianTourist's GameFAQs ring guide and StrategyWiki; `docs/ooa.md` lists the sources and where
 they disagree.
 
+The Wind Waker data (`files/ww/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and StrategyWiki. The Wind Waker Randomizer's location list settled the Secret Caves,
+and the zeldaret/tww decompilation the save-file count. It was compiled with scripts that aren't
+committed. `docs/ww.md` covers each tracker and every disagreement between sources.
+
 Minish Cap main quest data (`files/mc/main_quest.json`: dungeons, items and Tiger Scrolls) comes
 from Zelda Wiki, cross-checked against StrategyWiki, Zelda Universe and Zelda Dungeon; see
 `docs/mc-main-quest.md`.
@@ -1026,6 +1078,11 @@ Four Swords data (`files/fs/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback
 snapshots) and StrategyWiki, with the Anniversary Edition's text dump on GameFAQs settling exact
 names and speedrun.com's 100% rules deciding what's tracked. `docs/fs.md` covers each tracker, the
 save files and every disagreement between sources.
+
+Four Swords Adventures data (`files/fsa/`) comes from Zelda Wiki, Zelda Dungeon's walkthrough
+(via Wayback Machine snapshots) and the North American manual, cross-checked against Zelda Universe,
+Zeldapedia, both Wikipedias and Nintendo's Japanese site. `docs/fsa.md` covers each tracker, the
+save files, what isn't tracked and every disagreement between sources.
 
 Minish Cap figurine data (`files/mc/figurines.json`) comes from Zelda Wiki's *Figurines in The
 Minish Cap* (names, North American descriptions, who's pictured) and the zeldaret/tmc decompilation

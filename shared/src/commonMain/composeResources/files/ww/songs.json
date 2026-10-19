@@ -1,0 +1,19 @@
+{
+  "noun": "song",
+  "hiddenLabel": "Unlearned song",
+  "sections": [
+    {
+      "id": "songs",
+      "title": "Songs",
+      "note": "Conduct with the Wind Waker: the arrows are the C-Stick (● is the middle). Each song also needs its time signature: 3/4, 4/4 or 6/4.",
+      "items": [
+        {"id": "winds_requiem", "name": "Wind's Requiem", "area": "Dragon Roost Island", "howTo": "Read the stone tablet by the Wind Waker symbol on Dragon Roost Island, on the first visit.", "notes": "▲ ◀ ▶. Changes the wind's direction. The most-used song on the GameCube; Wind Waker HD's Swift Sail does the same job for sailing.", "after": "After getting the Wind Waker"},
+        {"id": "ballad_of_gales", "name": "Ballad of Gales", "area": "Great Sea", "howTo": "Shoot Cyclos with arrows inside one of his cyclones (near Mother and Child Isles, Northern Triangle Island or Shark Island) until he gives up.", "notes": "▼ ▶ ◀ ▲. Warps Link to one of the cyclone points on the Great Sea. Needs the Hero's Bow. Photograph Cyclos first for the Nintendo Gallery."},
+        {"id": "command_melody", "name": "Command Melody", "area": "Tower of the Gods", "howTo": "Learned on a Wind Waker symbol inside the Tower of the Gods.", "notes": "◀ ● ▶ ●. Takes control of statues, and of Medli and Makar in their temples."},
+        {"id": "earth_gods_lyric", "name": "Earth God's Lyric", "area": "Headstone Island", "howTo": "Learned from Laruto's spirit at the Earth Temple's entrance on Headstone Island; play it to Medli to wake her as the Earth Sage.", "notes": "▼ ▼ ● ▶ ◀ ●. Wakes Medli; opens the way in the Earth Temple."},
+        {"id": "wind_gods_aria", "name": "Wind God's Aria", "area": "Gale Isle", "howTo": "Learned from Fado's spirit at the Wind Temple's entrance on Gale Isle; play it to Makar to wake him as the Wind Sage.", "notes": "▲ ▲ ▼ ▶ ◀ ▶. Wakes Makar; opens the way in the Wind Temple."},
+        {"id": "song_of_passing", "name": "Song of Passing", "area": "Windfall Island", "howTo": "Show Tott, the dancing man on Windfall Island, the Wind Waker and copy his dance.", "notes": "▶ ◀ ▼. Turns day to night and night to day. The only optional song; handy for the night-only quests and the Nintendo Gallery.", "tags": ["Optional"]}
+      ]
+    }
+  ]
+}

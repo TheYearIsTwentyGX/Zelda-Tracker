@@ -1,0 +1,23 @@
+{
+  "regions": ["Northern Fairy Island", "Mother and Child Isles", "Western Fairy Island", "Eastern Fairy Island", "Thorned Fairy Island", "Southern Fairy Island", "Outset Island", "Two-Eye Reef"],
+  "noun": "Great Fairy",
+  "plural": "Great Fairies",
+  "hiddenLabel": "Unvisited Great Fairy",
+  "sections": [
+    {
+      "id": "great_fairies",
+      "title": "Great Fairies",
+      "note": "Seven Great Fairies and the Queen of Fairies. Each fairy leaves healing fairies behind once she's given her gift.",
+      "items": [
+        {"id": "northern_fairy_island", "name": "Great Fairy (Northern Fairy Island)", "region": "Northern Fairy Island", "howTo": "Walk into the fountain under the giant shell; nothing blocks it.", "reward": "Wallet upgrade", "notes": "The first of the two wallet fairies gives 1,000 Rupees, the second 5,000. Also in Items & Equipment, Upgrades."},
+        {"id": "queen_of_fairies", "name": "Queen of Fairies", "region": "Mother and Child Isles", "area": "Inside the larger isle", "howTo": "Warp to Mother and Child Isles with the Ballad of Gales (sailing can't get in) and meet her in the grotto.", "reward": "Fire & Ice Arrows", "after": "After the second visit to the Forsaken Fortress", "notes": "Also in Items & Equipment (Hero's Bow)."},
+        {"id": "western_fairy_island", "name": "Great Fairy (Western Fairy Island)", "region": "Western Fairy Island", "howTo": "Pound the stake by the shell with the Skull Hammer to put out the fire at the entrance.", "reward": "Quiver upgrade", "notes": "The first of the two quiver fairies gives 60 arrows, the second 99. Also in Items & Equipment, Upgrades."},
+        {"id": "eastern_fairy_island", "name": "Great Fairy (Eastern Fairy Island)", "region": "Eastern Fairy Island", "howTo": "Blow up the rock beside the shell with a Bomb.", "reward": "Bomb Bag upgrade", "notes": "The first of the two bomb fairies gives 60 Bombs, the second 99. Also in Items & Equipment, Upgrades."},
+        {"id": "thorned_fairy_island", "name": "Great Fairy (Thorned Fairy Island)", "region": "Thorned Fairy Island", "howTo": "Pound the three stakes with the Skull Hammer to clear the thorns at the entrance.", "reward": "Quiver upgrade", "notes": "The first of the two quiver fairies gives 60 arrows, the second 99. Also in Items & Equipment, Upgrades."},
+        {"id": "southern_fairy_island", "name": "Great Fairy (Southern Fairy Island)", "region": "Southern Fairy Island", "howTo": "Break the wooden wall with a Bomb or a Fire Arrow.", "reward": "Bomb Bag upgrade", "notes": "The first of the two bomb fairies gives 60 Bombs, the second 99. Also in Items & Equipment, Upgrades."},
+        {"id": "outset_island", "name": "Great Fairy (Outset Island)", "region": "Outset Island", "howTo": "Glide with the Deku Leaf to the Forest of Fairies (the bridge is broken) and blow up the rock over the fountain with a Bomb.", "reward": "Wallet upgrade", "notes": "The first of the two wallet fairies gives 1,000 Rupees, the second 5,000. Also in Items & Equipment, Upgrades."},
+        {"id": "two_eye_reef", "name": "Great Fairy (Two-Eye Reef)", "region": "Two-Eye Reef", "howTo": "Defeat the four-eyed Big Octo among the seagulls at the reef; the Great Fairy it held appears.", "reward": "Double magic", "notes": "Also in Items & Equipment, Upgrades."}
+      ]
+    }
+  ]
+}
