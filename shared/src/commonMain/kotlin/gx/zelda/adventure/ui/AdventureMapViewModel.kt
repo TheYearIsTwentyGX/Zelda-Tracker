@@ -72,7 +72,7 @@ data class AdventureUiState(
     val totals = AdventureTotals(map, progress)
 
     /** The squares that can be played now; the rest are drawn dim. */
-    val challengeable: Set<String> get() = spoilers.explored
+    val challengeable: Set<String> by lazy { AdventureReach.challengeable(map, progress) }
 
     /** The line between each pair of neighbouring squares: wall, open, or opened by a search. */
     val edges: List<MapEdge> by lazy { AdventureReach.edges(map, progress) }
@@ -89,12 +89,12 @@ data class AdventureUiState(
     /**
      * Whether [square] passes the chips, the warrior choice and the search. An Unexplored square
      * only ever matches on whether it's cleared and on its colour, so a filter can't give away what
-     * it hides; nor do a square's searches count while its secrets are hidden.
+     * it hides; nor do a square's searches count while its secrets are hidden, but for the one that
+     * lifts its seal.
      */
     fun matches(square: Square): Boolean {
         val hidden = spoilers.isHidden(square)
-        val secrets = spoilers.secretsHidden(square)
-        val searches = if (secrets) emptyList() else square.searches.filterNot { progress.isDone(it.id) }
+        val searches = spoilers.visibleSearches(square).filterNot { progress.isDone(it.id) }
         val warrior = mapPrefs.warrior
         // With a warrior chosen, the reward chips count that warrior's rewards only.
         fun rewardsLeft(type: RewardType) =

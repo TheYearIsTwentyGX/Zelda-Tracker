@@ -1,0 +1,3909 @@
+{
+ "id": "koholint_island_map",
+ "name": "Koholint Island Map",
+ "cols": 14,
+ "rows": 6,
+ "start": "r5c3",
+ "finalBoss": "r1c7",
+ "art": {
+  "squares": "hwde/koholint_island_map",
+  "preview": "hwde/koholint_island_map/preview.webp",
+  "squareWidth": 256,
+  "squareHeight": 176
+ },
+ "regions": [
+  {
+   "id": "colorless",
+   "name": "Black"
+  },
+  {
+   "id": "green",
+   "name": "Green"
+  },
+  {
+   "id": "yellow",
+   "name": "Yellow"
+  },
+  {
+   "id": "purple",
+   "name": "Purple"
+  },
+  {
+   "id": "orange",
+   "name": "Orange"
+  },
+  {
+   "id": "blue",
+   "name": "Blue"
+  },
+  {
+   "id": "red",
+   "name": "Red"
+  }
+ ],
+ "cards": [
+  {
+   "id": "thunder_drum",
+   "name": "Thunder Drum",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that increases weapon drops."
+  },
+  {
+   "id": "power_bracelet_3",
+   "name": "Power Bracelet",
+   "effects": [
+    "reward"
+   ],
+   "text": "Moves boulders and grave stones and destroys Armos statues, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "instrument",
+   "name": "Any Instrument of the Sirens",
+   "effects": [
+    "rule"
+   ],
+   "text": "Any of the eight Instruments banishes the Nightmare over a square. Each one used for the first time adds to the Egg Counter; with all eight, the Wind Fish wakes.",
+   "anyOf": [
+    "full_moon_cello",
+    "conch_horn",
+    "sea_lily_bell",
+    "surf_harp",
+    "wind_marimba",
+    "coral_triangle",
+    "organ_of_evening_calm",
+    "thunder_drum"
+   ]
+  },
+  {
+   "id": "grandpa_ulrira",
+   "name": "Grandpa Ulrira",
+   "effects": [
+    "reward"
+   ],
+   "text": "Answers phones, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "magic_powder",
+   "name": "Magic Powder",
+   "effects": [
+    "path"
+   ],
+   "text": "Lights torches, removing locks on certain adjacent squares so that they can be opened normally.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "compass",
+   "name": "Compass",
+   "effects": [
+    "compass"
+   ],
+   "text": "Reveals all secrets within a battle square, making their tiles sparkle.",
+   "shopPrice": 5000
+  },
+  {
+   "id": "surf_harp",
+   "name": "Surf Harp",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that increases experience earned."
+  },
+  {
+   "id": "organ_of_evening_calm",
+   "name": "Organ of Evening Calm",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that increases Material drops."
+  },
+  {
+   "id": "coral_triangle",
+   "name": "Coral Triangle",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that increases the amount of Food found."
+  },
+  {
+   "id": "conch_horn",
+   "name": "Conch Horn",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that reduces the damage a Warrior takes."
+  },
+  {
+   "id": "sea_lily_bell",
+   "name": "Sea Lily Bell",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that maxes the Magic meter."
+  },
+  {
+   "id": "wind_marimba",
+   "name": "Wind Marimba",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that increases Rupees gained."
+  },
+  {
+   "id": "full_moon_cello",
+   "name": "Full Moon Cello",
+   "effects": [
+    "rule"
+   ],
+   "text": "Eliminates Nightmares,increases the egg counter and, activates a Siren Power that maxes the Special Attack Gauge."
+  }
+ ],
+ "warriors": [
+  {
+   "id": "agitha",
+   "name": "Agitha"
+  },
+  {
+   "id": "cia",
+   "name": "Cia"
+  },
+  {
+   "id": "darunia",
+   "name": "Darunia"
+  },
+  {
+   "id": "fi",
+   "name": "Fi"
+  },
+  {
+   "id": "ganondorf",
+   "name": "Ganondorf"
+  },
+  {
+   "id": "ghirahim",
+   "name": "Ghirahim"
+  },
+  {
+   "id": "impa",
+   "name": "Impa"
+  },
+  {
+   "id": "king_daphnes",
+   "name": "King Daphnes"
+  },
+  {
+   "id": "lana",
+   "name": "Lana"
+  },
+  {
+   "id": "link",
+   "name": "Link"
+  },
+  {
+   "id": "linkle",
+   "name": "Linkle"
+  },
+  {
+   "id": "marin",
+   "name": "Marin"
+  },
+  {
+   "id": "midna",
+   "name": "Midna"
+  },
+  {
+   "id": "ruto",
+   "name": "Ruto"
+  },
+  {
+   "id": "sheik",
+   "name": "Sheik"
+  },
+  {
+   "id": "skull_kid",
+   "name": "Skull Kid"
+  },
+  {
+   "id": "tetra",
+   "name": "Tetra"
+  },
+  {
+   "id": "tingle",
+   "name": "Tingle"
+  },
+  {
+   "id": "toon_link",
+   "name": "Toon Link"
+  },
+  {
+   "id": "twili_midna",
+   "name": "Twili Midna"
+  },
+  {
+   "id": "volga",
+   "name": "Volga"
+  },
+  {
+   "id": "wizzro",
+   "name": "Wizzro"
+  },
+  {
+   "id": "young_link",
+   "name": "Young Link"
+  },
+  {
+   "id": "zant",
+   "name": "Zant"
+  },
+  {
+   "id": "zelda",
+   "name": "Zelda"
+  }
+ ],
+ "squares": [
+  {
+   "id": "r1c1",
+   "label": "A-1",
+   "altLabel": "A-1",
+   "row": 1,
+   "col": 1,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the dragon of Turtle Rock!",
+   "warriors": [
+    {
+     "warrior": "young_link"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c1.weapon_mask_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "young_link",
+     "weapon": "mask",
+     "level": "4+",
+     "name": "Mask Lv. 4+"
+    },
+    {
+     "id": "r1c1.hc_young_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container",
+     "keep": "Stock Room"
+    },
+    {
+     "id": "r1c1.fairy_clothing_dreamer_top",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Dreamer Top",
+     "keep": "South Square"
+    },
+    {
+     "id": "r1c1.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "Exit Square"
+    }
+   ],
+   "givesCards": [
+    "thunder_drum"
+   ],
+   "searches": [
+    {
+     "id": "r1c1.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 4,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r1c2",
+   "label": "A-2",
+   "altLabel": "B-1",
+   "row": 1,
+   "col": 2,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Fight through the musical quiz!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r1c2.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "quiz": [
+    "Marin",
+    "Medli",
+    "Skull Kid"
+   ],
+   "sealedBy": [
+    "r1c2.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r1c3",
+   "label": "A-3",
+   "altLabel": "C-1",
+   "row": 1,
+   "col": 3,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat 1,000 enemies in time!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "trident"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c3.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r1c4",
+   "label": "A-4",
+   "altLabel": "D-1",
+   "row": 1,
+   "col": 4,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.10",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c4.hc_darunia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "searches": [
+    {
+     "id": "r1c4.search_magic_powder",
+     "card": "magic_powder",
+     "row": 3,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r1c5",
+   "label": "A-5",
+   "altLabel": "E-1",
+   "row": 1,
+   "col": 5,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.3",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c5.outfit_agitha_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "agitha",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r1c5.hc_agitha",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container",
+     "keep": "Faces Keep"
+    }
+   ],
+   "givesCards": [
+    "magic_powder"
+   ],
+   "searches": [
+    {
+     "id": "r1c5.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 2,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r1c6",
+   "label": "A-6",
+   "altLabel": "F-1",
+   "row": 1,
+   "col": 6,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight the chosen ones!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c6.outfit_link_heros_clothes_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Hero's Clothes (Koholint)"
+    },
+    {
+     "id": "r1c6.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "Lower Level East"
+    },
+    {
+     "id": "r1c6.fairy_clothing_egg_dress",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Egg Dress",
+     "keep": "Upper Level East"
+    },
+    {
+     "id": "r1c6.fairy_food_great_fairys_tears",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Great Fairy's Tears",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "givesCards": [
+    "thunder_drum"
+   ],
+   "searches": [
+    {
+     "id": "r1c6.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 5,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r1c7",
+   "label": "A-7",
+   "altLabel": "G-1",
+   "row": 1,
+   "col": 7,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Cleft in twain! A detachment cuts through!",
+   "finalBoss": true,
+   "warriors": [
+    {
+     "warrior": "link"
+    },
+    {
+     "warrior": "marin"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r1c7.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r1c7.search_instrument"
+   ],
+   "note": "The Egg opens once each of the eight Instruments has been used on a Nightmare: tick its search then. The Wind Fish wakes, and every other Nightmare goes for good."
+  },
+  {
+   "id": "r1c8",
+   "label": "A-8",
+   "altLabel": "H-1",
+   "row": 1,
+   "col": 8,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of fire!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c8.outfit_zelda_standard_robes_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Standard Robes (Koholint)"
+    },
+    {
+     "id": "r1c8.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "Lakeside Keep"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c8.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the small room east of Central Hall"
+    },
+    {
+     "id": "r1c8.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health)",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c8.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 3,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r1c9",
+   "label": "A-9",
+   "altLabel": "I-1",
+   "row": 1,
+   "col": 9,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat enemies and traitors alike! Lv.2",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c9.weapon_shackle_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "midna",
+     "weapon": "shackle",
+     "level": "4+",
+     "name": "Shackle Lv. 4+"
+    },
+    {
+     "id": "r1c9.hc_midna",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container",
+     "keep": "Dragon Roost"
+    },
+    {
+     "id": "r1c9.fairy_clothing_koholint_hibiscus",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Koholint Hibiscus",
+     "keep": "Jail Watch Keep"
+    },
+    {
+     "id": "r1c9.fairy_food_hyoi_pear",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyoi Pear",
+     "container": "pot",
+     "keep": "Dragon Roost"
+    }
+   ],
+   "givesCards": [
+    "surf_harp"
+   ],
+   "searches": [
+    {
+     "id": "r1c9.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 7,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r1c10",
+   "label": "A-10",
+   "altLabel": "J-1",
+   "row": 1,
+   "col": 10,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.10",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c10.weapon_bell_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "marin",
+     "weapon": "bell",
+     "level": "4+",
+     "name": "Bell Lv. 4+"
+    }
+   ],
+   "givesCards": [
+    "magic_powder"
+   ],
+   "searches": [
+    {
+     "id": "r1c10.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 3,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r1c11",
+   "label": "A-11",
+   "altLabel": "K-1",
+   "row": 1,
+   "col": 11,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Fight through the women's weapons quiz!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r1c11.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "quiz": [
+    "Zelda",
+    "Linkle",
+    "Marin"
+   ]
+  },
+  {
+   "id": "r1c12",
+   "label": "A-12",
+   "altLabel": "L-1",
+   "row": 1,
+   "col": 12,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.7",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r1c12.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r1c13",
+   "label": "A-13",
+   "altLabel": "M-1",
+   "row": 1,
+   "col": 13,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the bird of the tower!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c13.outfit_linkle_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "linkle",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r1c13.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "Central Square"
+    },
+    {
+     "id": "r1c13.fairy_food_elixir_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Elixir Soup",
+     "container": "pot",
+     "keep": "West Town Keep"
+    }
+   ],
+   "givesCards": [
+    "organ_of_evening_calm"
+   ],
+   "searches": [
+    {
+     "id": "r1c13.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 3,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r1c14",
+   "label": "A-14",
+   "altLabel": "N-1",
+   "row": 1,
+   "col": 14,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "The kings' armies march on!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "gauntlets"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c14.weapon_gauntlets_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "gauntlets",
+     "level": "4+",
+     "name": "Gauntlets Lv. 4+"
+    },
+    {
+     "id": "r1c14.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "Abandoned Fort"
+    },
+    {
+     "id": "r1c14.fairy_clothing_dreamer_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Dreamer Skirt",
+     "keep": "North Field Keep"
+    },
+    {
+     "id": "r1c14.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "West Field Keep"
+    }
+   ],
+   "givesCards": [
+    "coral_triangle"
+   ],
+   "searches": [
+    {
+     "id": "r1c14.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 2,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r2c1",
+   "label": "B-1",
+   "altLabel": "A-2",
+   "row": 2,
+   "col": 1,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.13",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c1.outfit_lana_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "lana",
+     "name": "Standard Outfit (Koholint)"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c1.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 3,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r2c2",
+   "label": "B-2",
+   "altLabel": "B-2",
+   "row": 2,
+   "col": 2,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Rescue the allied forces! Lv.3",
+   "warriors": [
+    {
+     "warrior": "king_daphnes"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c2.weapon_sail_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "king_daphnes",
+     "weapon": "sail",
+     "level": "4+",
+     "name": "Sail Lv. 4+"
+    },
+    {
+     "id": "r2c2.hc_king_daphnes",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container",
+     "keep": "South Mine Keep"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "skulltulas": [
+    {
+     "id": "r2c2.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Along the eastern wall of the large room north of the Enemy Base"
+    },
+    {
+     "id": "r2c2.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c2.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 1,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r2c3",
+   "label": "B-3",
+   "altLabel": "C-2",
+   "row": 2,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Cleft in twain! A detachment cuts through!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c3.weapon_goddess_blade_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "fi",
+     "weapon": "goddess_blade",
+     "level": "4+",
+     "name": "Goddess Blade Lv. 4+"
+    },
+    {
+     "id": "r2c3.hc_fi",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container",
+     "keep": "South Field Keep"
+    },
+    {
+     "id": "r2c3.fairy_clothing_dreamer_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Dreamer Aura",
+     "keep": "Hilltop Keep"
+    },
+    {
+     "id": "r2c3.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "East Field Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c3.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 7,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r2c4",
+   "label": "B-4",
+   "altLabel": "D-2",
+   "row": 2,
+   "col": 4,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of Skyloft! Lv.2",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r2c4.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r2c4.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the northeast corner of the unnamed square room northwest of West Keep"
+    },
+    {
+     "id": "r2c4.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r2c5",
+   "label": "B-5",
+   "altLabel": "E-2",
+   "row": 2,
+   "col": 5,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of time! Lv.2",
+   "warriors": [
+    {
+     "warrior": "zelda",
+     "weapon": "baton"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r2c5.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r2c5.fairy_food_scent_seeds",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Scent Seeds",
+     "container": "pot",
+     "keep": "S. Entrance Keep"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r2c6",
+   "label": "B-6",
+   "altLabel": "F-2",
+   "row": 2,
+   "col": 6,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.13",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r2c6.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r2c6.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r2c7",
+   "label": "B-7",
+   "altLabel": "G-2",
+   "row": 2,
+   "col": 7,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.11",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "great_swords"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r2c7.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r2c8",
+   "label": "B-8",
+   "altLabel": "H-2",
+   "row": 2,
+   "col": 8,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.12",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "searches": [
+    {
+     "id": "r2c8.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r2c8.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r2c9",
+   "label": "B-9",
+   "altLabel": "I-2",
+   "row": 2,
+   "col": 9,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.6",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "searches": [
+    {
+     "id": "r2c9.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r2c9.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r2c10",
+   "label": "B-10",
+   "altLabel": "J-2",
+   "row": 2,
+   "col": 10,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Fight the heroes of the Wind Waker!",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c10.weapon_hammer_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "darunia",
+     "weapon": "hammer",
+     "level": "4+",
+     "name": "Hammer Lv. 4+"
+    },
+    {
+     "id": "r2c10.hc_darunia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container",
+     "keep": "Southeast Tree"
+    },
+    {
+     "id": "r2c10.fairy_clothing_koholint_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Koholint Aura",
+     "keep": "Fairy Fountain"
+    },
+    {
+     "id": "r2c10.fairy_food_odd_mushroom",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Odd Mushroom",
+     "container": "pot",
+     "keep": "West Square"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c10.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 1,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r2c11",
+   "label": "B-11",
+   "altLabel": "K-2",
+   "row": 2,
+   "col": 11,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.3",
+   "warriors": [
+    {
+     "warrior": "toon_link"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r2c11.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r2c11.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r2c12",
+   "label": "B-12",
+   "altLabel": "L-2",
+   "row": 2,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of Twilight! Lv.2",
+   "warriors": [
+    {
+     "warrior": "marin"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c12.weapon_bell_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "marin",
+     "weapon": "bell",
+     "level": "4",
+     "name": "Bell Lv. 4"
+    },
+    {
+     "id": "r2c12.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "King's Hall"
+    },
+    {
+     "id": "r2c12.fairy_food_hot_spring_water",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hot Spring Water",
+     "container": "pot",
+     "keep": "Hall of Mirrors"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c12.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 2,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r2c13",
+   "label": "B-13",
+   "altLabel": "M-2",
+   "row": 2,
+   "col": 13,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.12",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c13.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "searches": [
+    {
+     "id": "r2c13.search_magic_powder",
+     "card": "magic_powder",
+     "row": 4,
+     "col": 15
+    }
+   ]
+  },
+  {
+   "id": "r2c14",
+   "label": "B-14",
+   "altLabel": "N-2",
+   "row": 2,
+   "col": 14,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Join the Rogue Forces to defeat the enemy!",
+   "warriors": [
+    {
+     "warrior": "lana",
+     "weapon": "summoning_gate"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c14.weapon_summoning_gate_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "lana",
+     "weapon": "summoning_gate",
+     "level": "4+",
+     "name": "Summoning Gate Lv. 4+"
+    },
+    {
+     "id": "r2c14.hc_lana",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container",
+     "keep": "East Field Keep"
+    },
+    {
+     "id": "r2c14.fairy_food_pumpkin",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Pumpkin",
+     "container": "pot",
+     "keep": "West Field Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c14.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 4,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r3c1",
+   "label": "C-1",
+   "altLabel": "A-3",
+   "row": 3,
+   "col": 1,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.5",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c1.outfit_toon_link_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "toon_link",
+     "name": "Standard Outfit (Koholint)"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "searches": [
+    {
+     "id": "r3c1.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 3,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r3c2",
+   "label": "C-2",
+   "altLabel": "B-3",
+   "row": 3,
+   "col": 2,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.3",
+   "warriors": [
+    {
+     "warrior": "young_link"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c2.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r3c3",
+   "label": "C-3",
+   "altLabel": "C-3",
+   "row": 3,
+   "col": 3,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "searches": [
+    {
+     "id": "r3c3.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r3c3.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r3c4",
+   "label": "C-4",
+   "altLabel": "D-3",
+   "row": 3,
+   "col": 4,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the beast of Bottle Grotto!",
+   "warriors": [
+    {
+     "warrior": "marin"
+    }
+   ],
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c4.weapon_bell_2",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "marin",
+     "weapon": "bell",
+     "level": "2",
+     "name": "Bell Lv. 2"
+    },
+    {
+     "id": "r3c4.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "Mountain Keep"
+    },
+    {
+     "id": "r3c4.fairy_clothing_bow_wow_headband",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Bow-Wow Headband",
+     "keep": "South Field Keep"
+    },
+    {
+     "id": "r3c4.fairy_food_mystery_seeds",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mystery Seeds",
+     "container": "pot",
+     "keep": "South Field Keep"
+    }
+   ],
+   "givesCards": [
+    "conch_horn"
+   ],
+   "searches": [
+    {
+     "id": "r3c4.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 3,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r3c5",
+   "label": "C-5",
+   "altLabel": "E-3",
+   "row": 3,
+   "col": 5,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.2",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r3c5.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r3c5.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r3c6",
+   "label": "C-6",
+   "altLabel": "F-3",
+   "row": 3,
+   "col": 6,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.7",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c6.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r3c7",
+   "label": "C-7",
+   "altLabel": "G-3",
+   "row": 3,
+   "col": 7,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Rescue the allied forces! Lv.2",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r3c7.outfit_young_link_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "young_link",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r3c7.hc_volga",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container",
+     "keep": "Fairy Fountain"
+    },
+    {
+     "id": "r3c7.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "Central Keep"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "searches": [
+    {
+     "id": "r3c7.search_magic_powder",
+     "card": "magic_powder",
+     "row": 2,
+     "col": 6
+    },
+    {
+     "id": "r3c7.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 7,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r3c8",
+   "label": "C-8",
+   "altLabel": "H-3",
+   "row": 3,
+   "col": 8,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the commanders of two armies! Lv.2",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c8.weapon_parasol_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "agitha",
+     "weapon": "parasol",
+     "level": "4+",
+     "name": "Parasol Lv. 4+"
+    },
+    {
+     "id": "r3c8.hc_agitha",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container",
+     "keep": "South Keep"
+    },
+    {
+     "id": "r3c8.fairy_clothing_princes_cape",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Prince's Cape",
+     "keep": "Hall of Time"
+    },
+    {
+     "id": "r3c8.fairy_food_hyoi_pear",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hyoi Pear",
+     "container": "pot",
+     "keep": "East Cannon Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c8.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 4,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r3c9",
+   "label": "C-9",
+   "altLabel": "I-3",
+   "row": 3,
+   "col": 9,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Use diversionary tactics to defeat the enemy!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c9.outfit_ghirahim_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ghirahim",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r3c9.hc_ghirahim",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container",
+     "keep": "Dragon Roost"
+    },
+    {
+     "id": "r3c9.fairy_food_pumpkin",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Pumpkin",
+     "container": "pot",
+     "keep": "Bomb Shop"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "searches": [
+    {
+     "id": "r3c9.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 7,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r3c10",
+   "label": "C-10",
+   "altLabel": "J-3",
+   "row": 3,
+   "col": 10,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Join the Rogue Forces to defeat the enemy!",
+   "warriors": [
+    {
+     "warrior": "marin"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c10.weapon_bell_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "marin",
+     "weapon": "bell",
+     "level": "3",
+     "name": "Bell Lv. 3"
+    },
+    {
+     "id": "r3c10.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "Town Entrance"
+    },
+    {
+     "id": "r3c10.fairy_clothing_princes_trousers",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Prince's Trousers",
+     "keep": "Sacred Pedestal"
+    },
+    {
+     "id": "r3c10.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "South Square"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "searches": [
+    {
+     "id": "r3c10.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 8,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r3c11",
+   "label": "C-11",
+   "altLabel": "K-3",
+   "row": 3,
+   "col": 11,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the dragon of the cliff!",
+   "aRank": {
+    "kos": 1299,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r3c11.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "surf_harp"
+   ],
+   "skulltulas": [
+    {
+     "id": "r3c11.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just north of the Southwest Square"
+    },
+    {
+     "id": "r3c11.gs2",
+     "condition": "Complete the first mission and capture five or more keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r3c12",
+   "label": "C-12",
+   "altLabel": "L-3",
+   "row": 3,
+   "col": 12,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Get to those troops before the others do! Lv.2",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c12.weapon_zora_scale_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "ruto",
+     "weapon": "zora_scale",
+     "level": "4+",
+     "name": "Zora Scale Lv. 4+"
+    },
+    {
+     "id": "r3c12.hc_ruto",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container",
+     "keep": "S. Entrance Keep"
+    },
+    {
+     "id": "r3c12.fairy_food_elixir_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Elixir Soup",
+     "container": "pot",
+     "keep": "N. Entrance Keep"
+    }
+   ],
+   "givesCards": [
+    "magic_powder"
+   ],
+   "searches": [
+    {
+     "id": "r3c12.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 4,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r3c13",
+   "label": "C-13",
+   "altLabel": "M-3",
+   "row": 3,
+   "col": 13,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the enemy forces!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c13.outfit_cia_masked_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Masked (Koholint)"
+    },
+    {
+     "id": "r3c13.outfit_cia_unmasked_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Unmasked (Koholint)"
+    },
+    {
+     "id": "r3c13.outfit_cia_hatless_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Hatless (Koholint)"
+    },
+    {
+     "id": "r3c13.hc_cia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container",
+     "keep": "West Keep"
+    },
+    {
+     "id": "r3c13.fairy_clothing_dreamer_bandana",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Dreamer Bandana",
+     "keep": "West Ruins"
+    },
+    {
+     "id": "r3c13.fairy_food_greengill",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Greengill",
+     "container": "pot",
+     "keep": "West Ruins"
+    }
+   ],
+   "givesCards": [
+    "organ_of_evening_calm"
+   ],
+   "searches": [
+    {
+     "id": "r3c13.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 6,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r3c14",
+   "label": "C-14",
+   "altLabel": "N-3",
+   "row": 3,
+   "col": 14,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "A ride on the wild rapids!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c14.outfit_ganondorf_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ganondorf",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r3c14.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "W. Rockface Keep"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "skulltulas": [
+    {
+     "id": "r3c14.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just southwest of the outpost in the northwest corner"
+    },
+    {
+     "id": "r3c14.gs2",
+     "condition": "Complete the first mission and defeat 150 enemies with Special Attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c14.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 5,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r4c1",
+   "label": "D-1",
+   "altLabel": "A-4",
+   "row": 4,
+   "col": 1,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Take on the warriors of Majora's Mask! Lv.1",
+   "warriors": [
+    {
+     "warrior": "sheik"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c1.weapon_harp_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "sheik",
+     "weapon": "harp",
+     "level": "4+",
+     "name": "Harp Lv. 4+"
+    },
+    {
+     "id": "r4c1.hc_sheik",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container",
+     "keep": "East Goron Keep"
+    },
+    {
+     "id": "r4c1.fairy_clothing_writers_glasses",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Writer's Glasses",
+     "keep": "West Goron Keep"
+    },
+    {
+     "id": "r4c1.fairy_food_odd_mushroom",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Odd Mushroom",
+     "container": "pot",
+     "keep": "East Goron Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c1.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 7,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r4c2",
+   "label": "D-2",
+   "altLabel": "B-4",
+   "row": 4,
+   "col": 2,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.4",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c2.weapon_boots_2",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "linkle",
+     "weapon": "boots",
+     "level": "2",
+     "name": "Boots Lv. 2"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r4c2.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 2,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r4c3",
+   "label": "D-3",
+   "altLabel": "C-4",
+   "row": 4,
+   "col": 3,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat 500 enemies in time!",
+   "warriors": [
+    {
+     "warrior": "tingle"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c3.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r4c4",
+   "label": "D-4",
+   "altLabel": "D-4",
+   "row": 4,
+   "col": 4,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Fight through the legendary warrior quiz!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c4.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "quiz": [
+    "Linkle",
+    "Marin",
+    "Impa"
+   ]
+  },
+  {
+   "id": "r4c5",
+   "label": "D-5",
+   "altLabel": "E-4",
+   "row": 4,
+   "col": 5,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the lakeside beast!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c5.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c5.fairy_clothing_pretty_ribbon",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Pretty Ribbon",
+     "keep": "Exit Square"
+    },
+    {
+     "id": "r4c5.fairy_food_hot_spring_water",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Hot Spring Water",
+     "container": "pot",
+     "keep": "West Square"
+    }
+   ],
+   "givesCards": [
+    "sea_lily_bell"
+   ]
+  },
+  {
+   "id": "r4c6",
+   "label": "D-6",
+   "altLabel": "F-4",
+   "row": 4,
+   "col": 6,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c6.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r4c7",
+   "label": "D-7",
+   "altLabel": "G-4",
+   "row": 4,
+   "col": 7,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Battle the dancing dead!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r4c7.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r4c7.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r4c8",
+   "label": "D-8",
+   "altLabel": "H-4",
+   "row": 4,
+   "col": 8,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.4",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c8.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r4c9",
+   "label": "D-9",
+   "altLabel": "I-4",
+   "row": 4,
+   "col": 9,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Fight through the vehicle quiz!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c9.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r4c9.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 5,
+     "col": 4
+    }
+   ],
+   "quiz": [
+    "Zant",
+    "Agitha",
+    "Twili Midna"
+   ]
+  },
+  {
+   "id": "r4c10",
+   "label": "D-10",
+   "altLabel": "J-4",
+   "row": 4,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat all enemies!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c10.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r4c11",
+   "label": "D-11",
+   "altLabel": "K-4",
+   "row": 4,
+   "col": 11,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat 600 enemies in time!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c11.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "searches": [
+    {
+     "id": "r4c11.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 4,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r4c12",
+   "label": "D-12",
+   "altLabel": "L-4",
+   "row": 4,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the shadow of the grotto!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c12.weapon_ocarina_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "skull_kid",
+     "weapon": "ocarina",
+     "level": "4+",
+     "name": "Ocarina Lv. 4+"
+    },
+    {
+     "id": "r4c12.hc_skull_kid",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container",
+     "keep": "Faces Keep"
+    }
+   ],
+   "givesCards": [
+    "coral_triangle"
+   ],
+   "searches": [
+    {
+     "id": "r4c12.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 3,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r4c13",
+   "label": "D-13",
+   "altLabel": "M-4",
+   "row": 4,
+   "col": 13,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.9",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r4c13.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r4c14",
+   "label": "D-14",
+   "altLabel": "N-4",
+   "row": 4,
+   "col": 14,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of water!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r4c14.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r4c14.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r5c1",
+   "label": "E-1",
+   "altLabel": "A-5",
+   "row": 5,
+   "col": 1,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of time! Lv.1",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c1.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c1.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the round area east of S. Desert Keep"
+    },
+    {
+     "id": "r5c1.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r5c2",
+   "label": "E-2",
+   "altLabel": "B-5",
+   "row": 5,
+   "col": 2,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r5c2.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ]
+  },
+  {
+   "id": "r5c3",
+   "label": "E-3",
+   "altLabel": "C-5",
+   "row": 5,
+   "col": 3,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.1",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c3.unlock_marin",
+     "slot": "clear",
+     "type": "warrior",
+     "warrior": "marin",
+     "name": "Marin"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r5c4",
+   "label": "E-4",
+   "altLabel": "D-5",
+   "row": 5,
+   "col": 4,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c4.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r5c5",
+   "label": "E-5",
+   "altLabel": "E-5",
+   "row": 5,
+   "col": 5,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the commanders of two armies! Lv.1",
+   "warriors": [
+    {
+     "warrior": "tetra"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r5c5.weapon_cutlass_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "tetra",
+     "weapon": "cutlass",
+     "level": "4+",
+     "name": "Cutlass Lv. 4+"
+    },
+    {
+     "id": "r5c5.hc_tetra",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container",
+     "keep": "Mine Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c5.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "On the outer wall to the east of the southern exit of Central Hall (by the cage)"
+    },
+    {
+     "id": "r5c5.gs2",
+     "condition": "Complete the first mission and defeat 150 enemies with Special Attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c5.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 1,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r5c6",
+   "label": "E-6",
+   "altLabel": "F-5",
+   "row": 5,
+   "col": 6,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.3",
+   "warriors": [
+    {
+     "warrior": "twili_midna"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c6.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "searches": [
+    {
+     "id": "r5c6.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 3,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r5c7",
+   "label": "E-7",
+   "altLabel": "G-5",
+   "row": 5,
+   "col": 7,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.8",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c7.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r5c8",
+   "label": "E-8",
+   "altLabel": "H-5",
+   "row": 5,
+   "col": 8,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.5",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c8.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "searches": [
+    {
+     "id": "r5c8.search_magic_powder",
+     "card": "magic_powder",
+     "row": 9,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r5c9",
+   "label": "E-9",
+   "altLabel": "I-5",
+   "row": 5,
+   "col": 9,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of skyloft! Lv.1",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c9.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "magic_powder"
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c9.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "North of the Rogue Base near the owl statue"
+    },
+    {
+     "id": "r5c9.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r5c10",
+   "label": "E-10",
+   "altLabel": "J-5",
+   "row": 5,
+   "col": 10,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.9",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c10.hc_fi",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ]
+  },
+  {
+   "id": "r5c11",
+   "label": "E-11",
+   "altLabel": "K-5",
+   "row": 5,
+   "col": 11,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the warrriors of Twilight! Lv.1",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r5c11.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r5c11.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r5c12",
+   "label": "E-12",
+   "altLabel": "L-5",
+   "row": 5,
+   "col": 12,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat enemies and traitors alike! Lv.1",
+   "warriors": [
+    {
+     "warrior": "linkle",
+     "weapon": "boots"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c12.weapon_boots_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "linkle",
+     "weapon": "boots",
+     "level": "4",
+     "name": "Boots Lv. 4"
+    },
+    {
+     "id": "r5c12.hc_linkle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container",
+     "keep": "Southeast Square"
+    },
+    {
+     "id": "r5c12.fairy_clothing_artists_beret",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Artist's Beret",
+     "keep": "North Palace"
+    },
+    {
+     "id": "r5c12.fairy_food_scent_seeds",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Scent Seeds",
+     "container": "pot",
+     "keep": "North Palace"
+    }
+   ],
+   "givesCards": [
+    "sea_lily_bell"
+   ],
+   "searches": [
+    {
+     "id": "r5c12.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 5,
+     "col": 0
+    }
+   ]
+  },
+  {
+   "id": "r5c13",
+   "label": "E-13",
+   "altLabel": "M-5",
+   "row": 5,
+   "col": 13,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.3",
+   "aRank": {
+    "minutes": 7,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c13.hc_marin",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r5c14",
+   "label": "E-14",
+   "altLabel": "N-5",
+   "row": 5,
+   "col": 14,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Take on the warriors of Majora's Mask! Lv.2",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r5c14.outfit_sheik_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "sheik",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r5c14.hc_sheik",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container",
+     "keep": "Lakeside Keep"
+    },
+    {
+     "id": "r5c14.fairy_clothing_musical_aura",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Decoration - Musical Aura",
+     "keep": "Mine Keep"
+    },
+    {
+     "id": "r5c14.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "East Room"
+    }
+   ],
+   "givesCards": [
+    "wind_marimba"
+   ],
+   "searches": [
+    {
+     "id": "r5c14.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 8,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r6c1",
+   "label": "F-1",
+   "altLabel": "A-6",
+   "row": 6,
+   "col": 1,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.2",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c1.outfit_zant_standard_outift_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zant",
+     "name": "Standard Outift (Koholint)"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r6c1.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 3,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r6c2",
+   "label": "F-2",
+   "altLabel": "B-6",
+   "row": 6,
+   "col": 2,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.1",
+   "aRank": {
+    "minutes": 7,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c2.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r6c3",
+   "label": "F-3",
+   "altLabel": "C-6",
+   "row": 6,
+   "col": 3,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the dragon of the hill!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c3.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "full_moon_cello"
+   ],
+   "skulltulas": [
+    {
+     "id": "r6c3.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "On the cliff found west of the Fairy Fountain, accessible via Hookshot"
+    },
+    {
+     "id": "r6c3.gs2",
+     "condition": "Complete the first mission and capture five or more enemy keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r6c4",
+   "label": "F-4",
+   "altLabel": "D-6",
+   "row": 6,
+   "col": 4,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Team up and defeat the enemy forces! Lv.1",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "searches": [
+    {
+     "id": "r6c4.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r6c4.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r6c5",
+   "label": "F-5",
+   "altLabel": "E-6",
+   "row": 6,
+   "col": 5,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Capture the enemy keeps!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c5.outfit_wizzro_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "wizzro",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r6c5.hc_wizzro",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container",
+     "keep": "Dragon Roost"
+    },
+    {
+     "id": "r6c5.fairy_clothing_toronbo_sun_hat",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Toronbo Sun Hat",
+     "keep": "Jail Watch Keep"
+    },
+    {
+     "id": "r6c5.fairy_food_great_fairys_tears",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Great Fairy's Tears",
+     "container": "pot",
+     "keep": "Star Island Keep"
+    }
+   ],
+   "givesCards": [
+    "full_moon_cello"
+   ],
+   "searches": [
+    {
+     "id": "r6c5.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 3,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r6c6",
+   "label": "F-6",
+   "altLabel": "F-6",
+   "row": 6,
+   "col": 6,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.6",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "searches": [
+    {
+     "id": "r6c6.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r6c6.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r6c7",
+   "label": "F-7",
+   "altLabel": "G-6",
+   "row": 6,
+   "col": 7,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Rescue the allied forces! Lv.1",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r6c7.weapon_boots_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "linkle",
+     "weapon": "boots",
+     "level": "3",
+     "name": "Boots Lv. 3"
+    },
+    {
+     "id": "r6c7.hc_linkle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container",
+     "keep": "W. Boulder Keep"
+    },
+    {
+     "id": "r6c7.my_fairy_light",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Light",
+     "container": "pot",
+     "keep": "East Goron Keep"
+    },
+    {
+     "id": "r6c7.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "East Keep"
+    }
+   ],
+   "givesCards": [
+    "conch_horn"
+   ],
+   "searches": [
+    {
+     "id": "r6c7.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 7,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r6c8",
+   "label": "F-8",
+   "altLabel": "H-6",
+   "row": 6,
+   "col": 8,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the commanders of two armies! Lv.3",
+   "warriors": [
+    {
+     "warrior": "linkle",
+     "weapon": "boots"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c8.weapon_boots_4",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "linkle",
+     "weapon": "boots",
+     "level": "4+",
+     "name": "Boots Lv. 4+"
+    },
+    {
+     "id": "r6c8.fairy_food_mystery_seeds",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mystery Seeds",
+     "container": "pot",
+     "keep": "South Garden"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c8.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 2,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r6c9",
+   "label": "F-9",
+   "altLabel": "I-6",
+   "row": 6,
+   "col": 9,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Final battle! Defeat the cavern beast!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c9.outfit_tetra_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "tetra",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r6c9.hc_tetra",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container",
+     "keep": "East Temple Hall"
+    },
+    {
+     "id": "r6c9.fairy_clothing_koholint_dress",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Koholint Dress",
+     "keep": "Southwest Keep"
+    },
+    {
+     "id": "r6c9.fairy_food_greengill",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Greengill",
+     "container": "pot",
+     "keep": "West Keep"
+    }
+   ],
+   "givesCards": [
+    "wind_marimba"
+   ],
+   "searches": [
+    {
+     "id": "r6c9.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 7,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r6c10",
+   "label": "F-10",
+   "altLabel": "J-6",
+   "row": 6,
+   "col": 10,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.3",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c10.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ]
+  },
+  {
+   "id": "r6c11",
+   "label": "F-11",
+   "altLabel": "K-6",
+   "row": 6,
+   "col": 11,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Stop the enemy merger! Lv.8",
+   "warriors": [
+    {
+     "warrior": "zelda",
+     "weapon": "baton"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r6c11.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r6c12",
+   "label": "F-12",
+   "altLabel": "L-6",
+   "row": 6,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of Twilight! Lv.2",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c12.outfit_skull_kid_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "skull_kid",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r6c12.hc_marin",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "marin",
+     "name": "Heart Container",
+     "keep": "East Field Keep"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet_3"
+   ],
+   "searches": [
+    {
+     "id": "r6c12.search_grandpa_ulrira",
+     "card": "grandpa_ulrira",
+     "row": 8,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r6c13",
+   "label": "F-13",
+   "altLabel": "M-6",
+   "row": 6,
+   "col": 13,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat the shuffling forces! Lv.11",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "searches": [
+    {
+     "id": "r6c13.search_instrument",
+     "card": "instrument",
+     "wholeSquare": true
+    }
+   ],
+   "sealedBy": [
+    "r6c13.search_instrument",
+    "r1c7.search_instrument"
+   ]
+  },
+  {
+   "id": "r6c14",
+   "label": "F-14",
+   "altLabel": "N-6",
+   "row": 6,
+   "col": 14,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Get to those troops before the others do! Lv.1",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r6c14.outfit_tingle_standard_outfit_koholint",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "tingle",
+     "name": "Standard Outfit (Koholint)"
+    },
+    {
+     "id": "r6c14.hc_tingle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container",
+     "keep": "Southwest Keep"
+    }
+   ],
+   "givesCards": [
+    "grandpa_ulrira"
+   ],
+   "skulltulas": [
+    {
+     "id": "r6c14.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the hallway north of East Keep"
+    },
+    {
+     "id": "r6c14.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c14.search_power_bracelet_3",
+     "card": "power_bracelet_3",
+     "row": 5,
+     "col": 11
+    }
+   ]
+  }
+ ]
+}

@@ -44,19 +44,24 @@ object AdventureReach {
     }
 
     /**
-     * The squares a save file can challenge now:
-     * - the start;
+     * The squares a save file has reached:
+     * - the start (or starts);
      * - every square already cleared;
-     * - and each neighbour of a cleared square across an edge that isn't a wall.
+     * - each neighbour of a cleared square across an edge that isn't a wall;
+     * - the squares a done search opens elsewhere (Lorule's Fissures);
+     * - and a gate's square once the squares it waits on are all cleared.
      *
      * A map with no start (the Rewards Map, whose squares open as Gold Skulltula illustrations are
-     * completed) has every square open.
+     * completed) has every square open. A reached square can be searched; it can be challenged
+     * unless it's [sealed].
      */
-    fun challengeable(map: AdventureMap, progress: AdventureProgress): Set<String> {
-        if (map.start == null) return map.squares.mapTo(mutableSetOf()) { it.id }
+    fun reached(map: AdventureMap, progress: AdventureProgress): Set<String> {
+        if (map.starts.isEmpty()) return map.squares.mapTo(mutableSetOf()) { it.id }
         return buildSet {
-            add(map.start)
+            addAll(map.starts)
             for (square in map.squares) {
+                // A search that opens somewhere else (a Fissure to the other world) opens it once done.
+                square.searches.filter { progress.isDone(it.id) }.forEach { addAll(it.opens) }
                 if (!progress.isCleared(square)) continue
                 add(square.id)
                 for (side in Side.entries) {
@@ -64,9 +69,27 @@ object AdventureReach {
                     if (style != EdgeStyle.WALL) add(map.neighbour(square, side)!!.id)
                 }
             }
+            for (gate in map.gates) {
+                if (gate.afterCleared.all { id -> map.square(id)?.let(progress::isCleared) == true }) add(gate.square)
+            }
         }
     }
 
+    /** The squares a save file can challenge now: those it has [reached] that aren't [sealed]. */
+    fun challengeable(map: AdventureMap, progress: AdventureProgress): Set<String> =
+        reached(map, progress).filterTo(mutableSetOf()) { id -> map.square(id)?.let { !sealed(progress, it) } == true }
+
+    /**
+     * True while [square] waits on one of its [Square.sealedBy] searches (a Koholint Nightmare)
+     * before it can be played. A cleared square is never sealed.
+     */
+    fun sealed(progress: AdventureProgress, square: Square): Boolean =
+        square.sealedBy.isNotEmpty() && !progress.isCleared(square) && square.sealedBy.none(progress::isDone)
+
+    /** The search on [square] itself that lifts its seal. */
+    fun unsealing(square: Square): Search? = square.searches.firstOrNull { it.id in square.sealedBy }
+
+    /** A path search done on [square] that opens its walls; one that opens somewhere else (a Fissure) doesn't. */
     private fun pathDone(map: AdventureMap, progress: AdventureProgress, square: Square): Boolean =
-        square.searches.any { s -> progress.isDone(s.id) && map.card(s.card)?.effects?.contains(CardEffect.PATH) == true }
+        square.searches.any { s -> progress.isDone(s.id) && s.opens.isEmpty() && map.card(s.card)?.effects?.contains(CardEffect.PATH) == true }
 }

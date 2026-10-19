@@ -89,6 +89,18 @@ class AdventureModelTest {
         assertFalse(AdventureInventory(map, done).canDo(square("r1c2").searches.single()), "a done search isn't open")
     }
 
+    /** A group card (any Instrument of the Sirens) is in hand once any of its cards is. */
+    @Test
+    fun aGroupCardIsHeldWhenAnyOfItsCardsIs() {
+        val grouped = map.copy(cards = map.cards + ItemCard("any", "Any of them", anyOf = listOf("bomb", "hookshot")))
+        assertEquals(emptyList(), grouped.problems().filter { "any" in it })
+        assertFalse(AdventureInventory(grouped, AdventureProgress()).has("any"))
+        assertTrue(AdventureInventory(grouped, AdventureProgress().withStatus(square("r2c1"), SquareStatus.CLEARED)).has("any"), "the Hookshot")
+        assertTrue(map.copy(cards = map.cards + ItemCard("bad", "Bad", anyOf = listOf("raft"))).problems().any { "'raft' isn't a card" in it })
+        assertTrue(map.copy(otherStarts = listOf("r2c3")).problems().any { "start 'r2c3'" in it })
+        assertTrue(map.copy(gates = listOf(MapGate("r1c3", listOf("r9c9")))).problems().any { "gate: 'r9c9'" in it })
+    }
+
     @Test
     fun totalsCountEveryKind() {
         val p = AdventureProgress()

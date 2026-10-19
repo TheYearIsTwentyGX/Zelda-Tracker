@@ -26,13 +26,17 @@ class AdventureSpoilers(
     /** True when [square]'s undone searches, quiz answers and Skulltula locations are kept back. */
     fun secretsHidden(square: Square): Boolean = on && (isHidden(square) || square.id !in compassed)
 
-    /** The searches [square]'s sheet lists: all, or with secrets hidden only those already done. */
+    /**
+     * The searches [square]'s sheet lists: all, or with secrets hidden only those already done and,
+     * on a reached square, the one that lifts its seal (a Nightmare is plain to see on the map).
+     */
     fun visibleSearches(square: Square): List<Search> =
-        if (secretsHidden(square)) square.searches.filter { progress.isDone(it.id) } else square.searches
+        if (!secretsHidden(square)) square.searches
+        else square.searches.filter { progress.isDone(it.id) || (!isHidden(square) && it.id in square.sealedBy) }
 
     companion object {
-        /** The squares a save file has reached: those it can challenge now ([AdventureReach.challengeable]). */
-        fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = AdventureReach.challengeable(map, progress)
+        /** The squares a save file has reached ([AdventureReach.reached]), sealed ones included. */
+        fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = AdventureReach.reached(map, progress)
     }
 }
 
@@ -60,7 +64,7 @@ data class SquareLook(
             spoilers: AdventureSpoilers,
             matches: Boolean,
             selected: Boolean,
-            challengeable: Boolean = square.id in spoilers.explored,
+            challengeable: Boolean = square.id in spoilers.explored && !AdventureReach.sealed(progress, square),
         ): SquareLook {
             val hidden = spoilers.isHidden(square)
             fun left(type: RewardType) = square.rewards.count { it.type == type && !progress.isDone(it.id) }
@@ -69,7 +73,7 @@ data class SquareLook(
                 SquareMarker(MarkerKind.HEART_PIECE, left(RewardType.HEART_PIECE)),
                 SquareMarker(MarkerKind.SKULLTULA, square.skulltulas.count { !progress.isDone(it.id) }),
                 // Undone searches are a secret in spoiler-safe mode until the Compass shows them.
-                SquareMarker(MarkerKind.SEARCH, if (spoilers.secretsHidden(square)) 0 else square.searches.count { !progress.isDone(it.id) }),
+                SquareMarker(MarkerKind.SEARCH, spoilers.visibleSearches(square).count { !progress.isDone(it.id) }),
             ).filter { it.count > 0 }
             return SquareLook(
                 status = progress.status(square),
@@ -78,7 +82,7 @@ data class SquareLook(
                 dimmed = !matches,
                 challengeable = challengeable,
                 selected = selected,
-                start = square.id == map.start,
+                start = square.id in map.starts,
                 finalBoss = square.finalBoss && !hidden,
                 markers = markers,
             )
