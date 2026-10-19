@@ -65,11 +65,10 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "albw", "botw", "totk", "eow"), gamesWithTrackers)
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "albw", "tfh", "botw", "totk", "eow"), gamesWithTrackers)
         Games.all.forEach { assertEquals(it.trackers.isEmpty(), it.comingSoon, it.id) }
         assertTrue(comingSoonGame.comingSoon)
         assertFalse(comingSoonGame.shownByDefault)
-        assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
     }
 
     /** Two files on the DS (Nintendo's manual), the placeholder's ids; every tracker after the overview is a checklist. */
@@ -127,6 +126,17 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.ALBW.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.ALBW.trackers.first().kind)
         assertTrue(Games.ALBW.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /**
+     * One save file (Zelda Wiki, Saving: the only mainline game without a choice of files). It keeps
+     * the placeholder's first id, so nothing stored under `file_1` moves.
+     */
+    @Test
+    fun triForceHeroesHasOneSaveFileAndAnOverviewFirst() {
+        assertEquals(listOf("file_1"), Games.TFH.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.TFH.trackers.first().kind)
+        assertTrue(Games.TFH.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     /** Two files per Switch user (Zelda Wiki, Saving; Game8); autosaves live inside each file. */

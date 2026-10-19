@@ -13,8 +13,8 @@ iOS port is mostly a matter of adding the iOS targets.
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
   Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Wind Waker, Four Swords Adventures, The
   Minish Cap, Twilight Princess, Phantom Hourglass, Spirit Tracks, Skyward Sword, A Link Between
-  Worlds, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have trackers. The rest show
-  as *Coming soon* until they get some.
+  Worlds, Tri Force Heroes, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have
+  trackers, so every game does. A game without any would show as *Coming soon*.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -766,6 +766,21 @@ Every ALBW tracker is a [checklist](docs/checklist-trackers.md). Sources and dis
 - Regions are Hyrule and Lorule, with the exact place in each row.
 - Three save files, **File 1–3**.
 
+**Tri Force Heroes**
+
+Every TFH tracker is a [checklist](docs/checklist-trackers.md), for the game as last patched (Ver.
+2.1.0, with the free Ver. 2.0.0 content). Sources and disagreements are in `docs/tfh.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Adventure:** the 32 Drablands levels by area, with each level's items, boss and materials; the
+  96 Drablands Challenges, which open an area at a time when its fourth level is cleared; and King
+  Tuft's 9 rewards for finishing an area's challenges and the whole list. The game's Completion
+  List (of 128) and areas cleared (of 8) are totalled.
+- **Outfits:** all 38, with each one's effect, Madame Couture's materials and price, and when it
+  unlocks.
+- **Den of Trials:** its eight zones of five floors, in order, down to the Fierce Deity Armor.
+- The Coliseum (PvP, nothing one-off to win) isn't tracked.
+- One save file, **Save File**: the game keeps only one.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -848,6 +863,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/st/*.json   ← Spirit Tracks checklists (docs/st.md)
   src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists (docs/ss.md)
   src/commonMain/composeResources/files/albw/*.json        ← A Link Between Worlds checklists (docs/albw.md)
+  src/commonMain/composeResources/files/tfh/*.json  ← Tri Force Heroes checklists (docs/tfh.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -1239,6 +1255,11 @@ tracker, the HD differences and every disagreement.
 A Link Between Worlds data (`files/albw/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback
 Machine snapshots), IGN and Zelda Universe. Every count was checked against at least three of
 them. `docs/albw.md` covers each tracker, the save files and every disagreement.
+
+Tri Force Heroes data (`files/tfh/`) comes from Zelda Wiki, Prima's official eGuide, IGN and Zelda
+Dungeon (via Wayback Machine snapshots). Every level's challenges and rewards were compared between
+Zelda Wiki and Prima. `docs/tfh.md` covers each tracker, the single save file and every
+disagreement.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
