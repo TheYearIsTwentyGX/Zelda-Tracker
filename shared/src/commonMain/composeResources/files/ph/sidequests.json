@@ -1,0 +1,316 @@
+{
+  "regions": [
+    "Southwestern Sea",
+    "Northwestern Sea",
+    "Southeastern Sea",
+    "Northeastern Sea"
+  ],
+  "noun": "sidequest",
+  "hiddenLabel": "Unfinished sidequest",
+  "sections": [
+    {
+      "id": "fishing",
+      "title": "Fishing",
+      "noun": "catch",
+      "plural": "catches",
+      "note": "The Fishing Rod and the six fish in the Fishing Journal.",
+      "items": [
+        {
+          "id": "fishing_rod_joanne",
+          "name": "The 'mermaid'",
+          "region": "Northwestern Sea",
+          "area": "Bannan Island",
+          "howTo": "Clear the monsters around Bannan Island, hit the 'mermaid' (Joanne) with the Boomerang when she surfaces, then see the Old Wayfarer once she's moved in.",
+          "reward": "Fishing Rod"
+        },
+        {
+          "id": "fish_skippyjack",
+          "name": "Skippyjack",
+          "region": "Northwestern Sea",
+          "area": "At sea",
+          "howTo": "Fish at any fish shadow on the Sea Chart; the smallest and most common catch.",
+          "requires": [
+            "fishing_rod_joanne"
+          ],
+          "tags": [
+            "Fish"
+          ]
+        },
+        {
+          "id": "fish_toona",
+          "name": "Toona",
+          "region": "Northwestern Sea",
+          "area": "At sea",
+          "howTo": "Fish at any fish shadow; common, a little larger than a Skippyjack.",
+          "requires": [
+            "fishing_rod_joanne"
+          ],
+          "tags": [
+            "Fish"
+          ]
+        },
+        {
+          "id": "fish_loovar",
+          "name": "Loovar",
+          "region": "Northwestern Sea",
+          "area": "At sea",
+          "howTo": "Fish at any fish shadow; rarer and larger.",
+          "requires": [
+            "fishing_rod_joanne"
+          ],
+          "tags": [
+            "Fish"
+          ]
+        },
+        {
+          "id": "fishing_big_catch_lure",
+          "name": "Big Catch Lure",
+          "region": "Northwestern Sea",
+          "area": "Bannan Island",
+          "howTo": "Show the Old Wayfarer a Loovar.",
+          "requires": [
+            "fish_loovar"
+          ],
+          "reward": "Big Catch Lure",
+          "notes": "StrategyWiki says he wants one of each of the first three fish."
+        },
+        {
+          "id": "fish_rusty_swordfish",
+          "name": "Rusty Swordfish",
+          "region": "Northwestern Sea",
+          "area": "At sea",
+          "howTo": "With the Big Catch Lure, fish at a swordfish-shaped shadow, then show it to the Old Wayfarer.",
+          "requires": [
+            "fishing_big_catch_lure"
+          ],
+          "reward": "A Ship Part, and he tells you about the Neptoona",
+          "tags": [
+            "Fish"
+          ]
+        },
+        {
+          "id": "fish_neptoona",
+          "name": "Neptoona",
+          "region": "Northwestern Sea",
+          "area": "At sea",
+          "howTo": "After the Rusty Swordfish, fish at the black swordfish shadows until one is the Neptoona, and show it to the Old Wayfarer.",
+          "requires": [
+            "fish_rusty_swordfish"
+          ],
+          "reward": "Heart Container",
+          "notes": "It can only be caught once.",
+          "tags": [
+            "Fish"
+          ]
+        },
+        {
+          "id": "fish_stowfish",
+          "name": "Stowfish",
+          "region": "Northwestern Sea",
+          "area": "At sea",
+          "howTo": "Sometimes attached to a larger fish you reel in; show it to the Old Wayfarer.",
+          "requires": [
+            "fishing_rod_joanne"
+          ],
+          "reward": "A Ship Part",
+          "tags": [
+            "Fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading",
+      "title": "Trading Quest",
+      "noun": "trade",
+      "note": "Five trades between the Traveler's Ships, for the Great Spin Attack.",
+      "items": [
+        {
+          "id": "trade_heros_new_clothes",
+          "name": "Hero's New Clothes",
+          "region": "Northeastern Sea",
+          "area": "Man of Smiles's ship",
+          "howTo": "Clear the enemies on the Man of Smiles's Traveler's Ship in the Northeastern Sea; he gives them with Treasure Map #26.",
+          "after": "After the Northeastern Sea Chart"
+        },
+        {
+          "id": "trade_kaleidoscope",
+          "name": "Kaleidoscope",
+          "region": "Northwestern Sea",
+          "area": "Prince of Red Lions",
+          "howTo": "Give the Hero's New Clothes to Nyeve on the Prince of Red Lions.",
+          "requires": [
+            "trade_heros_new_clothes"
+          ]
+        },
+        {
+          "id": "trade_guard_notebook",
+          "name": "Guard Notebook",
+          "area": "Ho Ho Tribe's ship",
+          "howTo": "Give the Kaleidoscope to the Ho Ho without a telescope (Hoiger Howgendoogen) on the Ho Ho Tribe's Traveler's Ship.",
+          "requires": [
+            "trade_kaleidoscope"
+          ]
+        },
+        {
+          "id": "trade_wood_heart",
+          "name": "Wood Heart",
+          "region": "Southwestern Sea",
+          "area": "Nyave's ship",
+          "howTo": "Give the Guard Notebook to Nyave on his Traveler's Ship in the Southwestern Sea.",
+          "requires": [
+            "trade_guard_notebook"
+          ]
+        },
+        {
+          "id": "trade_swordsmans_scroll",
+          "name": "Swordsman's Scroll",
+          "region": "Northwestern Sea",
+          "area": "S.S. Wayfarer",
+          "howTo": "Give the Wood Heart to the Old Wayfarer, adrift on his ship the S.S. Wayfarer while the mermaid eats his supplies.",
+          "requires": [
+            "trade_wood_heart"
+          ],
+          "reward": "Great Spin Attack",
+          "notes": "Zelda Wiki says the S.S. Wayfarer appears only once, for this trade."
+        }
+      ]
+    },
+    {
+      "id": "minigames",
+      "title": "Mini-games",
+      "noun": "mini-game",
+      "note": "The best prize of each, as tiers where there's more than one.",
+      "items": [
+        {
+          "id": "cannon_game",
+          "name": "Cannon Game",
+          "region": "Northwestern Sea",
+          "area": "Bannan Island",
+          "tiers": [
+            {
+              "name": "Play",
+              "howTo": "Bomb open the cave by the bridge and play Salvatore's Cannon Game (20 Rupees).",
+              "reward": "A Wisdom Gem by letter the next day"
+            },
+            {
+              "name": "2,500 points",
+              "howTo": "Score 2,500 or more.",
+              "reward": "Bomb Bag (30)"
+            }
+          ]
+        },
+        {
+          "id": "shooting_range",
+          "name": "Shooting Range",
+          "region": "Southwestern Sea",
+          "area": "Molida Island",
+          "tiers": [
+            {
+              "name": "1,700 points",
+              "howTo": "Score 1,700–1,999 at Romanos's Shooting Range (20 Rupees), open after the Temple of Courage.",
+              "reward": "Quiver (30)"
+            },
+            {
+              "name": "2,000 points",
+              "howTo": "Score 2,000 or more.",
+              "reward": "Heart Container"
+            }
+          ]
+        },
+        {
+          "id": "nyeve_challenge",
+          "name": "Nyeve's challenge",
+          "region": "Northwestern Sea",
+          "area": "Prince of Red Lions",
+          "howTo": "Hit Nyeve 100 times before he hits you three times.",
+          "reward": "Heart Container"
+        },
+        {
+          "id": "treasure_maze",
+          "name": "Treasure Maze",
+          "region": "Northeastern Sea",
+          "area": "Maze Island",
+          "tiers": [
+            {
+              "name": "Beginner",
+              "howTo": "Strike 4 Boing Statues in 90 seconds and open the chest (20 Rupees).",
+              "reward": "Wisdom Gem"
+            },
+            {
+              "name": "Normal",
+              "howTo": "Strike 8 in 100 seconds; they vanish from the map after 20 seconds (50 Rupees).",
+              "reward": "Treasure Map #27"
+            },
+            {
+              "name": "Expert",
+              "howTo": "Strike 14 in 120 seconds; one needs the Grappling Hook (100 Rupees).",
+              "reward": "Heart Container, then a Big Gold Rupee"
+            }
+          ]
+        },
+        {
+          "id": "goron_game",
+          "name": "Goron Game",
+          "region": "Southeastern Sea",
+          "area": "Dee Ess Island",
+          "howTo": "After the Temple of Ice and Gongoron's letter, steer Gongoron through the island's crystals (50 Rupees) and beat the 35-second record.",
+          "reward": "Bombchu Bag"
+        },
+        {
+          "id": "digging_game",
+          "name": "Digging Game",
+          "region": "Southeastern Sea",
+          "area": "Harrow Island",
+          "howTo": "Pay 50 Rupees and dig for up to ten buried prizes, avoiding Rupoors. Keep playing until all four Treasure Maps have turned up.",
+          "after": "After the Temple of Ice",
+          "reward": "Treasure Maps #18, #19, #24 and #25"
+        }
+      ]
+    },
+    {
+      "id": "beedle",
+      "title": "Beedle & Mail",
+      "noun": "card",
+      "note": "Beedle's membership cards and the Prize Postcard on the Collection Screen.",
+      "items": [
+        {
+          "id": "beedle_freebie_card",
+          "name": "Freebie Card",
+          "area": "Beedle's Shop Ship",
+          "howTo": "Reach 20 points (Silver) at Beedle's Shop Ship; he mails it.",
+          "reward": "One free item"
+        },
+        {
+          "id": "beedle_compliment_card",
+          "name": "Compliment Card",
+          "area": "Beedle's Shop Ship",
+          "howTo": "Reach 50 points (Gold) at Beedle's Shop Ship; he mails it.",
+          "requires": [
+            "beedle_freebie_card"
+          ]
+        },
+        {
+          "id": "beedle_complimentary_card",
+          "name": "Complimentary Card",
+          "area": "Beedle's Shop Ship",
+          "howTo": "Reach 100 points (Platinum) at Beedle's Shop Ship; he mails it.",
+          "requires": [
+            "beedle_compliment_card"
+          ],
+          "notes": "Points: 1 per 100 Rupees spent, 5 on a Point Day. The two cards' names are swapped on the Collection Screen (Zelda Wiki)."
+        },
+        {
+          "id": "prize_postcard",
+          "name": "Prize Postcard",
+          "region": "Northeastern Sea",
+          "area": "Man of Smiles's ship",
+          "howTo": "Clear the Man of Smiles's ship a second time; mail the card for a prize draw.",
+          "requires": [
+            "trade_heros_new_clothes"
+          ]
+        }
+      ]
+    }
+  ]
+}

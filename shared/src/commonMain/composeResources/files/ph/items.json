@@ -1,0 +1,303 @@
+{
+  "noun": "item",
+  "hiddenLabel": "Unfound item",
+  "summaries": [
+    {
+      "label": "Bombs",
+      "formula": "bombs.value"
+    },
+    {
+      "label": "Arrows",
+      "formula": "bow.value"
+    },
+    {
+      "label": "Bombchus",
+      "formula": "bombchus.value"
+    },
+    {
+      "label": "Phantom Hourglass minutes",
+      "formula": "10 + hourglass.value"
+    }
+  ],
+  "sections": [
+    {
+      "id": "equipment",
+      "title": "Items",
+      "note": "Upgrades are tiers: the Phantom Sword, and the Bomb Bag, Quiver and Bombchu Bag by capacity.",
+      "items": [
+        {
+          "id": "sword",
+          "name": "Sword",
+          "area": "Mercay Island",
+          "notes": "The Spirit of Power's upgrades raise its damage and the Spirit of Courage's give it beams.",
+          "tiers": [
+            {
+              "name": "Oshus's Sword",
+              "howTo": "In Oshus's storehouse on Mercay Island (the password is the number of palm trees on the beach)."
+            },
+            {
+              "name": "Phantom Sword",
+              "howTo": "Zauz forges it from the three Pure Metals and Oshus completes it with the Phantom Hourglass.",
+              "reward": "Defeats Phantoms"
+            }
+          ]
+        },
+        {
+          "id": "wooden_shield",
+          "name": "Wooden Shield",
+          "area": "Mercay Island",
+          "howTo": "Buy it for 80 Rupees at the Mercay Island Shop (also at the Molida and Goron Island shops).",
+          "notes": "A Like Like can eat it; buy another. The Spirit of Wisdom's upgrades strengthen it."
+        },
+        {
+          "id": "boomerang",
+          "name": "Boomerang",
+          "area": "Temple of Fire",
+          "howTo": "The dungeon item of the Temple of Fire, in its big chest on 2F."
+        },
+        {
+          "id": "bombs",
+          "name": "Bombs",
+          "area": "Temple of Wind",
+          "notes": "The Bomb Bag isn't shown on the Collection Screen until the first upgrade.",
+          "tiers": [
+            {
+              "name": "Bombs (bag of 10)",
+              "howTo": "The dungeon item of the Temple of Wind.",
+              "value": 10
+            },
+            {
+              "name": "Bomb Bag (20)",
+              "howTo": "Buy it from Beedle's Shop Ship for 1,000 Rupees once you carry Bombs.",
+              "value": 10
+            },
+            {
+              "name": "Bomb Bag (30)",
+              "howTo": "Score 2,500 points or more at Salvatore's Cannon Game on Bannan Island.",
+              "value": 10
+            }
+          ]
+        },
+        {
+          "id": "bow",
+          "name": "Bow",
+          "area": "Temple of Courage",
+          "notes": "Zelda Wiki gives each source a fixed capacity: 30 from the Shooting Range and 50 from the shop.",
+          "tiers": [
+            {
+              "name": "Bow (quiver of 20)",
+              "howTo": "The dungeon item of the Temple of Courage.",
+              "value": 20
+            },
+            {
+              "name": "Quiver (30)",
+              "howTo": "Score 1,700–1,999 points at Romanos's Shooting Range on Molida Island (open after the Temple of Courage).",
+              "value": 10
+            },
+            {
+              "name": "Quiver (50)",
+              "howTo": "Buy it for 1,000 Rupees at the Molida Island Shop or Mercay Island Shop after the Temple of Courage.",
+              "value": 20
+            }
+          ]
+        },
+        {
+          "id": "bombchus",
+          "name": "Bombchus",
+          "area": "Goron Temple",
+          "notes": "Each bag adds 10. The Goron Game opens once Gongoron writes to you after the Temple of Ice.",
+          "tiers": [
+            {
+              "name": "Bombchus (bag of 10)",
+              "howTo": "The dungeon item of the Goron Temple.",
+              "value": 10
+            },
+            {
+              "name": "Bombchu Bag (20)",
+              "howTo": "Buy it for 1,000 Rupees at the Goron Island Shop, or beat the Goron Game record (35 seconds) on Dee Ess Island.",
+              "value": 10
+            },
+            {
+              "name": "Bombchu Bag (30)",
+              "howTo": "Whichever of the two you haven't done: the Goron Island Shop or the Goron Game record.",
+              "value": 10
+            }
+          ]
+        },
+        {
+          "id": "grappling_hook",
+          "name": "Grappling Hook",
+          "area": "Temple of Ice",
+          "howTo": "The dungeon item of the Temple of Ice."
+        },
+        {
+          "id": "hammer",
+          "name": "Hammer",
+          "area": "Mutoh's Temple",
+          "howTo": "The dungeon item of Mutoh's Temple."
+        },
+        {
+          "id": "shovel",
+          "name": "Shovel",
+          "area": "Molida Island",
+          "howTo": "In a chest in the Old Wayfarer's first hideaway, the cave on Molida Island."
+        }
+      ]
+    },
+    {
+      "id": "key_items",
+      "title": "Key Items",
+      "note": "Quest items and the ship's tools. Sea Charts and Pure Metals are in the Main Quest.",
+      "items": [
+        {
+          "id": "phantom_hourglass",
+          "name": "Phantom Hourglass",
+          "area": "Temple of the Ocean King",
+          "howTo": "Oshus has you take it from the altar in the temple's Entry Hall on your second visit.",
+          "notes": "Its sand protects you from the temple's curse; sunlight refills it. Its minutes are on the Phantom Hourglass tab."
+        },
+        {
+          "id": "cannon",
+          "name": "Cannon",
+          "area": "Cannon Island",
+          "howTo": "Buy it from Eddo for 50 Rupees after crossing Cannon Island.",
+          "notes": "Eddo's Cannon is also the SS Linebeck set's cannon part."
+        },
+        {
+          "id": "salvage_arm",
+          "name": "Salvage Arm",
+          "area": "Cannon Island",
+          "howTo": "Buy it from Eddo once his letter says it's ready, after the Temple of the Ocean King's B6; 200 to 1,000 Rupees depending on how loud you yell.",
+          "notes": "Gazpacho at the Mercay Shipyard repairs it."
+        },
+        {
+          "id": "sun_key",
+          "name": "Sun Key",
+          "area": "Southwestern Sea",
+          "howTo": "Salvage it at the Courage Crest marked on the Southwestern Sea Chart."
+        },
+        {
+          "id": "cyclone_slate",
+          "name": "Cyclone Slate",
+          "area": "Uncharted Island",
+          "howTo": "Hit the island's four Gossip Stones in the order of the whale riddle (rudder, spray, paddle, eye) and meet Golden Chief Cylos in the cave.",
+          "notes": "Optional. Draw a Golden Frog's symbol on it to warp; the frogs are in Sea Chart & Islands."
+        },
+        {
+          "id": "ghost_key",
+          "name": "Ghost Key",
+          "area": "Ghost Ship",
+          "howTo": "Dropped by the Cubus Sisters; it opens the locked block in front of Tetra."
+        },
+        {
+          "id": "regal_necklace",
+          "name": "Regal Necklace",
+          "area": "Isle of the Dead",
+          "howTo": "In King Brant's tomb on the Isle of the Dead."
+        },
+        {
+          "id": "kings_key",
+          "name": "King's Key",
+          "area": "Isle of Ruins",
+          "howTo": "Doylan's spirit gives it to you in his pyramid on the Isle of Ruins."
+        },
+        {
+          "id": "fishing_rod",
+          "name": "Fishing Rod",
+          "area": "Bannan Island",
+          "howTo": "Find the 'mermaid' Joanne around Bannan Island (hit her with the Boomerang), then visit the Old Wayfarer once she's moved in.",
+          "notes": "The fish are in Sidequests."
+        }
+      ]
+    },
+    {
+      "id": "hourglass",
+      "title": "Phantom Hourglass",
+      "noun": "sand",
+      "plural": "sands",
+      "note": "10 minutes when you get it, 2 more from each later boss but the Cubus Sisters, and 1 from each of five Sunken Treasures: 25 at most.",
+      "items": [
+        {
+          "id": "sand_cyclok",
+          "name": "Cyclok's sand",
+          "area": "Temple of Wind",
+          "howTo": "Defeat Cyclok.",
+          "value": 2,
+          "reward": "+2 minutes"
+        },
+        {
+          "id": "sand_crayk",
+          "name": "Crayk's sand",
+          "area": "Temple of Courage",
+          "howTo": "Defeat Crayk.",
+          "value": 2,
+          "reward": "+2 minutes"
+        },
+        {
+          "id": "sand_dongorongo",
+          "name": "Dongorongo's sand",
+          "area": "Goron Temple",
+          "howTo": "Defeat Dongorongo.",
+          "value": 2,
+          "reward": "+2 minutes"
+        },
+        {
+          "id": "sand_gleeok",
+          "name": "Gleeok's sand",
+          "area": "Temple of Ice",
+          "howTo": "Defeat Gleeok.",
+          "value": 2,
+          "reward": "+2 minutes"
+        },
+        {
+          "id": "sand_eox",
+          "name": "Eox's sand",
+          "area": "Mutoh's Temple",
+          "howTo": "Defeat Eox.",
+          "value": 2,
+          "reward": "+2 minutes"
+        },
+        {
+          "id": "sand_map_2",
+          "name": "Sand of Hours (Treasure Map #2)",
+          "area": "Southwestern Sea",
+          "howTo": "Salvage it north-east of Mercay Island.",
+          "value": 1,
+          "reward": "+1 minute"
+        },
+        {
+          "id": "sand_map_4",
+          "name": "Sand of Hours (Treasure Map #4)",
+          "area": "Northwestern Sea",
+          "howTo": "Salvage it south-east of Bannan Island; those waters are reached from the Northeastern Sea.",
+          "value": 1,
+          "reward": "+1 minute"
+        },
+        {
+          "id": "sand_map_9",
+          "name": "Sand of Hours (Treasure Map #9)",
+          "area": "Southwestern Sea",
+          "howTo": "Salvage it west of Cannon Island.",
+          "value": 1,
+          "reward": "+1 minute"
+        },
+        {
+          "id": "sand_map_11",
+          "name": "Sand of Hours (Treasure Map #11)",
+          "area": "Northwestern Sea",
+          "howTo": "Salvage it north of the Isle of Gust.",
+          "value": 1,
+          "reward": "+1 minute"
+        },
+        {
+          "id": "sand_map_23",
+          "name": "Sand of Hours (Treasure Map #23)",
+          "area": "Southeastern Sea",
+          "howTo": "Salvage it north-west of the Isle of Frost.",
+          "value": 1,
+          "reward": "+1 minute"
+        }
+      ]
+    }
+  ]
+}

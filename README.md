@@ -12,8 +12,8 @@ iOS port is mostly a matter of adding the iOS targets.
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
   Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Wind Waker, Four Swords Adventures, The
-  Minish Cap, Twilight Princess, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have
-  trackers. The rest show as *Coming soon* until they get some.
+  Minish Cap, Twilight Princess, Phantom Hourglass, Breath of the Wild, Tears of the Kingdom and
+  Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -657,6 +657,33 @@ and Colossal Wallet) are their own tabs, counted apart. Sources and disagreement
   items or form needed.
 - Three save files, **File 1–3**, as on the GameCube, the Wii and HD.
 
+**Phantom Hourglass**
+
+Every PH tracker is a [checklist](docs/checklist-trackers.md), listed by the four seas of the World
+of the Ocean King (Southwestern, Northwestern, Southeastern, Northeastern) with the island or floor
+in each row. Sources and disagreements are in `docs/ph.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** 21 steps in story order, from Oshus's Sword to Bellumbeck: the six temples and
+  the Ghost Ship with their bosses, the Temple of the Ocean King's floors (1F, B1–B3, B4–B6, B7–B9,
+  B10–B13 and Bellum), the Cannon, the fog route, the Salvage Arm and Sun Key, the Regal Necklace
+  and the Phantom Sword. Totals for the 3 Spirits, 4 Sea Charts and 3 Pure Metals.
+- **Items & Equipment:** 9 items with their upgrades as tiers (Phantom Sword; Bomb Bag 10/20/30,
+  Quiver 20/30/50, Bombchu Bag 10/20/30, with capacity totals), 9 key items, and the Phantom
+  Hourglass tab: the five bosses' and five Sunken Treasures' sand, 10 to 25 minutes.
+- **Heart Containers:** the 7 bosses' and the 6 from Nyeve, the Shooting Range, the Masked Ship,
+  the Neptoona, the island shop and the Treasure Maze, with the hearts total (3 to 16).
+- **Spirit Gems:** all 20 Power, Wisdom and Courage Gems, with totals, and each spirit's Level 1
+  and Level 2 at Spirit Island.
+- **Treasure Maps:** all 31, each with two steps, finding the map and salvaging its treasure, and
+  totals for both.
+- **Ship Parts & Treasure:** the eight sets of eight parts (Golden included; they're random, so
+  each row says where parts come from) and the eight kinds of Treasure.
+- **Sea Chart & Islands** (16 islands, hidden ones included, and the 6 Golden Frogs) and
+  **Sidequests** (the fishing journal, the five-step trading quest, the mini-games' prizes and
+  Beedle's cards).
+- Nothing in the game can be missed for good.
+- Two save files, **File 1** and **File 2**, as on the DS card.
+
 **Echoes of Wisdom**
 
 Every EoW tracker is a [checklist](docs/checklist-trackers.md). Each has tabs per section with
@@ -735,6 +762,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/ww/*.json   ← The Wind Waker checklists (docs/ww.md)
   src/commonMain/composeResources/files/fsa/*.json  ← Four Swords Adventures checklists (docs/fsa.md)
   src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
+  src/commonMain/composeResources/files/ph/*.json   ← Phantom Hourglass checklists (docs/ph.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
@@ -1106,6 +1134,11 @@ walkthrough and wiki, via Wayback Machine snapshots where needed) and StrategyWi
 Palace for the HD stamps and GameFAQs guides for spot checks. The zeldaret/tp decompilation settles
 the letters' triggers. Every count was checked against at least two sources. `docs/tp.md` covers
 each tracker, the HD differences and every disagreement.
+
+Phantom Hourglass data (`files/ph/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and IGN's guide, with StrategyWiki's walkthrough for story order and Nintendo's manual
+for the save files. Every count was checked against all three. `docs/ph.md` covers each tracker
+and every disagreement, including the Treasure Map numbers the sources don't agree on.
 
 Echoes of Wisdom data (`files/eow/`) comes from Zelda Wiki, Zelda Dungeon's guides and Game8, with
 Nintendo Life as a third source for echo and stamp locations. Every count was checked against all
