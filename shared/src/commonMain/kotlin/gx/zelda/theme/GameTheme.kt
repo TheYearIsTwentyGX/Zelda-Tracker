@@ -101,6 +101,21 @@ enum class Ornament {
 
     /** The accents as equal bands, one per Link in Four Swords. */
     COLOUR_BANDS,
+
+    /** A hairline with a Triforce inside a diamond at its centre, like a crest on a pause-screen page. */
+    CREST,
+
+    /** A shallow arc with hour ticks and a dot at each end, Majora's Mask's three-day clock. */
+    CLOCK,
+
+    /** A stepped row of squares, Twilight Princess's Twili patterns. */
+    TWILI,
+
+    /** A scalloped line of cloud tops, Skyward Sword's sky. */
+    CLOUDS,
+
+    /** Rings on a hairline, each a small spiral of circles, Zonai stonework. */
+    SPIRAL,
 }
 
 /** How [GameProgressBar] draws progress. */

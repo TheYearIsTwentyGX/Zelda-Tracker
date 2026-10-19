@@ -14,15 +14,13 @@ class GameThemesTest {
 
     @Test
     fun theThemedGamesHaveTheirOwn() {
-        for (id in listOf("loz", "aol", "alttp", "la", "oos", "ooa", "fs", "ww", "fsa", "mc", "botw")) assertEquals(id, GameThemes.of(id).id)
+        for (id in listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ss", "botw", "totk", "hwde")) assertEquals(id, GameThemes.of(id).id)
     }
 
-    /** Hyrule Warriors is named by id, so this holds before and after it joins [Games.all]. */
     @Test
     fun noGameAndUnknownGamesFallBackToNeutral() {
         assertSame(GameThemes.Neutral, GameThemes.of(null))
         assertSame(GameThemes.Neutral, GameThemes.of("no_such_game"))
-        assertSame(GameThemes.Neutral, GameThemes.of("hwde"))
     }
 
     @Test

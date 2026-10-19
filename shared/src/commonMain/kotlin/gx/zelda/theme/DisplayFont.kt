@@ -8,6 +8,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.em
 import gx.zelda.resources.Res
+import gx.zelda.resources.cinzel_bold
 import gx.zelda.resources.fredoka_semibold
 import gx.zelda.resources.josefin_sans_regular
 import gx.zelda.resources.pixelify_sans_semibold
@@ -40,6 +41,12 @@ enum class DisplayFont(
 
     /** Fredoka, rounded and chunky, standing in for Wind Waker's and the DS/3DS games' interface lettering. */
     ROUNDED(Res.font.fredoka_semibold, FontWeight.SemiBold),
+
+    /**
+     * Cinzel, Roman capitals like the series' logo, for the 3D console games. Caps only, so it runs
+     * a little smaller to fit a top bar.
+     */
+    SERIF(Res.font.cinzel_bold, FontWeight.Bold, scale = 0.92f),
 
     /** Josefin Sans, thin and geometric with open spacing, for the Sheikah Slate and Purah Pad. */
     SHEIKAH(Res.font.josefin_sans_regular, scale = 1.05f, tracking = 0.06f),

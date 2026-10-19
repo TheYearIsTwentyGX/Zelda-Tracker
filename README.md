@@ -42,9 +42,11 @@ iOS port is mostly a matter of adding the iOS targets.
   Adventures, each from its own menus (the NES pause screen's black and heart red, Zelda II's
   file select, A Link to the Past's gold-bordered status screen, the Game Boy's four greens and Link's
   Awakening DX, the Oracles' title screens and Nayru's blues, Four Swords' gold panel and Force Gems,
-  The Minish Cap's navy file select), plus The Wind Waker (sea-chart parchment or forest green, a
-  wave rule) and Breath of the Wild (Zelda White on the Sheikah Slate's dark glass, cut corners).
-  The other games keep the app's own look until theirs arrive; `docs/themes.md` has every game's brief.
+  The Minish Cap's navy file select), the 3D console games (Ocarina of Time's brown pause panels and
+  parchment, Majora's Mask's olive-gold stone, Twilight Princess's rust and Twili teal, Skyward Sword's
+  silver and goddess gold, Tears of the Kingdom's Zonai jade, Hyrule Warriors' charcoal and gold, in
+  Cinzel capitals), plus The Wind Waker and Breath of the Wild. The handheld games keep the app's
+  own look until theirs arrive; `docs/themes.md` has every game's brief and sources.
   - The home screen, the menu and Settings keep the app's own look, with each themed game's accent
     colour on its card, its row in the menu and its switch in Settings, and its name on the home
     screen in its lettering.
@@ -1407,7 +1409,7 @@ warrior squares. The few fixes are in `tools/hwde/corrections.json`, each with i
 `docs/hwde.md` covers the cross-check, the open disagreements, the coordinate conventions, the
 single save file, how the art lines up and the licences.
 
-The game themes' header fonts are Press Start 2P, Pixelify Sans, Fredoka and Josefin Sans, all
+The game themes' header fonts are Press Start 2P, Pixelify Sans, Fredoka, Josefin Sans and Cinzel, all
 from Google Fonts under the SIL Open Font License 1.1; `docs/fonts.md` lists their sources and
 which games use them, and the licences are in `docs/licenses/`. No Nintendo font or art is
 bundled for the themes: the colours are picked from the games' menus, and the ornaments are drawn

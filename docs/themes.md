@@ -66,8 +66,9 @@ own.
   https://zeldauniverse.net/2013/08/14/the-wind-waker-hd-gets-a-new-and-improved-item-menu/.
 - Tears of the Kingdom's Purah Pad gold and crimson: Zelda Wiki's Purah Pad page.
 - Sampled: the themes marked ✓ were sampled from the game's own menu sheets (see **Sampled
-  sources** below), except The Wind Waker, whose colours are still **from memory, unverified**
-  apart from the GameCube/HD menu change: no UI sheet for it is archived.
+  sources** below), except The Wind Waker and Hyrule Warriors, whose colours are still **from
+  memory, unverified** (Wind Waker apart from the GameCube/HD menu change): no UI sheet for either
+  is archived.
 - Unverified: the unmarked games' hex values are approximate starting points, to be sampled before
   their batch.
 
@@ -77,24 +78,24 @@ own.
 | ✓ | Zelda II | File select and HUD: black, white lettering, the window's blue border, LIFE red, dark gold. Light is palace stone | #000000, #FCFCFC, #2038EC, #D82800, #887000; #F0E8D8 | 8-bit pixel · pixel · bricks · segmented |
 | ✓ | A Link to the Past | The status screen: black windows with double borders in Triforce gold, item green and the "DO" box's red. Light is the Light World's pale green | #000400, #F8F8F8, #E0A800, #20C028, #C00000; #F2F6E8 | 16-bit pixel · pixel · Triforces · segmented |
 | ✓ | Link's Awakening | Dark: the Game Boy's four greens. Light: the DX colours, cream with heart red, the island's green and the item screen's blue | #0F380F, #306230, #8BAC0F, #9BBC0F; #D80000, #10A840, #4040C0 | 8-bit pixel · pixel · pixel rule · segmented |
-| | Ocarina of Time | The N64 pause cube: stone-grey panels, gold page headers, C-button yellow, A-button blue | #3A3A40, #E0B040, #5A5AFF, #00C832 | serif · rounded · crest · solid |
-| | Majora's Mask | Doomsday: moon indigo, clock-arc amber, mask magenta | #2A1F4A, #F0B000, #C0306A | serif · rounded · clock arc · solid |
+| ✓ | Ocarina of Time | The pause screen: dark brown panels, parchment pages, gold lettering, the buttons' blue and red. Light is the parchment | #2F1E0E, #4C331A, #FFF8B6, #F8E88D, #833900, #8091C0 | serif · rounded · crest · solid |
+| ✓ | Majora's Mask | The pause screen's olive-gold stone with pale lettering, heart red and the song notes' blue, over the map's night indigo | #53532D, #646436, #D3D3AE, #CA1717, #0096CC, #212131 | serif · rounded · clock arc · solid |
 | ✓ | Oracle of Seasons | The title screen's day (cream, logo red, Maku Tree green, gold) on the HUD's peach; dark is the horseback title's night purple. Accents: the four seasons | #FFFBEF, #A50000, #428A31, #D6B200, #FFD68C; #1F103C, #351B65 | 16-bit pixel · pixel · seasons · segmented |
 | ✓ | Oracle of Ages | Nayru's blues, with Din's red as the third colour; light is her palest blue, dark is night water | #358BF1, #4EC8F5, #ADE2F9, #CCF3FC, #F25656 | 16-bit pixel · pixel · waves · segmented |
 | ✓ | Four Swords | The GBA game-select panel: amber-to-brown gold, the logo's red. Accents: the four Links in the Force Gems' shades | #703800, #A86000, #F8D800, #BF0000; gems #299429, #AD2929, #2929FF, #AD29E7 | 16-bit pixel · pixel · colour bands · segmented |
 | ✓ | The Wind Waker | Cel-shaded sea: sea-chart parchment with deep-sea blue (light), the GameCube item menu's forest green with cerulean (dark), wind-curl waves | #F7EFD9, #E8D8A8, #00639B; #0F2419, #7CC8F8 | rounded · soft · waves · rounded |
 | ✓ | Four Swords Adventures | The logo's deep greens and the Force Gems; accents are the gems | #0D7F41, #175A2F, #162719, #80C486; gems as Four Swords | rounded · rounded · colour bands · segmented |
 | ✓ | The Minish Cap | The file select: navy windows, white lettering, blue banners, teal-green buttons, the crystal-green backdrop. Light is crystal-green paper | #000030, #000850, #F0F8F8, #0818A8, #10B090, #30F898 | 16-bit pixel · rounded · vine · segmented |
-| | Twilight Princess | Dusk realism: charcoal and gold filigree, twilight orange, Twili teal | #1A1410, #C8A050, #E06A20, #30D0C0 | serif · cut · Twili geometric · solid |
+| ✓ | Twilight Princess | The logo: rust-orange lettering on black, Midna's Twili teal | #131313, #932F01, #FB520D, #418D92, #646761 | serif · cut · Twili steps · solid |
 | | Phantom Hourglass | A sailor's chart: parchment, hourglass-sand gold, ocean blue | #E8D8A8, #E8C060, #2A70B8 | rounded · soft · rope · rounded |
 | | Spirit Tracks | Railway: engine green and red, track lines, spirit pink | #2E8B57, #C83030, #F0A0C0 | rounded · soft · rail ties · segmented |
-| | Skyward Sword | Watercolour sky blue, cloud white, goddess gold, Loftwing crimson | #8CC8F0, #E0C060, #C03030 | serif · soft · cloud scallop · rounded |
+| ✓ | Skyward Sword | Silver and stone frames, goddess gold, the dowsing ring's teal, the hearts' pink-red; scroll parchment (light) or stone grey (dark) | #434343, #939393, #FFD500, #A48308, #739494, #F54F65, #F6DE9C | serif · soft · clouds · rounded |
 | | A Link Between Worlds | A Link to the Past remixed: purple energy gauge, Lorule red-purple (dark) | #A050D0, #6A2040 | rounded · rounded · inverted Triforce · rounded |
 | | Tri Force Heroes | Three Links on boutique pink | #38B838, #3878F8, #E83838, #F070A8 | rounded · soft · three-colour rule · rounded |
 | ✓ | Breath of the Wild | Minimal and ancient: Zelda White lettering on the Sheikah Slate's dark glass, the map's Sheikah blue and shrine orange. Light turns it round: Zelda White paper, deep slate blue | #0E1214, #F4EEDC, #3DB2E5, #F5A524; #F6F1E3, #00677F | Sheikah · cut · glyph line · thin |
-| | Tears of the Kingdom | Zonai relics: green glow, Purah Pad gold and crimson, Gloom red | #6BE89A, #D4A84A, #8A1020 | Sheikah · cut · Zonai spiral · thin |
+| ✓ | Tears of the Kingdom | Zonai devices: jade stone, gold trim, cream, the batteries' green glow | #2A322E, #324038, #7FB08A, #457E68, #815100, #BDBD95, #00AD7A | Sheikah · cut · Zonai rings · thin |
 | | Echoes of Wisdom | Toy diorama pastels, Tri's gold sparkle, rift purple-black (dark) | #F8D848, #2A1840 | rounded · soft · sparkles · rounded |
-| | Hyrule Warriors: DE | Musou battlefield: charcoal panels, gold trim, war-banner red | #1E1E22, #C8A040, #B02020 | serif · cut · triangle row · segmented |
+| ✓ | Hyrule Warriors: DE | Musou battlefield: charcoal panels, gold trim, war-banner red (**from memory, unverified**) | #1E1E22, #E0B850, #A01818 | serif · cut · Triforces · segmented |
 
 ## Sampled sources
 
@@ -152,6 +153,38 @@ colours were moved: lifted on dark, darkened on light. Backgrounds stay as sampl
 - **Breath of the Wild**: the map's shrine glyphs in `composeResources/drawable/map_shrine*.xml`
   (traced from the game's icons, `docs/map-icons.md`): done #3DB2E5 → dark primary, not done
   #F5A524 → dark secondary. "Zelda White" per the Famicast article above.
+
+- **Ocarina of Time**: Ocarina of Time 3D [HUD Elements](https://web.archive.org/web/20181102161758im_/https://www.spriters-resource.com/resources/sheets/65/67887.png)
+  (the remake's art; the N64 pause-screen sheet isn't archived). Pause-panel browns
+  #2F1E0E/#3E2515/#4C331A → dark surface and variant; parchment #FFF8B6/#F8E896 → light surface
+  variant, primary container and dark text; gold lettering #F8E88D → dark primary and stars; brown
+  #833900 → light primary and dark primary container; button blue #8091C0 → dark secondary; red
+  #B07070 → tertiary (lifted to #C88080); tan #B68D64 → dark outline.
+- **Majora's Mask**: [Pause Screen Elements](https://web.archive.org/web/20230802191458im_/https://www.spriters-resource.com/resources/sheets/121/123836.png?updated=1575430832).
+  Stone #53532D/#646436/#959551 → light primary, dark surface variant, primary container, dark
+  outline; pale stone #D3D3AE/#C1C18C → text and light surface variant (primary lifted to
+  #DCDCA0); hearts #CA1717/#6E0D0D → secondary; note blue #0096CC/#0081B0 → tertiary; map night
+  #212131 → dark surface. The brief's moon indigo, clock amber and mask magenta were from memory;
+  the pause screen is olive-gold stone, so the theme follows it.
+- **Twilight Princess**: GameCube [Logo](https://web.archive.org/web/20250821090204im_/https://www.spriters-resource.com/resources/sheets/59/61854.png)
+  (no menu sheet is archived). Black #131313 → dark surface; rust #932F01/#6E2301/#FB520D → light
+  primary, dark primary container, dark primary (lifted to #FF7A48); Twili teal #418D92 →
+  secondary (lifted/darkened); greys #646761/#443F40/#2C3134 → light outline and variant text, dark
+  variant; Midna violet-grey #7E6E7C → tertiary.
+- **Skyward Sword**: [Interface](https://web.archive.org/web/20160511002706im_/http://www.spriters-resource.com/resources/sheets/51/54468.png),
+  [Miscellaneous Items & Pause Screen](https://web.archive.org/web/20160510190820im_/http://www.spriters-resource.com/resources/sheets/51/54444.png).
+  Silver #434343/#939393 → dark surface variant and outline; goddess gold #FFD500/#FFE66A/#A48308
+  → dark primary, light primary container, primary; dowsing teal #739494 → secondary; hearts
+  #F54F65/#FA8F9F → tertiary; scroll #F6DE9C → light surface variant (lightened). The brief's sky
+  blue isn't in the interface, so it isn't used.
+- **Tears of the Kingdom**: [Zonai Devices](https://web.archive.org/web/20250821175117im_/https://www.spriters-resource.com/resources/sheets/202/205149.png?updated=1747216723)
+  (inventory icons; no menu sheet is archived). Stone shadow #2A322E/#324038 → dark surface and
+  variant; jade #88BB99/#457E68 → dark primary (lifted to #98C8A8) and primary container; gold
+  #815100/#5B3B00 → light secondary and stars, dark secondary container; cream #BDBD95 → dark
+  variant text; glow #00AD7A → tertiary. The brief's Gloom crimson isn't sampled, so it isn't used.
+- **Hyrule Warriors: Definitive Edition**: from memory, unverified. Its only archived sheet
+  (Legends' character select) isn't captured, and the Adventure maps bundled in this repo are
+  deliberately 8-bit, which would only repeat The Legend of Zelda.
 
 ## Adding a theme
 
