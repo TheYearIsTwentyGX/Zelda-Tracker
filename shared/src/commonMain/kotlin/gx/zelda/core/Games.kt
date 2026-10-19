@@ -204,18 +204,136 @@ object Games {
         ),
     )
 
-    /** Released together in Japan; Seasons is the one usually played first. */
-    val OOS = comingSoon("oos", "Oracle of Seasons", ReleaseDate(2001, 2, 27, sameDay = 0), "Game Boy Color")
-    val OOA = comingSoon("ooa", "Oracle of Ages", ReleaseDate(2001, 2, 27, sameDay = 1), "Game Boy Color")
+    /**
+     * Released together with Ages in Japan; Seasons is the one usually played first. Three save files
+     * (Zelda Wiki, Saving). Every tracker is a checklist; linked-game content is tagged "Linked". The
+     * data is written up in docs/oos.md.
+     */
+    val OOS = Game(
+        id = "oos",
+        title = "Oracle of Seasons",
+        released = ReleaseDate(2001, 2, 27, sameDay = 0),
+        platform = "Game Boy Color",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The eight dungeons and their Essences of Nature, Onox, and the linked finale", dataFile = "oos/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item and seed, the upgrades as tiers, and the Quest Items", dataFile = "oos/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rod of Seasons", "The Rod and the four seasons from the Temple of Seasons' towers", dataFile = "oos/seasons.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 12 Pieces of Heart and 9 Heart Containers, with your hearts", dataFile = "oos/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rings", "All 64 rings and the Ring Box, with where to get each in Seasons", dataFile = "oos/rings.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gasha Spots", "The 16 soft-soil spots for Gasha Seeds, and the ring classes each one gives", dataFile = "oos/gasha.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequence", "From the Cuccodex to the Noble Sword", dataFile = "oos/trading.json"),
+            Tracker(TrackerKind.CHECKLIST, "Animal Companions", "Ricky, Dimitri and Moosh, the flute and Natzu", dataFile = "oos/animal_companions.json"),
+            Tracker(TrackerKind.CHECKLIST, "Linked Secrets", "The passwords that link to Ages, and the 20 secrets to tell and take back", dataFile = "oos/linked_secrets.json"),
+            Tracker(TrackerKind.CHECKLIST, "Subrosia", "The Subrosian story, the Market, ores and the Smithy, and pastimes", dataFile = "oos/subrosia.json"),
+        ),
+    )
+
+    /**
+     * Released the same day as Seasons. Three save files (Zelda Wiki, Saving). Every tracker is a
+     * checklist; linked-game content is tagged "Linked", and the ring ids match Seasons'. The data is
+     * written up in docs/ooa.md.
+     */
+    val OOA = Game(
+        id = "ooa",
+        title = "Oracle of Ages",
+        released = ReleaseDate(2001, 2, 27, sameDay = 1),
+        platform = "Game Boy Color",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.CHECKLIST, "Main Quest", "The eight dungeons and their Essences of Time, Veran, and the linked finale", dataFile = "ooa/main_quest.json"),
+            Tracker(TrackerKind.CHECKLIST, "Items & Equipment", "Every item and seed, the upgrades as tiers, and the Quest Items", dataFile = "ooa/items.json"),
+            Tracker(TrackerKind.CHECKLIST, "Harp of Ages", "The Harp and its three tunes: Echoes, Currents and Ages", dataFile = "ooa/harp_songs.json"),
+            Tracker(TrackerKind.CHECKLIST, "Heart Pieces", "All 12 Pieces of Heart and 9 Heart Containers, with your hearts", dataFile = "ooa/heart_pieces.json"),
+            Tracker(TrackerKind.CHECKLIST, "Rings", "All 64 rings and the Ring Box, with where to get each in Ages", dataFile = "ooa/rings.json"),
+            Tracker(TrackerKind.CHECKLIST, "Gasha Spots", "The 16 soft-soil spots for Gasha Seeds, and the ring classes each one gives", dataFile = "ooa/gasha.json"),
+            Tracker(TrackerKind.CHECKLIST, "Trading Sequence", "From the Poe Clock to the Noble Sword", dataFile = "ooa/trading.json"),
+            Tracker(TrackerKind.CHECKLIST, "Animal Companions", "Ricky, Dimitri and Moosh, the flute and the Nuun Highlands", dataFile = "ooa/animal_companions.json"),
+            Tracker(TrackerKind.CHECKLIST, "Linked Secrets", "The passwords that link to Seasons, and the 20 secrets to tell and take back", dataFile = "ooa/linked_secrets.json"),
+        ),
+    )
 
     /**
      * The GBA multiplayer game bundled with A Link to the Past (North America first). Counted as
      * mainline: its own story (Vaati's first appearance) placed in Nintendo's official timeline,
      * and later sold on its own as the Anniversary Edition.
+     *
+     * Three files: on the GBA they're A Link to the Past's, which hold both games' progress; the
+     * Anniversary Edition (DSiWare, 2011) has three of its own. Its one checklist has the Anniversary
+     * Edition's and the GBA's own content as separate sections; the data and its sources are in docs/fs.md.
      */
-    val FS = comingSoon("fs", "Four Swords", ReleaseDate(2002, 12, 2), "Game Boy Advance")
-    val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
-    val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
+    val FS = Game(
+        id = "fs",
+        title = "Four Swords",
+        released = ReleaseDate(2002, 12, 2),
+        platform = "Game Boy Advance",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Stages & Keys",
+                "The 9 Great Fairy keys and Vaati's Palace's 3 doors, the Anniversary Edition's 18 levels and the GBA's ALttP link-ups",
+                dataFile = "fs/stages.json",
+            ),
+        ),
+    )
+
+    /**
+     * Three files on the GameCube memory card (zeldaret/tww: `card_gamedata gamedata[3]`). Tracked as the
+     * GameCube original; Wind Waker HD differences are in item notes. Every tracker is a checklist; the
+     * data and its sources are in docs/ww.md.
+     */
+    val WW = Game(
+        id = "ww",
+        title = "The Wind Waker",
+        released = ReleaseDate(2002, 12, 13),
+        platform = "GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            wwChecklist("Main Quest", "Dungeons and bosses, the three Pearls, the Master Sword and the 8 Triforce Shards", "main_quest"),
+            wwChecklist("Items & Equipment", "Every item and upgrade: wallets, quivers, bomb bags, magic, the Hero's Charm and 4 Bottles", "items"),
+            wwChecklist("Heart Pieces", "All 44 Pieces of Heart and 6 Heart Containers, with your hearts total", "heart_pieces"),
+            wwChecklist("Charts", "All 41 Treasure Charts and their treasure, the 8 Triforce Charts and 12 Special Charts", "charts"),
+            wwChecklist("Sea Chart", "The 49 squares of the Great Sea, charted by feeding each fishman", "sea_chart"),
+            wwChecklist("Sea Secrets", "The 20 Secret Caves, 7 Submarines, lookout platforms and 6 Big Octos", "sea_secrets"),
+            wwChecklist("Nintendo Gallery", "All 134 figurines by room, with the missable ones flagged", "figurines"),
+            wwChecklist("Songs", "The six Wind Waker songs and where each is learned", "songs"),
+            wwChecklist("Great Fairies", "The seven Great Fairies' upgrades and the Queen of Fairies", "great_fairies"),
+            wwChecklist("Side Quests", "Joy Pendants, Mail Sorting, Lenzo, the Withered Trees and Tingle Statues", "side_quests"),
+        ),
+    )
+
+    /**
+     * Three files on the memory card ("You can store up to three saved-data files", the manual's
+     * Select Game screen). Tracked as the Hyrulean Adventure; Navi Trackers, the Japan-only mode,
+     * isn't. Every tracker is a checklist; the data and its sources are in docs/fsa.md.
+     */
+    val FSA = Game(
+        id = "fsa",
+        title = "Four Swords Adventures",
+        released = ReleaseDate(2004, 3, 18),
+        platform = "GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Hyrulean Adventure",
+                "All 24 stages in 8 levels with their bosses, the 6 Maidens and Zelda, and the 4 Royal Jewels",
+                dataFile = "fsa/hyrulean_adventure.json",
+            ),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Tingle's Tower & Shadow Battle",
+                "Multiplayer: the 8 Tingle's Tower mini-games and the Dark Shadow Battle arenas",
+                dataFile = "fsa/tingle_and_shadow_battle.json",
+            ),
+        ),
+    )
     val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
 
     /** The DS games keep two files. */
@@ -346,6 +464,9 @@ object Games {
 
     private fun albwChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "albw/$file.json")
+
+    private fun wwChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ww/$file.json")
 
     private fun eowChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "eow/$file.json")
