@@ -280,9 +280,84 @@ object Games {
             ),
         ),
     )
-    val WW = comingSoon("ww", "The Wind Waker", ReleaseDate(2002, 12, 13), "GameCube")
-    val FSA = comingSoon("fsa", "Four Swords Adventures", ReleaseDate(2004, 3, 18), "GameCube")
-    val TP = comingSoon("tp", "Twilight Princess", ReleaseDate(2006, 11, 19), "Wii & GameCube")
+
+    /**
+     * Three files on the GameCube memory card (zeldaret/tww: `card_gamedata gamedata[3]`). Tracked as the
+     * GameCube original; Wind Waker HD differences are in item notes. Every tracker is a checklist; the
+     * data and its sources are in docs/ww.md.
+     */
+    val WW = Game(
+        id = "ww",
+        title = "The Wind Waker",
+        released = ReleaseDate(2002, 12, 13),
+        platform = "GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            wwChecklist("Main Quest", "Dungeons and bosses, the three Pearls, the Master Sword and the 8 Triforce Shards", "main_quest"),
+            wwChecklist("Items & Equipment", "Every item and upgrade: wallets, quivers, bomb bags, magic, the Hero's Charm and 4 Bottles", "items"),
+            wwChecklist("Heart Pieces", "All 44 Pieces of Heart and 6 Heart Containers, with your hearts total", "heart_pieces"),
+            wwChecklist("Charts", "All 41 Treasure Charts and their treasure, the 8 Triforce Charts and 12 Special Charts", "charts"),
+            wwChecklist("Sea Chart", "The 49 squares of the Great Sea, charted by feeding each fishman", "sea_chart"),
+            wwChecklist("Sea Secrets", "The 20 Secret Caves, 7 Submarines, lookout platforms and 6 Big Octos", "sea_secrets"),
+            wwChecklist("Nintendo Gallery", "All 134 figurines by room, with the missable ones flagged", "figurines"),
+            wwChecklist("Songs", "The six Wind Waker songs and where each is learned", "songs"),
+            wwChecklist("Great Fairies", "The seven Great Fairies' upgrades and the Queen of Fairies", "great_fairies"),
+            wwChecklist("Side Quests", "Joy Pendants, Mail Sorting, Lenzo, the Withered Trees and Tingle Statues", "side_quests"),
+        ),
+    )
+
+    /**
+     * Three files on the memory card ("You can store up to three saved-data files", the manual's
+     * Select Game screen). Tracked as the Hyrulean Adventure; Navi Trackers, the Japan-only mode,
+     * isn't. Every tracker is a checklist; the data and its sources are in docs/fsa.md.
+     */
+    val FSA = Game(
+        id = "fsa",
+        title = "Four Swords Adventures",
+        released = ReleaseDate(2004, 3, 18),
+        platform = "GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Hyrulean Adventure",
+                "All 24 stages in 8 levels with their bosses, the 6 Maidens and Zelda, and the 4 Royal Jewels",
+                dataFile = "fsa/hyrulean_adventure.json",
+            ),
+            Tracker(
+                TrackerKind.CHECKLIST,
+                "Tingle's Tower & Shadow Battle",
+                "Multiplayer: the 8 Tingle's Tower mini-games and the Dark Shadow Battle arenas",
+                dataFile = "fsa/tingle_and_shadow_battle.json",
+            ),
+        ),
+    )
+
+    /**
+     * Three files on the GameCube, the Wii and HD (Zelda Wiki, Saving). Tracked as the GameCube
+     * original; the Wii version is mirrored but has the same collectibles, and HD's differences are
+     * item notes or `separate` tabs. Every tracker is a checklist; the data and its sources are in docs/tp.md.
+     */
+    val TP = Game(
+        id = "tp",
+        title = "Twilight Princess",
+        released = ReleaseDate(2006, 11, 19),
+        platform = "Wii & GameCube",
+        saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2"), SaveFile("file_3", "File 3")),
+        trackers = listOf(
+            Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            tpChecklist("Main Quest", "The nine dungeons and their bosses, the Tears of Light, the Fused Shadows and Mirror Shards", "main_quest"),
+            tpChecklist("Items & Equipment", "Every item, sword, shield and tunic, the wallets, quivers and bomb bags, and the 4 Bottles", "items"),
+            tpChecklist("Heart Pieces", "All 45 Pieces of Heart and 8 Heart Containers, with your hearts total", "heart_pieces"),
+            tpChecklist("Poe Souls", "All 60 Poes by region, and Jovani's rewards", "poe_souls"),
+            tpChecklist("Golden Bugs", "All 24 Golden Bugs for Agitha, and her rewards", "golden_bugs"),
+            tpChecklist("Hidden Skills", "The 7 Hidden Skills and the Howling Stones that call the Golden Wolf", "hidden_skills"),
+            tpChecklist("Cave of Ordeals", "All 50 floors and the Great Fairy's rewards, and HD's Cave of Shadows", "cave_of_ordeals"),
+            tpChecklist("Sidequests & Collections", "Sidequests, the Postman's letters, the Fishing Journal and HD's 50 stamps", "sidequests"),
+        ),
+    )
 
     /**
      * Two files ("You can create up to two different files", Nintendo's manual), the placeholder's
@@ -412,6 +487,12 @@ object Games {
 
     private fun alttpChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "alttp/$file.json")
+
+    private fun wwChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ww/$file.json")
+
+    private fun tpChecklist(title: String, description: String, file: String) =
+        Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "tp/$file.json")
 
     private fun phChecklist(title: String, description: String, file: String) =
         Tracker(TrackerKind.CHECKLIST, title, description, dataFile = "ph/$file.json")
