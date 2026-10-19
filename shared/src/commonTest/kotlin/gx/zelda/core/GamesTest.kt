@@ -65,7 +65,7 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tfh", "botw", "totk", "eow"), gamesWithTrackers)
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "tfh", "botw", "totk", "eow"), gamesWithTrackers)
         Games.all.forEach { assertEquals(it.trackers.isEmpty(), it.comingSoon, it.id) }
         assertTrue(comingSoonGame.comingSoon)
         assertFalse(comingSoonGame.shownByDefault)
