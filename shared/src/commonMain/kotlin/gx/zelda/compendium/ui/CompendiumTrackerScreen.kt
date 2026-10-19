@@ -22,7 +22,6 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryScrollableTabRow
@@ -62,6 +61,7 @@ import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.rememberBulkCompleteState
+import gx.zelda.theme.GameProgressBar
 
 /** Hyrule Compendium: a tab per category, each entry tickable as photographed on the active save file. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -231,7 +231,7 @@ private fun SummaryCard(state: CompendiumUiState) {
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text("$done / $total photographed", style = MaterialTheme.typography.titleMedium)
-            LinearProgressIndicator(progress = { if (total == 0) 0f else done / total.toFloat() }, modifier = Modifier.fillMaxWidth())
+            GameProgressBar(progress = { if (total == 0) 0f else done / total.toFloat() }, modifier = Modifier.fillMaxWidth())
             Text(
                 if (state.saveFile.masterMode) {
                     "Master Mode adds five entries — Sky Octorok and the four Golden enemies — so its numbers run to $total."

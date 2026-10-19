@@ -9,6 +9,10 @@ data class AppSettings(
     val gameChoices: Map<String, Boolean> = emptyMap(),
     /** The games whose section in the menu is open. */
     val expandedGames: Set<String> = emptySet(),
+    /** Light or dark, or whichever the system is set to. */
+    val themeMode: ThemeMode = ThemeMode.SYSTEM,
+    /** Screens inside a game wear that game's theme; off keeps the app's own look everywhere. */
+    val gameThemes: Boolean = true,
 ) {
     fun isShown(game: Game): Boolean = gameChoices[game.id] ?: game.shownByDefault
 
@@ -40,6 +44,10 @@ data class AppSettings(
  * spin-offs under their own heading, each part in [items]' order.
  */
 fun <T> splitSpinOffs(items: List<T>, gameOf: (T) -> Game): Pair<List<T>, List<T>> = items.partition { !gameOf(it).spinOff }
+
+/** The app's light or dark look, chosen in Settings. */
+@Serializable
+enum class ThemeMode { SYSTEM, LIGHT, DARK }
 
 /** Every game with trackers is shown until turned off; "coming soon" games are hidden until turned on. */
 val Game.shownByDefault: Boolean get() = !comingSoon

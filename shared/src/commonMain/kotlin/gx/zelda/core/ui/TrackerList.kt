@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
@@ -28,11 +29,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.DiscoveryState
+import gx.zelda.theme.OrnamentDivider
 
 /*
  * Building blocks shared by the region-grouped trackers (Shrines, Koroks, Side Quests, and The
@@ -42,8 +45,12 @@ import gx.zelda.core.DiscoveryState
 
 val CardInset = 12.dp
 private val GroupGap = 12.dp
-private val CardTop = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
-private val CardBottom = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp)
+
+/** The top and bottom of a region's card: the theme's large corners (16dp in the neutral theme). */
+private val CardTop: Shape
+    @Composable get() = MaterialTheme.shapes.large.copy(bottomStart = ZeroCornerSize, bottomEnd = ZeroCornerSize)
+private val CardBottom: Shape
+    @Composable get() = MaterialTheme.shapes.large.copy(topStart = ZeroCornerSize, topEnd = ZeroCornerSize)
 
 /** Places a row inside its region's card; the [last] row closes the card and leaves a gap below. */
 @Composable
@@ -75,32 +82,36 @@ fun RegionHeader(
         shape = CardTop,
         modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
     ) {
-        val padding = if (leading == null) Modifier.padding(horizontal = 16.dp, vertical = 10.dp) else Modifier.padding(start = 4.dp, end = 16.dp)
-        Row(padding, verticalAlignment = Alignment.CenterVertically) {
-            leading?.invoke()
-            Text(
-                region + suffix,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.weight(1f),
-            )
-            if (found != null) {
+        Column {
+            val padding = if (leading == null) Modifier.padding(horizontal = 16.dp, vertical = 10.dp) else Modifier.padding(start = 4.dp, end = 16.dp)
+            Row(padding, verticalAlignment = Alignment.CenterVertically) {
+                leading?.invoke()
                 Text(
-                    "$foundLabel $found",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(end = 8.dp),
+                    region + suffix,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.weight(1f),
                 )
+                if (found != null) {
+                    Text(
+                        "$foundLabel $found",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(end = 8.dp),
+                    )
+                }
+                if (done == total) {
+                    Tag(
+                        "$done / $total",
+                        container = MaterialTheme.colorScheme.primaryContainer,
+                        content = MaterialTheme.colorScheme.onPrimaryContainer,
+                    )
+                } else {
+                    Tag("$done / $total")
+                }
             }
-            if (done == total) {
-                Tag(
-                    "$done / $total",
-                    container = MaterialTheme.colorScheme.primaryContainer,
-                    content = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-            } else {
-                Tag("$done / $total")
-            }
+            // The game's ornament (none in the neutral theme) closes the header.
+            OrnamentDivider(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 6.dp))
         }
     }
 }
