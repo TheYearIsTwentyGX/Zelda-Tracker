@@ -14,8 +14,9 @@ The files are in `shared/src/commonMain/composeResources/font/`, and `DisplayFon
 | `pixelify_sans_semibold.ttf` | [Pixelify Sans](https://github.com/google/fonts/tree/main/ofl/pixelifysans) SemiBold, by Stefie Justprince | SIL OFL 1.1 ([text](licenses/pixelify-sans-OFL.txt)) | `PIXEL_16BIT` | A Link to the Past, Oracle of Seasons, Oracle of Ages, Four Swords, The Minish Cap | 48 KB |
 | `fredoka_semibold.ttf` | [Fredoka](https://github.com/google/fonts/tree/main/ofl/fredoka) SemiBold, by Milena Brandão and Hafontia | SIL OFL 1.1 ([text](licenses/fredoka-OFL.txt)) | `ROUNDED` | The Wind Waker, Four Swords Adventures | 48 KB |
 | `josefin_sans_regular.ttf` | [Josefin Sans](https://github.com/google/fonts/tree/main/ofl/josefinsans) Regular, by Santiago Orozco | SIL OFL 1.1 ([text](licenses/josefin-sans-OFL.txt)) | `SHEIKAH` | Breath of the Wild | 56 KB |
+| `cinzel_bold.ttf` | [Cinzel](https://github.com/google/fonts/tree/main/ofl/cinzel) Bold, by Natanael Gama | SIL OFL 1.1 ([text](licenses/cinzel-OFL.txt)) | `SERIF` | Ocarina of Time, Majora's Mask, Twilight Princess, Skyward Sword, Hyrule Warriors: Definitive Edition | 45 KB |
 
-Total: 265 KB.
+Total: 310 KB.
 
 ## Rules
 
@@ -32,12 +33,7 @@ Total: 265 KB.
 
 ## Planned
 
-Later theme batches add one more font. Every other game uses one of the four slots above
-(`docs/themes.md`).
-
-| Slot | Font | Size | Games |
-|---|---|---|---|
-| `SERIF` | [Cinzel](https://github.com/google/fonts/tree/main/ofl/cinzel) Bold (caps and small caps, like the Zelda logo) | ~45 KB | Ocarina of Time, Majora's Mask, Twilight Princess, Skyward Sword, Hyrule Warriors |
+Every game now has its slot; no more fonts are planned.
 
 The fallback for the 8-bit slot is Silkscreen (31 KB), if Press Start 2P turns out too wide for a
 title.

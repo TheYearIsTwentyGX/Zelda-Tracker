@@ -40,6 +40,11 @@ fun OrnamentDivider(modifier: Modifier = Modifier) {
             Ornament.TRIFORCES -> triforces(color)
             Ornament.SEASONS -> seasons(color, accents)
             Ornament.COLOUR_BANDS -> colourBands(accents)
+            Ornament.CREST -> crest(color)
+            Ornament.CLOCK -> clock(color, accent)
+            Ornament.TWILI -> twili(color)
+            Ornament.CLOUDS -> clouds(color)
+            Ornament.SPIRAL -> spiral(color)
         }
     }
 }
@@ -181,5 +186,105 @@ private fun DrawScope.colourBands(colors: List<Color>) {
     val top = (size.height - height) / 2
     val width = (size.width - gap * (colors.size - 1)) / colors.size
     colors.forEachIndexed { i, c -> drawRect(c, Offset(i * (width + gap), top), Size(width, height)) }
+}
+
+/** A hairline either side of a hollow diamond holding a small filled Triforce. */
+private fun DrawScope.crest(color: Color) {
+    val stroke = 1.dp.toPx()
+    val mid = size.height / 2
+    val cx = size.width / 2
+    val d = size.height / 2
+    drawLine(color, Offset(0f, mid), Offset(cx - d * 1.8f, mid), stroke)
+    drawLine(color, Offset(cx + d * 1.8f, mid), Offset(size.width, mid), stroke)
+    val diamond = Path().apply {
+        moveTo(cx, mid - d)
+        lineTo(cx + d * 1.5f, mid)
+        lineTo(cx, mid + d)
+        lineTo(cx - d * 1.5f, mid)
+        close()
+    }
+    drawPath(diamond, color, style = Stroke(width = stroke))
+    val t = d * 0.9f
+    fun triangle(x: Float, y: Float, w: Float) = Path().apply {
+        moveTo(x + w / 2, y)
+        lineTo(x + w, y + w * 0.87f)
+        lineTo(x, y + w * 0.87f)
+        close()
+    }
+    val top = mid - t * 0.87f
+    drawPath(triangle(cx - t / 2, top, t), color)
+    drawPath(triangle(cx - t, top + t * 0.87f, t), color)
+    drawPath(triangle(cx, top + t * 0.87f, t), color)
+}
+
+/** An arc bowing downward across the width, with hour ticks and a moon-coloured dot at each end. */
+private fun DrawScope.clock(color: Color, end: Color) {
+    val stroke = 1.2.dp.toPx()
+    val r = size.height / 4
+    val sag = size.height / 2
+    val arc = Path().apply {
+        moveTo(r, r)
+        quadraticTo(size.width / 2, r + sag * 2, size.width - r, r)
+    }
+    drawPath(arc, color, style = Stroke(width = stroke))
+    // Ticks along the curve at 24 even steps, like the hours on the clock's face.
+    for (i in 1 until 24) {
+        val t = i / 24f
+        val x = (1 - t) * (1 - t) * r + 2 * (1 - t) * t * (size.width / 2) + t * t * (size.width - r)
+        val y = (1 - t) * (1 - t) * r + 2 * (1 - t) * t * (r + sag * 2) + t * t * r
+        val len = if (i % 6 == 0) 3.dp.toPx() else 1.5.dp.toPx()
+        drawLine(color, Offset(x, y - len), Offset(x, y), stroke)
+    }
+    drawCircle(end, r, Offset(r, r))
+    drawCircle(end, r, Offset(size.width - r, r))
+}
+
+/** Squares stepping up and down along the line, filled and hollow in turn. */
+private fun DrawScope.twili(color: Color) {
+    val cell = size.height / 2
+    val stroke = 1.dp.toPx()
+    var x = 0f
+    var i = 0
+    while (x + cell <= size.width) {
+        val y = if (i % 4 < 2) 0f else cell
+        if (i % 2 == 0) drawRect(color, Offset(x, y), Size(cell, cell))
+        else drawRect(color, Offset(x + stroke / 2, y + stroke / 2), Size(cell - stroke, cell - stroke), style = Stroke(width = stroke))
+        x += cell * 1.5f
+        i++
+    }
+}
+
+/** Half-circle cloud tops sitting on a baseline, alternating large and small. */
+private fun DrawScope.clouds(color: Color) {
+    val stroke = 1.2.dp.toPx()
+    val base = size.height - stroke
+    drawLine(color, Offset(0f, base), Offset(size.width, base), stroke)
+    var x = 0f
+    var big = true
+    while (x < size.width) {
+        val r = if (big) size.height * 0.8f else size.height * 0.5f
+        drawArc(color, 180f, 180f, false, Offset(x, base - r), Size(2 * r, 2 * r), style = Stroke(width = stroke))
+        x += 2 * r
+        big = !big
+    }
+}
+
+/** A hairline threaded through rings every 32dp, each ring with a smaller ring and a dot inside. */
+private fun DrawScope.spiral(color: Color) {
+    val stroke = 1.dp.toPx()
+    val mid = size.height / 2
+    val r = size.height / 2 - stroke
+    val step = 32.dp.toPx()
+    var x = step / 2
+    var last = 0f
+    while (x + r <= size.width) {
+        drawLine(color, Offset(last, mid), Offset(x - r, mid), stroke)
+        drawCircle(color, r, Offset(x, mid), style = Stroke(width = stroke))
+        drawCircle(color, r * 0.55f, Offset(x + r * 0.15f, mid), style = Stroke(width = stroke))
+        drawCircle(color, r * 0.18f, Offset(x + r * 0.25f, mid))
+        last = x + r
+        x += step
+    }
+    drawLine(color, Offset(last, mid), Offset(size.width, mid), stroke)
 }
 
