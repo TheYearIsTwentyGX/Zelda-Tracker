@@ -61,6 +61,10 @@ class BossViewModelTest {
     @Test
     fun theMasterModeFileShowsItsRankedUpVariants() = runTest {
         val storage = storage()
+        // A mark only the Master Mode file has: its state shows the switch has reached that file's
+        // progress, not just the file. Writing before then races the progress collector subscribing.
+        val marker = "not_a_spawn"
+        storage.setState("master", marker, DiscoveryState.FOUND)
         val vm = main.track(BossViewModel(storage))
         backgroundScope.launch { vm.state.collect {} }
         val normal = vm.state.filterNotNull().first()
@@ -68,7 +72,7 @@ class BossViewModelTest {
         assertEquals("stone_talus_luminous", normal.spawns.first { it.id == rutimala }.variant)
 
         vm.setSaveFile("master").join()
-        val master = vm.state.filterNotNull().first { it.saveFile.masterMode }
+        val master = vm.state.filterNotNull().first { it.saveFile.masterMode && it.progress.isFound(marker) }
         val talus = master.spawns.first { it.id == rutimala }
         assertEquals("Stone Talus (Rare)", master.data.variantName(talus.variant))
         assertEquals("stone_talus_luminous", talus.rankedUpFrom)

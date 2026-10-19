@@ -191,6 +191,7 @@ class MapViewModelTest {
     fun showOnMapPinsNamesAndSelectsTheEntry() = runTest {
         koroks.updatePrefs { it.copy(hideUndiscovered = true) }
         val vm = vm(focus = "koroks:P01")
+        await(vm) { true }
         vm.setLayerOn("koroks", false).join()
         val state = await(vm) { "koroks" in it.prefs.hiddenLayers }
         assertEquals(listOf("koroks:P01"), state.markers.filter { it.layer.id == "koroks" }.map { it.key })
