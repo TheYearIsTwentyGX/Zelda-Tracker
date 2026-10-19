@@ -31,7 +31,6 @@ import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -77,6 +76,7 @@ import gx.zelda.core.ui.groupRow
 import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.figurines.model.Figurine
 import gx.zelda.figurines.model.FigurineProgress
+import gx.zelda.theme.GameProgressBar
 
 /**
  * Carlov's figurines on the active save file, grouped by the story checkpoint that adds them to
@@ -254,7 +254,7 @@ private fun CollectionCard(state: FigurineUiState, viewModel: FigurineViewModel)
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            LinearProgressIndicator(progress = { tally.owned.toFloat() / tally.total.coerceAtLeast(1) }, modifier = Modifier.fillMaxWidth())
+            GameProgressBar(progress = { tally.owned.toFloat() / tally.total.coerceAtLeast(1) }, modifier = Modifier.fillMaxWidth())
             Text(
                 tally.categories.joinToString(" · ") { "${it.category.name} ${it.owned} / ${it.total}" },
                 style = MaterialTheme.typography.bodySmall,

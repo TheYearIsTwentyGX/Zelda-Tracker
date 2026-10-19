@@ -25,6 +25,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import gx.zelda.theme.LocalGameDecor
 
 /** ★★☆☆ — filled stars up to [level], hollow up to [max]. */
 @Composable
@@ -45,6 +46,7 @@ fun Stars(
 ) {
     if (max == 0) return
     val dim = MaterialTheme.colorScheme.outlineVariant
+    val gold = LocalGameDecor.current.star
     Row(modifier) {
         for (i in 0 until max) {
             val fill = (level - i).coerceIn(0f, 1f)
@@ -54,7 +56,7 @@ fun Stars(
                     Text(
                         "★",
                         style = style,
-                        color = StarGold,
+                        color = gold,
                         modifier = Modifier.drawWithContent {
                             clipRect(right = size.width * fill) { this@drawWithContent.drawContent() }
                         },

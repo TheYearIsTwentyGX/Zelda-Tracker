@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import gx.zelda.core.AppSettings
 import gx.zelda.core.AppSettingsStorage
+import gx.zelda.core.ThemeMode
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -22,4 +23,8 @@ class AppSettingsViewModel(private val storage: AppSettingsStorage) : ViewModel(
     fun setShown(gameId: String, shown: Boolean): Job = viewModelScope.launch { storage.setShown(gameId, shown) }
 
     fun setExpanded(gameId: String, expanded: Boolean): Job = viewModelScope.launch { storage.setExpanded(gameId, expanded) }
+
+    fun setThemeMode(mode: ThemeMode): Job = viewModelScope.launch { storage.setThemeMode(mode) }
+
+    fun setGameThemes(on: Boolean): Job = viewModelScope.launch { storage.setGameThemes(on) }
 }

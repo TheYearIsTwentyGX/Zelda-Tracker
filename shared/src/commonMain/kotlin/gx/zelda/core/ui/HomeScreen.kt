@@ -24,10 +24,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import gx.zelda.core.Game
 import gx.zelda.core.Tracker
+import gx.zelda.theme.titleStyle
 
 /**
  * The landing page: a card per game the user shows, in release order, the same games and order as
@@ -67,13 +70,16 @@ fun HomeScreen(
 @Composable
 private fun GameCard(game: Game, onOpenTracker: (Game, Tracker) -> Unit) {
     val available = game.trackers.isNotEmpty()
+    // The game's own accent and lettering preview its theme; the card itself stays neutral.
+    val accent = gameAccent(game)
+    val accentBar = if (accent == null) Modifier else Modifier.drawBehind { drawRect(accent, size = Size(4.dp.toPx(), size.height)) }
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
         modifier = Modifier.fillMaxWidth(),
     ) {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(accentBar.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(game.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
+                Text(game.title, style = gameDisplayFont(game).titleStyle(), modifier = Modifier.weight(1f))
                 Text("${game.year}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             Text(

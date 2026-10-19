@@ -1,5 +1,6 @@
 package gx.zelda
 
+import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.runtime.Composable
@@ -12,10 +13,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.navigation.compose.composable as navComposable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import androidx.savedstate.read
 import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.ui.ArmorDetailScreen
 import gx.zelda.armor.ui.ArmorTrackerScreen
@@ -37,6 +40,7 @@ import gx.zelda.checklist.ui.ChecklistViewModel
 import gx.zelda.core.Tracker
 import gx.zelda.core.TrackerKind
 import gx.zelda.core.ui.HomeScreen
+import gx.zelda.core.ui.AppTheme
 import gx.zelda.core.ui.ZeldaTheme
 import gx.zelda.fairies.data.FairyStorage
 import gx.zelda.fairies.ui.FairyTrackerScreen
@@ -78,6 +82,7 @@ import gx.zelda.sidequests.data.SideQuestStorage
 import gx.zelda.sidequests.ui.SideQuestDetailScreen
 import gx.zelda.sidequests.ui.SideQuestTrackerScreen
 import gx.zelda.sidequests.ui.SideQuestViewModel
+import gx.zelda.theme.GameThemes
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
@@ -129,12 +134,13 @@ import kotlinx.serialization.Serializable
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
+/** [onDarkTheme] hears whether the app is light or dark, as Settings chose, for the system bars. */
 @Composable
-fun App(dataStore: DataStore<Preferences>) {
-    ZeldaTheme {
+fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) {
+    val settingsVm = viewModel(key = "app_settings") { AppSettingsViewModel(AppSettingsStorage(dataStore)) }
+    val settings by settingsVm.settings.collectAsStateWithLifecycle()
+    AppTheme(settings, onDarkTheme) {
         val nav = rememberNavController()
-        val settingsVm = viewModel(key = "app_settings") { AppSettingsViewModel(AppSettingsStorage(dataStore)) }
-        val settings by settingsVm.settings.collectAsStateWithLifecycle()
         // The NavHost keeps its old indent inside the drawer, so wrapping it didn't touch every route.
         AppMenuDrawer(nav, settings, settingsVm) {
         // Edge-to-edge (forced from targetSdk 35) means adjustResize no longer shrinks the window
@@ -475,6 +481,20 @@ fun App(dataStore: DataStore<Preferences>) {
             }
         }
         }
+    }
+}
+
+/**
+ * Every destination goes through here rather than straight to [navComposable], so a screen inside a
+ * game wears that game's theme: its route's `gameId` names the game ([GameThemes.of]). Home and
+ * Settings have none and keep the app's own look. The theme is per destination, so a screen
+ * fading out during navigation keeps its colours.
+ */
+private inline fun <reified T : Any> NavGraphBuilder.composable(
+    noinline content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit,
+) {
+    navComposable<T> { entry ->
+        ZeldaTheme(GameThemes.of(entry.arguments?.read { getStringOrNull("gameId") })) { content(entry) }
     }
 }
 

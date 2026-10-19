@@ -1,13 +1,17 @@
 package gx.zelda.core.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -179,6 +183,7 @@ private fun GameHeader(section: GameMenuSection, onToggle: () -> Unit) {
             .then(toggle)
             .padding(start = 16.dp, end = 12.dp, top = 10.dp, bottom = 10.dp),
     ) {
+        AccentDot(game, Modifier.padding(end = 12.dp))
         Column(Modifier.weight(1f)) {
             Text(
                 game.title,
@@ -199,4 +204,15 @@ private fun GameHeader(section: GameMenuSection, onToggle: () -> Unit) {
             )
         }
     }
+}
+
+/** A dot in [game]'s accent colour, or a gap the same size when it has none, so titles line up. */
+@Composable
+fun AccentDot(game: Game, modifier: Modifier = Modifier) {
+    val accent = gameAccent(game)
+    Box(
+        modifier
+            .size(10.dp)
+            .then(if (accent == null) Modifier else Modifier.background(accent, CircleShape)),
+    )
 }
