@@ -9,6 +9,7 @@ import gx.zelda.armor.model.PieceProgress
 import gx.zelda.core.Game
 import gx.zelda.core.Games
 import gx.zelda.core.JsonStore
+import gx.zelda.core.MapSnapshot
 import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -45,6 +46,18 @@ class ArmorStorage(private val dataStore: DataStore<Preferences>, val game: Game
         prefsStore.update { transform(it.normalized()).normalized() }
 
     suspend fun updatePieces(saveFileId: String, transform: (Pieces) -> Pieces) = store(saveFileId).update(transform)
+
+    /**
+     * Marks every one of [pieceIds] collected, or not, in one write; levels stay as they are, as
+     * when a single row is ticked. Returns what it replaced, for [restore].
+     */
+    suspend fun setAllOwned(saveFileId: String, pieceIds: Collection<String>, owned: Boolean): MapSnapshot<String, PieceProgress> {
+        val before = store(saveFileId).swap { pieces -> pieces + pieceIds.associateWith { (pieces[it] ?: PieceProgress()).copy(owned = owned) } }
+        return MapSnapshot.of(before, pieceIds)
+    }
+
+    /** Puts back what [setAllOwned] replaced, in one write; other pieces keep their state. */
+    suspend fun restore(saveFileId: String, snapshot: MapSnapshot<String, PieceProgress>) = store(saveFileId).update(snapshot::restore)
 
     /**
      * Moves data saved before save files existed into [LEGACY_SAVE_FILE] and makes that file

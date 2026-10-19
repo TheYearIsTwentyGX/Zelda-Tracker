@@ -2,6 +2,7 @@ package gx.zelda.koroks.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
@@ -35,6 +36,18 @@ class KorokStorage(dataStore: DataStore<Preferences>, val game: Game) {
     /** Unticking a collected seed leaves its Korok found. */
     suspend fun setCompleted(saveFileId: String, korokId: String, completed: Boolean) =
         setState(saveFileId, korokId, if (completed) DiscoveryState.COMPLETED else DiscoveryState.FOUND)
+
+    /**
+     * Collects every one of [korokIds], or clears them back to found, in one write. Returns what
+     * it replaced, for [restore].
+     */
+    suspend fun setAllCompleted(saveFileId: String, korokIds: Collection<String>, completed: Boolean): DiscoverySnapshot {
+        val before = store(saveFileId).swap { it.withAll(korokIds, completed) }
+        return DiscoverySnapshot.of(before, korokIds)
+    }
+
+    /** Puts back what [setAllCompleted] replaced, in one write; other Koroks keep their state. */
+    suspend fun restore(saveFileId: String, snapshot: DiscoverySnapshot) = updateProgress(saveFileId) { it.restored(snapshot) }
 
     suspend fun setBought(saveFileId: String, pouchId: String, upgrades: Int) =
         updateProgress(saveFileId) { it.withBought(pouchId, upgrades) }

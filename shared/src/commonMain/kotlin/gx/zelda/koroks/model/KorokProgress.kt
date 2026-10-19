@@ -1,6 +1,7 @@
 package gx.zelda.koroks.model
 
 import gx.zelda.core.DiscoverySets
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -16,6 +17,14 @@ data class KorokProgress(
 ) : DiscoverySets {
     fun withState(korokId: String, state: DiscoveryState): KorokProgress =
         setsWith(korokId, state).let { (completed, found) -> copy(completed = completed, found = found) }
+
+    /** Every one of [korokIds] collected (and found), or cleared back to found. */
+    fun withAll(korokIds: Collection<String>, completed: Boolean): KorokProgress =
+        setsWithAll(korokIds, completed).let { (completed, found) -> copy(completed = completed, found = found) }
+
+    /** What [snapshot] replaced put back; every other Korok stays as it is now. */
+    fun restored(snapshot: DiscoverySnapshot): KorokProgress =
+        snapshot.restore(this).let { (completed, found) -> copy(completed = completed, found = found) }
 
     /** Upgrades are stored as entered, never below zero. */
     fun withBought(pouchId: String, upgrades: Int): KorokProgress = copy(hestu = hestu + (pouchId to upgrades.coerceAtLeast(0)))

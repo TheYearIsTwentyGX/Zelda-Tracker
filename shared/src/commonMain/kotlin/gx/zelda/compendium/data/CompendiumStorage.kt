@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.builtins.SetSerializer
@@ -27,6 +28,15 @@ class CompendiumStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setPhotographed(saveFileId: String, entryId: String, photographed: Boolean) =
         store(saveFileId).update { if (photographed) it + entryId else it - entryId }
+
+    /** Marks every one of [entryIds] photographed, or none of them, in one write. Returns what it replaced, for [restore]. */
+    suspend fun setAllPhotographed(saveFileId: String, entryIds: Collection<String>, photographed: Boolean): SetSnapshot<String> {
+        val before = store(saveFileId).swap { if (photographed) it + entryIds else it - entryIds.toSet() }
+        return SetSnapshot.of(before, entryIds)
+    }
+
+    /** Puts back what [setAllPhotographed] replaced, in one write; other entries keep their state. */
+    suspend fun restore(saveFileId: String, snapshot: SetSnapshot<String>) = store(saveFileId).update(snapshot::restore)
 
     private fun store(saveFileId: String): JsonStore<Set<String>> = photographedStores.getValue(game.saveFile(saveFileId).id)
 }
