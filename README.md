@@ -12,8 +12,8 @@ iOS port is mostly a matter of adding the iOS targets.
   (November 2004), and Oracle of Seasons before Oracle of Ages (same day, 2001).
 - The Legend of Zelda, Zelda II, A Link to the Past, Link's Awakening, Ocarina of Time, Majora's
   Mask, Oracle of Seasons, Oracle of Ages, Four Swords, The Wind Waker, Four Swords Adventures, The
-  Minish Cap, Spirit Tracks, Breath of the Wild, Tears of the Kingdom and Echoes of Wisdom have
-  trackers. The rest show as *Coming soon* until they get some.
+  Minish Cap, Twilight Princess, Phantom Hourglass, Spirit Tracks, Breath of the Wild, Tears of the
+  Kingdom and Echoes of Wisdom have trackers. The rest show as *Coming soon* until they get some.
 - **Four Swords** (2002, the Game Boy Advance multiplayer game bundled with A Link to the Past) has
   its own entry. It's counted as mainline because it has its own story (Vaati's first appearance),
   Nintendo's official timeline (Hyrule Historia) places it between The Minish Cap and Ocarina of
@@ -534,6 +534,7 @@ and disagreements are in `docs/la.md`.
   with its reward and the return secret for Farore.
 - **Subrosia**: the Subrosian story, the Market, the ores and Smithy, and the Dance Hall, buried
   treasure and Sign-Loving Subrosian.
+- Three save files, **File 1** to **File 3**, as in the game.
 
 **Oracle of Ages**
 - Nine checklists and a Progress Overview, all data (`files/ooa/`, see `docs/ooa.md`), for the Game
@@ -624,6 +625,62 @@ Adventure and its multiplayer extras. Sources and disagreements are in `docs/fsa
 - Items, Heart Containers and the Four Sword's power last only for a stage, and there are no Pieces
   of Heart, so none are tracked. Navi Trackers, the Japan-only mode, isn't tracked either.
 - Three save files, **File 1–3**, as on the memory card.
+
+**Twilight Princess**
+
+Every TP tracker is a [checklist](docs/checklist-trackers.md), built for the GameCube original
+(the Wii version is mirrored, with the same collectibles). Where Twilight Princess HD differs, the
+item's notes say so; HD-only lists (the 50 Miiverse stamps, the Cave of Shadows, the Ghost Lantern
+and Colossal Wallet) are their own tabs, counted apart. Sources and disagreements are in
+`docs/tp.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** the Ordon days, the three Twilights, the nine dungeons (each with its boss,
+  mini-boss and dungeon item) and the story steps between them, as one chain in play order.
+  Tears of Light (of 48; 36 in HD), Fused Shadows (of 3) and Mirror Shards (of 4) are totalled.
+- **Items & Equipment:** 15 items, with upgrades as tiers (Double Clawshots, the three bomb types,
+  the restored Dominion Rod, the Sky Book); swords, shields and clothing; the wallets and quivers
+  as tiers, the three Bomb Bags and the Giant Bomb Bag; and the 4 Bottles. Totals for Rupees (300
+  to 1,000), arrows (30 to 100), bomb bags and bombs per bag.
+- **Heart Pieces:** 45 Pieces of Heart and 8 Heart Containers, with the hearts total (3 to 20,
+  five pieces to a heart).
+- **Poe Souls:** all 60 by region, tagged *Night* and *Wolf* where they need it, and Jovani's
+  rewards (the Bottle at 20, the end of his curse at 60, Gengle's Rupees).
+- **Golden Bugs:** all 24, a male and a female of 12 species, and Agitha's two wallets.
+- **Hidden Skills:** the 7 skills in the order the Hero's Shade teaches them, each needing the
+  Howling Stone that calls the Golden Wolf, and the 7 Howling Stones.
+- **Cave of Ordeals:** all 50 floors with their enemies, the item each gate needs and the Great
+  Fairy's rewards every tenth floor; HD's 40-floor Cave of Shadows (Wolf Link amiibo) is its own tab.
+- **Sidequests & Collections:** 12 sidequests and minigames (Talo, Iza, Rollgoal, Charlo, the STAR
+  Game, the Malo Mart donations, the Snowpeak races…), the Postman's 16 letters (two from Ooccoo can
+  be missed), the 6 Fishing Journal fish and HD's 50 stamps.
+- Regions are the in-game map's provinces, with each dungeon as its own region. Tags give the
+  items or form needed.
+- Three save files, **File 1–3**, as on the GameCube, the Wii and HD.
+
+**Phantom Hourglass**
+
+Every PH tracker is a [checklist](docs/checklist-trackers.md), listed by the four seas of the World
+of the Ocean King (Southwestern, Northwestern, Southeastern, Northeastern) with the island or floor
+in each row. Sources and disagreements are in `docs/ph.md`.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Main Quest:** 21 steps in story order, from Oshus's Sword to Bellumbeck: the six temples and
+  the Ghost Ship with their bosses, the Temple of the Ocean King's floors (1F, B1–B3, B4–B6, B7–B9,
+  B10–B13 and Bellum), the Cannon, the fog route, the Salvage Arm and Sun Key, the Regal Necklace
+  and the Phantom Sword. Totals for the 3 Spirits, 4 Sea Charts and 3 Pure Metals.
+- **Items & Equipment:** 9 items with their upgrades as tiers (Phantom Sword; Bomb Bag 10/20/30,
+  Quiver 20/30/50, Bombchu Bag 10/20/30, with capacity totals), 9 key items, and the Phantom
+  Hourglass tab: the five bosses' and five Sunken Treasures' sand, 10 to 25 minutes.
+- **Heart Containers:** the 7 bosses' and the 6 from Nyeve, the Shooting Range, the Masked Ship,
+  the Neptoona, the island shop and the Treasure Maze, with the hearts total (3 to 16).
+- **Spirit Gems:** all 20 Power, Wisdom and Courage Gems, with totals, and each spirit's Level 1
+  and Level 2 at Spirit Island.
+- **Treasure Maps:** all 31, each with two steps, finding the map and salvaging its treasure, and
+  totals for both.
+- **Ship Parts & Treasure:** the eight sets of eight parts (Golden included; they're random, so
+  each row says where parts come from) and the eight kinds of Treasure.
+- **Sea Chart & Islands** (16 islands, hidden ones included, and the 6 Golden Frogs) and
+  **Sidequests** (the fishing journal, the five-step trading quest, the mini-games' prizes and
+  Beedle's cards).
 
 **Spirit Tracks**
 
@@ -727,6 +784,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/fs/stages.json  ← Four Swords checklist (docs/fs.md)
   src/commonMain/composeResources/files/ww/*.json   ← The Wind Waker checklists (docs/ww.md)
   src/commonMain/composeResources/files/fsa/*.json  ← Four Swords Adventures checklists (docs/fsa.md)
+  src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
+  src/commonMain/composeResources/files/ph/*.json   ← Phantom Hourglass checklists (docs/ph.md)
   src/commonMain/composeResources/files/st/*.json   ← Spirit Tracks checklists (docs/st.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
@@ -1093,6 +1152,17 @@ Zelda II data (`files/aol/`) comes from Zelda Wiki, Zelda Dungeon (its old guide
 through the Wayback Machine) and StrategyWiki, with TASVideos' 100% definition as a tie-breaker.
 `docs/aol.md` covers the save files and replays, what's tracked and why, the name map between
 sources and every disagreement.
+
+Twilight Princess data (`files/tp/`) comes from Zelda Wiki, Zelda Dungeon (its HD Normal Mode
+walkthrough and wiki, via Wayback Machine snapshots where needed) and StrategyWiki, with Zelda's
+Palace for the HD stamps and GameFAQs guides for spot checks. The zeldaret/tp decompilation settles
+the letters' triggers. Every count was checked against at least two sources. `docs/tp.md` covers
+each tracker, the HD differences and every disagreement.
+
+Phantom Hourglass data (`files/ph/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
+snapshots) and IGN's guide, with StrategyWiki's walkthrough for story order and Nintendo's manual
+for the save files. Every count was checked against all three. `docs/ph.md` covers each tracker
+and every disagreement, including the Treasure Map numbers the sources don't agree on.
 
 Spirit Tracks data (`files/st/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
 snapshots) and IGN's guide, with StrategyWiki as a fourth source, speedrun.com's 100% rules

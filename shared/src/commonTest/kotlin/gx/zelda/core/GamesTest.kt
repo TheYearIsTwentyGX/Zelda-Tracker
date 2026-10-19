@@ -64,9 +64,16 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "st", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
-        assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
+    }
+
+    /** Two files on the DS (Nintendo's manual), the placeholder's ids; every tracker after the overview is a checklist. */
+    @Test
+    fun phantomHourglassHasTwoSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.PH.trackers.first().kind)
+        assertTrue(Games.PH.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     @Test

@@ -1,0 +1,386 @@
+{
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {
+      "label": "Tears of Light",
+      "formula": "16 * (faron_twilight + eldin_twilight + lanayru_twilight)"
+    },
+    {
+      "label": "Fused Shadows",
+      "formula": "forest_temple + goron_mines + lakebed_temple"
+    },
+    {
+      "label": "Mirror Shards",
+      "formula": "arbiters_grounds + snowpeak_ruins + temple_of_time + city_in_the_sky"
+    }
+  ],
+  "sections": [
+    {
+      "id": "light_spirits",
+      "title": "Light Spirits",
+      "note": "Lift the Twilight from three provinces and find the three Fused Shadows.",
+      "items": [
+        {
+          "id": "ordon_days",
+          "name": "Three days in Ordon",
+          "area": "Ordon Village",
+          "howTo": "Win back Uli's cradle from the monkey with the hawk, buy the Slingshot at Sera's Sundries, herd the goats on Epona and bring Talo back from the Faron Woods with the Wooden Sword.",
+          "reward": "Fishing Rod, Slingshot, Wooden Sword",
+          "notes": "The Fishing Rod is Colin's, given by Uli when you return her cradle. On the third day Bulblins carry off Ilia and Colin at Ordon Spring, and a Twilight hand drags Link through the wall into the Faron Woods.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "hyrule_castle_prison",
+          "name": "Escape Hyrule Castle",
+          "area": "Hyrule Castle sewers and rooftops",
+          "howTo": "As a wolf, dig out of the cell with Midna's help, cross the sewers and the rooftops and climb the tower to meet Zelda.",
+          "requires": [
+            "ordon_days"
+          ],
+          "notes": "Midna then takes Link back to Ordon Spring.",
+          "tags": [
+            "Twilight",
+            "Wolf"
+          ]
+        },
+        {
+          "id": "ordon_sword_shield",
+          "name": "Ordon Sword and Ordon Shield",
+          "area": "Ordon Village",
+          "howTo": "Still a wolf, take the Ordon Shield from Jaggle and Pergie's house (knock it down from the window) and the Ordon Sword from Rusl's house, then leave by Ordon Spring.",
+          "requires": [
+            "hyrule_castle_prison"
+          ],
+          "reward": "Ordon Sword, Ordon Shield",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "faron_twilight",
+          "name": "Faron Twilight",
+          "area": "Faron Woods",
+          "howTo": "Fill the Vessel of Light with the Twilight Insects' 16 Tears of Light in the Faron Woods, then bring them to the spring.",
+          "requires": [
+            "ordon_sword_shield"
+          ],
+          "reward": "16 Tears of Light, Hero's Clothes; the Light Spirit Faron returns Link to human form",
+          "notes": "HD: 12 Tears of Light in each Twilight area instead of 16.",
+          "tags": [
+            "Twilight",
+            "Wolf"
+          ]
+        },
+        {
+          "id": "forest_temple",
+          "name": "Forest Temple",
+          "area": "Faron Woods",
+          "howTo": "Buy the Lantern from Coro (or get it back from the monkey), cross the woods to the temple and free the eight monkeys.",
+          "requires": [
+            "faron_twilight"
+          ],
+          "reward": "Fused Shadow, Heart Container",
+          "notes": "Boss: Diababa. Mini-boss: Ook. Dungeon item: Gale Boomerang.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "eldin_twilight",
+          "name": "Eldin Twilight",
+          "area": "Kakariko Village and Death Mountain",
+          "howTo": "Pass the Twilight wall at the Kakariko Gorge and gather the 16 Tears of Light in Kakariko Village, Death Mountain and Eldin's fields.",
+          "requires": [
+            "forest_temple"
+          ],
+          "reward": "16 Tears of Light; Light Spirit Eldin",
+          "notes": "Afterwards Link tames Epona when the Bulblins charge through Kakariko. HD: 12 Tears of Light.",
+          "tags": [
+            "Twilight",
+            "Wolf"
+          ]
+        },
+        {
+          "id": "wrestle_bo",
+          "name": "Wrestle Bo",
+          "area": "Ordon Village",
+          "howTo": "The Gorons won't let you up Death Mountain. Go home and win at sumo against Mayor Bo in his house.",
+          "requires": [
+            "eldin_twilight"
+          ],
+          "reward": "Iron Boots",
+          "notes": "Then beat a Goron at sumo on Death Mountain to be let into the mines.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "goron_mines",
+          "name": "Goron Mines",
+          "area": "Death Mountain",
+          "howTo": "Wear the Iron Boots to hold your ground against the Gorons on the trail, then beat Gor Coron at sumo at the top.",
+          "requires": [
+            "wrestle_bo"
+          ],
+          "reward": "Fused Shadow, Heart Container",
+          "notes": "Boss: Fyrus. Mini-boss: Dangoro. Dungeon item: Hero's Bow.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "king_bulblin_bridge",
+          "name": "King Bulblin's raid",
+          "area": "Bridge of Eldin",
+          "howTo": "When the Bulblins take Colin from Kakariko, chase them across Eldin on Epona and joust King Bulblin on the Bridge of Eldin.",
+          "requires": [
+            "goron_mines"
+          ],
+          "notes": "Afterwards Midna warps the missing span of the Bridge of Eldin back from the Gerudo Mesa, opening the way to Lanayru.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "lanayru_twilight",
+          "name": "Lanayru Twilight",
+          "area": "Lake Hylia, Zora's Domain and Castle Town",
+          "howTo": "Gather the 16 Tears of Light across Lanayru: the dried-up Lake Hylia, Zora's River, the frozen Zora's Domain and Castle Town.",
+          "requires": [
+            "king_bulblin_bridge"
+          ],
+          "reward": "16 Tears of Light; Light Spirit Lanayru",
+          "notes": "Lanayru shows Link the history of the Fused Shadows. HD: 12 Tears of Light.",
+          "tags": [
+            "Twilight",
+            "Wolf"
+          ]
+        },
+        {
+          "id": "escort_telmas_wagon",
+          "name": "Escort Telma's wagon",
+          "area": "Hyrule Field",
+          "howTo": "In Telma's Bar in Castle Town, agree to take Ilia and Prince Ralis to Kakariko. Ride ahead of the wagon and shoot the Bulblins' flaming arrows and the torches before they reach it.",
+          "requires": [
+            "lanayru_twilight"
+          ],
+          "notes": "Use the Gale Boomerang to put out fires on the wagon.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "rutela_gift",
+          "name": "Queen Rutela's gift",
+          "area": "Kakariko Graveyard",
+          "howTo": "Follow Queen Rutela's ghost through the graveyard behind Kakariko to King Zora's grave.",
+          "requires": [
+            "escort_telmas_wagon"
+          ],
+          "reward": "Zora Armor",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "lakebed_temple",
+          "name": "Lakebed Temple",
+          "area": "Lake Hylia",
+          "howTo": "In the Zora Armor, sink to the lake bed with the Iron Boots and blast the rocks over the entrance with Water Bombs.",
+          "requires": [
+            "rutela_gift"
+          ],
+          "reward": "Fused Shadow, Heart Container",
+          "notes": "Boss: Morpheel. Mini-boss: Deku Toad. Dungeon item: Clawshot.",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mirror_of_twilight",
+      "title": "Mirror of Twilight",
+      "note": "The Master Sword, then the four Mirror Shards.",
+      "items": [
+        {
+          "id": "zelda_sacrifice",
+          "name": "Midna's Desperate Hour",
+          "area": "Hyrule Castle",
+          "howTo": "Zant takes the Fused Shadows and curses Link back into a wolf. Carry the dying Midna across Hyrule Field to Zelda at Hyrule Castle.",
+          "requires": [
+            "lakebed_temple"
+          ],
+          "notes": "Zelda gives her life to save Midna.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "draw_master_sword",
+          "name": "Master Sword",
+          "area": "Sacred Grove",
+          "howTo": "Chase the Skull Kid through the Sacred Grove, beat the two guardian statues' puzzle and draw the Master Sword from its pedestal.",
+          "requires": [
+            "zelda_sacrifice"
+          ],
+          "reward": "Master Sword, Shadow Crystal",
+          "notes": "The sword lifts Zant's curse; from now on Link can change form at will.",
+          "tags": [
+            "Wolf"
+          ]
+        },
+        {
+          "id": "gerudo_desert",
+          "name": "Fly to the desert",
+          "area": "Lake Hylia",
+          "howTo": "Auru, at Lake Hylia, gives you a memo for Fyer. Show it to Fyer and ride his cannon to the Gerudo Desert.",
+          "requires": [
+            "draw_master_sword"
+          ],
+          "reward": "Auru's Memo",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "arbiters_grounds",
+          "name": "Arbiter's Grounds",
+          "area": "Gerudo Desert",
+          "howTo": "Cross the desert to the Bulblin camp, take its key from the Bulblins and fight King Bulblin to reach the prison beyond.",
+          "requires": [
+            "gerudo_desert"
+          ],
+          "reward": "Mirror Shard, Heart Container",
+          "notes": "Boss: Stallord. Mini-boss: Death Sword. Dungeon item: Spinner. The Mirror of Twilight lies shattered in the Mirror Chamber above; one shard remains in place.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "reekfish_scent",
+          "name": "Reekfish Scent",
+          "area": "Zora's Domain",
+          "howTo": "Prince Ralis gives you the Coral Earring at his mother's grave. Hook it to the Fishing Rod and catch a Reekfish in Zora's Domain, then follow its scent up Snowpeak as a wolf.",
+          "requires": [
+            "arbiters_grounds"
+          ],
+          "reward": "Coral Earring, Reekfish Scent",
+          "notes": "Ashei, at the foot of Snowpeak, gives you her sketch of the Reekfish.",
+          "tags": [
+            "Wolf",
+            "Fishing Rod"
+          ]
+        },
+        {
+          "id": "snowpeak_ruins",
+          "name": "Snowpeak Ruins",
+          "area": "Snowpeak",
+          "howTo": "Follow Yeto to the mansion; snowboard down to it on his pot lid.",
+          "requires": [
+            "reekfish_scent"
+          ],
+          "reward": "Mirror Shard, Heart Container",
+          "notes": "Boss: Blizzeta. Mini-boss: Darkhammer. Dungeon item: Ball and Chain. Gather the pumpkin and cheese for Yeto's soup on the way.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "temple_of_time",
+          "name": "Temple of Time",
+          "area": "Sacred Grove",
+          "howTo": "Return to the Sacred Grove, beat the Skull Kid again and step through the Master Sword's pedestal into the past.",
+          "requires": [
+            "snowpeak_ruins"
+          ],
+          "reward": "Mirror Shard, Heart Container",
+          "notes": "Boss: Armogohma. Mini-boss: Darknut. Dungeon item: Dominion Rod.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "ilia_memory",
+          "name": "Ilia's memory",
+          "area": "Hidden Village",
+          "howTo": "Take Renado's Letter to Telma, Telma's Invoice to Doctor Borville and his Wooden Statue to Ilia. Clear the Hidden Village of Bulblins for Impaz, who gives you Ilia's Charm.",
+          "requires": [
+            "temple_of_time"
+          ],
+          "reward": "Horse Call, Ancient Sky Book",
+          "notes": "Impaz gives the Ancient Sky Book; Ilia, her memory back, gives the Horse Call. Renado's letter arrives after the Temple of Time.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "sky_characters",
+          "name": "Sky characters",
+          "area": "Hyrule Field",
+          "howTo": "Show Shad the Ancient Sky Book under Renado's sanctuary: its first character restores the Dominion Rod. Move the six Owl Statues around Hyrule with the rod to find the missing sky characters, then bring the finished book back to Shad to wake the Sky Cannon.",
+          "requires": [
+            "ilia_memory"
+          ],
+          "reward": "Sky Book",
+          "notes": "Fyer moves the cannon to Lake Hylia; ride it up to the City in the Sky.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "city_in_the_sky",
+          "name": "City in the Sky",
+          "area": "Lake Hylia (Sky Cannon)",
+          "howTo": "Fire the Sky Cannon at Lake Hylia.",
+          "requires": [
+            "sky_characters"
+          ],
+          "reward": "Mirror Shard, Heart Container",
+          "notes": "Boss: Argorok. Mini-boss: Aeralfos. Dungeon item: a second Clawshot (Double Clawshots).",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twilight_realm",
+      "title": "Twilight's End",
+      "note": "The Palace of Twilight and Hyrule Castle.",
+      "items": [
+        {
+          "id": "palace_of_twilight",
+          "name": "Palace of Twilight",
+          "area": "Mirror Chamber, Gerudo Desert",
+          "howTo": "With the Mirror of Twilight whole again, step through it into the Twilight Realm.",
+          "requires": [
+            "city_in_the_sky"
+          ],
+          "reward": "Heart Container",
+          "notes": "Boss: Zant. Mini-boss: Phantom Zant. No new item: the two Sols fill the Master Sword with light. Midna takes back the Fused Shadows.",
+          "tags": [
+            "Dungeon"
+          ]
+        },
+        {
+          "id": "hyrule_castle",
+          "name": "Hyrule Castle",
+          "area": "Castle Town",
+          "howTo": "Midna breaks the barrier around the castle. Climb to the throne room.",
+          "requires": [
+            "palace_of_twilight"
+          ],
+          "reward": "The end",
+          "notes": "Final boss: Ganondorf (Puppet Zelda, Dark Beast Ganon, then on horseback and sword to sword). Mini-boss: King Bulblin.",
+          "tags": [
+            "Dungeon"
+          ]
+        }
+      ]
+    }
+  ]
+}
