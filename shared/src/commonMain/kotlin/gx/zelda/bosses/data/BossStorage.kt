@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.bosses.model.BossPrefs
 import gx.zelda.bosses.model.BossProgress
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
@@ -31,6 +32,23 @@ class BossStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setState(saveFileId: String, spawnId: String, state: DiscoveryState) =
         store(saveFileId).update { it.withState(spawnId, state) }
+
+    /**
+     * Moves every one of [spawnIds] to [state] in one write, so a "mark all" lands whole or not at
+     * all. Returns which of them were defeated and which found before, for its undo.
+     */
+    suspend fun setAllStates(
+        saveFileId: String,
+        spawnIds: Collection<String>,
+        state: DiscoveryState,
+    ): DiscoverySnapshot {
+        val before = store(saveFileId).swap { it.withStates(spawnIds, state) }
+        return DiscoverySnapshot.of(before, spawnIds)
+    }
+
+    /** Puts back what [setAllStates] replaced, in one write; spawns it didn't touch stay as they are. */
+    suspend fun restore(saveFileId: String, snapshot: DiscoverySnapshot) =
+        store(saveFileId).update { it.restored(snapshot) }
 
     /** Unticking a defeated boss leaves it found. */
     suspend fun setDefeated(saveFileId: String, spawnId: String, defeated: Boolean) =

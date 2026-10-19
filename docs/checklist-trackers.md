@@ -227,7 +227,7 @@ Steps, with the checklist as the worked example (`ChecklistViewModel`, `Checklis
    `CountingDataStore`. Wait for the first state, and after a save-file switch for that file's
    progress, before writing.
 
-The bespoke trackers wired up so far, and what their toggles mean:
+The bespoke trackers, and what their toggles mean:
 
 | Tracker | Toggles | Marks | Clear |
 |---|---|---|---|
@@ -236,6 +236,12 @@ The bespoke trackers wired up so far, and what their toggles mean:
 | Korok Seeds | the list; each region card | collected, so found too | collected only: each stays found |
 | Hyrule Compendium | each tab (All included); each header | photographed | photographed |
 | Armor (BotW, TotK) | the list; each set header | collected, levels untouched | collected, levels untouched |
+| Main Quest (BotW, MC) | each tab; MC's item groups and *Technique upgrades* | done; the Tiger Scrolls tab's row takes the upgrades too | done |
+| Great Fairy Fountains (BotW, TotK) | the list | open; BotW's note says what the costs left come to | open |
+| Side Quests (BotW) | each tab; each region card | completed, so started too | to not started, in progress ones too |
+| Overworld Bosses (BotW) | each tab; each region card | defeated, so found too; the active file's spawns only | to not found, found ones too |
+| Heart Pieces, Kinstone Fusions (MC) | the list; each region card | collected / fused | collected / fused |
+| Carlov's Figurines (MC) | the list; each checkpoint card | owned, even if not yet available (the note counts those) | owned; checkpoint, side tasks and shells never change |
 
 They follow the same steps: `ShrineStorage.setAllCompleted` / `setAllLit` (a `DiscoverySnapshot`
 of *completed* and *found*, from `DiscoverySets.setsWithAll`), `KorokStorage.setAllCompleted`,
@@ -246,6 +252,14 @@ always on the same file. A region card's box acts on what that card shows: in Bo
 its DLC shrines while the DLC chip shows them; with the chip off they're out of every toggle.
 Armor leaves levels alone because its only bulk upgrade control, the set header's stars, already
 exists and steps one level at a time; a toggle that also maxed levels would fight it.
+
+The rest store a set of ids per file (`SetSnapshot`), except Side Quests and Overworld Bosses, which
+have three states: a quest is not started, in progress or completed, a boss not found, found or
+defeated. Unlike shrines and Koroks, their clear goes back to the *first* state (`withStates(ids,
+UNDISCOVERED)`), because a list of quests "in progress" or bosses "found" that you never touched
+would be wrong; `BulkScope`'s `started` counts the middle state so the dialog says how many change.
+Both keep a `DiscoverySnapshot`, so the undo puts back each one's exact state, the middle one too.
+Main Quest, Fairies and Bosses also pair the active file with its progress in one `flatMapLatest`.
 
 The rules the shared pieces apply: a toggle marks everything complete, or clears it all once it all
 is; a clear always asks first, and a mark asks once it changes more than `BulkScope.CONFIRM_ABOVE`

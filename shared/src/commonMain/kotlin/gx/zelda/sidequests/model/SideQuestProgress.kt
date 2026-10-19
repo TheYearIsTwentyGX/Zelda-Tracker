@@ -1,6 +1,7 @@
 package gx.zelda.sidequests.model
 
 import gx.zelda.core.DiscoverySets
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import kotlinx.serialization.Serializable
 
@@ -33,6 +34,14 @@ data class SideQuestProgress(
 
     fun withState(questId: String, state: QuestState): SideQuestProgress =
         setsWith(questId, state).let { (completed, started) -> copy(completed = completed, started = started) }
+
+    /** Each of [questIds] moved to [state], as [withState] does one. */
+    fun withStates(questIds: Collection<String>, state: QuestState): SideQuestProgress =
+        questIds.fold(this) { progress, id -> progress.withState(id, state) }
+
+    /** What [snapshot] replaced put back; every other quest stays as it is now. */
+    fun restored(snapshot: DiscoverySnapshot): SideQuestProgress =
+        snapshot.restore(this).let { (completed, started) -> copy(completed = completed, started = started) }
 }
 
 /** Viewing preferences, shared by every save file. */

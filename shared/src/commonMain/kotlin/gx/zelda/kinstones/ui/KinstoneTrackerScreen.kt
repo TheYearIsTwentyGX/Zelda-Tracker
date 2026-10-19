@@ -30,6 +30,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -44,6 +46,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.RegionHeader
@@ -53,6 +62,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.kinstones.model.KinstoneColor
 import gx.zelda.kinstones.model.KinstoneFusion
 import gx.zelda.kinstones.model.PartnerKind
@@ -70,7 +80,12 @@ fun KinstoneTrackerScreen(
     onOpenFusion: (String) -> Unit,
     onBack: () -> Unit,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -98,8 +113,9 @@ fun KinstoneTrackerScreen(
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
             KinstoneFilterBar(state, viewModel)
-            FusionList(state, viewModel, onOpenFusion)
+            FusionList(state, viewModel, bulk, onOpenFusion)
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -187,7 +203,7 @@ private fun RegionChip(state: KinstoneUiState, viewModel: KinstoneViewModel) {
 }
 
 @Composable
-private fun FusionList(state: KinstoneUiState, viewModel: KinstoneViewModel, onOpenFusion: (String) -> Unit) {
+private fun FusionList(state: KinstoneUiState, viewModel: KinstoneViewModel, bulk: BulkCompleteState, onOpenFusion: (String) -> Unit) {
     LazyColumn(Modifier.fillMaxSize()) {
         item(key = "_summary") {
             Text(
@@ -197,6 +213,17 @@ private fun FusionList(state: KinstoneUiState, viewModel: KinstoneViewModel, onO
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
             )
+        }
+        // Acts on what the search and filters leave showing.
+        if (state.groups.isNotEmpty()) {
+            item(key = "_bulk") {
+                BulkCompleteRow(
+                    state.bulkScope(),
+                    bulk,
+                    onApply = { viewModel.setAllFused(null, it == BulkAction.MARK) },
+                    modifier = Modifier.padding(horizontal = 4.dp),
+                )
+            }
         }
         if (state.groups.isEmpty()) {
             item(key = "_empty") {
@@ -215,7 +242,11 @@ private fun FusionList(state: KinstoneUiState, viewModel: KinstoneViewModel, onO
         for ((region, inRegion) in state.groups) {
             // The header counts the whole region, not just the fusions the filters leave showing.
             val count = state.regionCounts.getValue(region)
-            item(key = "h_$region", contentType = "header") { RegionHeader(region, found = null, done = count.fused, total = count.total, suffix = "") }
+            item(key = "h_$region", contentType = "header") {
+                RegionHeader(region, found = null, done = count.fused, total = count.total, suffix = "", leading = {
+                    BulkCompleteCheckbox(state.bulkScope(region), bulk, onApply = { viewModel.setAllFused(region, it == BulkAction.MARK) })
+                })
+            }
             itemsIndexed(inRegion, key = { _, f -> f.id }, contentType = { _, _ -> "fusion" }) { i, fusion ->
                 val last = i == inRegion.lastIndex
                 FusionRow(

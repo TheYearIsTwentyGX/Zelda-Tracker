@@ -2,7 +2,11 @@ package gx.zelda.hearts.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
 import gx.zelda.core.SaveFile
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import gx.zelda.hearts.data.HeartRepository
@@ -91,6 +95,33 @@ data class HeartUiState(
     val regionCounts: Map<String, HeartRegionCount> = catalog.entries.groupBy { it.region }.mapValues { (_, inRegion) ->
         HeartRegionCount(collected = inRegion.count { progress.isCollected(it.id) }, total = inRegion.size)
     }
+
+    /** True when a search or chip is on, so a bulk toggle acts on the entries shown only. */
+    val filtered: Boolean get() = filters.query.isNotBlank() || filters.missingOnly || filters.requirements.isNotEmpty()
+
+    /** What a "mark all complete" toggle acts on: the entries the filters leave showing (hidden ones included), or only [region]'s. */
+    fun bulkEntries(region: String? = null): List<HeartEntry> =
+        if (region == null) groups.flatMap { it.second } else groups.firstOrNull { it.first == region }?.second.orEmpty()
+
+    /** The toggle for the whole list, or for [region]'s header. Its text names the region, never an entry. */
+    fun bulkScope(region: String? = null): BulkScope {
+        val entries = bulkEntries(region)
+        // A hidden row still says which kind it is, so the noun gives nothing away.
+        val (noun, plural) = when (entries.map { it.kind }.distinct().singleOrNull()) {
+            HeartKind.PIECE -> "Piece of Heart" to "Pieces of Heart"
+            HeartKind.CONTAINER -> "Heart Container" to "Heart Containers"
+            null -> "heart" to "hearts"
+        }
+        return BulkScope.of(
+            label = region ?: "All regions",
+            items = entries,
+            noun = noun,
+            plural = plural,
+            filtered = filtered,
+            isDone = { progress.isCollected(it.id) },
+            isStarted = { progress.isCollected(it.id) },
+        )
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -147,6 +178,42 @@ class HeartViewModel(
     fun setCollected(entryId: String, collected: Boolean): Job? {
         val file = state.value?.saveFile?.id ?: return null
         return viewModelScope.launch { storage.setCollected(file, entryId, collected) }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<SetSnapshot<String>>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Collects every entry [HeartUiState.bulkEntries] gives for [region], or uncollects them all, on
+     * the file on screen. It's one write, and what it replaced is kept in [bulkChange] for an undo.
+     * Null when there's nothing to change.
+     */
+    fun setAllCollected(region: String?, collected: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkEntries(region).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(region)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllCollected(state.saveFile.id, ids, collected)
+            val changed = ids.count { (it in snapshot.members) != collected }
+            if (changed > 0) {
+                val action = if (collected) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back what [change] replaced, on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setHideUncollected(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUncollected = hide) } }

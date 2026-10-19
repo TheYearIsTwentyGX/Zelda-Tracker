@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
+import gx.zelda.core.SetSnapshot
 import gx.zelda.core.activeSaveFileStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.builtins.SetSerializer
@@ -27,6 +28,18 @@ class FairyStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setUnlocked(saveFileId: String, fairyId: String, unlocked: Boolean) =
         store(saveFileId).update { if (unlocked) it + fairyId else it - fairyId }
+
+    /**
+     * Opens every one of [fairyIds], or closes them all, in one write; returns which of them were
+     * open before, for its undo.
+     */
+    suspend fun setAllUnlocked(saveFileId: String, fairyIds: Collection<String>, unlocked: Boolean): SetSnapshot<String> {
+        val before = store(saveFileId).swap { if (unlocked) it + fairyIds else it - fairyIds.toSet() }
+        return SetSnapshot.of(before, fairyIds)
+    }
+
+    /** Puts back what [setAllUnlocked] replaced, in one write. */
+    suspend fun restore(saveFileId: String, snapshot: SetSnapshot<String>) = store(saveFileId).update(snapshot::restore)
 
     private fun store(saveFileId: String): JsonStore<Set<String>> = unlockedStores.getValue(game.saveFile(saveFileId).id)
 }
