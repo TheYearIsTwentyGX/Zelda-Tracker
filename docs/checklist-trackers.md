@@ -166,6 +166,18 @@ two decimals. Dividing by zero gives 0. Examples:
   - an item that `requires` it names it by its `hiddenLabel`.
 - **Search** reads the name, area, region, howTo, after, reward, notes, tags, tier names and section
   title of every row that isn't hidden.
+- **Mark all complete.** A row under the filters toggles the whole tab, and a tri-state box on each
+  region card toggles that card; see the README for how it looks. The engine's side:
+  - `ChecklistUiState.bulkItems(group)` is what a toggle acts on: the rows the filters leave on the
+    tab (spoiler-hidden ones too), or those under one heading. With a search or chip on it acts on
+    those rows only and says so ("Mark 3 shown complete"), rather than being disabled: that's what
+    the rows on screen suggest. *All* leaves out `separate` sections, so they change only from their
+    own tab, and its dialog says which tabs it leaves.
+  - `bulkScope(group)` gives the [`BulkScope`](#mark-all-complete-in-another-tracker) for it. Its
+    counts are items: a tiered item is done only at its top tier.
+  - `ChecklistViewModel.setAllDone(group, done)` sets every tier (or clears it to 0) in one
+    DataStore edit through `ChecklistStorage.setLevels`, which returns a `MapSnapshot` of the levels
+    it replaced. `undoBulkChange` restores that snapshot, on the file it was made on, again in one edit.
 - **Counts.** Tabs and region headers count every item on that tab, whatever the filters leave
   showing. The file's total, and the *All* tab, leave out `separate` sections.
 - **Overview row** (`ChecklistProgressProvider`):
@@ -177,3 +189,45 @@ two decimals. Dividing by zero gives 0. Examples:
     doing them**. With *Hide unchecked* on and that
     item not started, it says only how many are left there ("2 pieces still to do in Hyrule
     Field").
+
+## Mark all complete in another tracker
+
+The control is shared, so a bespoke tracker (BotW, TotK, The Minish Cap) gets the same toggle,
+dialog and undo as the checklists. The pieces:
+
+| Where | What |
+|---|---|
+| `core/BulkComplete.kt` | `BulkScope` (what one toggle covers, its action, labels and dialog text), `BulkChange` (a finished change and its snapshot, with the snackbar line), and `MapSnapshot` / `SetSnapshot` to undo exactly |
+| `core/JsonStore.kt` | `swap`, an `update` that returns the value it replaced, read inside the same edit |
+| `core/ui/BulkCompleteControl.kt` | `BulkCompleteCheckbox` (a header's tri-state box), `BulkCompleteRow` (a labelled row for a tab), `BulkCompleteState` + `BulkConfirmDialog` (confirm when needed) and `BulkUndoSnackbar` |
+| `core/ui/TrackerList.kt` | `RegionHeader(…, leading = { BulkCompleteCheckbox(…) })` puts the box on a region card |
+
+Steps, with the checklist as the worked example (`ChecklistViewModel`, `ChecklistScreen`):
+
+1. **Scope.** In the UI state, list the entries a toggle acts on: the ones the filters leave
+   showing on the tab, or under one region. Build its scope with `BulkScope.of(label, entries,
+   noun, plural, filtered, isDone = …, isStarted = …)`. `label` names the tab or region, never an
+   entry, so the dialog can't give away a spoiler-hidden one; add a `note` for anything the
+   toggle leaves out (DLC, a Master Mode list) or does to levels.
+2. **Write once.** In storage, change every entry in one `JsonStore.swap` (or one `dataStore.edit`
+   for several keys) and return a snapshot of what it replaced, taken from the value `swap`
+   returns: `MapSnapshot.of(before.levels, ids)` for a map of levels, `SetSnapshot.of(before.completed, ids)`
+   for each set of ids (a shrine's *completed* and *found*). Add a `restore` that applies it in one
+   write, so later edits outside the scope survive the undo.
+3. **View model.** A `setAllDone(scope…, done): Job?` that reads the state on screen, writes to
+   that state's save file, counts what actually changed and keeps a `BulkChange(action, changed,
+   noun, plural, saveFile, snapshot)` in a `StateFlow`; plus `undoBulkChange(change): Job?` and
+   `dismissBulkChange(change)`. Return the write `Job`s, as every view model does.
+4. **Screen.** `val bulk = rememberBulkCompleteState()`, a `SnackbarHost` in the `Scaffold`,
+   `BulkUndoSnackbar(change, snackbar, onUndo, onDismiss)`, `BulkConfirmDialog(bulk, saveFile.label)`,
+   and a `BulkCompleteCheckbox` or `BulkCompleteRow` per scope whose `onApply` calls the view
+   model with `it == BulkAction.MARK`.
+5. **Tests.** As `ChecklistBulkViewModelTest`: per tab, region and *All*; levels; what's left out;
+   filters; exact undo; only the active file; and one write, counted with the jvmTest
+   `CountingDataStore`. Wait for the first state, and after a save-file switch for that file's
+   progress, before writing.
+
+The rules the shared pieces apply: a toggle marks everything complete, or clears it all once it all
+is; a clear always asks first, and a mark asks once it changes more than `BulkScope.CONFIRM_ABOVE`
+(3) entries; the checkbox and the row are at least 48dp to tap and describe themselves for a
+screen reader ("Mark all complete in Hyrule Field, 2 of 5 done").

@@ -34,6 +34,15 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
+- **Mark all complete** (every checklist tracker; the BotW, TotK and Minish Cap trackers are to
+  follow): a row under the filters marks everything on the tab complete, and a box on each region
+  card marks that region. Once everything there is complete, the same control reads *Clear all*;
+  the box shows a dash when some are done. Upgrades go to their top level, or back to none.
+  - It acts on the active save file, and on the rows the search and filter chips leave showing
+    ("Mark 3 shown complete"). *All* never touches a tab that counts on its own, like a remake's.
+  - Marking more than 3, and any clear, asks first, naming how many, where and on which save file,
+    but not which items. Afterwards a snackbar offers **Undo**, which puts back exactly what was
+    there.
 
 **Breath of the Wild: Progress Overview**
 - The first card under BotW: every tracker's progress on the active save file on one screen, each
@@ -829,7 +838,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/hearts/   ← Pieces of Heart and Heart Containers (MC) with the hearts meter
   src/commonMain/kotlin/gx/zelda/figurines/  ← Minish Cap figurine tracker and Carlov's odds
   src/commonMain/kotlin/gx/zelda/checklist/  ← the generic, data-driven checklist tracker (docs/checklist-trackers.md)
-  src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces and the menu (AppDrawer.kt)
+  src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces, the menu (AppDrawer.kt) and Mark all complete (BulkCompleteControl.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data

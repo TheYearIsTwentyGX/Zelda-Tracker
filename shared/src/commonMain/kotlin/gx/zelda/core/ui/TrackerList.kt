@@ -58,15 +58,26 @@ fun Modifier.groupRow(last: Boolean): Modifier = this
  * [suffix] defaults to " Tower" for BotW's and TotK's tower regions; The Minish Cap's regions are
  * places, so it passes "". [foundLabel] names the middle state, e.g. "Started" for quests; a null
  * [found] leaves the count out, for a tracker whose entries are only ever done or not.
+ * [leading] goes before the name, lined up with the rows' checkboxes: a [BulkCompleteCheckbox].
  */
 @Composable
-fun RegionHeader(region: String, found: Int?, done: Int, total: Int, foundLabel: String = "Found", suffix: String = " Tower") {
+fun RegionHeader(
+    region: String,
+    found: Int?,
+    done: Int,
+    total: Int,
+    foundLabel: String = "Found",
+    suffix: String = " Tower",
+    leading: (@Composable () -> Unit)? = null,
+) {
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         shape = CardTop,
         modifier = Modifier.fillMaxWidth().padding(horizontal = CardInset),
     ) {
-        Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+        val padding = if (leading == null) Modifier.padding(horizontal = 16.dp, vertical = 10.dp) else Modifier.padding(start = 4.dp, end = 16.dp)
+        Row(padding, verticalAlignment = Alignment.CenterVertically) {
+            leading?.invoke()
             Text(
                 region + suffix,
                 style = MaterialTheme.typography.titleMedium,

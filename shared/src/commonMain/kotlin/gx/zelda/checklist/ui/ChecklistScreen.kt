@@ -27,6 +27,8 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -41,8 +43,15 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import gx.zelda.checklist.model.ChecklistItem
 import gx.zelda.checklist.model.ChecklistSection
+import gx.zelda.core.BulkAction
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.HiddenRow
 import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
@@ -53,6 +62,7 @@ import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.Tag
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 
 /**
  * Any checklist tracker on the active save file: a tab per section (with "All" first), the file's
@@ -68,7 +78,12 @@ fun ChecklistScreen(
     onOpenItem: (String) -> Unit,
     onBack: () -> Unit,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -96,8 +111,9 @@ fun ChecklistScreen(
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
             if (state.showTabs) SectionTabs(state, viewModel)
-            ChecklistList(state, viewModel, onOpenItem, Modifier.fillMaxSize())
+            ChecklistList(state, viewModel, bulk, onOpenItem, Modifier.fillMaxSize())
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -144,13 +160,19 @@ private fun SectionTabs(state: ChecklistUiState, viewModel: ChecklistViewModel) 
 }
 
 @Composable
-private fun ChecklistList(state: ChecklistUiState, viewModel: ChecklistViewModel, onOpenItem: (String) -> Unit, modifier: Modifier) {
+private fun ChecklistList(
+    state: ChecklistUiState,
+    viewModel: ChecklistViewModel,
+    bulk: BulkCompleteState,
+    onOpenItem: (String) -> Unit,
+    modifier: Modifier,
+) {
     LazyColumn(modifier) {
         // While searching, the summary would push the results down under the keyboard.
         if (state.filters.query.isBlank()) {
             item(key = "_summary") { SummaryCard(state) }
         }
-        item(key = "_filters") { FilterBar(state, viewModel) }
+        item(key = "_filters") { FilterBar(state, viewModel, bulk) }
         if (state.groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
@@ -165,7 +187,9 @@ private fun ChecklistList(state: ChecklistUiState, viewModel: ChecklistViewModel
             // The header counts the whole heading on this tab, not just the rows the filters leave.
             val count = state.groupCounts.getValue(group)
             item(key = "h_$group", contentType = "header") {
-                RegionHeader(group, found = null, done = count.done, total = count.total, suffix = "")
+                RegionHeader(group, found = null, done = count.done, total = count.total, suffix = "", leading = {
+                    BulkCompleteCheckbox(state.bulkScope(group), bulk, onApply = { viewModel.setAllDone(group, it == BulkAction.MARK) })
+                })
             }
             itemsIndexed(items, key = { _, item -> item.id }, contentType = { _, _ -> "item" }) { i, item ->
                 val last = i == items.lastIndex
@@ -219,7 +243,7 @@ private fun SummaryCard(state: ChecklistUiState) {
 }
 
 @Composable
-private fun FilterBar(state: ChecklistUiState, viewModel: ChecklistViewModel) {
+private fun FilterBar(state: ChecklistUiState, viewModel: ChecklistViewModel, bulk: BulkCompleteState) {
     val filters = state.filters
     Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         SearchField(filters.query, viewModel::setQuery, "Search name, place or region")
@@ -236,6 +260,10 @@ private fun FilterBar(state: ChecklistUiState, viewModel: ChecklistViewModel) {
                     label = { Text("Missable") },
                 )
             }
+        }
+        // Acts on what the search and chips leave showing, so it sits under them.
+        if (state.groups.isNotEmpty()) {
+            BulkCompleteRow(state.bulkScope(), bulk, onApply = { viewModel.setAllDone(null, it == BulkAction.MARK) })
         }
     }
 }
