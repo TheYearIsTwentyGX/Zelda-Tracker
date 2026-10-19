@@ -231,5 +231,120 @@
     "line": "F-7 (G-6) aRank",
     "op": "accept",
     "source": "the same costume: Zelda Wiki names it Standard Armor (Boss), SBAllen Standard Outfit (Boss)"
+  },
+  {
+    "map": "twilight_map",
+    "square": "D-12",
+    "op": "removeReward",
+    "id": "r4c12.fairy_clothing_magic_skirt",
+    "source": "SBAllen's guide marks the Magic Skirt at L-4 (D-12) as 3DS-only; the Switch gives the Twilight Skirt"
+  },
+  {
+    "map": "twilight_map",
+    "square": "D-12",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c12.fairy_clothing_twilight_skirt",
+      "slot": "treasure",
+      "type": "fairy_clothing",
+      "name": "Fairy Bottom - Twilight Skirt",
+      "keep": "Upper Level East"
+    },
+    "source": "SBAllen's guide, Switch line"
+  },
+  {
+    "map": "twilight_map",
+    "line": "B-3 (C-2) searches",
+    "op": "accept",
+    "source": "the Helper's Ooccoo search is on the square's warp portal, as Zelda Wiki describes the card; SBAllen doesn't list Ooccoo uses as searches"
+  },
+  {
+    "map": "twilight_map",
+    "line": "E-13 (M-5) clear",
+    "op": "accept",
+    "source": "the Lantern card was added to the Helper from its issue #12, a Switch player's report"
+  },
+  {
+    "map": "twilight_map",
+    "line": "G-6 (F-7) clear",
+    "op": "accept",
+    "source": "the Compass card was added to the Helper from its issue #12, a Switch player's report"
+  },
+  {
+    "map": "twilight_map",
+    "line": "H-3 (C-8) clear",
+    "op": "accept",
+    "source": "the Lantern card was added to the Helper from its issue #12, a Switch player's report"
+  },
+  {
+    "map": "twilight_map",
+    "line": "card 'Tears of Twilight'",
+    "op": "accept",
+    "source": "it only appears once every Twilight cloud is gone, to bring them back; nothing on a square uses or gives it"
+  },
+  {
+    "map": "termina_map",
+    "square": "C-6",
+    "op": "addReward",
+    "reward": {
+      "id": "r3c6.fairy_food_ember_seeds",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Ember Seeds",
+      "keep": "West Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at F-3 (C-6) for both versions; the Helper's data is missing it"
+  },
+  {
+    "map": "termina_map",
+    "square": "B-9",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Bomb search on the northernmost boulder here; the Helper has none.",
+    "source": "SBAllen's I-2 against the Helper"
+  },
+  {
+    "map": "termina_map",
+    "line": "B-9 (I-2) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "termina_map",
+    "square": "C-11",
+    "op": "note",
+    "note": "Guides disagree: the Helper uses the Goron Mask on the switch here; SBAllen's guide bombs a boulder, which the Helper's picture doesn't show.",
+    "source": "Helper's K3 against SBAllen's K-3"
+  },
+  {
+    "map": "termina_map",
+    "line": "C-11 (K-3) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "termina_map",
+    "square": "F-11",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Bomb search on a boulder here; the Helper has none, and draws no boulder.",
+    "source": "SBAllen's K-6 against the Helper"
+  },
+  {
+    "map": "termina_map",
+    "line": "F-11 (K-6) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "twilight_map",
+    "line": "Nintendo Life: great_swords at H-2",
+    "op": "accept",
+    "source": "SBAllen's guide and the Helper both give Ganondorf's Great Swords Lv. 4 at H-4 (SBAllen D-8)"
+  },
+  {
+    "map": "termina_map",
+    "line": "Nintendo Life: great_fairy at B-5",
+    "op": "accept",
+    "source": "SBAllen's guide and the Helper both give Great Fairy Lv. 4 at B-7 (SBAllen G-2); Nintendo Life's Great Fairy squares are off on every map so far"
   }
 ]
