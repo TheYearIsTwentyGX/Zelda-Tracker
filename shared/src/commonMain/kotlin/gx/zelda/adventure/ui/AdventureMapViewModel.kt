@@ -210,7 +210,7 @@ class AdventureMapViewModel(
 
     private val _selected = MutableStateFlow<String?>(null)
 
-    /** The square whose sheet is open, by id. */
+    /** The square whose sheet or panel is open, by id. */
     val selected: StateFlow<String?> = _selected
 
     private val _viewport = MutableStateFlow<GridViewport?>(null)
@@ -318,6 +318,11 @@ class AdventureMapViewModel(
 
     fun select(squareId: String?) {
         _selected.value = squareId
+    }
+
+    /** A tap on a square on the map: opens it, or closes it if it's the one open (the side panel leaves the map tappable). */
+    fun tapSquare(squareId: String) {
+        _selected.update { if (it == squareId) null else squareId }
     }
 
     fun setViewport(viewport: GridViewport) {

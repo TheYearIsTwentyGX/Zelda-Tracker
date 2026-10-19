@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextMeasurer
@@ -55,6 +56,9 @@ private const val DETAIL_SCALE = 0.45f
  * The map: every square's picture with its state drawn over it, pinch to zoom, drag to pan, tap a
  * square to open it. [viewport] lives in the view model (null until the view has a size); every
  * gesture hands a new one to [onViewport].
+ *
+ * [insetRight] is how many pixels of the right side a panel covers. The map keeps its scale under
+ * it, and the [selected] square is panned into the part left showing.
  */
 @Composable
 fun GridMapView(
@@ -64,6 +68,7 @@ fun GridMapView(
     selected: String?,
     onViewport: (GridViewport) -> Unit,
     onTapSquare: (Square) -> Unit,
+    insetRight: Float = 0f,
     modifier: Modifier = Modifier,
 ) {
     val map = state.map
@@ -72,6 +77,8 @@ fun GridMapView(
     val latestState by rememberUpdatedState(state)
     val setViewport by rememberUpdatedState(onViewport)
     val tap by rememberUpdatedState(onTapSquare)
+    val inset by rememberUpdatedState(insetRight)
+    val margin = with(LocalDensity.current) { 12.dp.toPx() }
     val text = rememberTextMeasurer()
     val scheme = MaterialTheme.colorScheme
     val palette = remember(scheme) {
@@ -88,6 +95,14 @@ fun GridMapView(
     }
 
     LaunchedEffect(images) { images.loadPreview() }
+    // The panel opening, closing or showing another square: same scale, the square kept in sight.
+    // The view's size is a key too, so a turn of the window that opens the panel still reveals it.
+    LaunchedEffect(insetRight, selected, viewport?.viewWidth, viewport?.viewHeight) {
+        val v = current ?: return@LaunchedEffect
+        val square = selected?.takeIf { insetRight > 0f }?.let(map::square)
+        val next = v.withInset(insetRight).let { if (square != null) it.reveal(square.row, square.col, margin) else it }
+        if (next != v) setViewport(next)
+    }
     LaunchedEffect(images) {
         snapshotFlow { current?.takeIf { it.scale >= DETAIL_SCALE }?.let { visibleSquares(map, it) }.orEmpty() }
             .distinctUntilChanged()
@@ -110,7 +125,7 @@ fun GridMapView(
                         )
                         v.viewWidth != w || v.viewHeight != h -> v.forNewSize(w, h, focus = map.start?.let(map::square)?.let { it.row to it.col })
                         else -> v
-                    },
+                    }.withInset(inset),
                 )
             }
             .pointerInput(Unit) {

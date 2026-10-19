@@ -244,6 +244,18 @@ class AdventureMapViewModelTest {
         assertFalse(vm.ready { !it.progress.isStarted(square("r1c1")) }.progress.isStarted(square("r1c1")))
     }
 
+    /** The side panel leaves the map tappable: tapping the open square again closes it. */
+    @Test
+    fun tappingASquareOpensItAndTappingItAgainClosesIt() = runTest {
+        val vm = viewModel()
+        vm.tapSquare("r1c1")
+        assertEquals("r1c1", vm.selected.value)
+        vm.tapSquare("r2c1")
+        assertEquals("r2c1", vm.selected.value, "another square swaps what's open")
+        vm.tapSquare("r2c1")
+        assertNull(vm.selected.value)
+    }
+
     @Test
     fun theTabAndTheChipsAreKeptForTheMap() = runTest {
         val vm = viewModel()

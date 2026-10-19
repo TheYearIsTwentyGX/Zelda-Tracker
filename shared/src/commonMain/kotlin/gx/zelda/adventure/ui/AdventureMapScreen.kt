@@ -1,6 +1,11 @@
 package gx.zelda.adventure.ui
 
 import androidx.compose.foundation.background
+import gx.zelda.adventure.model.SquareContainer
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -77,7 +82,8 @@ import gx.zelda.core.ui.rememberBulkCompleteState
 
 /**
  * One Adventure Mode map on the active save file: the map itself, or the same squares as a list,
- * with filter chips over both. Tapping a square opens its sheet.
+ * with filter chips over both. Tapping a square opens its details: in a bottom sheet, or in a short
+ * landscape window a panel down the right with the map or list still in use beside it.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -95,6 +101,8 @@ fun AdventureMapScreen(viewModel: AdventureMapViewModel, title: String, onBack: 
         // On a phone on its side, the Map tab gives the bars' height to the map (AdventureChrome).
         val chrome = AdventureChrome.visible(maxWidth.value, maxHeight.value, state?.mapPrefs?.tab ?: AdventureTab.MAP)
         HideSystemBars(hidden = !chrome)
+        val container = AdventureChrome.squareContainer(maxWidth.value, maxHeight.value)
+        val panelWidth = AdventureChrome.panelWidthDp(maxWidth.value).dp
         Scaffold(
             snackbarHost = { SnackbarHost(snackbar) },
             topBar = {
@@ -127,38 +135,47 @@ fun AdventureMapScreen(viewModel: AdventureMapViewModel, title: String, onBack: 
                 return@Scaffold
             }
             val images = remember(s.map) { SquareImages(s.map) }
-            Column(Modifier.fillMaxSize().padding(padding)) {
-                val tabs = AdventureTab.entries
-                if (chrome) {
-                    PrimaryTabRow(selectedTabIndex = tabs.indexOf(s.mapPrefs.tab)) {
-                        tabs.forEach { tab ->
-                            Tab(selected = s.mapPrefs.tab == tab, onClick = { viewModel.setTab(tab) }, text = { Text(tab.label) })
+            val open = selected?.let(s.map::square)
+            val panel = open?.takeIf { container == SquareContainer.PANEL }
+            // What the panel would cover moves clear of it; the map stays full width under it.
+            val clear = Modifier.padding(end = if (panel != null) panelWidth else 0.dp)
+            Box(Modifier.fillMaxSize().padding(padding)) {
+                Column(Modifier.fillMaxSize()) {
+                    val tabs = AdventureTab.entries
+                    if (chrome) {
+                        PrimaryTabRow(selectedTabIndex = tabs.indexOf(s.mapPrefs.tab), modifier = clear) {
+                            tabs.forEach { tab ->
+                                Tab(selected = s.mapPrefs.tab == tab, onClick = { viewModel.setTab(tab) }, text = { Text(tab.label) })
+                            }
+                        }
+                        FilterChips(s, viewModel, clear.fillMaxWidth())
+                    } else {
+                        // The bars are hidden: the filter row carries what they had.
+                        Row(clear.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                            MenuOrBackButton(onBack)
+                            FilterChips(s, viewModel, Modifier.weight(1f))
+                            if (s.saveFiles.size > 1) {
+                                SaveFilePicker(
+                                    current = s.saveFile,
+                                    options = s.saveFiles.map { SaveFileOption(it.file, "${it.all.done} / ${it.all.total}") },
+                                    onSelect = viewModel::setSaveFile,
+                                )
+                            }
+                            TextButton(onClick = { showCards = true }) { Text("Cards") }
+                            TextButton(onClick = { viewModel.setTab(AdventureTab.LIST) }) { Text("List") }
+                            AdventureMenu(s, viewModel, onAbout = { showAbout = true })
                         }
                     }
-                    FilterChips(s, viewModel)
-                } else {
-                    // The bars are hidden: the filter row carries what they had.
-                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        MenuOrBackButton(onBack)
-                        FilterChips(s, viewModel, Modifier.weight(1f))
-                        if (s.saveFiles.size > 1) {
-                            SaveFilePicker(
-                                current = s.saveFile,
-                                options = s.saveFiles.map { SaveFileOption(it.file, "${it.all.done} / ${it.all.total}") },
-                                onSelect = viewModel::setSaveFile,
-                            )
-                        }
-                        TextButton(onClick = { showCards = true }) { Text("Cards") }
-                        TextButton(onClick = { viewModel.setTab(AdventureTab.LIST) }) { Text("List") }
-                        AdventureMenu(s, viewModel, onAbout = { showAbout = true })
+                    when (s.mapPrefs.tab) {
+                        AdventureTab.MAP -> MapPane(s, images, selected, panelWidth.takeIf { panel != null }, viewModel, Modifier.weight(1f).fillMaxWidth())
+                        AdventureTab.LIST -> SquareList(s, viewModel, bulk, Modifier.weight(1f).then(clear).fillMaxWidth())
                     }
                 }
-                when (s.mapPrefs.tab) {
-                    AdventureTab.MAP -> MapPane(s, images, selected, viewModel, Modifier.weight(1f).fillMaxWidth())
-                    AdventureTab.LIST -> SquareList(s, viewModel, bulk, Modifier.weight(1f).fillMaxWidth())
+                panel?.let { square ->
+                    SquarePanel(s, square, images, viewModel, onClose = { viewModel.select(null) }, Modifier.align(Alignment.TopEnd).width(panelWidth).fillMaxHeight())
                 }
             }
-            selected?.let(s.map::square)?.let { square ->
+            if (container == SquareContainer.SHEET) open?.let { square ->
                 SquareSheet(s, square, images, viewModel, onDismiss = { viewModel.select(null) })
             }
             if (showCards) ItemCardsSheet(s, viewModel, onDismiss = { showCards = false })
@@ -225,8 +242,9 @@ private fun FilterChips(state: AdventureUiState, viewModel: AdventureMapViewMode
     }
 }
 
+/** The map, with [panelWidth] of its right side under the side panel when it's open. */
 @Composable
-private fun MapPane(state: AdventureUiState, images: SquareImages, selected: String?, viewModel: AdventureMapViewModel, modifier: Modifier) {
+private fun MapPane(state: AdventureUiState, images: SquareImages, selected: String?, panelWidth: Dp?, viewModel: AdventureMapViewModel, modifier: Modifier) {
     val viewport by viewModel.viewport.collectAsStateWithLifecycle()
     Box(modifier) {
         GridMapView(
@@ -235,7 +253,8 @@ private fun MapPane(state: AdventureUiState, images: SquareImages, selected: Str
             viewport = viewport,
             selected = selected,
             onViewport = viewModel::setViewport,
-            onTapSquare = { viewModel.select(it.id) },
+            onTapSquare = { viewModel.tapSquare(it.id) },
+            insetRight = with(LocalDensity.current) { panelWidth?.toPx() ?: 0f },
             modifier = Modifier.fillMaxSize(),
         )
         if (state.filtered) {
@@ -251,7 +270,7 @@ private fun MapPane(state: AdventureUiState, images: SquareImages, selected: Str
             )
         }
         Column(
-            Modifier.align(Alignment.BottomEnd).padding(12.dp).navigationBarsPadding(),
+            Modifier.align(Alignment.BottomEnd).padding(end = panelWidth ?: 0.dp).padding(12.dp).navigationBarsPadding(),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             val v = viewport

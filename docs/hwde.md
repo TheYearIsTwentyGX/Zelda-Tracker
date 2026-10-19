@@ -485,8 +485,23 @@ system bars, which a swipe from the edge brings back for a moment.
 - Turning the window between portrait and landscape opens the map afresh for the new shape, using
   all the height it now has. A resize within the same shape keeps the zoom.
 
-`AdventureChrome.visible` decides from the window's own size, not the device's orientation, and is
-tested for orientation and tab.
+In the same short landscape window, on either tab, a tapped square opens in a **side panel** rather
+than a bottom sheet, which there would get half the width and need dragging up:
+- It runs the full height down the right, 42% of the width (320–480 dp), and scrolls on its own.
+- The map stays full size under it. Its viewport records the covered width (`GridViewport.insetRight`),
+  so the map's scale doesn't change, the map can be panned out from under the panel, and the open
+  square is panned into the part left showing (`reveal`). The zoom buttons, the toolbar's buttons
+  and the list move clear of it.
+- Tapping another square swaps what it shows; ✕, back, or tapping the same square closes it.
+
+Elsewhere the bottom sheet opens all the way. Both show the same content (`SquareDetails`), the
+most-used part first: the header (label, battle type, A-rank limits), the status control and
+*Mark complete*, then the rewards, Gold Skulltulas and searches as tick boxes two to a row, and the
+mission, notes and search picture below.
+
+`AdventureChrome` decides all of this from the window's own size, not the device's orientation:
+`visible` for the bars and `squareContainer` for the panel. Both are tested, as are the panel's
+width, the tick boxes' columns and keeping the open square in sight.
 
 ## Spoiler-safe mode
 
