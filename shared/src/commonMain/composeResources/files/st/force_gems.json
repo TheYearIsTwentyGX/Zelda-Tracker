@@ -1,0 +1,292 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm",
+    "Sand Realm"
+  ],
+  "noun": "Force Gem",
+  "hiddenLabel": "Uncollected Force Gem",
+  "sections": [
+    {
+      "id": "gems",
+      "title": "Force Gems",
+      "noun": "Force Gem",
+      "note": "20 gems for passengers and cargo, each listed under the realm where it's handed over. Carben's and Noko's are required. Anjean's extra gem is in the Main Quest.",
+      "items": [
+        {
+          "id": "gem_carben",
+          "name": "Carben",
+          "region": "Ocean Realm",
+          "area": "Papuchia Village to the Ocean Sanctuary",
+          "howTo": "Bring Carben down from the birds in Papuchia Village with the Song of Birds and drive him to the Ocean Sanctuary, fighting off the Miniblins and Big Blin who board the train.",
+          "reward": "Tracks south of the Trading Post: Warp Gate B and a Grass Rabbit",
+          "notes": "Required (Main Quest: Duet with Carben). Prima no. 1 (Zelda Wiki), Zelda Dungeon no. 1, IGN no. 1.",
+          "tags": [
+            "Passenger",
+            "Required"
+          ]
+        },
+        {
+          "id": "gem_orca",
+          "name": "Orca's husband",
+          "region": "Ocean Realm",
+          "area": "Whittleton to Papuchia Village",
+          "howTo": "Orca, in the middle house of Papuchia Village, wants a bearded, big-nosed, burly husband. Fetch Dovok, the chief of Whittleton, from his hut at the north of the village and drive him to her.",
+          "after": "Ocean Temple",
+          "reward": "Tracks east of Whittleton: two Grass Rabbits",
+          "notes": "Prima no. 2 (Zelda Wiki), Zelda Dungeon no. 2, IGN no. 2. Wadatsumi, rescued later from the Pirate Hideout, was her sweetheart.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_mona",
+          "name": "Mona",
+          "region": "Forest Realm",
+          "area": "Castle Town to Rabbitland Rescue",
+          "howTo": "Mona, in the house on the west side of Castle Town, misses her rabbit-mad husband. Take her to Bunnio at Rabbitland Rescue, then talk to her again by the train when she's calmed down.",
+          "after": "Ocean Temple",
+          "reward": "Tracks west of the Forest Sanctuary: two Grass Rabbits",
+          "notes": "Prima no. 3 (Zelda Wiki), Zelda Dungeon no. 3, IGN no. 5.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_joe",
+          "name": "Joe",
+          "region": "Forest Realm",
+          "area": "Aboda Village to Beedle's Air Shop",
+          "howTo": "Joe, the boy by Aboda Village's station, wants to see the world from the sky. Find Beedle's balloon on the map, whistle to land it and stop at the Air Shop with Joe aboard.",
+          "after": "Ocean Temple",
+          "reward": "A shortcut west of Castle Town",
+          "notes": "Prima no. 4 (Zelda Wiki), Zelda Dungeon no. 4, IGN no. 6. Zelda Wiki says the shortcut runs between Castle Town and the Forest Temple.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_noko",
+          "name": "Noko",
+          "region": "Snow Realm",
+          "area": "Anouki Village to Wellspring Station",
+          "howTo": "Noko, by the water at the west end of Anouki Village, can't make Mega Ice in the ChuChu-tainted water. Drive him to the lake at Wellspring Station.",
+          "reward": "Tracks east of Anouki Village: Warp Gate C and a link to the Forest Realm",
+          "notes": "Required: he sells the Mega Ice that cools Goron Village. Possible once Carben's duet is done (Zelda Wiki); Zelda Dungeon does it when Kagoron asks for ice. Prima no. 5 (Zelda Wiki), Zelda Dungeon no. 5, IGN no. 8.",
+          "tags": [
+            "Passenger",
+            "Required"
+          ]
+        },
+        {
+          "id": "gem_goron_mega_ice",
+          "name": "Goron's lava-blocked house",
+          "region": "Fire Realm",
+          "area": "Wellspring Station to Goron Village",
+          "howTo": "Buy Mega Ice from Noko at Wellspring Station and reach Goron Village with at least 10 units left. Give it to the Goron at the east end of the village, whose house is still cut off by lava.",
+          "after": "Lava cooled in Goron Village",
+          "reward": "Tracks south of the Goron Target Range: Warp Gate F, Desert Rabbit and a link to the Ocean Realm through the Sand Realm",
+          "notes": "Ice melts outside the Snow Realm, so hurry. Zelda Dungeon calls the warp gate D. Prima no. 8 (Zelda Wiki), Zelda Dungeon no. 6, IGN no. 16.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_lucia",
+          "name": "Lucia's fish",
+          "region": "Forest Realm",
+          "area": "Papuchia Village to Castle Town",
+          "howTo": "Buy a load of fish (20 for 50 Rupees) from Niboshi in Papuchia Village and reach Castle Town with at least 10. Give them to Lucia, the fish-mad woman by the fountain in the middle of town.",
+          "after": "Freight car",
+          "reward": "Tracks south of the Tower of Spirits into the Ocean Realm: a Grass Rabbit and an Ocean Rabbit",
+          "notes": "Fish spoil and Snurgles go for them. Doing Niboshi's Mega Ice first keeps them fresher (IGN). Prima no. 12 (Zelda Wiki), Zelda Dungeon no. 7, IGN no. 3.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_harry",
+          "name": "Harry's Cuccos",
+          "region": "Forest Realm",
+          "area": "Castle Town to Aboda Village",
+          "howTo": "Buy five Cuccos for 50 Rupees from the Cucco man in north-west Castle Town and take them to Harry at the pen in north-west Aboda Village. He wants 10, so make a second trip.",
+          "after": "Freight car",
+          "reward": "Tracks north of Aboda Village: Warp Gate E to the Fire Realm",
+          "notes": "Any hit can lose a Cucco. Prima no. 13 (Zelda Wiki), Zelda Dungeon no. 8, IGN no. 4.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_mash",
+          "name": "Mash's Goron Iron",
+          "region": "Forest Realm",
+          "area": "Goron Village to Whittleton",
+          "howTo": "Buy Goron Iron from the Goron in west Goron Village (by the mailbox) and reach Whittleton with at least 5 units. Give it to Mash, the lumberjack west of the station, for new axes.",
+          "after": "Lava cooled in Goron Village",
+          "reward": "A shortcut west of the Forest Temple to Warp Gate A",
+          "notes": "Prima no. 9 (Zelda Wiki), Zelda Dungeon no. 9, IGN no. 7.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_yeko",
+          "name": "Yeko's fence",
+          "region": "Snow Realm",
+          "area": "Whittleton and the Trading Post to Anouki Village",
+          "howTo": "Yeko in Anouki Village needs lumber and a builder. Buy lumber in Whittleton (100 Rupees), pick up Kenzo where he still stands at the Trading Post bridge, and reach Anouki Village with at least 15 logs and Kenzo aboard.",
+          "after": "Freight car",
+          "reward": "Tracks in the north-west of the Snow Realm: Snowdrift Station and a Snow Rabbit",
+          "notes": "Yeko also gives a Treasure for bringing Kenzo. Prima no. 10 (Zelda Wiki), Zelda Dungeon no. 10, IGN no. 11.",
+          "tags": [
+            "Cargo",
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_ferrus_alfonzo",
+          "name": "Ferrus meets Alfonzo",
+          "region": "Forest Realm",
+          "area": "Snow Realm tracks to Aboda Village",
+          "howTo": "A letter from Ferrus shows him in the snow. Find him beside the north-south tracks just south-east of the Snow Temple (listen for his camera), and drive him to Alfonzo's house in Aboda Village.",
+          "after": "Lava cooled in Goron Village",
+          "reward": "A shortcut from Castle Town to the Bridge Worker's Home",
+          "notes": "Prima no. 11 (Zelda Wiki), Zelda Dungeon no. 11, IGN no. 19.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_steem",
+          "name": "Steem's vessel",
+          "region": "Snow Realm",
+          "area": "Papuchia Village to the Snow Sanctuary",
+          "howTo": "Have the Wise One in Papuchia Village's largest house tell your fortune, say your luck is bad, and buy her Vessel for 50 Rupees. Take it to Steem at the Snow Sanctuary without the train taking a single hit.",
+          "after": "Freight car",
+          "reward": "Tracks in the north of the Snow Realm: Slippery Station",
+          "notes": "If you're hit, let the enemies win so you restart with the Vessel intact (IGN). Prima no. 14 (Zelda Wiki), Zelda Dungeon no. 12, IGN no. 10.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_goron_to_anouki",
+          "name": "Goron visits Anouki Village",
+          "region": "Snow Realm",
+          "area": "Goron Village to Anouki Village",
+          "howTo": "Talk to the Goron near Goron Village's station who wants to see snow and drive him to Anouki Village.",
+          "after": "Fire Temple",
+          "reward": "Tracks north-west of Wellspring Station: Warp Gate D and two Snow Rabbits",
+          "notes": "Zelda Dungeon calls the warp gate F. Prima no. 6 (Zelda Wiki), Zelda Dungeon no. 13, IGN no. 9.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_kofu",
+          "name": "Kofu visits Goron Village",
+          "region": "Fire Realm",
+          "area": "Anouki Village to Goron Village",
+          "howTo": "Kofu, in Honcho's house in Anouki Village, wants to see Goron Village. Drive him there.",
+          "requires": [
+            "gem_goron_to_anouki"
+          ],
+          "reward": "A link north between the Snow and Fire Realms",
+          "notes": "Prima no. 7 (Zelda Wiki), Zelda Dungeon no. 14, IGN no. 12.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_goron_child",
+          "name": "Goron child in Castle Town",
+          "region": "Forest Realm",
+          "area": "Goron Village to Castle Town",
+          "howTo": "The Goron Elder's grandson, outside the Elder's house, dreams of the big city and Princess Zelda. Drive him to Castle Town and keep talking to him as he explores.",
+          "after": "Fire Temple",
+          "reward": "Tracks in the north-west of the Fire Realm: Disorientation Station and a Mountain Rabbit",
+          "notes": "Prima no. 15 (Zelda Wiki), Zelda Dungeon no. 15, IGN no. 17.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_niboshi",
+          "name": "Niboshi's Mega Ice",
+          "region": "Ocean Realm",
+          "area": "Wellspring Station to Papuchia Village",
+          "howTo": "Niboshi, the fish seller in Papuchia Village, needs ice for her fish. Buy Mega Ice at Wellspring Station and reach her with at least 10 units, using Warp Gate B to save time.",
+          "after": "Fire Temple",
+          "reward": "Tracks north of Papuchia Village: the Pirate Hideout",
+          "notes": "Prima no. 16 (Zelda Wiki), Zelda Dungeon no. 16, IGN no. 14.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_wadatsumi",
+          "name": "Wadatsumi",
+          "region": "Ocean Realm",
+          "area": "Pirate Hideout to Papuchia Village",
+          "howTo": "In the Pirate Hideout's north cave, shoot the Miniblins and the Big Blin to free Wadatsumi, then drive him to Papuchia Village, fighting off the pirate ships and the boarders.",
+          "requires": [
+            "gem_niboshi"
+          ],
+          "reward": "Tracks in the middle of the Ocean Realm: Warp Gate G, an Ocean Rabbit and shortcuts",
+          "notes": "The Pirate Hideout minigame can then be replayed for the Quiver and a Heart Container. Prima no. 17 (Zelda Wiki), Zelda Dungeon no. 17, IGN no. 13.",
+          "tags": [
+            "Passenger",
+            "Bow"
+          ]
+        },
+        {
+          "id": "gem_rael",
+          "name": "Rael's Cuccos",
+          "region": "Sand Realm",
+          "area": "Castle Town to the Sand Sanctuary",
+          "howTo": "Rael wants Cuccos to study. Buy five from the Cucco man in Castle Town and deliver all five to the Sand Sanctuary.",
+          "after": "Sand Temple",
+          "reward": "Tracks in the north-east of the Fire Realm: Ends of the Earth Station and a Mountain Rabbit",
+          "notes": "Zelda Wiki says it's possible once you have the Sand Wand. The Cuccos also reach the Sand Sanctuary's stamp. Prima no. 20 (Zelda Wiki), Zelda Dungeon no. 18, IGN no. 20.",
+          "tags": [
+            "Cargo"
+          ]
+        },
+        {
+          "id": "gem_ferrus_ocean_temple",
+          "name": "Ferrus on the Ocean Floor",
+          "region": "Ocean Realm",
+          "area": "Fire Realm tracks to the Ocean Temple",
+          "howTo": "After the Sand Temple, enter the Tower of Spirits; Ferrus's next letter shows him on the tracks north of the Goron Target Range. Pick him up and take him to the Ocean Temple on the Ocean Floor, using Warp Gate F east of the tower (Zelda Dungeon calls it D).",
+          "requires": [
+            "gem_ferrus_alfonzo"
+          ],
+          "after": "Sand Temple",
+          "reward": "Tracks in the east of the Fire Realm: the Dark Ore Mine and a link to the Sand Realm",
+          "notes": "A third letter later puts him north of the Forest Sanctuary, south of the Forest Temple, with a Treasure for you. Prima no. 18 (Zelda Wiki), Zelda Dungeon no. 19, IGN no. 18.",
+          "tags": [
+            "Passenger"
+          ]
+        },
+        {
+          "id": "gem_linebeck",
+          "name": "Linebeck's Dark Ore",
+          "region": "Forest Realm",
+          "area": "Dark Ore Mine to the Trading Post",
+          "howTo": "First beat the Rocktite in the cave east of the Dark Ore Mine. Buy Dark Ore (10 for 200 Rupees) in the mine's middle cavern, get through that cave with at least 9 units, then take Warp Gates H and G and reach Linebeck III at the Trading Post with at least 5.",
+          "requires": [
+            "gem_ferrus_ocean_temple"
+          ],
+          "reward": "Tracks in the south-east of the Ocean Realm: the Lost at Sea Station and an Ocean Rabbit",
+          "notes": "Sunlight ruins the ore. Further loads give a Treasure (Zelda Dungeon) or Rupees (IGN). Prima no. 19 (Zelda Wiki), Zelda Dungeon no. 20, IGN no. 15.",
+          "tags": [
+            "Cargo"
+          ]
+        }
+      ]
+    }
+  ]
+}

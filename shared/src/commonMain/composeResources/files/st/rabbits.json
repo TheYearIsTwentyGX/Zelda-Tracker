@@ -1,0 +1,707 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm",
+    "Sand Realm"
+  ],
+  "noun": "rabbit",
+  "hiddenLabel": "Uncaught rabbit",
+  "summaries": [
+    {
+      "label": "Rabbits",
+      "formula": "rabbits"
+    }
+  ],
+  "sections": [
+    {
+      "id": "rabbits",
+      "title": "Rabbits",
+      "noun": "rabbit",
+      "note": "Ten per realm. Whistle to make them jump, shoot their rock (or barrel at sea) with the Cannon and catch them with the Rabbit Net within 10 seconds.",
+      "items": [
+        {
+          "id": "grass_south_of_rabbitland",
+          "name": "South of Rabbitland Rescue",
+          "region": "Forest Realm",
+          "area": "Rabbitland Rescue line",
+          "howTo": "Leaving Rabbitland Rescue southwards, behind the rock at the corner just before the tracks re-enter the woods (west side).",
+          "after": "Rabbit Net",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "grass_aboda_whittleton",
+          "name": "Between Aboda and Whittleton",
+          "region": "Forest Realm",
+          "area": "East of Aboda Village",
+          "howTo": "East of Aboda Village where the line turns north towards Whittleton, behind a rock on the east side near the corner.",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "grass_west_of_castle_town",
+          "name": "West of Castle Town",
+          "region": "Forest Realm",
+          "area": "By the lake near Hyrule Castle",
+          "howTo": "West of Castle Town on the north side of the tracks, by the lake near Hyrule Castle.",
+          "notes": "Zelda Dungeon's walkthrough puts it in the north-west corner of the castle area, its rabbit page west of Castle Town.",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "grass_forest_temple",
+          "name": "Forest Temple approach",
+          "region": "Forest Realm",
+          "area": "Tracks to the Forest Temple",
+          "howTo": "In the clearing on the right (east) of the tracks as you approach the Forest Temple.",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "snow_west_of_anouki",
+          "name": "West of Anouki Village",
+          "region": "Snow Realm",
+          "area": "Near Anouki Village",
+          "howTo": "Just west of Anouki Village on the north side of the tracks.",
+          "after": "Snow Rail Map",
+          "notes": "StrategyWiki lists one south of the village near Warp Gate A instead.",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_northeast_of_anouki",
+          "name": "North-east of Anouki Village",
+          "region": "Snow Realm",
+          "area": "Snow Sanctuary to Anouki Village line",
+          "howTo": "Leaving the Snow Sanctuary, take the first right towards Anouki Village: on the west side of the tracks.",
+          "after": "Steem's duet",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_east_of_temple",
+          "name": "East of the Snow Temple",
+          "region": "Snow Realm",
+          "area": "Old blizzard area",
+          "howTo": "From the Snow Temple take the first path east, then right at the next fork: on the east side.",
+          "after": "Snow Temple",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_south_of_temple",
+          "name": "South of the Snow Temple",
+          "region": "Snow Realm",
+          "area": "Old blizzard area",
+          "howTo": "Head straight south from the Snow Temple; where you can't go further south it's on the west side.",
+          "after": "Snow Temple",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_blizzard_middle",
+          "name": "Middle of the old blizzard",
+          "region": "Snow Realm",
+          "area": "Old blizzard area",
+          "howTo": "Of the four east-west tracks in the middle of the old blizzard, the third from the top, on its south side.",
+          "after": "Snow Temple",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_blizzard_east",
+          "name": "East of the old blizzard",
+          "region": "Snow Realm",
+          "area": "Old blizzard area",
+          "howTo": "From the rabbit east of the temple go a little south and take the east path: on the north side.",
+          "after": "Snow Temple",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_blizzard_southeast",
+          "name": "South-east of the old blizzard",
+          "region": "Snow Realm",
+          "area": "Old blizzard area",
+          "howTo": "At the south-east corner of the old blizzard area, on the east side of the tracks.",
+          "after": "Snow Temple",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "grass_south_of_trading_post",
+          "name": "South of the Trading Post",
+          "region": "Forest Realm",
+          "area": "Near Warp Gate B",
+          "howTo": "On the last curve before the Trading Post, behind a rock over a hill to the south. Easier from Carben's new tracks by Warp Gate B.",
+          "after": "Carben's Force Gem",
+          "notes": "Zelda Wiki lists Carben's Force Gem as its prerequisite; Zelda Dungeon's walkthrough says it can be shot from the main line already.",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_east_of_sanctuary",
+          "name": "East of the Ocean Sanctuary",
+          "region": "Ocean Realm",
+          "area": "Carben's new tracks",
+          "howTo": "East of the Ocean Sanctuary, behind a floating barrel on the south side.",
+          "after": "Carben's duet",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_east_islands",
+          "name": "Further east",
+          "region": "Ocean Realm",
+          "area": "Carben's new tracks",
+          "howTo": "East of the previous rabbit, on the north side.",
+          "after": "Carben's duet",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_north_of_east_islands",
+          "name": "North of the eastern islands",
+          "region": "Ocean Realm",
+          "area": "Carben's new tracks",
+          "howTo": "North of the previous rabbit, on the north side.",
+          "after": "Carben's duet",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_northeast",
+          "name": "North-east corner",
+          "region": "Ocean Realm",
+          "area": "Carben's new tracks",
+          "howTo": "In the north-east of the Ocean Realm, on the south side of the tracks.",
+          "after": "Carben's duet",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_west_of_northeast",
+          "name": "West of the north-east corner",
+          "region": "Ocean Realm",
+          "area": "Carben's new tracks",
+          "howTo": "West of the north-east rabbit, on the south-east side.",
+          "after": "Carben's duet",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_north",
+          "name": "North",
+          "region": "Ocean Realm",
+          "area": "Carben's new tracks",
+          "howTo": "West of the rabbit north of the eastern islands, on the north side.",
+          "after": "Carben's duet",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_north_of_papuchia",
+          "name": "North of Papuchia Village",
+          "region": "Ocean Realm",
+          "area": "Line to the Tower of Spirits",
+          "howTo": "Directly north of Papuchia Village where the tracks start turning north, on the west side.",
+          "after": "Ocean Temple",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "grass_ocean_border",
+          "name": "By the Ocean Realm border",
+          "region": "Forest Realm",
+          "area": "Orca's new tracks, east end",
+          "howTo": "Take the tracks Orca's Force Gem adds, heading north from the Ocean Realm bridge; the rabbit is right at their east end, north of the line.",
+          "after": "Orca's Force Gem",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "grass_east_of_whittleton",
+          "name": "East of Whittleton",
+          "region": "Forest Realm",
+          "area": "Orca's new tracks",
+          "howTo": "Further west along the same tracks from Orca's Force Gem, east of Whittleton, north of the line.",
+          "after": "Orca's Force Gem",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "grass_far_west",
+          "name": "Far west",
+          "region": "Forest Realm",
+          "area": "Mona's new tracks",
+          "howTo": "West of Rabbitland Rescue on the tracks Mona's Force Gem adds: through the woods, where the area opens out, on the east side.",
+          "after": "Mona's Force Gem",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "grass_west_of_forest_sanctuary",
+          "name": "West of the Forest Sanctuary",
+          "region": "Forest Realm",
+          "area": "Mona's new tracks",
+          "howTo": "Seconds after the previous one, on the south side of the tracks, west of the Forest Sanctuary.",
+          "after": "Mona's Force Gem",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "fire_west_of_target_range",
+          "name": "West of the Goron Target Range",
+          "region": "Fire Realm",
+          "area": "Goron Target Range",
+          "howTo": "Just west of the Goron Target Range, behind a boulder on the east side.",
+          "after": "Fire Rail Map",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "fire_far_north",
+          "name": "Far north",
+          "region": "Fire Realm",
+          "area": "Between the Target Range and Goron Village",
+          "howTo": "From Goron Village go west, then north past the first intersection and right at the next: on the west (left) side, far up north.",
+          "after": "Fire Rail Map",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "fire_far_north_east",
+          "name": "Far north, further east",
+          "region": "Fire Realm",
+          "area": "North of Goron Village",
+          "howTo": "East of the previous rabbit, where the tracks turn west then south, on the north-east side.",
+          "after": "Embrose's duet",
+          "notes": "The sources describe this area loosely; Zelda Wiki's prerequisites suggest it's on tracks Embrose's duet adds.",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "sand_fire_border",
+          "name": "Fire–Sand border",
+          "region": "Sand Realm",
+          "area": "South of the Goron Target Range",
+          "howTo": "On the tracks the Mega Ice Goron's Force Gem adds south of the Goron Target Range: where they turn west, at the south-east corner.",
+          "after": "Force Gem: Goron's lava-blocked house",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "grass_south_of_tower",
+          "name": "South of the Tower of Spirits",
+          "region": "Forest Realm",
+          "area": "Lucia's new tracks",
+          "howTo": "Head south from the Tower of Spirits onto the tracks Lucia's Force Gem adds and turn west: on the south side.",
+          "after": "Lucia's Force Gem",
+          "tags": [
+            "Grass Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_forest_spur",
+          "name": "West of the Pirate Hideout",
+          "region": "Ocean Realm",
+          "area": "Lucia's new tracks",
+          "howTo": "At the short stretch Lucia's Force Gem adds into the Ocean Realm from the Forest Realm, on the south-west side.",
+          "after": "Lucia's Force Gem",
+          "notes": "Zelda Dungeon's rabbit page also lists Niboshi's gem; Zelda Wiki and the walkthrough need only Lucia's.",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "snow_south_of_snowdrift",
+          "name": "South of Snowdrift Station",
+          "region": "Snow Realm",
+          "area": "Yeko's new tracks",
+          "howTo": "On the tracks Yeko's Force Gem adds in the north-west, south of Snowdrift Station on the north side.",
+          "after": "Yeko's Force Gem",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "fire_southwest_of_temple",
+          "name": "South-west of the Fire Temple",
+          "region": "Fire Realm",
+          "area": "Fire Temple tracks",
+          "howTo": "From the Fire Temple head south, west, south and west: on the north side.",
+          "after": "Embrose's duet",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "fire_north_of_temple",
+          "name": "North of the Fire Temple",
+          "region": "Fire Realm",
+          "area": "Fire Temple tracks",
+          "howTo": "Directly north of the Fire Temple, on the south side of the tracks.",
+          "after": "Embrose's duet",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "fire_northeast_of_temple",
+          "name": "North-east of the Fire Temple",
+          "region": "Fire Realm",
+          "area": "Fire Temple tracks",
+          "howTo": "At the far north-east of the Fire Temple's track maze, on the south-west side.",
+          "after": "Embrose's duet",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "fire_southeast_of_temple",
+          "name": "South-east of the Fire Temple",
+          "region": "Fire Realm",
+          "area": "Fire Temple tracks",
+          "howTo": "South of the previous rabbit, near the south-east of the maze, on the south-east side.",
+          "after": "Embrose's duet",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "fire_tower_line",
+          "name": "On the line from the Tower",
+          "region": "Fire Realm",
+          "area": "Tower of Spirits to Fire Realm",
+          "howTo": "On the tracks from the Tower of Spirits into the Fire Realm, east of the line.",
+          "after": "Fire Temple",
+          "notes": "Zelda Wiki: after the Fire Seal. Zelda Dungeon's walkthrough finds it after the Fire Temple, on the new tracks towards the tower.",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "snow_northwest_of_wellspring",
+          "name": "North-west of Wellspring Station",
+          "region": "Snow Realm",
+          "area": "Goron passenger's new tracks",
+          "howTo": "On the new tracks just north-west of Wellspring Station, on the west (left) side.",
+          "after": "Force Gem: Goron visits Anouki Village",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "snow_north_of_wellspring",
+          "name": "North of Wellspring Station",
+          "region": "Snow Realm",
+          "area": "Goron passenger's new tracks",
+          "howTo": "Just past the intersection north of the previous one, on the east side; Warp Gate D is straight ahead.",
+          "after": "Force Gem: Goron visits Anouki Village",
+          "tags": [
+            "Snow Rabbit"
+          ]
+        },
+        {
+          "id": "fire_east_of_disorientation",
+          "name": "East of Disorientation Station",
+          "region": "Fire Realm",
+          "area": "Goron child's new tracks",
+          "howTo": "East of Disorientation Station; it's on the south or north side depending on which track you take.",
+          "after": "Force Gem: Goron child in Castle Town",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_middle",
+          "name": "Middle of the Ocean Realm",
+          "region": "Ocean Realm",
+          "area": "Wadatsumi's new tracks",
+          "howTo": "At the south end of the tracks Wadatsumi's Force Gem adds in the middle of the realm.",
+          "after": "Wadatsumi's Force Gem",
+          "notes": "Zelda Dungeon's Force Gem page lists Wadatsumi's rabbit as Ocean Rabbit 10; its rabbit page and Zelda Wiki make it 9.",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        },
+        {
+          "id": "sand_north_of_sanctuary",
+          "name": "North of the Sand Sanctuary",
+          "region": "Sand Realm",
+          "area": "Sand Realm",
+          "howTo": "North of the Sand Sanctuary, on the north side of the tracks.",
+          "after": "Anjean's Force Gem",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_far_west",
+          "name": "Far west of the Sand Sanctuary",
+          "region": "Sand Realm",
+          "area": "Sand Realm",
+          "howTo": "Far west of the Sand Sanctuary, on the south-west side.",
+          "after": "Anjean's Force Gem",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_south_of_sanctuary",
+          "name": "South of the Sand Sanctuary",
+          "region": "Sand Realm",
+          "area": "Sand Realm",
+          "howTo": "South of the Sand Sanctuary, on the east (south-east) side.",
+          "after": "Anjean's Force Gem",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_east_of_sanctuary",
+          "name": "East of the Sand Sanctuary",
+          "region": "Sand Realm",
+          "area": "Sand Realm",
+          "howTo": "Far east of the Sand Sanctuary, on the south side.",
+          "after": "Anjean's Force Gem",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_tunnels_west",
+          "name": "Forgotten Tunnels: upside-down T, west",
+          "region": "Sand Realm",
+          "area": "Forgotten Tunnels",
+          "howTo": "In the upside-down-T section of the Forgotten Tunnels, on the west side just south of the tracks.",
+          "after": "First trial",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_tunnels_east",
+          "name": "Forgotten Tunnels: upside-down T, east",
+          "region": "Sand Realm",
+          "area": "Forgotten Tunnels",
+          "howTo": "In the upside-down-T section, on the east side just north of the tracks.",
+          "after": "First trial",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_tunnels_t",
+          "name": "Forgotten Tunnels: T section",
+          "region": "Sand Realm",
+          "area": "Forgotten Tunnels",
+          "howTo": "In the T-shaped section, in the middle on the east side of the tracks.",
+          "after": "First trial",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_northeast_of_temple",
+          "name": "North-east of the Sand Temple",
+          "region": "Sand Realm",
+          "area": "Line to the Sand Temple",
+          "howTo": "On the line to the Sand Temple, north-east of it, on the south side.",
+          "after": "Second trial",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "sand_west_of_temple",
+          "name": "West of the Sand Temple",
+          "region": "Sand Realm",
+          "area": "Sand Temple",
+          "howTo": "West of the Sand Temple, on the west side of the tracks.",
+          "after": "Second trial",
+          "tags": [
+            "Desert Rabbit"
+          ]
+        },
+        {
+          "id": "fire_west_of_ends_of_the_earth",
+          "name": "West of Ends of the Earth Station",
+          "region": "Fire Realm",
+          "area": "Rael's new tracks",
+          "howTo": "Where the tracks Rael's Force Gem adds begin, west of the Ends of the Earth Station, on the north side.",
+          "after": "Rael's Force Gem",
+          "tags": [
+            "Mountain Rabbit"
+          ]
+        },
+        {
+          "id": "ocean_lost_at_sea",
+          "name": "By the Lost at Sea Station",
+          "region": "Ocean Realm",
+          "area": "Linebeck's new tracks",
+          "howTo": "Just west of the Lost at Sea Station in the south-east, east of the tracks.",
+          "after": "Linebeck's Force Gem",
+          "tags": [
+            "Ocean Rabbit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bunnio_rewards",
+      "title": "Bunnio's rewards",
+      "noun": "reward",
+      "note": "At Rabbitland Rescue. He also pays Rupees for every rabbit.",
+      "items": [
+        {
+          "id": "rabbits_five",
+          "name": "Five rabbits",
+          "howTo": "Bring Bunnio any five rabbits.",
+          "reward": "Heart Container",
+          "notes": "Also in Heart Containers."
+        },
+        {
+          "id": "rabbits_one_of_each",
+          "name": "One of each kind",
+          "howTo": "Bring Bunnio at least one rabbit of each of the five kinds.",
+          "reward": "Treasure",
+          "notes": "Zelda Dungeon: a rare Treasure. Zelda Wiki: a random Treasure, for 10 rabbits in all or one of each kind."
+        },
+        {
+          "id": "rabbits_ten_grass",
+          "name": "All 10 Grass Rabbits",
+          "howTo": "Bring Bunnio all ten Grass Rabbits from the Forest Realm.",
+          "requires": [
+            "grass_south_of_rabbitland",
+            "grass_forest_temple",
+            "grass_aboda_whittleton",
+            "grass_west_of_castle_town",
+            "grass_south_of_trading_post",
+            "grass_ocean_border",
+            "grass_east_of_whittleton",
+            "grass_far_west",
+            "grass_west_of_forest_sanctuary",
+            "grass_south_of_tower"
+          ],
+          "reward": "Rare Treasure"
+        },
+        {
+          "id": "rabbits_ten_snow",
+          "name": "All 10 Snow Rabbits",
+          "howTo": "Bring Bunnio all ten Snow Rabbits from the Snow Realm.",
+          "requires": [
+            "snow_west_of_anouki",
+            "snow_northeast_of_anouki",
+            "snow_east_of_temple",
+            "snow_south_of_temple",
+            "snow_blizzard_middle",
+            "snow_blizzard_east",
+            "snow_blizzard_southeast",
+            "snow_northwest_of_wellspring",
+            "snow_north_of_wellspring",
+            "snow_south_of_snowdrift"
+          ],
+          "reward": "Rare Treasure"
+        },
+        {
+          "id": "rabbits_ten_ocean",
+          "name": "All 10 Ocean Rabbits",
+          "howTo": "Bring Bunnio all ten Ocean Rabbits from the Ocean Realm.",
+          "requires": [
+            "ocean_east_of_sanctuary",
+            "ocean_east_islands",
+            "ocean_north_of_east_islands",
+            "ocean_northeast",
+            "ocean_west_of_northeast",
+            "ocean_north",
+            "ocean_north_of_papuchia",
+            "ocean_forest_spur",
+            "ocean_middle",
+            "ocean_lost_at_sea"
+          ],
+          "reward": "Rare Treasure"
+        },
+        {
+          "id": "rabbits_ten_mountain",
+          "name": "All 10 Mountain Rabbits",
+          "howTo": "Bring Bunnio all ten Mountain Rabbits from the Fire Realm.",
+          "requires": [
+            "fire_tower_line",
+            "fire_west_of_target_range",
+            "fire_far_north",
+            "fire_far_north_east",
+            "fire_southwest_of_temple",
+            "fire_north_of_temple",
+            "fire_northeast_of_temple",
+            "fire_southeast_of_temple",
+            "fire_east_of_disorientation",
+            "fire_west_of_ends_of_the_earth"
+          ],
+          "reward": "Rare Treasure"
+        },
+        {
+          "id": "rabbits_ten_desert",
+          "name": "All 10 Desert Rabbits",
+          "howTo": "Bring Bunnio all ten Desert Rabbits from the Sand Realm.",
+          "requires": [
+            "sand_fire_border",
+            "sand_north_of_sanctuary",
+            "sand_far_west",
+            "sand_south_of_sanctuary",
+            "sand_east_of_sanctuary",
+            "sand_tunnels_west",
+            "sand_tunnels_east",
+            "sand_tunnels_t",
+            "sand_northeast_of_temple",
+            "sand_west_of_temple"
+          ],
+          "reward": "Rare Treasure"
+        },
+        {
+          "id": "rabbits_all_fifty",
+          "name": "All 50 rabbits",
+          "howTo": "Bring Bunnio every rabbit.",
+          "requires": [
+            "rabbits_ten_grass",
+            "rabbits_ten_snow",
+            "rabbits_ten_ocean",
+            "rabbits_ten_mountain",
+            "rabbits_ten_desert"
+          ],
+          "reward": "Swordsman's Scroll: Sword Beam",
+          "notes": "Also in Items & Equipment. Needed for speedrun.com's 100%."
+        }
+      ]
+    }
+  ]
+}

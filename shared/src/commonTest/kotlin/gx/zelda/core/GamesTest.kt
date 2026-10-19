@@ -64,7 +64,7 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "fsa", "mc", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "fsa", "mc", "st", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
     }
@@ -108,5 +108,13 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2"), Games.EOW.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.EOW.trackers.first().kind)
         assertTrue(Games.EOW.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /** Two files on the DS (Nintendo's manual), the placeholder's ids; every tracker after the overview is a checklist. */
+    @Test
+    fun spiritTracksHasTwoSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2"), Games.ST.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.ST.trackers.first().kind)
+        assertTrue(Games.ST.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 }
