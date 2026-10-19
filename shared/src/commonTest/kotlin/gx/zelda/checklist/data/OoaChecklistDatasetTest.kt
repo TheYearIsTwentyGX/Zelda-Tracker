@@ -84,6 +84,18 @@ class OoaChecklistDatasetTest {
         assertEquals(10, rings.items.count { "Not in Ages" in it.tags })
     }
 
+    /** One ring collection across both games, so the two lists share their ids, in ring-number order. */
+    @Test
+    fun ringsAndSecretsMatchSeasons() = runTest {
+        val seasons = ChecklistRepository.load("oos/rings.json", strict = true)
+        assertEquals(seasons.items.map { it.id }, load("rings").items.map { it.id })
+        // A secret told in one game is heard in the other: Ages' "tell" is Seasons' "give" and back.
+        val seasonsSecrets = ChecklistRepository.load("oos/linked_secrets.json", strict = true)
+        val secrets = load("linked_secrets")
+        assertEquals(seasonsSecrets.ids("give"), secrets.ids("tell"))
+        assertEquals(seasonsSecrets.ids("tell"), secrets.ids("give"))
+    }
+
     @Test
     fun gashaSpotsTradesCompanionsAndSecrets() = runTest {
         assertEquals(mapOf("spots" to 16), load("gasha").sizes())

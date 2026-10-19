@@ -47,6 +47,8 @@ Cross-references (`requires`), checked by the test:
 - Veran requires all eight dungeons; Twinrova requires Veran and Ganon requires Twinrova.
 - Each trade requires the one before it, from the Poe Clock to the Noble Sword.
 - Choosing a partner requires meeting Ricky, Dimitri and Moosh.
+- Against Seasons' files: the ring ids are identical and in the same order, and each game's
+  secrets to tell are the other's secrets to give.
 
 Ricky's Gloves are in Items and Animal Companions; each tracker counts its own.
 

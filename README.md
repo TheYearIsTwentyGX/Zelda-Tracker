@@ -534,6 +534,7 @@ and disagreements are in `docs/la.md`.
   with its reward and the return secret for Farore.
 - **Subrosia**: the Subrosian story, the Market, the ores and Smithy, and the Dance Hall, buried
   treasure and Sign-Loving Subrosian.
+- Three save files, **File 1** to **File 3**, as in the game.
 
 **Oracle of Ages**
 - Nine checklists and a Progress Overview, all data (`files/ooa/`, see `docs/ooa.md`), for the Game
