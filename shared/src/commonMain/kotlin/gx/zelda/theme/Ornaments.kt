@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.unit.dp
 import kotlin.math.PI
 import kotlin.math.sin
@@ -38,6 +39,7 @@ fun OrnamentDivider(modifier: Modifier = Modifier) {
             Ornament.GLYPHS -> glyphs(color)
             Ornament.BRICKS -> bricks(color)
             Ornament.TRIFORCES -> triforces(color)
+            Ornament.INVERTED_TRIFORCES -> triforces(color, inverted = true)
             Ornament.SEASONS -> seasons(color, accents)
             Ornament.COLOUR_BANDS -> colourBands(accents)
             Ornament.CREST -> crest(color)
@@ -45,6 +47,9 @@ fun OrnamentDivider(modifier: Modifier = Modifier) {
             Ornament.TWILI -> twili(color)
             Ornament.CLOUDS -> clouds(color)
             Ornament.SPIRAL -> spiral(color)
+            Ornament.ROPE -> rope(color)
+            Ornament.RAILS -> rails(color)
+            Ornament.SPARKLES -> sparkles(color, accent)
         }
     }
 }
@@ -143,8 +148,8 @@ private fun DrawScope.bricks(color: Color) {
     }
 }
 
-/** Small filled Triforces, three triangles each, spaced along the line. */
-private fun DrawScope.triforces(color: Color) {
+/** Small filled Triforces, three triangles each, spaced along the line; [inverted] turns them point-down. */
+private fun DrawScope.triforces(color: Color, inverted: Boolean = false) = withTransform({ if (inverted) scale(1f, -1f) }) {
     val h = size.height
     val w = h * 1.15f
     val gap = w * 1.6f
@@ -286,5 +291,66 @@ private fun DrawScope.spiral(color: Color) {
         x += step
     }
     drawLine(color, Offset(last, mid), Offset(size.width, mid), stroke)
+}
+
+/** Two sine strands half a turn apart, crossing every 6dp like a laid rope. */
+private fun DrawScope.rope(color: Color) {
+    val stroke = 1.2.dp.toPx()
+    val period = 12.dp.toPx()
+    val mid = size.height / 2
+    val amplitude = size.height / 3
+    for (phase in listOf(0.0, PI)) {
+        val path = Path().apply {
+            moveTo(0f, mid + amplitude * sin(phase).toFloat())
+            var x = 0f
+            while (x <= size.width) {
+                lineTo(x, mid + amplitude * sin(2 * PI * x / period + phase).toFloat())
+                x += 1.dp.toPx()
+            }
+        }
+        drawPath(path, color, style = Stroke(width = stroke))
+    }
+}
+
+/** Two rails along the width with a sleeper across them every 10dp. */
+private fun DrawScope.rails(color: Color) {
+    val stroke = 1.2.dp.toPx()
+    val top = size.height * 0.3f
+    val bottom = size.height * 0.7f
+    var x = 2.dp.toPx()
+    while (x < size.width) {
+        drawLine(color.copy(alpha = 0.6f), Offset(x, 0f), Offset(x, size.height), 2.dp.toPx())
+        x += 10.dp.toPx()
+    }
+    drawLine(color, Offset(0f, top), Offset(size.width, top), stroke)
+    drawLine(color, Offset(0f, bottom), Offset(size.width, bottom), stroke)
+}
+
+/** A hairline with four-point sparkles every 20dp, every third one large and in [glow]. */
+private fun DrawScope.sparkles(color: Color, glow: Color) {
+    val mid = size.height / 2
+    drawLine(color.copy(alpha = 0.5f), Offset(0f, mid), Offset(size.width, mid), 1.dp.toPx())
+    val step = 20.dp.toPx()
+    var x = step / 2
+    var i = 0
+    while (x <= size.width) {
+        val big = i % 3 == 1
+        val r = if (big) size.height / 2 else size.height / 3.5f
+        val w = r / 3.2f
+        val star = Path().apply {
+            moveTo(x, mid - r)
+            lineTo(x + w, mid - w)
+            lineTo(x + r, mid)
+            lineTo(x + w, mid + w)
+            lineTo(x, mid + r)
+            lineTo(x - w, mid + w)
+            lineTo(x - r, mid)
+            lineTo(x - w, mid - w)
+            close()
+        }
+        drawPath(star, if (big) glow else color)
+        x += step
+        i++
+    }
 }
 
