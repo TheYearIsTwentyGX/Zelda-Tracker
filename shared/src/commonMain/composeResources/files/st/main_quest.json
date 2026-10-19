@@ -1,0 +1,441 @@
+{
+  "regions": [
+    "Forest Realm",
+    "Tower of Spirits",
+    "Snow Realm",
+    "Ocean Realm",
+    "Fire Realm",
+    "Sand Realm",
+    "Dark Realm"
+  ],
+  "noun": "step",
+  "hiddenLabel": "Unfinished step",
+  "summaries": [
+    {
+      "label": "Temples cleared",
+      "formula": "forest_temple + snow_temple + ocean_temple + fire_temple + sand_temple"
+    },
+    {
+      "label": "Rail Maps",
+      "formula": "tower_forest_rail_map + tower_snow_rail_map + tower_ocean_rail_map + tower_fire_rail_map"
+    },
+    {
+      "label": "Lokomo duets",
+      "formula": "gage_duet + steem_duet + carben_duet + embrose_duet + rael_duet"
+    }
+  ],
+  "sections": [
+    {
+      "id": "quest",
+      "title": "Main Quest",
+      "note": "Five temples, six climbs of the Tower of Spirits, five Lokomo duets and the Dark Realm. Each step needs the one before it.",
+      "items": [
+        {
+          "id": "engineer_ceremony",
+          "name": "The engineer's ceremony",
+          "region": "Forest Realm",
+          "area": "Hyrule Castle",
+          "howTo": "Leave Link and Niko's house in Aboda Village, board Alfonzo's train at the station and drive it to Castle Town within 300 seconds, whistling the Moinks off the line and steering around the other trains. Walk up to Hyrule Castle for the ceremony.",
+          "reward": "Royal Engineer's Certificate, Zelda's letter",
+          "notes": "Read Zelda's letter afterwards: it has a map of the castle route to her chamber.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "escape_with_zelda",
+          "name": "Sneak Zelda out of the castle",
+          "region": "Forest Realm",
+          "area": "Hyrule Castle",
+          "howTo": "Follow the route on Zelda's letter to her chamber. Put on the Recruit Uniform she gives you, then guide her past the patrolling guards: talk to the two stationary ones to turn them away and throw a rock to lure the last. Drive her and Alfonzo towards the Tower of Spirits.",
+          "requires": [
+            "engineer_ceremony"
+          ],
+          "reward": "Recruit Uniform",
+          "notes": "On the way the Spirit Tracks vanish, the tower splits apart, and Chancellor Cole and Byrne take Zelda's body. Link wakes back in the castle.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "recruits_sword",
+          "name": "The Recruit's Sword",
+          "region": "Forest Realm",
+          "area": "Hyrule Castle",
+          "howTo": "Follow Zelda's spirit to her chamber, where she asks you to bring the Spirit Flute. The guard at the back exit won't let you through unarmed: go to the training room on the east side of the first floor and pass Captain Russell's three-attack lesson for the Recruit's Sword.",
+          "requires": [
+            "escape_with_zelda"
+          ],
+          "reward": "Recruit's Sword, Spirit Flute",
+          "notes": "The Shield isn't given: buy one for 80 Rupees at the Castle Town Shop (also at Whittleton). The castle's chests hold 20 Rupees, a Red Rupee and a Treasure.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "tunnel_to_the_tower",
+          "name": "Tunnel to the Tower",
+          "region": "Forest Realm",
+          "area": "Tunnel to the Tower",
+          "howTo": "Leave by the castle's back door, throw a Bomb Flower at the large wall at the top-centre of the area to open the cave, then clear its three floors: push the block onto the switch for the key, hit the four switches in the order the tablets give (right, top, bottom, left), and kill the rats.",
+          "requires": [
+            "recruits_sword"
+          ],
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "tower_forest_rail_map",
+          "name": "Tower of Spirits: the Forest Rail Map",
+          "region": "Tower of Spirits",
+          "area": "Tower of Spirits, first floors",
+          "howTo": "Meet Anjean in the lobby. Collect the three Tears of Light, stab the Phantom in the back so Zelda can possess it, and work together up to the floor where the Forest Rail Map is enshrined.",
+          "requires": [
+            "tunnel_to_the_tower"
+          ],
+          "reward": "Forest Rail Map, Spirit Train",
+          "notes": "Floor numbers differ by source: Zelda Dungeon puts the map on floor 3, Zelda Wiki on floor 2. Anjean then turns the statue in the lobby into the Spirit Train and sends you to Gage in the Forest Realm.",
+          "tags": [
+            "Tower of Spirits",
+            "Rail Map"
+          ]
+        },
+        {
+          "id": "gage_duet",
+          "name": "Duet with Gage",
+          "region": "Forest Realm",
+          "area": "Forest Sanctuary",
+          "howTo": "Ask the chief in the north hut of Whittleton about the Forest Sanctuary. Drive west into the Lost Woods: at the first three forks go the way the brown trees point, at the fourth go the other way. At the sanctuary draw a line on the floor map between the two statues that face each other to open Gage's door, then play the Song of Restoration with him.",
+          "requires": [
+            "tower_forest_rail_map"
+          ],
+          "reward": "Tracks to the Forest Temple",
+          "notes": "Link's part: orange, yellow, purple. Learn the Song of Awakening from the stone outside on the way back.",
+          "tags": [
+            "Lokomo duet"
+          ]
+        },
+        {
+          "id": "forest_temple",
+          "name": "Forest Temple",
+          "region": "Forest Realm",
+          "area": "Forest Temple",
+          "howTo": "Drive north to the temple, whistling the Skulltulas off the line. The Whirlwind is in the chest that appears after the four Vengas on 2F; carry the Boss Key along the route drawn on the map behind it.",
+          "requires": [
+            "gage_duet"
+          ],
+          "reward": "Whirlwind, Heart Container, Forest Seal",
+          "notes": "Boss: Stagnox. Dungeon item: Whirlwind. Mini-boss: Mothula. The Song of Healing stone is at the entrance. The tower's second section is restored.",
+          "tags": [
+            "Temple"
+          ]
+        },
+        {
+          "id": "tower_snow_rail_map",
+          "name": "Tower of Spirits: the Snow Rail Map",
+          "region": "Tower of Spirits",
+          "area": "Tower of Spirits, second section",
+          "howTo": "Climb the new staircase from the lobby. Blow the Tear of Light over the lava with the Whirlwind, possess a Phantom and ride its shield across the lava. Beat the Geozard with Phantom Zelda and use her to block the flames.",
+          "requires": [
+            "forest_temple"
+          ],
+          "reward": "Snow Rail Map",
+          "notes": "Zelda Dungeon numbers this section floors 4–7; Zelda Wiki puts the Snow Rail Map on floor 6. Dark Trains now patrol the east of the Forest Realm.",
+          "tags": [
+            "Tower of Spirits",
+            "Rail Map"
+          ]
+        },
+        {
+          "id": "alfonzo_cannon",
+          "name": "Take Alfonzo home",
+          "region": "Forest Realm",
+          "area": "Aboda Village",
+          "howTo": "Collect Alfonzo's letter at the Castle Town mailbox, pick him up in the castle's rest room and drive him home to Aboda Village. While he works, visit Niko in your house.",
+          "requires": [
+            "tower_snow_rail_map"
+          ],
+          "reward": "Cannon (Practical Cannon), Stamp Book",
+          "notes": "The Cannon breaks the boulder on the way to the Snow Realm. Bunnio gives the Rabbit Net at Rabbitland Rescue on that line.",
+          "tags": [
+            "Story",
+            "Passenger"
+          ]
+        },
+        {
+          "id": "steem_duet",
+          "name": "Duet with Steem",
+          "region": "Snow Realm",
+          "area": "Snow Sanctuary",
+          "howTo": "In Anouki Village solve Honcho's patrol pairs (houses 1 and 6, 2 and 4, 3 and 5). Drive through the tunnel to the Snow Sanctuary, shooting the Rocktite in the eye. Inside, step on the switch and walk the path that stays out of the statues' sight lines, then play the Song of Restoration with Steem.",
+          "requires": [
+            "alfonzo_cannon"
+          ],
+          "reward": "Tracks to the Snow Temple",
+          "notes": "Link's part: turquoise, silver, turquoise, orange. Learn the Song of Discovery from the stone in the middle of Anouki Village. Activate Warp Gate A south of the village with the Cannon.",
+          "tags": [
+            "Lokomo duet"
+          ]
+        },
+        {
+          "id": "snow_temple",
+          "name": "Snow Temple",
+          "region": "Snow Realm",
+          "area": "Snow Temple",
+          "howTo": "The blizzard turns you back until you find Ferrus: read the map in the hut at Wellspring Station, then stop beside Ferrus on the tracks east of it and copy his route through the blizzard. In the temple push the three bells onto their squares and ring them in the orders shown on the wall signs.",
+          "requires": [
+            "steem_duet"
+          ],
+          "reward": "Boomerang, Heart Container, Snow Seal",
+          "notes": "Boss: Fraaz. Dungeon item: Boomerang (after the three Ice Keese on B1). Clearing it lifts the blizzard and opens the Bridge Worker's Home.",
+          "tags": [
+            "Temple"
+          ]
+        },
+        {
+          "id": "tower_ocean_rail_map",
+          "name": "Tower of Spirits: the Ocean Rail Map",
+          "region": "Tower of Spirits",
+          "area": "Tower of Spirits, third section",
+          "howTo": "The dark floors: carry fire from torch to torch with the Boomerang, blow out the lone corner torch to reveal the third Tear of Light and possess a Torch Phantom to light the way and kill Nocturns. Draw a Z on the red door (the shape of the gold floor tiles), then let Phantom Zelda carry the electrified Boss Key past the Key Masters.",
+          "requires": [
+            "snow_temple"
+          ],
+          "reward": "Ocean Rail Map",
+          "notes": "Mini-boss: Geozard Chief. Zelda Dungeon: floors 8–12; Zelda Wiki puts the Ocean Rail Map on floor 10. With the Whirlwind and Boomerang, the first floors' extra treasure chests can be reached now.",
+          "tags": [
+            "Tower of Spirits",
+            "Rail Map"
+          ]
+        },
+        {
+          "id": "trading_post_bridge",
+          "name": "Rebuild the Trading Post bridge",
+          "region": "Forest Realm",
+          "area": "Trading Post",
+          "howTo": "Talk to Linebeck III at the Trading Post, then fetch Kenzo from the Bridge Worker's Home in the Snow Realm and drive him back obeying every sign. Linebeck won't pay the 5,000 Rupees, so read his grandfather's note: learn the Song of Light at Linebeck's grave north of the cave, follow the beam to a switch in the water, bomb the wall and in the cave play the Song of Light at both crystals. From where the beams cross go 4 steps north and 6 west and play the Song of Discovery.",
+          "requires": [
+            "tower_ocean_rail_map"
+          ],
+          "reward": "Bridge to the Ocean Realm, Song of Light",
+          "notes": "The Regal Ring pays Kenzo. Linebeck III now trades Treasure for train parts. Don't open the shaking chest in the ring's cave: it's a Like Like.",
+          "tags": [
+            "Story",
+            "Passenger"
+          ]
+        },
+        {
+          "id": "carben_duet",
+          "name": "Duet with Carben",
+          "region": "Ocean Realm",
+          "area": "Ocean Sanctuary",
+          "howTo": "At the Ocean Sanctuary trace the six face statues' gazes (a sideways 8) on the red door to find Carben's note. In Papuchia Village ask the Wise One, play the Song of Discovery at the lone palm tree and learn the Song of Birds from the stone that rises; play it to bring Carben down. Drive him back, fighting off the pirates who board the train, then play the Song of Restoration with him.",
+          "requires": [
+            "trading_post_bridge"
+          ],
+          "reward": "Force Gem, tracks to the Ocean Temple",
+          "notes": "Link's part: turquoise, orange, purple. Carben's Force Gem is the first of the 20 (Force Gems tracker) and is required.",
+          "tags": [
+            "Lokomo duet",
+            "Force Gem"
+          ]
+        },
+        {
+          "id": "ocean_temple",
+          "name": "Ocean Temple",
+          "region": "Ocean Realm",
+          "area": "Ocean Temple",
+          "howTo": "Whistle at the three orbs in the order on Carben's letter (east island, the island to the north-west, then the south-west dead end); a fish appears at the end of the tracks. Ride into its mouth and reach the temple on the Ocean Floor, dodging the two Armored Trains.",
+          "requires": [
+            "carben_duet"
+          ],
+          "reward": "Whip, Heart Container, Ocean Seal",
+          "notes": "Boss: Phytops. Dungeon item: Whip (from the Snapper on 3F). Clearing it opens Take 'Em All On! level 2 and many Force Gem quests.",
+          "tags": [
+            "Temple"
+          ]
+        },
+        {
+          "id": "tower_fire_rail_map",
+          "name": "Tower of Spirits: the Fire Rail Map",
+          "region": "Tower of Spirits",
+          "area": "Tower of Spirits, fourth section",
+          "howTo": "Climb past the new floors with a Warp Phantom: it warps to the Phantom Eyes it's sent towards. Collect the Fire Rail Map at the top of the section.",
+          "requires": [
+            "ocean_temple"
+          ],
+          "reward": "Fire Rail Map",
+          "notes": "Zelda Dungeon: floors 13–17; Zelda Wiki puts the Fire Rail Map on floor 16. Byrne confronts you afterwards and Anjean holds him off.",
+          "tags": [
+            "Tower of Spirits",
+            "Rail Map"
+          ]
+        },
+        {
+          "id": "kagoron_mega_ice",
+          "name": "Cool the lava in Goron Village",
+          "region": "Fire Realm",
+          "area": "Goron Village",
+          "howTo": "In Goron Village cross the west side past the rolling boulders and talk to Kagoron, who lends you a freight car. Take Noko from Anouki Village to Wellspring Station (his Force Gem), buy Mega Ice from him and bring it to Kagoron before it melts.",
+          "requires": [
+            "tower_fire_rail_map"
+          ],
+          "reward": "Trusty Freight Car",
+          "notes": "Noko's Force Gem is required (Force Gems tracker). Haggling: decline his 25 Rupees and the price drops (Zelda Dungeon says to 10 or free; IGN says no lower than 50 for a full load).",
+          "tags": [
+            "Story",
+            "Cargo"
+          ]
+        },
+        {
+          "id": "embrose_duet",
+          "name": "Duet with Embrose",
+          "region": "Fire Realm",
+          "area": "Fire Sanctuary",
+          "howTo": "With the lava cooled, visit the Goron Elder in the highest cave; he steps aside for the path to the Fire Sanctuary. Light the torches with the Boomerang to raise the bridges, then play the Song of Light between the middle statue and the one that looks away to open the door, and play the Song of Restoration with Embrose.",
+          "requires": [
+            "kagoron_mega_ice"
+          ],
+          "reward": "Tracks towards the Fire Temple",
+          "notes": "Link's part: purple, yellow, purple, yellow, turquoise.",
+          "tags": [
+            "Lokomo duet"
+          ]
+        },
+        {
+          "id": "fire_temple_keys",
+          "name": "The Fire Temple's three keys",
+          "region": "Fire Realm",
+          "area": "Tracks east of Goron Village",
+          "howTo": "Through the cave east of Goron Village, meet each of the three key-carrying monsters head-on (not from behind), whistle once short and once long so they cover their ears, and shoot them with the Cannon.",
+          "requires": [
+            "embrose_duet"
+          ],
+          "reward": "The Fire Temple's gate opens",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "fire_temple",
+          "name": "Fire Temple",
+          "region": "Fire Realm",
+          "area": "Fire Temple",
+          "howTo": "Ride the mine carts and hit the wall switches in order. The Bow is the reward for the Heatoise mini-boss on 2F.",
+          "requires": [
+            "fire_temple_keys"
+          ],
+          "reward": "Bow, Heart Container, Fire Seal",
+          "notes": "Boss: Cragma. Dungeon item: Bow (with a 20-arrow Quiver). The Tower of Spirits is then whole.",
+          "tags": [
+            "Temple"
+          ]
+        },
+        {
+          "id": "tower_byrne",
+          "name": "Tower of Spirits: Byrne",
+          "region": "Tower of Spirits",
+          "area": "Tower of Spirits, fifth section",
+          "howTo": "Climb the last floors with Wrecker Phantoms (they roll through blocks and can push the big blue ones) and blue arrow orbs, carry the Boss Key past the Key Masters, then fight Byrne: when his gauntlet sticks in the floor have Phantom Zelda pull it, and hide behind her when he charges.",
+          "requires": [
+            "fire_temple"
+          ],
+          "reward": "Force Gem from Anjean (Sand Realm tracks)",
+          "notes": "Boss: Byrne. Cole revives Malladus in Zelda's body at the altar. Anjean's Force Gem is extra: it isn't one of the 20 (Prima, quoted by Zelda Wiki). Zelda Dungeon numbers these floors 18–23 with Byrne above.",
+          "tags": [
+            "Tower of Spirits",
+            "Boss"
+          ]
+        },
+        {
+          "id": "rael_duet",
+          "name": "Duet with Rael",
+          "region": "Sand Realm",
+          "area": "Sand Sanctuary",
+          "howTo": "Draw on the map the direction each of the Sand Realm's four giant statues faces. At the Sand Sanctuary, bomb the spot in the sand rectangle where the lines cross to reveal the stairs, and play the Song of Restoration with Rael.",
+          "requires": [
+            "tower_byrne"
+          ],
+          "reward": "Tracks towards the Sand Temple",
+          "notes": "Link's part: green, silver, turquoise, silver, turquoise, green (six notes). Rael names the three trials.",
+          "tags": [
+            "Lokomo duet"
+          ]
+        },
+        {
+          "id": "three_trials",
+          "name": "The three trials",
+          "region": "Sand Realm",
+          "area": "Forgotten Tunnels",
+          "howTo": "Beat the Rocktite in the cave north towards the Fire Realm (shoot its eye, or the explosive barrels when it shuts it). In the Forgotten Tunnels stop and reverse twice, then turn right at the last section. Finally circle the Sand Temple shooting down its cannons, and their cannonballs.",
+          "requires": [
+            "rael_duet"
+          ],
+          "notes": "Activate Warp Gate H on the way.",
+          "tags": [
+            "Story"
+          ]
+        },
+        {
+          "id": "sand_temple",
+          "name": "Sand Temple",
+          "region": "Sand Realm",
+          "area": "Sand Temple",
+          "howTo": "The Sand Wand is behind the three Stalfos Warriors on 3F. Boss: build sand walls to steer Skeldritch's boulders onto the catapults, then wall it in and hit the back of its head from raised sand.",
+          "requires": [
+            "three_trials"
+          ],
+          "reward": "Sand Wand, Heart Container, Bow of Light, Sand Seal, Lokomo Sword",
+          "notes": "Boss: Skeldritch. Dungeon item: Sand Wand. The Bow of Light is in the chest past the boss; Anjean gives the Lokomo Sword afterwards, and Byrne tells you about the Compass of Light.",
+          "tags": [
+            "Temple"
+          ]
+        },
+        {
+          "id": "tower_compass_of_light",
+          "name": "Tower of Spirits: the Compass of Light",
+          "region": "Tower of Spirits",
+          "area": "Below the altar",
+          "howTo": "Take the warp at the top of the stairs, climb to the altar and shoot the two eye switches with the Bow of Light to open the floors below it. Work down through them, swapping Phantoms as each puzzle needs, to the Compass of Light.",
+          "requires": [
+            "sand_temple"
+          ],
+          "reward": "Compass of Light",
+          "notes": "Floors 23/24–30 by Zelda Wiki and Zelda Dungeon (Zelda Dungeon goes down from 30 to 24; IGN says the compass is on 25). The Lokomo Sword stuns Phantoms without Tears of Light. The compass lights tracks on the Forest Rail Map to the south-west.",
+          "tags": [
+            "Tower of Spirits"
+          ]
+        },
+        {
+          "id": "demon_train",
+          "name": "The Demon Train",
+          "region": "Dark Realm",
+          "area": "Dark Realm",
+          "howTo": "Drive west from Aboda Village into the Dark Realm. Across four parallel tracks, shoot the barrels in the back car, then the four laser cannons, then the rotating crystals, and get in front of the stunned engine to shell its face.",
+          "requires": [
+            "tower_compass_of_light"
+          ],
+          "notes": "Boss: Demon Train. Never stay right behind it.",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "malladus",
+          "name": "Malladus",
+          "region": "Dark Realm",
+          "area": "Dark Realm",
+          "howTo": "On the Demon Train walk Phantom Zelda to Puppet Zelda, killing Cole's rats and cutting the strings with the Boomerang, and shoot her with a Light Arrow. Then reflect Malladus's fireballs away from Zelda, play the duet with her (orange, purple, yellow, turquoise, orange), and distract him so she can shoot the glowing spot on his back.",
+          "requires": [
+            "demon_train"
+          ],
+          "notes": "Bosses: Cole and Puppet Zelda, then Malladus. The Great Spin Attack (all 20 stamps) helps with the four-fireball volleys.",
+          "tags": [
+            "Boss"
+          ]
+        }
+      ]
+    }
+  ]
+}

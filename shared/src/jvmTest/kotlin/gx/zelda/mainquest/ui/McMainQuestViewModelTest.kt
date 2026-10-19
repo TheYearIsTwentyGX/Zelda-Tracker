@@ -62,11 +62,15 @@ class McMainQuestViewModelTest {
 
     @Test
     fun editsFollowTheActiveSaveFile() = runTest {
+        // A mark only file 2 has: its state shows the switch has reached that file's progress, not
+        // just the file. Writing before then races the progress collector subscribing.
+        val marker = "not_a_dungeon"
+        storage.setDone("file_2", MainQuestSection.DUNGEONS, marker, true)
         val vm = main.track(MainQuestViewModel(storage))
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect {} }
         vm.state.filterNotNull().first()
         vm.setSaveFile("file_2").join()
-        vm.state.filterNotNull().first { it.saveFile.id == "file_2" }
+        vm.state.filterNotNull().first { it.saveFile.id == "file_2" && marker in it.progress.dungeons }
         vm.setDone(MainQuestSection.ITEMS, "flippers", true)!!.join()
         vm.state.filterNotNull().first { "flippers" in it.progress.items }
 

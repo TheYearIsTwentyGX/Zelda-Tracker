@@ -1,0 +1,287 @@
+{
+  "noun": "type",
+  "hiddenLabel": "Not found yet",
+  "sections": [
+    {
+      "id": "bugs",
+      "title": "Bugs",
+      "noun": "bug",
+      "hiddenLabel": "Uncaught bug",
+      "note": "Catch one of each with the Bug Net, or by rolling into the tree it's on. Bertie infuses them into potions.",
+      "items": [
+        {
+          "id": "bug_skyloft_mantis",
+          "name": "Skyloft Mantis",
+          "howTo": "On trees around Skyloft. Easy to catch.",
+          "notes": "Used in Revitalizing Potion+ (2) and Air Potion+ (2): 4 in all. Strich buys it on Bug Rock for 10 Rupees. HD: its description only appears the first time you pick one up; on Wii it appears again after every reload.",
+          "tags": [
+            "Skyloft"
+          ]
+        },
+        {
+          "id": "bug_sky_stag_beetle",
+          "name": "Sky Stag Beetle",
+          "howTo": "On trees around Skyloft: roll into the trunk to knock it down.",
+          "notes": "Used in Stamina Potion+ (2) and Air Potion+ (2): 4 in all. Strich buys it on Bug Rock for 20 Rupees.",
+          "tags": [
+            "Skyloft"
+          ]
+        },
+        {
+          "id": "bug_starry_firefly",
+          "name": "Starry Firefly",
+          "howTo": "Skyloft at night, the Waterfall Cave, Pumpkin Landing and Beedle's Island at night.",
+          "notes": "Used in Guardian Potion+ (3): 3 in all. Strich buys it on Bug Rock for 30 Rupees.",
+          "tags": [
+            "Skyloft",
+            "The Sky",
+            "Night"
+          ]
+        },
+        {
+          "id": "bug_blessed_butterfly",
+          "name": "Blessed Butterfly",
+          "howTo": "Everywhere in the Sky and on the Surface; they gather where a Goddess Wall or a harp spot is.",
+          "notes": "Used in Heart Potion+ (3), Heart Potion++ (3) and Guardian Potion+ (3): 9 in all. Strich buys it on Bug Rock for 5 Rupees.",
+          "tags": [
+            "Everywhere"
+          ]
+        },
+        {
+          "id": "bug_woodland_rhino_beetle",
+          "name": "Woodland Rhino Beetle",
+          "howTo": "On tree trunks in Faron Woods and the Deep Woods: roll into the tree to knock it down. Slow and easy to catch.",
+          "notes": "Used in Heart Potion+ (1), Revitalizing Potion+ (2) and Revitalizing Potion++ (2): 5 in all. Strich buys it on Bug Rock for 20 Rupees.",
+          "tags": [
+            "Faron Woods",
+            "Skyloft"
+          ]
+        },
+        {
+          "id": "bug_deku_hornet",
+          "name": "Deku Hornet",
+          "howTo": "Around the hornet nests of the Deep Woods; knock a nest down and catch the swarm. Bug Rock in the Thunderhead has them too.",
+          "notes": "Used in Heart Potion++ (3) and Revitalizing Potion+ (3): 6 in all. Strich buys it on Bug Rock for 1 Rupee.",
+          "tags": [
+            "Faron Woods",
+            "Thunderhead"
+          ]
+        },
+        {
+          "id": "bug_faron_grasshopper",
+          "name": "Faron Grasshopper",
+          "howTo": "In the grass of Faron Woods, the Deep Woods and the Sealed Grounds. It leaps away: creep up slowly.",
+          "notes": "Used in Stamina Potion+ (1) and Guardian Potion+ (1): 2 in all. Strich buys it on Bug Rock for 40 Rupees.",
+          "tags": [
+            "Faron Woods",
+            "Sealed Grounds"
+          ]
+        },
+        {
+          "id": "bug_volcanic_ladybug",
+          "name": "Volcanic Ladybug",
+          "howTo": "In groups on Eldin Volcano. Barely moves.",
+          "notes": "Used in Heart Potion+ (1) and Stamina Potion+ (3): 4 in all. Strich buys it on Bug Rock for 20 Rupees.",
+          "tags": [
+            "Eldin Volcano"
+          ]
+        },
+        {
+          "id": "bug_eldin_roller",
+          "name": "Eldin Roller",
+          "howTo": "Rare on Eldin Volcano, rolling a ball along the ground.",
+          "notes": "Used in Heart Potion++ (1) and Guardian Potion+ (2): 3 in all. Strich buys it on Bug Rock for 40 Rupees.",
+          "tags": [
+            "Eldin Volcano"
+          ]
+        },
+        {
+          "id": "bug_lanayru_ant",
+          "name": "Lanayru Ant",
+          "howTo": "In swarms at the Lanayru Mine, in Lanayru Desert and at the Temple of Time.",
+          "notes": "Used in Revitalizing Potion++ (3) and Air Potion+ (2): 5 in all. Strich buys it on Bug Rock for 20 Rupees.",
+          "tags": [
+            "Lanayru Mine",
+            "Lanayru Desert"
+          ]
+        },
+        {
+          "id": "bug_gerudo_dragonfly",
+          "name": "Gerudo Dragonfly",
+          "howTo": "In Lanayru Desert. It flies far once disturbed: creep up on it.",
+          "notes": "Used in Revitalizing Potion++ (1) and Stamina Potion+ (2): 3 in all. Strich buys it on Bug Rock for 30 Rupees.",
+          "tags": [
+            "Lanayru Desert"
+          ]
+        },
+        {
+          "id": "bug_sand_cicada",
+          "name": "Sand Cicada",
+          "howTo": "On trees and walls in Lanayru Desert, and on Skipper's Retreat. The hardest bug to catch: it flies off quickly.",
+          "notes": "Used in Heart Potion++ (1) and Revitalizing Potion++ (1): 2 in all. Strich buys it on Bug Rock for 50 Rupees.",
+          "tags": [
+            "Lanayru Desert",
+            "Lanayru Sand Sea"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treasures",
+      "title": "Treasures",
+      "noun": "treasure",
+      "hiddenLabel": "Unfound treasure",
+      "note": "Find one of each. Gondo turns them into upgrades; Rupin buys them at night.",
+      "items": [
+        {
+          "id": "treasure_amber_relic",
+          "name": "Amber Relic",
+          "howTo": "Everywhere: lying around the Surface, in pots and in chests.",
+          "notes": "Used in Tough Beetle (4), Scattershot (2), Medium Quiver (5), Medium Seed Satchel (4), Large Seed Satchel (5), Banded Shield (2) and Braced Shield (3): 25 in all. HD: its description only appears the first time you pick one up; on Wii it appears again after every reload.",
+          "tags": [
+            "Everywhere"
+          ]
+        },
+        {
+          "id": "treasure_hornet_larvae",
+          "name": "Hornet Larvae",
+          "howTo": "Knock down a Deku Hornet nest (roll into its tree, or hit it with the Slingshot or Beetle) and pick them up.",
+          "notes": "Used in Quick Beetle (2) and Large Bomb Bag (2): 4 in all.",
+          "tags": [
+            "Faron Woods"
+          ]
+        },
+        {
+          "id": "treasure_jelly_blob",
+          "name": "Jelly Blob",
+          "howTo": "Dropped by Deku Babas, ChuChus and Arachas.",
+          "notes": "Used in Scattershot (3), Large Bomb Bag (4) and Banded Shield (1): 8 in all.",
+          "tags": [
+            "Enemy drop"
+          ]
+        },
+        {
+          "id": "treasure_bird_feather",
+          "name": "Bird Feather",
+          "howTo": "Catch a Chirri, the little birds of Faron Woods and the Sealed Grounds, with the Bug Net.",
+          "notes": "Used in Divine Shield (2) and Goddess Shield (3): 5 in all.",
+          "tags": [
+            "Faron Woods",
+            "Sealed Grounds"
+          ]
+        },
+        {
+          "id": "treasure_blue_bird_feather",
+          "name": "Blue Bird Feather",
+          "howTo": "Catch a rare blue Chirri in Faron Woods or the Sealed Grounds with the Bug Net. The Moonlight Merchant sells them late in the game.",
+          "notes": "Used in Tough Beetle (1), Medium Bomb Bag (1), Large Seed Satchel (1), Fortified Shield (1) and Goddess Shield (1): 5 in all.",
+          "tags": [
+            "Faron Woods",
+            "Sealed Grounds"
+          ]
+        },
+        {
+          "id": "treasure_monster_claw",
+          "name": "Monster Claw",
+          "howTo": "Dropped by Keese, Walltulas and Guays.",
+          "notes": "Used in Iron Bow (3), Medium Seed Satchel (3), Large Seed Satchel (3), Banded Shield (1), Braced Shield (2), Reinforced Shield (2) and Fortified Shield (3): 17 in all.",
+          "tags": [
+            "Enemy drop"
+          ]
+        },
+        {
+          "id": "treasure_ornamental_skull",
+          "name": "Ornamental Skull",
+          "howTo": "Dropped by Bokoblins, or whip it off one.",
+          "notes": "Used in Medium Bomb Bag (3), Medium Seed Satchel (3), Braced Shield (1), Reinforced Shield (2) and Divine Shield (3): 12 in all.",
+          "tags": [
+            "Enemy drop"
+          ]
+        },
+        {
+          "id": "treasure_golden_skull",
+          "name": "Golden Skull",
+          "howTo": "Rarely from Bokoblins (whip it off one that carries it), in some chests, from the Clean Cut minigame on Bamboo Island, or from the Moonlight Merchant.",
+          "notes": "Used in Quick Beetle (1), Large Bomb Bag (1), Large Quiver (1) and Large Seed Satchel (1): 4 in all.",
+          "tags": [
+            "Enemy drop",
+            "The Sky"
+          ]
+        },
+        {
+          "id": "treasure_eldin_ore",
+          "name": "Eldin Ore",
+          "howTo": "Dig it up from soft-soil spots on Eldin Volcano with the Digging Mitts.",
+          "notes": "Used in Iron Bow (2), Reinforced Shield (2) and Fortified Shield (3): 7 in all.",
+          "tags": [
+            "Eldin Volcano"
+          ]
+        },
+        {
+          "id": "treasure_lizard_tail",
+          "name": "Lizard Tail",
+          "howTo": "Dropped by Lizalfos, first met in the Earth Temple.",
+          "notes": "Used in Sacred Bow (3), Medium Bomb Bag (1) and Large Bomb Bag (3): 7 in all.",
+          "tags": [
+            "Enemy drop"
+          ]
+        },
+        {
+          "id": "treasure_tumbleweed",
+          "name": "Tumbleweed",
+          "howTo": "Catch one rolling across Lanayru Desert with the Bug Net.",
+          "notes": "Used in Iron Bow (3), Sacred Bow (5), Big Bug Net (3), Braced Shield (2) and Fortified Shield (3): 16 in all.",
+          "tags": [
+            "Lanayru Desert"
+          ]
+        },
+        {
+          "id": "treasure_ancient_flower",
+          "name": "Ancient Flower",
+          "howTo": "Only blooms around an active Timeshift Stone, in Lanayru Desert, the Sand Sea and the Pirate Stronghold.",
+          "notes": "Used in Quick Beetle (2), Tough Beetle (3) and Big Bug Net (2): 7 in all.",
+          "tags": [
+            "Lanayru Desert",
+            "Lanayru Sand Sea"
+          ]
+        },
+        {
+          "id": "treasure_dusk_relic",
+          "name": "Dusk Relic",
+          "howTo": "Only in the Silent Realms, including replays in Lanayru's Lightning Round, or from the Moonlight Merchant.",
+          "notes": "Used in Scattershot (2), Medium Quiver (3), Large Quiver (3), Divine Shield (1) and Goddess Shield (4): 13 in all.",
+          "tags": [
+            "Silent Realm"
+          ]
+        },
+        {
+          "id": "treasure_evil_crystal",
+          "name": "Evil Crystal",
+          "howTo": "Dropped by Cursed Bokoblins and Dark Keese; also in some chests, from Clean Cut and from the Moonlight Merchant.",
+          "notes": "Used in Iron Bow (1), Sacred Bow (2) and Big Bug Net (1): 4 in all.",
+          "tags": [
+            "Enemy drop"
+          ]
+        },
+        {
+          "id": "treasure_monster_horn",
+          "name": "Monster Horn",
+          "howTo": "Whip the horn from a Bokoblin leader before he blows it; also in some chests and from the Moonlight Merchant.",
+          "notes": "Used in Medium Quiver (3), Large Quiver (2) and Goddess Shield (3): 8 in all.",
+          "tags": [
+            "Enemy drop"
+          ]
+        },
+        {
+          "id": "treasure_goddess_plume",
+          "name": "Goddess Plume",
+          "howTo": "Rare: in some chests, sometimes in place of an Amber or Dusk Relic, from Thrill Digger and Clean Cut, or from the Moonlight Merchant.",
+          "notes": "Used in Tough Beetle (1), Sacred Bow (1) and Large Quiver (1): 3 in all.",
+          "tags": [
+            "The Sky"
+          ]
+        }
+      ]
+    }
+  ]
+}
