@@ -10,19 +10,26 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
+import gx.zelda.core.ui.rememberBulkCompleteState
 
 private enum class ArmorTab(val label: String, val title: String) {
     ARMOR("Armor", "Armor Progress"),
@@ -40,7 +47,12 @@ fun ArmorTrackerScreen(
     onBack: () -> Unit,
 ) {
     var tab by rememberSaveable { mutableStateOf(ArmorTab.ARMOR) }
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -83,8 +95,9 @@ fun ArmorTrackerScreen(
             return@Scaffold
         }
         when (tab) {
-            ArmorTab.ARMOR -> ArmorListScreen(state, viewModel, onOpenPiece, padding)
+            ArmorTab.ARMOR -> ArmorListScreen(state, viewModel, bulk, onOpenPiece, padding)
             ArmorTab.MATERIALS -> MaterialTotalsScreen(state, viewModel, onOpenPiece, padding)
         }
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }

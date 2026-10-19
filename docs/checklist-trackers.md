@@ -227,6 +227,26 @@ Steps, with the checklist as the worked example (`ChecklistViewModel`, `Checklis
    `CountingDataStore`. Wait for the first state, and after a save-file switch for that file's
    progress, before writing.
 
+The bespoke trackers wired up so far, and what their toggles mean:
+
+| Tracker | Toggles | Marks | Clear |
+|---|---|---|---|
+| Shrines (BotW, TotK) | base-game shrines; the Champions' Ballad's on their own row; each region card | completed, so found too | completed only: each stays found, as unticking a row does |
+| Lightroots (TotK) | the tab; each region card | lit, so found too | lit only: each stays found |
+| Korok Seeds | the list; each region card | collected, so found too | collected only: each stays found |
+| Hyrule Compendium | each tab (All included); each header | photographed | photographed |
+| Armor (BotW, TotK) | the list; each set header | collected, levels untouched | collected, levels untouched |
+
+They follow the same steps: `ShrineStorage.setAllCompleted` / `setAllLit` (a `DiscoverySnapshot`
+of *completed* and *found*, from `DiscoverySets.setsWithAll`), `KorokStorage.setAllCompleted`,
+`CompendiumStorage.setAllPhotographed` (a `SetSnapshot`) and `ArmorStorage.setAllOwned` (a
+`MapSnapshot` of whole pieces, so the undo puts levels back too). Each view model now pairs the
+active file with its progress inside one `flatMapLatest`, so a toggle's counts and its write are
+always on the same file. A region card's box acts on what that card shows: in BotW that takes in
+its DLC shrines while the DLC chip shows them; with the chip off they're out of every toggle.
+Armor leaves levels alone because its only bulk upgrade control, the set header's stars, already
+exists and steps one level at a time; a toggle that also maxed levels would fight it.
+
 The rules the shared pieces apply: a toggle marks everything complete, or clears it all once it all
 is; a clear always asks first, and a mark asks once it changes more than `BulkScope.CONFIRM_ABOVE`
 (3) entries; the checkbox and the row are at least 48dp to tap and describe themselves for a

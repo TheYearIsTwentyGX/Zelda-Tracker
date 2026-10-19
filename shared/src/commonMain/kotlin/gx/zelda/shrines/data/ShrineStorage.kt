@@ -2,12 +2,14 @@ package gx.zelda.shrines.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.Game
 import gx.zelda.core.JsonStore
 import gx.zelda.core.activeSaveFileStore
 import gx.zelda.shrines.model.ShrinePrefs
 import gx.zelda.shrines.model.ShrineProgress
+import gx.zelda.shrines.model.ShrineSnapshot
 import gx.zelda.shrines.model.ShrineState
 import gx.zelda.shrines.model.UpgradeKind
 import kotlinx.coroutines.flow.Flow
@@ -51,6 +53,24 @@ class ShrineStorage(dataStore: DataStore<Preferences>, val game: Game) {
 
     suspend fun setLightrootState(saveFileId: String, lightrootId: String, state: DiscoveryState) =
         updateProgress(saveFileId) { it.withLightrootState(lightrootId, state) }
+
+    /**
+     * Completes every one of [shrineIds], or clears them back to found, in one write. Returns
+     * what it replaced, for [restore].
+     */
+    suspend fun setAllCompleted(saveFileId: String, shrineIds: Collection<String>, completed: Boolean): ShrineSnapshot {
+        val before = store(saveFileId).swap { it.withAll(shrineIds, completed) }
+        return ShrineSnapshot(shrines = DiscoverySnapshot.of(before, shrineIds))
+    }
+
+    /** The same for Lightroots: lit, or cleared back to found. */
+    suspend fun setAllLit(saveFileId: String, lightrootIds: Collection<String>, lit: Boolean): ShrineSnapshot {
+        val before = store(saveFileId).swap { it.copy(lightroots = it.lightroots.withAll(lightrootIds, lit)) }
+        return ShrineSnapshot(lightroots = DiscoverySnapshot.of(before.lightroots, lightrootIds))
+    }
+
+    /** Puts back what [setAllCompleted] or [setAllLit] replaced, in one write; other ids keep their state. */
+    suspend fun restore(saveFileId: String, snapshot: ShrineSnapshot) = updateProgress(saveFileId) { it.restored(snapshot) }
 
     suspend fun updateProgress(saveFileId: String, transform: (ShrineProgress) -> ShrineProgress) =
         store(saveFileId).update(transform)

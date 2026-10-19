@@ -2,6 +2,10 @@ package gx.zelda.koroks.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.core.BulkAction
+import gx.zelda.core.BulkChange
+import gx.zelda.core.BulkScope
+import gx.zelda.core.DiscoverySnapshot
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
 import gx.zelda.core.isSpoilerHidden
@@ -90,6 +94,29 @@ data class KorokUiState(
             total = koroks.size,
         )
     }
+
+    /** True when a search or filter chip is on, so a toggle acts on the rows shown only. */
+    val filtered: Boolean get() = filters.query.isNotBlank() || filters.incompleteOnly || filters.types.isNotEmpty()
+
+    /** What a toggle acts on: the Koroks the filters leave showing (hidden ones included), or only those under [region]. */
+    fun bulkKoroks(region: String? = null): List<Korok> =
+        if (region == null) matching else groups.firstOrNull { it.first == region }?.second.orEmpty()
+
+    /**
+     * The toggle for [bulkKoroks]: collecting each seed, which finds its Korok too, or clearing it
+     * back to found, as unticking a row does. Its text names the list or region, never a Korok.
+     */
+    fun bulkScope(region: String? = null): BulkScope {
+        val scope = BulkScope.of(
+            label = region?.let { "$it Tower" } ?: "Korok Seeds",
+            items = bulkKoroks(region),
+            noun = "seed",
+            filtered = filtered,
+            isDone = { it.id in progress.completed },
+            isStarted = { it.id in progress.completed },
+        )
+        return scope.copy(note = "Each Korok stays marked found.".takeIf { scope.action == BulkAction.CLEAR })
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -106,7 +133,9 @@ class KorokViewModel(
 
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
 
-    private val activeProgress: Flow<KorokProgress> = activeFile.flatMapLatest { storage.progress(it.id) }
+    /** The file and its progress together, so a switch never pairs the new file with the old file's seeds. */
+    private val activeProgress: Flow<Pair<SaveFile, KorokProgress>> =
+        activeFile.flatMapLatest { file -> storage.progress(file.id).map { file to it } }
 
     private val progressByFile: Flow<List<Pair<SaveFile, KorokProgress>>> = combine(
         storage.game.saveFiles.map { file -> storage.progress(file.id).map { file to it } },
@@ -114,7 +143,7 @@ class KorokViewModel(
 
     val state: StateFlow<KorokUiState?> = combine(
         data.filterNotNull(),
-        combine(activeFile, activeProgress, ::Pair),
+        activeProgress,
         storage.prefs,
         progressByFile,
         filters,
@@ -154,6 +183,42 @@ class KorokViewModel(
     fun setBought(pouchId: String, upgrades: Int): Job? {
         val file = state.value?.saveFile?.id ?: return null
         return viewModelScope.launch { storage.setBought(file, pouchId, upgrades) }
+    }
+
+    private val _bulkChange = MutableStateFlow<BulkChange<DiscoverySnapshot>?>(null)
+
+    /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
+    val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
+
+    /**
+     * Collects every seed [KorokUiState.bulkKoroks] gives for [region], or clears them back to
+     * found, on the file on screen. It's one write, and what it replaced is kept in [bulkChange]
+     * for an undo. Null when there's nothing to change.
+     */
+    fun setAllCompleted(region: String?, completed: Boolean): Job? {
+        val state = state.value ?: return null
+        val ids = state.bulkKoroks(region).map { it.id }.takeIf { it.isNotEmpty() } ?: return null
+        val scope = state.bulkScope(region)
+        return viewModelScope.launch {
+            val snapshot = storage.setAllCompleted(state.saveFile.id, ids, completed)
+            val changed = ids.count { (it in snapshot.completed.members) != completed }
+            if (changed > 0) {
+                val action = if (completed) BulkAction.MARK else BulkAction.CLEAR
+                _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)
+            }
+        }
+    }
+
+    /** Puts back what [change] replaced, on the file it was made on, if it's still the last one. */
+    fun undoBulkChange(change: BulkChange<*>): Job? {
+        val last = _bulkChange.value?.takeIf { it == change } ?: return null
+        _bulkChange.value = null
+        return viewModelScope.launch { storage.restore(last.saveFile.id, last.snapshot) }
+    }
+
+    /** Its snackbar has gone, so the undo with it. */
+    fun dismissBulkChange(change: BulkChange<*>) {
+        _bulkChange.update { if (it == change) null else it }
     }
 
     fun setHideUndiscovered(hide: Boolean): Job = viewModelScope.launch { storage.updatePrefs { it.copy(hideUndiscovered = hide) } }

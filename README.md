@@ -34,8 +34,8 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
-- **Mark all complete** (every checklist tracker; the BotW, TotK and Minish Cap trackers are to
-  follow): a row under the filters marks everything on the tab complete, and a box on each region
+- **Mark all complete** (every checklist tracker, plus the BotW and TotK shrines, Lightroots, Korok
+  Seeds, Hyrule Compendium and armor; the other BotW and Minish Cap trackers are to follow): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
   the box shows a dash when some are done. Upgrades go to their top level, or back to none.
   - It acts on the active save file, and on the rows the search and filter chips leave showing
@@ -73,6 +73,10 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Total Materials Required**: the sum of every remaining upgrade, for *Collected Armor* or
   *All Armor (Including Uncollected)*. Tap a material to see which pieces need it.
 - DLC and amiibo filters for both the list and the totals.
+- **Mark all complete**: a row under the filters collects every piece the list shows, and a box on
+  each set's header (and *Other armor*) collects that set. Armor the DLC and amiibo filters hide is
+  never touched. Upgrade levels are left as they are, both ways: the set header's stars already
+  raise those, and clearing uncollects pieces the way a row's box does.
 
 **Breath of the Wild: Great Fairy Fountains**
 - Where to find Cotera, Kaysa, Mija and Tera: region, directions and nearby landmarks.
@@ -104,6 +108,11 @@ iOS port is mostly a matter of adding the iOS targets.
   has one, and a one-line location hint.
 - Search by shrine, trial, quest or region; filter to incomplete shrines or Shrine Quests, and
   hide the DLC.
+- **Mark all complete**: a row under the filters completes every base-game shrine showing, and a
+  second row, while the DLC is shown, does the Champions' Ballad's; the base row never touches
+  them. A box on each region card covers the shrines on that card, DLC ones included while they
+  show. Completing marks each shrine found too; *Clear all* takes away completed but leaves each
+  one found, as unticking a row does.
 - **Spirit Orbs**: orbs earned from completed shrines, what you've spent on Heart Containers and
   Stamina Vessels, and what's left. 120 orbs in the base game; the Champions' Ballad's four Great
   Plateau shrines add 4 more (its other twelve give emblems). Purchases are entered by hand.
@@ -136,6 +145,10 @@ iOS port is mostly a matter of adding the iOS targets.
 - A tab per category with photographed counts; Creatures is split into animals and food (048–083,
   the entries that show hearts recovered rather than materials). Search by name, number, location
   or drop, and a *Missing only* filter.
+- **Mark all complete**: a row under the filters marks every entry on the tab photographed, and a
+  box on each header (All's categories, Creatures' animals and food) marks that header's. Counts
+  follow the active save file, so Master Mode's five extra entries are only ever marked on the
+  Master Mode file; the dialog says so.
 - Each entry's common locations and drops, and how to buy its picture from Symin if you can't
   take it (Elite Enemy Pictures only after Dark Beast Ganon). Entries that can only be
   photographed at certain times — bosses, DLC trials — are marked *Limited*.
@@ -147,6 +160,8 @@ iOS port is mostly a matter of adding the iOS targets.
   nearest named place and objmap's id; one-off puzzles also show objmap's own name for them.
 - Undiscovered, Found or Collected per seed, like shrines: tick a row to collect it, use its pin to
   mark it found.
+- **Mark all complete**: a row under the filters collects every seed showing, and a box on each
+  region card collects that region's. *Clear all* leaves each Korok found, as unticking a row does.
 - **Hide undiscovered Koroks** (top-bar menu): the same spoiler-safe mode as shrines, but a
   separate setting, so one can be on without the other. Hidden rows only match a search by region
   and never match a puzzle-type filter.
@@ -255,6 +270,7 @@ iOS port is mostly a matter of adding the iOS targets.
 - Prices in Poes (Bargainer Statues) and Bubbul Gems (Koltin) as well as rupees.
 - No DLC, and every amiibo piece can also be found in the world, so there are no source filters.
   The list sorts A–Z only, because the in-game sort orders haven't been verified yet.
+- **Mark all complete** per set and for the whole list, as in BotW; upgrade levels are left alone.
 
 **Tears of the Kingdom: Great Fairy Fountains**
 - Where to find Tera, Mija, Kaysa and Cotera, and the Stable Trotters side adventure that frees
@@ -274,6 +290,8 @@ iOS port is mostly a matter of adding the iOS targets.
 - The same **Hide undiscovered** setting as BotW, covering both tabs, plus search and an
   *Incomplete* / *Unlit* filter. A hidden Lightroot only matches a search by region, and finding a
   shrine doesn't reveal the Lightroot below it.
+- **Mark all complete** on each tab and region card, as in BotW: completing shrines or lighting
+  Lightroots, each tab leaving the other alone. *Clear all* leaves each one found.
 - **Lights of Blessing**: Lights earned from completed shrines, Heart Containers and Stamina
   Vessels bought, the six boss Heart Containers (five temples and Phantom Ganon, entered by hand)
   and A Call from the Depths' free heart or vessel. Maxing both takes 47 upgrades against the 45

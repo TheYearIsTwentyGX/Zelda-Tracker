@@ -24,6 +24,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -39,7 +41,14 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.core.BulkAction
 import gx.zelda.core.DiscoveryState
+import gx.zelda.core.ui.BulkCompleteCheckbox
+import gx.zelda.core.ui.BulkCompleteRow
+import gx.zelda.core.ui.BulkCompleteState
+import gx.zelda.core.ui.BulkConfirmDialog
+import gx.zelda.core.ui.BulkUndoSnackbar
 import gx.zelda.core.ui.CardInset
 import gx.zelda.core.ui.FoundToggle
 import gx.zelda.core.ui.HiddenRow
@@ -51,6 +60,7 @@ import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.core.ui.SearchField
 import gx.zelda.core.ui.groupRow
+import gx.zelda.core.ui.rememberBulkCompleteState
 import gx.zelda.koroks.model.Korok
 import gx.zelda.koroks.model.KorokPuzzleType
 
@@ -68,7 +78,12 @@ fun KorokTrackerScreen(
     /** Opens the Zelda Notes import; null where the game has no data for it. */
     onImportNotes: (() -> Unit)? = null,
 ) {
+    val bulk = rememberBulkCompleteState()
+    val snackbar = remember { SnackbarHostState() }
+    val bulkChange by viewModel.bulkChange.collectAsStateWithLifecycle()
+    BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = {
@@ -96,7 +111,8 @@ fun KorokTrackerScreen(
             LoadingOrError(loadFailed, "The Korok list couldn't be loaded.", padding)
             return@Scaffold
         }
-        KorokList(state, viewModel, onOpenKorok, padding)
+        KorokList(state, viewModel, bulk, onOpenKorok, padding)
+        BulkConfirmDialog(bulk, state.saveFile.label)
     }
 }
 
@@ -140,6 +156,7 @@ private fun KorokMenu(state: KorokUiState, viewModel: KorokViewModel, onScanLive
 private fun KorokList(
     state: KorokUiState,
     viewModel: KorokViewModel,
+    bulk: BulkCompleteState,
     onOpenKorok: (String) -> Unit,
     contentPadding: PaddingValues,
 ) {
@@ -157,7 +174,7 @@ private fun KorokList(
                 )
             }
         }
-        item(key = "_filters") { KorokFilterBar(state, viewModel, onPickTypes = { pickingTypes = true }) }
+        item(key = "_filters") { KorokFilterBar(state, viewModel, bulk, onPickTypes = { pickingTypes = true }) }
         if (state.groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
@@ -172,7 +189,9 @@ private fun KorokList(
             // The header counts the whole region, not just the Koroks the filters leave showing.
             val count = state.regionCounts.getValue(region)
             item(key = "h_$region", contentType = "header") {
-                RegionHeader(region, found = count.found, done = count.collected, total = count.total)
+                RegionHeader(region, found = count.found, done = count.collected, total = count.total, leading = {
+                    BulkCompleteCheckbox(state.bulkScope(region), bulk, onApply = { viewModel.setAllCompleted(region, it == BulkAction.MARK) })
+                })
             }
             itemsIndexed(koroks, key = { _, korok -> korok.id }, contentType = { _, _ -> "korok" }) { i, korok ->
                 val last = i == koroks.lastIndex
@@ -205,7 +224,7 @@ private fun KorokList(
 }
 
 @Composable
-private fun KorokFilterBar(state: KorokUiState, viewModel: KorokViewModel, onPickTypes: () -> Unit) {
+private fun KorokFilterBar(state: KorokUiState, viewModel: KorokViewModel, bulk: BulkCompleteState, onPickTypes: () -> Unit) {
     val filters = state.filters
     Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         SearchField(filters.query, viewModel::setQuery, "Search place or puzzle type")
@@ -227,6 +246,10 @@ private fun KorokFilterBar(state: KorokUiState, viewModel: KorokViewModel, onPic
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+        // Acts on what the search and chips leave showing, so it sits under them.
+        if (state.matching.isNotEmpty()) {
+            BulkCompleteRow(state.bulkScope(), bulk, onApply = { viewModel.setAllCompleted(null, it == BulkAction.MARK) })
+        }
     }
 }
 
