@@ -38,15 +38,17 @@ iOS port is mostly a matter of adding the iOS targets.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
 - **Game themes**: inside a game (its trackers, overview, detail pages, scans and map) the screens
   take on that game's look: colours from its menus, header lettering in the style of its era, and
-  a small ornament under each region's header. So far the 8- and 16-bit games and Four Swords
+  a small ornament under each region's header. Every game has one: the 8- and 16-bit games and Four Swords
   Adventures, each from its own menus (the NES pause screen's black and heart red, Zelda II's
   file select, A Link to the Past's gold-bordered status screen, the Game Boy's four greens and Link's
   Awakening DX, the Oracles' title screens and Nayru's blues, Four Swords' gold panel and Force Gems,
   The Minish Cap's navy file select), the 3D console games (Ocarina of Time's brown pause panels and
   parchment, Majora's Mask's olive-gold stone, Twilight Princess's rust and Twili teal, Skyward Sword's
   silver and goddess gold, Tears of the Kingdom's Zonai jade, Hyrule Warriors' charcoal and gold, in
-  Cinzel capitals), plus The Wind Waker and Breath of the Wild. The handheld games keep the app's
-  own look until theirs arrive; `docs/themes.md` has every game's brief and sources.
+  Cinzel capitals), the DS and 3DS games (Phantom Hourglass's teal and sand, Spirit Tracks' Tower
+  gold on deep green with a rail rule, A Link Between Worlds' Hyrule gold and Lorule black, Tri Force
+  Heroes' theatre curtain), Echoes of Wisdom, The Wind Waker and Breath of the Wild. `docs/themes.md`
+  has each one's brief and sources, and says which are still from memory.
   - The home screen, the menu and Settings keep the app's own look, with each themed game's accent
     colour on its card, its row in the menu and its switch in Settings, and its name on the home
     screen in its lettering.

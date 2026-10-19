@@ -66,11 +66,9 @@ own.
   https://zeldauniverse.net/2013/08/14/the-wind-waker-hd-gets-a-new-and-improved-item-menu/.
 - Tears of the Kingdom's Purah Pad gold and crimson: Zelda Wiki's Purah Pad page.
 - Sampled: the themes marked ✓ were sampled from the game's own menu sheets (see **Sampled
-  sources** below), except The Wind Waker and Hyrule Warriors, whose colours are still **from
-  memory, unverified** (Wind Waker apart from the GameCube/HD menu change): no UI sheet for either
-  is archived.
-- Unverified: the unmarked games' hex values are approximate starting points, to be sampled before
-  their batch.
+  sources** below), except The Wind Waker, Hyrule Warriors and Echoes of Wisdom, whose colours are
+  still **from memory, unverified** (Wind Waker apart from the GameCube/HD menu change): no UI sheet
+  for any of them is archived. Every game now has a theme.
 
 | | Game | Brief | Key colours | Font · shape · ornament · progress |
 |---|---|---|---|---|
@@ -87,14 +85,14 @@ own.
 | ✓ | Four Swords Adventures | The logo's deep greens and the Force Gems; accents are the gems | #0D7F41, #175A2F, #162719, #80C486; gems as Four Swords | rounded · rounded · colour bands · segmented |
 | ✓ | The Minish Cap | The file select: navy windows, white lettering, blue banners, teal-green buttons, the crystal-green backdrop. Light is crystal-green paper | #000030, #000850, #F0F8F8, #0818A8, #10B090, #30F898 | 16-bit pixel · rounded · vine · segmented |
 | ✓ | Twilight Princess | The logo: rust-orange lettering on black, Midna's Twili teal | #131313, #932F01, #FB520D, #418D92, #646761 | serif · cut · Twili steps · solid |
-| | Phantom Hourglass | A sailor's chart: parchment, hourglass-sand gold, ocean blue | #E8D8A8, #E8C060, #2A70B8 | rounded · soft · rope · rounded |
-| | Spirit Tracks | Railway: engine green and red, track lines, spirit pink | #2E8B57, #C83030, #F0A0C0 | rounded · soft · rail ties · segmented |
+| ✓ | Phantom Hourglass | Touch menus: teal buttons, green parchment panels, sand-wood boards, a brown frame; slate as night sea (dark) | #42B5B5, #216B73, #ADCE84, #FFDE7B, #5A3908, #314252 | rounded · soft · rope · rounded |
+| ✓ | Spirit Tracks | Touch-screen maps: parchment floors, the Tower of Spirits' gold, the deep green border, field green. Spirit pink is from memory | #F0C028, #382008, #D8B880, #103828, #A8B870 | rounded · soft · rails · segmented |
 | ✓ | Skyward Sword | Silver and stone frames, goddess gold, the dowsing ring's teal, the hearts' pink-red; scroll parchment (light) or stone grey (dark) | #434343, #939393, #FFD500, #A48308, #739494, #F54F65, #F6DE9C | serif · soft · clouds · rounded |
-| | A Link Between Worlds | A Link to the Past remixed: purple energy gauge, Lorule red-purple (dark) | #A050D0, #6A2040 | rounded · rounded · inverted Triforce · rounded |
-| | Tri Force Heroes | Three Links on boutique pink | #38B838, #3878F8, #E83838, #F070A8 | rounded · soft · three-colour rule · rounded |
+| ✓ | A Link Between Worlds | Hyrule's gold Triforce (light) over Lorule's black one (dark), the logo's red, the subtitle's brown | #FFE152, #E9A32F, #141313, #312F2E, #FF2330, #95161C, #4D2709 | rounded · rounded · inverted Triforces · rounded |
+| ✓ | Tri Force Heroes | The theatre's maroon curtain (dark), a parchment card (light), stone grey, the logo's red and gold; the three Links as accents | #340B13, #541A23, #EDDCC4, #3B3B3B, #FF2211, #FFCC22 | rounded · soft · colour bands · rounded |
 | ✓ | Breath of the Wild | Minimal and ancient: Zelda White lettering on the Sheikah Slate's dark glass, the map's Sheikah blue and shrine orange. Light turns it round: Zelda White paper, deep slate blue | #0E1214, #F4EEDC, #3DB2E5, #F5A524; #F6F1E3, #00677F | Sheikah · cut · glyph line · thin |
 | ✓ | Tears of the Kingdom | Zonai devices: jade stone, gold trim, cream, the batteries' green glow | #2A322E, #324038, #7FB08A, #457E68, #815100, #BDBD95, #00AD7A | Sheikah · cut · Zonai rings · thin |
-| | Echoes of Wisdom | Toy diorama pastels, Tri's gold sparkle, rift purple-black (dark) | #F8D848, #2A1840 | rounded · soft · sparkles · rounded |
+| ✓ | Echoes of Wisdom | Toy-diorama pastels with Tri's gold sparkle; rift purple-black for dark (**from memory, unverified**) | #F8D848, #2A1840, #1C1030 | rounded · soft · sparkles · rounded |
 | ✓ | Hyrule Warriors: DE | Musou battlefield: charcoal panels, gold trim, war-banner red (**from memory, unverified**) | #1E1E22, #E0B850, #A01818 | serif · cut · Triforces · segmented |
 
 ## Sampled sources
@@ -185,6 +183,32 @@ colours were moved: lifted on dark, darkened on light. Backgrounds stay as sampl
 - **Hyrule Warriors: Definitive Edition**: from memory, unverified. Its only archived sheet
   (Legends' character select) isn't captured, and the Adventure maps bundled in this repo are
   deliberately 8-bit, which would only repeat The Legend of Zelda.
+
+- **Phantom Hourglass**: [Menus](https://web.archive.org/web/20230802121702im_/https://www.spriters-resource.com/resources/sheets/8/8598.png?updated=1460953832),
+  [Item Screen](https://web.archive.org/web/20230802121704im_/https://www.spriters-resource.com/resources/sheets/21/22843.png?updated=1460955224).
+  Button teal #42B5B5/#216B73 → dark primary and container, light primary; slate #314252 → dark
+  surface variant (darkened to #263442); parchment greens #ADCE84/#637318 → secondary; sand-wood
+  #FFDE7B → dark stars; frame browns #5A3908/#846B39 → light variant text and outline; logo red
+  #D62929 → tertiary (darkened/lifted); cream #F7EFDE → dark text.
+- **Spirit Tracks**: [Maps](https://web.archive.org/web/20160510154908im_/http://www.spriters-resource.com/resources/sheets/59/61853.png).
+  Tower gold #F0C028 → dark primary and stars; dark brown #382008 → light text; parchment
+  #D8B880/#D8C890 → light surface variant, dark variant text; border green #103828 → dark surface;
+  field greens #A8B870/#808840 → dark secondary; #A89060 → dark outline. The spirit pink tertiary
+  is from memory, unverified.
+- **A Link Between Worlds**: [Title Screen Logo](https://web.archive.org/web/20230802130236im_/https://www.spriters-resource.com/resources/sheets/112/115581.png?updated=1554238992)
+  (and the [Items](https://web.archive.org/web/20250704214544im_/https://www.spriters-resource.com/resources/sheets/62/65285.png) sheet, looked at but not used).
+  Gold #FFE152/#E9A32F/#B86113 → secondary, dark tertiary, stars; Lorule black
+  #141313/#312F2E → dark surface and variant; reds #FF2330/#95161C → primary (lifted to #FF6A72
+  on dark) and containers; browns #4D2709/#61330E/#8E755D → light variant text, tertiary, outline.
+  The brief's purple energy gauge isn't in these sheets, so it isn't used.
+- **Tri Force Heroes**: [Title Screen Elements](https://web.archive.org/web/20230802192827im_/https://www.spriters-resource.com/resources/sheets/68/70808.png?updated=1460966426).
+  Curtain maroons #340B13/#541A23 → dark surface and variant; parchment #EDDCC4/#F9E9D0 → light
+  variant, dark text; stone #3B3B3B/#4C4C4C → tertiary; logo red #FF2211/#993322 → secondary and
+  light primary; gold #FFCC22 → dark primary and stars; #776644 → dark primary container; brown
+  #331100 → light text. The three Links' accents are Four Swords Adventures' Force Gem shades. The
+  brief's boutique pink isn't in the sheet, so it isn't used.
+- **Echoes of Wisdom**: from memory, unverified. None of its UI sheets (stamp cards, key items,
+  stamps, HOME icon) is archived yet.
 
 ## Adding a theme
 
