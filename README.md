@@ -902,17 +902,17 @@ The Twilight, Termina, Koholint Island, Grand Travels and Lorule maps follow. Th
   - Row letters and column numbers are drawn on, as are the start and the Dark Ruler.
   - In landscape on a phone, the Map tab hides the top bar, tabs and system bars, and the filter row
     carries the menu, Cards, List and ⋮.
-- **A square's sheet**:
-  - the battle type and victory condition, any rule, and which warriors it allows;
-  - the A-rank limits (KOs, time, damage), which are the guides' findings, since the game doesn't
-    show them;
-  - Not cleared / Cleared / A rank;
-  - each reward to tick, with whose it is and how to earn it ("A rank as Zelda", "Capture East
-    Goron Keep as Zelda"), and the item cards a clear gives;
-  - both Gold Skulltulas with their condition and place, and quiz answers;
-  - each item-card search, with the square's picture under the search screen's 16×11 grid and the
-    cell to use it on outlined;
-  - *Mark square complete*.
+- **A square's details**: a bottom sheet that opens all the way, or, in landscape on a phone, a
+  panel down the right with the map still in use beside it. Tapping another square swaps the panel;
+  ✕, back or the same square closes it. What's ticked most comes first:
+  - the label, battle type and A-rank limits (KOs, time, damage: the guides' findings, since the
+    game doesn't show them);
+  - Not yet / Cleared / A rank, and *Mark complete*;
+  - a tick box for each reward (whose it is and how to earn it: "A rank as Zelda", "Capture East
+    Goron Keep as Zelda"), Gold Skulltula and search, two to a row;
+  - then the victory condition, any rule and allowed warriors, the item cards a clear gives, both
+    Gold Skulltulas' condition and place, quiz answers, and the square's picture under the search
+    screen's 16×11 grid with each search's cell outlined.
 - **List tab**: the same squares by colour (difficulty), with search over squares, rewards,
   warriors, keeps and cards.
 - **Filters** (both tabs): not cleared (squares you can challenge first), not A-ranked, Heart
