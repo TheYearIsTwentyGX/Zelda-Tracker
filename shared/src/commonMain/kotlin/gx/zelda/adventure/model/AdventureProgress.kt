@@ -76,7 +76,9 @@ val Square.checkCount: Int get() = 2 + checkIds.size
 class AdventureInventory(private val map: AdventureMap, private val progress: AdventureProgress) {
     fun isAutomatic(cardId: String): Boolean = cardId !in progress.cards
 
-    fun has(cardId: String): Boolean = progress.cards[cardId] ?: map.sourcesOf(cardId).any(progress::isCleared)
+    fun has(cardId: String): Boolean = progress.cards[cardId]
+        ?: map.card(cardId)?.anyOf?.takeIf { it.isNotEmpty() }?.any(::has)
+        ?: map.sourcesOf(cardId).any(progress::isCleared)
 
     /** True when [search] isn't done yet and its card is in hand. */
     fun canDo(search: Search): Boolean = !progress.isDone(search.id) && has(search.card)
@@ -133,4 +135,5 @@ enum class SquareFilter(val label: String) {
     SKULLTULAS("Skulltulas left"),
     SEARCHES("Searches left"),
     SEARCHABLE("Searchable now"),
+    CHALLENGEABLE("Challengeable now"),
 }

@@ -1,0 +1,341 @@
+{
+ "id": "rewards_map",
+ "name": "Rewards Map",
+ "cols": 16,
+ "rows": 8,
+ "start": null,
+ "finalBoss": null,
+ "regions": [
+  {
+   "id": "colorless",
+   "name": "Black"
+  }
+ ],
+ "cards": [],
+ "warriors": [
+  {
+   "id": "cia",
+   "name": "Cia"
+  },
+  {
+   "id": "ganondorf",
+   "name": "Ganondorf"
+  },
+  {
+   "id": "lana",
+   "name": "Lana"
+  },
+  {
+   "id": "link",
+   "name": "Link"
+  },
+  {
+   "id": "zelda",
+   "name": "Zelda"
+  }
+ ],
+ "squares": [
+  {
+   "id": "r1c9",
+   "label": "A-9",
+   "altLabel": "I-1",
+   "row": 1,
+   "col": 9,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Scattered Seeds\"",
+   "title": "Scattered Seeds",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r1c9.outfit_lana_standard_outfit_boss",
+     "slot": "aRank",
+     "type": "outfit",
+     "warrior": "lana",
+     "name": "Standard Outfit (Boss)"
+    }
+   ]
+  },
+  {
+   "id": "r2c8",
+   "label": "B-8",
+   "altLabel": "H-2",
+   "row": 2,
+   "col": 8,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"A Prayer Received\"!",
+   "title": "A Prayer Received",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r2c8.material_material",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Material"
+    }
+   ]
+  },
+  {
+   "id": "r2c10",
+   "label": "B-10",
+   "altLabel": "J-2",
+   "row": 2,
+   "col": 10,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"The Nightmare Closes In\"!",
+   "title": "The Nightmare Closes In",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r2c10.material_material",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Material"
+    }
+   ]
+  },
+  {
+   "id": "r3c7",
+   "label": "C-7",
+   "altLabel": "G-3",
+   "row": 3,
+   "col": 7,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Those with the Wind\"!",
+   "title": "Those with the Wind",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r3c7.material_material",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Material"
+    }
+   ]
+  },
+  {
+   "id": "r3c11",
+   "label": "C-11",
+   "altLabel": "K-3",
+   "row": 3,
+   "col": 11,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Guided by Courage\"!",
+   "title": "Guided by Courage",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r3c11.material_material",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Material"
+    }
+   ]
+  },
+  {
+   "id": "r4c9",
+   "label": "D-9",
+   "altLabel": "I-4",
+   "row": 4,
+   "col": 9,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"True Partners\"",
+   "title": "True Partners",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r4c9.outfit_link_dark_link_costume",
+     "slot": "aRank",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Dark Link Costume"
+    }
+   ]
+  },
+  {
+   "id": "r5c8",
+   "label": "E-8",
+   "altLabel": "H-5",
+   "row": 5,
+   "col": 8,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"The Giants Gather\"!",
+   "title": "The Giants Gather",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r5c8.outfit_link_heros_clothes_boss",
+     "slot": "aRank",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Hero's Clothes (Boss)"
+    }
+   ]
+  },
+  {
+   "id": "r5c10",
+   "label": "E-10",
+   "altLabel": "J-5",
+   "row": 5,
+   "col": 10,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Chosen by Fate\"!",
+   "title": "Chosen by Fate",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   }
+  },
+  {
+   "id": "r6c7",
+   "label": "F-7",
+   "altLabel": "G-6",
+   "row": 6,
+   "col": 7,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Rulers of Twilight\"!",
+   "title": "Rulers of Twilight",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c7.outfit_ganondorf_standard_armor_boss",
+     "slot": "aRank",
+     "type": "outfit",
+     "warrior": "ganondorf",
+     "name": "Standard Armor (Boss)"
+    }
+   ]
+  },
+  {
+   "id": "r6c11",
+   "label": "F-11",
+   "altLabel": "K-6",
+   "row": 6,
+   "col": 11,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Boss Rush\"!",
+   "title": "Boss Rush",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c11.outfit_zelda_standard_robes_boss",
+     "slot": "aRank",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Standard Robes (Boss)"
+    }
+   ]
+  },
+  {
+   "id": "r7c8",
+   "label": "G-8",
+   "altLabel": "H-7",
+   "row": 7,
+   "col": 8,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Evil Power\"!",
+   "title": "Evil Power",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r7c8.outfit_cia_masked_unmasked_hatless_boss",
+     "slot": "aRank",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Masked / Unmasked / Hatless (Boss)"
+    }
+   ]
+  },
+  {
+   "id": "r7c10",
+   "label": "G-10",
+   "altLabel": "J-7",
+   "row": 7,
+   "col": 10,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Running to the Rescue\"!",
+   "title": "Running to the Rescue",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r7c10.material_material",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Material"
+    }
+   ]
+  },
+  {
+   "id": "r8c9",
+   "label": "H-9",
+   "altLabel": "I-8",
+   "row": 8,
+   "col": 9,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Live out the illustration \"Unity\"!",
+   "title": "Unity",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   }
+  }
+ ]
+}

@@ -1,6 +1,7 @@
 package gx.zelda.adventure.data
 
 import gx.zelda.adventure.model.AdventureMap
+import gx.zelda.adventure.model.CardEffect
 import gx.zelda.adventure.model.RewardType
 import gx.zelda.adventure.model.Side
 import gx.zelda.core.Games
@@ -8,6 +9,7 @@ import gx.zelda.core.TrackerKind
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /**
@@ -24,7 +26,13 @@ class HwdeDatasetTest {
 
     @Test
     fun everyMapLoadsStrictlyAndIsSound() = withMaps { maps ->
-        assertEquals(setOf("adventure_map"), maps.keys)
+        assertEquals(
+            setOf(
+                "adventure_map", "great_sea_map", "master_quest_map", "master_wind_waker_map", "twilight_map", "termina_map",
+                "koholint_island_map", "grand_travels_map", "lorule_map", "rewards_map",
+            ),
+            maps.keys,
+        )
         maps.forEach { (name, map) ->
             assertEquals(emptyList(), map.problems(), name)
             assertEquals(name, map.id)
@@ -101,13 +109,206 @@ class HwdeDatasetTest {
         assertTrue(map.squares.single { it.label == "G-7" }.note!!.startsWith("Guides disagree"))
     }
 
+    /** The Great Sea: 14×7 squares, its hazards' rules, and four warriors (RPG Site's squares). */
+    @Test
+    fun theGreatSeaMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("great_sea_map")
+        assertEquals(14 to 7, map.cols to map.rows)
+        assertEquals(98, map.squares.size)
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(54, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(11, rewards[RewardType.HEART_PIECE])
+        assertEquals(27, rewards[RewardType.WEAPON])
+        assertEquals(26, rewards[RewardType.OUTFIT])
+        assertEquals(32, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(85, map.squares.sumOf { it.searches.size })
+        assertEquals(7, map.squares.sumOf { s -> s.searches.count { it.wholeSquare } }, "the Wind Waker's")
+        assertEquals(14, map.squares.count { it.rule?.startsWith("Great Sea Rule") == true })
+        assertEquals("B-9", map.square(map.start!!)!!.label)
+        assertEquals("C-9", map.square(map.finalBoss!!)!!.label)
+        val unlocks = map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.WARRIOR }.map { it.warrior!! to s.label } }.toMap()
+        assertEquals(mapOf("medli" to "B-8", "toon_link" to "B-9", "tetra" to "C-11", "king_daphnes" to "C-13"), unlocks)
+        // The salvage-arm cards SBAllen gives that the Helper missed (tools/hwde/corrections.json).
+        for (label in listOf("B-8", "C-13")) assertTrue("salvage_arm" in map.squares.single { it.label == label }.givesCards, label)
+        assertEquals(listOf(CardEffect.RULE), map.card("boomerang")!!.effects, "lifts a Great Sea Rule")
+        assertEquals(listOf(CardEffect.PATH), map.card("windwaker")!!.effects, "stops headwinds")
+    }
+
+    /** The Great Sea under Endless Night: every square has a rule, and the map's only weapons are Medli's harps. */
+    @Test
+    fun theMasterWindWakerMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("master_wind_waker_map")
+        assertEquals(14 to 7, map.cols to map.rows)
+        assertEquals(98, map.squares.size)
+        assertTrue(map.squares.all { it.rule != null })
+        assertEquals(85, map.squares.count { it.rule!!.startsWith("Endless Night Rule") })
+        assertTrue(map.squares.none { "Engless" in it.rule!! }, "SBAllen's typo, fixed")
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(85, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(8, rewards[RewardType.HEART_PIECE])
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(84, map.squares.sumOf { it.searches.size })
+        val harps = map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.WEAPON }.map { "${it.weapon} ${it.level} at ${s.label}" } }.sorted()
+        assertEquals(listOf("rito_harp 2 at D-4", "rito_harp 3 at F-11", "rito_harp 4 at B-13"), harps, "Nintendo Life's squares")
+        assertEquals("G-3", map.square(map.start!!)!!.label)
+        assertEquals("G-4", map.square(map.finalBoss!!)!!.label)
+        assertTrue("power_bracelet_2" in map.cards.map { it.id }, "the Great Sea's Power Bracelet, not the Adventure Map's")
+    }
+
+    /** The Second Quest's map: every square under a Master Quest Rule, and every weapon's level 3 (Nintendo Life's 35 squares). */
+    @Test
+    fun theMasterQuestMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("master_quest_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertEquals(128, map.squares.size)
+        assertTrue(map.squares.all { it.rule?.startsWith("Master Quest Rule") == true })
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(92, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(11, rewards[RewardType.HEART_PIECE])
+        assertEquals(35, rewards[RewardType.WEAPON])
+        assertTrue(map.squares.flatMap { it.rewards }.filter { it.type == RewardType.WEAPON }.all { it.level == "3" })
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(103, map.squares.sumOf { it.searches.size }, "the Helper's doubled Ladder searches removed")
+        assertEquals("H-8", map.square(map.start!!)!!.label)
+        assertEquals("A-1", map.square(map.finalBoss!!)!!.label)
+        for (label in listOf("F-16", "G-16")) assertEquals(1, map.squares.single { it.label == label }.searches.count { it.card == "ladder" }, label)
+    }
+
+    /** The Rewards Map: 13 squares on the full 16×8 grid, named by their illustrations, with no art, start or searches. */
+    @Test
+    fun theRewardsMapHasItsIllustrations() = withMaps { maps ->
+        val map = maps.getValue("rewards_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertNull(map.art)
+        assertNull(map.start)
+        assertEquals(
+            setOf(
+                "Scattered Seeds", "A Prayer Received", "The Nightmare Closes In", "Those with the Wind", "Guided by Courage",
+                "True Partners", "The Giants Gather", "Chosen by Fate", "Rulers of Twilight", "Boss Rush", "Evil Power",
+                "Running to the Rescue", "Unity",
+            ),
+            map.squares.map { it.title }.toSet(),
+        )
+        assertTrue(map.squares.all { it.searches.isEmpty() && it.skulltulas.isEmpty() })
+        // Zelda Wiki's Costume page: the Boss costumes each illustration gives on an A rank.
+        val outfits = map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.OUTFIT }.map { s.title!! to "${it.warrior} ${it.name}" } }.toMap()
+        assertEquals(
+            mapOf(
+                "Scattered Seeds" to "lana Standard Outfit (Boss)", "True Partners" to "link Dark Link Costume",
+                "The Giants Gather" to "link Hero's Clothes (Boss)", "Rulers of Twilight" to "ganondorf Standard Armor (Boss)",
+                "Boss Rush" to "zelda Standard Robes (Boss)", "Evil Power" to "cia Masked / Unmasked / Hatless (Boss)",
+            ),
+            outfits,
+        )
+    }
+
+    /** Twilight Princess's Hyrule: 15×8 with blank squares, Twilight clouds the Tears of Light clear, and level-4 weapons. */
+    @Test
+    fun theTwilightMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("twilight_map")
+        assertEquals(15 to 8, map.cols to map.rows)
+        assertEquals(93, map.squares.size, "the rest of the grid is blank")
+        assertEquals(21, map.squares.count { it.rule?.startsWith("Twilight Rule") == true })
+        assertEquals(20, map.squares.sumOf { s -> s.searches.count { it.wholeSquare && it.card == "tears_of_light" } })
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(67, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(1, rewards[RewardType.HEART_PIECE])
+        assertEquals(17, rewards[RewardType.WEAPON])
+        assertTrue(map.squares.flatMap { it.rewards }.filter { it.type == RewardType.WEAPON }.all { it.level == "4" })
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(listOf(CardEffect.PATH), map.card("ooccoo")!!.effects, "warps between portals")
+        val d12 = map.squares.single { it.label == "D-12" }
+        assertTrue(d12.rewards.any { it.name == "Fairy Bottom - Twilight Skirt" } && d12.rewards.none { "Magic Skirt" in it.name }, "the Switch's skirt")
+    }
+
+    /** Majora's Mask's Termina: 16×8 with blank squares, the masks, the four Giants and level-4 weapons. */
+    @Test
+    fun theTerminaMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("termina_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertEquals(85, map.squares.size)
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(48, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(2, rewards[RewardType.HEART_PIECE])
+        assertEquals(18, rewards[RewardType.WEAPON])
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(66, map.squares.sumOf { it.searches.size })
+        assertEquals(listOf(CardEffect.PATH), map.card("giant")!!.effects, "all four open a hidden part of the map")
+        assertEquals(listOf(CardEffect.OTHER), map.card("song_of_time")!!.effects)
+        assertTrue(map.squares.single { it.label == "C-6" }.rewards.any { it.id == "r3c6.fairy_food_ember_seeds" })
+        assertEquals("B-2", map.square(map.finalBoss!!)!!.label)
+    }
+
+    /** Link's Awakening's island: 14×6, the Nightmares any Instrument banishes, the Egg, and Marin at the start. */
+    @Test
+    fun theKoholintIslandMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("koholint_island_map")
+        assertEquals(14 to 6, map.cols to map.rows)
+        assertEquals(84, map.squares.size)
+        assertEquals("E-3", map.square(map.start!!)!!.label)
+        assertEquals("A-7", map.square(map.finalBoss!!)!!.label, "the Wind Fish's Egg")
+        val instruments = map.card("instrument")!!
+        assertEquals(8, instruments.anyOf.size)
+        assertTrue(instruments.anyOf.all { map.card(it) != null })
+        assertEquals(14, map.squares.sumOf { s -> s.searches.count { it.card == "instrument" && it.wholeSquare } })
+        // 13 Nightmares, each lifted by its own Instrument or by the Egg's; the Egg by its own only.
+        val sealed = map.squares.filter { it.sealedBy.isNotEmpty() }
+        assertEquals(listOf("r1c7.search_instrument"), map.square("r1c7")!!.sealedBy)
+        assertEquals(13, sealed.count { it.sealedBy == listOf("${it.id}.search_instrument", "r1c7.search_instrument") })
+        assertEquals(14, sealed.size)
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(63, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(20, rewards[RewardType.WEAPON])
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(mapOf("marin" to "E-3"), map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.WARRIOR }.map { it.warrior!! to s.label } }.toMap())
+    }
+
+    /** Two starts, two Giant Bosses that open the Phantom Hourglass's middle, and the Dark Ruler there. */
+    @Test
+    fun theGrandTravelsMapHasItsStartsAndGate() = withMaps { maps ->
+        val map = maps.getValue("grand_travels_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertEquals(128, map.squares.size)
+        assertEquals(listOf("H-4", "E-11"), map.starts.map { map.square(it)!!.label }, "SBAllen's D-8 and K-5")
+        assertEquals("E-7", map.square(map.finalBoss!!)!!.label, "SBAllen's G-5, not the Giant Bosses the Helper also flags")
+        val gate = map.gates.single()
+        assertEquals("D-10" to listOf("H-1", "B-13"), map.square(gate.square)!!.label to gate.afterCleared.map { map.square(it)!!.label })
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(63, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(22, rewards[RewardType.WEAPON])
+        assertEquals(mapOf("toon_zelda" to "F-11"), map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.WARRIOR }.map { it.warrior!! to s.label } }.toMap())
+        assertTrue("compass" in map.squares.single { it.label == "F-11" }.givesCards, "added from SBAllen")
+    }
+
+    /** Hyrule and Lorule, eight columns each, joined by Fissures that open the same square in the other world. */
+    @Test
+    fun theLoruleMapsFissuresCrossBetweenTheWorlds() = withMaps { maps ->
+        val map = maps.getValue("lorule_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertEquals(128, map.squares.size)
+        assertEquals("F-5", map.square(map.start!!)!!.label)
+        val fissures = map.squares.flatMap { s -> s.searches.filter { it.card == "wall_painting" }.map { s to it } }
+        assertEquals(18, fissures.size)
+        for ((square, search) in fissures) {
+            val other = map.square(search.opens.single())!!
+            assertEquals(square.row, other.row)
+            assertEquals(8, kotlin.math.abs(square.col - other.col), "${square.label} to ${other.label}")
+        }
+        assertEquals(listOf(CardEffect.PATH), map.card("wall_painting")!!.effects)
+        assertEquals("Bow", map.card("bow")!!.name, "Zelda Wiki: the Hero's Bow is the Bow on this map")
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(78, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(43, rewards[RewardType.FAIRY_FOOD], "the Helper's 20, and SBAllen's 23 more")
+        assertEquals(mapOf("ravio" to "G-5", "yuga" to "H-11"), map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.WARRIOR }.map { it.warrior!! to s.label } }.toMap())
+    }
+
     @Test
     fun wallsAreDrawnFromBothSides() = withMaps { maps ->
-        val map = maps.getValue("adventure_map")
-        for (s in map.squares) for (side in s.blockades) {
+        for (map in maps.values) for (s in map.squares) for (side in s.blockades) {
             val other = map.neighbour(s, side) ?: continue
-            assertTrue(side.opposite in other.blockades, "${s.label} ${side.name}")
+            assertTrue(side.opposite in other.blockades, "${map.id} ${s.label} ${side.name}")
         }
+        val map = maps.getValue("adventure_map")
         assertEquals(listOf(Side.SOUTH), map.square("r1c6")!!.blockades, "the Dark Ruler's wall")
     }
 }

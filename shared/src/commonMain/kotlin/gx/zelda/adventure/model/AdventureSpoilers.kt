@@ -26,29 +26,17 @@ class AdventureSpoilers(
     /** True when [square]'s undone searches, quiz answers and Skulltula locations are kept back. */
     fun secretsHidden(square: Square): Boolean = on && (isHidden(square) || square.id !in compassed)
 
-    /** The searches [square]'s sheet lists: all, or with secrets hidden only those already done. */
+    /**
+     * The searches [square]'s sheet lists: all, or with secrets hidden only those already done and,
+     * on a reached square, the one that lifts its seal (a Nightmare is plain to see on the map).
+     */
     fun visibleSearches(square: Square): List<Search> =
-        if (secretsHidden(square)) square.searches.filter { progress.isDone(it.id) } else square.searches
+        if (!secretsHidden(square)) square.searches
+        else square.searches.filter { progress.isDone(it.id) || (!isHidden(square) && it.id in square.sealedBy) }
 
     companion object {
-        /**
-         * The squares a save file has reached: the start, every cleared square, and each neighbour
-         * of a cleared square across an open side. A side is open when neither square has a
-         * blockade there, or when a path search (Hookshot, Raft…) has been done on the cleared
-         * square: the data doesn't say which neighbour such a search opens, so all of them count.
-         */
-        fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = buildSet {
-            map.start?.let(::add)
-            for (square in map.squares) {
-                if (!progress.isCleared(square)) continue
-                add(square.id)
-                val opened = square.searches.any { s -> progress.isDone(s.id) && map.card(s.card)?.effects?.contains(CardEffect.PATH) == true }
-                for (side in Side.entries) {
-                    val next = map.neighbour(square, side) ?: continue
-                    if (opened || map.isOpen(square, side)) add(next.id)
-                }
-            }
-        }
+        /** The squares a save file has reached ([AdventureReach.reached]), sealed ones included. */
+        fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = AdventureReach.reached(map, progress)
     }
 }
 
@@ -60,6 +48,8 @@ data class SquareLook(
     val hidden: Boolean,
     /** Doesn't match the filters, so it's drawn dim. */
     val dimmed: Boolean,
+    /** Can be played now ([AdventureReach.challengeable]); the rest are drawn dim, as in the game. */
+    val challengeable: Boolean,
     val selected: Boolean,
     val start: Boolean,
     val finalBoss: Boolean,
@@ -74,6 +64,7 @@ data class SquareLook(
             spoilers: AdventureSpoilers,
             matches: Boolean,
             selected: Boolean,
+            challengeable: Boolean = square.id in spoilers.explored && !AdventureReach.sealed(progress, square),
         ): SquareLook {
             val hidden = spoilers.isHidden(square)
             fun left(type: RewardType) = square.rewards.count { it.type == type && !progress.isDone(it.id) }
@@ -82,15 +73,16 @@ data class SquareLook(
                 SquareMarker(MarkerKind.HEART_PIECE, left(RewardType.HEART_PIECE)),
                 SquareMarker(MarkerKind.SKULLTULA, square.skulltulas.count { !progress.isDone(it.id) }),
                 // Undone searches are a secret in spoiler-safe mode until the Compass shows them.
-                SquareMarker(MarkerKind.SEARCH, if (spoilers.secretsHidden(square)) 0 else square.searches.count { !progress.isDone(it.id) }),
+                SquareMarker(MarkerKind.SEARCH, spoilers.visibleSearches(square).count { !progress.isDone(it.id) }),
             ).filter { it.count > 0 }
             return SquareLook(
                 status = progress.status(square),
                 complete = progress.isComplete(square),
                 hidden = hidden,
                 dimmed = !matches,
+                challengeable = challengeable,
                 selected = selected,
-                start = square.id == map.start,
+                start = square.id in map.starts,
                 finalBoss = square.finalBoss && !hidden,
                 markers = markers,
             )

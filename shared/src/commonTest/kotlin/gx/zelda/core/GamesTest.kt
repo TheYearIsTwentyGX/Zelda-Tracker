@@ -171,7 +171,15 @@ class GamesTest {
         assertEquals(listOf("file_1"), Games.HWDE.saveFiles.map { it.id })
         assertTrue(Games.HWDE.spinOff)
         assertEquals(TrackerKind.OVERVIEW, Games.HWDE.trackers.first().kind)
-        assertEquals(listOf("hwde/adventure_map.json"), Games.HWDE.trackers.drop(1).map { it.dataFile })
+        assertEquals(
+            listOf(
+                "hwde/adventure_map.json", "hwde/great_sea_map.json", "hwde/master_quest_map.json",
+                "hwde/master_wind_waker_map.json", "hwde/twilight_map.json", "hwde/termina_map.json",
+                "hwde/koholint_island_map.json", "hwde/grand_travels_map.json", "hwde/lorule_map.json", "hwde/rewards_map.json",
+            ),
+            Games.HWDE.trackers.drop(1).map { it.dataFile },
+            "in DE's own order of maps",
+        )
         assertTrue(Games.HWDE.trackers.drop(1).all { it.kind == TrackerKind.ADVENTURE_MAP })
     }
 

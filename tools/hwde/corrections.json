@@ -1,38 +1,834 @@
 [
   {
-    "map": "adventure_map", "square": "A-16", "op": "removeReward", "id": "r1c16.poh_toon_link",
+    "map": "adventure_map",
+    "square": "A-16",
+    "op": "removeReward",
+    "id": "r1c16.poh_toon_link",
     "source": "SBAllen's guide marks Toon Link's Piece of Heart (North Oasis) as 3DS-only; on the Switch the square gives Linkle's"
   },
   {
-    "map": "adventure_map", "square": "A-16", "op": "addReward",
-    "reward": {"id": "r1c16.fairy_clothing_royal_hood", "slot": "treasure", "type": "fairy_clothing",
-               "name": "Fairy Headwear - Royal Hood", "keep": "N. Settlement"},
+    "map": "adventure_map",
+    "square": "A-16",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c16.fairy_clothing_royal_hood",
+      "slot": "treasure",
+      "type": "fairy_clothing",
+      "name": "Fairy Headwear - Royal Hood",
+      "keep": "N. Settlement"
+    },
     "source": "SBAllen's guide lists it for both versions; the Helper's data is missing it"
   },
   {
-    "map": "adventure_map", "square": "A-12", "op": "addCard", "card": "recorder",
+    "map": "adventure_map",
+    "square": "A-12",
+    "op": "addCard",
+    "card": "recorder",
     "source": "SBAllen's guide gives a Recorder card on clearing L-1 (A-12) in the square and in its card table; the Helper's data is missing it"
   },
   {
-    "map": "adventure_map", "square": "B-1", "op": "note",
+    "map": "adventure_map",
+    "square": "B-1",
+    "op": "note",
     "note": "Guides disagree: SBAllen's lists a Bomb search on the top wall here, but the Helper removed it as wrong for the Switch version.",
     "source": "Helper commit ae3da64 (remove wrong search location) against SBAllen's A-2"
   },
   {
-    "map": "adventure_map", "line": "B-1 (A-2) searches", "op": "accept",
+    "map": "adventure_map",
+    "line": "B-1 (A-2) searches",
+    "op": "accept",
     "source": "kept the Helper's Switch data; noted on the square"
   },
   {
-    "map": "adventure_map", "square": "G-7", "op": "note",
+    "map": "adventure_map",
+    "square": "G-7",
+    "op": "note",
     "note": "Guides disagree: the Helper has a Bomb search on the top wall here; SBAllen's guide lists none.",
     "source": "Helper's data since its first version against SBAllen's G-7"
   },
   {
-    "map": "adventure_map", "line": "G-7 (G-7) searches", "op": "accept",
+    "map": "adventure_map",
+    "line": "G-7 (G-7) searches",
+    "op": "accept",
     "source": "kept the Helper's search; noted on the square"
   },
   {
-    "map": "adventure_map", "line": "Nintendo Life: great_fairy at G-16", "op": "accept",
+    "map": "adventure_map",
+    "line": "Nintendo Life: great_fairy at G-16",
+    "op": "accept",
     "source": "SBAllen (both versions) and the Helper both put Great Fairy Lv. 1 at H-1 (SBAllen A-8); nothing at G-16 gives it"
+  },
+  {
+    "map": "great_sea_map",
+    "square": "B-8",
+    "op": "addCard",
+    "card": "salvage_arm",
+    "source": "SBAllen's guide gives a Salvage Arm card on clearing H-2 (B-8), and the Helper's issue #12 reported it missing; the Helper's data still lacks it"
+  },
+  {
+    "map": "great_sea_map",
+    "square": "C-13",
+    "op": "addCard",
+    "card": "salvage_arm",
+    "source": "SBAllen's guide gives a Salvage Arm card on clearing M-3 (C-13) alongside King Daphnes; the Helper's data lists only King Daphnes"
+  },
+  {
+    "map": "great_sea_map",
+    "square": "C-11",
+    "op": "note",
+    "note": "Guides disagree: the Helper has a Sea Map search here and Tetra on a clear; SBAllen's guide lists neither (RPG Site agrees Tetra is unlocked here).",
+    "source": "Helper (Tetra added from its issue #12) and RPG Site against SBAllen's K-3"
+  },
+  {
+    "map": "great_sea_map",
+    "line": "C-11 (K-3) searches",
+    "op": "accept",
+    "source": "kept the Helper's Sea Map search; noted on the square"
+  },
+  {
+    "map": "great_sea_map",
+    "line": "C-11 (K-3) clear",
+    "op": "accept",
+    "source": "RPG Site and the Helper's issue #12 both put Tetra here"
+  },
+  {
+    "map": "great_sea_map",
+    "line": "D-4 (D-4) kos",
+    "op": "accept",
+    "source": "SBAllen gives N/A for this Adventure Battle; the Helper's 1,200 is what every other yellow, purple and orange Adventure Battle needs"
+  },
+  {
+    "map": "great_sea_map",
+    "square": "E-3",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide lists a Deku Leaf search on a windmill here, as on the Master Wind Waker Map's E-3; the Helper has none, and draws no windmill.",
+    "source": "SBAllen's C-5 against the Helper"
+  },
+  {
+    "map": "great_sea_map",
+    "line": "E-3 (C-5) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "master_wind_waker_map",
+    "square": "C-1",
+    "op": "note",
+    "note": "Guides disagree: the Helper puts a Wind Waker search here; SBAllen's guide puts it on D-1, the square below.",
+    "source": "Helper's A3 against SBAllen's A-4"
+  },
+  {
+    "map": "master_wind_waker_map",
+    "square": "D-1",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Wind Waker search here as well as the Hyoi Pear; the Helper puts it on C-1, the square above.",
+    "source": "SBAllen's A-4 against the Helper's A3"
+  },
+  {
+    "map": "master_wind_waker_map",
+    "line": "C-1 (A-3) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on C-1 and D-1"
+  },
+  {
+    "map": "master_wind_waker_map",
+    "line": "D-1 (A-4) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on C-1 and D-1"
+  },
+  {
+    "map": "master_wind_waker_map",
+    "square": "F-1",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide lists a Hyoi Pear search on a seagull here; the Helper has none, and draws no seagull.",
+    "source": "SBAllen's A-6 against the Helper"
+  },
+  {
+    "map": "master_wind_waker_map",
+    "line": "F-1 (A-6) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "great_sea_map",
+    "line": "Nintendo Life: great_fairy at H-1",
+    "op": "accept",
+    "source": "SBAllen and the Helper put Great Fairy Lv. 2 at C-1 (SBAllen A-3); nothing at H-1 or A-8 gives it. Nintendo Life's Great Fairy squares are off on the Adventure Map too"
+  },
+  {
+    "map": "master_quest_map",
+    "square": "F-16",
+    "op": "removeSearch",
+    "id": "r6c16.search_ladder_2",
+    "source": "The Helper lists the same Ladder cell twice; SBAllen's guide has one Ladder search (the eastern dock)"
+  },
+  {
+    "map": "master_quest_map",
+    "square": "G-16",
+    "op": "removeSearch",
+    "id": "r7c16.search_ladder_2",
+    "source": "The Helper lists the same Ladder cell twice; SBAllen's guide has one Ladder search (the easternmost dock)"
+  },
+  {
+    "map": "master_quest_map",
+    "square": "A-7",
+    "op": "note",
+    "note": "Guides disagree: the Helper has the Goddess's Harp on the butterflies two cells right of the lone rock; SBAllen's guide uses the Recorder on that cell.",
+    "source": "Helper's G1 against SBAllen's G-1"
+  },
+  {
+    "map": "master_quest_map",
+    "line": "A-7 (G-1) searches",
+    "op": "accept",
+    "source": "kept the Helper's Harp, whose art shows butterflies there; noted on the square"
+  },
+  {
+    "map": "master_quest_map",
+    "line": "H-1 (A-8) clear",
+    "op": "accept",
+    "source": "the Helper added this Compass card from its issue #12, a Switch player's report; SBAllen lists no clear reward"
+  },
+  {
+    "map": "rewards_map",
+    "square": "F-7",
+    "op": "removeReward",
+    "id": "r6c7.material_material",
+    "source": "Zelda Wiki (Costume) and SBAllen's guide: an A rank in \"Rulers of Twilight\" gives Ganondorf's Standard Armor (Boss), not a material"
+  },
+  {
+    "map": "rewards_map",
+    "square": "F-7",
+    "op": "addReward",
+    "reward": {
+      "id": "r6c7.outfit_ganondorf_standard_armor_boss",
+      "slot": "aRank",
+      "type": "outfit",
+      "warrior": "ganondorf",
+      "name": "Standard Armor (Boss)"
+    },
+    "source": "Zelda Wiki (Costume) and SBAllen's guide"
+  },
+  {
+    "map": "rewards_map",
+    "line": "F-7 (G-6) mission",
+    "op": "accept",
+    "source": "SBAllen's typo (\"Rules of Twilight\"); the illustration is Rulers of Twilight"
+  },
+  {
+    "map": "rewards_map",
+    "line": "F-11 (K-6) kos",
+    "op": "accept",
+    "source": "SBAllen leaves Boss Rush's KOs blank; his v2.57 notes say the Rewards Map follows the 1,000 KOs / 99% rules, as the Helper has"
+  },
+  {
+    "map": "rewards_map",
+    "line": "G-8 (H-7) aRank",
+    "op": "accept",
+    "source": "the same three costumes: one A rank in \"Evil Power\" gives Cia's Masked, Unmasked and Hatless (Boss) outfits (Zelda Wiki), kept as one tick"
+  },
+  {
+    "map": "rewards_map",
+    "line": "F-7 (G-6) aRank",
+    "op": "accept",
+    "source": "the same costume: Zelda Wiki names it Standard Armor (Boss), SBAllen Standard Outfit (Boss)"
+  },
+  {
+    "map": "twilight_map",
+    "square": "D-12",
+    "op": "removeReward",
+    "id": "r4c12.fairy_clothing_magic_skirt",
+    "source": "SBAllen's guide marks the Magic Skirt at L-4 (D-12) as 3DS-only; the Switch gives the Twilight Skirt"
+  },
+  {
+    "map": "twilight_map",
+    "square": "D-12",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c12.fairy_clothing_twilight_skirt",
+      "slot": "treasure",
+      "type": "fairy_clothing",
+      "name": "Fairy Bottom - Twilight Skirt",
+      "keep": "Upper Level East"
+    },
+    "source": "SBAllen's guide, Switch line"
+  },
+  {
+    "map": "twilight_map",
+    "line": "B-3 (C-2) searches",
+    "op": "accept",
+    "source": "the Helper's Ooccoo search is on the square's warp portal, as Zelda Wiki describes the card; SBAllen doesn't list Ooccoo uses as searches"
+  },
+  {
+    "map": "twilight_map",
+    "line": "E-13 (M-5) clear",
+    "op": "accept",
+    "source": "the Lantern card was added to the Helper from its issue #12, a Switch player's report"
+  },
+  {
+    "map": "twilight_map",
+    "line": "G-6 (F-7) clear",
+    "op": "accept",
+    "source": "the Compass card was added to the Helper from its issue #12, a Switch player's report"
+  },
+  {
+    "map": "twilight_map",
+    "line": "H-3 (C-8) clear",
+    "op": "accept",
+    "source": "the Lantern card was added to the Helper from its issue #12, a Switch player's report"
+  },
+  {
+    "map": "twilight_map",
+    "line": "card 'Tears of Twilight'",
+    "op": "accept",
+    "source": "it only appears once every Twilight cloud is gone, to bring them back; nothing on a square uses or gives it"
+  },
+  {
+    "map": "termina_map",
+    "square": "C-6",
+    "op": "addReward",
+    "reward": {
+      "id": "r3c6.fairy_food_ember_seeds",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Ember Seeds",
+      "keep": "West Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at F-3 (C-6) for both versions; the Helper's data is missing it"
+  },
+  {
+    "map": "termina_map",
+    "square": "B-9",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Bomb search on the northernmost boulder here; the Helper has none.",
+    "source": "SBAllen's I-2 against the Helper"
+  },
+  {
+    "map": "termina_map",
+    "line": "B-9 (I-2) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "termina_map",
+    "square": "C-11",
+    "op": "note",
+    "note": "Guides disagree: the Helper uses the Goron Mask on the switch here; SBAllen's guide bombs a boulder, which the Helper's picture doesn't show.",
+    "source": "Helper's K3 against SBAllen's K-3"
+  },
+  {
+    "map": "termina_map",
+    "line": "C-11 (K-3) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "termina_map",
+    "square": "F-11",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Bomb search on a boulder here; the Helper has none, and draws no boulder.",
+    "source": "SBAllen's K-6 against the Helper"
+  },
+  {
+    "map": "termina_map",
+    "line": "F-11 (K-6) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "twilight_map",
+    "line": "Nintendo Life: great_swords at H-2",
+    "op": "accept",
+    "source": "SBAllen's guide and the Helper both give Ganondorf's Great Swords Lv. 4 at H-4 (SBAllen D-8)"
+  },
+  {
+    "map": "termina_map",
+    "line": "Nintendo Life: great_fairy at B-5",
+    "op": "accept",
+    "source": "SBAllen's guide and the Helper both give Great Fairy Lv. 4 at B-7 (SBAllen G-2); Nintendo Life's Great Fairy squares are off on every map so far"
+  },
+  {
+    "map": "grand_travels_map",
+    "square": "B-5",
+    "op": "addReward",
+    "reward": {
+      "id": "r2c5.fairy_food_ordon_goat_cheese",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Ordon Goat Cheese",
+      "keep": "Exit Square",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at E-2 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-4",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c4.fairy_food_pumpkin",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Pumpkin",
+      "keep": "Southeast Square",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at D-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-6",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c6.fairy_food_pumpkin",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Pumpkin",
+      "keep": "Hall of Time",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at F-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-8",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c8.fairy_food_great_fairys_tears",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Great Fairy's Tears",
+      "keep": "West Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at H-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-9",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c9.fairy_food_water_fruit",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Water Fruit",
+      "keep": "West Town Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at I-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-10",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c10.fairy_food_mystery_seeds",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Mystery Seeds",
+      "keep": "Deku Tree",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at J-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-11",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c11.fairy_food_water_fruit",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Water Fruit",
+      "keep": "Town Entrance",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at K-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-12",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c12.fairy_food_ordon_goat_cheese",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Ordon Goat Cheese",
+      "keep": "Rock Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at L-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-16",
+    "op": "addReward",
+    "reward": {
+      "id": "r1c16.fairy_food_rock_sirloin",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Rock Sirloin",
+      "keep": "Enemy Base",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at P-1 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "B-4",
+    "op": "addReward",
+    "reward": {
+      "id": "r2c4.fairy_food_life_tree_fruit",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Life Tree Fruit",
+      "keep": "S. Entrance Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at D-2 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "B-9",
+    "op": "addReward",
+    "reward": {
+      "id": "r2c9.fairy_food_mystery_seeds",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Mystery Seeds",
+      "keep": "Enemy Base",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at I-2 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "B-12",
+    "op": "addReward",
+    "reward": {
+      "id": "r2c12.fairy_food_rock_sirloin",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Rock Sirloin",
+      "keep": "E. Mountain Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at L-2 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "D-1",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c1.fairy_food_weird_egg",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Weird Egg",
+      "keep": "Stock Room",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at A-4 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "D-7",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c7.fairy_clothing_witchs_hat",
+      "slot": "treasure",
+      "type": "fairy_clothing",
+      "name": "Fairy Headwear - Witch's Hat",
+      "keep": "West Town Keep"
+    },
+    "source": "SBAllen's guide lists it at G-4 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "D-9",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c9.fairy_food_chateau_romani",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Chateau Romani",
+      "keep": "North Palace",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at I-4 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "D-10",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c10.fairy_food_carrot",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Carrot",
+      "keep": "Rocky Square",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at J-4 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "D-16",
+    "op": "addReward",
+    "reward": {
+      "id": "r4c16.fairy_food_hyoi_pear",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Hyoi Pear",
+      "keep": "Northwest Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at P-4 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "E-3",
+    "op": "addReward",
+    "reward": {
+      "id": "r5c3.fairy_food_all_purpose_bait",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - All-Purpose Bait",
+      "keep": "South Square",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at C-5 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "E-10",
+    "op": "addReward",
+    "reward": {
+      "id": "r5c10.fairy_food_chateau_romani",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Chateau Romani",
+      "keep": "Eastern Room",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at J-5 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "E-15",
+    "op": "addReward",
+    "reward": {
+      "id": "r5c15.fairy_food_hot_spring_water",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Hot Spring Water",
+      "keep": "West Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at O-5 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "E-16",
+    "op": "addReward",
+    "reward": {
+      "id": "r5c16.fairy_food_hylian_pike",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Hylian Pike",
+      "keep": "West Square",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at P-5 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "F-1",
+    "op": "addReward",
+    "reward": {
+      "id": "r6c1.fairy_food_weird_egg",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Weird Egg",
+      "keep": "Star Island Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at A-6 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "F-16",
+    "op": "addReward",
+    "reward": {
+      "id": "r6c16.fairy_food_greengill",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Greengill",
+      "keep": "Fairy Fountain",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at P-6 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "G-9",
+    "op": "addReward",
+    "reward": {
+      "id": "r7c9.fairy_food_bombfish",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Bombfish",
+      "keep": "Rockface Keep",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at I-7 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "lorule_map",
+    "square": "G-14",
+    "op": "addReward",
+    "reward": {
+      "id": "r7c14.fairy_food_hylian_pike",
+      "slot": "treasure",
+      "type": "fairy_food",
+      "name": "Fairy Food - Hylian Pike",
+      "keep": "West Garden",
+      "container": "pot"
+    },
+    "source": "SBAllen's guide lists it at N-7 for the Switch; the Helper's data is missing it"
+  },
+  {
+    "map": "koholint_island_map",
+    "line": "A-7 (G-1) searches",
+    "op": "accept",
+    "source": "SBAllen's line is the Wind Fish's condition (all eight Instruments used), not a card; the Helper models it as the Instruments' whole-square search"
+  },
+  {
+    "map": "koholint_island_map",
+    "square": "A-7",
+    "op": "note",
+    "note": "The Egg opens once each of the eight Instruments has been used on a Nightmare: tick its search then. The Wind Fish wakes, and every other Nightmare goes for good.",
+    "source": "SBAllen's map notes and his G-1"
+  },
+  {
+    "map": "koholint_island_map",
+    "line": "D-2 (B-4) mission",
+    "op": "accept",
+    "source": "the Helper corrected this square's battle from its issue #24, a Switch player's report"
+  },
+  {
+    "map": "grand_travels_map",
+    "line": "B-16 (P-2)",
+    "op": "accept",
+    "source": "SBAllen's guide has no entry for this square; the Helper's data is the only source"
+  },
+  {
+    "map": "grand_travels_map",
+    "square": "C-3",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide gives the A-rank Heart Container to Toon Zelda; the Helper to Zelda (every other warrior has two hearts on this map, as Zelda does with this one).",
+    "source": "Helper's C3 against SBAllen's C-3"
+  },
+  {
+    "map": "grand_travels_map",
+    "line": "C-3 (C-3) aRank",
+    "op": "accept",
+    "source": "kept the Helper's Zelda; noted on the square"
+  },
+  {
+    "map": "grand_travels_map",
+    "line": "C-4 (D-3) mission",
+    "op": "accept",
+    "source": "the Helper corrected this square's battle from its issue #28, a Switch player's report"
+  },
+  {
+    "map": "grand_travels_map",
+    "square": "E-2",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Railway Track search here; the Helper has none.",
+    "source": "SBAllen's B-5 against the Helper"
+  },
+  {
+    "map": "grand_travels_map",
+    "line": "E-2 (B-5) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "grand_travels_map",
+    "square": "F-11",
+    "op": "addCard",
+    "card": "compass",
+    "source": "SBAllen's guide gives a Compass card on clearing K-6 (F-11), alongside Toon Zelda; the Helper lists only Toon Zelda"
+  },
+  {
+    "map": "lorule_map",
+    "square": "A-13",
+    "op": "note",
+    "note": "Guides disagree: the Helper has a Wall Painting search here; SBAllen's guide lists none.",
+    "source": "Helper's M1 against SBAllen's M-1"
+  },
+  {
+    "map": "lorule_map",
+    "line": "A-13 (M-1) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "lorule_map",
+    "square": "E-1",
+    "op": "note",
+    "note": "Guides disagree: the Helper uses the Sand Rod here; SBAllen's guide the Tornado Rod, on the same cell.",
+    "source": "Helper's A5 against SBAllen's A-5"
+  },
+  {
+    "map": "lorule_map",
+    "line": "E-1 (A-5) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "lorule_map",
+    "square": "E-5",
+    "op": "note",
+    "note": "Guides disagree: SBAllen's guide has a Fire Rod search on an ice statue here; the Helper has none.",
+    "source": "SBAllen's E-5 against the Helper"
+  },
+  {
+    "map": "lorule_map",
+    "line": "E-5 (E-5) searches",
+    "op": "accept",
+    "source": "kept the Helper's data; noted on the square"
+  },
+  {
+    "map": "lorule_map",
+    "line": "F-8 (H-6) kos",
+    "op": "accept",
+    "source": "the Helper corrected this to 1,600 from its issue #29, a Switch player's report"
+  },
+  {
+    "map": "lorule_map",
+    "line": "G-8 (H-7) kos",
+    "op": "accept",
+    "source": "1,600, as the Helper has it and as every other red Adventure Battle on the map needs (its neighbour F-8 was corrected to it in the Helper's issue #29)"
+  },
+  {
+    "map": "lorule_map",
+    "square": "G-5",
+    "op": "addCard",
+    "card": "wall_painting",
+    "source": "SBAllen's guide gives a Wall Painting card on clearing E-7 (G-5), alongside Ravio; the Helper lists only Ravio"
+  },
+  {
+    "map": "lorule_map",
+    "square": "H-11",
+    "op": "addCard",
+    "card": "baby_maiamai",
+    "source": "SBAllen's guide gives a Baby Maiamai card on clearing K-8 (H-11), alongside Yuga; the Helper lists only Yuga"
+  },
+  {
+    "map": "lorule_map",
+    "line": "card \"Hero's Bow\"",
+    "op": "accept",
+    "source": "the same card: Zelda Wiki's Hero's Bow row says it's called the Bow on the Lorule Map, as it's named here"
   }
 ]

@@ -18,11 +18,19 @@ data class AdventureMap(
     val name: String,
     val cols: Int,
     val rows: Int,
-    /** Where the map starts, the one square open before any battle. */
+    /**
+     * Where the map starts, the one square open before any battle. The Rewards Map has none: its
+     * squares open as Gold Skulltula illustrations are completed.
+     */
     val start: String? = null,
+    /** More squares open from the beginning, on a map with more than one start (Grand Travels). */
+    val otherStarts: List<String> = emptyList(),
+    /** Squares that open once other squares are cleared, rather than from a neighbour. */
+    val gates: List<MapGate> = emptyList(),
     /** The Dark Ruler's square. */
     val finalBoss: String? = null,
-    val art: MapArt,
+    /** The map's pictures; null for a map nobody has art for, whose squares are drawn as plain tiles. */
+    val art: MapArt? = null,
     /** The squares' difficulty colours, easiest first. */
     val regions: List<MapRegion> = emptyList(),
     /** The item cards this map uses or gives, as the game names them. */
@@ -39,6 +47,9 @@ data class AdventureMap(
 
     fun square(id: String): Square? = byId[id]
 
+    /** Every square open from the beginning. */
+    val starts: List<String> get() = listOfNotNull(start) + otherStarts
+
     /** The square at [row] and [col] (both from 1), or null for a blank square or off the grid. */
     fun squareAt(row: Int, col: Int): Square? = byCell[row to col]
 
@@ -47,6 +58,10 @@ data class AdventureMap(
     fun warriorName(id: String): String = warriorNames[id] ?: id
 
     fun regionName(id: String): String = regions.firstOrNull { it.id == id }?.name ?: id
+
+    /** A square's size in map pixels: its picture's, or the original game's screen for a map without art. */
+    val squareWidth: Int get() = art?.squareWidth ?: 256
+    val squareHeight: Int get() = art?.squareHeight ?: 176
 
     /** [square]'s neighbour across [side], or null at the edge or a blank square. */
     fun neighbour(square: Square, side: Side): Square? = squareAt(square.row + side.dRow, square.col + side.dCol)
@@ -99,22 +114,30 @@ data class AdventureMap(
                 } else if (search.row !in 0 until SEARCH_ROWS || search.col !in 0 until SEARCH_COLS) {
                     add("${search.id}: cell (${search.row}, ${search.col}) is outside the ${SEARCH_COLS}x$SEARCH_ROWS grid")
                 }
-                if (sourcesOf(search.card).isEmpty() && card(search.card)?.effects != listOf(CardEffect.COMPASS)) {
+                search.opens.filter { square(it) == null }.forEach { add("${search.id}: opens '$it', which isn't a square") }
+                val card = card(search.card)
+                if (sourcesOf(search.card).isEmpty() && card?.effects != listOf(CardEffect.COMPASS) && card?.anyOf.isNullOrEmpty()) {
                     add("${search.id}: no square on the map gives the ${search.card} card")
                 }
             }
+            if (s.sealedBy.isNotEmpty() && s.searches.none { it.id in s.sealedBy }) add("${s.id}: sealed, but by none of its own searches")
+            s.sealedBy.filter { id -> squares.none { o -> o.searches.any { it.id == id } } }.forEach { add("${s.id}: sealed by '$it', which isn't a search") }
             for (side in s.blockades) {
                 val other = neighbour(s, side)
                 if (other != null && side.opposite !in other.blockades) add("${s.id}: blockade ${side.name.lowercase()} isn't on ${other.id} too")
             }
         }
-        start?.let { if (square(it) == null) add("start '$it' isn't a square") }
+        starts.filter { square(it) == null }.forEach { add("start '$it' isn't a square") }
+        for (gate in gates) {
+            (listOf(gate.square) + gate.afterCleared).filter { square(it) == null }.forEach { add("gate: '$it' isn't a square") }
+        }
+        cards.flatMap { c -> c.anyOf.filter { card(it) == null }.map { "card '${c.id}': '$it' isn't a card on this map" } }.forEach(::add)
         finalBoss?.let { if (square(it)?.finalBoss != true) add("final boss '$it' isn't a square marked finalBoss") }
         squares.filter { it.finalBoss && it.id != finalBoss }.forEach { add("${it.id}: marked finalBoss but the map's is '$finalBoss'") }
         cards.groupBy { it.id }.filter { it.value.size > 1 }.keys.forEach { add("duplicate card '$it'") }
         warriors.groupBy { it.id }.filter { it.value.size > 1 }.keys.forEach { add("duplicate warrior '$it'") }
         regions.filter { r -> squares.none { it.region == r.id } }.forEach { add("region '${it.id}' has no squares") }
-        if (art.squareWidth <= 0 || art.squareHeight <= 0) add("art has no square size")
+        if (squareWidth <= 0 || squareHeight <= 0) add("art has no square size")
     }
 
     companion object {
@@ -150,6 +173,10 @@ data class MapArt(
 @Serializable
 data class MapRegion(val id: String, val name: String)
 
+/** [square] opens once every square in [afterCleared] is cleared (Grand Travels' Phantom Hourglass). */
+@Serializable
+data class MapGate(val square: String, val afterCleared: List<String>)
+
 @Serializable
 data class Warrior(val id: String, val name: String)
 
@@ -168,6 +195,8 @@ data class Square(
     val battle: BattleType? = null,
     /** The victory condition, as the game words it. */
     val mission: String,
+    /** A name for the square where the game gives one: the Rewards Map's are named by their illustrations. */
+    val title: String? = null,
     /** A map rule this square plays under, e.g. "Master Quest Rule: No Guarding!". */
     val rule: String? = null,
     val finalBoss: Boolean = false,
@@ -181,6 +210,13 @@ data class Square(
     val givesCards: List<String> = emptyList(),
     val skulltulas: List<Skulltula> = emptyList(),
     val searches: List<Search> = emptyList(),
+    /**
+     * Searches, any one of which lets the square be played once it's done; until then it can be
+     * reached and searched but not challenged. One is the square's own. On Koholint a Nightmare
+     * seals a square: its own Instrument search banishes it, and so does the Egg's (the Wind Fish
+     * waking banishes them all).
+     */
+    val sealedBy: List<String> = emptyList(),
     /** A quiz battle's answers, in order. */
     val quiz: List<String> = emptyList(),
     /** Where the sources disagree about this square, in our words. */
@@ -271,6 +307,8 @@ data class Search(
     val row: Int? = null,
     val col: Int? = null,
     val wholeSquare: Boolean = false,
+    /** Squares the search opens, when it opens somewhere other than the neighbours (Lorule's Fissures). */
+    val opens: List<String> = emptyList(),
 )
 
 @Serializable
@@ -283,6 +321,8 @@ data class ItemCard(
     val text: String = "",
     /** Rupees in DE's Item Card Shop, once found. */
     val shopPrice: Int? = null,
+    /** For a search any of several cards can do (any Instrument of the Sirens): those cards. */
+    val anyOf: List<String> = emptyList(),
 )
 
 @Serializable

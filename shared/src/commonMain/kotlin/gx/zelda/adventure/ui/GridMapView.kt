@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextMeasurer
@@ -30,11 +31,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import gx.zelda.adventure.model.AdventureMap
+import gx.zelda.adventure.model.EdgeStyle
 import gx.zelda.adventure.model.GridViewport
 import gx.zelda.adventure.model.MarkerKind
 import gx.zelda.adventure.model.Side
@@ -52,6 +56,9 @@ private const val DETAIL_SCALE = 0.45f
  * The map: every square's picture with its state drawn over it, pinch to zoom, drag to pan, tap a
  * square to open it. [viewport] lives in the view model (null until the view has a size); every
  * gesture hands a new one to [onViewport].
+ *
+ * [insetRight] is how many pixels of the right side a panel covers. The map keeps its scale under
+ * it, and the [selected] square is panned into the part left showing.
  */
 @Composable
 fun GridMapView(
@@ -61,6 +68,7 @@ fun GridMapView(
     selected: String?,
     onViewport: (GridViewport) -> Unit,
     onTapSquare: (Square) -> Unit,
+    insetRight: Float = 0f,
     modifier: Modifier = Modifier,
 ) {
     val map = state.map
@@ -69,6 +77,8 @@ fun GridMapView(
     val latestState by rememberUpdatedState(state)
     val setViewport by rememberUpdatedState(onViewport)
     val tap by rememberUpdatedState(onTapSquare)
+    val inset by rememberUpdatedState(insetRight)
+    val margin = with(LocalDensity.current) { 12.dp.toPx() }
     val text = rememberTextMeasurer()
     val scheme = MaterialTheme.colorScheme
     val palette = remember(scheme) {
@@ -79,10 +89,20 @@ fun GridMapView(
             onLabel = scheme.inverseOnSurface,
             selection = scheme.primary,
             onSelection = scheme.onPrimary,
+            tile = scheme.surfaceVariant,
+            onTile = scheme.onSurfaceVariant,
         )
     }
 
     LaunchedEffect(images) { images.loadPreview() }
+    // The panel opening, closing or showing another square: same scale, the square kept in sight.
+    // The view's size is a key too, so a turn of the window that opens the panel still reveals it.
+    LaunchedEffect(insetRight, selected, viewport?.viewWidth, viewport?.viewHeight) {
+        val v = current ?: return@LaunchedEffect
+        val square = selected?.takeIf { insetRight > 0f }?.let(map::square)
+        val next = v.withInset(insetRight).let { if (square != null) it.reveal(square.row, square.col, margin) else it }
+        if (next != v) setViewport(next)
+    }
     LaunchedEffect(images) {
         snapshotFlow { current?.takeIf { it.scale >= DETAIL_SCALE }?.let { visibleSquares(map, it) }.orEmpty() }
             .distinctUntilChanged()
@@ -100,12 +120,12 @@ fun GridMapView(
                 setViewport(
                     when {
                         v == null -> GridViewport.initial(
-                            w, h, map.cols, map.rows, map.art.squareWidth.toFloat(), map.art.squareHeight.toFloat(),
+                            w, h, map.cols, map.rows, map.squareWidth.toFloat(), map.squareHeight.toFloat(),
                             focus = map.start?.let(map::square)?.let { it.row to it.col },
                         )
-                        v.viewWidth != w || v.viewHeight != h -> v.resized(w, h)
+                        v.viewWidth != w || v.viewHeight != h -> v.forNewSize(w, h, focus = map.start?.let(map::square)?.let { it.row to it.col })
                         else -> v
-                    },
+                    }.withInset(inset),
                 )
             }
             .pointerInput(Unit) {
@@ -140,6 +160,9 @@ private data class MapPalette(
     val onLabel: Color,
     val selection: Color,
     val onSelection: Color,
+    /** A square drawn without a picture. */
+    val tile: Color,
+    val onTile: Color,
 )
 
 /**
@@ -148,6 +171,7 @@ private data class MapPalette(
  */
 private object MapColors {
     val bronze = Color(0xFFCD7F32)
+    val seam = Color.White.copy(alpha = 0.55f)
     val gold = StarGold
     val wall = Color(0xFF2B2B2B)
     val start = Color(0xFF43A047)
@@ -177,7 +201,9 @@ private fun DrawScope.drawMap(state: AdventureUiState, v: GridViewport, images: 
     for (row in v.visibleRows) for (col in v.visibleCols) {
         val square = map.squareAt(row, col) ?: continue
         val rect = Rect(v.edgeX(col).toFloat(), v.edgeY(row).toFloat(), v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
-        if (detailed) {
+        if (map.art == null) {
+            drawTile(square, rect, text, palette)
+        } else if (detailed) {
             images.square(square)?.let {
                 drawImage(
                     it,
@@ -189,17 +215,43 @@ private fun DrawScope.drawMap(state: AdventureUiState, v: GridViewport, images: 
         }
         drawLook(state.look(square, square.id == selected), rect, text, palette)
     }
+    // The line between each pair of neighbours, as the game draws it: wavy where a wall stops the
+    // way, straight where clearing one square opens the other. Walls go on top, with their posts.
+    val styles = state.edgeStyles
+    val walls = mutableListOf<Pair<Offset, Offset>>()
     for (row in v.visibleRows) for (col in v.visibleCols) {
         val square = map.squareAt(row, col) ?: continue
-        val rect = Rect(v.edgeX(col).toFloat(), v.edgeY(row).toFloat(), v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
-        square.blockades.forEach { drawWall(rect, it) }
+        for (side in listOf(Side.EAST, Side.SOUTH)) {
+            val style = styles[square.id to side] ?: continue
+            val (from, to) = when (side) {
+                Side.EAST -> Offset(v.edgeX(col + 1).toFloat(), v.edgeY(row).toFloat()) to Offset(v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
+                else -> Offset(v.edgeX(col).toFloat(), v.edgeY(row + 1).toFloat()) to Offset(v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
+            }
+            if (style == EdgeStyle.WALL) walls += from to to else drawSeam(from, to, v.squareHeight * v.scale)
+        }
     }
+    walls.forEach { (from, to) -> drawWall(from, to, v.squareHeight * v.scale) }
+    walls.flatMap { listOf(it.first, it.second) }.distinct().forEach { drawPost(it, v.squareHeight * v.scale) }
     selected?.let(map::square)?.let { s ->
         val rect = Rect(v.edgeX(s.col).toFloat(), v.edgeY(s.row).toFloat(), v.edgeX(s.col + 1).toFloat(), v.edgeY(s.row + 1).toFloat())
         drawRect(palette.onSelection, rect.topLeft, rect.size, style = Stroke(5.dp.toPx()))
         drawRect(palette.selection, rect.topLeft, rect.size, style = Stroke(2.5.dp.toPx()))
     }
     drawAxes(v, text, palette)
+}
+
+/** A square with no picture: a plain tile, with its name once there's room. */
+private fun DrawScope.drawTile(square: Square, rect: Rect, text: TextMeasurer, palette: MapPalette) {
+    drawRect(palette.tile, rect.topLeft, rect.size)
+    drawRect(palette.background, rect.topLeft, rect.size, style = Stroke(1.dp.toPx()))
+    val name = square.title ?: return
+    if (rect.width < 48.dp.toPx()) return
+    val layout = text.measure(
+        name,
+        TextStyle(color = palette.onTile, fontSize = (rect.height / 7).toSp(), fontWeight = FontWeight.Bold, textAlign = TextAlign.Center),
+        constraints = Constraints(maxWidth = (rect.width * 0.85f).toInt()),
+    )
+    drawText(layout, topLeft = Offset(rect.center.x - layout.size.width / 2f, rect.center.y - layout.size.height / 2f))
 }
 
 /** One square's state over its picture. Detail comes in as the square gets bigger on screen. */
@@ -210,7 +262,9 @@ private fun DrawScope.drawLook(look: SquareLook, rect: Rect, text: TextMeasurer,
         if (w >= 28.dp.toPx()) centred(text, "?", rect.center, TextStyle(color = palette.onLabel.copy(alpha = 0.8f), fontSize = (w / 5).toSp(), fontWeight = FontWeight.Bold))
         return
     }
-    if (look.dimmed) drawRect(palette.scrim.copy(alpha = 0.55f), rect.topLeft, rect.size)
+    // Squares that can't be challenged yet are dim, as in the game; a filter dims the rest further.
+    val dim = (if (look.challengeable) 0f else 0.45f).let { if (look.dimmed) maxOf(it, 0.55f) else it }
+    if (dim > 0f) drawRect(palette.scrim.copy(alpha = dim), rect.topLeft, rect.size)
     val stroke = maxOf(2.dp.toPx(), w * 0.025f)
     val edge = when {
         look.complete || look.status == SquareStatus.A_RANK -> MapColors.gold
@@ -264,17 +318,26 @@ private fun DrawScope.drawLook(look: SquareLook, rect: Rect, text: TextMeasurer,
     }
 }
 
-/** The game's wavy wall along [side] of [rect]: this square doesn't open its neighbour that way. */
-private fun DrawScope.drawWall(rect: Rect, side: Side) {
-    val (from, to) = when (side) {
-        Side.NORTH -> rect.topLeft to rect.topRight
-        Side.SOUTH -> rect.bottomLeft to rect.bottomRight
-        Side.WEST -> rect.topLeft to rect.bottomLeft
-        Side.EAST -> rect.topRight to rect.bottomRight
-    }
+/** The straight seam between two squares a clear opens to each other: thin and light, as in the game. */
+private fun DrawScope.drawSeam(from: Offset, to: Offset, squareHeight: Float) {
+    drawLine(MapColors.seam, from, to, strokeWidth = maxOf(1.dp.toPx(), squareHeight * 0.012f))
+}
+
+/** A wall's end: the small dark post the game puts where walls meet the grid. */
+private fun DrawScope.drawPost(at: Offset, squareHeight: Float) {
+    val half = maxOf(2.dp.toPx(), squareHeight * 0.03f)
+    drawRect(Color.White.copy(alpha = 0.8f), at - Offset(half + 1, half + 1), Size(half * 2 + 2, half * 2 + 2))
+    drawRect(MapColors.wall, at - Offset(half, half), Size(half * 2, half * 2))
+}
+
+/**
+ * The game's wavy wall from [from] to [to]: a zigzag about every sixth of a square's height, so a
+ * square's long side has about eight and its short side six, at any zoom.
+ */
+private fun DrawScope.drawWall(from: Offset, to: Offset, squareHeight: Float) {
     val length = (to - from).getDistance()
-    val waves = 6
-    val amp = maxOf(1.5.dp.toPx(), rect.height * 0.035f)
+    val waves = maxOf(3, (length / (squareHeight * 0.18f)).toInt())
+    val amp = maxOf(1.5.dp.toPx(), squareHeight * 0.035f)
     val dir = (to - from) / length
     val normal = Offset(-dir.y, dir.x)
     val path = Path().apply {

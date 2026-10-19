@@ -34,16 +34,17 @@ class SquareImages(private val map: AdventureMap, private val capacity: Int = 48
     /** Decodes the preview, if the map has one and it isn't loaded. */
     suspend fun loadPreview() {
         if (preview != null) return
-        val path = map.art.previewPath ?: return
+        val path = map.art?.previewPath ?: return
         preview = decode(path) ?: return
         version++
     }
 
     /** Decodes whichever of [wanted] aren't loaded yet, dropping the least recently used over [capacity]. */
     suspend fun load(wanted: List<Square>) {
+        val art = map.art ?: return
         for (square in wanted) {
             if (square.id in squares || square.id in failed) continue
-            val bitmap = decode(map.art.squarePath(square))
+            val bitmap = decode(art.squarePath(square))
             if (bitmap == null) {
                 failed += square.id
                 continue

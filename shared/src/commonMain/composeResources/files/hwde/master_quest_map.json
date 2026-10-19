@@ -1,0 +1,6033 @@
+{
+ "id": "master_quest_map",
+ "name": "Master Quest Map",
+ "cols": 16,
+ "rows": 8,
+ "start": "r8c8",
+ "finalBoss": "r1c1",
+ "art": {
+  "squares": "hwde/master_quest_map",
+  "preview": "hwde/master_quest_map/preview.webp",
+  "squareWidth": 256,
+  "squareHeight": 176
+ },
+ "regions": [
+  {
+   "id": "colorless",
+   "name": "Black"
+  },
+  {
+   "id": "green",
+   "name": "Green"
+  },
+  {
+   "id": "yellow",
+   "name": "Yellow"
+  },
+  {
+   "id": "purple",
+   "name": "Purple"
+  },
+  {
+   "id": "orange",
+   "name": "Orange"
+  },
+  {
+   "id": "blue",
+   "name": "Blue"
+  },
+  {
+   "id": "red",
+   "name": "Red"
+  }
+ ],
+ "cards": [
+  {
+   "id": "bomb",
+   "name": "Bomb",
+   "effects": [
+    "reward",
+    "enemies"
+   ],
+   "text": "Opens cave entrances in mountain walls and destroys boulders on land, unlocking a secret reward or revealing enemies in that square.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "digging_mitts",
+   "name": "Digging Mitts",
+   "effects": [
+    "reward"
+   ],
+   "text": "Digs up green, X-marked plots of soil, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "power_bracelet",
+   "name": "Power Bracelet",
+   "effects": [
+    "reward"
+   ],
+   "text": "Moves boulders and grave stones and destroys Armos statues, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "ice_arrow",
+   "name": "Ice Arrow",
+   "effects": [
+    "reward"
+   ],
+   "text": "Extinguishes rings of flame, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "goddess_harp",
+   "name": "Goddess's Harp",
+   "effects": [
+    "enemies"
+   ],
+   "text": "Plays music for swarms of Goddess Butterflies to uncover a Gossip Stone, revealing enemies in that square.",
+   "shopPrice": 15000
+  },
+  {
+   "id": "compass",
+   "name": "Compass",
+   "effects": [
+    "compass"
+   ],
+   "text": "Reveals all secrets within a battle square, making their tiles sparkle.",
+   "shopPrice": 5000
+  },
+  {
+   "id": "recorder",
+   "name": "Recorder",
+   "effects": [
+    "enemies"
+   ],
+   "text": "Drains certain small bodies of water and also removes certain bushes and grave stones or reveal hidden stairs on regular patches of land or desert sand, revealing enemies in that square.",
+   "shopPrice": 15000
+  },
+  {
+   "id": "water_bomb",
+   "name": "Water Bomb",
+   "effects": [
+    "reward"
+   ],
+   "text": "Destroys boulders in bodies of water, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "effects": [
+    "path"
+   ],
+   "text": "Pulls Warrior to a marked target, removing locks on certain adjacent squares so that they can be opened normally.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "candle",
+   "name": "Candle",
+   "effects": [
+    "reward"
+   ],
+   "text": "Burns bushes, unlocking a secret reward.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "raft",
+   "name": "Raft",
+   "effects": [
+    "path"
+   ],
+   "text": "Crosses water from docks, removing locks on certain adjacent squares so that they can be opened normally.",
+   "shopPrice": 10000
+  },
+  {
+   "id": "ladder",
+   "name": "Ladder",
+   "effects": [
+    "reward"
+   ],
+   "text": "Crosses gaps in rundown docks, unlocking a secret reward.",
+   "shopPrice": 10000
+  }
+ ],
+ "warriors": [
+  {
+   "id": "agitha",
+   "name": "Agitha"
+  },
+  {
+   "id": "cia",
+   "name": "Cia"
+  },
+  {
+   "id": "darunia",
+   "name": "Darunia"
+  },
+  {
+   "id": "fi",
+   "name": "Fi"
+  },
+  {
+   "id": "ganondorf",
+   "name": "Ganondorf"
+  },
+  {
+   "id": "ghirahim",
+   "name": "Ghirahim"
+  },
+  {
+   "id": "impa",
+   "name": "Impa"
+  },
+  {
+   "id": "king_daphnes",
+   "name": "King Daphnes"
+  },
+  {
+   "id": "lana",
+   "name": "Lana"
+  },
+  {
+   "id": "link",
+   "name": "Link"
+  },
+  {
+   "id": "linkle",
+   "name": "Linkle"
+  },
+  {
+   "id": "midna",
+   "name": "Midna"
+  },
+  {
+   "id": "ruto",
+   "name": "Ruto"
+  },
+  {
+   "id": "sheik",
+   "name": "Sheik"
+  },
+  {
+   "id": "skull_kid",
+   "name": "Skull Kid"
+  },
+  {
+   "id": "tetra",
+   "name": "Tetra"
+  },
+  {
+   "id": "tingle",
+   "name": "Tingle"
+  },
+  {
+   "id": "toon_link",
+   "name": "Toon Link"
+  },
+  {
+   "id": "twili_midna",
+   "name": "Twili Midna"
+  },
+  {
+   "id": "volga",
+   "name": "Volga"
+  },
+  {
+   "id": "wizzro",
+   "name": "Wizzro"
+  },
+  {
+   "id": "young_link",
+   "name": "Young Link"
+  },
+  {
+   "id": "zant",
+   "name": "Zant"
+  },
+  {
+   "id": "zelda",
+   "name": "Zelda"
+  }
+ ],
+ "squares": [
+  {
+   "id": "r1c1",
+   "label": "A-1",
+   "altLabel": "A-1",
+   "row": 1,
+   "col": 1,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the Demon King!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "finalBoss": true,
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r1c1.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "W. Rockface Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c1.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Northwest from the Allied Base"
+    },
+    {
+     "id": "r1c1.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c1.search_bomb",
+     "card": "bomb",
+     "row": 4,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r1c2",
+   "label": "A-2",
+   "altLabel": "B-1",
+   "row": 1,
+   "col": 2,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Fight through the royalty quiz!",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c2.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r1c2.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 9
+    }
+   ],
+   "quiz": [
+    "Zant",
+    "Impa",
+    "Zelda"
+   ]
+  },
+  {
+   "id": "r1c3",
+   "label": "A-3",
+   "altLabel": "C-1",
+   "row": 1,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Dash gallantly into battle!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c3.weapon_hammer_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "darunia",
+     "weapon": "hammer",
+     "level": "3",
+     "name": "Hammer Lv. 3"
+    },
+    {
+     "id": "r1c3.hc_darunia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container",
+     "keep": "West Square"
+    },
+    {
+     "id": "r1c3.fairy_clothing_demon_lord_earrings",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Accessory - Demon Lord Earrings",
+     "keep": "Exit Square"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r1c3.search_bomb",
+     "card": "bomb",
+     "row": 4,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r1c4",
+   "label": "A-4",
+   "altLabel": "D-1",
+   "row": 1,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Stop the healers from, well, healing!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "lana",
+     "weapon": "book_of_sorcery"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c4.weapon_book_of_sorcery_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "lana",
+     "weapon": "book_of_sorcery",
+     "level": "3",
+     "name": "Book of Sorcery Lv. 3"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r1c4.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 7,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r1c5",
+   "label": "A-5",
+   "altLabel": "E-1",
+   "row": 1,
+   "col": 5,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Fight through the legendary warrior quiz!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c5.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "quiz": [
+    "Ruto",
+    "Agitha",
+    "Ganondorf"
+   ]
+  },
+  {
+   "id": "r1c6",
+   "label": "A-6",
+   "altLabel": "F-1",
+   "row": 1,
+   "col": 6,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.10",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "tingle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c6.weapon_balloon_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "tingle",
+     "weapon": "balloon",
+     "level": "3",
+     "name": "Balloon Lv. 3"
+    },
+    {
+     "id": "r1c6.hc_tingle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container",
+     "keep": "Southeast Square"
+    },
+    {
+     "id": "r1c6.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "North Palace"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r1c6.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 7,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r1c7",
+   "label": "A-7",
+   "altLabel": "G-1",
+   "row": 1,
+   "col": 7,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Prevent the sorceress's scheme!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "sheik"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c7.weapon_harp_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "sheik",
+     "weapon": "harp",
+     "level": "3",
+     "name": "Harp Lv. 3"
+    },
+    {
+     "id": "r1c7.hc_sheik",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container",
+     "keep": "Southwest Keep"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ],
+   "searches": [
+    {
+     "id": "r1c7.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 5,
+     "col": 6
+    },
+    {
+     "id": "r1c7.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 4
+    }
+   ],
+   "note": "Guides disagree: the Helper has the Goddess's Harp on the butterflies two cells right of the lone rock; SBAllen's guide uses the Recorder on that cell."
+  },
+  {
+   "id": "r1c8",
+   "label": "A-8",
+   "altLabel": "H-1",
+   "row": 1,
+   "col": 8,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.8",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r1c8.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r1c8.search_bomb",
+     "card": "bomb",
+     "row": 4,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r1c9",
+   "label": "A-9",
+   "altLabel": "I-1",
+   "row": 1,
+   "col": 9,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of water! Lv.2",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "great_fairy"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c9.weapon_great_fairy_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "great_fairy",
+     "level": "3",
+     "name": "Great Fairy Lv. 3"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "searches": [
+    {
+     "id": "r1c9.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 7,
+     "col": 9
+    },
+    {
+     "id": "r1c9.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 2,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r1c10",
+   "label": "A-10",
+   "altLabel": "J-1",
+   "row": 1,
+   "col": 10,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.8",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "wizzro"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r1c10.weapon_ring_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "wizzro",
+     "weapon": "ring",
+     "level": "3",
+     "name": "Ring Lv. 3"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c10.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r1c11",
+   "label": "A-11",
+   "altLabel": "K-1",
+   "row": 1,
+   "col": 11,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.7",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "gauntlets"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c11.weapon_gauntlets_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "gauntlets",
+     "level": "3",
+     "name": "Gauntlets Lv. 3"
+    },
+    {
+     "id": "r1c11.hc_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container",
+     "keep": "Mountain Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c11.search_water_bomb",
+     "card": "water_bomb",
+     "row": 5,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r1c12",
+   "label": "A-12",
+   "altLabel": "L-1",
+   "row": 1,
+   "col": 12,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of Twilight!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c12.weapon_zora_scale_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "ruto",
+     "weapon": "zora_scale",
+     "level": "3",
+     "name": "Zora Scale Lv. 3"
+    },
+    {
+     "id": "r1c12.fairy_clothing_skyloft_apron",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Apron",
+     "keep": "West Ruins"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ],
+   "searches": [
+    {
+     "id": "r1c12.search_water_bomb",
+     "card": "water_bomb",
+     "row": 4,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r1c13",
+   "label": "A-13",
+   "altLabel": "M-1",
+   "row": 1,
+   "col": 13,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat all enemies! Lv.3",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c13.outfit_lana_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "lana",
+     "name": "Standard Outfit (Master Quest)"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c13.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 8,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r1c14",
+   "label": "A-14",
+   "altLabel": "N-1",
+   "row": 1,
+   "col": 14,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.4",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r1c14.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ],
+   "searches": [
+    {
+     "id": "r1c14.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r1c15",
+   "label": "A-15",
+   "altLabel": "O-1",
+   "row": 1,
+   "col": 15,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the Shield Moblin Forces! Lv.1",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "volga"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c15.outfit_volga_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "volga",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r1c15.hc_volga",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container",
+     "keep": "North Palace"
+    },
+    {
+     "id": "r1c15.poh_volga",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "volga",
+     "name": "Piece of Heart",
+     "keep": "Southeast Square"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r1c15.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "South of the Lower Level East"
+    },
+    {
+     "id": "r1c15.gs2",
+     "condition": "Complete the first mission and capture five or more enemy Keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c15.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 6,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r1c16",
+   "label": "A-16",
+   "altLabel": "P-1",
+   "row": 1,
+   "col": 16,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.5",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "twili_midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r1c16.weapon_mirror_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "twili_midna",
+     "weapon": "mirror",
+     "level": "3",
+     "name": "Mirror Lv. 3"
+    },
+    {
+     "id": "r1c16.hc_twili_midna",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container",
+     "keep": "Lakeside Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r1c16.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r2c1",
+   "label": "B-1",
+   "altLabel": "A-2",
+   "row": 2,
+   "col": 1,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat 700 enemies in time!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c1.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ]
+  },
+  {
+   "id": "r2c2",
+   "label": "B-2",
+   "altLabel": "B-2",
+   "row": 2,
+   "col": 2,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.8",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "cia"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c2.weapon_scepter_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "cia",
+     "weapon": "scepter",
+     "level": "3",
+     "name": "Scepter Lv. 3"
+    },
+    {
+     "id": "r2c2.hc_cia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container",
+     "keep": "Central Chamber"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c2.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 4,
+     "col": 2
+    },
+    {
+     "id": "r2c2.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r2c3",
+   "label": "B-3",
+   "altLabel": "C-2",
+   "row": 2,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight the chosen ones!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r2c3.weapon_shackle_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "midna",
+     "weapon": "shackle",
+     "level": "3",
+     "name": "Shackle Lv. 3"
+    },
+    {
+     "id": "r2c3.hc_midna",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container",
+     "keep": "South Field Keep"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r2c3.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r2c4",
+   "label": "B-4",
+   "altLabel": "D-2",
+   "row": 2,
+   "col": 4,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.7",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "great_swords"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c4.weapon_great_swords_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "ganondorf",
+     "weapon": "great_swords",
+     "level": "3",
+     "name": "Great Swords Lv. 3"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r2c4.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r2c5",
+   "label": "B-5",
+   "altLabel": "E-2",
+   "row": 2,
+   "col": 5,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Prevent reinforcements from arriving!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r2c5.weapon_crossbows_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "linkle",
+     "weapon": "crossbows",
+     "level": "3",
+     "name": "Crossbows Lv. 3"
+    },
+    {
+     "id": "r2c5.hc_linkle",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container",
+     "keep": "Town Entrance"
+    },
+    {
+     "id": "r2c5.fairy_clothing_skyloft_slacks",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Slacks",
+     "keep": "Central Keep"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ],
+   "searches": [
+    {
+     "id": "r2c5.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r2c6",
+   "label": "B-6",
+   "altLabel": "F-2",
+   "row": 2,
+   "col": 6,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Run swiftly across the battlefield!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "lana",
+     "weapon": "spear"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r2c6.weapon_spear_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "lana",
+     "weapon": "spear",
+     "level": "3",
+     "name": "Spear Lv. 3"
+    },
+    {
+     "id": "r2c6.hc_lana",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container",
+     "keep": "Town Center Keep"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r2c6.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r2c7",
+   "label": "B-7",
+   "altLabel": "G-2",
+   "row": 2,
+   "col": 7,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.9",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 7,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c7.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r2c7.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r2c8",
+   "label": "B-8",
+   "altLabel": "H-2",
+   "row": 2,
+   "col": 8,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Survive the attack of these powered-up enemies!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "magic_rod"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r2c8.weapon_magic_rod_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "magic_rod",
+     "level": "3",
+     "name": "Magic Rod Lv. 3"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r2c8.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 9,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r2c9",
+   "label": "B-9",
+   "altLabel": "I-2",
+   "row": 2,
+   "col": 9,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Fight through the Triforce quiz!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c9.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r2c9.search_bomb",
+     "card": "bomb",
+     "row": 3,
+     "col": 11
+    }
+   ],
+   "quiz": [
+    "Ganondorf",
+    "Zelda",
+    "Link"
+   ]
+  },
+  {
+   "id": "r2c10",
+   "label": "B-10",
+   "altLabel": "J-2",
+   "row": 2,
+   "col": 10,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat the valley beast!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "zelda",
+     "weapon": "baton"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c10.weapon_baton_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "zelda",
+     "weapon": "baton",
+     "level": "3",
+     "name": "Baton Lv. 3"
+    },
+    {
+     "id": "r2c10.fairy_clothing_outset_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Outset Shirt",
+     "keep": "North Field Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c10.search_bomb",
+     "card": "bomb",
+     "row": 3,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r2c11",
+   "label": "B-11",
+   "altLabel": "K-2",
+   "row": 2,
+   "col": 11,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.6",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c11.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r2c11.search_hookshot",
+     "card": "hookshot",
+     "row": 2,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r2c12",
+   "label": "B-12",
+   "altLabel": "L-2",
+   "row": 2,
+   "col": 12,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the mountain beast!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "volga"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c12.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r2c12.my_fairy_light",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Light",
+     "container": "pot",
+     "keep": "Southeast Square"
+    },
+    {
+     "id": "r2c12.fairy_food_light_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Light Fruit",
+     "container": "pot",
+     "keep": "Southeast Square"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c12.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 8,
+     "col": 3
+    },
+    {
+     "id": "r2c12.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r2c13",
+   "label": "B-13",
+   "altLabel": "M-2",
+   "row": 2,
+   "col": 13,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the enemy forces! Lv.1",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c13.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r2c13.poh_wizzro",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "wizzro",
+     "name": "Piece of Heart",
+     "keep": "East Keep"
+    },
+    {
+     "id": "r2c13.fairy_clothing_skyloft_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shirt",
+     "keep": "West Ruins"
+    }
+   ],
+   "givesCards": [
+    "hookshot"
+   ],
+   "searches": [
+    {
+     "id": "r2c13.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 4,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r2c14",
+   "label": "B-14",
+   "altLabel": "N-2",
+   "row": 2,
+   "col": 14,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of lightning! Lv.1",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r2c14.outfit_darunia_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "darunia",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r2c14.hc_sheik",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container",
+     "keep": "East Room"
+    },
+    {
+     "id": "r2c14.fairy_clothing_skyloft_shawl",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shawl",
+     "keep": "Lakeside Keep"
+    },
+    {
+     "id": "r2c14.fairy_food_sacred_water",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Sacred Water",
+     "container": "pot",
+     "keep": "East Room"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r2c14.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r2c15",
+   "label": "B-15",
+   "altLabel": "O-2",
+   "row": 2,
+   "col": 15,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Fight through the Ocarina of Time quiz!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "linkle"
+    }
+   ],
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c15.hc_linkle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r2c15.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 12
+    }
+   ],
+   "quiz": [
+    "Darunia",
+    "Sheik",
+    "Ruto"
+   ]
+  },
+  {
+   "id": "r2c16",
+   "label": "B-16",
+   "altLabel": "P-2",
+   "row": 2,
+   "col": 16,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of time!",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "warriors": [
+    {
+     "warrior": "zelda",
+     "weapon": "dominion_rod"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r2c16.weapon_dominion_rod_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "zelda",
+     "weapon": "dominion_rod",
+     "level": "3",
+     "name": "Dominion Rod Lv. 3"
+    },
+    {
+     "id": "r2c16.fairy_clothing_skyloft_apron",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Apron",
+     "keep": "W. Boulder Keep"
+    }
+   ],
+   "givesCards": [
+    "water_bomb"
+   ],
+   "searches": [
+    {
+     "id": "r2c16.search_hookshot",
+     "card": "hookshot",
+     "row": 0,
+     "col": 8
+    },
+    {
+     "id": "r2c16.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 8,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r3c1",
+   "label": "C-1",
+   "altLabel": "A-3",
+   "row": 3,
+   "col": 1,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat 700 enemies in time!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c1.hc_impa",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "searches": [
+    {
+     "id": "r3c1.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r3c2",
+   "label": "C-2",
+   "altLabel": "B-3",
+   "row": 3,
+   "col": 2,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the enemy forces! Lv.3",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "toon_link"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r3c2.weapon_light_sword_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "toon_link",
+     "weapon": "light_sword",
+     "level": "3",
+     "name": "Light Sword Lv. 3"
+    },
+    {
+     "id": "r3c2.hc_toon_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container",
+     "keep": "South Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c2.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 5,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r3c3",
+   "label": "C-3",
+   "altLabel": "C-3",
+   "row": 3,
+   "col": 3,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the enemy forces! Lv.2",
+   "rule": "Master Quest Rule: Speed Run!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c3.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r3c3.poh_cia",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "cia",
+     "name": "Piece of Heart",
+     "keep": "Town Center Keep"
+    },
+    {
+     "id": "r3c3.fairy_clothing_skyloft_shawl",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shawl",
+     "keep": "West Town Keep"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ]
+  },
+  {
+   "id": "r3c4",
+   "label": "C-4",
+   "altLabel": "D-3",
+   "row": 3,
+   "col": 4,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.6",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "king_daphnes"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c4.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r3c4.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r3c5",
+   "label": "C-5",
+   "altLabel": "E-3",
+   "row": 3,
+   "col": 5,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Rescue the allied forces!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c5.outfit_fi_standard_outfit_boss",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "fi",
+     "name": "Standard Outfit (Boss)"
+    },
+    {
+     "id": "r3c5.fairy_food_life_tree_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Life Tree Fruit",
+     "container": "pot",
+     "keep": "Southwest Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c5.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 4,
+     "col": 14
+    }
+   ]
+  },
+  {
+   "id": "r3c6",
+   "label": "C-6",
+   "altLabel": "F-3",
+   "row": 3,
+   "col": 6,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.4",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r3c6.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ]
+  },
+  {
+   "id": "r3c7",
+   "label": "C-7",
+   "altLabel": "G-3",
+   "row": 3,
+   "col": 7,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.6",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c7.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r3c7.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r3c8",
+   "label": "C-8",
+   "altLabel": "H-3",
+   "row": 3,
+   "col": 8,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Fight through the mystery mastery quiz!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "young_link"
+    }
+   ],
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c8.hc_young_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "quiz": [
+    "Aeralfos",
+    "Shield Moblin",
+    "Big Poe"
+   ]
+  },
+  {
+   "id": "r3c9",
+   "label": "C-9",
+   "altLabel": "I-3",
+   "row": 3,
+   "col": 9,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.3",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c9.outfit_sheik_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "sheik",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r3c9.fairy_food_stamina_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Stamina Fruit",
+     "container": "pot",
+     "keep": "East Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c9.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r3c10",
+   "label": "C-10",
+   "altLabel": "J-3",
+   "row": 3,
+   "col": 10,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.3",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 1200
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c10.hc_linkle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "linkle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r3c10.search_recorder",
+     "card": "recorder",
+     "row": 6,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r3c11",
+   "label": "C-11",
+   "altLabel": "K-3",
+   "row": 3,
+   "col": 11,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.2",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c11.hc_twili_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "twili_midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ]
+  },
+  {
+   "id": "r3c12",
+   "label": "C-12",
+   "altLabel": "L-3",
+   "row": 3,
+   "col": 12,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.3",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r3c12.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r3c12.search_recorder",
+     "card": "recorder",
+     "row": 3,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r3c13",
+   "label": "C-13",
+   "altLabel": "M-3",
+   "row": 3,
+   "col": 13,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.1",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r3c13.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ]
+  },
+  {
+   "id": "r3c14",
+   "label": "C-14",
+   "altLabel": "N-3",
+   "row": 3,
+   "col": 14,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the Big Poe Forces!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "darunia"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r3c14.outfit_ruto_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ruto",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r3c14.hc_darunia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container",
+     "keep": "West Temple"
+    },
+    {
+     "id": "r3c14.fairy_clothing_skyloft_slacks",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Slacks",
+     "keep": "East Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r3c14.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r3c15",
+   "label": "C-15",
+   "altLabel": "O-3",
+   "row": 3,
+   "col": 15,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Defeat enemies while collecting treasure! Yay!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "ganondorf",
+     "weapon": "trident"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r3c15.weapon_trident_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "ganondorf",
+     "weapon": "trident",
+     "level": "3",
+     "name": "Trident Lv. 3"
+    },
+    {
+     "id": "r3c15.fairy_clothing_demon_lord_earrings",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Accessory - Demon Lord Earrings",
+     "keep": "Mountain Keep"
+    }
+   ],
+   "givesCards": [
+    "water_bomb"
+   ],
+   "searches": [
+    {
+     "id": "r3c15.search_water_bomb",
+     "card": "water_bomb",
+     "row": 9,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r3c16",
+   "label": "C-16",
+   "altLabel": "P-3",
+   "row": 3,
+   "col": 16,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.11",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "tetra"
+    }
+   ],
+   "aRank": {
+    "kos": 1600
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r3c16.outfit_zelda_standard_robes_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zelda",
+     "name": "Standard Robes (Master Quest)"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r3c16.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 7,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r4c1",
+   "label": "D-1",
+   "altLabel": "A-4",
+   "row": 4,
+   "col": 1,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the shadow beast!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "ghirahim"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c1.weapon_demon_blade_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "ghirahim",
+     "weapon": "demon_blade",
+     "level": "3",
+     "name": "Demon Blade Lv. 3"
+    },
+    {
+     "id": "r4c1.hc_ghirahim",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container",
+     "keep": "West Keep"
+    },
+    {
+     "id": "r4c1.fairy_clothing_skyloft_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shirt",
+     "keep": "West Ruins"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c1.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 2,
+     "col": 13
+    },
+    {
+     "id": "r4c1.search_recorder",
+     "card": "recorder",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r4c2",
+   "label": "D-2",
+   "altLabel": "B-4",
+   "row": 4,
+   "col": 2,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defend the allied keeps! Lv.1",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r4c2.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c2.poh_volga",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "volga",
+     "name": "Piece of Heart",
+     "keep": "Arbiter's Keep"
+    },
+    {
+     "id": "r4c2.my_fairy_lightning",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Lightning",
+     "container": "pot",
+     "keep": "Clifftop Keep"
+    },
+    {
+     "id": "r4c2.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "North Oasis"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ]
+  },
+  {
+   "id": "r4c3",
+   "label": "D-3",
+   "altLabel": "C-4",
+   "row": 4,
+   "col": 3,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.8",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 7,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c3.material_the_imprisoneds_pillar",
+     "slot": "aRank",
+     "type": "material",
+     "name": "The Imprisoned's Pillar"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r4c4",
+   "label": "D-4",
+   "altLabel": "D-4",
+   "row": 4,
+   "col": 4,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.4",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c4.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ]
+  },
+  {
+   "id": "r4c5",
+   "label": "D-5",
+   "altLabel": "E-4",
+   "row": 4,
+   "col": 5,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the gulf beast!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "skull_kid"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c5.weapon_ocarina_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "skull_kid",
+     "weapon": "ocarina",
+     "level": "3",
+     "name": "Ocarina Lv. 3"
+    },
+    {
+     "id": "r4c5.hc_skull_kid",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container",
+     "keep": "West Temple"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r4c5.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the corner north from the Eastern Room"
+    },
+    {
+     "id": "r4c5.gs2",
+     "condition": "Complete the first mission and KO 150 enemies with special attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c5.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 4,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r4c6",
+   "label": "D-6",
+   "altLabel": "F-4",
+   "row": 4,
+   "col": 6,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Destroy enemies and traitors alike! Lv.6",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c6.outfit_ghirahim_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ghirahim",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r4c6.hc_fi",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container",
+     "keep": "West Town Keep"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r4c6.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just north of S. Rockface Keep"
+    },
+    {
+     "id": "r4c6.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c6.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 5,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r4c7",
+   "label": "D-7",
+   "altLabel": "G-4",
+   "row": 4,
+   "col": 7,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Destroy all Giant Bosses in time! Lv.4",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "aRank": {
+    "minutes": 7,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r4c7.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ]
+  },
+  {
+   "id": "r4c8",
+   "label": "D-8",
+   "altLabel": "H-4",
+   "row": 4,
+   "col": 8,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Defeat the island beast!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c8.hc_king_daphnes",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r4c8.fairy_clothing_skyloft_apron",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Apron",
+     "keep": "South Square"
+    },
+    {
+     "id": "r4c8.fairy_food_mushroom_spores",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Mushroom Spores",
+     "container": "pot",
+     "keep": "Enemy Base"
+    }
+   ]
+  },
+  {
+   "id": "r4c9",
+   "label": "D-9",
+   "altLabel": "I-4",
+   "row": 4,
+   "col": 9,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.1",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "aRank": {
+    "minutes": 7,
+    "damage": 99
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c9.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ]
+  },
+  {
+   "id": "r4c10",
+   "label": "D-10",
+   "altLabel": "J-4",
+   "row": 4,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat 600 enemies in time!",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c10.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ]
+  },
+  {
+   "id": "r4c11",
+   "label": "D-11",
+   "altLabel": "K-4",
+   "row": 4,
+   "col": 11,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the Darknut Forces!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c11.material_impas_breastplate",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Impa's Breastplate"
+    },
+    {
+     "id": "r4c11.hc_zant",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container",
+     "keep": "East Field Keep"
+    },
+    {
+     "id": "r4c11.fairy_clothing_skyloft_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Skirt",
+     "keep": "North Field Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c11.search_recorder",
+     "card": "recorder",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r4c12",
+   "label": "D-12",
+   "altLabel": "L-4",
+   "row": 4,
+   "col": 12,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.4",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r4c12.outfit_midna_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "midna",
+     "name": "Standard Outfit (Master Quest)"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r4c12.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the small room to the west of the North Oasis"
+    },
+    {
+     "id": "r4c12.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c12.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 8,
+     "col": 0
+    }
+   ]
+  },
+  {
+   "id": "r4c13",
+   "label": "D-13",
+   "altLabel": "M-4",
+   "row": 4,
+   "col": 13,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Defeat the cliff beast!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "epona"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c13.weapon_epona_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "epona",
+     "level": "3",
+     "name": "Horse Lv. 3"
+    },
+    {
+     "id": "r4c13.fairy_food_life_tree_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Life Tree Fruit",
+     "container": "pot",
+     "keep": "Enemy Base"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r4c13.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 7,
+     "col": 3
+    },
+    {
+     "id": "r4c13.search_recorder",
+     "card": "recorder",
+     "row": 4,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r4c14",
+   "label": "D-14",
+   "altLabel": "N-4",
+   "row": 4,
+   "col": 14,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Fight through the tribe quiz!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c14.hc_tetra",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r4c14.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 4,
+     "col": 9
+    }
+   ],
+   "quiz": [
+    "Ruto",
+    "Impa",
+    "Darunia"
+   ]
+  },
+  {
+   "id": "r4c15",
+   "label": "D-15",
+   "altLabel": "O-4",
+   "row": 4,
+   "col": 15,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Capture the enemy keeps! Lv.3",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r4c15.weapon_parasol_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "agitha",
+     "weapon": "parasol",
+     "level": "3",
+     "name": "Parasol Lv. 3"
+    },
+    {
+     "id": "r4c15.hc_agitha",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container",
+     "keep": "West Town Keep"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r4c15.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 8,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r4c16",
+   "label": "D-16",
+   "altLabel": "P-4",
+   "row": 4,
+   "col": 16,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Take on the sword masters!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "lana",
+     "weapon": "summoning_gate"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r4c16.weapon_summoning_gate_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "lana",
+     "weapon": "summoning_gate",
+     "level": "3",
+     "name": "Summoning Gate Lv. 3"
+    },
+    {
+     "id": "r4c16.fairy_clothing_demon_lord_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Demon Lord Shirt",
+     "keep": "N. Settlement"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r4c16.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 9,
+     "col": 5
+    },
+    {
+     "id": "r4c16.search_raft",
+     "card": "raft",
+     "row": 4,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r5c1",
+   "label": "E-1",
+   "altLabel": "A-5",
+   "row": 5,
+   "col": 1,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.6",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c1.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ]
+  },
+  {
+   "id": "r5c2",
+   "label": "E-2",
+   "altLabel": "B-5",
+   "row": 5,
+   "col": 2,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Capture the enemy keeps! Lv.1",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c2.outfit_lana_guardian_of_time",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "lana",
+     "name": "Guardian of Time"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ],
+   "skulltulas": [
+    {
+     "id": "r5c2.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the exact middle of the easternmost pathway in a small alcove"
+    },
+    {
+     "id": "r5c2.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c2.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 3,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r5c3",
+   "label": "E-3",
+   "altLabel": "C-5",
+   "row": 5,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Capture the enemy keeps! Lv.2",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "impa",
+     "weapon": "giant_blade"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c3.weapon_naginata_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "impa",
+     "weapon": "naginata",
+     "level": "3",
+     "name": "Naginata Lv. 3"
+    },
+    {
+     "id": "r5c3.fairy_food_sacred_water",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Sacred Water",
+     "container": "pot",
+     "keep": "Rocky Square"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "searches": [
+    {
+     "id": "r5c3.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r5c4",
+   "label": "E-4",
+   "altLabel": "D-5",
+   "row": 5,
+   "col": 4,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat 800 enemies in time!",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c4.hc_sheik",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "sheik",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ]
+  },
+  {
+   "id": "r5c5",
+   "label": "E-5",
+   "altLabel": "E-5",
+   "row": 5,
+   "col": 5,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.5",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c5.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "raft"
+   ]
+  },
+  {
+   "id": "r5c6",
+   "label": "E-6",
+   "altLabel": "F-5",
+   "row": 5,
+   "col": 6,
+   "region": "orange",
+   "battle": "adventure",
+   "mission": "Defeat the ocean beast!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "east",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c6.hc_fi",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r5c6.my_fairy_darkness",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Darkness",
+     "container": "pot",
+     "keep": "Southeast Keep"
+    },
+    {
+     "id": "r5c6.fairy_food_pumpkin_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Pumpkin Soup",
+     "container": "pot",
+     "keep": "Southwest Keep"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ]
+  },
+  {
+   "id": "r5c7",
+   "label": "E-7",
+   "altLabel": "G-5",
+   "row": 5,
+   "col": 7,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.2",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "impa"
+    }
+   ],
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c7.outfit_impa_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "impa",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r5c7.hc_impa",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "impa",
+     "name": "Heart Container",
+     "keep": "Stock Room"
+    },
+    {
+     "id": "r5c7.fairy_clothing_skyloft_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shirt",
+     "keep": "Stone Square"
+    },
+    {
+     "id": "r5c7.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "Stock Room"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r5c7.search_candle",
+     "card": "candle",
+     "row": 7,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r5c8",
+   "label": "E-8",
+   "altLabel": "H-5",
+   "row": 5,
+   "col": 8,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.2",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c8.poh_cia",
+     "slot": "aRank",
+     "type": "heart_piece",
+     "warrior": "cia",
+     "name": "Piece of Heart"
+    }
+   ],
+   "givesCards": [
+    "water_bomb"
+   ]
+  },
+  {
+   "id": "r5c9",
+   "label": "E-9",
+   "altLabel": "I-5",
+   "row": 5,
+   "col": 9,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.1",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r5c9.poh_wizzro",
+     "slot": "aRank",
+     "type": "heart_piece",
+     "warrior": "wizzro",
+     "name": "Piece of Heart"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r5c9.search_candle",
+     "card": "candle",
+     "row": 2,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r5c10",
+   "label": "E-10",
+   "altLabel": "J-5",
+   "row": 5,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.5",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 1200
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c10.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ],
+   "searches": [
+    {
+     "id": "r5c10.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r5c11",
+   "label": "E-11",
+   "altLabel": "K-5",
+   "row": 5,
+   "col": 11,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Fight through the Twilight Princess Quiz!",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c11.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r5c11.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 7,
+     "col": 10
+    }
+   ],
+   "quiz": [
+    "Agitha",
+    "Agitha",
+    "Midna"
+   ]
+  },
+  {
+   "id": "r5c12",
+   "label": "E-12",
+   "altLabel": "L-5",
+   "row": 5,
+   "col": 12,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.2",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r5c12.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ],
+   "searches": [
+    {
+     "id": "r5c12.search_candle",
+     "card": "candle",
+     "row": 2,
+     "col": 11
+    }
+   ]
+  },
+  {
+   "id": "r5c13",
+   "label": "E-13",
+   "altLabel": "M-5",
+   "row": 5,
+   "col": 13,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat 500 enemies in time!",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "south",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c13.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ]
+  },
+  {
+   "id": "r5c14",
+   "label": "E-14",
+   "altLabel": "N-5",
+   "row": 5,
+   "col": 14,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.3",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "twili_midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r5c14.hc_darunia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "darunia",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r5c14.my_fairy_fire",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Fire",
+     "container": "pot",
+     "keep": "W. Boulder Keep"
+    },
+    {
+     "id": "r5c14.fairy_food_pumpkin",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Pumpkin",
+     "container": "pot",
+     "keep": "East Keep"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r5c14.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r5c15",
+   "label": "E-15",
+   "altLabel": "O-5",
+   "row": 5,
+   "col": 15,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Fight through the tricky quiz!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 3,
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r5c15.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "searches": [
+    {
+     "id": "r5c15.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 4,
+     "col": 10
+    }
+   ],
+   "quiz": [
+    "Big Poe",
+    "ReDead Knight",
+    "Sheik"
+   ]
+  },
+  {
+   "id": "r5c16",
+   "label": "E-16",
+   "altLabel": "P-5",
+   "row": 5,
+   "col": 16,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.7",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r5c16.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r6c1",
+   "label": "F-1",
+   "altLabel": "A-6",
+   "row": 6,
+   "col": 1,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.5",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r6c1.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ]
+  },
+  {
+   "id": "r6c2",
+   "label": "F-2",
+   "altLabel": "B-6",
+   "row": 6,
+   "col": 2,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.6",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "tetra"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c2.weapon_cutlass_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "tetra",
+     "weapon": "cutlass",
+     "level": "3",
+     "name": "Cutlass Lv. 3"
+    },
+    {
+     "id": "r6c2.hc_tetra",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "tetra",
+     "name": "Heart Container",
+     "keep": "Abandoned Fort"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r6c2.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 9
+    }
+   ]
+  },
+  {
+   "id": "r6c3",
+   "label": "F-3",
+   "altLabel": "C-6",
+   "row": 6,
+   "col": 3,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.9",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r6c3.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ladder"
+   ]
+  },
+  {
+   "id": "r6c4",
+   "label": "F-4",
+   "altLabel": "D-6",
+   "row": 6,
+   "col": 4,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat all enemies! Lv.6",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r6c4.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r6c4.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r6c5",
+   "label": "F-5",
+   "altLabel": "E-6",
+   "row": 6,
+   "col": 5,
+   "region": "yellow",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of darkness! Lv.1",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "cia"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c5.outfit_wizzro_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "wizzro",
+     "name": "Standard Outfit (Master Quest)"
+    },
+    {
+     "id": "r6c5.hc_cia",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container",
+     "keep": "Lakeside Keep"
+    },
+    {
+     "id": "r6c5.fairy_clothing_skyloft_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottoms - Skyloft Skirt",
+     "keep": "King's Hall"
+    },
+    {
+     "id": "r6c5.fairy_food_stamina_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Stamina Fruit",
+     "container": "pot",
+     "keep": "Lakeside Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c5.search_water_bomb",
+     "card": "water_bomb",
+     "row": 3,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r6c6",
+   "label": "F-6",
+   "altLabel": "F-6",
+   "row": 6,
+   "col": 6,
+   "region": "yellow",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.3",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "ruto"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c6.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "hookshot"
+   ],
+   "searches": [
+    {
+     "id": "r6c6.search_raft",
+     "card": "raft",
+     "row": 4,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r6c7",
+   "label": "F-7",
+   "altLabel": "G-6",
+   "row": 6,
+   "col": 7,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.2",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c7.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "skulltulas": [
+    {
+     "id": "r6c7.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "In the dead end southeast of the East Temple"
+    },
+    {
+     "id": "r6c7.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c7.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 10
+    }
+   ]
+  },
+  {
+   "id": "r6c8",
+   "label": "F-8",
+   "altLabel": "H-6",
+   "row": 6,
+   "col": 8,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.2",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "kos": 1000
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c8.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ]
+  },
+  {
+   "id": "r6c9",
+   "label": "F-9",
+   "altLabel": "I-6",
+   "row": 6,
+   "col": 9,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.1",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r6c9.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ],
+   "searches": [
+    {
+     "id": "r6c9.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r6c10",
+   "label": "F-10",
+   "altLabel": "J-6",
+   "row": 6,
+   "col": 10,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.5",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c10.hc_zant",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zant",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r6c11",
+   "label": "F-11",
+   "altLabel": "K-6",
+   "row": 6,
+   "col": 11,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.5",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c11.outfit_agitha_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "agitha",
+     "name": "Standard Outfit (Master Quest)"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r6c11.search_water_bomb",
+     "card": "water_bomb",
+     "row": 8,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r6c12",
+   "label": "F-12",
+   "altLabel": "L-6",
+   "row": 6,
+   "col": 12,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Defeat the Dinolfos Forces!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "link"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c12.hc_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "link",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r6c12.fairy_clothing_skyloft_shawl",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shawl",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c12.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r6c13",
+   "label": "F-13",
+   "altLabel": "M-6",
+   "row": 6,
+   "col": 13,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.3",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r6c13.poh_wizzro",
+     "slot": "aRank",
+     "type": "heart_piece",
+     "warrior": "wizzro",
+     "name": "Piece of Heart"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ]
+  },
+  {
+   "id": "r6c14",
+   "label": "F-14",
+   "altLabel": "N-6",
+   "row": 6,
+   "col": 14,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Fight through the action quiz!",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "link"
+    }
+   ],
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r6c14.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ],
+   "quiz": [
+    "Aeralfos",
+    "Moblin",
+    "Lizalfos"
+   ]
+  },
+  {
+   "id": "r6c15",
+   "label": "F-15",
+   "altLabel": "O-6",
+   "row": 6,
+   "col": 15,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of lightning! Lv.2",
+   "rule": "Master Quest Rule: Don't Get Hit!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "spinner"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "blockades": [
+    "north",
+    "east",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r6c15.weapon_spinner_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "spinner",
+     "level": "3",
+     "name": "Spinner Lv. 3"
+    },
+    {
+     "id": "r6c15.fairy_clothing_skyloft_slacks",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Slacks",
+     "keep": "Hilltop Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r6c15.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 8,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r6c16",
+   "label": "F-16",
+   "altLabel": "P-6",
+   "row": 6,
+   "col": 16,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.11",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "ganondorf"
+    }
+   ],
+   "aRank": {
+    "minutes": 7
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r6c16.hc_ganondorf",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ganondorf",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r6c16.search_ladder",
+     "card": "ladder",
+     "row": 5,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r7c1",
+   "label": "G-1",
+   "altLabel": "A-7",
+   "row": 7,
+   "col": 1,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.7",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 1200
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c1.hc_wizzro",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "wizzro",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ],
+   "searches": [
+    {
+     "id": "r7c1.search_recorder",
+     "card": "recorder",
+     "row": 6,
+     "col": 5
+    }
+   ]
+  },
+  {
+   "id": "r7c2",
+   "label": "G-2",
+   "altLabel": "B-7",
+   "row": 7,
+   "col": 2,
+   "region": "orange",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.8",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "toon_link"
+    }
+   ],
+   "aRank": {
+    "minutes": 15,
+    "damage": 149
+   },
+   "rewards": [
+    {
+     "id": "r7c2.hc_toon_link",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ],
+   "searches": [
+    {
+     "id": "r7c2.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 5,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r7c3",
+   "label": "G-3",
+   "altLabel": "C-7",
+   "row": 7,
+   "col": 3,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Battle across the field!",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r7c3.outfit_cia_masked_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Masked (Master Quest)"
+    },
+    {
+     "id": "r7c3.outfit_cia_unmasked_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Unmasked (Master Quest)"
+    },
+    {
+     "id": "r7c3.outfit_cia_hatless_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Hatless (Master Quest)"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r7c3.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just south of the West Room"
+    },
+    {
+     "id": "r7c3.gs2",
+     "condition": "Complete the first mission and KO 150 enemies with special attacks without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c3.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 3,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r7c4",
+   "label": "G-4",
+   "altLabel": "D-7",
+   "row": 7,
+   "col": 4,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.10",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r7c4.poh_wizzro",
+     "slot": "aRank",
+     "type": "heart_piece",
+     "warrior": "wizzro",
+     "name": "Piece of Heart"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r7c4.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r7c5",
+   "label": "G-5",
+   "altLabel": "E-7",
+   "row": 7,
+   "col": 5,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defend the allied keeps! Lv.2",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "zelda",
+     "weapon": "baton"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c5.weapon_rapier_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "zelda",
+     "weapon": "rapier",
+     "level": "3",
+     "name": "Rapier Lv. 3"
+    },
+    {
+     "id": "r7c5.fairy_clothing_skyloft_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shirt",
+     "keep": "East Temple Hall"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "searches": [
+    {
+     "id": "r7c5.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 7
+    }
+   ]
+  },
+  {
+   "id": "r7c6",
+   "label": "G-6",
+   "altLabel": "F-7",
+   "row": 7,
+   "col": 6,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.9",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "impa",
+     "weapon": "giant_blade"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r7c6.weapon_giant_blade_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "impa",
+     "weapon": "giant_blade",
+     "level": "3",
+     "name": "Giant Blade Lv. 3"
+    },
+    {
+     "id": "r7c6.fairy_clothing_skyloft_shawl",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shawl",
+     "keep": "Central Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c6.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 9,
+     "col": 4
+    },
+    {
+     "id": "r7c6.search_water_bomb",
+     "card": "water_bomb",
+     "row": 3,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r7c7",
+   "label": "G-7",
+   "altLabel": "G-7",
+   "row": 7,
+   "col": 7,
+   "region": "green",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.2",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "lana"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r7c7.hc_lana",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "lana",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ]
+  },
+  {
+   "id": "r7c8",
+   "label": "G-8",
+   "altLabel": "H-7",
+   "row": 7,
+   "col": 8,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.1",
+   "rule": "Master Quest Rule: Speed Run!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r7c8.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ],
+   "skulltulas": [
+    {
+     "id": "r7c8.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just to the east of where the path opens up into the large open area from Castle Keep"
+    },
+    {
+     "id": "r7c8.gs2",
+     "condition": "Complete the first mission and capture five or more enemy Keeps without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ]
+  },
+  {
+   "id": "r7c9",
+   "label": "G-9",
+   "altLabel": "I-7",
+   "row": 7,
+   "col": 9,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Defeat the commanders of two armies!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r7c9.outfit_link_heros_clothes_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "link",
+     "name": "Hero's Clothes (Master Quest)"
+    },
+    {
+     "id": "r7c9.hc_toon_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "toon_link",
+     "name": "Heart Container",
+     "keep": "Fairy Fountain"
+    },
+    {
+     "id": "r7c9.fairy_clothing_bone_hat",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Headwear - Bone Hat",
+     "keep": "Eastern Tree"
+    },
+    {
+     "id": "r7c9.fairy_food_pumpkin",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Pumpkin",
+     "container": "pot",
+     "keep": "Fairy Fountain"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c9.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r7c10",
+   "label": "G-10",
+   "altLabel": "J-7",
+   "row": 7,
+   "col": 10,
+   "region": "purple",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of light!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "agitha"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "minutes": 15
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c10.hc_agitha",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "agitha",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r7c10.fairy_clothing_skyloft_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shirt",
+     "keep": "North Palace"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ]
+  },
+  {
+   "id": "r7c11",
+   "label": "G-11",
+   "altLabel": "K-7",
+   "row": 7,
+   "col": 11,
+   "region": "purple",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.4",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "tingle"
+    }
+   ],
+   "aRank": {
+    "kos": 1200,
+    "damage": 149
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c11.hc_tingle",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "tingle",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ],
+   "searches": [
+    {
+     "id": "r7c11.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r7c12",
+   "label": "G-12",
+   "altLabel": "L-7",
+   "row": 7,
+   "col": 12,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Fight through the women's weapons quiz!",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 3,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r7c12.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ],
+   "quiz": [
+    "Lana",
+    "Lana",
+    "Midna"
+   ]
+  },
+  {
+   "id": "r7c13",
+   "label": "G-13",
+   "altLabel": "M-7",
+   "row": 7,
+   "col": 13,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the forest dragon!",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "volga"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c13.weapon_dragon_spear_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "volga",
+     "weapon": "dragon_spear",
+     "level": "3",
+     "name": "Dragon Spear Lv. 3"
+    },
+    {
+     "id": "r7c13.hc_volga",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container",
+     "keep": "N. Entrance Keep"
+    },
+    {
+     "id": "r7c13.fairy_clothing_skyloft_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Skirt",
+     "keep": "North Square"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r7c13.search_candle",
+     "card": "candle",
+     "row": 2,
+     "col": 5
+    },
+    {
+     "id": "r7c13.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 4,
+     "col": 2
+    }
+   ]
+  },
+  {
+   "id": "r7c14",
+   "label": "G-14",
+   "altLabel": "N-7",
+   "row": 7,
+   "col": 14,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.9",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c14.material_zeldas_tiara",
+     "slot": "aRank",
+     "type": "material",
+     "name": "Zelda's Tiara"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r7c15",
+   "label": "G-15",
+   "altLabel": "O-7",
+   "row": 7,
+   "col": 15,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the enemy forces! Lv.4",
+   "rule": "Master Quest Rule: No Guarding!",
+   "warriors": [
+    {
+     "warrior": "fi"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15
+   },
+   "blockades": [
+    "north",
+    "south"
+   ],
+   "rewards": [
+    {
+     "id": "r7c15.weapon_goddess_blade_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "fi",
+     "weapon": "goddess_blade",
+     "level": "3",
+     "name": "Goddess Blade Lv. 3"
+    },
+    {
+     "id": "r7c15.hc_fi",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "fi",
+     "name": "Heart Container",
+     "keep": "Central Chamber"
+    },
+    {
+     "id": "r7c15.fairy_clothing_skyloft_apron",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Apron",
+     "keep": "East Garden"
+    },
+    {
+     "id": "r7c15.fairy_food_pumpkin_soup",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Pumpkin Soup",
+     "container": "pot",
+     "keep": "West Garden"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ],
+   "searches": [
+    {
+     "id": "r7c15.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 14
+    },
+    {
+     "id": "r7c15.search_recorder",
+     "card": "recorder",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r7c16",
+   "label": "G-16",
+   "altLabel": "P-7",
+   "row": 7,
+   "col": 16,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Watch out for falling artillery fire!",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "zant"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r7c16.weapon_scimitars_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "zant",
+     "weapon": "scimitars",
+     "level": "3",
+     "name": "Scimitars Lv. 3"
+    },
+    {
+     "id": "r7c16.fairy_clothing_skyloft_skirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Skirt",
+     "keep": "Northeast Keep"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r7c16.search_ladder",
+     "card": "ladder",
+     "row": 5,
+     "col": 12
+    }
+   ]
+  },
+  {
+   "id": "r8c1",
+   "label": "H-1",
+   "altLabel": "A-8",
+   "row": 8,
+   "col": 1,
+   "region": "red",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.12",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "skull_kid"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c1.outfit_ganondorf_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "ganondorf",
+     "name": "Standard Outfit (Master Quest)"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ],
+   "searches": [
+    {
+     "id": "r8c1.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 8,
+     "col": 3
+    }
+   ]
+  },
+  {
+   "id": "r8c2",
+   "label": "H-2",
+   "altLabel": "B-8",
+   "row": 8,
+   "col": 2,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of darkness! Lv.2",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "young_link"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r8c2.weapon_mask_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "young_link",
+     "weapon": "mask",
+     "level": "3",
+     "name": "Mask Lv. 3"
+    },
+    {
+     "id": "r8c2.hc_young_link",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "young_link",
+     "name": "Heart Container",
+     "keep": "W. Boulder Keep"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r8c2.search_digging_mitts",
+     "card": "digging_mitts",
+     "row": 3,
+     "col": 13
+    }
+   ]
+  },
+  {
+   "id": "r8c3",
+   "label": "H-3",
+   "altLabel": "C-8",
+   "row": 8,
+   "col": 3,
+   "region": "red",
+   "battle": "adventure",
+   "mission": "Attack the Festival of Cuccos!",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "king_daphnes"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r8c3.weapon_sail_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "king_daphnes",
+     "weapon": "sail",
+     "level": "3",
+     "name": "Sail Lv. 3"
+    },
+    {
+     "id": "r8c3.hc_king_daphnes",
+     "slot": "treasure",
+     "type": "heart_container",
+     "warrior": "king_daphnes",
+     "name": "Heart Container",
+     "keep": "East Field Keep"
+    },
+    {
+     "id": "r8c3.fairy_clothing_skyloft_shirt",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Top - Skyloft Shirt",
+     "keep": "W. Rockface Keep"
+    }
+   ],
+   "givesCards": [
+    "digging_mitts"
+   ],
+   "searches": [
+    {
+     "id": "r8c3.search_candle",
+     "card": "candle",
+     "row": 1,
+     "col": 8
+    },
+    {
+     "id": "r8c3.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 5,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r8c4",
+   "label": "H-4",
+   "altLabel": "D-8",
+   "row": 8,
+   "col": 4,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.8",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r8c4.hc_midna",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "midna",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ]
+  },
+  {
+   "id": "r8c5",
+   "label": "H-5",
+   "altLabel": "E-8",
+   "row": 8,
+   "col": 5,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.10",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north",
+    "east"
+   ],
+   "rewards": [
+    {
+     "id": "r8c5.hc_skull_kid",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "skull_kid",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "candle"
+   ]
+  },
+  {
+   "id": "r8c6",
+   "label": "H-6",
+   "altLabel": "F-8",
+   "row": 8,
+   "col": 6,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.4",
+   "rule": "Master Quest Rule: No Item Attacks!",
+   "warriors": [
+    {
+     "warrior": "link",
+     "weapon": "hylian_sword"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "west"
+   ],
+   "rewards": [
+    {
+     "id": "r8c6.weapon_hylian_sword_3",
+     "slot": "aRank",
+     "type": "weapon",
+     "warrior": "link",
+     "weapon": "hylian_sword",
+     "level": "3",
+     "name": "Hylian Sword Lv. 3"
+    }
+   ],
+   "givesCards": [
+    "water_bomb"
+   ],
+   "searches": [
+    {
+     "id": "r8c6.search_water_bomb",
+     "card": "water_bomb",
+     "row": 8,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r8c7",
+   "label": "H-7",
+   "altLabel": "G-8",
+   "row": 8,
+   "col": 7,
+   "region": "green",
+   "battle": "adventure",
+   "mission": "Fight as a warrior of water! Lv.1",
+   "rule": "Master Quest Rule: Speed Run!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r8c7.poh_cia",
+     "slot": "aRank",
+     "type": "heart_piece",
+     "warrior": "cia",
+     "name": "Piece of Heart"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r8c8",
+   "label": "H-8",
+   "altLabel": "H-8",
+   "row": 8,
+   "col": 8,
+   "region": "colorless",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.1",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "kos": 1000,
+    "damage": 99
+   },
+   "rewards": [
+    {
+     "id": "r8c8.hc_volga",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "volga",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "compass"
+   ]
+  },
+  {
+   "id": "r8c9",
+   "label": "H-9",
+   "altLabel": "I-8",
+   "row": 8,
+   "col": 9,
+   "region": "colorless",
+   "battle": "adventure",
+   "mission": "Destroy enemies and traitors alike! Lv.1",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 1000,
+    "minutes": 15
+   },
+   "rewards": [
+    {
+     "id": "r8c9.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "searches": [
+    {
+     "id": "r8c9.search_candle",
+     "card": "candle",
+     "row": 6,
+     "col": 4
+    }
+   ]
+  },
+  {
+   "id": "r8c10",
+   "label": "H-10",
+   "altLabel": "J-8",
+   "row": 8,
+   "col": 10,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the warriors of Skyloft!",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "zelda"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c10.hc_zelda",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "zelda",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r8c10.fairy_clothing_skyloft_slacks",
+     "slot": "treasure",
+     "type": "fairy_clothing",
+     "name": "Fairy Bottom - Skyloft Slacks",
+     "keep": "Rockface Keep"
+    }
+   ],
+   "givesCards": [
+    "ice_arrow"
+   ],
+   "searches": [
+    {
+     "id": "r8c10.search_goddess_harp",
+     "card": "goddess_harp",
+     "row": 1,
+     "col": 6
+    },
+    {
+     "id": "r8c10.search_power_bracelet",
+     "card": "power_bracelet",
+     "row": 5,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r8c11",
+   "label": "H-11",
+   "altLabel": "K-8",
+   "row": 8,
+   "col": 11,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Destroy the army with boosted morale! Lv.5",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c11.hc_cia",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "cia",
+     "name": "Heart Container"
+    },
+    {
+     "id": "r8c11.poh_cia",
+     "slot": "treasure",
+     "type": "heart_piece",
+     "warrior": "cia",
+     "name": "Piece of Heart",
+     "keep": "Outskirts Keep"
+    },
+    {
+     "id": "r8c11.my_fairy_water",
+     "slot": "treasure",
+     "type": "my_fairy",
+     "name": "My Fairy - Water",
+     "container": "pot",
+     "keep": "Hilltop Keep"
+    },
+    {
+     "id": "r8c11.fairy_food_water_fruit",
+     "slot": "treasure",
+     "type": "fairy_food",
+     "name": "Fairy Food - Water Fruit",
+     "container": "pot",
+     "keep": "East Field Keep"
+    }
+   ],
+   "givesCards": [
+    "power_bracelet"
+   ]
+  },
+  {
+   "id": "r8c12",
+   "label": "H-12",
+   "altLabel": "L-8",
+   "row": 8,
+   "col": 12,
+   "region": "blue",
+   "battle": "adventure",
+   "mission": "Defeat the Shield Moblin Forces! Lv.2",
+   "rule": "Master Quest Rule: Speed Run!",
+   "warriors": [
+    {
+     "warrior": "twili_midna"
+    }
+   ],
+   "aRank": {
+    "kos": 1600,
+    "minutes": 15,
+    "damage": 199
+   },
+   "rewards": [
+    {
+     "id": "r8c12.outfit_zant_standard_outfit_master_quest",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "zant",
+     "name": "Standard Outfit (Master Quest)"
+    }
+   ],
+   "skulltulas": [
+    {
+     "id": "r8c12.gs1",
+     "condition": "KO 1000 enemies",
+     "where": "Just outside the empty keep southeast from the North Palace"
+    },
+    {
+     "id": "r8c12.gs2",
+     "condition": "Complete the first mission and KO 1200 enemies without losing 40% health",
+     "where": "Same place as the first"
+    }
+   ],
+   "searches": [
+    {
+     "id": "r8c12.search_water_bomb",
+     "card": "water_bomb",
+     "row": 7,
+     "col": 8
+    }
+   ]
+  },
+  {
+   "id": "r8c13",
+   "label": "H-13",
+   "altLabel": "M-8",
+   "row": 8,
+   "col": 13,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Watch out! All attacks are devastating! Lv.7",
+   "rule": "Master Quest Rule: No Healing!",
+   "aRank": {
+    "minutes": 15,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c13.hc_ghirahim",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ghirahim",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "bomb"
+   ],
+   "searches": [
+    {
+     "id": "r8c13.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r8c14",
+   "label": "H-14",
+   "altLabel": "N-8",
+   "row": 8,
+   "col": 14,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Guard the allied keeps with your life! Lv.7",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "minutes": 15
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c14.poh_volga",
+     "slot": "aRank",
+     "type": "heart_piece",
+     "warrior": "volga",
+     "name": "Piece of Heart"
+    }
+   ],
+   "givesCards": [
+    "recorder"
+   ],
+   "searches": [
+    {
+     "id": "r8c14.search_bomb",
+     "card": "bomb",
+     "row": 1,
+     "col": 6
+    }
+   ]
+  },
+  {
+   "id": "r8c15",
+   "label": "H-15",
+   "altLabel": "O-8",
+   "row": 8,
+   "col": 15,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Defeat all Giant Bosses in time! Lv.7",
+   "rule": "Master Quest Rule: No Healing!",
+   "warriors": [
+    {
+     "warrior": "cia"
+    }
+   ],
+   "aRank": {
+    "minutes": 7,
+    "damage": 199
+   },
+   "blockades": [
+    "north"
+   ],
+   "rewards": [
+    {
+     "id": "r8c15.outfit_cia_guardian_of_time",
+     "slot": "clear",
+     "type": "outfit",
+     "warrior": "cia",
+     "name": "Guardian of Time"
+    }
+   ],
+   "givesCards": [
+    "goddess_harp"
+   ],
+   "searches": [
+    {
+     "id": "r8c15.search_ice_arrow",
+     "card": "ice_arrow",
+     "row": 2,
+     "col": 1
+    }
+   ]
+  },
+  {
+   "id": "r8c16",
+   "label": "H-16",
+   "altLabel": "P-8",
+   "row": 8,
+   "col": 16,
+   "region": "blue",
+   "battle": "challenge",
+   "mission": "Rack up your KO count! Lv.9",
+   "rule": "Master Quest Rule: No Guarding!",
+   "aRank": {
+    "kos": 1600
+   },
+   "rewards": [
+    {
+     "id": "r8c16.hc_ruto",
+     "slot": "aRank",
+     "type": "heart_container",
+     "warrior": "ruto",
+     "name": "Heart Container"
+    }
+   ],
+   "givesCards": [
+    "raft"
+   ]
+  }
+ ]
+}

@@ -16,15 +16,15 @@ DE has every map from both earlier games, all unlocked from the start:
 | Map | Squares | In the app |
 |---|---:|---|
 | Adventure Map | 128 | Yes (phase 1) |
-| Great Sea Map | 98 | Planned |
-| Master Quest Map | 128 | Planned |
-| Master Wind Waker Map | 98 | Planned |
-| Twilight Map | 93 | Planned |
-| Termina Map | 85 | Planned |
-| Koholint Island Map | 84 | Planned |
-| Grand Travels Map | 128 | Planned |
-| Lorule Map | 128 | Planned |
-| Rewards Map | 13 | Planned |
+| Great Sea Map | 98 | Yes (phase 2a) |
+| Master Quest Map | 128 | Yes (phase 2b) |
+| Master Wind Waker Map | 98 | Yes (phase 2a) |
+| Twilight Map | 93 | Yes (phase 2c) |
+| Termina Map | 85 | Yes (phase 2c) |
+| Koholint Island Map | 84 | Yes (phase 2d) |
+| Grand Travels Map | 128 | Yes (phase 2d) |
+| Lorule Map | 128 | Yes (phase 2d) |
+| Rewards Map | 13 | Yes (phase 2b) |
 
 Sources: Zelda Wiki's *Adventure Mode* page (its gallery and per-map sections), the Koei Wiki and
 the contents of SBAllen's guide. Square counts are the Helper's, and match MetroWind's extraction
@@ -148,6 +148,247 @@ Counts after corrections:
 - 29 fairy clothes, 11 fairy foods and 6 companion fairies;
 - 94 searches, using 12 cards.
 
+### Cross-check: Great Sea Map
+
+The Great Sea is 14×7 squares; the start is B-9 and the Dark Ruler C-9. Fourteen squares carry a
+**Great Sea Rule**, which the right card lifts: the Boomerang beats a Big Octo, the Cannon a
+warship, the Hero's Bow a cyclone. Seven squares take the Wind Waker on the whole square, to stop
+headwinds that lock a neighbour.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 98 / 98 |
+| A-rank KOs, time and damage | 97 / 98 (D-4 below) |
+| Searches | 96 / 98 |
+| Every reward, by slot | 97 / 98 after corrections (C-11 below) |
+| Nintendo Life weapon squares | 26 / 27 |
+| RPG Site warrior squares | 4 / 4 |
+
+Fixed:
+- **B-8** (SBAllen H-2) and **C-13** (SBAllen M-3): SBAllen's guide gives a Salvage Arm card on a
+  clear at each. The Helper lists only the warrior unlocked there; its issue #12 had reported B-8's
+  card missing too. Both are added.
+
+Accepted, noted on the square:
+- **C-11** (SBAllen K-3): the Helper has Tetra's unlock on a clear and a Sea Map search; SBAllen's
+  guide has neither. RPG Site also puts Tetra here, so the Helper's data is kept.
+- **D-4**: SBAllen's guide gives no KO limit ("N/A") for this Adventure Battle. The Helper's 1,200
+  is what every other yellow, purple and orange Adventure Battle on the map needs, so it's kept.
+- **E-3** (SBAllen C-5): SBAllen's guide lists a Deku Leaf search on a windmill. The Helper has none
+  and draws no windmill. The Master Wind Waker Map's E-3, the same island, does have one in both,
+  so the guide's line may have been copied across.
+- **Great Fairy Lv. 2**: Nintendo Life puts it at "H-1", which isn't a square on a seven-row map.
+  SBAllen's guide and the Helper put it at C-1. Nintendo Life writes five other squares on this map
+  SBAllen's way, column first (the Mirror's "A-4" is Prima's D-1), and those are converted.
+
+### Cross-check: Master Wind Waker Map
+
+The same islands as the Great Sea, with different battles. Its start is G-3, beside the Dark Ruler
+at G-4, which the Hookshot opens. Every square has an **Endless Night Rule** (85) or a Great Sea
+Rule (13). Its only weapons are Medli's Rito Harp, levels 2 to 4.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 98 / 98 |
+| A-rank KOs, time and damage | 98 / 98 each |
+| Searches | 95 / 98 |
+| Every reward, by slot | 98 / 98 |
+| Nintendo Life weapon squares | 3 / 3 |
+
+Accepted, noted on the square:
+- **C-1 and D-1** (SBAllen A-3 and A-4): the Helper has the Wind Waker search on C-1, and SBAllen's
+  guide has it on D-1, the square below. The Helper's is kept.
+- **F-1** (SBAllen A-6): SBAllen's guide lists a Hyoi Pear search on a seagull. The Helper has none
+  and draws no seagull.
+
+On both maps:
+- **SBAllen's "Engless Night Rule"** typo, which the Helper copied on three squares, is corrected to
+  "Endless".
+- **The Sea Map card** is called that because Zelda Wiki's HWDE pages call it so ("A Sea Map Item
+  Card"). The guides call it the Sea Chart.
+- **The Master Wind Waker Map's Power Bracelet** gets the Great Sea's card id (`power_bracelet_2`):
+  it lifts Stone Heads to reveal enemies, as on the Great Sea, not the Adventure Map's boulders.
+
+### Cross-check: Master Quest Map
+
+The original game's Second Quest map, 16×8, from H-8 to the Dark Ruler at A-1. Every square plays
+under a **Master Quest Rule** (no healing, no guarding, no items…). Its 35 weapons are each
+warrior's level 3.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 128 / 128 |
+| A-rank KOs, time and damage | 128 / 128 each |
+| Searches | 127 / 128 after corrections |
+| Every reward, by slot | 127 / 128 (H-1 below) |
+| Nintendo Life weapon squares | 35 / 35 |
+
+Fixed:
+- **F-16 and G-16** (SBAllen P-6 and P-7): the Helper lists the same Ladder cell twice on each.
+  SBAllen's guide has one Ladder search per square, so the copy is removed.
+
+Accepted:
+- **A-7** (SBAllen G-1), noted on the square: the Helper has the Goddess's Harp on butterflies two
+  cells right of the lone rock; SBAllen's guide uses the Recorder on that cell. The Helper's art
+  shows butterflies there.
+- **H-1** (SBAllen A-8): the Helper gives a Compass card on a clear, added from its issue #12 (a
+  Switch player's report); SBAllen's guide lists none.
+- SBAllen calls the Recorder the "Whistle" on this map.
+
+### Cross-check: Twilight Map
+
+Twilight Princess's Hyrule, 15×8 with blank squares (93 squares), from F-15 to the Dark Ruler at
+E-5.
+- 21 squares are under Twilight clouds (a **Twilight Rule**), and 20 of them take the Tear of Light
+  on the whole square to clear it.
+- Warp portals take the Ooccoo, which opens the portal's partner square.
+- All 17 weapons are level 4.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 93 / 93 |
+| A-rank KOs, time and damage | 93 / 93 each |
+| Searches | 92 / 93 (B-3 below) |
+| Every reward, by slot | 90 / 93 after 1 fix |
+| Nintendo Life weapon squares | 16 / 17 |
+
+Fixed:
+- **D-12** (SBAllen L-4): the Magic Skirt is the 3DS's. SBAllen gives the Switch's Twilight Skirt
+  (Upper Level East), and the Helper had copied the 3DS line.
+
+Accepted:
+- **B-3** (SBAllen C-2): the Helper's Ooccoo search is on the square's warp portal. SBAllen doesn't
+  list Ooccoo uses as searches.
+- **E-13, G-6 and H-3**: the Lantern, Compass and Lantern cards on a clear, added to the Helper
+  from its issue #12 (a Switch player's report). SBAllen's guide lists only the Tear of Light there.
+- **Nintendo Life's Great Swords** at H-2: SBAllen and the Helper both say H-4.
+- **The Tears of Twilight card**: it only appears once every cloud is gone, to bring them back, so
+  no square uses or gives it.
+- **The card's name**: Zelda Wiki calls it the Tear of Light; the guides write "Tears of Light".
+
+### Cross-check: Termina Map
+
+Majora's Mask's Termina, 16×8 with blank squares (85 squares), from E-10 to the Dark Ruler at B-2.
+- The masks (Deku, Goron, Zora) and the Deku Stick are its search cards.
+- The four Giant cards, used together on Clock Town, open a hidden part of the map.
+- Several cards act on the whole map rather than a square: the Song of Time, the Inverted Song of
+  Time, the Mask of Truth and Majora's Mask. They're listed with the cards, but aren't searches.
+- All 18 weapons are level 4.
+
+| Check | Agree |
+|---|---|
+| Mission text | 85 / 85 |
+| A-rank KOs, time and damage | 85 / 85 each |
+| Searches | 82 / 85 |
+| Every reward, by slot | 85 / 85 after 1 fix |
+| Nintendo Life weapon squares | 17 / 18 |
+
+Fixed:
+- **C-6** (SBAllen F-3): Fairy Food - Ember Seeds (a pot at West Keep), which SBAllen lists for both
+  versions, is added.
+
+Accepted, noted on the square:
+- **B-9, C-11 and F-11** (SBAllen I-2, K-3, K-6): SBAllen's guide has a Bomb search on a boulder on
+  each, in nearly the same words.
+  - On B-9 the Helper has none.
+  - On C-11 it uses the Goron Mask on a switch; its picture has the switch and no boulder.
+  - On F-11 it has none, and draws no boulder.
+- **Nintendo Life's Great Fairy** at B-5: SBAllen and the Helper say B-7.
+
+### Cross-check: Koholint Island Map
+
+Link's Awakening's island, 14×6 (84 squares), from E-3, where Marin is unlocked, to the Wind Fish's
+Egg at A-7.
+- Thirteen squares are under a **Nightmare**, which keeps you out of the battle until any of the
+  eight Instruments of the Sirens banishes it. Each Instrument used for the first time adds to the
+  Egg Counter. With all eight, the Wind Fish wakes: the Egg at A-7 opens and every Nightmare goes
+  for good (before that, a banished one can come back).
+- The app models each Instrument use as a whole-square search with a group card, *Any Instrument of
+  the Sirens*, which counts as held once any of the eight is. The Egg's search is ticked when the
+  counter is full.
+- The Nightmare squares and the Egg are **sealed** (`Square.sealedBy`). A sealed square can be
+  reached, and searched, but not challenged until its own search is done; the Egg's lifts every
+  seal. The converter writes this from `SEAL_MAPS`.
+
+Every check agrees apart from:
+- **A-7, the Egg**: SBAllen's "must have used all 8 Instruments" is the Wind Fish's condition, not
+  a card use.
+- **D-2**: the battle, which the Helper corrected from its issue #24.
+- SBAllen's name for the Power Bracelet here, the "Power Wrist".
+
+### Cross-check: Grand Travels Map
+
+The Ocean King's seas and New Hyrule, 16×8 (128 squares). It has **two starts**, H-4 and E-11
+(SBAllen's D-8 and K-5), and the app opens both.
+- Each half has a Giant Boss, at H-1 and B-13. Once both are cleared, the Phantom Hourglass's middle
+  opens at D-10. The map records this as a *gate*, which `AdventureReach` follows.
+- The Dark Ruler is at E-7. The Helper also flags the two Giant Bosses as final bosses; SBAllen's
+  is used.
+
+| Check | Agree |
+|---|---|
+| Searches | 127 / 128 |
+| Every reward, by slot | 126 / 128 after 2 fixes |
+
+Fixed:
+- **F-11**: a Compass card on a clear.
+- **B-5**: Ordon Goat Cheese.
+- **A wall**: the Helper drew G-2's east wall on G-2 only. The converter now draws every wall on both
+  squares.
+
+Accepted:
+- **B-16**: SBAllen's guide has no entry for it.
+- **C-3**, noted on the square: SBAllen gives the A-rank Heart Container to Toon Zelda, the Helper
+  to Zelda. Every warrior but Toon Zelda has exactly two hearts on this map, so Zelda's is kept.
+- **C-4**: the battle, which the Helper corrected from its issue #28.
+- **E-2**, noted on the square: SBAllen's Railway Track search.
+
+### Cross-check: Lorule Map
+
+Hyrule (columns 1–8) and Lorule (9–16), from F-5 to the Dark Ruler at D-13.
+- The 18 **Fissures** take the Wall Painting, which opens the same square in the other world, eight
+  columns over (Zelda Wiki; SBAllen's H-7 opens his P-7). These searches carry `opens`, so a done
+  one makes its far square challengeable, and doesn't open the square's own walls.
+- On this map the Hero's Bow card is called the Bow (Zelda Wiki).
+
+The Helper is missing most of this map's Fairy Food. Its issue thread lists some of the gaps, and
+SBAllen's guide has all of them, so 23 foods and a Witch's Hat (D-7) are added from his entries.
+
+Fixed:
+- **G-5 and H-11**: cards SBAllen gives on a clear, alongside Ravio and Yuga: a Wall Painting at
+  G-5 and a Baby Maiamai at H-11.
+
+Accepted:
+- **F-8 and G-8's KO limits**: 1,600, which the Helper corrected F-8 to from its issue #29, against
+  SBAllen's 1,200.
+- **A-13, E-1 and E-5**, noted on the square: SBAllen and the Helper disagree on the search's card
+  (Sand Rod or Tornado Rod), or on whether there is one.
+- SBAllen's wording quirks ("Lv.4 Rental Hammer", "Epona" for the Horse).
+
+### The Rewards Map
+
+Its 13 squares sit in a diamond in the middle of the game's 16×8 grid (SBAllen's I-1, H-2, J-2 …
+I-8; Prima's A-9 … H-9). Each opens when its Gold Skulltula illustration is complete, so the map
+has no start, no searches and no Skulltulas of its own. In spoiler-safe mode every square counts as
+reached.
+
+Neither the Helper nor anyone else has art for it, so its JSON has no `art`. The app draws each
+square as a plain tile with its illustration's name. SBAllen's guide lists the squares by that name
+too, which is how the report matches them.
+
+Fixed:
+- **F-7, "Rulers of Twilight"**: an A rank gives Ganondorf's Standard Armor (Boss), per SBAllen's
+  guide and Zelda Wiki's Costume page. The Helper had a material.
+
+Accepted:
+- SBAllen's "Rules of Twilight" typo.
+- Boss Rush's KO limit, which SBAllen leaves blank. His notes say the map follows the 1,000 KOs /
+  99% rules, as the Helper has.
+- **"Evil Power"**: Cia's three Boss costumes (Masked, Unmasked, Hatless) come from one A rank, and
+  are kept as one tick.
+- **The Ganondorf costume's name**: SBAllen calls it "Standard Outfit (Boss)", Zelda Wiki
+  "Standard Armor (Boss)". The wiki's is used.
+
 ## A-rank limits
 
 The game never shows them. These are SBAllen's, and he notes they're his findings. On the Switch,
@@ -194,6 +435,74 @@ only while they're on screen, keeping the last 48.
   `HwdeAssetsTest` checks every square has a lossless picture of the size the JSON gives. Captures
   carry the game's own icons and Link's sprite, so pick the display with the fewest.
 
+## Edges and squares you can challenge
+
+The map draws the line between each pair of neighbouring squares as the game does:
+- **Wavy (a wall):** clearing one square doesn't open the other. It's a grey zigzag with a light
+  outline and small dark posts at its ends, about eight zigzags along a square's long side and six
+  along its short one.
+- **Straight:** a thin light seam; clearing either square opens the other.
+- **Opened:** a wall that a path search done on either square (Hookshot, Raft, Ooccoo…) has
+  opened. It's drawn straight. The data doesn't say which neighbour such a search opens, so all
+  of that square's walls open.
+
+There are no one-way walls. A wall recorded on either square counts for both, and the converter
+writes each wall on both squares.
+
+The style is worked out by `AdventureReach.edge` (`adventure/model/AdventureReach.kt`), and tested
+for each kind. The look was checked against Zelda Wiki's DE screenshot (the 4× crop under *The
+map's art*). Lines are drawn at screen resolution on the pixel-snapped square edges, so they stay
+sharp at any zoom. Their colours are fixed, the game's, rather than the theme's.
+
+**Squares you can challenge now** are drawn at full brightness; the rest are dimmed, always (they
+can still be opened). They are:
+- the start;
+- every square already cleared;
+- and each neighbour of a cleared square across an edge that isn't a wall.
+
+The Rewards Map has no start, so all its squares count. A **sealed** square (a Koholint Nightmare)
+is reached that way but can't be challenged, so it stays dim until its search is done; the sheet
+says so, and the next step names that search first. Spoiler-safe mode counts these squares and the
+sealed ones as reached, and hides the details of the rest.
+
+The *Challengeable now* chip filters to them. With *Not cleared* on, they're listed first. The
+overview's next step prefers them too.
+
+**A simplification:** in the game a neighbour opens only if the clear earned the rank on the arrow
+between the two squares (C, B or A). No source lists those arrows (Zelda Wiki's per-square pages
+have them for only a few squares), so here any clear opens its neighbours. The map's *About* note
+says so.
+
+## Landscape
+
+On the Map tab, in a landscape window shorter than 480 dp (Material's compact height: a phone on
+its side, or a short split-screen window), the app hides the top bar, the Map/List tabs and the
+system bars, which a swipe from the edge brings back for a moment.
+- The filter row becomes the toolbar: ☰ at its start, then Cards, List and ⋮ at its end, plus the
+  save-file picker on a game with more than one file. Every target is at least 48 dp, and nothing
+  covers the map's row and column labels.
+- *List* switches tab, which brings the bars back. So do portrait and leaving the screen.
+- Turning the window between portrait and landscape opens the map afresh for the new shape, using
+  all the height it now has. A resize within the same shape keeps the zoom.
+
+In the same short landscape window, on either tab, a tapped square opens in a **side panel** rather
+than a bottom sheet, which there would get half the width and need dragging up:
+- It runs the full height down the right, 42% of the width (320–480 dp), and scrolls on its own.
+- The map stays full size under it. Its viewport records the covered width (`GridViewport.insetRight`),
+  so the map's scale doesn't change, the map can be panned out from under the panel, and the open
+  square is panned into the part left showing (`reveal`). The zoom buttons, the toolbar's buttons
+  and the list move clear of it.
+- Tapping another square swaps what it shows; ✕, back, or tapping the same square closes it.
+
+Elsewhere the bottom sheet opens all the way. Both show the same content (`SquareDetails`), the
+most-used part first: the header (label, battle type, A-rank limits), the status control and
+*Mark complete*, then the rewards, Gold Skulltulas and searches as tick boxes two to a row, and the
+mission, notes and search picture below.
+
+`AdventureChrome` decides all of this from the window's own size, not the device's orientation:
+`visible` for the bars and `squareContainer` for the panel. Both are tested, as are the panel's
+width, the tick boxes' columns and keeping the open square in sight.
+
 ## Spoiler-safe mode
 
 Off by default. It's one switch for every HW:DE map, in each map's ⋮ menu.
@@ -222,6 +531,12 @@ now* filters to squares with an undone search whose card you have.
   reward", "Reveals hidden enemies", "Opens a way…") rather than guess.
 - **The rank arrow on each side**: the C/B/A needed to open a neighbour. No source lists them; only
   the walls are known.
+- **The Great Sea's hazards** are shown as the square's rule. Using the card that lifts one counts
+  as that square's search; the rule itself isn't tracked as lifted.
+- **Which Instruments have been used.** Each Nightmare's search is any Instrument, so the app
+  can't tell when all eight have been: tick the Egg's search when its counter is full.
+- **Twilight clouds and Termina's Owl Statues** are shown in the square's rule and searches; which
+  squares are clear or protected right now isn't tracked.
 - **Termina's moon.** When it falls it resets the map, but not the rewards. The tracker records
   what's been done at least once and doesn't reset.
 

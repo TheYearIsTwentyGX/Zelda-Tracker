@@ -879,8 +879,18 @@ disagreements are in `docs/eow.md`.
 **Hyrule Warriors: Definitive Edition** (spin-off)
 
 Each Adventure Mode map is a tracker of its own, drawn as the in-game map: its 16×8 squares with
-what's done and what's left marked on each. Phase 1 has the **Adventure Map** (128 squares); the
-other nine maps follow. The data, its sources and disagreements, and how the art lines up are in
+what's done and what's left marked on each. All ten:
+- the **Adventure Map** (128 squares);
+- the **Great Sea Map** (98, with its Great Sea Rules and the cards that lift them);
+- the **Master Quest Map** (128, every square under a Master Quest Rule);
+- the **Master Wind Waker Map** (the Great Sea under Endless Night Rules);
+- the **Twilight Map** (93, with the Twilight clouds and the Tears of Light that clear them);
+- the **Termina Map** (85, with the masks and the Giants);
+- the **Koholint Island Map** (84, with the Nightmares the Instruments of the Sirens banish);
+- the **Grand Travels Map** (128, from two starts, with the Phantom Hourglass opening once both
+  Giant Bosses fall);
+- the **Lorule Map** (128, Hyrule and Lorule joined by Fissures);
+- the **Rewards Map** (its 13 illustration battles, drawn as named tiles, since there's no art). The data, its sources and disagreements, and how the art lines up are in
 `docs/hwde.md`.
 - **Progress Overview** (first): a row per map with everything done of all, squares cleared and
   A-ranked, Heart Containers, Pieces of Heart, Gold Skulltulas and weapons, and the next step.
@@ -890,23 +900,29 @@ other nine maps follow. The data, its sources and disagreements, and how the art
   - Each square shows a bronze edge when cleared, gold with an "A" when A-ranked and a star when
     complete, with dots for Heart Containers, Pieces of Heart, Gold Skulltulas and searches still
     to do.
-  - Wavy walls, row letters and column numbers are drawn on, as are the start and the Dark Ruler.
-- **A square's sheet**:
-  - the battle type and victory condition, any rule, and which warriors it allows;
-  - the A-rank limits (KOs, time, damage), which are the guides' findings, since the game doesn't
-    show them;
-  - Not cleared / Cleared / A rank;
-  - each reward to tick, with whose it is and how to earn it ("A rank as Zelda", "Capture East
-    Goron Keep as Zelda"), and the item cards a clear gives;
-  - both Gold Skulltulas with their condition and place, and quiz answers;
-  - each item-card search, with the square's picture under the search screen's 16×11 grid and the
-    cell to use it on outlined;
-  - *Mark square complete*.
+  - The lines between squares are drawn as in the game: wavy where a wall stops the way, straight where
+    clearing one opens the other (and straight again once a path card like the Hookshot is used).
+  - Squares that can't be challenged yet are dimmed. Any clear opens its neighbours here; the game's
+    B/A-rank arrows aren't in any source.
+  - Row letters and column numbers are drawn on, as are the start and the Dark Ruler.
+  - In landscape on a phone, the Map tab hides the top bar, tabs and system bars, and the filter row
+    carries the menu, Cards, List and ⋮.
+- **A square's details**: a bottom sheet that opens all the way, or, in landscape on a phone, a
+  panel down the right with the map still in use beside it. Tapping another square swaps the panel;
+  ✕, back or the same square closes it. What's ticked most comes first:
+  - the label, battle type and A-rank limits (KOs, time, damage: the guides' findings, since the
+    game doesn't show them);
+  - Not yet / Cleared / A rank, and *Mark complete*;
+  - a tick box for each reward (whose it is and how to earn it: "A rank as Zelda", "Capture East
+    Goron Keep as Zelda"), Gold Skulltula and search, two to a row;
+  - then the victory condition, any rule and allowed warriors, the item cards a clear gives, both
+    Gold Skulltulas' condition and place, quiz answers, and the square's picture under the search
+    screen's 16×11 grid with each search's cell outlined.
 - **List tab**: the same squares by colour (difficulty), with search over squares, rewards,
   warriors, keeps and cards.
-- **Filters** (both tabs): not cleared, not A-ranked, Heart Containers left, Pieces of Heart left,
-  Gold Skulltulas left, searches left, *Searchable now* (with the cards you have) and a warrior
-  ("what's left for Zelda").
+- **Filters** (both tabs): not cleared (squares you can challenge first), not A-ranked, Heart
+  Containers left, Pieces of Heart left, Gold Skulltulas left, searches left, *Searchable now* (with
+  the cards you have), *Challengeable now* and a warrior ("what's left for Zelda").
 - **Cards**: each item card with what it does on the map, the squares that give it, and its Item
   Card Shop price. A card counts as found once a square that gives it is cleared (DE's shop sells
   any card found before), and each can be set by hand.

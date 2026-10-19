@@ -568,6 +568,15 @@ object Games {
         trackers = listOf(
             Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every Adventure Mode map at a glance"),
             hwdeMap("Adventure Map", "The 128 squares of the first map: battles, A-rank limits, rewards, Gold Skulltulas and item-card searches", "adventure_map"),
+            hwdeMap("Great Sea Map", "The 98 squares of the Great Sea, its Great Sea Rules and the cards that lift them, and its warriors to unlock", "great_sea_map"),
+            hwdeMap("Master Quest Map", "The 128 squares of the Second Quest's map under Master Quest Rules, with every weapon's level 3", "master_quest_map"),
+            hwdeMap("Master Wind Waker Map", "The Great Sea again under Endless Night Rules: 98 squares, with Medli's Rito Harps", "master_wind_waker_map"),
+            hwdeMap("Twilight Map", "Twilight Princess's Hyrule: 93 squares, the Twilight clouds and the Tears of Light that clear them, and every weapon's level 4", "twilight_map"),
+            hwdeMap("Termina Map", "Majora's Mask's Termina: 85 squares against the falling Moon, the masks and Giants, and more level-4 weapons", "termina_map"),
+            hwdeMap("Koholint Island Map", "Link's Awakening's island: 84 squares, the Nightmares the Instruments of the Sirens banish, and Marin", "koholint_island_map"),
+            hwdeMap("Grand Travels Map", "The Ocean King's seas and New Hyrule: 128 squares from two starts, the Phantom Hourglass and Toon Zelda", "grand_travels_map"),
+            hwdeMap("Lorule Map", "Hyrule and Lorule side by side: 128 squares joined by Fissures, Ravio and Yuga", "lorule_map"),
+            hwdeMap("Rewards Map", "The 13 battles the Gold Skulltula illustrations open, and their Boss costumes", "rewards_map"),
         ),
         spinOff = true,
     )

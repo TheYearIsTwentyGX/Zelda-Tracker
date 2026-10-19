@@ -21,6 +21,14 @@ class AdventureSpoilersTest {
         assertTrue("r1c2" in AdventureSpoilers.explored(map, hooked))
     }
 
+    /** The Rewards Map has no start: its squares open with illustrations, so each one counts as reached. */
+    @Test
+    fun aMapWithNoStartHasEverySquareReached() {
+        val noStart = map.copy(start = null)
+        assertEquals(map.squares.map { it.id }.toSet(), AdventureSpoilers.explored(noStart, AdventureProgress()))
+        assertTrue(noStart.squares.none(AdventureSpoilers(noStart, AdventureProgress(), on = true)::isHidden))
+    }
+
     @Test
     fun hiddenSquaresAndSecretsStayHiddenUntilRevealed() {
         val p = cleared("r1c1")
@@ -91,11 +99,12 @@ class AdventureSpoilersTest {
         assertEquals("A-1: Hookshot search", AdventureNext.line(map, searchLeft, AdventureSpoilers(map, searchLeft, on = false)))
         assertEquals("A-1: a search left", AdventureNext.line(map, searchLeft, AdventureSpoilers(map, searchLeft, on = true)))
 
-        // Spoiler-safe: the walled-off green square isn't named until it's reached. (Here the start's
-        // search is a Bomb one, which doesn't open the wall the way the Hookshot does.)
+        // The walled-off green square comes after the open red one, spoilers or not: it can't be
+        // challenged yet. (Here the start's search is a Bomb one, which doesn't open the wall the way
+        // the Hookshot does.)
         val walled = map.copy(squares = map.squares.map { if (it.id == "r1c1") it.copy(searches = listOf(Search("r1c1.search_bomb", "bomb", row = 3, col = 3))) else it })
         val r1c1Done = AdventureProgress().withAll(listOf(walled.square("r1c1")!!), complete = true)
-        assertEquals("A-2: clear it (Capture the keeps!)", AdventureNext.line(walled, r1c1Done, AdventureSpoilers(walled, r1c1Done, on = false)))
+        assertEquals("B-1: clear it (Stop the healers!)", AdventureNext.line(walled, r1c1Done, AdventureSpoilers(walled, r1c1Done, on = false)))
         assertEquals("B-1: clear it (Stop the healers!)", AdventureNext.line(walled, r1c1Done, AdventureSpoilers(walled, r1c1Done, on = true)))
 
         val all = AdventureProgress().withAll(map.squares, complete = true)
