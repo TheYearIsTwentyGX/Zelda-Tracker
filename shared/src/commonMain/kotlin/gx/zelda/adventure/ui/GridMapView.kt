@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import gx.zelda.adventure.model.AdventureMap
+import gx.zelda.adventure.model.EdgeStyle
 import gx.zelda.adventure.model.GridViewport
 import gx.zelda.adventure.model.MarkerKind
 import gx.zelda.adventure.model.Side
@@ -103,7 +104,7 @@ fun GridMapView(
                             w, h, map.cols, map.rows, map.art.squareWidth.toFloat(), map.art.squareHeight.toFloat(),
                             focus = map.start?.let(map::square)?.let { it.row to it.col },
                         )
-                        v.viewWidth != w || v.viewHeight != h -> v.resized(w, h)
+                        v.viewWidth != w || v.viewHeight != h -> v.forNewSize(w, h, focus = map.start?.let(map::square)?.let { it.row to it.col })
                         else -> v
                     },
                 )
@@ -148,6 +149,7 @@ private data class MapPalette(
  */
 private object MapColors {
     val bronze = Color(0xFFCD7F32)
+    val seam = Color.White.copy(alpha = 0.55f)
     val gold = StarGold
     val wall = Color(0xFF2B2B2B)
     val start = Color(0xFF43A047)
@@ -189,11 +191,23 @@ private fun DrawScope.drawMap(state: AdventureUiState, v: GridViewport, images: 
         }
         drawLook(state.look(square, square.id == selected), rect, text, palette)
     }
+    // The line between each pair of neighbours, as the game draws it: wavy where a wall stops the
+    // way, straight where clearing one square opens the other. Walls go on top, with their posts.
+    val styles = state.edgeStyles
+    val walls = mutableListOf<Pair<Offset, Offset>>()
     for (row in v.visibleRows) for (col in v.visibleCols) {
         val square = map.squareAt(row, col) ?: continue
-        val rect = Rect(v.edgeX(col).toFloat(), v.edgeY(row).toFloat(), v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
-        square.blockades.forEach { drawWall(rect, it) }
+        for (side in listOf(Side.EAST, Side.SOUTH)) {
+            val style = styles[square.id to side] ?: continue
+            val (from, to) = when (side) {
+                Side.EAST -> Offset(v.edgeX(col + 1).toFloat(), v.edgeY(row).toFloat()) to Offset(v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
+                else -> Offset(v.edgeX(col).toFloat(), v.edgeY(row + 1).toFloat()) to Offset(v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
+            }
+            if (style == EdgeStyle.WALL) walls += from to to else drawSeam(from, to, v.squareHeight * v.scale)
+        }
     }
+    walls.forEach { (from, to) -> drawWall(from, to, v.squareHeight * v.scale) }
+    walls.flatMap { listOf(it.first, it.second) }.distinct().forEach { drawPost(it, v.squareHeight * v.scale) }
     selected?.let(map::square)?.let { s ->
         val rect = Rect(v.edgeX(s.col).toFloat(), v.edgeY(s.row).toFloat(), v.edgeX(s.col + 1).toFloat(), v.edgeY(s.row + 1).toFloat())
         drawRect(palette.onSelection, rect.topLeft, rect.size, style = Stroke(5.dp.toPx()))
@@ -210,7 +224,9 @@ private fun DrawScope.drawLook(look: SquareLook, rect: Rect, text: TextMeasurer,
         if (w >= 28.dp.toPx()) centred(text, "?", rect.center, TextStyle(color = palette.onLabel.copy(alpha = 0.8f), fontSize = (w / 5).toSp(), fontWeight = FontWeight.Bold))
         return
     }
-    if (look.dimmed) drawRect(palette.scrim.copy(alpha = 0.55f), rect.topLeft, rect.size)
+    // Squares that can't be challenged yet are dim, as in the game; a filter dims the rest further.
+    val dim = (if (look.challengeable) 0f else 0.45f).let { if (look.dimmed) maxOf(it, 0.55f) else it }
+    if (dim > 0f) drawRect(palette.scrim.copy(alpha = dim), rect.topLeft, rect.size)
     val stroke = maxOf(2.dp.toPx(), w * 0.025f)
     val edge = when {
         look.complete || look.status == SquareStatus.A_RANK -> MapColors.gold
@@ -264,17 +280,26 @@ private fun DrawScope.drawLook(look: SquareLook, rect: Rect, text: TextMeasurer,
     }
 }
 
-/** The game's wavy wall along [side] of [rect]: this square doesn't open its neighbour that way. */
-private fun DrawScope.drawWall(rect: Rect, side: Side) {
-    val (from, to) = when (side) {
-        Side.NORTH -> rect.topLeft to rect.topRight
-        Side.SOUTH -> rect.bottomLeft to rect.bottomRight
-        Side.WEST -> rect.topLeft to rect.bottomLeft
-        Side.EAST -> rect.topRight to rect.bottomRight
-    }
+/** The straight seam between two squares a clear opens to each other: thin and light, as in the game. */
+private fun DrawScope.drawSeam(from: Offset, to: Offset, squareHeight: Float) {
+    drawLine(MapColors.seam, from, to, strokeWidth = maxOf(1.dp.toPx(), squareHeight * 0.012f))
+}
+
+/** A wall's end: the small dark post the game puts where walls meet the grid. */
+private fun DrawScope.drawPost(at: Offset, squareHeight: Float) {
+    val half = maxOf(2.dp.toPx(), squareHeight * 0.03f)
+    drawRect(Color.White.copy(alpha = 0.8f), at - Offset(half + 1, half + 1), Size(half * 2 + 2, half * 2 + 2))
+    drawRect(MapColors.wall, at - Offset(half, half), Size(half * 2, half * 2))
+}
+
+/**
+ * The game's wavy wall from [from] to [to]: a zigzag about every sixth of a square's height, so a
+ * square's long side has about eight and its short side six, at any zoom.
+ */
+private fun DrawScope.drawWall(from: Offset, to: Offset, squareHeight: Float) {
     val length = (to - from).getDistance()
-    val waves = 6
-    val amp = maxOf(1.5.dp.toPx(), rect.height * 0.035f)
+    val waves = maxOf(3, (length / (squareHeight * 0.18f)).toInt())
+    val amp = maxOf(1.5.dp.toPx(), squareHeight * 0.035f)
     val dir = (to - from) / length
     val normal = Offset(-dir.y, dir.x)
     val path = Path().apply {

@@ -133,4 +133,5 @@ enum class SquareFilter(val label: String) {
     SKULLTULAS("Skulltulas left"),
     SEARCHES("Searches left"),
     SEARCHABLE("Searchable now"),
+    CHALLENGEABLE("Challengeable now"),
 }

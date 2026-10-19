@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -51,6 +52,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import gx.zelda.adventure.model.AdventureChrome
 import gx.zelda.adventure.model.AdventureTab
 import gx.zelda.adventure.model.MarkerKind
 import gx.zelda.adventure.model.RewardType
@@ -89,57 +91,80 @@ fun AdventureMapScreen(viewModel: AdventureMapViewModel, title: String, onBack: 
     var showCards by remember { mutableStateOf(false) }
     var showAbout by remember { mutableStateOf(false) }
     BulkUndoSnackbar(bulkChange, snackbar, onUndo = { viewModel.undoBulkChange(it) }, onDismiss = viewModel::dismissBulkChange)
-    Scaffold(
-        snackbarHost = { SnackbarHost(snackbar) },
-        topBar = {
-            TopAppBar(
-                title = {
-                    Column {
-                        Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+    BoxWithConstraints(Modifier.fillMaxSize()) {
+        // On a phone on its side, the Map tab gives the bars' height to the map (AdventureChrome).
+        val chrome = AdventureChrome.visible(maxWidth.value, maxHeight.value, state?.mapPrefs?.tab ?: AdventureTab.MAP)
+        HideSystemBars(hidden = !chrome)
+        Scaffold(
+            snackbarHost = { SnackbarHost(snackbar) },
+            topBar = {
+                if (chrome) TopAppBar(
+                    title = {
+                        Column {
+                            Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                            state?.let { s ->
+                                SaveFilePicker(
+                                    current = s.saveFile,
+                                    options = s.saveFiles.map { SaveFileOption(it.file, "${it.all.done} / ${it.all.total}") },
+                                    onSelect = viewModel::setSaveFile,
+                                )
+                            }
+                        }
+                    },
+                    navigationIcon = { MenuOrBackButton(onBack) },
+                    actions = {
                         state?.let { s ->
+                            TextButton(onClick = { showCards = true }) { Text("Cards") }
+                            AdventureMenu(s, viewModel, onAbout = { showAbout = true })
+                        }
+                    },
+                )
+            },
+        ) { padding ->
+            val s = state
+            if (s == null) {
+                LoadingOrError(loadFailed, "This map couldn't be loaded.", padding)
+                return@Scaffold
+            }
+            val images = remember(s.map) { SquareImages(s.map) }
+            Column(Modifier.fillMaxSize().padding(padding)) {
+                val tabs = AdventureTab.entries
+                if (chrome) {
+                    PrimaryTabRow(selectedTabIndex = tabs.indexOf(s.mapPrefs.tab)) {
+                        tabs.forEach { tab ->
+                            Tab(selected = s.mapPrefs.tab == tab, onClick = { viewModel.setTab(tab) }, text = { Text(tab.label) })
+                        }
+                    }
+                    FilterChips(s, viewModel)
+                } else {
+                    // The bars are hidden: the filter row carries what they had.
+                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        MenuOrBackButton(onBack)
+                        FilterChips(s, viewModel, Modifier.weight(1f))
+                        if (s.saveFiles.size > 1) {
                             SaveFilePicker(
                                 current = s.saveFile,
                                 options = s.saveFiles.map { SaveFileOption(it.file, "${it.all.done} / ${it.all.total}") },
                                 onSelect = viewModel::setSaveFile,
                             )
                         }
-                    }
-                },
-                navigationIcon = { MenuOrBackButton(onBack) },
-                actions = {
-                    state?.let { s ->
                         TextButton(onClick = { showCards = true }) { Text("Cards") }
+                        TextButton(onClick = { viewModel.setTab(AdventureTab.LIST) }) { Text("List") }
                         AdventureMenu(s, viewModel, onAbout = { showAbout = true })
                     }
-                },
-            )
-        },
-    ) { padding ->
-        val s = state
-        if (s == null) {
-            LoadingOrError(loadFailed, "This map couldn't be loaded.", padding)
-            return@Scaffold
-        }
-        val images = remember(s.map) { SquareImages(s.map) }
-        Column(Modifier.fillMaxSize().padding(padding)) {
-            val tabs = AdventureTab.entries
-            PrimaryTabRow(selectedTabIndex = tabs.indexOf(s.mapPrefs.tab)) {
-                tabs.forEach { tab ->
-                    Tab(selected = s.mapPrefs.tab == tab, onClick = { viewModel.setTab(tab) }, text = { Text(tab.label) })
+                }
+                when (s.mapPrefs.tab) {
+                    AdventureTab.MAP -> MapPane(s, images, selected, viewModel, Modifier.weight(1f).fillMaxWidth())
+                    AdventureTab.LIST -> SquareList(s, viewModel, bulk, Modifier.weight(1f).fillMaxWidth())
                 }
             }
-            FilterChips(s, viewModel)
-            when (s.mapPrefs.tab) {
-                AdventureTab.MAP -> MapPane(s, images, selected, viewModel, Modifier.weight(1f).fillMaxWidth())
-                AdventureTab.LIST -> SquareList(s, viewModel, bulk, Modifier.weight(1f).fillMaxWidth())
+            selected?.let(s.map::square)?.let { square ->
+                SquareSheet(s, square, images, viewModel, onDismiss = { viewModel.select(null) })
             }
+            if (showCards) ItemCardsSheet(s, viewModel, onDismiss = { showCards = false })
+            if (showAbout) AboutSheet(onDismiss = { showAbout = false })
+            BulkConfirmDialog(bulk, s.saveFile.label)
         }
-        selected?.let(s.map::square)?.let { square ->
-            SquareSheet(s, square, images, viewModel, onDismiss = { viewModel.select(null) })
-        }
-        if (showCards) ItemCardsSheet(s, viewModel, onDismiss = { showCards = false })
-        if (showAbout) AboutSheet(onDismiss = { showAbout = false })
-        BulkConfirmDialog(bulk, s.saveFile.label)
     }
 }
 
@@ -172,10 +197,10 @@ private fun AdventureMenu(state: AdventureUiState, viewModel: AdventureMapViewMo
 }
 
 @Composable
-private fun FilterChips(state: AdventureUiState, viewModel: AdventureMapViewModel) {
+private fun FilterChips(state: AdventureUiState, viewModel: AdventureMapViewModel, modifier: Modifier = Modifier.fillMaxWidth()) {
     var warriorMenu by remember { mutableStateOf(false) }
     Row(
-        Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp, vertical = 4.dp),
+        modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -417,7 +442,9 @@ private fun AboutSheet(onDismiss: () -> Unit) {
             )
             Text(
                 "Labels follow Prima's guide and Zelda Wiki (a row letter, then the column); SBAllen's guide writes the column letter first. " +
-                    "A-rank limits are the guides' findings: the game doesn't show them.",
+                    "A-rank limits are the guides' findings: the game doesn't show them. " +
+                    "A square can be challenged once a neighbour across a straight edge is cleared; in the game some " +
+                    "need a B or A rank, which isn't recorded, so any clear counts here. Dim squares can't be challenged yet.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
