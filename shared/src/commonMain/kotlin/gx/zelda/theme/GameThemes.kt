@@ -58,8 +58,9 @@ object GameThemes {
 
     /**
      * NES. Dark is the subscreen: black, heart red, item-box blue, Triforce orange. Light is the
-     * overworld: tan ground and forest green. Colours are NES palette entries, darkened a step
-     * where text needs the contrast.
+     * overworld: tan ground and forest green. Sampled from Spriters Resource's HUD & pause-screen and
+     * title sheets; heart red (#D82800 there) is lifted to #F83800 so text in it passes 4.5:1 on black,
+     * and the light side's text colours are darkened a step.
      */
     val LOZ = GameTheme(
         id = "loz",
@@ -92,9 +93,9 @@ object GameThemes {
             onPrimaryContainer = Color(0xFFFCE0A8),
             secondary = Color(0xFF6888FC),
             onSecondary = Color(0xFF000000),
-            secondaryContainer = Color(0xFF0000BC),
+            secondaryContainer = Color(0xFF2038EC),
             onSecondaryContainer = Color(0xFFFCFCFC),
-            tertiary = Color(0xFFFCA044),
+            tertiary = Color(0xFFFC9838),
             onTertiary = Color(0xFF000000),
             tertiaryContainer = Color(0xFF503000),
             onTertiaryContainer = Color(0xFFFCE0A8),
@@ -102,8 +103,8 @@ object GameThemes {
             onSurface = Color(0xFFFCFCFC),
             surfaceVariant = Color(0xFF181818),
             onSurfaceVariant = Color(0xFFBCBCBC),
-            outline = Color(0xFF7C7C7C),
-            star = Color(0xFFFCA044),
+            outline = Color(0xFF747474),
+            star = Color(0xFFFC9838),
         ),
         display = DisplayFont.PIXEL_8BIT,
         shapes = ShapeStyle.PIXEL,
@@ -163,48 +164,52 @@ object GameThemes {
         progress = ProgressStyle.ROUNDED,
     )
 
-    /** GBA storybook miniature: Ezlo's leaf green, Kinstone gold and warm wood, on paper or bark. */
+    /**
+     * The Minish Cap's file select: navy windows with white lettering, blue banners, teal-green
+     * buttons and the crystal-green backdrop. Light turns it round: crystal-green paper with the
+     * teal and banner blue darkened for text. Sampled from Spriters Resource's file-select sheet.
+     */
     val MC = GameTheme(
         id = "mc",
         light = GamePalette(
-            primary = Color(0xFF2F6E14),
+            primary = Color(0xFF086A4E),
             onPrimary = Color(0xFFFFFFFF),
-            primaryContainer = Color(0xFFC4EFA8),
-            onPrimaryContainer = Color(0xFF0B2000),
-            secondary = Color(0xFF7A5A00),
+            primaryContainer = Color(0xFFB8F0D0),
+            onPrimaryContainer = Color(0xFF002A1E),
+            secondary = Color(0xFF0818A8),
             onSecondary = Color(0xFFFFFFFF),
-            secondaryContainer = Color(0xFFFFE08A),
-            onSecondaryContainer = Color(0xFF261A00),
-            tertiary = Color(0xFF8A4F24),
+            secondaryContainer = Color(0xFFD8E0FF),
+            onSecondaryContainer = Color(0xFF000850),
+            tertiary = Color(0xFF8A5A00),
             onTertiary = Color(0xFFFFFFFF),
             tertiaryContainer = Color(0xFFFFDCC2),
             onTertiaryContainer = Color(0xFF301400),
-            surface = Color(0xFFFBF7EC),
-            onSurface = Color(0xFF22201A),
-            surfaceVariant = Color(0xFFECE3CF),
-            onSurfaceVariant = Color(0xFF4E4636),
-            outline = Color(0xFF7F7562),
-            star = Color(0xFF8A6400),
+            surface = Color(0xFFF0FAF4),
+            onSurface = Color(0xFF0A1A30),
+            surfaceVariant = Color(0xFFD8F8E8),
+            onSurfaceVariant = Color(0xFF20405A),
+            outline = Color(0xFF5A8090),
+            star = Color(0xFF7A6000),
         ),
         dark = GamePalette(
-            primary = Color(0xFF8FD86A),
-            onPrimary = Color(0xFF133800),
-            primaryContainer = Color(0xFF2C5212),
-            onPrimaryContainer = Color(0xFFC4EFA8),
-            secondary = Color(0xFFF0C64A),
-            onSecondary = Color(0xFF3F2E00),
-            secondaryContainer = Color(0xFF5C4400),
-            onSecondaryContainer = Color(0xFFFFE08A),
-            tertiary = Color(0xFFE8A877),
-            onTertiary = Color(0xFF4A2300),
-            tertiaryContainer = Color(0xFF6B3A16),
-            onTertiaryContainer = Color(0xFFFFDCC2),
-            surface = Color(0xFF1A1610),
-            onSurface = Color(0xFFEFE6D4),
-            surfaceVariant = Color(0xFF3A3326),
-            onSurfaceVariant = Color(0xFFD2C6AE),
-            outline = Color(0xFF9A8F7A),
-            star = Color(0xFFF0C64A),
+            primary = Color(0xFF30F898),
+            onPrimary = Color(0xFF000030),
+            primaryContainer = Color(0xFF10B090),
+            onPrimaryContainer = Color(0xFF000030),
+            secondary = Color(0xFF2884F8),
+            onSecondary = Color(0xFF000030),
+            secondaryContainer = Color(0xFF0818A8),
+            onSecondaryContainer = Color(0xFFF0F8F8),
+            tertiary = Color(0xFFF8F810),
+            onTertiary = Color(0xFF000030),
+            tertiaryContainer = Color(0xFF5A5800),
+            onTertiaryContainer = Color(0xFFF8F8C0),
+            surface = Color(0xFF000030),
+            onSurface = Color(0xFFF0F8F8),
+            surfaceVariant = Color(0xFF000850),
+            onSurfaceVariant = Color(0xFFB0E0F8),
+            outline = Color(0xFF68B8E8),
+            star = Color(0xFFF8F810),
         ),
         display = DisplayFont.PIXEL_16BIT,
         ornament = Ornament.VINE,
@@ -213,7 +218,9 @@ object GameThemes {
 
     /**
      * Minimal and ancient: "Zelda White" lettering on the Sheikah Slate's dark glass, Sheikah blue
-     * glow and Guardian orange. Light turns it round: Zelda White paper with deep slate blue.
+     * glow and Guardian orange. Light turns it round: Zelda White paper with deep slate blue. The
+     * dark side's blue and orange are the map's shrine glyphs (#3DB2E5 done, #F5A524 not done),
+     * traced from the game's icons (docs/map-icons.md).
      */
     val BOTW = GameTheme(
         id = "botw",
@@ -238,11 +245,11 @@ object GameThemes {
             star = Color(0xFF7E5F00),
         ),
         dark = GamePalette(
-            primary = Color(0xFF5CD3F5),
+            primary = Color(0xFF3DB2E5),
             onPrimary = Color(0xFF00313D),
             primaryContainer = Color(0xFF0B4A5C),
             onPrimaryContainer = Color(0xFFBDEFFF),
-            secondary = Color(0xFFFF9A55),
+            secondary = Color(0xFFF5A524),
             onSecondary = Color(0xFF3D1600),
             secondaryContainer = Color(0xFF6B2F00),
             onSecondaryContainer = Color(0xFFFFDCC4),
@@ -263,8 +270,389 @@ object GameThemes {
         progress = ProgressStyle.THIN,
     )
 
+    /**
+     * Zelda II. Dark is the file-select and HUD: black, white lettering, the select window's blue
+     * border, the LIFE bar's red and a dark gold. Light is palace stone, with the same blue, red and
+     * gold darkened for text. Sampled from Spriters Resource's title-screen and HUD sheet.
+     */
+    val AOL = GameTheme(
+        id = "aol",
+        light = GamePalette(
+            primary = Color(0xFF2038EC),
+            onPrimary = Color(0xFFFCFCFC),
+            primaryContainer = Color(0xFFC8D0FC),
+            onPrimaryContainer = Color(0xFF0C1870),
+            secondary = Color(0xFFB02000),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFCD0C0),
+            onSecondaryContainer = Color(0xFF4A0A00),
+            tertiary = Color(0xFF6C5800),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFF0E0A0),
+            onTertiaryContainer = Color(0xFF2E2600),
+            surface = Color(0xFFF0E8D8),
+            onSurface = Color(0xFF1A1410),
+            surfaceVariant = Color(0xFFDCD2BE),
+            onSurfaceVariant = Color(0xFF4A4034),
+            outline = Color(0xFF7A7064),
+            star = Color(0xFF7A6000),
+            error = Color(0xFF9C1800),
+            onError = Color(0xFFFFFFFF),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFF6C8CFC),
+            onPrimary = Color(0xFF000000),
+            primaryContainer = Color(0xFF2038EC),
+            onPrimaryContainer = Color(0xFFFCFCFC),
+            secondary = Color(0xFFF8583C),
+            onSecondary = Color(0xFF000000),
+            secondaryContainer = Color(0xFF881400),
+            onSecondaryContainer = Color(0xFFFCD8C8),
+            tertiary = Color(0xFFD8B840),
+            onTertiary = Color(0xFF000000),
+            tertiaryContainer = Color(0xFF887000),
+            onTertiaryContainer = Color(0xFFFCFCFC),
+            surface = Color(0xFF000000),
+            onSurface = Color(0xFFFCFCFC),
+            surfaceVariant = Color(0xFF1C1C1C),
+            onSurfaceVariant = Color(0xFFBCBCBC),
+            outline = Color(0xFF747474),
+            star = Color(0xFFD8B840),
+        ),
+        display = DisplayFont.PIXEL_8BIT,
+        shapes = ShapeStyle.PIXEL,
+        ornament = Ornament.BRICKS,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * A Link to the Past's status screen: black windows with double borders in Triforce gold, the
+     * item window's green and the "DO" box's red. Light is the Light World: pale green with the same
+     * three, darkened for text. Sampled from Spriters Resource's status-screen sheet.
+     */
+    val ALTTP = GameTheme(
+        id = "alttp",
+        light = GamePalette(
+            primary = Color(0xFF16601C),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFB8F0B0),
+            onPrimaryContainer = Color(0xFF002204),
+            secondary = Color(0xFF7A5C00),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFF8D878),
+            onSecondaryContainer = Color(0xFF261A00),
+            tertiary = Color(0xFFA00000),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFFD8D0),
+            onTertiaryContainer = Color(0xFF410000),
+            surface = Color(0xFFF2F6E8),
+            onSurface = Color(0xFF10180C),
+            surfaceVariant = Color(0xFFDCE6CC),
+            onSurfaceVariant = Color(0xFF3C4834),
+            outline = Color(0xFF6C7864),
+            star = Color(0xFF7A5C00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFE0A800),
+            onPrimary = Color(0xFF000400),
+            primaryContainer = Color(0xFF5A4400),
+            onPrimaryContainer = Color(0xFFFCE8A8),
+            secondary = Color(0xFF20C028),
+            onSecondary = Color(0xFF000400),
+            secondaryContainer = Color(0xFF0C4A10),
+            onSecondaryContainer = Color(0xFFB8F8B8),
+            tertiary = Color(0xFFF05050),
+            onTertiary = Color(0xFF000400),
+            tertiaryContainer = Color(0xFFC00000),
+            onTertiaryContainer = Color(0xFFF8F8F8),
+            surface = Color(0xFF000400),
+            onSurface = Color(0xFFF8F8F8),
+            surfaceVariant = Color(0xFF1A1A1E),
+            onSurfaceVariant = Color(0xFFC8C8C8),
+            outline = Color(0xFF8C8C8C),
+            star = Color(0xFFE0A800),
+        ),
+        display = DisplayFont.PIXEL_16BIT,
+        shapes = ShapeStyle.PIXEL,
+        ornament = Ornament.TRIFORCES,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * Link's Awakening. Light is the DX colours: cream, heart red, the island's green and the item
+     * screen's blue, sampled from Spriters Resource's DX file-menu and items sheets. Dark is the
+     * original Game Boy's four greens (the standard DMG values), with text lifted a shade past the
+     * lightest so it passes 4.5:1.
+     */
+    val LA = GameTheme(
+        id = "la",
+        light = GamePalette(
+            primary = Color(0xFFC00000),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFFCD8C8),
+            onPrimaryContainer = Color(0xFF4A0800),
+            secondary = Color(0xFF0A6E30),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFC0F0C8),
+            onSecondaryContainer = Color(0xFF002810),
+            tertiary = Color(0xFF4040C0),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFD8DCFC),
+            onTertiaryContainer = Color(0xFF10104A),
+            surface = Color(0xFFFCF4E0),
+            onSurface = Color(0xFF201008),
+            surfaceVariant = Color(0xFFF8E0B8),
+            onSurfaceVariant = Color(0xFF5A3A10),
+            outline = Color(0xFF806040),
+            star = Color(0xFF805000),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFF9BBC0F),
+            onPrimary = Color(0xFF0F380F),
+            primaryContainer = Color(0xFF306230),
+            onPrimaryContainer = Color(0xFFD0E890),
+            secondary = Color(0xFFB8D040),
+            onSecondary = Color(0xFF0F380F),
+            secondaryContainer = Color(0xFF244E24),
+            onSecondaryContainer = Color(0xFFD0E890),
+            tertiary = Color(0xFFA8C850),
+            onTertiary = Color(0xFF0F380F),
+            tertiaryContainer = Color(0xFF1A421A),
+            onTertiaryContainer = Color(0xFFD0E890),
+            surface = Color(0xFF0F380F),
+            onSurface = Color(0xFFC8E08C),
+            surfaceVariant = Color(0xFF1E4A1E),
+            onSurfaceVariant = Color(0xFFA8C83C),
+            outline = Color(0xFF8BAC0F),
+            star = Color(0xFFD0E040),
+            outlineVariant = Color(0xFF244E24),
+        ),
+        display = DisplayFont.PIXEL_8BIT,
+        shapes = ShapeStyle.PIXEL,
+        ornament = Ornament.PIXEL_RULE,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * Oracle of Seasons. Light is the title screen's day: cream, the logo's red, the Maku Tree's green
+     * and gold, on the HUD's peach. Dark is the horseback title's night purple. The accents are the
+     * four seasons (their hues read by eye). Sampled from Spriters Resource's two title-screen sheets
+     * and the HUD sheet.
+     */
+    val OOS = GameTheme(
+        id = "oos",
+        light = GamePalette(
+            primary = Color(0xFFA50000),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFFFD8CC),
+            onPrimaryContainer = Color(0xFF3E0000),
+            secondary = Color(0xFF2F6A22),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFC8EEB8),
+            onSecondaryContainer = Color(0xFF062000),
+            tertiary = Color(0xFF7C6200),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFCE89C),
+            onTertiaryContainer = Color(0xFF261C00),
+            surface = Color(0xFFFFFBEF),
+            onSurface = Color(0xFF201810),
+            surfaceVariant = Color(0xFFFFE6B4),
+            onSurfaceVariant = Color(0xFF50402C),
+            outline = Color(0xFF84745C),
+            star = Color(0xFF7C6200),
+            accents = listOf(Color(0xFFD0407A), Color(0xFF2F8A22), Color(0xFFC85A10), Color(0xFF2A6ED0)),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFFF6A4A),
+            onPrimary = Color(0xFF2A0000),
+            primaryContainer = Color(0xFFAF0000),
+            onPrimaryContainer = Color(0xFFFFE8E0),
+            secondary = Color(0xFF8ED070),
+            onSecondary = Color(0xFF102800),
+            secondaryContainer = Color(0xFF2F5A22),
+            onSecondaryContainer = Color(0xFFD0F4C0),
+            tertiary = Color(0xFFF0CC30),
+            onTertiary = Color(0xFF2A2000),
+            tertiaryContainer = Color(0xFF5A4A00),
+            onTertiaryContainer = Color(0xFFFCECA8),
+            surface = Color(0xFF1F103C),
+            onSurface = Color(0xFFFFFBEF),
+            surfaceVariant = Color(0xFF351B65),
+            onSurfaceVariant = Color(0xFFD8CCEC),
+            outline = Color(0xFF9A8CB8),
+            star = Color(0xFFF0CC30),
+            accents = listOf(Color(0xFFF8A0C0), Color(0xFF70C850), Color(0xFFF09040), Color(0xFF8EC4F8)),
+        ),
+        display = DisplayFont.PIXEL_16BIT,
+        shapes = ShapeStyle.PIXEL,
+        ornament = Ornament.SEASONS,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * Four Swords, from the GBA game-select panel: amber-to-brown gold, the logo's red, white
+     * lettering. The accents are the four Links (green, red, blue, purple), in the Force Gems' shades.
+     * Sampled from Spriters Resource's game-selection sheet and Four Swords Adventures' Force Gems sheet.
+     */
+    val FS = GameTheme(
+        id = "fs",
+        light = GamePalette(
+            primary = Color(0xFF985000),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFF8D800),
+            onPrimaryContainer = Color(0xFF3A2400),
+            secondary = Color(0xFFBF0000),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFFD8D0),
+            onSecondaryContainer = Color(0xFF410000),
+            tertiary = Color(0xFF2850B8),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFD8E2FF),
+            onTertiaryContainer = Color(0xFF001850),
+            surface = Color(0xFFFFF8E0),
+            onSurface = Color(0xFF2A1800),
+            surfaceVariant = Color(0xFFF8E8B8),
+            onSurfaceVariant = Color(0xFF5A3A10),
+            outline = Color(0xFF8A6A40),
+            star = Color(0xFF8A5A00),
+            accents = listOf(Color(0xFF299429), Color(0xFFAD2929), Color(0xFF2929FF), Color(0xFFAD29E7)),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFF8D800),
+            onPrimary = Color(0xFF301A08),
+            primaryContainer = Color(0xFFA86000),
+            onPrimaryContainer = Color(0xFFFFFFFF),
+            secondary = Color(0xFFFF6040),
+            onSecondary = Color(0xFF301A08),
+            secondaryContainer = Color(0xFFBF0000),
+            onSecondaryContainer = Color(0xFFFFFFFF),
+            tertiary = Color(0xFFF8A800),
+            onTertiary = Color(0xFF301A08),
+            tertiaryContainer = Color(0xFF985000),
+            onTertiaryContainer = Color(0xFFFFFFFF),
+            surface = Color(0xFF301A08),
+            onSurface = Color(0xFFF8F8F8),
+            surfaceVariant = Color(0xFF703800),
+            onSurfaceVariant = Color(0xFFF8E8B0),
+            outline = Color(0xFFC08850),
+            star = Color(0xFFF8D800),
+            accents = listOf(Color(0xFF29E739), Color(0xFFFF2929), Color(0xFF5263FF), Color(0xFFDE29FF)),
+        ),
+        display = DisplayFont.PIXEL_16BIT,
+        shapes = ShapeStyle.PIXEL,
+        ornament = Ornament.COLOUR_BANDS,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * Four Swords Adventures: the logo's deep greens and the Force Gems. Dark is the logo's shadow
+     * green, light is a pale green; the accents are the four Links in the gems' shades. Sampled from
+     * Spriters Resource's Force Gems sheet (gems and logo); the gold is read by eye.
+     */
+    val FSA = GameTheme(
+        id = "fsa",
+        light = GamePalette(
+            primary = Color(0xFF0B6E38),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFB8E8C4),
+            onPrimaryContainer = Color(0xFF002110),
+            secondary = Color(0xFF7A5E00),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFCE79A),
+            onSecondaryContainer = Color(0xFF241A00),
+            tertiary = Color(0xFF2929FF),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFDCE0FF),
+            onTertiaryContainer = Color(0xFF00105A),
+            surface = Color(0xFFF4FAF2),
+            onSurface = Color(0xFF10200F),
+            surfaceVariant = Color(0xFFDCEEDC),
+            onSurfaceVariant = Color(0xFF2E4A34),
+            outline = Color(0xFF688A70),
+            star = Color(0xFF7A5E00),
+            accents = listOf(Color(0xFF299429), Color(0xFFAD2929), Color(0xFF2929FF), Color(0xFFAD29E7)),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFA0DCA4),
+            onPrimary = Color(0xFF162719),
+            primaryContainer = Color(0xFF0D7F41),
+            onPrimaryContainer = Color(0xFFFFFFFF),
+            secondary = Color(0xFFF0C830),
+            onSecondary = Color(0xFF162719),
+            secondaryContainer = Color(0xFF5A4A00),
+            onSecondaryContainer = Color(0xFFFCECA8),
+            tertiary = Color(0xFF94CEFF),
+            onTertiary = Color(0xFF001850),
+            tertiaryContainer = Color(0xFF2929FF),
+            onTertiaryContainer = Color(0xFFFFFFFF),
+            surface = Color(0xFF162719),
+            onSurface = Color(0xFFF8F8F8),
+            surfaceVariant = Color(0xFF175A2F),
+            onSurfaceVariant = Color(0xFFD8F0DC),
+            outline = Color(0xFF80A088),
+            star = Color(0xFFF0C830),
+            accents = listOf(Color(0xFF29E739), Color(0xFFFF2929), Color(0xFF5263FF), Color(0xFFDE29FF)),
+        ),
+        display = DisplayFont.ROUNDED,
+        ornament = Ornament.COLOUR_BANDS,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * Oracle of Ages: Nayru's blues, with Din's red as the third colour. Light is her palest blue,
+     * dark is night water. Sampled from Spriters Resource's Din & Nayru sheet; the HUD's peach is
+     * shared with Seasons.
+     */
+    val OOA = GameTheme(
+        id = "ooa",
+        light = GamePalette(
+            primary = Color(0xFF1E64C0),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFADE2F9),
+            onPrimaryContainer = Color(0xFF00264A),
+            secondary = Color(0xFF0A6E8A),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFB8ECF8),
+            onSecondaryContainer = Color(0xFF002A36),
+            tertiary = Color(0xFFB02A2A),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFFDAD6),
+            onTertiaryContainer = Color(0xFF410004),
+            surface = Color(0xFFF4FBFE),
+            onSurface = Color(0xFF0A1A2A),
+            surfaceVariant = Color(0xFFCCF3FC),
+            onSurfaceVariant = Color(0xFF1E4256),
+            outline = Color(0xFF5A7E92),
+            star = Color(0xFF7A5C00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFF4EC8F5),
+            onPrimary = Color(0xFF00263A),
+            primaryContainer = Color(0xFF1E64C0),
+            onPrimaryContainer = Color(0xFFFFFFFF),
+            secondary = Color(0xFFADE2F9),
+            onSecondary = Color(0xFF08182A),
+            secondaryContainer = Color(0xFF2A5A80),
+            onSecondaryContainer = Color(0xFFE0F6FE),
+            tertiary = Color(0xFFF25656),
+            onTertiary = Color(0xFF2A0000),
+            tertiaryContainer = Color(0xFF8A1C1C),
+            onTertiaryContainer = Color(0xFFFFE0DC),
+            surface = Color(0xFF08182A),
+            onSurface = Color(0xFFE8F6FC),
+            surfaceVariant = Color(0xFF163A56),
+            onSurfaceVariant = Color(0xFFADE2F9),
+            outline = Color(0xFF6A9AB8),
+            star = Color(0xFFF0CC50),
+        ),
+        display = DisplayFont.PIXEL_16BIT,
+        shapes = ShapeStyle.PIXEL,
+        ornament = Ornament.WAVES,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
     /** The themed games by id. The rest, Hyrule Warriors ("hwde") included, use [Neutral] until their batch. */
-    val byId: Map<String, GameTheme> = listOf(LOZ, WW, MC, BOTW).associateBy { it.id }
+    val byId: Map<String, GameTheme> = listOf(LOZ, AOL, ALTTP, LA, OOS, OOA, FS, WW, FSA, MC, BOTW).associateBy { it.id }
 
     /** [gameId]'s theme; [Neutral] for no game or one without a theme yet. */
     fun of(gameId: String?): GameTheme = byId[gameId] ?: Neutral

@@ -68,6 +68,7 @@ class GameThemeContrastTest {
             // "Fully upgraded." is set in the star colour.
             text("star/surface", star, c.surface)
             for ((name, bg) in surfaces) part("star/$name", star, bg)
+            theme.palette(dark).accents.forEachIndexed { i, accent -> part("accent[$i]/surface", accent, c.surface) }
             part("outline/surface", c.outline, c.surface)
             part("outline/surfaceContainer", c.outline, c.surfaceContainer)
             // A segmented bar's filled blocks against its empty ones.

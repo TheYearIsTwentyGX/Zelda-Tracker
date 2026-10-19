@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -69,6 +70,27 @@ class ThemeContactSheetTest {
             }
             assertTrue(file.length() > 0, "$file is empty")
         }
+    }
+
+    /** One strip per theme, light beside dark, for comparing them all at a glance. */
+    @Test
+    fun overviewRenders() {
+        val themes = GameThemes.byId.values.sortedBy { theme -> Games.all.indexOfFirst { it.id == theme.id } } + GameThemes.Neutral
+        val file = File(out, "all.png")
+        render(file, width = 2 * PANEL, height = STRIP * themes.size) {
+            Column(Modifier.fillMaxSize()) {
+                for (theme in themes) {
+                    Row(Modifier.fillMaxWidth()) {
+                        for (dark in listOf(false, true)) {
+                            CompositionLocalProvider(LocalAppearance provides Appearance(dark, gameThemes = true)) {
+                                ZeldaTheme(theme) { ThemeStrip(theme.id, Modifier.width(PANEL.dp).height(STRIP.dp)) }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        assertTrue(file.length() > 0)
     }
 
     @Test
@@ -146,6 +168,25 @@ class ThemeContactSheetTest {
     }
 
     @Composable
+    private fun ThemeStrip(id: String, modifier: Modifier) {
+        Surface(modifier, color = MaterialTheme.colorScheme.background) {
+            Column(Modifier.padding(vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(Games.all.firstOrNull { it.id == id }?.title ?: id, style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(horizontal = 16.dp))
+                RegionHeader("Dungeons", found = null, done = 5, total = 9, suffix = "")
+                Row(Modifier.padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    for ((bg, fg) in listOf(
+                        MaterialTheme.colorScheme.primary to MaterialTheme.colorScheme.onPrimary,
+                        MaterialTheme.colorScheme.secondaryContainer to MaterialTheme.colorScheme.onSecondaryContainer,
+                        MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer,
+                    )) Tag("Aa", container = bg, content = fg)
+                    Stars(level = 2, max = 3)
+                }
+                GameProgressBar(progress = { 0.55f }, modifier = Modifier.padding(horizontal = 16.dp))
+            }
+        }
+    }
+
+    @Composable
     private fun HomeRows(modifier: Modifier) {
         Box(modifier) {
             HomeScreen(games = Games.all, onOpenTracker = { _, _ -> }, onOpenMenu = {}, onOpenSettings = {})
@@ -154,6 +195,7 @@ class ThemeContactSheetTest {
 
     private companion object {
         const val PANEL = 360
+        const val STRIP = 170
         const val SCALE = 2
     }
 }
