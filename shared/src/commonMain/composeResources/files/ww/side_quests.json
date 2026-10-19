@@ -1,0 +1,55 @@
+{
+  "regions": ["Star Island", "Gale Isle", "Mother and Child Isles", "Windfall Island", "Dragon Roost Island", "Tingle Island", "Eastern Fairy Island", "Greatfish Isle", "Tower of the Gods", "Needle Rock Isle", "Private Oasis", "Shark Island", "Forest Haven", "Cliff Plateau Isles", "Outset Island", "Headstone Island"],
+  "noun": "quest",
+  "hiddenLabel": "Unfinished quest",
+  "sections": [
+    {
+      "id": "quests",
+      "title": "Quests",
+      "noun": "quest",
+      "note": "Side quests not already a row in another tracker.",
+      "items": [
+        {"id": "joy_pendants", "name": "Mrs. Marie's Joy Pendants", "region": "Windfall Island", "area": "Mrs. Marie's School of Joy", "notes": "Bokoblins carry Joy Pendants (steal them with the Grappling Hook), and dungeons and caves have a few in chests. Don't sell them to Beedle until you have 40.", "tiers": [{"name": "First Joy Pendant", "howTo": "After the Killer Bees' hide-and-seek, apologise to Mrs. Marie for them, then roll into the tree by the Bomb Shop for the pendant they hid and give it to her."}, {"name": "20 Joy Pendants", "howTo": "Give her 20.", "reward": "Cabana Deed"}, {"name": "40 Joy Pendants", "howTo": "Give her 20 more.", "reward": "Hero's Charm (Treasure Chart 45 in Wind Waker HD)"}]},
+        {"id": "mail_sorting", "name": "Mail Sorting", "region": "Dragon Roost Island", "area": "Mail Center", "notes": "The Piece of Heart from Baito's mother is in Heart Pieces.", "tiers": [{"name": "Koboli's test", "howTo": "Ask Koboli for the part-time job and sort at least 10 letters in 30 seconds."}, {"name": "Baito's 25 letters", "howTo": "Come back after Dragon Roost Cavern and sort 25 letters in one round while Baito watches."}, {"name": "Note to Mom", "howTo": "Post the Note to Mom Baito gives you; his mother's reply brings a Piece of Heart.", "reward": "Piece of Heart"}]},
+        {"id": "lenzo_pictographs", "name": "Lenzo's pictographs", "region": "Windfall Island", "area": "Lenzo's Pictography Shop", "notes": "The Gallery's figurines need the colour pictographs of the Deluxe Picto Box.", "tiers": [{"name": "Picto Box", "howTo": "Free Tingle from the jail behind Lenzo's house and crawl through the maze behind his cell to the Picto Box."}, {"name": "Lenzo's three tasks", "howTo": "Show Lenzo the box and take the three pictographs he asks for around Windfall."}, {"name": "Deluxe Picto Box", "howTo": "Bring Lenzo a Forest Firefly in a Bottle from Forest Haven.", "reward": "Deluxe Picto Box"}]},
+        {"id": "skull_necklaces", "name": "Maggie's Father's Skull Necklaces", "region": "Windfall Island", "area": "Above the Auction House", "howTo": "Bring Maggie's Father 20 Skull Necklaces, the Moblins' spoils.", "reward": "Treasure Chart 2", "after": "After the second visit to the Forsaken Fortress", "notes": "He tips Rupees for any more. Treasure Chart 2 leads to a Piece of Heart."},
+        {"id": "golden_feathers", "name": "Hoskit's Golden Feathers", "region": "Dragon Roost Island", "area": "Outside the Rito Chieftain's room", "howTo": "Give Hoskit 20 Golden Feathers, dropped by Peahats, Kargarocs and winged Mothulas.", "reward": "Orange Rupee", "notes": "His girlfriend's letter afterwards holds a Piece of Heart (in Heart Pieces)."},
+        {"id": "knights_crests", "name": "Orca's Knight's Crests", "region": "Outset Island", "area": "Orca's house", "howTo": "Bring Orca 10 Knight's Crests from Darknuts.", "reward": "Hurricane Spin", "notes": "Also in Items & Equipment, Upgrades."},
+        {"id": "mila_bottle", "name": "Mila's night walk", "region": "Windfall Island", "area": "Around town, at night", "howTo": "Follow Mila from the potion shop at night without being seen and catch her at Zunari's safe.", "reward": "Bottle", "after": "After the second visit to the Forsaken Fortress", "notes": "Also in Items & Equipment, Bottles."},
+        {"id": "traveling_merchants", "name": "Traveling Merchants", "region": "Greatfish Isle", "area": "Greatfish Isle, Mother and Child Isles and Bomb Island", "howTo": "Trade decorations between the three merchants, starting with a Town Flower from Zunari, up to the Shop Guru Statue; trade it on Greatfish Isle for a Piece of Heart.", "reward": "Magic Armor, Piece of Heart", "notes": "Each merchant trades three times a day. Zunari gives the Magic Armor along the way, and his shop stocks each new decoration for Windfall's decorations. The Piece of Heart is also in Heart Pieces."}
+      ]
+    },
+    {
+      "id": "withered_trees",
+      "title": "Withered Trees",
+      "noun": "tree",
+      "hiddenLabel": "Unwatered tree",
+      "note": "Water all eight in one go: Forest Water turns ordinary after 20 minutes (30 in Wind Waker HD). The last one gives a Piece of Heart.",
+      "items": [
+        {"id": "withered_tree_oakin", "name": "Oakin's tree", "region": "Star Island", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Oakin planted on Star Island.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_rown", "name": "Rown's tree", "region": "Mother and Child Isles", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Rown planted on Mother and Child Isles.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_olivio", "name": "Olivio's tree", "region": "Eastern Fairy Island", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Olivio planted on Eastern Fairy Island.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_linder", "name": "Linder's tree", "region": "Greatfish Isle", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Linder planted on Greatfish Isle.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_elma", "name": "Elma's tree", "region": "Needle Rock Isle", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Elma planted on Needle Rock Isle.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_drona", "name": "Drona's tree", "region": "Private Oasis", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Drona planted on Private Oasis.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_irch", "name": "Irch's tree", "region": "Shark Island", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Irch planted on Shark Island.", "after": "After the Forbidden Woods"},
+        {"id": "withered_tree_aldo", "name": "Aldo's tree", "region": "Cliff Plateau Isles", "howTo": "Sprinkle Forest Water from Forest Haven on the withered sapling Aldo planted on Cliff Plateau Isles.", "after": "After the Forbidden Woods"}
+      ]
+    },
+    {
+      "id": "tingle_statues",
+      "title": "Tingle Statues",
+      "noun": "statue",
+      "hiddenLabel": "Unfound Tingle Statue",
+      "note": "Five gold statues hidden in the dungeons.",
+      "items": [
+        {"id": "dragon_tingle_statue", "name": "Dragon Tingle Statue", "region": "Dragon Roost Island", "area": "Dragon Roost Cavern", "howTo": "Find the hidden spot in Dragon Roost Cavern and bomb it to reveal the statue's chest.", "notes": "GameCube: the spot shows only on the Tingle Tuner (Game Boy Advance link), and Tingle's own bomb reveals it. Wind Waker HD has no hint; a normal Bomb works."},
+        {"id": "forbidden_tingle_statue", "name": "Forbidden Tingle Statue", "region": "Forest Haven", "area": "Forbidden Woods", "howTo": "Find the hidden spot in Forbidden Woods and bomb it to reveal the statue's chest.", "notes": "GameCube: the spot shows only on the Tingle Tuner (Game Boy Advance link), and Tingle's own bomb reveals it. Wind Waker HD has no hint; a normal Bomb works."},
+        {"id": "goddess_tingle_statue", "name": "Goddess Tingle Statue", "region": "Tower of the Gods", "area": "Tower of the Gods", "howTo": "Find the hidden spot in Tower of the Gods and bomb it to reveal the statue's chest.", "notes": "GameCube: the spot shows only on the Tingle Tuner (Game Boy Advance link), and Tingle's own bomb reveals it. Wind Waker HD has no hint; a normal Bomb works."},
+        {"id": "earth_tingle_statue", "name": "Earth Tingle Statue", "region": "Headstone Island", "area": "Earth Temple", "howTo": "Find the hidden spot in Earth Temple and bomb it to reveal the statue's chest.", "notes": "GameCube: the spot shows only on the Tingle Tuner (Game Boy Advance link), and Tingle's own bomb reveals it. Wind Waker HD has no hint; a normal Bomb works."},
+        {"id": "wind_tingle_statue", "name": "Wind Tingle Statue", "region": "Gale Isle", "area": "Wind Temple", "howTo": "Find the hidden spot in Wind Temple and bomb it to reveal the statue's chest.", "notes": "GameCube: the spot shows only on the Tingle Tuner (Game Boy Advance link), and Tingle's own bomb reveals it. Wind Waker HD has no hint; a normal Bomb works."},
+        {"id": "tingle_statues_reward", "name": "Ankle's reward", "region": "Tingle Island", "area": "Tingle's tower", "howTo": "Talk to Ankle once the statues stand on Tingle Island: 50 Rupees each, and 500 more for all five.", "requires": ["dragon_tingle_statue", "forbidden_tingle_statue", "goddess_tingle_statue", "earth_tingle_statue", "wind_tingle_statue"], "reward": "Rupees", "notes": "In Wind Waker HD Knuckle also turns up on Tingle Island after all five."}
+      ]
+    }
+  ]
+}
