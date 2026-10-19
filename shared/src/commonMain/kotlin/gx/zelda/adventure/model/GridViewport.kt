@@ -61,6 +61,14 @@ data class GridViewport(
         return next.copy(scale = s, offsetX = width / 2 - cx * s, offsetY = height / 2 - cy * s).clamped()
     }
 
+    /**
+     * The viewport for a view that's now [width]×[height]: the same view at the same zoom
+     * ([resized]), unless the view turned between portrait and landscape, where it opens afresh for
+     * the new shape ([initial], around [focus]) since the old zoom would make little sense there.
+     */
+    fun forNewSize(width: Float, height: Float, focus: Pair<Int, Int>? = null): GridViewport =
+        if ((viewWidth > viewHeight) != (width > height)) initial(width, height, cols, rows, squareWidth, squareHeight, focus) else resized(width, height)
+
     /** Fit, centred. */
     fun fitted(): GridViewport = copy(scale = fitScale).clamped()
 

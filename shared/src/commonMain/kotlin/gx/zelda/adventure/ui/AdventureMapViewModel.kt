@@ -10,10 +10,14 @@ import gx.zelda.adventure.model.AdventureMap
 import gx.zelda.adventure.model.AdventureMapPrefs
 import gx.zelda.adventure.model.AdventurePrefs
 import gx.zelda.adventure.model.AdventureProgress
+import gx.zelda.adventure.model.AdventureReach
 import gx.zelda.adventure.model.AdventureSpoilers
 import gx.zelda.adventure.model.AdventureTab
 import gx.zelda.adventure.model.AdventureTotals
 import gx.zelda.adventure.model.GridViewport
+import gx.zelda.adventure.model.EdgeStyle
+import gx.zelda.adventure.model.MapEdge
+import gx.zelda.adventure.model.Side
 import gx.zelda.adventure.model.MapRegion
 import gx.zelda.adventure.model.RewardType
 import gx.zelda.adventure.model.Square
@@ -67,6 +71,15 @@ data class AdventureUiState(
     val inventory = AdventureInventory(map, progress)
     val totals = AdventureTotals(map, progress)
 
+    /** The squares that can be played now; the rest are drawn dim. */
+    val challengeable: Set<String> get() = spoilers.explored
+
+    /** The line between each pair of neighbouring squares: wall, open, or opened by a search. */
+    val edges: List<MapEdge> by lazy { AdventureReach.edges(map, progress) }
+
+    /** [edges] by square and side (east or south), for drawing. */
+    val edgeStyles: Map<Pair<String, Side>, EdgeStyle> by lazy { edges.associate { (it.square.id to it.side) to it.style } }
+
     /** True when a chip, the warrior choice or a search narrows the squares, so mark-all acts on those only. */
     val filtered: Boolean get() = mapPrefs.filters.isNotEmpty() || mapPrefs.warrior != null || session.query.isNotBlank()
 
@@ -95,14 +108,20 @@ data class AdventureUiState(
                 SquareFilter.SKULLTULAS -> !hidden && square.skulltulas.any { !progress.isDone(it.id) }
                 SquareFilter.SEARCHES -> searches.isNotEmpty()
                 SquareFilter.SEARCHABLE -> searches.any(inventory::canDo)
+                SquareFilter.CHALLENGEABLE -> square.id in challengeable
             }
         }
         val forWarrior = warrior?.let { w -> !hidden && square.rewards.any { it.warrior == w && !progress.isDone(it.id) } } ?: true
         return chips && forWarrior && matchesQuery(session.query, hidden, map.regionName(square.region)) { searchText(square) }
     }
 
-    /** The squares the filters leave, in reading order. */
-    val matching: List<Square> = map.squares.filter(::matches)
+    /**
+     * The squares the filters leave, in reading order; with *Not cleared* on, the ones that can be
+     * challenged now come first.
+     */
+    val matching: List<Square> = map.squares.filter(::matches).let { squares ->
+        if (SquareFilter.NOT_CLEARED in mapPrefs.filters) squares.sortedBy { it.id !in challengeable } else squares
+    }
 
     /** [matching] by colour, easiest first, for the list. */
     val groups: List<Pair<MapRegion, List<Square>>> = map.regions.mapNotNull { r ->
@@ -113,7 +132,7 @@ data class AdventureUiState(
     fun regionTally(region: MapRegion): Tally = map.squares.filter { it.region == region.id }.let { sq -> Tally(sq.count(progress::isComplete), sq.size) }
 
     fun look(square: Square, selected: Boolean): SquareLook =
-        SquareLook.of(map, square, progress, spoilers, matches = !filtered || square in matchingSet, selected = selected)
+        SquareLook.of(map, square, progress, spoilers, matches = !filtered || square in matchingSet, selected = selected, challengeable = square.id in challengeable)
 
     private val matchingSet: Set<Square> by lazy { matching.toSet() }
 
