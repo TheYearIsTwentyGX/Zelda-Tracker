@@ -12,3 +12,6 @@ captures/
 
 # Map tile cache (tools/map-tiles/build_tiles.py)
 tools/map-tiles/.cache/
+
+# HW:DE map builder cache (tools/hwde/build_maps.py)
+tools/hwde/.cache/

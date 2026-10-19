@@ -1,0 +1,38 @@
+[
+  {
+    "map": "adventure_map", "square": "A-16", "op": "removeReward", "id": "r1c16.poh_toon_link",
+    "source": "SBAllen's guide marks Toon Link's Piece of Heart (North Oasis) as 3DS-only; on the Switch the square gives Linkle's"
+  },
+  {
+    "map": "adventure_map", "square": "A-16", "op": "addReward",
+    "reward": {"id": "r1c16.fairy_clothing_royal_hood", "slot": "treasure", "type": "fairy_clothing",
+               "name": "Fairy Headwear - Royal Hood", "keep": "N. Settlement"},
+    "source": "SBAllen's guide lists it for both versions; the Helper's data is missing it"
+  },
+  {
+    "map": "adventure_map", "square": "A-12", "op": "addCard", "card": "recorder",
+    "source": "SBAllen's guide gives a Recorder card on clearing L-1 (A-12) in the square and in its card table; the Helper's data is missing it"
+  },
+  {
+    "map": "adventure_map", "square": "B-1", "op": "note",
+    "note": "Guides disagree: SBAllen's lists a Bomb search on the top wall here, but the Helper removed it as wrong for the Switch version.",
+    "source": "Helper commit ae3da64 (remove wrong search location) against SBAllen's A-2"
+  },
+  {
+    "map": "adventure_map", "line": "B-1 (A-2) searches", "op": "accept",
+    "source": "kept the Helper's Switch data; noted on the square"
+  },
+  {
+    "map": "adventure_map", "square": "G-7", "op": "note",
+    "note": "Guides disagree: the Helper has a Bomb search on the top wall here; SBAllen's guide lists none.",
+    "source": "Helper's data since its first version against SBAllen's G-7"
+  },
+  {
+    "map": "adventure_map", "line": "G-7 (G-7) searches", "op": "accept",
+    "source": "kept the Helper's search; noted on the square"
+  },
+  {
+    "map": "adventure_map", "line": "Nintendo Life: great_fairy at G-16", "op": "accept",
+    "source": "SBAllen (both versions) and the Helper both put Great Fairy Lv. 1 at H-1 (SBAllen A-8); nothing at G-16 gives it"
+  }
+]

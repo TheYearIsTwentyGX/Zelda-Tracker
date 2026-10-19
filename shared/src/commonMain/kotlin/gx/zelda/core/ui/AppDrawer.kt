@@ -50,7 +50,7 @@ import gx.zelda.core.TrackerKind
 sealed interface MenuSelection {
     data object Home : MenuSelection
     data object Settings : MenuSelection
-    /** [dataFile] tells a game's checklists apart; it's null for every other kind. */
+    /** [dataFile] tells a game's checklists (or Adventure maps) apart; it's null for every other kind. */
     data class Tracker(val gameId: String, val kind: TrackerKind, val dataFile: String? = null) : MenuSelection
     data object None : MenuSelection
 }
@@ -101,7 +101,8 @@ fun MenuButton(onClick: () -> Unit) {
 
 /**
  * The navigation drawer: Home, then each shown game in release order as a section that opens to
- * list its trackers (a coming-soon game is a single row), then Settings.
+ * list its trackers (a coming-soon game is a single row), the spin-offs after a heading of their
+ * own, then Settings.
  */
 @Composable
 fun AppDrawerSheet(
@@ -132,7 +133,11 @@ fun AppDrawerSheet(
                 )
             }
             item(key = "games_divider") { HorizontalDivider(Modifier.padding(vertical = 8.dp)) }
+            val firstSpinOff = sections.firstOrNull { it.game.spinOff }
             sections.forEach { section ->
+                if (section == firstSpinOff) {
+                    item(key = "_spin_offs") { SpinOffsHeading(Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) }
+                }
                 item(key = "game_${section.game.id}") {
                     GameHeader(section, onToggle = { onToggleGame(section.game.id, !section.expanded) })
                 }
@@ -156,6 +161,17 @@ fun AppDrawerSheet(
             }
         }
     }
+}
+
+/** The heading the spin-offs are listed under, after the mainline games. */
+@Composable
+fun SpinOffsHeading(modifier: Modifier = Modifier) {
+    Text(
+        "Spin-offs",
+        style = MaterialTheme.typography.titleSmall,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier.semantics { heading() },
+    )
 }
 
 /** A game's title and year; tapping it opens or closes its trackers. A coming-soon game doesn't open. */
