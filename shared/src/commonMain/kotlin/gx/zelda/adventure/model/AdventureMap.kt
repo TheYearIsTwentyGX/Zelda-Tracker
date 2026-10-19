@@ -18,11 +18,15 @@ data class AdventureMap(
     val name: String,
     val cols: Int,
     val rows: Int,
-    /** Where the map starts, the one square open before any battle. */
+    /**
+     * Where the map starts, the one square open before any battle. The Rewards Map has none: its
+     * squares open as Gold Skulltula illustrations are completed.
+     */
     val start: String? = null,
     /** The Dark Ruler's square. */
     val finalBoss: String? = null,
-    val art: MapArt,
+    /** The map's pictures; null for a map nobody has art for, whose squares are drawn as plain tiles. */
+    val art: MapArt? = null,
     /** The squares' difficulty colours, easiest first. */
     val regions: List<MapRegion> = emptyList(),
     /** The item cards this map uses or gives, as the game names them. */
@@ -47,6 +51,10 @@ data class AdventureMap(
     fun warriorName(id: String): String = warriorNames[id] ?: id
 
     fun regionName(id: String): String = regions.firstOrNull { it.id == id }?.name ?: id
+
+    /** A square's size in map pixels: its picture's, or the original game's screen for a map without art. */
+    val squareWidth: Int get() = art?.squareWidth ?: 256
+    val squareHeight: Int get() = art?.squareHeight ?: 176
 
     /** [square]'s neighbour across [side], or null at the edge or a blank square. */
     fun neighbour(square: Square, side: Side): Square? = squareAt(square.row + side.dRow, square.col + side.dCol)
@@ -114,7 +122,7 @@ data class AdventureMap(
         cards.groupBy { it.id }.filter { it.value.size > 1 }.keys.forEach { add("duplicate card '$it'") }
         warriors.groupBy { it.id }.filter { it.value.size > 1 }.keys.forEach { add("duplicate warrior '$it'") }
         regions.filter { r -> squares.none { it.region == r.id } }.forEach { add("region '${it.id}' has no squares") }
-        if (art.squareWidth <= 0 || art.squareHeight <= 0) add("art has no square size")
+        if (squareWidth <= 0 || squareHeight <= 0) add("art has no square size")
     }
 
     companion object {
@@ -168,6 +176,8 @@ data class Square(
     val battle: BattleType? = null,
     /** The victory condition, as the game words it. */
     val mission: String,
+    /** A name for the square where the game gives one: the Rewards Map's are named by their illustrations. */
+    val title: String? = null,
     /** A map rule this square plays under, e.g. "Master Quest Rule: No Guarding!". */
     val rule: String? = null,
     val finalBoss: Boolean = false,

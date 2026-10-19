@@ -30,6 +30,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -80,6 +82,8 @@ fun GridMapView(
             onLabel = scheme.inverseOnSurface,
             selection = scheme.primary,
             onSelection = scheme.onPrimary,
+            tile = scheme.surfaceVariant,
+            onTile = scheme.onSurfaceVariant,
         )
     }
 
@@ -101,7 +105,7 @@ fun GridMapView(
                 setViewport(
                     when {
                         v == null -> GridViewport.initial(
-                            w, h, map.cols, map.rows, map.art.squareWidth.toFloat(), map.art.squareHeight.toFloat(),
+                            w, h, map.cols, map.rows, map.squareWidth.toFloat(), map.squareHeight.toFloat(),
                             focus = map.start?.let(map::square)?.let { it.row to it.col },
                         )
                         v.viewWidth != w || v.viewHeight != h -> v.forNewSize(w, h, focus = map.start?.let(map::square)?.let { it.row to it.col })
@@ -141,6 +145,9 @@ private data class MapPalette(
     val onLabel: Color,
     val selection: Color,
     val onSelection: Color,
+    /** A square drawn without a picture. */
+    val tile: Color,
+    val onTile: Color,
 )
 
 /**
@@ -179,7 +186,9 @@ private fun DrawScope.drawMap(state: AdventureUiState, v: GridViewport, images: 
     for (row in v.visibleRows) for (col in v.visibleCols) {
         val square = map.squareAt(row, col) ?: continue
         val rect = Rect(v.edgeX(col).toFloat(), v.edgeY(row).toFloat(), v.edgeX(col + 1).toFloat(), v.edgeY(row + 1).toFloat())
-        if (detailed) {
+        if (map.art == null) {
+            drawTile(square, rect, text, palette)
+        } else if (detailed) {
             images.square(square)?.let {
                 drawImage(
                     it,
@@ -214,6 +223,20 @@ private fun DrawScope.drawMap(state: AdventureUiState, v: GridViewport, images: 
         drawRect(palette.selection, rect.topLeft, rect.size, style = Stroke(2.5.dp.toPx()))
     }
     drawAxes(v, text, palette)
+}
+
+/** A square with no picture: a plain tile, with its name once there's room. */
+private fun DrawScope.drawTile(square: Square, rect: Rect, text: TextMeasurer, palette: MapPalette) {
+    drawRect(palette.tile, rect.topLeft, rect.size)
+    drawRect(palette.background, rect.topLeft, rect.size, style = Stroke(1.dp.toPx()))
+    val name = square.title ?: return
+    if (rect.width < 48.dp.toPx()) return
+    val layout = text.measure(
+        name,
+        TextStyle(color = palette.onTile, fontSize = (rect.height / 7).toSp(), fontWeight = FontWeight.Bold, textAlign = TextAlign.Center),
+        constraints = Constraints(maxWidth = (rect.width * 0.85f).toInt()),
+    )
+    drawText(layout, topLeft = Offset(rect.center.x - layout.size.width / 2f, rect.center.y - layout.size.height / 2f))
 }
 
 /** One square's state over its picture. Detail comes in as the square gets bigger on screen. */

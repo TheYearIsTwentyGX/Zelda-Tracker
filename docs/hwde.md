@@ -17,14 +17,14 @@ DE has every map from both earlier games, all unlocked from the start:
 |---|---:|---|
 | Adventure Map | 128 | Yes (phase 1) |
 | Great Sea Map | 98 | Yes (phase 2a) |
-| Master Quest Map | 128 | Planned |
+| Master Quest Map | 128 | Yes (phase 2b) |
 | Master Wind Waker Map | 98 | Yes (phase 2a) |
 | Twilight Map | 93 | Planned |
 | Termina Map | 85 | Planned |
 | Koholint Island Map | 84 | Planned |
 | Grand Travels Map | 128 | Planned |
 | Lorule Map | 128 | Planned |
-| Rewards Map | 13 | Planned |
+| Rewards Map | 13 | Yes (phase 2b) |
 
 Sources: Zelda Wiki's *Adventure Mode* page (its gallery and per-map sections), the Koei Wiki and
 the contents of SBAllen's guide. Square counts are the Helper's, and match MetroWind's extraction
@@ -208,6 +208,56 @@ On both maps:
   Card"). The guides call it the Sea Chart.
 - **The Master Wind Waker Map's Power Bracelet** gets the Great Sea's card id (`power_bracelet_2`):
   it lifts Stone Heads to reveal enemies, as on the Great Sea, not the Adventure Map's boulders.
+
+### Cross-check: Master Quest Map
+
+The original game's Second Quest map, 16×8, from H-8 to the Dark Ruler at A-1. Every square plays
+under a **Master Quest Rule** (no healing, no guarding, no items…). Its 35 weapons are each
+warrior's level 3.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 128 / 128 |
+| A-rank KOs, time and damage | 128 / 128 each |
+| Searches | 127 / 128 after corrections |
+| Every reward, by slot | 127 / 128 (H-1 below) |
+| Nintendo Life weapon squares | 35 / 35 |
+
+Fixed:
+- **F-16 and G-16** (SBAllen P-6 and P-7): the Helper lists the same Ladder cell twice on each.
+  SBAllen's guide has one Ladder search per square, so the copy is removed.
+
+Accepted:
+- **A-7** (SBAllen G-1), noted on the square: the Helper has the Goddess's Harp on butterflies two
+  cells right of the lone rock; SBAllen's guide uses the Recorder on that cell. The Helper's art
+  shows butterflies there.
+- **H-1** (SBAllen A-8): the Helper gives a Compass card on a clear, added from its issue #12 (a
+  Switch player's report); SBAllen's guide lists none.
+- SBAllen calls the Recorder the "Whistle" on this map.
+
+### The Rewards Map
+
+Its 13 squares sit in a diamond in the middle of the game's 16×8 grid (SBAllen's I-1, H-2, J-2 …
+I-8; Prima's A-9 … H-9). Each opens when its Gold Skulltula illustration is complete, so the map
+has no start, no searches and no Skulltulas of its own. In spoiler-safe mode every square counts as
+reached.
+
+Neither the Helper nor anyone else has art for it, so its JSON has no `art`. The app draws each
+square as a plain tile with its illustration's name. SBAllen's guide lists the squares by that name
+too, which is how the report matches them.
+
+Fixed:
+- **F-7, "Rulers of Twilight"**: an A rank gives Ganondorf's Standard Armor (Boss), per SBAllen's
+  guide and Zelda Wiki's Costume page. The Helper had a material.
+
+Accepted:
+- SBAllen's "Rules of Twilight" typo.
+- Boss Rush's KO limit, which SBAllen leaves blank. His notes say the map follows the 1,000 KOs /
+  99% rules, as the Helper has.
+- **"Evil Power"**: Cia's three Boss costumes (Masked, Unmasked, Hatless) come from one A rank, and
+  are kept as one tick.
+- **The Ganondorf costume's name**: SBAllen calls it "Standard Outfit (Boss)", Zelda Wiki
+  "Standard Armor (Boss)". The wiki's is used.
 
 ## A-rank limits
 

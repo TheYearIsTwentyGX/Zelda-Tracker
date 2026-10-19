@@ -154,5 +154,82 @@
     "line": "Nintendo Life: great_fairy at H-1",
     "op": "accept",
     "source": "SBAllen and the Helper put Great Fairy Lv. 2 at C-1 (SBAllen A-3); nothing at H-1 or A-8 gives it. Nintendo Life's Great Fairy squares are off on the Adventure Map too"
+  },
+  {
+    "map": "master_quest_map",
+    "square": "F-16",
+    "op": "removeSearch",
+    "id": "r6c16.search_ladder_2",
+    "source": "The Helper lists the same Ladder cell twice; SBAllen's guide has one Ladder search (the eastern dock)"
+  },
+  {
+    "map": "master_quest_map",
+    "square": "G-16",
+    "op": "removeSearch",
+    "id": "r7c16.search_ladder_2",
+    "source": "The Helper lists the same Ladder cell twice; SBAllen's guide has one Ladder search (the easternmost dock)"
+  },
+  {
+    "map": "master_quest_map",
+    "square": "A-7",
+    "op": "note",
+    "note": "Guides disagree: the Helper has the Goddess's Harp on the butterflies two cells right of the lone rock; SBAllen's guide uses the Recorder on that cell.",
+    "source": "Helper's G1 against SBAllen's G-1"
+  },
+  {
+    "map": "master_quest_map",
+    "line": "A-7 (G-1) searches",
+    "op": "accept",
+    "source": "kept the Helper's Harp, whose art shows butterflies there; noted on the square"
+  },
+  {
+    "map": "master_quest_map",
+    "line": "H-1 (A-8) clear",
+    "op": "accept",
+    "source": "the Helper added this Compass card from its issue #12, a Switch player's report; SBAllen lists no clear reward"
+  },
+  {
+    "map": "rewards_map",
+    "square": "F-7",
+    "op": "removeReward",
+    "id": "r6c7.material_material",
+    "source": "Zelda Wiki (Costume) and SBAllen's guide: an A rank in \"Rulers of Twilight\" gives Ganondorf's Standard Armor (Boss), not a material"
+  },
+  {
+    "map": "rewards_map",
+    "square": "F-7",
+    "op": "addReward",
+    "reward": {
+      "id": "r6c7.outfit_ganondorf_standard_armor_boss",
+      "slot": "aRank",
+      "type": "outfit",
+      "warrior": "ganondorf",
+      "name": "Standard Armor (Boss)"
+    },
+    "source": "Zelda Wiki (Costume) and SBAllen's guide"
+  },
+  {
+    "map": "rewards_map",
+    "line": "F-7 (G-6) mission",
+    "op": "accept",
+    "source": "SBAllen's typo (\"Rules of Twilight\"); the illustration is Rulers of Twilight"
+  },
+  {
+    "map": "rewards_map",
+    "line": "F-11 (K-6) kos",
+    "op": "accept",
+    "source": "SBAllen leaves Boss Rush's KOs blank; his v2.57 notes say the Rewards Map follows the 1,000 KOs / 99% rules, as the Helper has"
+  },
+  {
+    "map": "rewards_map",
+    "line": "G-8 (H-7) aRank",
+    "op": "accept",
+    "source": "the same three costumes: one A rank in \"Evil Power\" gives Cia's Masked, Unmasked and Hatless (Boss) outfits (Zelda Wiki), kept as one tick"
+  },
+  {
+    "map": "rewards_map",
+    "line": "F-7 (G-6) aRank",
+    "op": "accept",
+    "source": "the same costume: Zelda Wiki names it Standard Armor (Boss), SBAllen Standard Outfit (Boss)"
   }
 ]

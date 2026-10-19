@@ -878,9 +878,14 @@ disagreements are in `docs/eow.md`.
 **Hyrule Warriors: Definitive Edition** (spin-off)
 
 Each Adventure Mode map is a tracker of its own, drawn as the in-game map: its 16×8 squares with
-what's done and what's left marked on each: the **Adventure Map** (128 squares), the **Great Sea
-Map** (98, with its Great Sea Rules and the cards that lift them) and the **Master Wind Waker Map**
-(the Great Sea under Endless Night Rules). The other seven maps follow. The data, its sources and disagreements, and how the art lines up are in
+what's done and what's left marked on each. So far:
+- the **Adventure Map** (128 squares);
+- the **Great Sea Map** (98, with its Great Sea Rules and the cards that lift them);
+- the **Master Quest Map** (128, every square under a Master Quest Rule);
+- the **Master Wind Waker Map** (the Great Sea under Endless Night Rules);
+- the **Rewards Map** (its 13 illustration battles, drawn as named tiles, since there's no art).
+
+The Twilight, Termina, Koholint Island, Grand Travels and Lorule maps follow. The data, its sources and disagreements, and how the art lines up are in
 `docs/hwde.md`.
 - **Progress Overview** (first): a row per map with everything done of all, squares cleared and
   A-ranked, Heart Containers, Pieces of Heart, Gold Skulltulas and weapons, and the next step.
