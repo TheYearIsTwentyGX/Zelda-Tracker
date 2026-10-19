@@ -21,6 +21,14 @@ class AdventureSpoilersTest {
         assertTrue("r1c2" in AdventureSpoilers.explored(map, hooked))
     }
 
+    /** The Rewards Map has no start: its squares open with illustrations, so each one counts as reached. */
+    @Test
+    fun aMapWithNoStartHasEverySquareReached() {
+        val noStart = map.copy(start = null)
+        assertEquals(map.squares.map { it.id }.toSet(), AdventureSpoilers.explored(noStart, AdventureProgress()))
+        assertTrue(noStart.squares.none(AdventureSpoilers(noStart, AdventureProgress(), on = true)::isHidden))
+    }
+
     @Test
     fun hiddenSquaresAndSecretsStayHiddenUntilRevealed() {
         val p = cleared("r1c1")

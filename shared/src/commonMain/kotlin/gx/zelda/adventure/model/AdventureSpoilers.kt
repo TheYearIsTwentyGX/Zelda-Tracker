@@ -36,9 +36,12 @@ class AdventureSpoilers(
          * of a cleared square across an open side. A side is open when neither square has a
          * blockade there, or when a path search (Hookshot, Raft…) has been done on the cleared
          * square: the data doesn't say which neighbour such a search opens, so all of them count.
+         * A map with no start (the Rewards Map, opened square by square by Gold Skulltula
+         * illustrations rather than by its neighbours) has every square reached.
          */
         fun explored(map: AdventureMap, progress: AdventureProgress): Set<String> = buildSet {
-            map.start?.let(::add)
+            if (map.start == null) return map.squares.mapTo(mutableSetOf()) { it.id }
+            add(map.start)
             for (square in map.squares) {
                 if (!progress.isCleared(square)) continue
                 add(square.id)

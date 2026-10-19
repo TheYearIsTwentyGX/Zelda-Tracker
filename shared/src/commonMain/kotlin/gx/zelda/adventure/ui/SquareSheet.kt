@@ -132,7 +132,7 @@ private fun SquareHeader(state: AdventureUiState, square: Square) {
     val map = state.map
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(square.label, style = MaterialTheme.typography.headlineSmall)
+            Text(listOfNotNull(square.label, square.title).joinToString(" · "), style = MaterialTheme.typography.headlineSmall)
             if (square.finalBoss && !state.spoilers.isHidden(square)) {
                 Tag("Dark Ruler", container = MaterialTheme.colorScheme.errorContainer, content = MaterialTheme.colorScheme.onErrorContainer)
             }
@@ -285,7 +285,7 @@ private fun SearchGrid(map: AdventureMap, square: Square, spots: List<Search>, i
     Canvas(
         Modifier
             .fillMaxWidth()
-            .aspectRatio(map.art.squareWidth.toFloat() / map.art.squareHeight)
+            .aspectRatio(map.squareWidth.toFloat() / map.squareHeight)
             .semantics { contentDescription = "Search spots: $description" },
     ) {
         images.version

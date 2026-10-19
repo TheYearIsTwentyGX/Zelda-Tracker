@@ -9,6 +9,7 @@ import gx.zelda.core.TrackerKind
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /**
@@ -25,7 +26,7 @@ class HwdeDatasetTest {
 
     @Test
     fun everyMapLoadsStrictlyAndIsSound() = withMaps { maps ->
-        assertEquals(setOf("adventure_map", "great_sea_map", "master_wind_waker_map"), maps.keys)
+        assertEquals(setOf("adventure_map", "great_sea_map", "master_quest_map", "master_wind_waker_map", "rewards_map"), maps.keys)
         maps.forEach { (name, map) ->
             assertEquals(emptyList(), map.problems(), name)
             assertEquals(name, map.id)
@@ -146,6 +147,53 @@ class HwdeDatasetTest {
         assertEquals("G-3", map.square(map.start!!)!!.label)
         assertEquals("G-4", map.square(map.finalBoss!!)!!.label)
         assertTrue("power_bracelet_2" in map.cards.map { it.id }, "the Great Sea's Power Bracelet, not the Adventure Map's")
+    }
+
+    /** The Second Quest's map: every square under a Master Quest Rule, and every weapon's level 3 (Nintendo Life's 35 squares). */
+    @Test
+    fun theMasterQuestMapHasItsCounts() = withMaps { maps ->
+        val map = maps.getValue("master_quest_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertEquals(128, map.squares.size)
+        assertTrue(map.squares.all { it.rule?.startsWith("Master Quest Rule") == true })
+        val rewards = map.squares.flatMap { it.rewards }.groupingBy { it.type }.eachCount()
+        assertEquals(92, rewards[RewardType.HEART_CONTAINER])
+        assertEquals(11, rewards[RewardType.HEART_PIECE])
+        assertEquals(35, rewards[RewardType.WEAPON])
+        assertTrue(map.squares.flatMap { it.rewards }.filter { it.type == RewardType.WEAPON }.all { it.level == "3" })
+        assertEquals(20, map.squares.sumOf { it.skulltulas.size })
+        assertEquals(103, map.squares.sumOf { it.searches.size }, "the Helper's doubled Ladder searches removed")
+        assertEquals("H-8", map.square(map.start!!)!!.label)
+        assertEquals("A-1", map.square(map.finalBoss!!)!!.label)
+        for (label in listOf("F-16", "G-16")) assertEquals(1, map.squares.single { it.label == label }.searches.count { it.card == "ladder" }, label)
+    }
+
+    /** The Rewards Map: 13 squares on the full 16×8 grid, named by their illustrations, with no art, start or searches. */
+    @Test
+    fun theRewardsMapHasItsIllustrations() = withMaps { maps ->
+        val map = maps.getValue("rewards_map")
+        assertEquals(16 to 8, map.cols to map.rows)
+        assertNull(map.art)
+        assertNull(map.start)
+        assertEquals(
+            setOf(
+                "Scattered Seeds", "A Prayer Received", "The Nightmare Closes In", "Those with the Wind", "Guided by Courage",
+                "True Partners", "The Giants Gather", "Chosen by Fate", "Rulers of Twilight", "Boss Rush", "Evil Power",
+                "Running to the Rescue", "Unity",
+            ),
+            map.squares.map { it.title }.toSet(),
+        )
+        assertTrue(map.squares.all { it.searches.isEmpty() && it.skulltulas.isEmpty() })
+        // Zelda Wiki's Costume page: the Boss costumes each illustration gives on an A rank.
+        val outfits = map.squares.flatMap { s -> s.rewards.filter { it.type == RewardType.OUTFIT }.map { s.title!! to "${it.warrior} ${it.name}" } }.toMap()
+        assertEquals(
+            mapOf(
+                "Scattered Seeds" to "lana Standard Outfit (Boss)", "True Partners" to "link Dark Link Costume",
+                "The Giants Gather" to "link Hero's Clothes (Boss)", "Rulers of Twilight" to "ganondorf Standard Armor (Boss)",
+                "Boss Rush" to "zelda Standard Robes (Boss)", "Evil Power" to "cia Masked / Unmasked / Hatless (Boss)",
+            ),
+            outfits,
+        )
     }
 
     @Test

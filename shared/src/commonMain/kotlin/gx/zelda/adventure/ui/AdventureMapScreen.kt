@@ -320,7 +320,7 @@ private fun SquareRow(state: AdventureUiState, square: Square, onOpen: () -> Uni
             verticalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(square.label, style = MaterialTheme.typography.titleMedium)
+                Text(listOfNotNull(square.label, square.title).joinToString(" · "), style = MaterialTheme.typography.titleMedium)
                 Text(state.progress.status(square).label, style = MaterialTheme.typography.labelMedium, color = dim, modifier = Modifier.weight(1f))
                 Text("${state.progress.doneCount(square)} / ${square.checkCount}", style = MaterialTheme.typography.labelMedium, color = dim)
             }

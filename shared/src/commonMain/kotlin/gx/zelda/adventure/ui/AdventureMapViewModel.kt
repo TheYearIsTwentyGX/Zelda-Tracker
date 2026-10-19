@@ -139,7 +139,7 @@ data class AdventureUiState(
     }
 
     private fun searchText(square: Square): List<String?> =
-        listOf(square.label, square.altLabel, square.mission, square.rule, square.battle?.label, map.regionName(square.region)) +
+        listOf(square.label, square.altLabel, square.title, square.mission, square.rule, square.battle?.label, map.regionName(square.region)) +
             square.rewards.flatMap { listOf(it.name, it.keep, it.warrior?.let(map::warriorName)) } +
             square.warriors.map { map.warriorName(it.warrior) } +
             square.givesCards.mapNotNull { map.card(it)?.name } +

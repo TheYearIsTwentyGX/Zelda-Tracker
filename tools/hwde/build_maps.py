@@ -56,6 +56,12 @@ MAPS = {
                       "sballen": ("adventure-map", "20190514154015"), "wiki": "Adventure"},
     "great_sea_map": {"hwh": "great-sea", "name": "Great Sea Map",
                       "sballen": ("great-sea-map", "20190514154017"), "wiki": "Great Sea"},
+    "master_quest_map": {"hwh": "master-quest", "name": "Master Quest Map",
+                         "sballen": ("master-quest-map", "20190514154011"), "wiki": "Master Quest"},
+    # The Rewards Map's 13 squares sit on the game's full 16x8 grid. Nobody has art for it, so the
+    # app draws plain tiles named by each square's illustration; SBAllen lists them by that name.
+    "rewards_map": {"hwh": "rewards", "name": "Rewards Map", "grid": (16, 8), "art": False, "titles": True,
+                    "sballen": ("rewards-map", "20190514154019"), "wiki": "Rewards"},
     "master_wind_waker_map": {"hwh": "master-wind-waker", "name": "Master Wind Waker Map",
                               "sballen": ("master-wind-waker-map", "20190514154017"), "wiki": "Master Wind Waker"},
 }
@@ -78,6 +84,43 @@ NINTENDO_LIFE_WEAPONS = {
                       ("mirror", "D-1"), ("mask", "D-9"), ("balloon", "B-5"), ("ocarina", "D-6"), ("light_sword", "C-14")],
     # Written column first for the last two: SBAllen's K-6 and M-2.
     "master_wind_waker_map": [("rito_harp", "D-4"), ("rito_harp", "F-11"), ("rito_harp", "B-13")],
+    "master_quest_map": [
+        ("hylian_sword", "H-6"),
+        ("magic_rod", "B-8"),
+        ("gauntlets", "A-11"),
+        ("great_fairy", "A-9"),
+        ("epona", "D-13"),
+        ("giant_blade", "G-6"),
+        ("naginata", "E-3"),
+        ("harp", "A-7"),
+        ("book_of_sorcery", "A-4"),
+        ("spinner", "F-15"),
+        ("spear", "B-6"),
+        ("summoning_gate", "D-16"),
+        ("hammer", "A-3"),
+        ("rapier", "G-5"),
+        ("baton", "B-10"),
+        ("dominion_rod", "B-16"),
+        ("shackle", "B-3"),
+        ("goddess_blade", "G-15"),
+        ("great_swords", "B-4"),
+        ("trident", "C-15"),
+        ("scepter", "B-2"),
+        ("dragon_spear", "G-13"),
+        ("ring", "A-10"),
+        ("mirror", "A-16"),  # written column first: SBAllen P-1
+        ("mask", "H-2"),  # written column first: SBAllen B-8
+        ("balloon", "A-6"),  # written column first: SBAllen F-1
+        ("crossbows", "B-5"),  # written column first: SBAllen E-2
+        ("ocarina", "D-5"),  # written column first: SBAllen E-4
+        ("light_sword", "C-2"),  # written column first: SBAllen B-3
+        ("cutlass", "F-2"),  # written column first: SBAllen B-6
+        ("sail", "H-3"),  # written column first: SBAllen C-8
+        ("parasol", "D-15"),
+        ("scimitars", "G-16"),
+        ("demon_blade", "D-1"),
+        ("zora_scale", "A-12"),
+    ],
 }
 # RPG Site, "Hyrule Warriors: Definitive Edition: How to unlock every character".
 RPG_SITE_WARRIORS = {
@@ -315,7 +358,7 @@ def sballen_page(map_id: str) -> dict:
         return out
 
     squares = {}
-    for m in re.finditer(r'Map ([A-P]-\d+)<a id="[^"]*"></a></h4>(<table.*?</table>)', text, re.S):
+    for m in re.finditer(r'Map (?:- )?([^<]+?)<a id="[^"]*"></a></h4>(<table.*?</table>)', text, re.S):
         rows = re.findall(r"<tr>(.*?)</tr>", m.group(2), re.S)
         cells = {}
         for head, body in zip(rows, rows[1:]):
@@ -326,7 +369,7 @@ def sballen_page(map_id: str) -> dict:
             for k, h in enumerate(heads):
                 if k < len(tds):
                     cells[html.unescape(re.sub(r"<[^>]+>", "", h)).strip()] = lines(tds[k])
-        squares[m.group(1)] = cells
+        squares[html.unescape(m.group(1)).strip()] = cells
     start = re.search(r"Starting square:\s*([A-P]-\d+)", re.sub(r"<[^>]+>", " ", text))
     boss = re.search(r"Final Boss square:\s*([A-P]-\d+)", re.sub(r"<[^>]+>", " ", text))
     return {"squares": squares, "start": start and start.group(1), "boss": boss and boss.group(1)}
@@ -393,8 +436,7 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
     cfg = MAPS[map_id]
     hwh_map = ts_literal(hwh(f"src/data/maps/{cfg['hwh']}/{cfg['hwh']}-map.ts").decode("utf-8"))
     tiles = hwh_map["tiles"]
-    rows = max(hwh_id_to_square(t["id"])[0] for t in tiles)
-    cols = max(hwh_id_to_square(t["id"])[1] for t in tiles)
+    cols, rows = cfg.get("grid") or (max(hwh_id_to_square(t["id"])[1] for t in tiles), max(hwh_id_to_square(t["id"])[0] for t in tiles))
 
     used_cards: list[str] = []
     warriors: set[str] = set()
@@ -421,6 +463,8 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
             "battle": m.group(1).lower() if m else None,
             "mission": (m.group(2) if m else challenge).strip(),
         }
+        if cfg.get("titles"):
+            sq["title"] = re.search(r'illustration "([^"]+)"', challenge).group(1)
         if t.get("additionalRule"):
             # The Helper keeps SBAllen's "Engless Night Rule" typo on a few squares.
             sq["rule"] = t["additionalRule"].replace("Engless Night", "Endless Night")
@@ -482,8 +526,8 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
         "rows": rows,
         "start": square_id(*sballen_to_square(sb["start"])) if sb.get("start") else None,
         "finalBoss": next((s["id"] for s in squares if s.get("finalBoss")), None),
-        "art": {"squares": f"hwde/{map_id}", "preview": f"hwde/{map_id}/preview.webp",
-                "squareWidth": SQUARE_W, "squareHeight": SQUARE_H},
+        **({"art": {"squares": f"hwde/{map_id}", "preview": f"hwde/{map_id}/preview.webp",
+                    "squareWidth": SQUARE_W, "squareHeight": SQUARE_H}} if cfg.get("art", True) else {}),
         "regions": [{"id": r_, "name": REGION_NAMES[r_]} for r_ in REGION_ORDER if r_ in regions_used],
         "cards": map_cards(map_id, used_cards, lk, cards_wiki),
         "warriors": sorted(({"id": w.replace("-", "_"), "name": lk.character_name(w)} for w in warriors),
@@ -585,7 +629,7 @@ def map_cards(map_id: str, used: list[str], lk: Lookups, cards_wiki: list[dict])
 
 # ---------------------------------------------------------------------------- corrections, ids
 
-def apply_corrections(m: dict, corrections: list[dict]) -> list[str]:
+def apply_corrections(m: dict, corrections: list[dict], lk: "Lookups") -> list[str]:
     applied = []
     by_label = {s["label"]: s for s in m["squares"]}
     for c in corrections:
@@ -600,8 +644,18 @@ def apply_corrections(m: dict, corrections: list[dict]) -> list[str]:
             sq["rewards"] = [r for r in sq.get("rewards", []) if r["id"] != c["id"]]
             if len(sq["rewards"]) == before:
                 raise ValueError(f"correction {c}: no such reward")
+        elif op == "removeSearch":
+            before = len(sq.get("searches", []))
+            sq["searches"] = [x for x in sq.get("searches", []) if x["id"] != c["id"]]
+            if len(sq["searches"]) == before:
+                raise ValueError(f"correction {c}: no such search")
+            if not sq["searches"]:
+                del sq["searches"]
         elif op == "addReward":
             sq.setdefault("rewards", []).append(c["reward"])
+            w = c["reward"].get("warrior")
+            if w and w not in {x["id"] for x in m["warriors"]}:
+                m["warriors"] = sorted(m["warriors"] + [{"id": w, "name": lk.character_name(w.replace("_", "-"))}], key=lambda x: x["name"])
         elif op == "addCard":
             sq.setdefault("givesCards", []).append(c["card"])
         elif op == "note":
@@ -655,7 +709,7 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
             t = r["type"]
             text = {"heart_container": f"Heart Container - {w}", "heart_piece": f"Piece of Heart - {w}",
                     "weapon": f"{r['name'].replace(' Lv. ', ' Lv.')} - {w}", "outfit": f"{r['name']} - {w}",
-                    "warrior": w, "material": f"{r['name']} Material"}.get(t, r["name"])
+                    "warrior": w, "material": r["name"] if r["name"] == "Material" else f"{r['name']} Material"}.get(t, r["name"])
             out[norm(text)] += 1
         if slot == "clear":
             for c in s.get("givesCards", []):
@@ -673,7 +727,7 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
         return out
 
     for s in m["squares"]:
-        b = sbsq.get(s["altLabel"])
+        b = sbsq.get(s["altLabel"]) or sbsq.get(s.get("title", ""))
         tag = f"{s['label']} ({s['altLabel']})"
         if b is None:
             lines.append(f"{tag}: not in SBAllen's guide")
@@ -692,7 +746,7 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
             if theirs_v != ours_v:
                 lines.append(f"{tag} {field}: ours {ours_v or '-'} / SBAllen {theirs_v or '-'}")
         ours_search = sorted(norm(card_names[x["card"]]).rstrip("s") for x in s.get("searches", []))
-        theirs_search = sorted(norm(re.sub(r"^ONLY\s*-?\s*", "", t.split(":")[0])).replace("seachart", "seamap").rstrip("s") for t in b.get("Search", []))
+        theirs_search = sorted(norm(re.sub(r"^ONLY\s*-?\s*", "", t.split(":")[0])).replace("seachart", "seamap").replace("whistle", "recorder").rstrip("s") for t in b.get("Search", []))
         if ours_search != theirs_search:
             lines.append(f"{tag} searches: ours {ours_search} / SBAllen {theirs_search}")
         for slot, key in (("aRank", "A-Rank Victory"), ("clear", "Battle Victory"), ("treasure", "Treasure")):
@@ -732,6 +786,8 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
 # ---------------------------------------------------------------------------- art and icons
 
 def copy_art(m: dict):
+    if "art" not in m:
+        return
     hwh_id = MAPS[m["id"]]["hwh"]
     out = FILES / "hwde" / m["id"]
     out.mkdir(parents=True, exist_ok=True)
@@ -827,7 +883,7 @@ def main():
     for map_id in args.map or sorted(MAPS):
         sb = sballen_page(map_id)
         m = convert(map_id, lk, cards_wiki, sb)
-        applied = apply_corrections(m, corrections)
+        applied = apply_corrections(m, corrections, lk)
         removed = check_lock(m, args.allow_removed, write=not args.check)
         lines, accepted = report(m, sb, lk, cards_wiki, [c for c in corrections if c["op"] == "accept"])
         print(f"== {m['name']}: {len(m['squares'])} squares, {len(all_ids(m))} ids")
