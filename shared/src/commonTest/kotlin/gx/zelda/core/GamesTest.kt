@@ -64,9 +64,16 @@ class GamesTest {
     /** These games have trackers; the rest are coming soon with placeholder files. */
     @Test
     fun theNewGamesAreComingSoon() {
-        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "mc", "ss", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
-        assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
+        assertEquals(listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "botw", "totk", "eow"), Games.all.filterNot { it.comingSoon }.map { it.id })
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.TFH.saveFiles.map { it.id })
+    }
+
+    /** Two files on the DS (Nintendo's manual), the placeholder's ids; every tracker after the overview is a checklist. */
+    @Test
+    fun phantomHourglassHasTwoSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2"), Games.PH.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.PH.trackers.first().kind)
+        assertTrue(Games.PH.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     @Test
@@ -94,6 +101,14 @@ class GamesTest {
         assertTrue(Games.FS.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
+    /** Three memory-card files, "Quest Log 1-3" in the manual (docs/fsa.md). */
+    @Test
+    fun fourSwordsAdventuresHasThreeSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2", "file_3"), Games.FSA.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.FSA.trackers.first().kind)
+        assertTrue(Games.FSA.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
     /** Three files on the Wii and in HD (docs/ss.md); every tracker after the overview is a checklist. */
     @Test
     fun skywardSwordHasThreeSaveFilesAndAnOverviewFirst() {
@@ -108,5 +123,13 @@ class GamesTest {
         assertEquals(listOf("file_1", "file_2"), Games.EOW.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.EOW.trackers.first().kind)
         assertTrue(Games.EOW.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /** Two files on the DS (Nintendo's manual), the placeholder's ids; every tracker after the overview is a checklist. */
+    @Test
+    fun spiritTracksHasTwoSaveFilesAndAnOverviewFirst() {
+        assertEquals(listOf("file_1", "file_2"), Games.ST.saveFiles.map { it.id })
+        assertEquals(TrackerKind.OVERVIEW, Games.ST.trackers.first().kind)
+        assertTrue(Games.ST.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 }

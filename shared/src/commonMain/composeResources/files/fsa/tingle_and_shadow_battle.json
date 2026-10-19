@@ -1,0 +1,31 @@
+{
+  "regions": ["Whereabouts of the Wind", "Eastern Hyrule", "Death Mountain", "Near the Fields", "The Dark World", "The Desert of Doubt", "Frozen Hyrule", "Realm of the Heavens"],
+  "noun": "mini-game",
+  "hiddenLabel": "Hidden mini-game",
+  "sections": [
+    {
+      "id": "tingles_tower",
+      "title": "Tingle's Tower",
+      "note": "Multiplayer only (a Game Boy Advance per player). One mini-game opens per level, after its second stage.",
+      "items": [
+        {"id": "bucking_bronco", "name": "Bucking Bronco", "region": "Whereabouts of the Wind", "area": "Tingle's Tower, after the Cave of No Return", "howTo": "Clear the Cave of No Return in multiplayer and accept Tingle's invitation; the tower lands on the map, and its first portal opens. A horse race: win it or collect the most Force Gems.", "after": "Cave of No Return (stage 1-2)", "reward": "Force Gems; a Force Fairy per 1,000", "notes": "Clearing the stage in single-player sends the invitation the next time you choose the level in multiplayer. A declined invitation comes back whenever you return to the level. Once open, a mini-game can be played from any Tingle's Tower.", "tags": ["Multiplayer"]},
+        {"id": "cucco_wranglers", "name": "Cucco Wranglers", "region": "Eastern Hyrule", "area": "Tingle's Tower, after the Village of the Blue Maiden", "howTo": "Round up the most Cuccos and throw them into the pen.", "after": "Village of the Blue Maiden (stage 2-2)", "reward": "Force Gems; a Force Fairy per 1,000", "tags": ["Multiplayer"]},
+        {"id": "hammer_tag", "name": "Hammer Tag", "region": "Death Mountain", "area": "Tingle's Tower, after The Mountain Path", "howTo": "Talk to the villager by the tree. Whoever he picks holds the Magic Hammer and chases the others, who run while \"it\" is dizzy. Fleeing is winning.", "after": "The Mountain Path (stage 3-2)", "reward": "Force Gems; a Force Fairy per 1,000", "tags": ["Multiplayer"]},
+        {"id": "monster_hunting", "name": "Monster Hunting", "region": "Near the Fields", "area": "Tingle's Tower, after The Swamp", "howTo": "Defeat the most enemies.", "after": "The Swamp (stage 4-2)", "reward": "Force Gems; a Force Fairy per 1,000", "tags": ["Multiplayer"]},
+        {"id": "volley_by_golly", "name": "Volley, By Golly", "region": "The Dark World", "area": "Tingle's Tower, after Kakariko Village", "howTo": "Hit the bouncing ball when it turns your colour. The sign keeps volley records.", "after": "Kakariko Village (stage 5-2)", "reward": "Force Gems; a Force Fairy per 1,000", "tags": ["Multiplayer"]},
+        {"id": "mole_melee", "name": "Mole Melee", "region": "The Desert of Doubt", "area": "Tingle's Tower, after the Desert Temple", "howTo": "Coloured moles pop up: smack the ones of your colour with the squeaky hammer.", "after": "Desert Temple (stage 6-2)", "reward": "Force Gems; a Force Fairy per 1,000", "tags": ["Multiplayer"]},
+        {"id": "monster_hunting_returns", "name": "Monster Hunting Returns", "region": "Frozen Hyrule", "area": "Tingle's Tower, after the Temple of Ice", "howTo": "A harder Monster Hunting: defeat the most enemies.", "after": "Temple of Ice (stage 7-2)", "reward": "Force Gems; a Force Fairy per 1,000", "tags": ["Multiplayer"]},
+        {"id": "bonus_course", "name": "Bonus Course", "region": "Realm of the Heavens", "area": "Tingle's Tower, after The Dark Cloud", "howTo": "Tingle's own little dungeon.", "after": "The Dark Cloud (stage 8-2)", "reward": "Force Gems; a Force Fairy per 1,000", "notes": "In this level the tower lands between the first and second stages, as there's no room beside the Palace of Winds.", "tags": ["Multiplayer"]}
+      ]
+    },
+    {
+      "id": "shadow_battle",
+      "title": "Shadow Battle",
+      "noun": "unlock",
+      "note": "2 to 4 players, each on a Game Boy Advance. Battles aren't saved.",
+      "items": [
+        {"id": "dark_arenas", "name": "Dark World arenas", "howTo": "Finish the Hyrulean Adventure (defeat Ganon in the Palace of Winds). Five Dark versions of the arenas appear beside the five you start with: The Field, Tower of Flames, Tower of Winds, Hyrule Castle and Above the Clouds. Each Dark arena has a smaller field of view and different hazards.", "after": "The Hyrulean Adventure finished", "reward": "5 Dark arenas (10 in all)", "notes": "Zelda Wiki, Wikipedia and GameFAQs give this unlock. The manual says only that the number of courses \"increases when you clear stages in Hyrulean Adventure\"; no source lists another unlock.", "tags": ["Multiplayer"]}
+      ]
+    }
+  ]
+}

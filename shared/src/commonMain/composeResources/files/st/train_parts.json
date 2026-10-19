@@ -1,0 +1,367 @@
+{
+  "noun": "part",
+  "hiddenLabel": "Unbought part",
+  "summaries": [
+    {
+      "label": "Complete sets",
+      "formula": "floor(spirit_train / 4) + floor(wooden_train / 4) + floor(steel_train / 4) + floor(skull_train / 4) + floor(stagecoach_train / 4) + floor(dragonhead_train / 4) + floor(sweet_train / 4) + floor(golden_train / 4)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "spirit_train",
+      "title": "Spirit Train",
+      "noun": "part",
+      "note": "The four parts you're given in the story: a full Spirit Train has 4 hearts.",
+      "items": [
+        {
+          "id": "spirit_engine",
+          "name": "Spirit Engine",
+          "howTo": "Anjean turns the statue in the Tower of Spirits' lobby into the Spirit Train after the first climb.",
+          "tags": [
+            "Engine"
+          ],
+          "notes": "Comes with the Solid Passenger Car."
+        },
+        {
+          "id": "practical_cannon",
+          "name": "Practical Cannon",
+          "howTo": "Alfonzo fits it in Aboda Village after you bring him home (after the Snow Rail Map).",
+          "tags": [
+            "Cannon"
+          ]
+        },
+        {
+          "id": "solid_passenger_car",
+          "name": "Solid Passenger Car",
+          "howTo": "Part of the Spirit Train from the start.",
+          "tags": [
+            "Passenger Car"
+          ],
+          "notes": "Zelda Dungeon gives the European name, Stalwart Car."
+        },
+        {
+          "id": "trusty_freight_car",
+          "name": "Trusty Freight Car",
+          "howTo": "Kagoron lends it in Goron Village when he asks for Mega Ice.",
+          "tags": [
+            "Freight Car"
+          ],
+          "notes": "Zelda Dungeon gives the European name, Reliable Wagon."
+        }
+      ]
+    },
+    {
+      "id": "wooden_train",
+      "title": "Wooden Train",
+      "noun": "part",
+      "note": "Trade Treasure with Linebeck III at the Trading Post once the bridge is rebuilt. A full set has 6 hearts, a mixed train 5.",
+      "items": [
+        {
+          "id": "wooden_engine",
+          "name": "Wooden Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Wood Hearts, 2 Star Fragments, 1 Dark Pearl Loop.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "wooden_cannon",
+          "name": "Wooden Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Wood Hearts, 1 Stalfos Skull, 1 Ruto Crown.",
+          "tags": [
+            "Cannon"
+          ]
+        },
+        {
+          "id": "wood_passenger_car",
+          "name": "Wood Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Wood Heart, 1 Bee Larvae, 1 Dragon Scale.",
+          "tags": [
+            "Passenger Car"
+          ]
+        },
+        {
+          "id": "wooden_freight_car",
+          "name": "Wooden Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Wood Heart, 2 Demon Fossils, 1 Pearl Necklace.",
+          "tags": [
+            "Freight Car"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steel_train",
+      "title": "Steel Train",
+      "noun": "part",
+      "note": "Trade Treasure with Linebeck III at the Trading Post once the bridge is rebuilt. A full set has 6 hearts, a mixed train 5.",
+      "items": [
+        {
+          "id": "steel_engine",
+          "name": "Steel Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pearl Necklaces, 1 Ruto Crown, 1 Goron Amber.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "heavy_cannon",
+          "name": "Heavy Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pearl Necklaces, 2 Dragon Scales, 1 Mystic Jade.",
+          "tags": [
+            "Cannon"
+          ]
+        },
+        {
+          "id": "sturdy_passenger_car",
+          "name": "Sturdy Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pearl Necklaces, 3 Pirate Necklaces, 1 Ancient Gold Piece.",
+          "tags": [
+            "Passenger Car"
+          ]
+        },
+        {
+          "id": "efficient_freight_car",
+          "name": "Efficient Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pearl Necklaces, 2 Dark Pearl Loops, 1 Goron Amber.",
+          "tags": [
+            "Freight Car"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skull_train",
+      "title": "Skull Train",
+      "noun": "part",
+      "note": "Trade Treasure with Linebeck III at the Trading Post once the bridge is rebuilt. A full set has 6 hearts, a mixed train 5.",
+      "items": [
+        {
+          "id": "skull_engine",
+          "name": "Skull Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 4 Stalfos Skulls, 3 Bee Larvae, 2 Ruto Crowns.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "skull_cannon",
+          "name": "Skull Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Stalfos Skulls, 3 Demon Fossils, 1 Dragon Scale.",
+          "tags": [
+            "Cannon"
+          ]
+        },
+        {
+          "id": "skull_passenger_car",
+          "name": "Skull Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 3 Stalfos Skulls, 2 Star Fragments, 1 Pearl Necklace.",
+          "tags": [
+            "Passenger Car"
+          ]
+        },
+        {
+          "id": "skull_freight_car",
+          "name": "Skull Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Stalfos Skulls, 4 Wood Hearts, 2 Pirate Necklaces.",
+          "tags": [
+            "Freight Car"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stagecoach_train",
+      "title": "Stagecoach Train",
+      "noun": "part",
+      "note": "Trade Treasure with Linebeck III at the Trading Post once the bridge is rebuilt. A full set has 6 hearts, a mixed train 5.",
+      "items": [
+        {
+          "id": "stagecoach_engine",
+          "name": "Stagecoach Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 3 Dragon Scales, 8 Bee Larvae.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "tower_cannon",
+          "name": "Tower Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 3 Dark Pearl Loops, 2 Pirate Necklaces.",
+          "tags": [
+            "Cannon"
+          ],
+          "notes": "Zelda Dungeon's table mislabels it Skull Cannon."
+        },
+        {
+          "id": "quaint_passenger_car",
+          "name": "Quaint Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 3 Ruto Crowns, 5 Star Fragments.",
+          "tags": [
+            "Passenger Car"
+          ]
+        },
+        {
+          "id": "garden_freight_car",
+          "name": "Garden Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 2 Pearl Necklaces, 7 Stalfos Skulls.",
+          "tags": [
+            "Freight Car"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dragonhead_train",
+      "title": "Dragonhead Train",
+      "noun": "part",
+      "note": "Trade Treasure with Linebeck III at the Trading Post once the bridge is rebuilt. A full set has 6 hearts, a mixed train 5.",
+      "items": [
+        {
+          "id": "dragonhead_engine",
+          "name": "Dragonhead Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pirate Necklaces, 1 Mystic Jade, 12 Demon Fossils.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "dragon_cannon",
+          "name": "Dragon Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pirate Necklaces, 1 Goron Amber, 9 Wood Hearts.",
+          "tags": [
+            "Cannon"
+          ]
+        },
+        {
+          "id": "dragon_passenger_car",
+          "name": "Dragon Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Pirate Necklace, 3 Dark Pearl Loops, 8 Demon Fossils.",
+          "tags": [
+            "Passenger Car"
+          ]
+        },
+        {
+          "id": "dragon_freight_car",
+          "name": "Dragon Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 2 Pirate Necklaces, 2 Ruto Crowns, 6 Bee Larvae.",
+          "tags": [
+            "Freight Car"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sweet_train",
+      "title": "Sweet Train",
+      "noun": "part",
+      "note": "Trade Treasure with Linebeck III at the Trading Post once the bridge is rebuilt. A full set has 6 hearts, a mixed train 5.",
+      "items": [
+        {
+          "id": "sweet_engine",
+          "name": "Sweet Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Palace Dish, 2 Mystic Jades, 1 Ancient Gold Piece.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "honey_cannon",
+          "name": "Honey Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Palace Dish, 5 Pearl Necklaces, 1 Goron Amber.",
+          "tags": [
+            "Cannon"
+          ]
+        },
+        {
+          "id": "cake_passenger_car",
+          "name": "Cake Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Palace Dish, 3 Dragon Scales, 4 Ruto Crowns.",
+          "tags": [
+            "Passenger Car"
+          ]
+        },
+        {
+          "id": "pie_freight_car",
+          "name": "Pie Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Palace Dish, 1 Goron Amber, 3 Dark Pearl Loops.",
+          "tags": [
+            "Freight Car"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "golden_train",
+      "title": "Golden Train",
+      "noun": "part",
+      "note": "A full set has 8 hearts. Needs 2 Alchemy Stones and 2 Regal Rings; see the Minigames & Secrets tracker for where they are.",
+      "items": [
+        {
+          "id": "golden_engine",
+          "name": "Golden Engine",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Alchemy Stone, 2 Ancient Gold Pieces, 3 Mystic Jades.",
+          "tags": [
+            "Engine"
+          ]
+        },
+        {
+          "id": "brawny_cannon",
+          "name": "Brawny Cannon",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Alchemy Stone, 3 Palace Dishes, 2 Goron Ambers.",
+          "tags": [
+            "Cannon"
+          ],
+          "notes": "IGN calls it the Golden Cannon (the European name)."
+        },
+        {
+          "id": "royal_passenger_car",
+          "name": "Royal Passenger Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Regal Ring, 4 Dragon Scales, 2 Ancient Gold Pieces.",
+          "tags": [
+            "Passenger Car"
+          ],
+          "notes": "IGN calls it the Golden Passenger Car."
+        },
+        {
+          "id": "golden_freight_car",
+          "name": "Golden Freight Car",
+          "area": "Trading Post",
+          "howTo": "Trade Linebeck III 1 Regal Ring, 4 Pearl Necklaces, 1 Mystic Jade.",
+          "tags": [
+            "Freight Car"
+          ],
+          "notes": "Zelda Wiki says 2 Mystic Jades; Zelda Dungeon and IGN say 1."
+        }
+      ]
+    }
+  ]
+}

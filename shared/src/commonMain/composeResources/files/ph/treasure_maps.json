@@ -1,0 +1,668 @@
+{
+  "regions": [
+    "Southwestern Sea",
+    "Northwestern Sea",
+    "Southeastern Sea",
+    "Northeastern Sea"
+  ],
+  "noun": "map",
+  "hiddenLabel": "Unfound Treasure Map",
+  "summaries": [
+    {
+      "label": "Maps found",
+      "formula": "min(map_cannon_beehives, 1) + min(map_molida_hideaway, 1) + min(map_astrid_basement, 1) + min(map_ember_grass, 1) + min(map_zauz_tiles, 1) + min(map_uncharted_eye, 1) + min(map_gust_miniblin_pit, 1) + min(map_gust_sandworms, 1) + min(map_ojibe, 1) + min(map_oshus_tree, 1) + min(map_totok_b6, 1) + min(map_freedle, 1) + min(map_molida_girl, 1) + min(map_goron_chuchus, 1) + min(map_goron_temple, 1) + min(map_goron_bombchu, 1) + min(map_frost_islet, 1) + min(map_harrow_1, 1) + min(map_harrow_2, 1) + min(map_molida_cucco, 1) + min(map_bannan_sign, 1) + min(map_bannan_chests, 1) + min(map_totok_b5, 1) + min(map_harrow_3, 1) + min(map_harrow_4, 1) + min(map_man_of_smiles, 1) + min(map_maze_normal, 1) + min(map_dead_rupoor_room, 1) + min(map_dead_kings_eye, 1) + min(map_totok_b10, 1) + min(map_totok_b12, 1)"
+    },
+    {
+      "label": "Treasures salvaged",
+      "formula": "maps - (min(map_cannon_beehives, 1) + min(map_molida_hideaway, 1) + min(map_astrid_basement, 1) + min(map_ember_grass, 1) + min(map_zauz_tiles, 1) + min(map_uncharted_eye, 1) + min(map_gust_miniblin_pit, 1) + min(map_gust_sandworms, 1) + min(map_ojibe, 1) + min(map_oshus_tree, 1) + min(map_totok_b6, 1) + min(map_freedle, 1) + min(map_molida_girl, 1) + min(map_goron_chuchus, 1) + min(map_goron_temple, 1) + min(map_goron_bombchu, 1) + min(map_frost_islet, 1) + min(map_harrow_1, 1) + min(map_harrow_2, 1) + min(map_molida_cucco, 1) + min(map_bannan_sign, 1) + min(map_bannan_chests, 1) + min(map_totok_b5, 1) + min(map_harrow_3, 1) + min(map_harrow_4, 1) + min(map_man_of_smiles, 1) + min(map_maze_normal, 1) + min(map_dead_rupoor_room, 1) + min(map_dead_kings_eye, 1) + min(map_totok_b10, 1) + min(map_totok_b12, 1))"
+    }
+  ],
+  "sections": [
+    {
+      "id": "maps",
+      "title": "Treasure Maps",
+      "note": "31 maps, listed by the sea they're found in; each marks a Sunken Treasure to raise with the Salvage Arm.",
+      "items": [
+        {
+          "id": "map_cannon_beehives",
+          "name": "Treasure Map #1",
+          "region": "Southwestern Sea",
+          "area": "Cannon Island",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "In a chest in a grassy clearing off the beehive path in the north-west of the island, on your first visit."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, south-west of Molida Island, near Spirit Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_molida_hideaway",
+          "name": "Treasure Map #2",
+          "region": "Southwestern Sea",
+          "area": "Molida Island",
+          "reward": "Sand of Hours (+1 minute)",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "In the Old Wayfarer's second hideaway: mark the four Stone Tablets, dig under the palm tree where the lines cross and open the chest below."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, north-east of Mercay Island.",
+              "reward": "Sand of Hours (+1 minute)"
+            }
+          ]
+        },
+        {
+          "id": "map_astrid_basement",
+          "name": "Treasure Map #3",
+          "region": "Southwestern Sea",
+          "area": "Isle of Ember",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Dig the lower-right dark spot in the basement of Astrid's House."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, south-west of the Isle of Gust.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_ember_grass",
+          "name": "Treasure Map #4",
+          "region": "Southwestern Sea",
+          "area": "Isle of Ember",
+          "reward": "Sand of Hours (+1 minute)",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Cut the lone patch of grass just north-east of the Temple of Fire's entrance and dig there (Kayo's spirit hints at it)."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, south-east of Bannan Island, reached from the Northeastern Sea.",
+              "reward": "Sand of Hours (+1 minute)"
+            }
+          ]
+        },
+        {
+          "id": "map_zauz_tiles",
+          "name": "Treasure Map #5",
+          "region": "Northwestern Sea",
+          "area": "Zauz's Island",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Mark the four stone tiles, join the eastern pair and the western pair, and dig where the lines meet near a palm tree in the south."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, north of Molida Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_uncharted_eye",
+          "name": "Treasure Map #6",
+          "region": "Northwestern Sea",
+          "area": "Uncharted Island",
+          "reward": "Random Treasure",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Dig directly in front of the Boing Statue in the pond on the island's west side, the whale's eye."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, west of Bannan Island.",
+              "reward": "Random Treasure"
+            }
+          ]
+        },
+        {
+          "id": "map_gust_miniblin_pit",
+          "name": "Treasure Map #7",
+          "region": "Northwestern Sea",
+          "area": "Isle of Gust",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Defeat the ten Miniblins in the pit in the cave in the south of the island; a second chest appears."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, east of the Isle of Gust.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_gust_sandworms",
+          "name": "Treasure Map #8",
+          "region": "Northwestern Sea",
+          "area": "Isle of Gust",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "In a chest in the south-east corner of the northern desert with the windmills and Sandworms."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, south-east of Mercay Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_ojibe",
+          "name": "Treasure Map #9",
+          "region": "Southwestern Sea",
+          "area": "Mercay Island",
+          "after": "After the Temple of the Ocean King's B6",
+          "reward": "Sand of Hours (+1 minute)",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Buy it for 50 Rupees from Ojibe on Mercay's dock once you've found the Sun Key's crest and have the Salvage Arm."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, west of Cannon Island.",
+              "reward": "Sand of Hours (+1 minute)"
+            }
+          ]
+        },
+        {
+          "id": "map_oshus_tree",
+          "name": "Treasure Map #10",
+          "region": "Southwestern Sea",
+          "area": "Mercay Island",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Dig just south of the tree by the cave next to Oshus's house (a statue near the Temple of Courage hints at it)."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, south-east of the Isle of Gust.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_totok_b6",
+          "name": "Treasure Map #11",
+          "region": "Southwestern Sea",
+          "area": "Temple of the Ocean King",
+          "after": "After the Ghost Ship",
+          "reward": "Sand of Hours (+1 minute)",
+          "tags": [
+            "Bow"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "On B6, shoot the Eyeball Switch just west of the entrance; a timed chest appears in the north-east."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, north of the Isle of Gust.",
+              "reward": "Sand of Hours (+1 minute)"
+            }
+          ]
+        },
+        {
+          "id": "map_freedle",
+          "name": "Treasure Map #12",
+          "region": "Southwestern Sea",
+          "area": "Mercay Island",
+          "after": "After the Southeastern Sea Chart",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Talk to Freedle on Mercay's north-east isle."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, north of Dee Ess Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_molida_girl",
+          "name": "Treasure Map #13",
+          "region": "Southwestern Sea",
+          "area": "Molida Island",
+          "after": "After the Southeastern Sea Chart",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Talk to the girl in red near Molida's dock."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, east of Harrow Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_goron_chuchus",
+          "name": "Treasure Map #14",
+          "region": "Southeastern Sea",
+          "area": "Goron Island",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel",
+            "Bow"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Help the scared young Goron north of the dock: dig up the Updraft beside him and shoot the three Yellow ChuChus on the ledge."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, north-east of Goron Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_goron_temple",
+          "name": "Treasure Map #15",
+          "region": "Southeastern Sea",
+          "area": "Goron Temple",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "In the north-east of 1F, drop a Bomb from the bridge onto the switch in the sand below and run to the chest that appears."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, south of the Isle of Frost.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_goron_bombchu",
+          "name": "Treasure Map #16",
+          "region": "Southeastern Sea",
+          "area": "Goron Island",
+          "after": "After the Goron Temple",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Bombchus"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "At the North Maze's entrance, steer a Bombchu through the small hole on the left path to the switch; a timed chest appears in the island's north-east."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, south of Cannon Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_frost_islet",
+          "name": "Treasure Map #17",
+          "region": "Southeastern Sea",
+          "area": "Isle of Frost",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Cross to the small isle south-west of the Anouki Estates and dig the snow in its centre."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, north-east of the Isle of Gust.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_harrow_1",
+          "name": "Treasure Map #18",
+          "region": "Southeastern Sea",
+          "area": "Harrow Island",
+          "after": "After the Temple of Ice",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Play the Digging Game (50 Rupees) until this map turns up; where it's buried changes every game."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, north-west of Goron Island.",
+              "reward": "Random Ship Part"
+            }
+          ],
+          "notes": "Zelda Dungeon numbers the Harrow Island maps #14, #15, #24 and #25; Zelda Wiki #18, #19, #24 and #25 (docs/ph.md)."
+        },
+        {
+          "id": "map_harrow_2",
+          "name": "Treasure Map #19",
+          "region": "Southeastern Sea",
+          "area": "Harrow Island",
+          "after": "After the Temple of Ice",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Play the Digging Game until this map turns up; it's one of the first two there."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, west of Goron Island.",
+              "reward": "Random Ship Part"
+            }
+          ],
+          "notes": "Zelda Dungeon numbers the Harrow Island maps #14, #15, #24 and #25; Zelda Wiki #18, #19, #24 and #25 (docs/ph.md)."
+        },
+        {
+          "id": "map_molida_cucco",
+          "name": "Treasure Map #20",
+          "region": "Southwestern Sea",
+          "area": "Molida Island",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Grappling Hook",
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "From the tablet on the east shore, grapple the barrel across the water onto the tablet to free a Cucco, glide to the islets and dig below the tree."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northwestern Sea, east of Bannan Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_bannan_sign",
+          "name": "Treasure Map #21",
+          "region": "Northwestern Sea",
+          "area": "Bannan Island",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Dig just left of the sign in front of the Old Wayfarer's Hut (a Gossip Stone at the Anouki Estates hints at it)."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southwestern Sea, north-west of Molida Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_bannan_chests",
+          "name": "Treasure Map #22",
+          "region": "Northwestern Sea",
+          "area": "Bannan Island",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Grappling Hook",
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Slingshot from the two pegs on the north-east isle to the islet with three tablets, then dig between the two chests on the large isle."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, south of Harrow Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_totok_b5",
+          "name": "Treasure Map #23",
+          "region": "Southwestern Sea",
+          "area": "Temple of the Ocean King",
+          "after": "After the Goron Temple",
+          "reward": "Sand of Hours (+1 minute)",
+          "tags": [
+            "Bombchus",
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "On B4, send a Bombchu through the holes to the switch that lowers the spikes by the north-west stairs. On B5, dig, hit the switch and open the chest in the alcove."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Southeastern Sea, north-west of the Isle of Frost.",
+              "reward": "Sand of Hours (+1 minute)"
+            }
+          ]
+        },
+        {
+          "id": "map_harrow_3",
+          "name": "Treasure Map #24",
+          "region": "Southeastern Sea",
+          "area": "Harrow Island",
+          "after": "After the Northeastern Sea Chart",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Play the Digging Game until this map turns up; it's one of the two added later."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, south-west of the Isle of Ruins, inside the ring of rocks.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_harrow_4",
+          "name": "Treasure Map #25",
+          "region": "Southeastern Sea",
+          "area": "Harrow Island",
+          "after": "After the Northeastern Sea Chart",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Shovel"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Play the Digging Game until this map turns up; it's one of the two added later."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, south-east of the Isle of the Dead, inside the ring of rocks.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_man_of_smiles",
+          "name": "Treasure Map #26",
+          "region": "Northeastern Sea",
+          "area": "Man of Smiles's ship",
+          "after": "After the Northeastern Sea Chart",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Board the Traveler's Ship in the Northeastern Sea, defeat the Octoroks and Geozard, and take the Man of Smiles's reward; he gives the map along with the Hero's New Clothes."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, west of the Isle of Ruins, between two rock barriers.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_maze_normal",
+          "name": "Treasure Map #27",
+          "region": "Northeastern Sea",
+          "area": "Maze Island",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Clear the Treasure Maze's Normal level (50 Rupees: eight Boing Statues in 100 seconds)."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, east of Maze Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_dead_rupoor_room",
+          "name": "Treasure Map #28",
+          "region": "Northeastern Sea",
+          "area": "Isle of the Dead",
+          "reward": "Random Treasure",
+          "tags": [
+            "Bombs"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Bomb the wall in McNey's cave, cross the Rupoor maze and open the second of the four chests from the left."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, north-west of the Isle of Ruins.",
+              "reward": "Random Treasure"
+            }
+          ]
+        },
+        {
+          "id": "map_dead_kings_eye",
+          "name": "Treasure Map #29",
+          "region": "Northeastern Sea",
+          "area": "Isle of the Dead",
+          "reward": "Random Ship Part",
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "After the secret underground cavern, surface by the King's Eye and open the chest nearby."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, west of Maze Island.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_totok_b10",
+          "name": "Treasure Map #30",
+          "region": "Southwestern Sea",
+          "area": "Temple of the Ocean King",
+          "reward": "Random Ship Part",
+          "tags": [
+            "Hammer"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Hammer the floor switch in the far south-west corner of B10 for a large chest."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, south of the Isle of Ruins.",
+              "reward": "Random Ship Part"
+            }
+          ]
+        },
+        {
+          "id": "map_totok_b12",
+          "name": "Treasure Map #31",
+          "region": "Southwestern Sea",
+          "area": "Temple of the Ocean King",
+          "reward": "Big Gold Rupee (300 Rupees)",
+          "tags": [
+            "Hammer"
+          ],
+          "tiers": [
+            {
+              "name": "Map",
+              "howTo": "Hit the crystal switch on B12 (reached by the east stairs from B11), then spring over the ledge with the Hammer to the timed chest at the east end."
+            },
+            {
+              "name": "Salvaged",
+              "howTo": "Salvage the X it marks in the Northeastern Sea, south of the Isle of the Dead.",
+              "reward": "Big Gold Rupee (300 Rupees)"
+            }
+          ],
+          "notes": "Its Sunken Treasure also holds a few Bonus Rupees, as every salvage does."
+        }
+      ]
+    }
+  ]
+}

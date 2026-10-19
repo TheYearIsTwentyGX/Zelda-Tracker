@@ -1,0 +1,181 @@
+{
+  "regions": [
+    "Southwestern Sea",
+    "Northwestern Sea",
+    "Southeastern Sea",
+    "Northeastern Sea"
+  ],
+  "noun": "Heart Container",
+  "hiddenLabel": "Unfound Heart Container",
+  "summaries": [
+    {
+      "label": "Hearts",
+      "formula": "3 + bosses + others"
+    }
+  ],
+  "sections": [
+    {
+      "id": "bosses",
+      "title": "Bosses",
+      "note": "One from each of the seven bosses before Bellum.",
+      "items": [
+        {
+          "id": "blaaz_heart",
+          "name": "Blaaz's Heart Container",
+          "region": "Southwestern Sea",
+          "area": "Temple of Fire",
+          "howTo": "Defeat Blaaz, the boss of the Temple of Fire.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "cyclok_heart",
+          "name": "Cyclok's Heart Container",
+          "region": "Northwestern Sea",
+          "area": "Temple of Wind",
+          "howTo": "Defeat Cyclok, the boss of the Temple of Wind.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "crayk_heart",
+          "name": "Crayk's Heart Container",
+          "region": "Southwestern Sea",
+          "area": "Temple of Courage",
+          "howTo": "Defeat Crayk, the boss of the Temple of Courage.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "cubus_sisters_heart",
+          "name": "Cubus Sisters's Heart Container",
+          "region": "Northwestern Sea",
+          "area": "Ghost Ship",
+          "howTo": "Defeat the Cubus Sisters, the boss of the Ghost Ship.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "dongorongo_heart",
+          "name": "Dongorongo's Heart Container",
+          "region": "Southeastern Sea",
+          "area": "Goron Temple",
+          "howTo": "Defeat Dongorongo, the boss of the Goron Temple.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "gleeok_heart",
+          "name": "Gleeok's Heart Container",
+          "region": "Southeastern Sea",
+          "area": "Temple of Ice",
+          "howTo": "Defeat Gleeok, the boss of the Temple of Ice.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        },
+        {
+          "id": "eox_heart",
+          "name": "Eox's Heart Container",
+          "region": "Northeastern Sea",
+          "area": "Mutoh's Temple",
+          "howTo": "Defeat Eox, the boss of Mutoh's Temple.",
+          "reward": "Heart Container",
+          "tags": [
+            "Boss"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "others",
+      "title": "Shops & Mini-games",
+      "note": "Six more from shops, mini-games and fishing.",
+      "items": [
+        {
+          "id": "nyeve_heart",
+          "name": "Nyeve's challenge",
+          "region": "Northwestern Sea",
+          "area": "Prince of Red Lions",
+          "howTo": "Board Nyeve's ship, the Prince of Red Lions, in the Northwestern Sea, talk to him twice and hit him 100 times before he hits you three times.",
+          "reward": "Heart Container",
+          "notes": "Back off when he spins his weapon, then strike after his thrust.",
+          "tags": [
+            "Mini-game"
+          ]
+        },
+        {
+          "id": "shooting_range_heart",
+          "name": "Shooting Range",
+          "region": "Southwestern Sea",
+          "area": "Molida Island",
+          "howTo": "Score 2,000 points or more at Romanos's Shooting Range (20 Rupees a go), open after the Temple of Courage.",
+          "reward": "Heart Container",
+          "notes": "Hit ghosts in a row for the multiplier; hitting a girl target breaks the streak.",
+          "tags": [
+            "Mini-game",
+            "Bow"
+          ]
+        },
+        {
+          "id": "masked_ship_heart",
+          "name": "Masked Ship",
+          "area": "Masked Ship",
+          "howTo": "Buy it from Beedle's Assistant on the Masked Ship for 1,500 Rupees. The Masked Ship replaces Beedle's Shop Ship from 10pm to midnight on weekdays and 10am to noon on weekends, by the DS clock.",
+          "reward": "Heart Container",
+          "tags": [
+            "Shop"
+          ]
+        },
+        {
+          "id": "neptoona_heart",
+          "name": "The Neptoona",
+          "region": "Northwestern Sea",
+          "area": "Bannan Island",
+          "howTo": "Catch a Neptoona at a black swordfish-shaped fish shadow and show it to the Old Wayfarer.",
+          "reward": "Heart Container",
+          "notes": "Neptoona appears only after you've shown him a Rusty Swordfish. The fish are in Sidequests.",
+          "tags": [
+            "Fishing"
+          ],
+          "after": "After showing the Old Wayfarer a Rusty Swordfish"
+        },
+        {
+          "id": "island_shop_heart",
+          "name": "Island Shop",
+          "region": "Southwestern Sea",
+          "area": "Mercay Island Shop",
+          "howTo": "After the Goron Temple, and once you've bought the Bomb Bag, Quiver and Bombchu Bag upgrades, buy it for 2,000 Rupees at the Mercay, Molida or Goron Island Shop.",
+          "reward": "Heart Container",
+          "notes": "Only one shop sells it; once bought, the others stop. Zelda Wiki names only the Quiver and Bombchu Bag as the condition.",
+          "tags": [
+            "Shop"
+          ]
+        },
+        {
+          "id": "treasure_maze_heart",
+          "name": "Treasure Maze: Expert",
+          "region": "Northeastern Sea",
+          "area": "Maze Island",
+          "howTo": "Clear the Treasure Maze's Expert level (100 Rupees): strike 14 Boing Statues in 120 seconds, then open the chest. Beginner and Normal come first.",
+          "reward": "Heart Container",
+          "tags": [
+            "Mini-game",
+            "Grappling Hook"
+          ]
+        }
+      ]
+    }
+  ]
+}
