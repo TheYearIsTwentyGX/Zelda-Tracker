@@ -54,22 +54,43 @@ WIKI_MAP_COLUMNS = ["adventure_map", "master_quest_map", "twilight_map", "termin
 MAPS = {
     "adventure_map": {"hwh": "adventure", "name": "Adventure Map",
                       "sballen": ("adventure-map", "20190514154015"), "wiki": "Adventure"},
+    "great_sea_map": {"hwh": "great-sea", "name": "Great Sea Map",
+                      "sballen": ("great-sea-map", "20190514154017"), "wiki": "Great Sea"},
+    "master_wind_waker_map": {"hwh": "master-wind-waker", "name": "Master Wind Waker Map",
+                              "sballen": ("master-wind-waker-map", "20190514154017"), "wiki": "Master Wind Waker"},
 }
 
 # Independent pins: squares (in Prima's labels) that other DE guides give. The report checks them.
-# Nintendo Life, "Hyrule Warriors: Definitive Edition: All Weapons And How To Unlock Them".
+# Nintendo Life, "Hyrule Warriors: Definitive Edition: All Weapons And How To Unlock Them", as
+# (weapon, square). It names weapons by level ("Golden Gauntlets") and writes some squares
+# SBAllen's way (column first): those are converted here.
 NINTENDO_LIFE_WEAPONS = {
-    "adventure_map": {"gauntlets": "G-14", "great_fairy": "G-16", "epona": "E-15", "spinner": "C-2",
-                      "naginata": "G-11", "summoning_gate": "A-9", "baton": "C-15", "dominion_rod": "A-2",
-                      "trident": "B-8"},
+    "adventure_map": [("gauntlets", "G-14"), ("great_fairy", "G-16"), ("epona", "E-15"), ("spinner", "C-2"),
+                      ("naginata", "G-11"), ("summoning_gate", "A-9"), ("baton", "C-15"), ("dominion_rod", "A-2"),
+                      ("trident", "B-8")],
+    "great_sea_map": [("magic_rod", "F-14"), ("gauntlets", "B-3"), ("great_fairy", "H-1"), ("epona", "G-1"),
+                      ("spinner", "E-1"), ("naginata", "G-14"), ("spear", "A-14"), ("summoning_gate", "A-4"),
+                      ("hammer", "E-10"), ("baton", "B-13"), ("dominion_rod", "G-3"), ("shackle", "D-10"),
+                      ("goddess_blade", "B-4"), ("great_swords", "F-2"), ("trident", "A-1"), ("demon_blade", "F-8"),
+                      ("zora_scale", "D-4"), ("parasol", "A-11"), ("scimitars", "G-7"), ("scepter", "D-14"),
+                      ("dragon_spear", "A-7"), ("ring", "G-6"),
+                      # Written column first: SBAllen's A-4, I-4, E-2, F-4 and N-3.
+                      ("mirror", "D-1"), ("mask", "D-9"), ("balloon", "B-5"), ("ocarina", "D-6"), ("light_sword", "C-14")],
+    # Written column first for the last two: SBAllen's K-6 and M-2.
+    "master_wind_waker_map": [("rito_harp", "D-4"), ("rito_harp", "F-11"), ("rito_harp", "B-13")],
 }
 # RPG Site, "Hyrule Warriors: Definitive Edition: How to unlock every character".
 RPG_SITE_WARRIORS = {
     "adventure_map": {"young_link": "G-9", "skull_kid": "C-13", "twili_midna": "C-6", "tingle": "A-12"},
+    "great_sea_map": {"toon_link": "B-9", "medli": "B-8", "tetra": "C-11", "king_daphnes": "C-13"},
 }
 
 # The Helper names a few weapon types by their first level's name; the game's own type name is used.
 WEAPON_NAMES = {"epona": "Horse"}
+
+# Card ids the Helper reuses across maps whose cards differ: the Master Wind Waker Map's Power
+# Bracelet is the Great Sea's (Stone Heads, its own icon), not the Adventure Map's.
+MAP_CARD_IDS = {"master_wind_waker_map": {"power-bracelet": "power-bracelet-2"}}
 
 REGION_ORDER = ["colorless", "green", "yellow", "purple", "orange", "blue", "red"]
 REGION_NAMES = {"colorless": "Black", "green": "Green", "yellow": "Yellow", "purple": "Purple",
@@ -325,7 +346,8 @@ def wiki_cards() -> list[dict]:
             continue
         name, flags, use, price = cells[0], cells[1:10], cells[10], cells[11]
         out.append({
-            "name": re.sub(r"\s*\[[^\]]*\]$", "", re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]*)\]\]", r"\1", name)),
+            # "Wind Waker (Item) [2]" -> "Wind Waker": the wiki's disambiguation isn't the card's name.
+            "name": re.sub(r"(\s*(\[[^\]]*\]|\([^)]*\)))+$", "", re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]*)\]\]", r"\1", name)),
             "maps": [m for m, f in zip(WIKI_MAP_COLUMNS, flags) if "Y" in f],
             "use": use,
             "price": None if "N/A" in price else int(re.sub(r"\D", "", price) or 0) or None,
@@ -334,14 +356,20 @@ def wiki_cards() -> list[dict]:
 
 
 def card_use(use: str, wiki_word: str) -> str:
-    """The description for one map, from text like "Adventure/Master Quest:... <br/>Great Sea:..."."""
+    """
+    The description for one map, from text like "Adventure/Master Quest:... <br/>Great Sea/Master
+    Wind Waker (Hero's Bow): ..." (the wiki also writes "GreatSea"). Without a part for the map, the
+    first part, without its prefix.
+    """
     use = re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]*)\]\]", r"\1", use)
-    parts = re.split(r"<br\s*/?>", use)
+    parts = [re.sub(r"<[^>]+>", " ", p).strip() for p in re.split(r"<br\s*/?>", use)]
+    prefix = re.compile(r"([^:.]{1,80}):\s*(.*)")
     for p in parts:
-        m = re.match(r"\s*([A-Za-z /]+):\s*(.*)", p)
-        if m and wiki_word in m.group(1).split("/"):
+        m = prefix.fullmatch(p)
+        if m and norm(wiki_word) in [norm(n) for n in re.sub(r"\([^)]*\)", "", m.group(1)).split("/")]:
             return m.group(2).strip()
-    return re.sub(r"<[^>]+>", " ", parts[0]).strip()
+    m = prefix.fullmatch(parts[0])
+    return (m.group(2) if m else parts[0]).strip()
 
 
 def card_effects(use: str, card_id: str) -> list[str]:
@@ -354,7 +382,7 @@ def card_effects(use: str, card_id: str) -> list[str]:
         effects.append("enemies")
     if re.search(r"removing locks|opening the square|reach new", use):
         effects.append("path")
-    if re.search(r"restriction|Dispels", use):
+    if re.search(r"restriction|Dispels|rules? from", use):
         effects.append("rule")
     return effects or ["other"]
 
@@ -372,7 +400,7 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
     warriors: set[str] = set()
 
     def card(cid: str) -> str:
-        cid = cid.replace("-", "_")
+        cid = MAP_CARD_IDS.get(map_id, {}).get(cid, cid).replace("-", "_")
         if cid not in used_cards:
             used_cards.append(cid)
         return cid
@@ -394,7 +422,8 @@ def convert(map_id: str, lk: Lookups, cards_wiki: list[dict], sb: dict) -> dict:
             "mission": (m.group(2) if m else challenge).strip(),
         }
         if t.get("additionalRule"):
-            sq["rule"] = t["additionalRule"]
+            # The Helper keeps SBAllen's "Engless Night Rule" typo on a few squares.
+            sq["rule"] = t["additionalRule"].replace("Engless Night", "Endless Night")
         if t.get("isFinalBoss"):
             sq["finalBoss"] = True
         sel = t.get("characterSelection") or {}
@@ -533,7 +562,7 @@ def skulltula(text: str) -> dict:
 
 
 def map_cards(map_id: str, used: list[str], lk: Lookups, cards_wiki: list[dict]) -> list[dict]:
-    alias = {"goddessharp": "goddesssharp", "tearsoflight": "tearoflight", "windwaker": "windwaker"}
+    alias = {"goddessharp": "goddesssharp", "tearsoflight": "tearoflight", "seachart": "seamap"}
     wiki_by_name: dict[str, list[dict]] = {}
     for c in cards_wiki:
         wiki_by_name.setdefault(norm(c["name"]), []).append(c)
@@ -640,7 +669,7 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
         for line in cells.get(key, []):
             line = re.sub(r"\s*\([^)]*\)\s*$", "", line)
             line = re.sub(r"^(.*?) (Heart Container|Piece of Heart)$", r"\2 - \1", line)  # "Skull Kid Heart Container"
-            out[norm(line).replace("conpass", "compass")] += 1
+            out[norm(line).replace("conpass", "compass").replace("seachart", "seamap")] += 1
         return out
 
     for s in m["squares"]:
@@ -650,15 +679,20 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
             lines.append(f"{tag}: not in SBAllen's guide")
             continue
         mission = (s["battle"].title() + " Battle: " if s["battle"] else "") + s["mission"]
-        if norm(mission) != norm(" ".join(b.get("Mission", []))):
-            lines.append(f"{tag} mission: ours {mission!r} / SBAllen {' '.join(b.get('Mission', []))!r}")
+        # SBAllen puts the map rule under the mission, as a line of its own.
+        their_mission = (b.get("Mission") or [""])[0]
+        if norm(mission) != norm(their_mission):
+            lines.append(f"{tag} mission: ours {mission!r} / SBAllen {their_mission!r}")
+        their_rule = " ".join((b.get("Mission") or [])[1:]).replace("Engless", "Endless")
+        if norm(s.get("rule") or "") != norm(their_rule):
+            lines.append(f"{tag} rule: ours {s.get('rule')!r} / SBAllen {their_rule or None!r}")
         for key, field, unit in (("A-Rank KOs", "kos", ""), ("A-Rank Time", "minutes", " Minutes"), ("A-Rank Damage", "damage", "")):
             theirs_v = re.sub(r"\D", "", " ".join(b.get(key, [])))
             ours_v = str(s["aRank"].get(field, ""))
             if theirs_v != ours_v:
                 lines.append(f"{tag} {field}: ours {ours_v or '-'} / SBAllen {theirs_v or '-'}")
         ours_search = sorted(norm(card_names[x["card"]]).rstrip("s") for x in s.get("searches", []))
-        theirs_search = sorted(norm(re.sub(r"^ONLY\s*-?\s*", "", t.split(":")[0])).rstrip("s") for t in b.get("Search", []))
+        theirs_search = sorted(norm(re.sub(r"^ONLY\s*-?\s*", "", t.split(":")[0])).replace("seachart", "seamap").rstrip("s") for t in b.get("Search", []))
         if ours_search != theirs_search:
             lines.append(f"{tag} searches: ours {ours_search} / SBAllen {theirs_search}")
         for slot, key in (("aRank", "A-Rank Victory"), ("clear", "Battle Victory"), ("treasure", "Treasure")):
@@ -678,13 +712,13 @@ def report(m: dict, sb: dict, lk: Lookups, cards_wiki: list[dict], accepted: lis
             lines.append(f"card {name!r}: on this map in Zelda Wiki's table, but no square uses or gives it")
 
     by_label = {s["label"]: s for s in m["squares"]}
-    for weapon, label in NINTENDO_LIFE_WEAPONS.get(m["id"], {}).items():
-        has = [r for r in by_label[label].get("rewards", []) if r.get("weapon") == weapon]
+    for weapon, label in NINTENDO_LIFE_WEAPONS.get(m["id"], []):
+        has = [r for r in by_label.get(label, {}).get("rewards", []) if r.get("weapon") == weapon]
         if not has:
             where = [s["label"] for s in m["squares"] for r in s.get("rewards", []) if r.get("weapon") == weapon]
             lines.append(f"Nintendo Life: {weapon} at {label}; ours at {where}")
     for w, label in RPG_SITE_WARRIORS.get(m["id"], {}).items():
-        has = [r for r in by_label[label].get("rewards", []) if r["type"] == "warrior" and r.get("warrior") == w]
+        has = [r for r in by_label.get(label, {}).get("rewards", []) if r["type"] == "warrior" and r.get("warrior") == w]
         if not has:
             where = [s["label"] for s in m["squares"] for r in s.get("rewards", []) if r["type"] == "warrior" and r.get("warrior") == w]
             lines.append(f"RPG Site: {w} at {label}; ours at {where}")
@@ -763,6 +797,11 @@ def self_test():
     assert skulltula("Complete the first mission and KO 150 enemies. It is located in the same place as Gold Skulltula #1.")["where"] == \
         "Same place as the first"
     assert card_use("Adventure/Master Quest:Moves boulders.<br/>Great Sea/Master Wind Waker:Lifts heads.", "Great Sea") == "Lifts heads."
+    assert card_use("GreatSea/Master Wind Waker (Hero's Bow): Destroys [[Cyclone]]s.<br/>Lorule (Bow): Beamos.", "Master Wind Waker") == "Destroys Cyclones."
+    assert card_use("Great Sea/Master Wind Waker: Hits switches.<br/>Lorule: Posts.", "Lorule") == "Posts."
+    assert card_use("Reveals all secrets within a battle square.", "Adventure") == "Reveals all secrets within a battle square."
+    assert card_effects("Destroys Warships, removing Great Sea rules from that square.", "cannon") == ["rule"]
+    assert card_effects("Stops headwinds, removing locks on certain adjacent squares.", "windwaker") == ["path"]
     assert card_effects("Burns bushes, unlocking a secret reward.", "candle") == ["reward"]
     assert card_effects("Opens caves, unlocking a secret reward or revealing enemies in that square.", "bomb") == ["reward", "enemies"]
     rs = [{"slot": "aRank", "type": "heart_container", "warrior": "zelda", "name": "Heart Container"},

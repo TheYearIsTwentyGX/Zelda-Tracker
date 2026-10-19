@@ -16,9 +16,9 @@ DE has every map from both earlier games, all unlocked from the start:
 | Map | Squares | In the app |
 |---|---:|---|
 | Adventure Map | 128 | Yes (phase 1) |
-| Great Sea Map | 98 | Planned |
+| Great Sea Map | 98 | Yes (phase 2a) |
 | Master Quest Map | 128 | Planned |
-| Master Wind Waker Map | 98 | Planned |
+| Master Wind Waker Map | 98 | Yes (phase 2a) |
 | Twilight Map | 93 | Planned |
 | Termina Map | 85 | Planned |
 | Koholint Island Map | 84 | Planned |
@@ -148,6 +148,67 @@ Counts after corrections:
 - 29 fairy clothes, 11 fairy foods and 6 companion fairies;
 - 94 searches, using 12 cards.
 
+### Cross-check: Great Sea Map
+
+The Great Sea is 14×7 squares; the start is B-9 and the Dark Ruler C-9. Fourteen squares carry a
+**Great Sea Rule**, which the right card lifts: the Boomerang beats a Big Octo, the Cannon a
+warship, the Hero's Bow a cyclone. Seven squares take the Wind Waker on the whole square, to stop
+headwinds that lock a neighbour.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 98 / 98 |
+| A-rank KOs, time and damage | 97 / 98 (D-4 below) |
+| Searches | 96 / 98 |
+| Every reward, by slot | 97 / 98 after corrections (C-11 below) |
+| Nintendo Life weapon squares | 26 / 27 |
+| RPG Site warrior squares | 4 / 4 |
+
+Fixed:
+- **B-8** (SBAllen H-2) and **C-13** (SBAllen M-3): SBAllen's guide gives a Salvage Arm card on a
+  clear at each. The Helper lists only the warrior unlocked there; its issue #12 had reported B-8's
+  card missing too. Both are added.
+
+Accepted, noted on the square:
+- **C-11** (SBAllen K-3): the Helper has Tetra's unlock on a clear and a Sea Map search; SBAllen's
+  guide has neither. RPG Site also puts Tetra here, so the Helper's data is kept.
+- **D-4**: SBAllen's guide gives no KO limit ("N/A") for this Adventure Battle. The Helper's 1,200
+  is what every other yellow, purple and orange Adventure Battle on the map needs, so it's kept.
+- **E-3** (SBAllen C-5): SBAllen's guide lists a Deku Leaf search on a windmill. The Helper has none
+  and draws no windmill. The Master Wind Waker Map's E-3, the same island, does have one in both,
+  so the guide's line may have been copied across.
+- **Great Fairy Lv. 2**: Nintendo Life puts it at "H-1", which isn't a square on a seven-row map.
+  SBAllen's guide and the Helper put it at C-1. Nintendo Life writes five other squares on this map
+  SBAllen's way, column first (the Mirror's "A-4" is Prima's D-1), and those are converted.
+
+### Cross-check: Master Wind Waker Map
+
+The same islands as the Great Sea, with different battles. Its start is G-3, beside the Dark Ruler
+at G-4, which the Hookshot opens. Every square has an **Endless Night Rule** (85) or a Great Sea
+Rule (13). Its only weapons are Medli's Rito Harp, levels 2 to 4.
+
+| Check | Agree |
+|---|---|
+| Mission text and rules | 98 / 98 |
+| A-rank KOs, time and damage | 98 / 98 each |
+| Searches | 95 / 98 |
+| Every reward, by slot | 98 / 98 |
+| Nintendo Life weapon squares | 3 / 3 |
+
+Accepted, noted on the square:
+- **C-1 and D-1** (SBAllen A-3 and A-4): the Helper has the Wind Waker search on C-1, and SBAllen's
+  guide has it on D-1, the square below. The Helper's is kept.
+- **F-1** (SBAllen A-6): SBAllen's guide lists a Hyoi Pear search on a seagull. The Helper has none
+  and draws no seagull.
+
+On both maps:
+- **SBAllen's "Engless Night Rule"** typo, which the Helper copied on three squares, is corrected to
+  "Endless".
+- **The Sea Map card** is called that because Zelda Wiki's HWDE pages call it so ("A Sea Map Item
+  Card"). The guides call it the Sea Chart.
+- **The Master Wind Waker Map's Power Bracelet** gets the Great Sea's card id (`power_bracelet_2`):
+  it lifts Stone Heads to reveal enemies, as on the Great Sea, not the Adventure Map's boulders.
+
 ## A-rank limits
 
 The game never shows them. These are SBAllen's, and he notes they're his findings. On the Switch,
@@ -222,6 +283,8 @@ now* filters to squares with an undone search whose card you have.
   reward", "Reveals hidden enemies", "Opens a way…") rather than guess.
 - **The rank arrow on each side**: the C/B/A needed to open a neighbour. No source lists them; only
   the walls are known.
+- **The Great Sea's hazards** are shown as the square's rule. Using the card that lifts one counts
+  as that square's search; the rule itself isn't tracked as lifted.
 - **Termina's moon.** When it falls it resets the map, but not the rewards. The tracker records
   what's been done at least once and doesn't reset.
 

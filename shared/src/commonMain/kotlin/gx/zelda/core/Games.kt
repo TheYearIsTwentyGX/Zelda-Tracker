@@ -568,6 +568,8 @@ object Games {
         trackers = listOf(
             Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every Adventure Mode map at a glance"),
             hwdeMap("Adventure Map", "The 128 squares of the first map: battles, A-rank limits, rewards, Gold Skulltulas and item-card searches", "adventure_map"),
+            hwdeMap("Great Sea Map", "The 98 squares of the Great Sea, its Great Sea Rules and the cards that lift them, and its warriors to unlock", "great_sea_map"),
+            hwdeMap("Master Wind Waker Map", "The Great Sea again under Endless Night Rules: 98 squares, with Medli's Rito Harps", "master_wind_waker_map"),
         ),
         spinOff = true,
     )
