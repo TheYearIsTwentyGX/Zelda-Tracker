@@ -26,6 +26,8 @@ iOS port is mostly a matter of adding the iOS targets.
   Home, then each shown game in release order (the spin-offs after a heading), then Settings.
   - A game with trackers is a section that opens to list them; tap one to go there. A coming-soon
     game is a single row.
+  - A game's **tools**, helpers for playing that keep no progress (so far Skyward Sword's Thrill
+    Digger Solver), come after its trackers under a *Tools* heading, in the menu and on its home card.
   - Which sections are open is remembered. The game you're in opens by itself when you switch to it.
   - Trackers opened from inside another screen (the Overview, the map's sheet, a quest's page, a
     page's *Show on map*) and detail pages keep a Back arrow.
@@ -810,6 +812,20 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   Hylian Shield, with costs and durability.
 - **Bugs & Treasures:** one of each of the 12 bugs and 16 treasures, with where to find it and which
   upgrades and potions use it.
+- **Thrill Digger Solver** (a tool, last): enter what each hole showed and every undug hole gets its
+  exact Bomb and Rupoor chance, as a heat colour, with the safest hole to dig next starred.
+  - It counts every board the game can deal, its re-deal of a 2×2 block of hazards included, on
+    Beginner, Intermediate and Expert.
+  - Landscape first: the board on the left, and on the right a picker of the game's own Rupee, Rupoor
+    and Bomb pictures with their hazard ranges. The Rupoor carries a purple minus so it can't pass for
+    a Silver Rupee. A phone on its side hides the bars, as HW:DE's map does; portrait puts the picker
+    under the board.
+  - Tap a hole, then what it showed. With nothing tapped, the picker fills the starred hole, so
+    following the advice is one tap per dig.
+  - Undo, Reset, and a saved board per difficulty. An impossible board outlines the holes that can't
+    all be true.
+  - It keeps no progress, so it isn't in the Progress Overview. `docs/ss.md` has the rules, the maths
+    and the sources.
 - Regions are the game's areas (Skyloft, The Sky, Thunderhead, Faron Woods, Eldin Volcano, Lanayru
   Desert…), with the exact place in each row. Tags give the items needed. Only one thing is
   missable: Fledge's barrels, before the Wing Ceremony.
@@ -961,6 +977,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/figurines/  ← Minish Cap figurine tracker and Carlov's odds
   src/commonMain/kotlin/gx/zelda/checklist/  ← the generic, data-driven checklist tracker (docs/checklist-trackers.md)
   src/commonMain/kotlin/gx/zelda/adventure/  ← Hyrule Warriors Adventure Mode maps: the grid view, square sheet and list (docs/hwde.md)
+  src/commonMain/kotlin/gx/zelda/thrilldigger/  ← Skyward Sword's Thrill Digger solver: the exact solver, its saved boards and screen (docs/ss.md)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces, the menu (AppDrawer.kt) and Mark all complete (BulkCompleteControl.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
@@ -1002,6 +1019,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/drawable/armor_<id>.png    ← armor icons, shared by every game
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
   src/commonMain/composeResources/drawable/hwde_*            ← HW:DE item-card and reward icons (tools/hwde/build_maps.py)
+  src/commonMain/composeResources/drawable/thrill_*          ← SS Rupee, Rupoor and Bomb pictures (scripts/fetch-thrill-digger-icons.py)
 androidApp/   Android application shell
 ```
 
@@ -1384,8 +1402,10 @@ all three. `docs/st.md` covers each tracker and every disagreement.
 Skyward Sword data (`files/ss/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback Machine
 snapshots) and Samurai Gamers, with StrategyWiki and Zelda's Palace for spot checks. The Skyward
 Sword randomizer's check list, read from the game's files, settles where each item is and which cube
-opens which chest; the zeldaret/ss decompilation gives the save-file count. `docs/ss.md` covers each
-tracker, the HD differences and every disagreement.
+opens which chest; the zeldaret/ss decompilation gives the save-file count. The Thrill Digger
+Solver's rules come from Zelda Wiki and lepelog's port of the game's board generator, and its
+pictures are Zelda Wiki's Skyward Sword renders. `docs/ss.md` covers each tracker, the solver, the HD
+differences and every disagreement.
 
 A Link Between Worlds data (`files/albw/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback
 Machine snapshots), IGN and Zelda Universe. Every count was checked against at least three of

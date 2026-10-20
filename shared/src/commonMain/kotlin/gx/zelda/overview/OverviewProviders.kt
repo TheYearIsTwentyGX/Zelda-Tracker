@@ -75,6 +75,8 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.ADVENTURE_MAP -> listOf(
                 AdventureProgressProvider(AdventureStorage(dataStore, game, tracker.dataFile!!), tracker.title),
             )
+            // A tool keeps no progress.
+            TrackerKind.THRILL_DIGGER -> emptyList()
         }
     }
 }

@@ -2,7 +2,8 @@
 
 Skyward Sword's trackers are checklists (`TrackerKind.CHECKLIST`, see `docs/checklist-trackers.md`):
 eight JSON files in `shared/src/commonMain/composeResources/files/ss/`, listed in `core/Games.kt`
-after a Progress Overview. `SsDatasetTest` checks the counts below and the links between files, and
+after a Progress Overview. After them comes one tool, the [Thrill Digger Solver](#thrill-digger-solver)
+(`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files, and
 `ChecklistDatasetsTest` checks the format. No engine change was needed.
 
 The data is for the **Wii original (2011)**. Where **Skyward Sword HD** (Switch, 2021) differs for an
@@ -175,3 +176,144 @@ among seven Heart Container sources for six containers; Bilocyte gives none.
 | Goddess Cube for the pouch | Outside Skyview Temple (Zelda Wiki), Deep Woods near Gorko (Zelda Dungeon) | Deep Woods near Gorko, on the way to Skyview |
 | Woodland Rhino Beetle | Skyloft and Faron Woods (Zelda Wiki), the Deep Woods (Zelda Dungeon, Samurai Gamers) | Faron Woods, tagged Skyloft too |
 | Golden Skull, Monster Horn, Goddess Plume | Different lists of where to get them (Zelda Wiki, Zelda Dungeon) | Both, in notes |
+
+## Thrill Digger Solver
+
+Tubert's Thrill Digger, on Eldin Volcano, is Minesweeper with Rupees. The solver (`thrilldigger/`,
+`TrackerKind.THRILL_DIGGER`) gives every undug hole its exact chance of a Bomb and of a Rupoor, and
+says which hole to dig next. It's listed last under Skyward Sword, under a **Tools** heading in the
+menu and on the home card. It keeps no progress, so it has no Progress Overview row, no mark-all
+and no save file. Its boards are saved under `ss_thrill_digger`, one per difficulty with its own
+undo history, so they survive rotation and the app being closed.
+
+### The rules
+
+| Difficulty | Holes | Bombs | Rupoors | Cost |
+|---|---|---|---|---|
+| Beginner | 5 × 4 | 4 | 0 | 30 |
+| Intermediate | 6 × 5 | 4 | 4 | 50 |
+| Expert | 8 × 5 | 8 | 8 | 70 |
+
+A dug Rupee's colour counts the **hazards (Bombs and Rupoors alike)** in its eight neighbours: Green 0,
+Blue 1–2, Red 3–4, Silver 5–6, Gold 7–8. Rupees are worth 1, 5, 20, 100 and 300. A Rupoor takes 10,
+and a Bomb ends the round (and costs a heart). The board ends when every Rupee is dug.
+
+**How the game deals.**
+1. It drops the 8 (or 4) Bombs into random empty holes, then the Rupoors.
+2. If any 2×2 square is all hazards, it deals again, up to ten times, and keeps the eleventh deal
+   whatever it holds.
+3. It fills every other hole with the Rupee its neighbours call for.
+
+On Expert about 40% of deals have such a block (`ThrillDiggerSolver.blockShare`), so this changes
+the odds a lot. Beginner's is 0.3% and Intermediate's about 5%.
+
+**Sources.**
+- The counts are in Zelda Wiki's *Thrill Digger* page, and the costs in its infobox.
+- The colour table is the Mogma's tip behind the game area.
+- The generator (hazards counted together, the 2×2 re-deal, the values) is from lepelog's
+  `thrill-digger` (github.com/lepelog/thrill-digger, `thrill-digger-lib/src/thrill_digger.rs`). It's
+  a port of the game's hole minigame actor, whose functions the zeldaret/ss decompilation names in
+  `config/SOUE01/rels/d_a_obj_hole_minigameNP/symbols.txt`: `placeBombs`, `placeRupoors`,
+  `fillRupees`, `isBombOrRupoor`.
+- **Discrepancy:** Zelda's Palace gives Intermediate 5 Bombs and 5 Rupoors. Zelda Wiki and the
+  game's code say 4 and 4.
+
+### The solver
+
+The reference was **lepelog's Thrill Digger solver** (lepelog.github.io/thrill-digger), a well-known
+one from the Skyward Sword randomizer community. Its UX is a board where each hole takes one of the
+seven pictures, with the odds and a ranking per hole. It has no licence, so none of its code or
+pictures are used; only the game's rules were taken from it. lepelog's solver goes further for
+Expert: it lists every board the game's random number generator can produce. Ours, like most
+solvers, counts every board the dealing rules allow, which works for all three difficulties at once.
+
+`ThrillDiggerSolver` is exact. A board's weight is how often the game deals it:
+- 1 for a board without an all-hazard 2×2 block;
+- p¹⁰ ÷ ((1 − p¹¹) / (1 − p)) for one with a block, where p is the share of even deals that have one.
+
+The block rule ties every hole to its neighbours, so holes away from the dug ones aren't
+interchangeable. That rules out the usual "frontier groups plus combinatorics for the rest".
+Instead `HazardCounter` sweeps the board **a column at a time** (a transfer matrix):
+- A state is two neighbouring columns' hazard patterns (5 bits each) and the number of hazards so far.
+- A dug Rupee's colour is checked once the columns either side of it are known, and a 2×2 block once
+  its second column is.
+- Run forward and backward, it gives each hole's share of the boards, and for each undug hole how
+  many hazards would be around it, so the colour it would show.
+- It runs once with blocks allowed and once without, and the two are mixed by the weights above.
+- The Bombs and Rupoors still hidden are interchangeable among the hazard holes, so a hole's Bomb
+  chance is its hazard chance × Bombs left ÷ hazards left.
+
+For each undug hole it reports:
+- the chances of a Bomb, a Rupoor and a Rupee;
+- the chance of each Rupee colour;
+- what a dig there is worth on average;
+- the information a dig there gives (the entropy of the seven things it might show).
+
+**The recommendation:** the lowest Bomb chance, then the lowest Rupoor chance, then the most
+information, then the best average haul, then the first hole in reading order. Near-equal chances
+count as ties. Holes that must be hazards are never recommended. Once only those are left, every
+Rupee is dug.
+
+**Impossible boards.** When no deal fits the entered holes, the solver finds a smallest set of
+entered holes that can't all be true: each one is cleared in turn and stays cleared if the board is
+still impossible without it. The screen outlines that set in red. Too many Bombs, or a Rupoor on
+Beginner, count as impossible too.
+
+**Speed.** Expert's worst case is a few million steps. On the desktop JVM it's about 4 ms a board,
+16 ms at worst (the empty board). `ThrillDiggerSolverTest` asserts under 250 ms. The solver runs off
+the main thread.
+
+**Tests.** `ThrillDiggerSolverTest` checks the solver against:
+- brute-force enumeration of every weighted hazard set: the empty Beginner board, every first dig,
+  and dealt boards partly dug on all three difficulties;
+- boards worked by hand;
+- boards dealt by a re-implementation of the game's rules (always possible, and certain once every
+  Rupee is dug);
+- a Monte Carlo estimate of the block share.
+
+It also checks impossible-board conflicts, that every conflict found is minimal, and the time.
+`ThrillDiggerViewModelTest` covers entering holes, the recommendation, undo, reset, difficulties
+and saving.
+
+### The screen
+
+- **Landscape first.** The board fills the left and a panel on the right holds:
+  - the difficulty;
+  - the picker;
+  - a status line: Rupees left and the haul, a finished board, or the conflict;
+  - the chosen hole's details: its chances, its colour chances with small Rupee pictures, and its
+    average worth.
+- In a short landscape window (under 480 dp tall, as on HW:DE's map) the top bar and system bars
+  hide. The panel's top row then carries ☰ or Back, the title, **Undo** and **Reset**.
+- **Portrait:** the board on top, then the status, the picker and the details.
+- **Undug holes** are tinted by their Bomb chance: green at 0%, through amber, to red at 50% and
+  over. They show the Bomb percentage and, on boards with Rupoors, the Rupoor percentage under it,
+  each by a small picture. A hole that must be a Bomb or a Rupoor shows that picture faded.
+- **The recommended hole** has a gold outline and a ★. The hole the next entry goes into has the
+  theme's primary outline.
+- **Entering a dig: tap a hole, then tap what it showed.** With no hole tapped, the picker fills the
+  recommended hole, and after each entry the selection goes back to the new recommendation, so
+  following the advice is **one tap per dig**. That's faster than a paint mode: each dig shows
+  something different, so a brush would need changing nearly every time. Tapping the selected hole
+  again deselects it, and **Clear** empties a hole.
+- **The picker** is a 4 × 2 grid of the five Rupees, the Rupoor, the Bomb and Clear. Each has its
+  name and its hazard range (`0`, `1–2`…), `−10` for the Rupoor and *Game over* for the Bomb. The
+  tile matching what's in the target hole is outlined.
+- **Undo** steps back through every change on that difficulty, Reset included, up to 200 steps.
+  Reset clears the board for a new round.
+
+### Pictures
+
+Skyward Sword's own renders, from Zelda Wiki through its API by `scripts/fetch-thrill-digger-icons.py`.
+They're the wiki's own thumbnails, so nothing is resized locally. All are bundled as
+`drawable/thrill_*.png`.
+
+| File | Zelda Wiki file | Size |
+|---|---|---|
+| `thrill_green.png` … `thrill_gold.png` | `File:SS Green Rupee Render.png`, `SS Blue …`, `SS Red …`, `SS Silver …`, `SS Gold Rupee Render.png` | 80 × 125 |
+| `thrill_rupoor.png` | `File:SS Rupoor Render.png` | 80 × 125 |
+| `thrill_bomb.png` | `File:SS Bomb Render.png` | 92 × 125 |
+
+The Rupoor and the Silver Rupee are the same shape and close in shade. `HoleIcon` draws a **dark
+purple minus sign, ringed in white, over the Rupoor's right-hand side**, so the two can't be confused.
+It's drawn in code, not baked into the picture.

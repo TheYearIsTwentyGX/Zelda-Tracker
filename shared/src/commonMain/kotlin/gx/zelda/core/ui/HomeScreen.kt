@@ -93,7 +93,9 @@ private fun GameCard(game: Game, onOpenTracker: (Game, Tracker) -> Unit) {
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            game.trackers.forEach { tracker ->
+            val (tools, trackers) = game.trackers.partition { it.isTool }
+            (trackers + tools).forEach { tracker ->
+                if (tracker == tools.firstOrNull()) ToolsHeading(Modifier.padding(top = 4.dp))
                 Card(
                     onClick = { onOpenTracker(game, tracker) },
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
