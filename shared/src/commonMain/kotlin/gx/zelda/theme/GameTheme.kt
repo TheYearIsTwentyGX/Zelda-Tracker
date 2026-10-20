@@ -116,6 +116,18 @@ enum class Ornament {
 
     /** Rings on a hairline, each a small spiral of circles, Zonai stonework. */
     SPIRAL,
+
+    /** Two strands twisted together, a ship's rope. */
+    ROPE,
+
+    /** Two rails with sleepers across them, the Spirit Train's track. */
+    RAILS,
+
+    /** A row of Triforces turned point-down, Lorule's. */
+    INVERTED_TRIFORCES,
+
+    /** Four-point sparkles of two sizes on a hairline, Tri's glow. */
+    SPARKLES,
 }
 
 /** How [GameProgressBar] draws progress. */
