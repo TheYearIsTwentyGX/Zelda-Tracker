@@ -966,8 +966,274 @@ object GameThemes {
         progress = ProgressStyle.SEGMENTED,
     )
 
+    /**
+     * Phantom Hourglass's touch menus: teal buttons, green parchment panels, sand-wood boards and a
+     * brown frame. Light is the sand; dark is the buttons' slate as night sea. Sampled from Spriters
+     * Resource's Menus and Item Screen sheets.
+     */
+    val PH = GameTheme(
+        id = "ph",
+        light = GamePalette(
+            primary = Color(0xFF216B73),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFBDEDED),
+            onPrimaryContainer = Color(0xFF002A2E),
+            secondary = Color(0xFF637318),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFADCE84),
+            onSecondaryContainer = Color(0xFF1E2A00),
+            tertiary = Color(0xFFB02020),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFFDAD6),
+            onTertiaryContainer = Color(0xFF410002),
+            surface = Color(0xFFFFF8E4),
+            onSurface = Color(0xFF2A1E08),
+            surfaceVariant = Color(0xFFF2E6B8),
+            onSurfaceVariant = Color(0xFF5A3908),
+            outline = Color(0xFF846B39),
+            star = Color(0xFF7A5000),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFF42B5B5),
+            onPrimary = Color(0xFF0A2A2E),
+            primaryContainer = Color(0xFF216B73),
+            onPrimaryContainer = Color(0xFFDDF8F8),
+            secondary = Color(0xFFADCE84),
+            onSecondary = Color(0xFF1E2A00),
+            secondaryContainer = Color(0xFF4A5A14),
+            onSecondaryContainer = Color(0xFFE0F4C4),
+            tertiary = Color(0xFFFF8A80),
+            onTertiary = Color(0xFF400000),
+            tertiaryContainer = Color(0xFF8A1A1A),
+            onTertiaryContainer = Color(0xFFFFDAD6),
+            surface = Color(0xFF14202A),
+            onSurface = Color(0xFFF7EFDE),
+            surfaceVariant = Color(0xFF263442),
+            onSurfaceVariant = Color(0xFFD8D0B8),
+            outline = Color(0xFF8C9AA8),
+            star = Color(0xFFFFDE7B),
+        ),
+        display = DisplayFont.ROUNDED,
+        shapes = ShapeStyle.SOFT,
+        ornament = Ornament.ROPE,
+        progress = ProgressStyle.ROUNDED,
+    )
+
+    /**
+     * Spirit Tracks' touch-screen maps: parchment floors, the Tower of Spirits' gold frames, the deep
+     * green border and the fields' green. Dark is the deep green; light is the parchment. Sampled from
+     * Spriters Resource's Maps sheet; the spirit pink (tertiary) is from memory, unverified.
+     */
+    val ST = GameTheme(
+        id = "st",
+        light = GamePalette(
+            primary = Color(0xFF2A6A48),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFC8ECD4),
+            onPrimaryContainer = Color(0xFF002814),
+            secondary = Color(0xFF8A6000),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFF8DC80),
+            onSecondaryContainer = Color(0xFF2A1C00),
+            tertiary = Color(0xFFA03050),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFFFD9E2),
+            onTertiaryContainer = Color(0xFF3E0018),
+            surface = Color(0xFFFAF6EC),
+            onSurface = Color(0xFF382008),
+            surfaceVariant = Color(0xFFE8DCC0),
+            onSurfaceVariant = Color(0xFF4E3A1C),
+            outline = Color(0xFF8A7458),
+            star = Color(0xFF8A6000),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFF0C028),
+            onPrimary = Color(0xFF382008),
+            primaryContainer = Color(0xFF6A4A08),
+            onPrimaryContainer = Color(0xFFFFE8A8),
+            secondary = Color(0xFFA8B870),
+            onSecondary = Color(0xFF103828),
+            secondaryContainer = Color(0xFF3E4A18),
+            onSecondaryContainer = Color(0xFFE0ECB8),
+            tertiary = Color(0xFFF8A8C0),
+            onTertiary = Color(0xFF3E0018),
+            tertiaryContainer = Color(0xFF8A2848),
+            onTertiaryContainer = Color(0xFFFFD9E2),
+            surface = Color(0xFF103828),
+            onSurface = Color(0xFFF4ECD8),
+            surfaceVariant = Color(0xFF24503A),
+            onSurfaceVariant = Color(0xFFD8C890),
+            outline = Color(0xFFA89060),
+            star = Color(0xFFF0C028),
+        ),
+        display = DisplayFont.ROUNDED,
+        shapes = ShapeStyle.SOFT,
+        ornament = Ornament.RAILS,
+        progress = ProgressStyle.SEGMENTED,
+    )
+
+    /**
+     * A Link Between Worlds' title: Hyrule's gold Triforce over Lorule's black one, the logo's red and
+     * the subtitle's brown. Light is Hyrule; dark is Lorule's black. Sampled from Spriters Resource's
+     * title-screen logo sheet.
+     */
+    val ALBW = GameTheme(
+        id = "albw",
+        light = GamePalette(
+            primary = Color(0xFF95161C),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFFFDAD6),
+            onPrimaryContainer = Color(0xFF410004),
+            secondary = Color(0xFF8A4A0A),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFFE152),
+            onSecondaryContainer = Color(0xFF3A2400),
+            tertiary = Color(0xFF61330E),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFF0DCC8),
+            onTertiaryContainer = Color(0xFF2A1400),
+            surface = Color(0xFFFFFBEE),
+            onSurface = Color(0xFF232221),
+            surfaceVariant = Color(0xFFF6E8C4),
+            onSurfaceVariant = Color(0xFF4D2709),
+            outline = Color(0xFF8E755D),
+            star = Color(0xFF8A4A0A),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFFF6A72),
+            onPrimary = Color(0xFF2A0004),
+            primaryContainer = Color(0xFF95161C),
+            onPrimaryContainer = Color(0xFFFFDAD6),
+            secondary = Color(0xFFFFE152),
+            onSecondary = Color(0xFF232221),
+            secondaryContainer = Color(0xFF7A4A0C),
+            onSecondaryContainer = Color(0xFFFFE8B8),
+            tertiary = Color(0xFFE9A32F),
+            onTertiary = Color(0xFF232221),
+            tertiaryContainer = Color(0xFF5A3008),
+            onTertiaryContainer = Color(0xFFFFE0C0),
+            surface = Color(0xFF141313),
+            onSurface = Color(0xFFF4F0EE),
+            surfaceVariant = Color(0xFF312F2E),
+            onSurfaceVariant = Color(0xFFD8D2CE),
+            outline = Color(0xFF8E755D),
+            star = Color(0xFFFFE152),
+        ),
+        display = DisplayFont.ROUNDED,
+        ornament = Ornament.INVERTED_TRIFORCES,
+        progress = ProgressStyle.ROUNDED,
+    )
+
+    /**
+     * Tri Force Heroes' title: the theatre's maroon curtains, grey stone with the Triforce emblem, a
+     * parchment card and the logo's red and gold. Dark is the curtain; light is the parchment. The
+     * accents are the three Links, in Four Swords Adventures' Force Gem shades. Sampled from Spriters
+     * Resource's Title Screen Elements sheet.
+     */
+    val TFH = GameTheme(
+        id = "tfh",
+        light = GamePalette(
+            primary = Color(0xFF993322),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFFFDAD2),
+            onPrimaryContainer = Color(0xFF3A0A00),
+            secondary = Color(0xFF7A5A00),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFFFE58A),
+            onSecondaryContainer = Color(0xFF261A00),
+            tertiary = Color(0xFF4C4C4C),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFE0E0E0),
+            onTertiaryContainer = Color(0xFF1A1A1A),
+            surface = Color(0xFFFBF4EA),
+            onSurface = Color(0xFF331100),
+            surfaceVariant = Color(0xFFEDDCC4),
+            onSurfaceVariant = Color(0xFF5A3A20),
+            outline = Color(0xFF8A7058),
+            star = Color(0xFF7A5A00),
+            accents = listOf(Color(0xFF299429), Color(0xFF2929FF), Color(0xFFAD2929)),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFFFCC22),
+            onPrimary = Color(0xFF331100),
+            primaryContainer = Color(0xFF776644),
+            onPrimaryContainer = Color(0xFFFFFFFF),
+            secondary = Color(0xFFFF6A5A),
+            onSecondary = Color(0xFF340B13),
+            secondaryContainer = Color(0xFF993322),
+            onSecondaryContainer = Color(0xFFFFE0DA),
+            tertiary = Color(0xFFB8B8B8),
+            onTertiary = Color(0xFF2B2B2B),
+            tertiaryContainer = Color(0xFF4C4C4C),
+            onTertiaryContainer = Color(0xFFF0F0F0),
+            surface = Color(0xFF340B13),
+            onSurface = Color(0xFFF9E9D0),
+            surfaceVariant = Color(0xFF541A23),
+            onSurfaceVariant = Color(0xFFEDDCC4),
+            outline = Color(0xFFB1987F),
+            star = Color(0xFFFFCC22),
+            accents = listOf(Color(0xFF29E739), Color(0xFF5263FF), Color(0xFFFF2929)),
+        ),
+        display = DisplayFont.ROUNDED,
+        shapes = ShapeStyle.SOFT,
+        ornament = Ornament.COLOUR_BANDS,
+        progress = ProgressStyle.ROUNDED,
+    )
+
+    /**
+     * Echoes of Wisdom's toy diorama: soft pastels with Tri's gold sparkle, and the rifts' purple-black
+     * for dark. From memory, unverified: none of the game's sheets is archived yet.
+     */
+    val EOW = GameTheme(
+        id = "eow",
+        light = GamePalette(
+            primary = Color(0xFF6A5A00),
+            onPrimary = Color(0xFFFFFFFF),
+            primaryContainer = Color(0xFFF8E8A0),
+            onPrimaryContainer = Color(0xFF221B00),
+            secondary = Color(0xFF3A7A4A),
+            onSecondary = Color(0xFFFFFFFF),
+            secondaryContainer = Color(0xFFC8F0D0),
+            onSecondaryContainer = Color(0xFF002110),
+            tertiary = Color(0xFF7A4AA0),
+            onTertiary = Color(0xFFFFFFFF),
+            tertiaryContainer = Color(0xFFF0DCFF),
+            onTertiaryContainer = Color(0xFF2A0A4A),
+            surface = Color(0xFFFDFBF2),
+            onSurface = Color(0xFF22201A),
+            surfaceVariant = Color(0xFFEEEAD8),
+            onSurfaceVariant = Color(0xFF4C4838),
+            outline = Color(0xFF7C7868),
+            star = Color(0xFF7A5E00),
+        ),
+        dark = GamePalette(
+            primary = Color(0xFFF8D848),
+            onPrimary = Color(0xFF2A1840),
+            primaryContainer = Color(0xFF6A5A00),
+            onPrimaryContainer = Color(0xFFFFF4C8),
+            secondary = Color(0xFF9CDCAC),
+            onSecondary = Color(0xFF2A1840),
+            secondaryContainer = Color(0xFF2E5A3A),
+            onSecondaryContainer = Color(0xFFD0F4D8),
+            tertiary = Color(0xFFD8B4FF),
+            onTertiary = Color(0xFF2A1840),
+            tertiaryContainer = Color(0xFF5A3A80),
+            onTertiaryContainer = Color(0xFFF0E0FF),
+            surface = Color(0xFF1C1030),
+            onSurface = Color(0xFFF2ECFA),
+            surfaceVariant = Color(0xFF2A1840),
+            onSurfaceVariant = Color(0xFFD4C8E4),
+            outline = Color(0xFF9A8CB0),
+            star = Color(0xFFF8D848),
+        ),
+        display = DisplayFont.ROUNDED,
+        shapes = ShapeStyle.SOFT,
+        ornament = Ornament.SPARKLES,
+        progress = ProgressStyle.ROUNDED,
+    )
+
     /** The themed games by id. The rest, Hyrule Warriors ("hwde") included, use [Neutral] until their batch. */
-    val byId: Map<String, GameTheme> = listOf(LOZ, AOL, ALTTP, LA, OOS, OOA, FS, WW, FSA, MC, BOTW, OOT, MM, SS, TP, TOTK, HWDE).associateBy { it.id }
+    val byId: Map<String, GameTheme> = listOf(LOZ, AOL, ALTTP, LA, OOS, OOA, FS, WW, FSA, MC, BOTW, OOT, MM, SS, TP, TOTK, HWDE, PH, ST, ALBW, TFH, EOW).associateBy { it.id }
 
     /** [gameId]'s theme; [Neutral] for no game or one without a theme yet. */
     fun of(gameId: String?): GameTheme = byId[gameId] ?: Neutral

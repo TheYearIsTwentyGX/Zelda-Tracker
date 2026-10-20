@@ -14,7 +14,13 @@ class GameThemesTest {
 
     @Test
     fun theThemedGamesHaveTheirOwn() {
-        for (id in listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ss", "botw", "totk", "hwde")) assertEquals(id, GameThemes.of(id).id)
+        for (id in listOf("loz", "aol", "alttp", "la", "oot", "mm", "oos", "ooa", "fs", "ww", "fsa", "mc", "tp", "ph", "st", "ss", "albw", "tfh", "botw", "totk", "eow", "hwde")) assertEquals(id, GameThemes.of(id).id)
+    }
+
+    /** Every game, spin-offs included, has a theme of its own; Neutral is only for screens outside a game. */
+    @Test
+    fun everyGameHasItsOwnTheme() {
+        for (game in Games.all) assertTrue(game.id in GameThemes.byId, "${game.id} has no theme")
     }
 
     @Test
