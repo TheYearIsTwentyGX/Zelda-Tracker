@@ -145,13 +145,20 @@ fun AppDrawerSheet(
                 item(key = "game_${section.game.id}") {
                     GameHeader(section, onToggle = { onToggleGame(section.game.id, !section.expanded) })
                 }
-                items(section.rows, key = { "tracker_${section.game.id}_${it.kind}_${it.dataFile}" }) { tracker ->
-                    NavigationDrawerItem(
-                        label = { Text(tracker.title) },
-                        selected = selection == MenuSelection.Tracker(section.game.id, tracker.kind, tracker.dataFile),
-                        onClick = { onOpenTracker(section.game, tracker) },
-                        modifier = Modifier.padding(start = 16.dp),
-                    )
+                val (tools, trackers) = section.rows.partition { it.isTool }
+                for ((group, rows) in listOf("trackers" to trackers, "tools" to tools)) {
+                    if (rows.isEmpty()) continue
+                    if (group == "tools") {
+                        item(key = "tools_${section.game.id}") { ToolsHeading(Modifier.padding(start = 32.dp, top = 4.dp, bottom = 4.dp)) }
+                    }
+                    items(rows, key = { "tracker_${section.game.id}_${it.kind}_${it.dataFile}" }) { tracker ->
+                        NavigationDrawerItem(
+                            label = { Text(tracker.title) },
+                            selected = selection == MenuSelection.Tracker(section.game.id, tracker.kind, tracker.dataFile),
+                            onClick = { onOpenTracker(section.game, tracker) },
+                            modifier = Modifier.padding(start = 16.dp),
+                        )
+                    }
                 }
             }
             item(key = "settings_divider") { HorizontalDivider(Modifier.padding(vertical = 8.dp)) }
@@ -165,6 +172,17 @@ fun AppDrawerSheet(
             }
         }
     }
+}
+
+/** The heading a game's tools (the Thrill Digger solver) are listed under, after its trackers. */
+@Composable
+fun ToolsHeading(modifier: Modifier = Modifier) {
+    Text(
+        "Tools",
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = modifier.semantics { heading() },
+    )
 }
 
 /** The heading the spin-offs are listed under, after the mainline games. */

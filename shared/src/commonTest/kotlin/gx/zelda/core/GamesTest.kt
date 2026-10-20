@@ -127,12 +127,24 @@ class GamesTest {
         assertTrue(Games.FSA.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
     }
 
-    /** Three files on the Wii and in HD (docs/ss.md); every tracker after the overview is a checklist. */
+    /**
+     * Three files on the Wii and in HD (docs/ss.md); every tracker after the overview is a checklist,
+     * and the Thrill Digger solver comes last, as a tool.
+     */
     @Test
     fun skywardSwordHasThreeSaveFilesAndAnOverviewFirst() {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.SS.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.SS.trackers.first().kind)
-        assertTrue(Games.SS.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+        assertEquals(TrackerKind.THRILL_DIGGER, Games.SS.trackers.last().kind)
+        assertTrue(Games.SS.trackers.drop(1).dropLast(1).all { it.kind == TrackerKind.CHECKLIST })
+    }
+
+    /** Tools keep no progress; only the Thrill Digger solver is one, and only Skyward Sword has it. */
+    @Test
+    fun theThrillDiggerSolverIsSkywardSwordsOnlyTool() {
+        assertEquals(listOf(TrackerKind.THRILL_DIGGER), TrackerKind.entries.filter { it.isTool })
+        assertEquals(listOf("ss"), Games.all.filter { g -> g.trackers.any { it.isTool } }.map { it.id })
+        assertTrue(Games.all.all { g -> g.trackers.dropWhile { !it.isTool }.all { it.isTool } }, "tools come after a game's trackers")
     }
 
     /** Three files on the 3DS (docs/albw.md); every tracker after the overview is a checklist. */

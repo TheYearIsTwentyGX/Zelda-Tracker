@@ -70,10 +70,19 @@ enum class TrackerKind {
      * in docs/hwde.md.
      */
     ADVENTURE_MAP,
+
+    /**
+     * Skyward Sword's Thrill Digger solver: a tool, not a tracker. It keeps no progress, so it has no
+     * Progress Overview row and no mark-all, and the menu and home screen list it under "Tools".
+     */
+    THRILL_DIGGER,
     ;
 
     /** True for the kinds that read their data from a [Tracker.dataFile], so a game can list several. */
     val usesDataFile: Boolean get() = this == CHECKLIST || this == ADVENTURE_MAP
+
+    /** A helper for playing rather than a record of progress: listed after the trackers, under "Tools". */
+    val isTool: Boolean get() = this == THRILL_DIGGER
 }
 
 /**
@@ -85,6 +94,8 @@ data class Tracker(val kind: TrackerKind, val title: String, val description: St
     init {
         require(kind.usesDataFile == (dataFile != null)) { "$title: only a checklist or an Adventure map has a dataFile, and it needs one" }
     }
+
+    val isTool: Boolean get() = kind.isTool
 }
 
 object Games {
@@ -427,8 +438,8 @@ object Games {
 
     /**
      * Three files on the Wii and in Skyward Sword HD, whose extra autosave slot isn't a file of its own.
-     * Every tracker is a checklist for the Wii original, with HD's differences in item notes. The
-     * data and its sources are in docs/ss.md.
+     * Every tracker is a checklist for the Wii original, with HD's differences in item notes, plus
+     * the Thrill Digger solver as a tool. The data and its sources are in docs/ss.md.
      */
     val SS = Game(
         id = "ss",
@@ -446,6 +457,7 @@ object Games {
             ssChecklist("Side Quests & Minigames", "The minigames and their prizes, the other side quests and the Lightning Round", "side_quests"),
             ssChecklist("Shields", "All 10 shields, their upgrades and materials", "shields"),
             ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
+            Tracker(TrackerKind.THRILL_DIGGER, "Thrill Digger Solver", "Every undug hole's Bomb and Rupoor odds, and the safest hole to dig next"),
         ),
     )
 

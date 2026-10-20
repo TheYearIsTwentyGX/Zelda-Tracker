@@ -86,6 +86,9 @@ import gx.zelda.sidequests.ui.SideQuestDetailScreen
 import gx.zelda.sidequests.ui.SideQuestTrackerScreen
 import gx.zelda.sidequests.ui.SideQuestViewModel
 import gx.zelda.theme.GameThemes
+import gx.zelda.thrilldigger.data.ThrillDiggerStorage
+import gx.zelda.thrilldigger.ui.ThrillDiggerScreen
+import gx.zelda.thrilldigger.ui.ThrillDiggerViewModel
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
@@ -135,6 +138,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class ChecklistDetail(val gameId: String, val dataFile: String, val itemId: String)
 /** A Hyrule Warriors Adventure Mode map, named by its dataset since a game has several. */
 @Serializable private data class AdventureMap(val gameId: String, val dataFile: String)
+@Serializable private data class ThrillDigger(val gameId: String)
 @Serializable private data object Settings
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
@@ -474,6 +478,15 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                     onBack = { nav.popBackStack() },
                 )
             }
+            composable<ThrillDigger> { entry ->
+                val game = Games.byId(entry.toRoute<ThrillDigger>().gameId)
+                val vm = viewModel(key = "thrill_digger_${game.id}") { ThrillDiggerViewModel(ThrillDiggerStorage(dataStore, game)) }
+                ThrillDiggerScreen(
+                    vm,
+                    title = game.trackers.first { it.kind == TrackerKind.THRILL_DIGGER }.title,
+                    onBack = { nav.popBackStack() },
+                )
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -589,6 +602,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind,
         TrackerKind.FIGURINES -> navigate(Figurines(game.id))
         TrackerKind.CHECKLIST -> if (dataFile != null) navigate(Checklist(game.id, dataFile))
         TrackerKind.ADVENTURE_MAP -> if (dataFile != null) navigate(AdventureMap(game.id, dataFile))
+        TrackerKind.THRILL_DIGGER -> navigate(ThrillDigger(game.id))
     }
 }
 
@@ -709,6 +723,7 @@ private fun trackerRoute(gameId: String, tracker: Tracker): Any = when (tracker.
     TrackerKind.FIGURINES -> Figurines(gameId)
     TrackerKind.CHECKLIST -> Checklist(gameId, tracker.dataFile!!)
     TrackerKind.ADVENTURE_MAP -> AdventureMap(gameId, tracker.dataFile!!)
+    TrackerKind.THRILL_DIGGER -> ThrillDigger(gameId)
 }
 
 /** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
@@ -732,6 +747,7 @@ private fun NavBackStackEntry.menuSelection(): MenuSelection {
         d.hasRoute<Figurines>() -> MenuSelection.Tracker(toRoute<Figurines>().gameId, TrackerKind.FIGURINES)
         d.hasRoute<Checklist>() -> toRoute<Checklist>().let { MenuSelection.Tracker(it.gameId, TrackerKind.CHECKLIST, it.dataFile) }
         d.hasRoute<AdventureMap>() -> toRoute<AdventureMap>().let { MenuSelection.Tracker(it.gameId, TrackerKind.ADVENTURE_MAP, it.dataFile) }
+        d.hasRoute<ThrillDigger>() -> MenuSelection.Tracker(toRoute<ThrillDigger>().gameId, TrackerKind.THRILL_DIGGER)
         else -> MenuSelection.None
     }
 }
