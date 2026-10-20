@@ -20,7 +20,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.Switch
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
@@ -37,6 +41,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.selected
@@ -69,6 +76,8 @@ import kotlin.math.roundToInt
 @Composable
 fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: () -> Unit) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val check by viewModel.check.collectAsStateWithLifecycle()
+    check?.let { BoardCheckDialog(it, onDismiss = viewModel::dismissCheck) }
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val landscape = maxWidth > maxHeight
         val bars = !(landscape && maxHeight.value < AdventureChrome.COMPACT_HEIGHT_DP)
@@ -108,6 +117,7 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
                         HolePicker(s, viewModel)
                         StatusLine(s)
                         TargetDetails(s)
+                        RngControls(s, viewModel)
                     }
                 }
             } else {
@@ -122,6 +132,7 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
                     StatusLine(s)
                     HolePicker(s, viewModel)
                     TargetDetails(s)
+                    RngControls(s, viewModel)
                 }
             }
         }
@@ -364,4 +375,74 @@ private fun TargetDetails(state: ThrillDiggerUiState) {
             else -> Spacer(Modifier.height(0.dp))
         }
     }
+}
+
+/**
+ * Where the odds come from: the switch for the game's RNG (not on Beginner), how many of its boards
+ * fit, the loop lock, and Export board (checked against the RNG once finished).
+ */
+@Composable
+private fun RngControls(state: ThrillDiggerUiState, viewModel: ThrillDiggerViewModel) {
+    val colors = MaterialTheme.colorScheme
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        if (state.rngAvailable) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("Use the game's RNG", style = MaterialTheme.typography.titleSmall, modifier = Modifier.weight(1f))
+                Switch(checked = state.rngOn, onCheckedChange = { viewModel.setRng(it) })
+            }
+            val small = MaterialTheme.typography.bodySmall
+            when (val source = state.source) {
+                OddsSource.EveryBoard -> Text("Odds over every board the rules allow.", style = small, color = colors.onSurfaceVariant)
+                is OddsSource.Listing -> {
+                    Text("Listing the boards the game's RNG can deal… ${(source.progress * 100).roundToInt()}%", style = small, color = colors.onSurfaceVariant)
+                    LinearProgressIndicator(progress = { source.progress }, modifier = Modifier.fillMaxWidth())
+                }
+                OddsSource.NoRngFit -> Text(
+                    "None of the RNG's boards fits, so these are the odds over every board. Right after starting the game, its RNG may not have settled yet: run around Eldin for a bit first.",
+                    style = small,
+                    color = colors.error,
+                )
+                is OddsSource.Rng -> {
+                    val loops = if (source.loops.size == 1) "loop ${source.loops.single() + 1} of ${source.loopCount}" else "${source.loops.size} of ${source.loopCount} loops"
+                    Text("${thousands(source.states)} of the RNG's boards fit, on $loops.", style = small)
+                    if (source.lockMissed) {
+                        Text("Nothing on the locked loop ${source.locked!! + 1} fits, so every loop is counted.", style = small, color = colors.error)
+                    }
+                    if (source.locked != null) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("Locked to loop ${source.locked + 1}", style = small, modifier = Modifier.weight(1f))
+                            TextButton(onClick = { viewModel.unlockLoop() }) { Text("Unlock") }
+                        }
+                    } else if (state.canLockLoop) {
+                        TextButton(onClick = { viewModel.lockLoop() }) { Text("Lock to loop ${source.loops.single() + 1} for later rounds") }
+                    }
+                }
+            }
+        }
+        if (!state.board.isEmpty) {
+            TextButton(onClick = { viewModel.exportBoard() }) { Text(if (state.finished) "Export board and check it against the RNG" else "Export board") }
+        }
+    }
+}
+
+private fun thousands(n: Int): String = n.toString().reversed().chunked(3).joinToString(",").reversed()
+
+/** The board as text, with how many RNG states deal it once it's finished, to copy into a report. */
+@Composable
+private fun BoardCheckDialog(check: BoardCheck, onDismiss: () -> Unit) {
+    @Suppress("DEPRECATION")
+    val clipboard = LocalClipboardManager.current
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Export board") },
+        text = {
+            SelectionContainer {
+                Text(check.text, fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodyMedium)
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { clipboard.setText(AnnotatedString(check.text)) }) { Text("Copy") }
+        },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Close") } },
+    )
 }

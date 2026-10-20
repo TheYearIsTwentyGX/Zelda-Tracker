@@ -818,6 +818,13 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   exact Bomb and Rupoor chance, as a heat colour, with the safest hole to dig next starred.
   - It counts every board the game can deal, its re-deal of a 2×2 block of hazards included, on
     Beginner, Intermediate and Expert.
+  - **Use the game's RNG** (on for Expert, optional on Intermediate): Skyward Sword's random numbers
+    can only deal about 2.6 million boards, so the odds count just those, listed on the phone the
+    first time (a few seconds, kept while the app runs). That's much sharper: 32 Expert boards
+    cleared in 120 test games against 2. Once a single loop of the RNG fits, it can be locked for
+    later rounds. If nothing fits (just after starting the game), the odds fall back to every board.
+  - **Export board** copies the board as text and, once every Rupee is entered, says how many RNG
+    states deal it, so real games can confirm the RNG port.
   - Landscape first: the board on the left, and on the right a picker of the game's own Rupee, Rupoor
     and Bomb pictures with their hazard ranges. The Rupoor carries a purple minus so it can't pass for
     a Silver Rupee. A phone on its side hides the bars, as HW:DE's map does; portrait puts the picker

@@ -224,8 +224,9 @@ The reference was **lepelog's Thrill Digger solver** (lepelog.github.io/thrill-d
 one from the Skyward Sword randomizer community. Its UX is a board where each hole takes one of the
 seven pictures, with the odds and a ranking per hole. It has no licence, so none of its code or
 pictures are used; only the game's rules were taken from it. lepelog's solver goes further for
-Expert: it lists every board the game's random number generator can produce. Ours, like most
-solvers, counts every board the dealing rules allow, which works for all three difficulties at once.
+Expert: it lists every board the game's random number generator can produce. We do that too, as
+the [RNG mode](#the-rng-mode), re-implemented from the description. The solver below counts every
+board the dealing rules allow. It's the fallback, and Beginner's and Intermediate's default.
 
 `ThrillDiggerSolver` is exact. A board's weight is how often the game deals it:
 - 1 for a board without an all-hazard 2×2 block;
@@ -275,6 +276,93 @@ It also checks impossible-board conflicts, that every conflict found is minimal,
 `ThrillDiggerViewModelTest` covers entering holes, the recommendation, undo, reset, difficulties
 and saving.
 
+### The RNG mode
+
+Skyward Sword's random number generator (`SsRng`) works like this:
+- Each step multiplies the 32-bit state by 1664525, adds 1013904223, and folds the 64-bit result's
+  high half into its low half.
+- The float the game draws is the state's top 23 bits as a mantissa.
+- The fold makes the map many-to-one, so from any start the state falls into one of a few loops and
+  never leaves it.
+- The game calls the RNG thousands of times a frame. Starts reach their loop within 1.3 million
+  steps 99% of the time (a median of 440,000), which is seconds of play.
+
+A board is dealt from wherever the RNG is when the round starts, so only the boards dealt from loop
+states can come up. That's about 2.6 million on any difficulty, out of billions of valid Expert
+boards. lepelog described the idea and the generator (its README and `rng.rs`). The code here is
+our own, from that description.
+
+**The loops** (`RngLoops`) were found by running the RNG from 20,000 random starts until each
+reached a known loop. A start that hadn't arrived after 3 million steps was taken to be on a new loop, found with Brent's method.
+Each loop is named by its smallest state, and its share is the fraction of starts that ended on it:
+
+| Anchor | States | Share of starts |
+|---|---|---|
+| 5862 | 1,708,724 | 76.8% |
+| 8002 | 127,646 | 7.5% |
+| 4172 | 155,834 | 7.2% |
+| 34267 | 354,835 | 3.4% |
+| 56857 | 146,318 | 2.5% |
+| 409493 | 48,534 | 1.3% |
+| 61847 | 81,673 | 1.2% |
+| 82622 | 26,128 | 0.02% |
+
+That's 2,649,692 states. One start in 20,000 reached an 8-state loop, which is left out. lepelog
+lists the same big loops, and a 1,371-state one no start reached. A state's weight is its loop's
+share ÷ its loop's length: the loops are as likely as a random start makes them, and the states on
+a loop equally likely. lepelog weighs every state equally instead.
+
+**Listing the boards.** `RngBoardSource` deals every state's board (`ThrillDiggerDeal`, the same
+rules as above) the first time a difficulty's RNG odds are wanted:
+- It runs in the background with a progress bar, and the odds over every board show meanwhile.
+- It takes 0.5 s on a desktop JVM, so a few seconds on a phone.
+- It keeps them for as long as the app runs: one Long per state (`PackedBoard`: the hazard bits,
+  then which hazards are Bombs), 21 MB per difficulty.
+- Nothing is bundled. All the distinct boards come to 12 MB raw, 6.9 MB compressed, more than
+  listing them costs.
+
+**The odds** (`RngSolver`) keep the states whose board agrees with every entered hole and add up
+their weights. They're slowest with nothing dug, which is worked out once and cached, or one hole
+dug: 160 ms on the desktop. The more holes are dug, the faster.
+
+**Benefit.** Measured over 120 Expert play-outs on RNG-dealt boards, digging each mode's
+recommended hole until a Bomb or the end:
+- the rules alone: 2 boards cleared, 123 Rupees on average;
+- the RNG mode: 32 boards cleared, 150 Rupees on average.
+
+**On screen:**
+- **Use the game's RNG** is a switch per difficulty: on for Expert, off for Intermediate, and absent
+  for Beginner, where 2.6 million states spread evenly over its 4,845 hazard layouts.
+- The panel says how many of the RNG's boards fit, and on which loops.
+- When none fits, the odds fall back to every board, with a note: right after the game starts, its
+  RNG may not have reached a loop yet.
+- **Loop lock:** once only one loop fits, a button locks the difficulty to it, since the RNG stays on
+  its loop until the game restarts. Later rounds then count only that loop's boards, or every
+  loop's if nothing on it fits.
+
+**Export board** (any board but an empty one) shows the board as text, with a Copy button: a row of
+letters per row, G B R S Y for the Rupees, P for a Rupoor, X for a Bomb, ? for undug. A finished
+board (every Rupee entered) is also checked against the RNG port, with how many states deal a
+board agreeing with it. **No real board has been checked yet**, and that's how the port gets
+confirmed.
+- After a round ends on a Bomb the game shows every hole. Entering them all and sending the export
+  should give "1 RNG state deals this board" or more.
+- "No RNG state" would mean the port is wrong, or the RNG hadn't reached a loop.
+- Impossible boards export too, since a real board the rules call impossible is worth knowing about.
+
+`ThrillDiggerRngTest` checks:
+- the RNG step and float;
+- that every loop is a loop of its length, anchored at its smallest state;
+- packing;
+- the 2×2 check against brute force;
+- that dealt boards follow the rules;
+- the odds against counting a small table's states directly;
+- loop filtering, a board no state deals, and finding a board's own state;
+- the full Expert table's size and solve time.
+
+`ThrillDiggerViewModelTest` covers the defaults per difficulty, narrowing, the loop lock, the
+fallback and exporting.
+
 ### The screen
 
 - **Landscape first.** The board fills the left and a panel on the right holds:
@@ -299,6 +387,7 @@ and saving.
 - **The picker** is a 4 × 2 grid of the five Rupees, the Rupoor, the Bomb and Clear. Each has its
   name and its hazard range (`0`, `1–2`…), `−10` for the Rupoor and *Game over* for the Bomb. The
   tile matching what's in the target hole is outlined.
+- Under the details: the RNG switch and its status, and **Export board** ([The RNG mode](#the-rng-mode)).
 - **Undo** steps back through every change on that difficulty, Reset included, up to 200 steps.
   Reset clears the board for a new round.
 
