@@ -128,18 +128,22 @@ object RngSolver {
         return RngResult(DiggerAnalysis.Solved(odds, ThrillDiggerSolver.recommend(odds.values)), states, loops)
     }
 
-    /** The indices in [table] of the states that deal exactly [board], every hole of which is filled in. */
+    /**
+     * The indices in [table] of the states that deal [board], which must be [DiggerBoard.isFinished]:
+     * its undug holes are hazards, either kind, and every entered hole must match.
+     */
     fun dealing(board: DiggerBoard, table: RngBoards): List<Int> {
-        require(board.holes.none { it == Hole.UNKNOWN }) { "the board isn't finished" }
-        val filter = Filter(board)
+        require(board.isFinished) { "the board isn't finished" }
+        require(board.difficulty == table.difficulty) { "a ${board.difficulty.label} board against ${table.difficulty.label}'s RNG boards" }
+        val filter = Filter(board, undugAreHazards = true)
         return table.boards.indices.filter { filter.fits(table.boards[it]) }
     }
 
     /** Hazard count → index of its Rupee colour in [Hole.RUPEES]. */
     private val COLOUR = IntArray(9) { Hole.RUPEES.indexOf(Hole.rupeeFor(it)) }
 
-    /** Whether a packed board agrees with every hole entered on [board]. */
-    private class Filter(board: DiggerBoard) {
+    /** Whether a packed board agrees with every hole entered on [board], and with [undugAreHazards], every undug hole a hazard. */
+    private class Filter(board: DiggerBoard, undugAreHazards: Boolean = false) {
         private var hazards = 0L
         private var safe = 0L
         private var bombs = 0L
@@ -157,6 +161,7 @@ object RngSolver {
                     hole == Hole.BOMB -> { hazards = hazards or bit; bombs = bombs or bit }
                     hole == Hole.RUPOOR -> { hazards = hazards or bit; rupoors = rupoors or bit }
                     hole.isRupee -> safe = safe or bit
+                    undugAreHazards -> hazards = hazards or bit
                 }
             }
             rupeeMasks = LongArray(rupees.size) { around[rupees[it]] }

@@ -70,6 +70,17 @@ data class DiggerBoard(val difficulty: Difficulty, val holes: List<Hole>) {
 
     val isEmpty: Boolean get() = holes.all { it == Hole.UNKNOWN }
 
+    /** Holes still hiding a Rupee: the undug ones less the hazards not found yet. */
+    val rupeesLeft: Int get() = holes.count { it == Hole.UNKNOWN } - (difficulty.hazards - holes.count { it.isHazard })
+
+    /**
+     * No Rupee left to dig, so every undug hole holds a hazard (a Bomb or a Rupoor, which isn't
+     * known): the round is over and the board can be checked against the RNG ([RngSolver.dealing]).
+     * Below zero, more hazards are needed than there are undug holes, an impossible board that the
+     * check finds no state for.
+     */
+    val isFinished: Boolean get() = rupeesLeft <= 0
+
     companion object {
         fun empty(difficulty: Difficulty) = DiggerBoard(difficulty, List(difficulty.cells) { Hole.UNKNOWN })
 

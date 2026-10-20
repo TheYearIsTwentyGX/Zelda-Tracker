@@ -77,6 +77,7 @@ import kotlin.math.roundToInt
 fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: () -> Unit) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val check by viewModel.check.collectAsStateWithLifecycle()
+    val problem by viewModel.problem.collectAsStateWithLifecycle()
     check?.let { BoardCheckDialog(it, onDismiss = viewModel::dismissCheck) }
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val landscape = maxWidth > maxHeight
@@ -115,7 +116,7 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
                         }
                         DifficultyPicker(s.difficulty, viewModel::setDifficulty)
                         HolePicker(s, viewModel)
-                        StatusLine(s)
+                        StatusLine(s, problem)
                         TargetDetails(s)
                         RngControls(s, viewModel)
                     }
@@ -129,7 +130,7 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
                     // As wide as the screen, as tall as its rows need.
                     val cell = (screenWidth - 24.dp) / s.difficulty.width
                     DiggerBoardView(s, viewModel, Modifier.fillMaxWidth().height(cell * s.difficulty.height))
-                    StatusLine(s)
+                    StatusLine(s, problem)
                     HolePicker(s, viewModel)
                     TargetDetails(s)
                     RngControls(s, viewModel)
@@ -322,9 +323,13 @@ private fun PickerTile(hole: Hole, chosen: Boolean, enabled: Boolean, onClick: (
     }
 }
 
-/** One line on how the round stands: Rupees left and the haul, a finished board, or an impossible one. */
+/**
+ * One line on how the round stands: Rupees left and the haul, a finished board, or an impossible one;
+ * and the [problem] the last action ran into, if any.
+ */
 @Composable
-private fun StatusLine(state: ThrillDiggerUiState) {
+private fun StatusLine(state: ThrillDiggerUiState, problem: String?) {
+    problem?.let { Text("Something went wrong: $it", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.error) }
     val colors = MaterialTheme.colorScheme
     val (text, color) = when (val a = state.analysis) {
         is DiggerAnalysis.Impossible ->
@@ -402,6 +407,10 @@ private fun RngControls(state: ThrillDiggerUiState, viewModel: ThrillDiggerViewM
                     style = small,
                     color = colors.error,
                 )
+                is OddsSource.RngFailed -> {
+                    Text("Couldn't use the RNG's boards (${source.reason}), so these are the odds over every board.", style = small, color = colors.error)
+                    TextButton(onClick = { viewModel.retryRng() }) { Text("Try again") }
+                }
                 is OddsSource.Rng -> {
                     val loops = if (source.loops.size == 1) "loop ${source.loops.single() + 1} of ${source.loopCount}" else "${source.loops.size} of ${source.loopCount} loops"
                     Text("${thousands(source.states)} of the RNG's boards fit, on $loops.", style = small)
@@ -427,7 +436,7 @@ private fun RngControls(state: ThrillDiggerUiState, viewModel: ThrillDiggerViewM
 
 private fun thousands(n: Int): String = n.toString().reversed().chunked(3).joinToString(",").reversed()
 
-/** The board as text, with how many RNG states deal it once it's finished, to copy into a report. */
+/** The board as text, with how many RNG states deal it once it's finished, to copy into a report. Copy works while it's checking. */
 @Composable
 private fun BoardCheckDialog(check: BoardCheck, onDismiss: () -> Unit) {
     @Suppress("DEPRECATION")

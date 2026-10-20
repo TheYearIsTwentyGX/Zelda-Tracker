@@ -14,6 +14,8 @@ import gx.zelda.thrilldigger.model.ThrillDiggerSolver
 import kotlin.math.abs
 import kotlin.random.Random
 import kotlin.test.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertFailsWith
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
@@ -182,5 +184,58 @@ class ThrillDiggerRngTest {
         }
         println("Expert RNG table: ${table.boards.size} boards listed in ${listing.inWholeMilliseconds} ms; slowest solve $slowest ms")
         assertTrue(slowest < 1500, "slowest RNG solve $slowest ms")
+    }
+
+    /**
+     * A real Expert round (the export crash's board): all 24 Rupees and 3 Rupoors entered, the other
+     * 13 holes left undug. Every Rupee dug makes it finished, its undug holes hazards of either kind,
+     * and exactly one of the RNG's boards deals it, on the biggest loop.
+     */
+    @Test
+    fun aRealRoundWithItsHazardsUndugIsDealtOnce() {
+        val board = DiggerBoard.decode(Difficulty.EXPERT, "BRPR??BB??R?RBRPR?RRRBR??BB??R?RBBBRPR??")
+        assertEquals(24, board.holes.count { it.isRupee })
+        assertEquals(3, board.holes.count { it == Hole.RUPOOR })
+        assertEquals(13, board.holes.count { it == Hole.UNKNOWN })
+        assertEquals(0, board.rupeesLeft)
+        assertTrue(board.isFinished)
+        val table = RngBoards.generate(Difficulty.EXPERT)
+        val fit = assertNotNull(RngSolver.solve(board, table))
+        assertEquals(1, fit.states)
+        assertEquals(setOf(0), fit.loops)
+        val dealt = RngSolver.dealing(board, table)
+        assertEquals(1, dealt.size)
+        val truth = PackedBoard.unpack(Difficulty.EXPERT, table.boards[dealt.single()])
+        assertEquals(0, table.loopOf(dealt.single()))
+        board.holes.forEachIndexed { i, h ->
+            when (h) {
+                Hole.UNKNOWN -> assertTrue(truth.holes[i].isHazard, "undug hole $i is a hazard")
+                else -> assertEquals(h, truth.holes[i], "hole $i")
+            }
+        }
+    }
+
+    /** dealing() takes exactly the boards DiggerBoard.isFinished calls finished, and never throws on them. */
+    @Test
+    fun dealingAgreesWithIsFinished() {
+        for (d in Difficulty.entries) {
+            val table = RngBoards.generate(d, testLoops)
+            val truth = PackedBoard.unpack(d, table.boards[42])
+            assertTrue(truth.isFinished)
+            assertTrue(42 in RngSolver.dealing(truth, table), "${d.label}: every hole entered")
+            // Every Rupee dug, hazards not: still finished, and still dealt by its state.
+            val rupeesOnly = truth.copy(holes = truth.holes.map { if (it.isRupee) it else Hole.UNKNOWN })
+            assertTrue(rupeesOnly.isFinished)
+            assertTrue(42 in RngSolver.dealing(rupeesOnly, table), "${d.label}: Rupees only")
+            // A Rupee short: not finished, and dealing() says so rather than guess.
+            val short = rupeesOnly.with(rupeesOnly.holes.indexOfFirst { it.isRupee }, Hole.UNKNOWN)
+            assertFalse(short.isFinished)
+            assertFailsWith<IllegalArgumentException> { RngSolver.dealing(short, table) }
+            // A Rupee entered on a hazard: too few undug holes for the hazards, which nothing deals.
+            val hazard = truth.holes.indexOfFirst { it.isHazard }
+            val tooFew = rupeesOnly.with(hazard, Hole.GREEN)
+            assertTrue(tooFew.isFinished)
+            assertTrue(RngSolver.dealing(tooFew, table).isEmpty())
+        }
     }
 }

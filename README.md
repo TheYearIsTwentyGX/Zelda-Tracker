@@ -824,7 +824,8 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
     cleared in 120 test games against 2. Once a single loop of the RNG fits, it can be locked for
     later rounds. If nothing fits (just after starting the game), the odds fall back to every board.
   - **Export board** copies the board as text and, once every Rupee is entered, says how many RNG
-    states deal it, so real games can confirm the RNG port.
+    states deal its Rupees and hazards (undug holes count as either kind), so real games can confirm
+    the RNG port. The first real round checked fitted exactly one state.
   - Landscape first: the board on the left, and on the right a picker of the game's own Rupee, Rupoor
     and Bomb pictures with their hazard ranges. The Rupoor carries a purple minus so it can't pass for
     a Silver Rupee. A phone on its side hides the bars, as HW:DE's map does; portrait puts the picker
