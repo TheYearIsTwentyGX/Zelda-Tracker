@@ -342,9 +342,17 @@ recommended hole until a Bomb or the end:
 
 **Export board** (any board but an empty one) shows the board as text, with a Copy button: a row of
 letters per row, G B R S Y for the Rupees, P for a Rupoor, X for a Bomb, ? for undug. A finished
-board (every Rupee entered) is also checked against the RNG port, with how many states deal a
-board agreeing with it. **No real board has been checked yet**, and that's how the port gets
-confirmed.
+board (every Rupee entered, `DiggerBoard.isFinished`) is also checked against the RNG port, with how
+many states deal it. Its undug holes must all be hazards, so they're written H (a Bomb or a Rupoor)
+and the check only asks that a state's hazards be there, along with every entered Rupee, Rupoor and
+Bomb. When exactly one state fits, its board follows, saying which H was which. The text and Copy
+show at once; the check follows when the RNG's boards are listed, and if anything goes wrong it
+says "Can't check this board" and why, never crashing.
+- **The first real board checked** (2026-10-20, a test in `ThrillDiggerRngTest`): an Expert round
+  with all 24 Rupees and 3 Rupoors entered and 13 holes undug was dealt by exactly one state, on
+  loop 1. A port that was wrong would match a given hazard layout about once in 240,000 such
+  checks (2.65 million states against C(40,16) ≈ 6.3·10¹⁰ layouts, a tenth of which put Rupoors on
+  those 3 holes), so this is good evidence the port is right.
 - After a round ends on a Bomb the game shows every hole. Entering them all and sending the export
   should give "1 RNG state deals this board" or more.
 - "No RNG state" would mean the port is wrong, or the RNG hadn't reached a loop.

@@ -4,6 +4,7 @@ import gx.zelda.thrilldigger.model.Difficulty
 import gx.zelda.thrilldigger.model.RngBoards
 import gx.zelda.thrilldigger.model.RngLoop
 import gx.zelda.thrilldigger.model.RngLoops
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +22,9 @@ sealed interface RngTable {
     data class Generating(val progress: Float) : RngTable
 
     data class Ready(val boards: RngBoards) : RngTable
+
+    /** Dealing them went wrong, for [reason]; [RngBoardSource.ensure] tries again. */
+    data class Failed(val reason: String) : RngTable
 }
 
 /**
@@ -38,18 +42,29 @@ class RngBoardSource(
 
     fun table(difficulty: Difficulty): StateFlow<RngTable> = tables.getValue(difficulty)
 
-    /** Starts dealing [difficulty]'s boards unless they're ready or on their way. */
+    /** Starts dealing [difficulty]'s boards unless they're ready or on their way; after a failure, again. */
     fun ensure(difficulty: Difficulty) {
         val flow = tables.getValue(difficulty)
-        if (!flow.compareAndSet(RngTable.NotStarted, RngTable.Generating(0f))) return
+        val now = flow.value
+        if (now !is RngTable.NotStarted && now !is RngTable.Failed) return
+        if (!flow.compareAndSet(now, RngTable.Generating(0f))) return
         scope.launch {
-            val boards = RngBoards.generate(
-                difficulty,
-                loops,
-                onProgress = { flow.value = RngTable.Generating(it) },
-                checkCancelled = { ensureActive() },
-            )
-            flow.value = RngTable.Ready(boards)
+            // A failure here would otherwise take the app down from a background thread, and leave
+            // the table listing forever.
+            flow.value = try {
+                RngTable.Ready(
+                    RngBoards.generate(
+                        difficulty,
+                        loops,
+                        onProgress = { flow.value = RngTable.Generating(it) },
+                        checkCancelled = { ensureActive() },
+                    ),
+                )
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Throwable) {
+                RngTable.Failed(e.message ?: e::class.simpleName ?: "unknown error")
+            }
         }
     }
 

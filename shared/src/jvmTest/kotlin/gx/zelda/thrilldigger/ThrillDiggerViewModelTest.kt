@@ -14,6 +14,8 @@ import gx.zelda.thrilldigger.model.Difficulty
 import gx.zelda.thrilldigger.model.DiggerAnalysis
 import gx.zelda.thrilldigger.model.DiggerBoard
 import gx.zelda.thrilldigger.model.Hole
+import gx.zelda.thrilldigger.ui.BoardCheck
+import gx.zelda.thrilldigger.ui.RngCheck
 import gx.zelda.thrilldigger.ui.ThrillDiggerUiState
 import gx.zelda.thrilldigger.ui.ThrillDiggerViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -21,6 +23,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestCoroutineScheduler
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import java.nio.file.Files
@@ -30,6 +34,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
+import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
@@ -50,8 +55,8 @@ class ThrillDiggerViewModelTest {
     private val rngSource = RngBoardSource(listOf(loop))
 
     /** A view model with its state collected and loaded, so a write never races the first subscription. */
-    private suspend fun TestScope.viewModel(): ThrillDiggerViewModel {
-        val vm = main.track(ThrillDiggerViewModel(storage, rngSource = rngSource))
+    private suspend fun TestScope.viewModel(source: RngBoardSource = rngSource): ThrillDiggerViewModel {
+        val vm = main.track(ThrillDiggerViewModel(storage, rngSource = source))
         backgroundScope.launchCollect(vm)
         vm.state.filterNotNull().first()
         return vm
@@ -279,5 +284,142 @@ class ThrillDiggerViewModelTest {
         assertNull(check.states)
         assertEquals("Thrill Digger, Beginner\nY????\n?????\n?????\n?????", check.text.lines().take(5).joinToString("\n"))
         assertTrue(check.text.endsWith("Not finished, so not checked against the RNG."))
+    }
+
+    /** The export once its RNG check is over. */
+    private suspend fun ThrillDiggerViewModel.checked(): BoardCheck = check.filterNotNull().first { it.rng != RngCheck.Checking }
+
+    /** [truth] with only its Rupees, and these hazards, entered: a round played to the end. */
+    private fun rupeesOnly(truth: DiggerBoard, keep: (Hole) -> Boolean = { false }) =
+        truth.copy(holes = truth.holes.map { if (it.isRupee || keep(it)) it else Hole.UNKNOWN })
+
+    /**
+     * The crash: every Rupee dug and some Rupoors, the other holes left undug. The view model called
+     * it finished, but RngSolver.dealing wanted all 40 holes and threw on Main, taking the app down.
+     */
+    @Test
+    fun exportingARoundWithItsHazardsUndugChecksItWithoutCrashing() = runTest {
+        val truth = dealt(Difficulty.EXPERT, 5)
+        val board = rupeesOnly(truth) { it == Hole.RUPOOR }
+        storage.update { ThrillDiggerSave().with(board) }
+        val vm = viewModel()
+        val state = vm.ready { it.board == board && it.source is OddsSource.Rng }
+        assertEquals(0, state.rupeesLeft)
+        assertTrue(state.finished)
+        assertEquals(board.isFinished, state.finished, "one definition of finished")
+        vm.exportBoard()!!.join()
+        val check = vm.checked()
+        val rng = assertIs<RngCheck.Dealt>(check.rng)
+        assertTrue(rng.states >= 1)
+        assertTrue("RNG state" in check.text && "deal" in check.text && "with these Rupees and hazards" in check.text, check.text)
+        // The undug holes are written as hazards of either kind.
+        val firstRow = board.holes.subList(0, 8).joinToString("") { if (it == Hole.UNKNOWN) "H" else "${it.code}" }
+        assertTrue(firstRow in check.text, check.text)
+        if (rng.states == 1) {
+            assertEquals(truth, rng.dealt, "one fitting state says which hazard was which")
+            assertTrue("Bombs (X) and Rupoors (P)" in check.text)
+        }
+    }
+
+    @Test
+    fun aPartialBoardExportsWithoutACheck() = runTest {
+        val truth = dealt(Difficulty.EXPERT, 5)
+        val rupees = truth.holes.indices.filter { truth.holes[it].isRupee }
+        val board = DiggerBoard(Difficulty.EXPERT, truth.holes.mapIndexed { i, h -> if (i in rupees.take(10)) h else Hole.UNKNOWN })
+        storage.update { ThrillDiggerSave().with(board) }
+        val vm = viewModel()
+        assertFalse(vm.ready { it.board == board }.finished)
+        vm.exportBoard()!!.join()
+        val check = vm.checked()
+        assertEquals(RngCheck.NotFinished, check.rng)
+        assertTrue("?" in check.text && "H" !in check.text.lines()[1])
+        assertTrue(check.text.endsWith("Not finished, so not checked against the RNG."))
+    }
+
+    @Test
+    fun aFinishedImpossibleBoardIsCheckedAndFitsNothing() = runTest {
+        // A Rupee entered where the dealt board has a hazard: too few undug holes left for the hazards.
+        val truth = dealt(Difficulty.EXPERT, 9)
+        val board = rupeesOnly(truth).with(truth.holes.indexOfFirst { it.isHazard }, Hole.GOLD)
+        storage.update { ThrillDiggerSave().with(board) }
+        val vm = viewModel()
+        val state = vm.ready { it.board == board }
+        assertIs<DiggerAnalysis.Impossible>(state.analysis)
+        assertTrue(state.finished)
+        vm.exportBoard()!!.join()
+        val check = vm.checked()
+        assertEquals(0, check.states)
+        assertTrue(check.text.endsWith("No RNG state deals a board with these Rupees and hazards."), check.text)
+    }
+
+    @Test
+    fun finishedBoardsOnTheOtherDifficultiesAreChecked() = runTest {
+        val vm = viewModel()
+        for (d in listOf(Difficulty.INTERMEDIATE, Difficulty.BEGINNER)) {
+            val truth = dealt(d, 3)
+            for (board in listOf(truth, rupeesOnly(truth))) {
+                storage.update { it.copy(difficulty = d).with(board) }
+                vm.ready { it.board == board }
+                vm.exportBoard()!!.join()
+                val check = vm.checked()
+                assertTrue(check.text.startsWith("Thrill Digger, ${d.label}"))
+                assertTrue(check.states!! >= 1, "${d.label}: ${check.text}")
+                vm.dismissCheck()
+            }
+        }
+    }
+
+    @Test
+    fun exportingBeforeTheRngIsListedShowsTheTextAtOnceThenTheCheck() = runTest {
+        // The table is listed on a dispatcher nothing runs until the test says so.
+        val held = StandardTestDispatcher(TestCoroutineScheduler())
+        val source = RngBoardSource(listOf(loop), held)
+        val truth = dealt(Difficulty.EXPERT, 5)
+        storage.update { ThrillDiggerSave().with(truth) }
+        val vm = viewModel(source)
+        assertIs<OddsSource.Listing>(vm.ready { it.board == truth }.source)
+        val job = vm.exportBoard()!!
+        val waiting = assertNotNull(vm.check.value, "the dialog opens at once")
+        assertEquals(RngCheck.Checking, waiting.rng)
+        assertTrue(waiting.text.startsWith("Thrill Digger, Expert") && waiting.text.endsWith("Checking against the RNG…"))
+        held.scheduler.advanceUntilIdle()
+        job.join()
+        assertTrue(vm.checked().states!! >= 1)
+    }
+
+    @Test
+    fun anRngTableThatFailsIsShownNotThrown() = runTest {
+        // A loop of negative length can't be listed: generating it throws.
+        val broken = RngBoardSource(listOf(RngLoop(1L, -1, 1.0)))
+        val truth = dealt(Difficulty.EXPERT, 5)
+        storage.update { ThrillDiggerSave().with(truth) }
+        val vm = viewModel(broken)
+        val state = vm.ready { it.source is OddsSource.RngFailed }
+        assertIs<DiggerAnalysis.Solved>(state.analysis, "the odds over every board")
+        vm.exportBoard()!!.join()
+        val check = vm.checked()
+        assertIs<RngCheck.Failed>(check.rng)
+        assertTrue(check.text.startsWith("Thrill Digger, Expert"))
+        assertTrue("Can't check this board: " in check.text, check.text)
+        // The rest still works.
+        vm.tapHole(0)
+        vm.ready { it.selected == 0 }
+        vm.enter(Hole.UNKNOWN)!!.join()
+        vm.ready { it.board.holes[0] == Hole.UNKNOWN }
+        assertNull(vm.problem.value)
+    }
+
+    @Test
+    fun aDismissedCheckDoesntComeBack() = runTest {
+        val held = StandardTestDispatcher(TestCoroutineScheduler())
+        val truth = dealt(Difficulty.EXPERT, 5)
+        storage.update { ThrillDiggerSave().with(truth) }
+        val vm = viewModel(RngBoardSource(listOf(loop), held))
+        vm.ready { it.board == truth }
+        val job = vm.exportBoard()!!
+        vm.dismissCheck()
+        held.scheduler.advanceUntilIdle()
+        job.join()
+        assertNull(vm.check.value)
     }
 }
