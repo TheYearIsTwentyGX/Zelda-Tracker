@@ -3,7 +3,12 @@ package gx.zelda.thrilldigger
 import gx.zelda.core.Games
 import gx.zelda.core.TestMain
 import gx.zelda.core.createDataStore
+import gx.zelda.thrilldigger.data.RngBoardSource
 import gx.zelda.thrilldigger.data.ThrillDiggerSave
+import gx.zelda.thrilldigger.model.PackedBoard
+import gx.zelda.thrilldigger.model.RngLoop
+import gx.zelda.thrilldigger.model.ThrillDiggerDeal
+import gx.zelda.thrilldigger.ui.OddsSource
 import gx.zelda.thrilldigger.data.ThrillDiggerStorage
 import gx.zelda.thrilldigger.model.Difficulty
 import gx.zelda.thrilldigger.model.DiggerAnalysis
@@ -40,9 +45,13 @@ class ThrillDiggerViewModelTest {
     private val dataStore = createDataStore(Files.createTempDirectory("zgx").toString())
     private val storage = ThrillDiggerStorage(dataStore, Games.SS)
 
+    /** A made-up loop of 3000 states, so the RNG's table is small and quick to list. */
+    private val loop = RngLoop(123_456_789L, 3000, 1.0)
+    private val rngSource = RngBoardSource(listOf(loop))
+
     /** A view model with its state collected and loaded, so a write never races the first subscription. */
     private suspend fun TestScope.viewModel(): ThrillDiggerViewModel {
-        val vm = main.track(ThrillDiggerViewModel(storage))
+        val vm = main.track(ThrillDiggerViewModel(storage, rngSource = rngSource))
         backgroundScope.launchCollect(vm)
         vm.state.filterNotNull().first()
         return vm
@@ -176,5 +185,99 @@ class ThrillDiggerViewModelTest {
         repeat(ThrillDiggerSave.HISTORY + 20) { i -> save = save.with(save.board().with(i % 40, if (i / 40 % 2 == 0) Hole.GREEN else Hole.BLUE)) }
         assertEquals(ThrillDiggerSave.HISTORY, save.history.getValue(Difficulty.EXPERT).size)
         assertEquals(save, save.with(save.board()), "an unchanged board isn't kept")
+    }
+
+    /** The board the made-up loop's [k]-th state deals. */
+    private fun dealt(d: Difficulty, k: Int): DiggerBoard {
+        var state = loop.anchor
+        repeat(k) { state = gx.zelda.thrilldigger.model.SsRng.next(state) }
+        return PackedBoard.unpack(d, ThrillDiggerDeal.deal(d, state))
+    }
+
+    @Test
+    fun expertUsesTheRngByDefaultAndTheOthersDont() = runTest {
+        val vm = viewModel()
+        val expert = vm.ready { it.source is OddsSource.Rng }
+        assertTrue(expert.rngOn)
+        assertEquals(3000, (expert.source as OddsSource.Rng).states, "every state fits an empty board")
+        vm.setDifficulty(Difficulty.INTERMEDIATE).join()
+        val intermediate = vm.ready { it.difficulty == Difficulty.INTERMEDIATE }
+        assertFalse(intermediate.rngOn)
+        assertEquals(OddsSource.EveryBoard, intermediate.source)
+        vm.setRng(true)!!.join()
+        vm.ready { it.difficulty == Difficulty.INTERMEDIATE && it.source is OddsSource.Rng }
+        vm.setDifficulty(Difficulty.BEGINNER).join()
+        val beginner = vm.ready { it.difficulty == Difficulty.BEGINNER }
+        assertFalse(beginner.rngAvailable)
+        assertEquals(OddsSource.EveryBoard, beginner.source)
+        assertNull(vm.setRng(true), "Beginner has no RNG switch")
+        vm.setDifficulty(Difficulty.EXPERT).join()
+        vm.ready { it.difficulty == Difficulty.EXPERT && it.source is OddsSource.Rng }
+        vm.setRng(false)!!.join()
+        assertEquals(OddsSource.EveryBoard, vm.ready { !it.rngOn }.source)
+    }
+
+    @Test
+    fun aDealtBoardNarrowsTheStatesAndItsLoopCanBeLocked() = runTest {
+        val truth = dealt(Difficulty.EXPERT, 7)
+        val shown = DiggerBoard(Difficulty.EXPERT, truth.holes.mapIndexed { i, h -> if (h.isRupee && i < 16) h else Hole.UNKNOWN })
+        storage.update { ThrillDiggerSave().with(shown) }
+        val vm = viewModel()
+        val state = vm.ready { it.source is OddsSource.Rng }
+        val source = state.source as OddsSource.Rng
+        assertTrue(source.states in 1 until 3000)
+        // The true board's hazards are never called certainly safe.
+        truth.holes.indices.filter { truth.holes[it].isHazard }.forEach { assertTrue(state.odds(it)!!.hazard > 0.0) }
+        assertTrue(state.canLockLoop)
+        vm.lockLoop()!!.join()
+        assertEquals(loop.anchor, saved().lockedLoop[Difficulty.EXPERT])
+        assertEquals(0, (vm.ready { (it.source as? OddsSource.Rng)?.locked == 0 }.source as OddsSource.Rng).locked)
+        vm.unlockLoop()!!.join()
+        vm.ready { (it.source as? OddsSource.Rng)?.locked == null }
+        assertTrue(saved().lockedLoop.isEmpty())
+    }
+
+    @Test
+    fun aBoardTheRngCantDealFallsBackToEveryBoard() = runTest {
+        // The same hazards with every Bomb and Rupoor swapped: possible, but no state deals it.
+        val truth = dealt(Difficulty.EXPERT, 11)
+        val swapped = DiggerBoard(Difficulty.EXPERT, truth.holes.map { when (it) { Hole.BOMB -> Hole.RUPOOR; Hole.RUPOOR -> Hole.BOMB; else -> Hole.UNKNOWN } })
+        storage.update { ThrillDiggerSave().with(swapped) }
+        val vm = viewModel()
+        val state = vm.ready { it.source == OddsSource.NoRngFit }
+        assertIs<DiggerAnalysis.Solved>(state.analysis, "the odds over every board")
+    }
+
+    @Test
+    fun aFinishedBoardIsCheckedAgainstTheRng() = runTest {
+        val truth = dealt(Difficulty.EXPERT, 5)
+        storage.update { ThrillDiggerSave().with(truth) }
+        val vm = viewModel()
+        val state = vm.ready { it.board == truth }
+        assertTrue(state.finished)
+        vm.exportBoard()!!.join()
+        val check = vm.check.filterNotNull().first()
+        assertTrue(check.states!! >= 1)
+        assertTrue(check.text.startsWith("Thrill Digger, Expert"))
+        assertTrue(truth.holes.subList(0, 8).joinToString("") { it.code.toString() } in check.text)
+        vm.dismissCheck()
+        assertNull(vm.check.value)
+    }
+
+    @Test
+    fun anUnfinishedOrImpossibleBoardStillExports() = runTest {
+        val vm = viewModel()
+        assertNull(vm.exportBoard(), "nothing to export on an empty board")
+        vm.setDifficulty(Difficulty.BEGINNER).join()
+        vm.ready { it.difficulty == Difficulty.BEGINNER }
+        vm.tapHole(0)
+        vm.ready { it.selected == 0 }
+        vm.enter(Hole.GOLD)!!.join()
+        vm.ready { it.board.holes[0] == Hole.GOLD }
+        vm.exportBoard()!!.join()
+        val check = vm.check.filterNotNull().first()
+        assertNull(check.states)
+        assertEquals("Thrill Digger, Beginner\nY????\n?????\n?????\n?????", check.text.lines().take(5).joinToString("\n"))
+        assertTrue(check.text.endsWith("Not finished, so not checked against the RNG."))
     }
 }

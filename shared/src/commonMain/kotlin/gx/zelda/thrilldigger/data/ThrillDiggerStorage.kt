@@ -20,7 +20,18 @@ data class ThrillDiggerSave(
     val boards: Map<Difficulty, String> = emptyMap(),
     /** Earlier boards, oldest first, at most [HISTORY] of them. */
     val history: Map<Difficulty, List<String>> = emptyMap(),
+    /** Whether each difficulty's odds use the game's RNG; see [usesRng] for the defaults. */
+    val rng: Map<Difficulty, Boolean> = emptyMap(),
+    /** The RNG loop each difficulty is locked to, by its anchor ([gx.zelda.thrilldigger.model.RngLoop.anchor]). */
+    val lockedLoop: Map<Difficulty, Long> = emptyMap(),
 ) {
+    /**
+     * Whether [d]'s odds come from the boards the game's RNG can deal: on for Expert unless turned
+     * off, off for Intermediate unless turned on, and never for Beginner, whose few thousand boards
+     * the RNG covers evenly anyway.
+     */
+    fun usesRng(d: Difficulty = difficulty): Boolean = d != Difficulty.BEGINNER && (rng[d] ?: (d == Difficulty.EXPERT))
+
     fun board(d: Difficulty = difficulty): DiggerBoard = DiggerBoard.decode(d, boards[d])
 
     fun canUndo(d: Difficulty = difficulty): Boolean = !history[d].isNullOrEmpty()

@@ -88,23 +88,30 @@ object ThrillDiggerSolver {
             val bomb = if (hazardsLeft == 0) 0.0 else hazard * (d.bombs - bombsFound) / hazardsLeft
             val rupoor = if (hazardsLeft == 0) 0.0 else hazard * (d.rupoors - rupoorsFound) / hazardsLeft
             val byCount = DoubleArray(9) { n -> mix(cleanAround[i][n], allAround[i][n]) }
-            val safeWeight = byCount.sum()
-            val colours = Hole.RUPEES.map { colour ->
-                if (safeWeight <= 0.0) 0.0 else (colour.minHazards..colour.maxHazards).sumOf { byCount[it] } / safeWeight
-            }
-            val safe = (1.0 - hazard).coerceIn(0.0, 1.0)
-            val outcomes = colours.map { it * safe } + rupoor + bomb
-            HoleOdds(
-                index = i,
-                bomb = bomb,
-                rupoor = rupoor,
-                safe = safe,
-                colours = colours,
-                expectedRupees = safe * colours.zip(Hole.RUPEES).sumOf { (p, c) -> p * c.rupees } + rupoor * Hole.RUPOOR.rupees,
-                information = outcomes.filter { it > 0.0 }.sumOf { -it * ln(it) } / ln(2.0),
-            )
+            val byColour = DoubleArray(Hole.RUPEES.size) { c -> Hole.RUPEES[c].let { (it.minHazards..it.maxHazards).sumOf { n -> byCount[n] } } }
+            holeOdds(i, bomb, rupoor, byColour)
         }
         return DiggerAnalysis.Solved(odds, recommend(odds.values))
+    }
+
+    /**
+     * One hole's [HoleOdds] from its Bomb and Rupoor chances and, for the boards where it holds a
+     * Rupee, each colour's weight in [Hole.RUPEES] order (any scale).
+     */
+    fun holeOdds(index: Int, bomb: Double, rupoor: Double, colourWeights: DoubleArray): HoleOdds {
+        val safeWeight = colourWeights.sum()
+        val colours = colourWeights.map { if (safeWeight <= 0.0) 0.0 else it / safeWeight }
+        val safe = (1.0 - bomb - rupoor).coerceIn(0.0, 1.0)
+        val outcomes = colours.map { it * safe } + rupoor + bomb
+        return HoleOdds(
+            index = index,
+            bomb = bomb,
+            rupoor = rupoor,
+            safe = safe,
+            colours = colours,
+            expectedRupees = safe * colours.zip(Hole.RUPEES).sumOf { (p, c) -> p * c.rupees } + rupoor * Hole.RUPOOR.rupees,
+            information = outcomes.filter { it > 0.0 }.sumOf { -it * ln(it) } / ln(2.0),
+        )
     }
 
     /**
