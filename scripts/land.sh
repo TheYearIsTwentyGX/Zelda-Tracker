@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 #
-# Land the branch you have been working on: merge its pull request, then bring
-# the main checkout up to date with what you just merged.
+# Land the branch you have been working on: merge its pull request, bring the
+# main checkout up to date with what you just merged, then clear away the
+# worktree it was built in.
 #
-#   land                   merge the PR for this branch, then pull the main checkout
+#   land                   merge the PR, pull the main checkout, remove this worktree
 #   land --branch NAME     land a branch other than the one you are standing on
 #   land --squash          squash instead of a merge commit (--rebase also works)
 #   land --delete-branch   delete the remote branch afterwards
 #   land --no-pull         merge only, leave the main checkout alone
+#   land --keep-worktree   do not remove the worktree or its local branch
 #   land --dry-run         say what would happen and change nothing
 #   land --status          report what is landable here and exit
 #
@@ -17,16 +19,28 @@
 # sanctioned way to fast-forward it. It is deliberately narrow: it fast-forwards
 # and nothing else, it will not touch a main checkout that is dirty or on
 # another branch, and it never commits there.
+#
+# Run from a linked worktree, it then removes that worktree (`git worktree
+# remove`, never --force) and deletes the local branch with the safe `branch
+# -d`. It leaves the worktree alone if anything in it is uncommitted or
+# untracked-and-not-ignored, and says what is there. The Land button is meant to
+# be the LAST step of a worker's job: a session still running in the worktree
+# loses its working directory when this succeeds. Pass --keep-worktree if the
+# session is not finished with it.
 
 set -uo pipefail
 
-# Where the main checkout lives. Overridable, but this is the answer on this
-# machine and the default is what makes the script callable from a worktree.
-MAIN="${ZELDA_MAIN:-$HOME/Personal/Zelda-Tracker}"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+# Where the main checkout lives: the parent of the repository's common .git,
+# which is the same answer from the main checkout and from any linked worktree.
+# ZELDA_MAIN still overrides it.
+COMMON_DIR="$(git -C "$HERE" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"
+GIT_DIR="$(git -C "$HERE" rev-parse --path-format=absolute --git-dir 2>/dev/null)"
+MAIN="${ZELDA_MAIN:-$(dirname "${COMMON_DIR:-$HOME/Projects/Zelda-Tracker/.git}")}"
+
 METHOD=--merge
-BRANCH=""; PULL=1; DRY=0; STATUS_ONLY=0; DELETE=0
+BRANCH=""; PULL=1; DRY=0; STATUS_ONLY=0; DELETE=0; KEEP_WORKTREE=0
 while [ $# -gt 0 ]; do
     case "$1" in
         --branch) shift; BRANCH="${1:-}" ;;
@@ -36,9 +50,10 @@ while [ $# -gt 0 ]; do
         --merge) METHOD=--merge ;;
         --delete-branch) DELETE=1 ;;
         --no-pull) PULL=0 ;;
+        --keep-worktree) KEEP_WORKTREE=1 ;;
         --dry-run) DRY=1 ;;
         --status) STATUS_ONLY=1 ;;
-        -h|--help) sed -n '3,12p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        -h|--help) sed -n '3,14p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
         *) echo "land: unknown option '$1'" >&2; exit 1 ;;
     esac
     shift
@@ -49,7 +64,8 @@ die() { printf 'land: %s\n' "$1" >&2; shift; for l in "$@"; do printf '  %s\n' "
 
 # --- what are we landing ----------------------------------------------------
 
-[ -n "$BRANCH" ] || BRANCH="$(git -C "$HERE" rev-parse --abbrev-ref HEAD 2>/dev/null)"
+HERE_BRANCH="$(git -C "$HERE" rev-parse --abbrev-ref HEAD 2>/dev/null)"
+[ -n "$BRANCH" ] || BRANCH="$HERE_BRANCH"
 [ -n "$BRANCH" ] && [ "$BRANCH" != HEAD ] || die "could not work out which branch to land." \
     "Pass one: land --branch <name>"
 
@@ -83,6 +99,27 @@ elif [ "${UNPUSHED:-0}" -gt 0 ] && [ "$STATUS_ONLY" != 1 ]; then
         "The PR would merge without them. Push first: git push"
 fi
 
+# --- will the worktree go afterwards ----------------------------------------
+
+# Only a linked worktree that has the landed branch checked out is removed; the
+# main checkout, or a worktree landing some other --branch, is left standing.
+# `status --porcelain` already hides ignored files, so anything it prints —
+# tracked edits or untracked files — is work that removal would throw away.
+REMOVE_WORKTREE=0; WORKTREE_NOTE=""
+if [ "$KEEP_WORKTREE" = 1 ]; then
+    WORKTREE_NOTE="kept (--keep-worktree)"
+elif [ -z "$GIT_DIR" ] || [ "$GIT_DIR" = "$COMMON_DIR" ] || [ "$HERE" = "$MAIN" ]; then
+    WORKTREE_NOTE="not a linked worktree — nothing to remove"
+elif [ "$HERE_BRANCH" != "$BRANCH" ]; then
+    WORKTREE_NOTE="kept — it has $HERE_BRANCH checked out, not $BRANCH"
+else
+    REMOVE_WORKTREE=1
+    WORKTREE_NOTE="will be removed after landing, with local branch $BRANCH"
+fi
+
+# Prints what would block removal, if anything.
+worktree_leftovers() { git -C "$HERE" status --porcelain 2>/dev/null; }
+
 # --- find the pull request --------------------------------------------------
 
 PR_JSON="$(cd "$HERE" && gh pr view "$BRANCH" --json number,state,mergeable,mergeStateStatus,title,url 2>/dev/null)"
@@ -102,6 +139,9 @@ PR_NUM="$(field number)"; PR_STATE="$(field state)"; PR_TITLE="$(field title)"
 PR_URL="$(field url)"; MERGEABLE="$(field mergeable)"; MERGE_STATE="$(field mergeStateStatus)"
 
 if [ "$STATUS_ONLY" = 1 ]; then
+    if [ "$REMOVE_WORKTREE" = 1 ] && [ -n "$(worktree_leftovers)" ]; then
+        WORKTREE_NOTE="would be kept — it has uncommitted or untracked files"
+    fi
     say "branch      $BRANCH"
     say "pull request #$PR_NUM  $PR_STATE  $PR_TITLE"
     say "            $PR_URL"
@@ -109,6 +149,8 @@ if [ "$STATUS_ONLY" = 1 ]; then
     say "unpushed    ${UNPUSHED:-0} commit(s)"
     say "uncommitted ${DIRTY:-0} tracked file(s)"
     say "main        $MAIN"
+    say "worktree    $HERE"
+    say "            $WORKTREE_NOTE"
     exit 0
 fi
 
@@ -153,57 +195,113 @@ fi
 
 # --- bring the main checkout up to date ------------------------------------
 
-if [ "$PULL" != 1 ]; then
-    say "Left $MAIN alone (--no-pull)."
-    exit 0
+# The merge is done by now, so nothing in here stops the worktree cleanup that
+# follows: a skipped or failed pull returns, and only sets STATUS on failure.
+STATUS=0
+pull_main() {
+    if [ "$PULL" != 1 ]; then
+        say "Left $MAIN alone (--no-pull)."
+        return
+    fi
+
+    if [ ! -e "$MAIN/.git" ]; then
+        say "Heads up: no main checkout at $MAIN — not pulling."
+        say "  The merge is done. Set ZELDA_MAIN if it lives somewhere else."
+        STATUS=1; return
+    fi
+
+    local main_branch
+    main_branch="$(git -C "$MAIN" rev-parse --abbrev-ref HEAD 2>/dev/null)"
+    if [ "$main_branch" != "$DEFAULT_BRANCH" ]; then
+        say "Heads up: $MAIN is on '$main_branch', not $DEFAULT_BRANCH — not pulling."
+        say "  The merge is done. Pull it yourself once that checkout is back on $DEFAULT_BRANCH."
+        return
+    fi
+
+    local main_dirty
+    main_dirty="$(git -C "$MAIN" status --porcelain 2>/dev/null | grep -cv '^??')"
+    if [ "${main_dirty:-0}" -gt 0 ]; then
+        git -C "$MAIN" status --porcelain 2>/dev/null | grep -v '^??' | sed 's/^/    /'
+        say "Heads up: $MAIN has ${main_dirty} uncommitted tracked file(s) — not pulling."
+        say "  The merge is done. Deal with those, then: git -C $MAIN pull --ff-only"
+        return
+    fi
+
+    if [ "$DRY" = 1 ]; then
+        say "  would run: git -C $MAIN pull --ff-only"
+        return
+    fi
+
+    local before after
+    before="$(git -C "$MAIN" rev-parse HEAD 2>/dev/null)"
+
+    say "Updating $MAIN…"
+    # --ff-only so this can never leave a merge or a conflict in the main checkout.
+    # A diverged main is a decision for a human.
+    if ! git -C "$MAIN" pull --ff-only; then
+        say "land: pull failed in $MAIN — it has probably diverged from origin." >&2
+        say "  The merge is done; sort the checkout out by hand." >&2
+        STATUS=1; return
+    fi
+
+    after="$(git -C "$MAIN" rev-parse HEAD 2>/dev/null)"
+
+    if [ "$before" = "$after" ]; then
+        say "$MAIN was already up to date."
+        return
+    fi
+
+    say "$MAIN is now at $(git -C "$MAIN" log --oneline -1 | cut -c1-60)"
+
+    # The phone runs whatever was last installed, not what is on disk.
+    if git -C "$MAIN" diff --name-only "$before" "$after" 2>/dev/null | grep -qE '^(androidApp|shared)/'; then
+        say ""
+        say "This merge changed the app. Press *Install on phone* to put it on the device."
+    fi
+}
+pull_main
+
+# --- clear the worktree away ------------------------------------------------
+
+if [ "$REMOVE_WORKTREE" != 1 ]; then
+    [ "$KEEP_WORKTREE" = 1 ] && say "Kept worktree $HERE (--keep-worktree)."
+    exit "$STATUS"
 fi
 
-[ -d "$MAIN/.git" ] || die "no main checkout at $MAIN." \
-    "Set ZELDA_MAIN if it lives somewhere else." \
-    "The merge is done; only the pull was skipped."
-
-MAIN_BRANCH="$(git -C "$MAIN" rev-parse --abbrev-ref HEAD 2>/dev/null)"
-if [ "$MAIN_BRANCH" != "$DEFAULT_BRANCH" ]; then
-    say "Heads up: $MAIN is on '$MAIN_BRANCH', not $DEFAULT_BRANCH — not pulling."
-    say "  The merge is done. Pull it yourself once that checkout is back on $DEFAULT_BRANCH."
-    exit 0
-fi
-
-MAIN_DIRTY="$(git -C "$MAIN" status --porcelain 2>/dev/null | grep -cv '^??')"
-if [ "${MAIN_DIRTY:-0}" -gt 0 ]; then
-    git -C "$MAIN" status --porcelain 2>/dev/null | grep -v '^??' | sed 's/^/    /'
-    say "Heads up: $MAIN has ${MAIN_DIRTY} uncommitted tracked file(s) — not pulling."
-    say "  The merge is done. Deal with those, then: git -C $MAIN pull --ff-only"
-    exit 0
+LEFTOVERS="$(worktree_leftovers)"
+if [ -n "$LEFTOVERS" ]; then
+    printf '%s\n' "$LEFTOVERS" | sed 's/^/    /'
+    say "Kept worktree $HERE: the files above are uncommitted or untracked, and"
+    say "  removing it would throw them away. Deal with them, then:"
+    say "  git -C $MAIN worktree remove $HERE && git -C $MAIN branch -d $BRANCH"
+    exit "$STATUS"
 fi
 
 if [ "$DRY" = 1 ]; then
-    say "  would run: git -C $MAIN pull --ff-only"
-    exit 0
+    say "  would remove worktree $HERE"
+    say "  would run: git -C $MAIN worktree prune"
+    say "  would run: git -C $MAIN branch -d $BRANCH"
+    exit "$STATUS"
 fi
 
-BEFORE="$(git -C "$MAIN" rev-parse HEAD 2>/dev/null)"
+# Step out of the directory about to disappear. Bash keeps this script's file
+# open, so reading the rest of it after the removal is fine.
+cd "$MAIN" || die "could not cd to $MAIN; worktree $HERE left in place."
 
-say "Updating $MAIN…"
-# --ff-only so this can never leave a merge or a conflict in the main checkout.
-# A diverged main is a decision for a human.
-if ! git -C "$MAIN" pull --ff-only; then
-    die "pull failed in $MAIN — it has probably diverged from origin." \
-        "The merge is done; sort the checkout out by hand."
+if ! git -C "$MAIN" worktree remove "$HERE"; then
+    say "Kept worktree $HERE: git worktree remove refused (see above)."
+    exit 1
+fi
+git -C "$MAIN" worktree prune
+
+# The safe -d: it refuses a branch whose commits are not in main (or its
+# upstream), which is what a --squash or --rebase landing looks like to git.
+# The PR is merged either way, so say so and leave the branch for a human.
+if ! git -C "$MAIN" branch -d "$BRANCH" 2>/dev/null; then
+    say "Kept local branch $BRANCH: git branch -d refused, as it does after a"
+    say "  squash or rebase landing (or when main was not pulled). The PR is merged;"
+    say "  if you are sure: git -C $MAIN branch -D $BRANCH"
 fi
 
-AFTER="$(git -C "$MAIN" rev-parse HEAD 2>/dev/null)"
-
-if [ "$BEFORE" = "$AFTER" ]; then
-    say "$MAIN was already up to date."
-    exit 0
-fi
-
-say "$MAIN is now at $(git -C "$MAIN" log --oneline -1 | cut -c1-60)"
-
-# The phone runs whatever was last installed, not what is on disk.
-if git -C "$MAIN" diff --name-only "$BEFORE" "$AFTER" 2>/dev/null | grep -qE '^(androidApp|shared)/'; then
-    say ""
-    say "This merge changed the app. Press *Install on phone* to put it on the device."
-fi
-exit 0
+say "Removed worktree $HERE; you're now done with this branch."
+exit "$STATUS"
