@@ -14,6 +14,10 @@ import gx.zelda.thrilldigger.model.Difficulty
 import gx.zelda.thrilldigger.model.DiggerAnalysis
 import gx.zelda.thrilldigger.model.DiggerBoard
 import gx.zelda.thrilldigger.model.Hole
+import gx.zelda.thrilldigger.model.RupeeTotal
+import gx.zelda.thrilldigger.model.TotalInference
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import gx.zelda.thrilldigger.ui.BoardCheck
 import gx.zelda.thrilldigger.ui.RngCheck
 import gx.zelda.thrilldigger.ui.ThrillDiggerUiState
@@ -94,7 +98,7 @@ class ThrillDiggerViewModelTest {
         // A Green Rupee clears its neighbours, so the next recommendation is one of them.
         val r = second.recommended!!
         assertEquals(0.0, second.odds(r)!!.bomb)
-        assertEquals(1, second.haul)
+        assertEquals(RupeeTotal(1, 0), second.total)
     }
 
     @Test
@@ -181,7 +185,7 @@ class ThrillDiggerViewModelTest {
         val state = vm.ready { it.difficulty == Difficulty.INTERMEDIATE }
         assertEquals(board, state.board)
         assertTrue(state.canUndo)
-        assertEquals(10, state.haul, "a Red Rupee less a Rupoor")
+        assertEquals(RupeeTotal(10, 0), state.total, "a Red Rupee less a Rupoor")
     }
 
     @Test
@@ -421,5 +425,102 @@ class ThrillDiggerViewModelTest {
         held.scheduler.advanceUntilIdle()
         job.join()
         assertNull(vm.check.value)
+    }
+
+    /** A skipped hole: dug, no odds, never recommended, a "?" in the total, and undo and reset as usual. */
+    @Test
+    fun aSkippedHoleIsDugWithoutAColourAndUndoes() = runTest {
+        val vm = viewModel()
+        vm.setDifficulty(Difficulty.BEGINNER).join()
+        vm.ready { it.difficulty == Difficulty.BEGINNER }
+        vm.tapHole(0)
+        vm.ready { it.selected == 0 }
+        vm.enter(Hole.GREEN)!!.join()
+        vm.tapHole(12)
+        vm.ready { it.selected == 12 && it.board.holes[0] == Hole.GREEN }
+        vm.enter(Hole.SKIPPED)!!.join()
+        val state = vm.ready { it.board.holes[12] == Hole.SKIPPED }
+        assertEquals('D', saved().boards.getValue(Difficulty.BEGINNER)[12])
+        assertNull(state.odds(12), "no odds on a skipped hole")
+        assertTrue(state.recommended != 12)
+        assertEquals(RupeeTotal(1, 1), state.total)
+        assertEquals("2–301", state.total.text)
+        assertEquals(14, state.rupeesLeft, "16 Rupees, one dug and one skipped, so 14")
+
+        vm.reset()!!.join()
+        vm.ready { it.board.isEmpty }
+        vm.undo()!!.join()
+        assertEquals(Hole.SKIPPED, vm.ready { !it.board.isEmpty }.board.holes[12])
+        vm.undo()!!.join()
+        val before = vm.ready { it.board.holes[12] == Hole.UNKNOWN }
+        assertEquals(Hole.GREEN, before.board.holes[0])
+        assertEquals(RupeeTotal(1, 0), before.total)
+    }
+
+    @Test
+    fun theInGameTotalFillsInASkippedHole() = runTest {
+        val vm = viewModel()
+        vm.setDifficulty(Difficulty.BEGINNER).join()
+        vm.ready { it.difficulty == Difficulty.BEGINNER }
+        assertNull(vm.checkGameTotal(6), "nothing skipped to work out")
+        vm.tapHole(0)
+        vm.ready { it.selected == 0 }
+        vm.enter(Hole.GREEN)!!.join()
+        vm.tapHole(12)
+        vm.ready { it.selected == 12 && it.board.holes[0] == Hole.GREEN }
+        vm.enter(Hole.SKIPPED)!!.join()
+        val skipped = vm.ready { it.board.holes[12] == Hole.SKIPPED }
+
+        vm.checkGameTotal(4)!!.join()
+        assertEquals(TotalInference.NoMatch(3), vm.gameTotal.value!!.result)
+        assertNull(vm.fillFromGameTotal(), "nothing to fill")
+        vm.checkGameTotal(6)!!.join()
+        val check = vm.gameTotal.value!!
+        assertEquals(skipped.board, check.board)
+        assertEquals(TotalInference.Fill(mapOf(12 to Hole.BLUE)), check.result)
+        vm.fillFromGameTotal()!!.join()
+        assertNull(vm.gameTotal.value)
+        val filled = vm.ready { it.board.holes[12] == Hole.BLUE }
+        assertEquals(RupeeTotal(6, 0), filled.total)
+        // A clue now: a Blue Rupee has a hazard around it, so its neighbours get odds.
+        assertTrue(listOf(6, 7, 8, 11, 13, 16, 17, 18).sumOf { filled.odds(it)!!.hazard } >= 1.0 - 1e-9)
+        vm.undo()!!.join()
+        vm.ready { it.board.holes[12] == Hole.SKIPPED }
+    }
+
+    /** A save from before skipped holes still loads as it was. */
+    @Test
+    fun aSaveFromBeforeSkippedHolesLoads() = runTest {
+        val board = "??????" + "?R????" + "??P???" + "??????" + "?????G"
+        val old = """{"difficulty":"INTERMEDIATE","boards":{"INTERMEDIATE":"$board"},"history":{"INTERMEDIATE":["${"?".repeat(30)}"]},"rng":{"EXPERT":false}}"""
+        dataStore.edit { it[stringPreferencesKey("${Games.SS.id}_thrill_digger")] = old }
+        val vm = viewModel()
+        val state = vm.ready { it.difficulty == Difficulty.INTERMEDIATE }
+        assertEquals(DiggerBoard.decode(Difficulty.INTERMEDIATE, board), state.board)
+        assertEquals(Hole.RED, state.board.holes[7])
+        assertTrue(state.canUndo)
+        assertEquals(RupeeTotal(11, 0), state.total)
+        assertFalse(saved().usesRng(Difficulty.EXPERT))
+    }
+
+    @Test
+    fun aSkippedHoleIsExportedAsD() = runTest {
+        val truth = dealt(Difficulty.EXPERT, 5)
+        val first = truth.holes.indexOfFirst { it.isRupee }
+        val unfinished = DiggerBoard.empty(Difficulty.EXPERT).with(first, Hole.SKIPPED)
+        val text = ThrillDiggerViewModel.boardText(unfinished, RngCheck.NotFinished)
+        assertEquals('D', text.lines()[1 + first / 8][first % 8])
+        assertTrue("D dug, colour not seen" in text.lines()[6], text)
+        assertFalse("D dug" in ThrillDiggerViewModel.boardText(DiggerBoard.empty(Difficulty.EXPERT).with(first, Hole.GREEN), RngCheck.NotFinished))
+
+        // A finished round with a hole skipped is still dealt by its state.
+        val board = rupeesOnly(truth).with(first, Hole.SKIPPED)
+        storage.update { ThrillDiggerSave().with(board) }
+        val vm = viewModel()
+        assertTrue(vm.ready { it.board == board }.finished, "a skipped hole counts as dug")
+        vm.exportBoard()!!.join()
+        val check = vm.checked()
+        assertTrue(check.states!! >= 1, check.text)
+        assertTrue("D" in check.text.lines()[1 + first / 8], check.text)
     }
 }

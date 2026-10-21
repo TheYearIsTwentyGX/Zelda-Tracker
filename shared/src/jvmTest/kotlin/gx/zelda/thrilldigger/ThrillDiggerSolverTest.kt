@@ -129,6 +129,44 @@ class ThrillDiggerSolverTest {
         }
     }
 
+    /** Skipped holes are safe with no count to check: the brute force treats them that way too. */
+    @Test
+    fun matchesBruteForceWithSkippedHoles() {
+        val random = Random(17)
+        for ((d, dug) in listOf(Difficulty.BEGINNER to 6, Difficulty.INTERMEDIATE to 10, Difficulty.EXPERT to 20)) {
+            repeat(6) {
+                val shown = reveal(deal(d, random), dug, random)
+                val rupees = shown.holes.indices.filter { shown.holes[it].isRupee }.shuffled(random)
+                val skipped = DiggerBoard(d, shown.holes.mapIndexed { i, h -> if (i in rupees.take(1 + rupees.size / 3)) Hole.SKIPPED else h })
+                assertMatchesBruteForce(skipped)
+                val result = solved(skipped)
+                skipped.holes.indices.filter { skipped.holes[it] == Hole.SKIPPED }.forEach { i ->
+                    assertNull(result.odds[i], "no odds on skipped hole $i")
+                    assertTrue(result.recommended != i)
+                }
+            }
+        }
+    }
+
+    @Test
+    fun aSkippedHoleIsSafeButNoClue() {
+        // Skipped in the corner: it holds no Bomb, so the other 19 share the four, and nothing is cleared.
+        val corner = board(Difficulty.BEGINNER, "D????", "?????", "?????", "?????")
+        assertMatchesBruteForce(corner)
+        val result = solved(corner)
+        assertEquals(19, result.odds.size)
+        assertClose(4.0, result.odds.values.sumOf { it.bomb })
+        assertTrue(listOf(1, 5, 6).all { result.odds.getValue(it).bomb > 0.1 })
+        // A Gold corner is impossible, a skipped one isn't, even ringed by Bombs.
+        assertTrue(ThrillDiggerSolver.isPossible(board(Difficulty.BEGINNER, "DX???", "XX???", "?????", "?????")))
+        // A Bomb or a Rupoor can't be in a skipped hole: with one, finished, the rest are hazards.
+        assertEquals(Hole.SKIPPED, Hole.of('D'))
+        assertTrue(Hole.SKIPPED.isSafe && !Hole.SKIPPED.isRupee && !Hole.SKIPPED.isHazard)
+        val full = board(Difficulty.BEGINNER, "DDDDD", "DDDDD", "DDDDD", "D????")
+        assertTrue(full.isFinished)
+        solved(full).odds.values.forEach { assertClose(1.0, it.bomb) }
+    }
+
     /**
      * Three hazards in an L: an even deal would make the fourth corner as likely as anywhere near,
      * but the game re-deals a 2×2 block, so it's almost never a hazard there.

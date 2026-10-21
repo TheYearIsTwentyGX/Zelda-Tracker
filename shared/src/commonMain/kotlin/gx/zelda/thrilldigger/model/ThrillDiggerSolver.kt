@@ -174,7 +174,8 @@ object ThrillDiggerSolver {
 /**
  * Counts the sets of hazard holes on [board] that have exactly the difficulty's number of hazards,
  * put a hazard on every Bomb or Rupoor entered and none on an entered Rupee, and give every entered
- * Rupee its colour. With [blocksAllowed] false, sets with an all-hazard 2×2 block don't count.
+ * Rupee its colour. A [Hole.SKIPPED] hole is like a Rupee without its colour: never a hazard, and
+ * no count to check. With [blocksAllowed] false, sets with an all-hazard 2×2 block don't count.
  *
  * Columns are swept left to right ([forward]) and right to left ([backward]). A state is the
  * hazard pattern of two neighbouring columns (a bit per row) and the number of hazards so far: a
@@ -199,7 +200,7 @@ internal class HazardCounter(private val board: DiggerBoard, private val blocksA
         (0 until patterns).filter { it and never == 0 && it and must == must }.toIntArray()
     }
 
-    /** The rows of each column that hold a dug Rupee. */
+    /** The rows of each column that hold a dug Rupee whose colour is known. */
     private val rupeeRows: Array<IntArray> = Array(width) { t -> (0 until height).filter { board.holes[it * width + t].isRupee }.toIntArray() }
 
     /** Rows r − 1 to r + 1, as a bit mask. */

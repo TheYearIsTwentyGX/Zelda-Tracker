@@ -142,7 +142,10 @@ object RngSolver {
     /** Hazard count → index of its Rupee colour in [Hole.RUPEES]. */
     private val COLOUR = IntArray(9) { Hole.RUPEES.indexOf(Hole.rupeeFor(it)) }
 
-    /** Whether a packed board agrees with every hole entered on [board], and with [undugAreHazards], every undug hole a hazard. */
+    /**
+     * Whether a packed board agrees with every hole entered on [board], and with [undugAreHazards],
+     * every undug hole a hazard. A [Hole.SKIPPED] hole only has to be safe, any colour.
+     */
     private class Filter(board: DiggerBoard, undugAreHazards: Boolean = false) {
         private var hazards = 0L
         private var safe = 0L
@@ -160,7 +163,7 @@ object RngSolver {
                 when {
                     hole == Hole.BOMB -> { hazards = hazards or bit; bombs = bombs or bit }
                     hole == Hole.RUPOOR -> { hazards = hazards or bit; rupoors = rupoors or bit }
-                    hole.isRupee -> safe = safe or bit
+                    hole.isSafe -> safe = safe or bit
                     undugAreHazards -> hazards = hazards or bit
                 }
             }
