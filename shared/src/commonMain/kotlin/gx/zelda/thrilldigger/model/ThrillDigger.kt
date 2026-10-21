@@ -86,6 +86,24 @@ data class DiggerBoard(val difficulty: Difficulty, val holes: List<Hole>) {
      */
     val isFinished: Boolean get() = rupeesLeft <= 0
 
+    /**
+     * The dug holes in the order they were dug, worked out from [history], this board's earlier
+     * versions oldest first (the undo history). A hole counts as dug when it last went from undug to
+     * dug, so correcting its colour or filling in a skipped hole keeps its place, while clearing it
+     * and digging it again moves it to the end. Holes dug before the history begins (a loaded board,
+     * or one older than the history keeps) come first, and holes dug in the same change go in reading
+     * order. The last one is the hole dug most recently.
+     */
+    fun digOrder(history: List<DiggerBoard>): List<Int> {
+        val past = history.filter { it.difficulty == difficulty }
+        fun dugAt(i: Int): Int {
+            var k = past.size
+            while (k > 0 && past[k - 1].holes[i] != Hole.UNKNOWN) k--
+            return k
+        }
+        return holes.indices.filter { holes[it] != Hole.UNKNOWN }.sortedWith(compareBy({ dugAt(it) }, { it }))
+    }
+
     companion object {
         fun empty(difficulty: Difficulty) = DiggerBoard(difficulty, List(difficulty.cells) { Hole.UNKNOWN })
 

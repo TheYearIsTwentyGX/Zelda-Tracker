@@ -251,6 +251,52 @@ class ThrillDiggerSolverTest {
         }
     }
 
+    /** Certainly safe holes go nearest the hole dug last: king moves, then rook steps, then information. */
+    @Test
+    fun certainlySafeHolesStayNearTheLastDig() {
+        // Greens in opposite corners clear 1, 6, 7 and 22, 23, 28.
+        val b = board(Difficulty.INTERMEDIATE, "G?????", "??????", "??????", "??????", "?????G")
+        fun rec(near: Int?) = assertIs<DiggerAnalysis.Solved>(ThrillDiggerSolver.solve(b, near)).recommended!!
+        // Next to the last Green, and of its neighbours one in line with it (one step) over the diagonal (two).
+        assertTrue(rec(29) in setOf(23, 28), "${rec(29)}")
+        assertTrue(rec(0) in setOf(1, 6), "${rec(0)}")
+        // The diagonal wins on information alone, without a last dig.
+        val plain = solved(b)
+        assertEquals(0.0, plain.odds.getValue(plain.recommended!!).hazard)
+        assertEquals(ThrillDiggerSolver.solve(b, null), ThrillDiggerSolver.solve(b))
+        assertEquals(1, ThrillDiggerSolver.chebyshev(0, 7, 6))
+        assertEquals(2, ThrillDiggerSolver.manhattan(0, 7, 6))
+        assertEquals(5, ThrillDiggerSolver.chebyshev(0, 29, 6))
+        assertEquals(9, ThrillDiggerSolver.manhattan(0, 29, 6))
+    }
+
+    /** On random boards: the nearest certainly safe hole when there is one, and no change when there isn't. */
+    @Test
+    fun theLastDigOnlyMattersAmongCertainlySafeHoles() {
+        val random = Random(23)
+        var unchanged = 0
+        var near = 0
+        repeat(60) {
+            val d = Difficulty.entries.random(random)
+            val shown = reveal(deal(d, random), random.nextInt(1, d.cells / 2), random)
+            val last = shown.holes.indices.filter { shown.holes[it] != Hole.UNKNOWN }.random(random)
+            val plain = solved(shown)
+            val result = assertIs<DiggerAnalysis.Solved>(ThrillDiggerSolver.solve(shown, last))
+            assertEquals(plain.odds, result.odds)
+            val certain = result.odds.values.filter { it.hazard == 0.0 }.map { it.index }
+            if (certain.isEmpty()) {
+                unchanged++
+                assertEquals(plain.recommended, result.recommended, shown.encode())
+            } else {
+                near++
+                val rec = result.recommended!!
+                assertTrue(rec in certain, shown.encode())
+                assertEquals(certain.minOf { ThrillDiggerSolver.chebyshev(it, last, d.width) }, ThrillDiggerSolver.chebyshev(rec, last, d.width), shown.encode())
+            }
+        }
+        assertTrue(unchanged > 0 && near > 0, "both kinds of board: $unchanged without, $near with")
+    }
+
     @Test
     fun expertIsFastEnoughForAPhone() {
         val random = Random(5)

@@ -14,7 +14,7 @@ import gx.zelda.thrilldigger.model.Difficulty
 import gx.zelda.thrilldigger.model.DiggerAnalysis
 import gx.zelda.thrilldigger.model.DiggerBoard
 import gx.zelda.thrilldigger.model.Hole
-import gx.zelda.thrilldigger.model.RupeeTotal
+import gx.zelda.thrilldigger.model.ThrillDiggerSolver
 import gx.zelda.thrilldigger.model.TotalInference
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -98,7 +98,7 @@ class ThrillDiggerViewModelTest {
         // A Green Rupee clears its neighbours, so the next recommendation is one of them.
         val r = second.recommended!!
         assertEquals(0.0, second.odds(r)!!.bomb)
-        assertEquals(RupeeTotal(1, 0), second.total)
+        assertEquals("1", second.total.text)
     }
 
     @Test
@@ -185,7 +185,7 @@ class ThrillDiggerViewModelTest {
         val state = vm.ready { it.difficulty == Difficulty.INTERMEDIATE }
         assertEquals(board, state.board)
         assertTrue(state.canUndo)
-        assertEquals(RupeeTotal(10, 0), state.total, "a Red Rupee less a Rupoor")
+        assertEquals("10", state.total.text, "a Red Rupee less a Rupoor")
     }
 
     @Test
@@ -443,7 +443,8 @@ class ThrillDiggerViewModelTest {
         assertEquals('D', saved().boards.getValue(Difficulty.BEGINNER)[12])
         assertNull(state.odds(12), "no odds on a skipped hole")
         assertTrue(state.recommended != 12)
-        assertEquals(RupeeTotal(1, 1), state.total)
+        assertEquals(1, state.total.known)
+        assertEquals(1, state.total.skipped)
         assertEquals("2–301", state.total.text)
         assertEquals(14, state.rupeesLeft, "16 Rupees, one dug and one skipped, so 14")
 
@@ -454,7 +455,7 @@ class ThrillDiggerViewModelTest {
         vm.undo()!!.join()
         val before = vm.ready { it.board.holes[12] == Hole.UNKNOWN }
         assertEquals(Hole.GREEN, before.board.holes[0])
-        assertEquals(RupeeTotal(1, 0), before.total)
+        assertEquals("1", before.total.text)
     }
 
     @Test
@@ -472,7 +473,7 @@ class ThrillDiggerViewModelTest {
         val skipped = vm.ready { it.board.holes[12] == Hole.SKIPPED }
 
         vm.checkGameTotal(4)!!.join()
-        assertEquals(TotalInference.NoMatch(3), vm.gameTotal.value!!.result)
+        assertEquals(TotalInference.NoMatch(4), vm.gameTotal.value!!.result)
         assertNull(vm.fillFromGameTotal(), "nothing to fill")
         vm.checkGameTotal(6)!!.join()
         val check = vm.gameTotal.value!!
@@ -481,11 +482,96 @@ class ThrillDiggerViewModelTest {
         vm.fillFromGameTotal()!!.join()
         assertNull(vm.gameTotal.value)
         val filled = vm.ready { it.board.holes[12] == Hole.BLUE }
-        assertEquals(RupeeTotal(6, 0), filled.total)
+        assertEquals("6", filled.total.text)
         // A clue now: a Blue Rupee has a hazard around it, so its neighbours get odds.
         assertTrue(listOf(6, 7, 8, 11, 13, 16, 17, 18).sumOf { filled.odds(it)!!.hazard } >= 1.0 - 1e-9)
         vm.undo()!!.join()
         vm.ready { it.board.holes[12] == Hole.SKIPPED }
+    }
+
+    /** The total walks the holes in the order they were entered, never below 0, and so does the in-game total. */
+    @Test
+    fun theTotalFollowsTheDigOrderAndNeverGoesIntoDebt() = runTest {
+        val vm = viewModel()
+        vm.setDifficulty(Difficulty.INTERMEDIATE).join()
+        vm.ready { it.difficulty == Difficulty.INTERMEDIATE }
+        suspend fun dig(i: Int, h: Hole) {
+            vm.tapHole(i)
+            vm.ready { it.selected == i }
+            vm.enter(h)!!.join()
+            vm.ready { it.board.holes[i] == h }
+        }
+        // Rupoor, Blue, Red: the Rupoor finds nothing to take. In reading order it would be 15.
+        dig(29, Hole.RUPOOR)
+        dig(14, Hole.BLUE)
+        dig(0, Hole.RED)
+        val state = vm.ready { it.digOrder == listOf(29, 14, 0) }
+        assertEquals("25", state.total.text)
+        assertEquals(0, state.lastDug)
+        // Correcting a colour keeps the hole's place.
+        dig(14, Hole.GREEN)
+        assertEquals("21", vm.ready { it.board.holes[14] == Hole.GREEN }.total.text)
+
+        // A skipped hole and a Rupoor at 0: the in-game total can't tell a Green from a Blue.
+        vm.reset()!!.join()
+        vm.ready { it.board.isEmpty }
+        dig(14, Hole.SKIPPED)
+        dig(0, Hole.RUPOOR)
+        dig(29, Hole.SKIPPED)
+        assertEquals("1–590", vm.ready { it.digOrder == listOf(14, 0, 29) }.total.text)
+        vm.checkGameTotal(20)!!.join()
+        val check = assertIs<TotalInference.Ambiguous>(vm.gameTotal.value!!.result)
+        assertEquals(mapOf(29 to Hole.RED), check.certain)
+        // The hole that's certain fills in; the other stays skipped.
+        vm.fillFromGameTotal()!!.join()
+        val filled = vm.ready { it.board.holes[29] == Hole.RED }
+        assertEquals(Hole.SKIPPED, filled.board.holes[14])
+        assertEquals("20–310", filled.total.text, "the skipped hole, 0 to 290 after the Rupoor, then the Red")
+    }
+
+    /** After a Green Rupee, the next dig is next to it, not across the board, and next to the latest one. */
+    @Test
+    fun aGreenRupeeKeepsTheNextDigBesideIt() = runTest {
+        val vm = viewModel()
+        vm.setDifficulty(Difficulty.BEGINNER).join()
+        vm.ready { it.difficulty == Difficulty.BEGINNER }
+        vm.tapHole(0)
+        vm.ready { it.selected == 0 }
+        vm.enter(Hole.GREEN)!!.join()
+        val first = vm.ready { it.board.holes[0] == Hole.GREEN && it.lastDug == 0 }
+        assertEquals(1, ThrillDiggerSolver.chebyshev(first.recommended!!, 0, 5))
+        assertTrue(first.certainlySafe(first.recommended!!))
+        // A second Green in the far corner: its neighbours now, though 0's are still safe too.
+        vm.tapHole(19)
+        vm.ready { it.selected == 19 }
+        vm.enter(Hole.GREEN)!!.join()
+        val second = vm.ready { it.board.holes[19] == Hole.GREEN && it.lastDug == 19 }
+        assertTrue(listOf(1, 5, 6, 13, 14, 18).all { second.certainlySafe(it) })
+        assertTrue(second.recommended in setOf(14, 18), "${second.recommended}")
+        assertFalse(second.certainlySafe(12), "a hole that might hide a Bomb isn't checked")
+    }
+
+    /** The same with the RNG's odds. */
+    @Test
+    fun theRngModeAlsoDigsBesideTheLastHole() = runTest {
+        // A dealt board with a Green Rupee, and a Rupee far from it.
+        val (truth, green, far) = (0 until 200).firstNotNullOf { k ->
+            val t = dealt(Difficulty.EXPERT, k)
+            val g = t.holes.indices.firstOrNull { t.holes[it] == Hole.GREEN } ?: return@firstNotNullOf null
+            val f = t.holes.indices.firstOrNull { t.holes[it].isRupee && ThrillDiggerSolver.chebyshev(it, g, 8) >= 3 } ?: return@firstNotNullOf null
+            Triple(t, g, f)
+        }
+        storage.update { ThrillDiggerSave().with(DiggerBoard.empty(Difficulty.EXPERT).with(far, truth.holes[far])) }
+        val vm = viewModel()
+        vm.ready { it.source is OddsSource.Rng && it.lastDug == far }
+        vm.tapHole(green)
+        vm.ready { it.selected == green }
+        vm.enter(Hole.GREEN)!!.join()
+        val state = vm.ready { it.board.holes[green] == Hole.GREEN && it.source is OddsSource.Rng }
+        assertEquals(green, state.lastDug)
+        val rec = state.recommended!!
+        assertTrue(state.certainlySafe(rec))
+        assertEquals(1, ThrillDiggerSolver.chebyshev(rec, green, 8), "beside the Green at $green, not $rec")
     }
 
     /** A save from before skipped holes still loads as it was. */
@@ -499,7 +585,7 @@ class ThrillDiggerViewModelTest {
         assertEquals(DiggerBoard.decode(Difficulty.INTERMEDIATE, board), state.board)
         assertEquals(Hole.RED, state.board.holes[7])
         assertTrue(state.canUndo)
-        assertEquals(RupeeTotal(11, 0), state.total)
+        assertEquals("11", state.total.text)
         assertFalse(saved().usesRng(Difficulty.EXPERT))
     }
 

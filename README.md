@@ -855,14 +855,19 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
     under the board.
   - Tap a hole, then what it showed. With nothing tapped, the picker fills the starred hole, so
     following the advice is one tap per dig.
+  - When several holes are certainly safe (after a Green Rupee, say), the star goes on the one
+    nearest the hole you dug last rather than across the board, and every certainly safe hole gets
+    a small green check.
   - Undo, Reset, and a saved board per difficulty. An impossible board outlines the holes that can't
     all be true.
   - **Rupees this round**, big at the top of the panel (above the picker in portrait): Green 1,
-    Blue 5, Red 20, Silver 100, Gold 300, Rupoor −10.
+    Blue 5, Red 20, Silver 100, Gold 300, Rupoor −10. As in the game it never goes below 0, so it's
+    counted in the order the holes were dug: a Rupoor at the start of a round takes nothing.
   - **Skipped**, for a hole you dug without seeing its colour. It counts as safe and dug, gives no
     clue, and shows in the total as "+ ? from N skipped" with the range. **Enter in-game total**
-    works the colour back out from the game's count (one skipped hole always; several when the sums
-    and the board allow) and offers to fill it in, so it becomes a clue again.
+    works the colour back out from the game's count (one skipped hole above 0; several when the sums
+    and the board allow) and offers to fill it in, so it becomes a clue again. A skipped hole lost
+    to a Rupoor at 0 can't be told (a Green and a Blue both leave 0), and it says so.
   - It keeps no progress, so it isn't in the Progress Overview. `docs/ss.md` has the rules, the maths
     and the sources.
 - Regions are the game's areas (Skyloft, The Sky, Thunderhead, Faron Woods, Eldin Volcano, Lanayru

@@ -1,5 +1,6 @@
 package gx.zelda.thrilldigger.model
 
+import kotlin.math.abs
 import kotlin.math.ln
 import kotlin.math.pow
 import kotlin.math.roundToLong
@@ -23,9 +24,8 @@ data class HoleOdds(
 
 sealed interface DiggerAnalysis {
     /**
-     * Every undug hole's odds, by index, and the hole to dig next: the lowest chance of a Bomb, then
-     * of a Rupoor, then the most information, then the most Rupees. [recommended] is null once no
-     * undug hole can hold a Rupee, which is when the round is won.
+     * Every undug hole's odds, by index, and the hole to dig next ([ThrillDiggerSolver.recommend]).
+     * [recommended] is null once no undug hole can hold a Rupee, which is when the round is won.
      */
     data class Solved(val odds: Map<Int, HoleOdds>, val recommended: Int?) : DiggerAnalysis {
         val allRupeesFound: Boolean get() = recommended == null
@@ -63,7 +63,8 @@ object ThrillDiggerSolver {
     /** Probabilities closer than this count as equal when choosing the next hole. */
     private const val TIE = 1e-9
 
-    fun solve(board: DiggerBoard): DiggerAnalysis {
+    /** [board]'s odds; [near] is the hole dug last, if known, for [recommend]. */
+    fun solve(board: DiggerBoard, near: Int? = null): DiggerAnalysis {
         val d = board.difficulty
         val bombsFound = board.holes.count { it == Hole.BOMB }
         val rupoorsFound = board.holes.count { it == Hole.RUPOOR }
@@ -91,7 +92,7 @@ object ThrillDiggerSolver {
             val byColour = DoubleArray(Hole.RUPEES.size) { c -> Hole.RUPEES[c].let { (it.minHazards..it.maxHazards).sumOf { n -> byCount[n] } } }
             holeOdds(i, bomb, rupoor, byColour)
         }
-        return DiggerAnalysis.Solved(odds, recommend(odds.values))
+        return DiggerAnalysis.Solved(odds, recommend(odds.values, d.width, near))
     }
 
     /**
@@ -115,16 +116,35 @@ object ThrillDiggerSolver {
     }
 
     /**
-     * The hole to dig next among [odds], or null when none can hold a Rupee. Lowest Bomb chance,
-     * then lowest Rupoor chance, then the most information, then the best average haul, then the
-     * first in reading order, with near-equal chances counted as ties.
+     * The hole to dig next among [odds] on a board [width] holes across, or null when none can hold
+     * a Rupee. Lowest Bomb chance, then lowest Rupoor chance, with near-equal chances counted as
+     * ties. Then, among holes that are certainly safe (no hazard at all, exactly: both solvers give
+     * an exact 0 when no board puts one there), the one nearest [near], the hole dug last, so a
+     * Green Rupee's neighbours are dug next to it rather than across the board: fewest king moves
+     * ([chebyshev]), then fewest rook steps ([manhattan]). Then the most information, then the best
+     * average haul, then the first in reading order. Holes that might hold a hazard ignore [near].
      */
-    fun recommend(odds: Collection<HoleOdds>): Int? {
+    fun recommend(odds: Collection<HoleOdds>, width: Int, near: Int? = null): Int? {
         fun q(x: Double) = (x / TIE).roundToLong()
+        fun certain(o: HoleOdds) = near != null && o.bomb == 0.0 && o.rupoor == 0.0
         return odds.filter { it.safe > TIE }.minWithOrNull(
-            compareBy<HoleOdds>({ q(it.bomb) }, { q(it.rupoor) }, { -q(it.information) }, { -q(it.expectedRupees) }, { it.index }),
+            compareBy<HoleOdds>(
+                { q(it.bomb) },
+                { q(it.rupoor) },
+                { if (certain(it)) chebyshev(it.index, near!!, width) else Int.MAX_VALUE },
+                { if (certain(it)) manhattan(it.index, near!!, width) else Int.MAX_VALUE },
+                { -q(it.information) },
+                { -q(it.expectedRupees) },
+                { it.index },
+            ),
         )?.index
     }
+
+    /** King moves between holes [a] and [b] on a board [width] across. */
+    fun chebyshev(a: Int, b: Int, width: Int): Int = maxOf(abs(a / width - b / width), abs(a % width - b % width))
+
+    /** Rook steps between holes [a] and [b] on a board [width] across. */
+    fun manhattan(a: Int, b: Int, width: Int): Int = abs(a / width - b / width) + abs(a % width - b % width)
 
     /** True when some board the game can deal fits [board]. */
     fun isPossible(board: DiggerBoard): Boolean {

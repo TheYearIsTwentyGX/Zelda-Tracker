@@ -236,6 +236,8 @@ private fun HoleCell(state: ThrillDiggerUiState, index: Int, size: Dp, onTap: ()
     val recommended = index == state.recommended
     val target = index == state.target
     val conflicted = index in state.conflict
+    // Every certainly safe hole gets a small check; the recommended one keeps its star.
+    val safe = state.certainlySafe(index)
     val background = when {
         hole != Hole.UNKNOWN -> colors.surfaceContainerHighest
         odds != null -> heat(odds.bomb, colors.surfaceContainer)
@@ -252,6 +254,7 @@ private fun HoleCell(state: ThrillDiggerUiState, index: Int, size: Dp, onTap: ()
         append(holeLabel(state.board, index)).append(": ").append(holeName(hole))
         if (odds != null) append(", Bomb ${percent(odds.bomb)}, Rupoor ${percent(odds.rupoor)}")
         if (recommended) append(", recommended")
+        if (safe) append(", certainly safe")
         if (conflicted) append(", conflicts")
     }
     Box(
@@ -275,6 +278,8 @@ private fun HoleCell(state: ThrillDiggerUiState, index: Int, size: Dp, onTap: ()
         }
         if (recommended) {
             Text("★", color = Recommended, fontSize = 12.sp, modifier = Modifier.align(Alignment.TopEnd).padding(end = 3.dp))
+        } else if (safe) {
+            Text("✓", color = Safe, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.align(Alignment.TopEnd).padding(end = 3.dp))
         }
     }
 }
@@ -460,9 +465,9 @@ private fun GameTotalDialog(state: ThrillDiggerUiState, check: GameTotalCheck?, 
         title = { Text("Enter in-game total") },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                val holes = if (total.skipped == 1) "skipped hole is" else "${total.skipped} skipped holes are"
+                val holes = if (total.skipped == 1) "skipped hole was" else "${total.skipped} skipped holes were"
                 Text(
-                    "The round's total the game shows while you dig. The $holes worth that less the ${total.known} entered.",
+                    "The round's total the game shows while you dig, ${total.text} by what's entered. It says what the $holes, counting in the order you dug (the total never drops below 0).",
                     style = MaterialTheme.typography.bodySmall,
                 )
                 OutlinedTextField(
@@ -477,8 +482,9 @@ private fun GameTotalDialog(state: ThrillDiggerUiState, check: GameTotalCheck?, 
             }
         },
         confirmButton = {
-            if (result is TotalInference.Fill) {
-                TextButton(onClick = { viewModel.fillFromGameTotal() }) { Text(if (result.fill.size == 1) "Fill it in" else "Fill them in") }
+            val fill = result?.let(ThrillDiggerViewModel::gameTotalFill).orEmpty()
+            if (fill.isNotEmpty()) {
+                TextButton(onClick = { viewModel.fillFromGameTotal() }) { Text(if (fill.size == 1) "Fill it in" else "Fill them in") }
             } else {
                 TextButton(onClick = { submit() }, enabled = entered != null) { Text("Check") }
             }
@@ -498,13 +504,16 @@ internal fun inferenceText(board: DiggerBoard, result: TotalInference): String =
     }
     is TotalInference.Ambiguous -> {
         val sets = result.combos.map { c -> c.joinToString(" + ") { it.label } }
-        if (sets.size == 1) {
-            "They're ${sets.single()}, but the total can't tell which hole is which. Tap one's colour if you remember it."
-        } else {
-            "It's ambiguous: " + sets.joinToString(", or ") + (if (result.more) ", or more" else "") + "."
+        val more = if (result.more) ", or more" else ""
+        val which = when {
+            result.combos.all { it.size == 1 } -> "The total can't tell: that hole was " + sets.joinToString(" or ") + more + "."
+            sets.size == 1 && !result.more -> "They're ${sets.single()}, but the total can't tell which hole is which. Tap one's colour if you remember it."
+            else -> "The total can't tell: " + sets.joinToString(", or ") + more + "."
         }
+        val certain = result.certain.entries.joinToString(", ") { (i, h) -> "${holeLabel(board, i)} ${h.label}" }
+        if (certain.isEmpty()) which else "$which Either way, $certain: fill ${if (result.certain.size == 1) "it" else "them"} in?"
     }
-    is TotalInference.NoMatch -> "No Rupees for the skipped holes add up to ${result.difference} and fit the board. Check the total and the holes entered."
+    is TotalInference.NoMatch -> "No Rupees for the skipped holes make ${result.gameTotal} and fit the board. Check the total and the holes entered."
 }
 
 /**

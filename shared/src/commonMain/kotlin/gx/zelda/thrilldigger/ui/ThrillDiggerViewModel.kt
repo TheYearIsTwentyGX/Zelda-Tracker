@@ -100,6 +100,8 @@ data class ThrillDiggerUiState(
     val source: OddsSource = OddsSource.EveryBoard,
     /** Whether the RNG switch is on for this difficulty. */
     val rngOn: Boolean = false,
+    /** The dug holes in the order they were dug ([DiggerBoard.digOrder]); reading order if not given. */
+    val digOrder: List<Int> = emptyList(),
 ) {
     val difficulty: Difficulty get() = board.difficulty
 
@@ -115,8 +117,14 @@ data class ThrillDiggerUiState(
 
     fun odds(index: Int): HoleOdds? = (analysis as? DiggerAnalysis.Solved)?.odds?.get(index)
 
-    /** Rupees dug so far, Rupoors taken off, with the skipped holes' unknown worth. */
-    val total: RupeeTotal get() = RupeeTotal.of(board)
+    /** Rupees dug so far, in dig order, Rupoors taken off down to 0, with the skipped holes' unknown worth. */
+    val total: RupeeTotal get() = RupeeTotal.of(board, digOrder)
+
+    /** The hole dug most recently, which the recommendation stays near when it can. */
+    val lastDug: Int? get() = digOrder.lastOrNull()
+
+    /** Undug holes that certainly hold a Rupee: no board puts a hazard there. */
+    fun certainlySafe(index: Int): Boolean = odds(index)?.let { it.bomb == 0.0 && it.rupoor == 0.0 } == true
 
     /** Holes still hiding a Rupee. */
     val rupeesLeft: Int get() = board.rupeesLeft
@@ -165,51 +173,61 @@ class ThrillDiggerViewModel(
         return scope.launch(block = block)
     }
 
-    private data class Solved(val save: ThrillDiggerSave, val board: DiggerBoard, val analysis: DiggerAnalysis, val source: OddsSource)
+    private data class Solved(val save: ThrillDiggerSave, val board: DiggerBoard, val order: List<Int>, val analysis: DiggerAnalysis, val source: OddsSource)
+
+    /** What's solved: the board, its dig order, and whether the RNG's odds are wanted. */
+    private data class Input(val save: ThrillDiggerSave, val board: DiggerBoard, val order: List<Int>, val rng: Boolean) {
+        val near: Int? get() = order.lastOrNull()
+    }
 
     /** The last uniform answer, so listing progress doesn't solve the same board again. */
-    private var uniform: Pair<DiggerBoard, DiggerAnalysis>? = null
+    private var uniform: Pair<Pair<DiggerBoard, Int?>, DiggerAnalysis>? = null
 
-    private fun uniform(board: DiggerBoard): DiggerAnalysis =
-        uniform?.takeIf { it.first == board }?.second ?: ThrillDiggerSolver.solve(board).also { uniform = board to it }
+    private fun uniform(input: Input): DiggerAnalysis {
+        val key = input.board to input.near
+        return uniform?.takeIf { it.first == key }?.second ?: ThrillDiggerSolver.solve(input.board, input.near).also { uniform = key to it }
+    }
 
     private val solved = storage.save
-        .map { Triple(it, it.board(), it.usesRng()) }
+        .map { Input(it, it.board(), it.digOrder(), it.usesRng()) }
         .distinctUntilChanged()
-        .flatMapLatest { (save, board, rng) ->
-            if (!rng) {
-                flowOf(Triple(save, board, null))
+        .flatMapLatest { input ->
+            if (!input.rng) {
+                flowOf(input to null)
             } else {
-                rngSource.ensure(board.difficulty)
-                rngSource.table(board.difficulty).map { Triple(save, board, it) }
+                rngSource.ensure(input.board.difficulty)
+                rngSource.table(input.board.difficulty).map { input to it }
             }
         }
-        .map { (save, board, table) -> solve(save, board, table) }
+        .map { (input, table) -> solve(input, table) }
         .flowOn(work)
 
     /** The RNG's odds when [table] has them; if anything goes wrong there, every board's, saying why. */
-    private fun solve(save: ThrillDiggerSave, board: DiggerBoard, table: RngTable?): Solved = try {
-        solveOrThrow(save, board, table)
+    private fun solve(input: Input, table: RngTable?): Solved = try {
+        solveOrThrow(input, table)
     } catch (e: CancellationException) {
         throw e
     } catch (e: Exception) {
-        Solved(save, board, uniform(board), OddsSource.RngFailed(reason(e)))
+        input.solved(uniform(input), OddsSource.RngFailed(reason(e)))
     }
 
-    private fun solveOrThrow(save: ThrillDiggerSave, board: DiggerBoard, table: RngTable?): Solved = when (table) {
-        null, RngTable.NotStarted -> Solved(save, board, uniform(board), OddsSource.EveryBoard)
-        is RngTable.Generating -> Solved(save, board, uniform(board), OddsSource.Listing(table.progress))
-        is RngTable.Failed -> Solved(save, board, uniform(board), OddsSource.RngFailed(table.reason))
+    private fun Input.solved(analysis: DiggerAnalysis, source: OddsSource) = Solved(save, board, order, analysis, source)
+
+    private fun solveOrThrow(input: Input, table: RngTable?): Solved = when (table) {
+        null, RngTable.NotStarted -> input.solved(uniform(input), OddsSource.EveryBoard)
+        is RngTable.Generating -> input.solved(uniform(input), OddsSource.Listing(table.progress))
+        is RngTable.Failed -> input.solved(uniform(input), OddsSource.RngFailed(table.reason))
         is RngTable.Ready -> {
+            val board = input.board
             val boards = table.boards
-            val locked = save.lockedLoop[board.difficulty]?.let { anchor -> boards.loops.indexOfFirst { it.anchor == anchor } }?.takeIf { it >= 0 }
-            val onLocked = locked?.let { RngSolver.solve(board, boards, it) }
-            val result = onLocked ?: RngSolver.solve(board, boards)
+            val locked = input.save.lockedLoop[board.difficulty]?.let { anchor -> boards.loops.indexOfFirst { it.anchor == anchor } }?.takeIf { it >= 0 }
+            val onLocked = locked?.let { RngSolver.solve(board, boards, it, input.near) }
+            val result = onLocked ?: RngSolver.solve(board, boards, near = input.near)
             if (result == null) {
-                Solved(save, board, uniform(board), OddsSource.NoRngFit)
+                input.solved(uniform(input), OddsSource.NoRngFit)
             } else {
                 val source = OddsSource.Rng(result.states, result.loops, boards.loops.size, locked, lockMissed = locked != null && onLocked == null)
-                Solved(save, board, result.analysis, source)
+                input.solved(result.analysis, source)
             }
         }
     }
@@ -222,6 +240,7 @@ class ThrillDiggerViewModel(
             selected = selected?.takeIf { it < s.board.holes.size },
             source = s.source,
             rngOn = s.save.usesRng(),
+            digOrder = s.order,
         )
     }.stateIn(scope, SharingStarted.WhileSubscribed(5_000), null)
 
@@ -346,20 +365,22 @@ class ThrillDiggerViewModel(
      * earned ([GameTotal.infer]), into [gameTotal]. Null when no hole is skipped.
      */
     fun checkGameTotal(total: Int): Job? {
-        val board = state.value?.board?.takeIf { Hole.SKIPPED in it.holes } ?: return null
+        val state = state.value?.takeIf { Hole.SKIPPED in it.board.holes } ?: return null
+        val board = state.board
         return act {
-            val result = withContext(work) { GameTotal.infer(board, total) }
+            val result = withContext(work) { GameTotal.infer(board, total, state.digOrder) }
             _gameTotal.value = GameTotalCheck(board, total, result)
         }
     }
 
     /**
      * Fills the skipped holes with the colours [gameTotal] found, as one undoable change, so they
-     * become clues. Null unless it found one way and the board hasn't changed since.
+     * become clues: all of them when it found one way, or when it's ambiguous, those that are the
+     * same colour every way. Null when there's nothing to fill or the board has changed since.
      */
     fun fillFromGameTotal(): Job? {
         val check = _gameTotal.value ?: return null
-        val fill = (check.result as? TotalInference.Fill)?.fill ?: return null
+        val fill = gameTotalFill(check.result).takeIf { it.isNotEmpty() } ?: return null
         if (state.value?.board != check.board) return null
         _gameTotal.value = null
         selection.value = null
@@ -422,6 +443,13 @@ class ThrillDiggerViewModel(
 
         /** An undug hole on a finished board, in [boardText]: a Bomb or a Rupoor. */
         const val HAZARD = 'H'
+
+        /** The skipped holes [result] says to fill in, and their colours. */
+        fun gameTotalFill(result: TotalInference): Map<Int, Hole> = when (result) {
+            is TotalInference.Fill -> result.fill
+            is TotalInference.Ambiguous -> result.certain
+            is TotalInference.NoMatch -> emptyMap()
+        }
 
         /** What went wrong, in a few words. */
         fun reason(e: Throwable): String = e.message ?: e::class.simpleName ?: "unknown error"

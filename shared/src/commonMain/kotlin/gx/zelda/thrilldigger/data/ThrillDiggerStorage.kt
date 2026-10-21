@@ -34,6 +34,9 @@ data class ThrillDiggerSave(
 
     fun board(d: Difficulty = difficulty): DiggerBoard = DiggerBoard.decode(d, boards[d])
 
+    /** [d]'s dug holes in the order they were dug, from its undo history ([DiggerBoard.digOrder]). */
+    fun digOrder(d: Difficulty = difficulty): List<Int> = board(d).digOrder(history[d].orEmpty().map { DiggerBoard.decode(d, it) })
+
     fun canUndo(d: Difficulty = difficulty): Boolean = !history[d].isNullOrEmpty()
 
     /** [board] in place of its difficulty's board, with the old one kept for undo. Unchanged boards aren't kept. */
