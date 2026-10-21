@@ -396,10 +396,23 @@ For each undug hole it reports:
 - what a dig there is worth on average;
 - the information a dig there gives (the entropy of the seven things it might show).
 
-**The recommendation:** the lowest Bomb chance, then the lowest Rupoor chance, then the most
-information, then the best average haul, then the first hole in reading order. Near-equal chances
-count as ties. Holes that must be hazards are never recommended. Once only those are left, every
-Rupee is dug.
+**The recommendation** (`ThrillDiggerSolver.recommend`, both modes): the lowest Bomb chance, then
+the lowest Rupoor chance; then, among holes that are **certainly safe**, the one nearest the hole
+dug last; then the most information, then the best average haul, then the first hole in reading
+order. Near-equal chances count as ties. Holes that must be hazards are never recommended. Once
+only those are left, every Rupee is dug.
+- *Certainly safe* is an exact zero for both the Bomb and the Rupoor chance, not a near-zero: both
+  solvers only add weight to a hole's hazard when some board puts one there, so a hole no board
+  puts a hazard in is exactly 0.
+- *Nearest* is fewest king moves (Chebyshev distance), then fewest rook steps (Manhattan), so a
+  hole in line with the last dig beats a diagonal one. A Green Rupee can clear six or seven holes,
+  and without this the most informative of them could be across the board; the user wants the
+  next dig beside the last. That puts proximity ahead of information among certain holes: they're
+  all free digs, so the order only changes which is dug first, and the others stay certain.
+- *Dug last* is the end of the dig order (below). With nothing dug, or for holes that might hide a
+  hazard, nearness plays no part, and the order is as before.
+- The screen marks every certainly safe hole with a small green check; the recommended one keeps
+  its gold ★.
 
 **Impossible boards.** When no deal fits the entered holes, the solver finds a smallest set of
 entered holes that can't all be true: each one is cleared in turn and stays cleared if the board is
@@ -419,9 +432,12 @@ the main thread.
 - a Monte Carlo estimate of the block share;
 - brute force again with some dug Rupees turned into skipped holes.
 
-It also checks impossible-board conflicts, that every conflict found is minimal, and the time.
-`ThrillDiggerViewModelTest` covers entering holes, the recommendation, undo, reset, difficulties
-and saving.
+It also checks impossible-board conflicts, that every conflict found is minimal, the time, and the
+nearness tie-break: beside the last of two Greens, in line before diagonal, and on random boards the
+nearest certain hole when there is one and the same hole as without a last dig when there isn't.
+`ThrillDiggerViewModelTest` covers entering holes, the recommendation (beside a Green, the most
+recent one, in both modes), undo, reset, difficulties and saving. `RupeeTotalTest` covers the
+total's floor, its dig order from the history, and the in-game total with and without the floor.
 
 ### The RNG mode
 
@@ -551,20 +567,39 @@ in-game total, and that a save from before skipped holes still loads.
   and dug (so it counts towards a finished round), but gives its neighbours no clue. Tap its
   colour later if you remember it.
 - **Rupees this round** adds up the entered holes (`RupeeTotal`): Green 1, Blue 5, Red 20, Silver
-  100, Gold 300, Rupoor −10 (`Hole.rupees`). With skipped holes it shows the known part, "+ ? from
-  N skipped", and the range (each skipped hole 1 to 300).
+  100, Gold 300, Rupoor −10 (`Hole.rupees`). **It never goes below 0**: in the game a Rupoor dug
+  with less than 10 takes the total to 0, not into debt. So the order matters (a Red, a Rupoor and
+  a Blue make 15; a Rupoor, a Blue and a Red 25), and the total is walked dig by dig,
+  `total = max(0, total + value)`. With skipped holes it shows the known part (the walk with each
+  skipped hole worth nothing), "+ ? from N skipped", and the range: every skipped hole Green to
+  every one Gold. Taking the floor step by step keeps the total rising with each hole's worth, so
+  those are the ends; a skipped hole then a Rupoor is 0–290.
+- **The dig order** (`DiggerBoard.digOrder`) comes from the undo history, which keeps every earlier
+  board. A hole's place is when it last went from undug to dug, so correcting its colour, or
+  filling in a skipped hole, keeps its place, and clearing it and digging it again moves it to the
+  end. Holes dug before the history begins (a board from an older save, or past its 200 steps)
+  come first, and holes dug in the same change (only an old save does that) go in reading order.
+  The last hole in the order is the one the recommendation stays near.
 - **Enter in-game total** (shown while a hole is skipped) takes the Rupees the round has earned as
   the game counts them (the game shows a running total for the round, not just the wallet) and works out the
-  skipped holes (`GameTotal.infer`). The skipped holes are worth the difference from the known
-  part. The five values are distinct, so one skipped hole's colour is certain: "That hole was a
-  Blue Rupee: fill it in?". With several, every set of colours that adds up is tried in every
-  order on the board (up to 200 orders), keeping the orders the solver calls possible, since the
-  colours are clues for their neighbours. One order left is offered to fill in; otherwise it lists
-  up to six colour sets ("Green + Blue, but the total can't tell which hole is which", or "It's
-  ambiguous: …"). The smallest count where two sets share a sum is six holes (five Greens and a
-  Silver, or a Blue and five Reds: 105). Filling in is one undoable change, and the filled holes
-  are ordinary clues from then on. A total nothing adds up to says to check the total and the
-  holes.
+  skipped holes (`GameTotal.infer`). It walks the holes in dig order as the total does, floor
+  and all, trying each colour for each skipped hole and keeping the ways that end on the game's
+  total (`GameTotal.ways`, which first works out which totals can still reach it from each step,
+  so only ways that fit are listed). Up to 200 ways are then tried on the board, keeping those the
+  solver calls possible, since the colours are clues for their neighbours.
+  - The five values are distinct, so one skipped hole above the floor is certain: "That hole was a
+    Blue Rupee: fill it in?".
+  - **The floor makes some ambiguous.** A skipped hole dug at 0 and then a Rupoor: a Green (1) and
+    a Blue (5) both end at 0, so "The total can't tell: that hole was Green or Blue." A Red (20)
+    still leaves 10, so 10 is certain. The board can still settle it: a Rupoor beside the hole
+    means it wasn't Green.
+  - One way left is offered to fill in. Otherwise it lists up to six colour sets ("Green + Blue,
+    but the total can't tell which hole is which", or "The total can't tell: …"), and any skipped
+    holes that are the same colour every way are offered to fill in on their own ("Either way, F5
+    Red: fill it in?"). Without the floor, the smallest count where two sets share a sum is six
+    holes (five Greens and a Silver, or a Blue and five Reds: 105).
+  - Filling in is one undoable change, and the filled holes are ordinary clues from then on. A
+    total nothing adds up to says to check the total and the holes.
 - Under the details: the RNG switch and its status, and **Export board** ([The RNG mode](#the-rng-mode)).
 - **Undo** steps back through every change on that difficulty, Reset included, up to 200 steps.
   Reset clears the board for a new round.

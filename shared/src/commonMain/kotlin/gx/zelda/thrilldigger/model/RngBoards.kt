@@ -79,19 +79,20 @@ data class RngResult(
 object RngSolver {
     /**
      * The odds over the states that fit [board], only on loop [onlyLoop] when it's given, or null
-     * when none fits: the RNG hasn't settled into a loop yet, or something was entered wrong.
+     * when none fits: the RNG hasn't settled into a loop yet, or something was entered wrong. [near]
+     * is the hole dug last, if known, for [ThrillDiggerSolver.recommend].
      */
-    fun solve(board: DiggerBoard, table: RngBoards, onlyLoop: Int? = null): RngResult? {
+    fun solve(board: DiggerBoard, table: RngBoards, onlyLoop: Int? = null, near: Int? = null): RngResult? {
         val d = board.difficulty
         require(d == table.difficulty)
         if (board.isEmpty) {
             val slot = onlyLoop ?: table.loops.size
             return table.emptyResults[slot] ?: count(board, table, onlyLoop).also { table.emptyResults[slot] = it }
         }
-        return count(board, table, onlyLoop)
+        return count(board, table, onlyLoop, near)
     }
 
-    private fun count(board: DiggerBoard, table: RngBoards, onlyLoop: Int?): RngResult? {
+    private fun count(board: DiggerBoard, table: RngBoards, onlyLoop: Int?, near: Int? = null): RngResult? {
         val d = board.difficulty
         val filter = Filter(board)
         val around = Neighbours.of(d)
@@ -125,7 +126,7 @@ object RngSolver {
         }
         if (states == 0) return null
         val odds = undug.associateWith { i -> ThrillDiggerSolver.holeOdds(i, bombW[i] / total, rupoorW[i] / total, colourW[i]) }
-        return RngResult(DiggerAnalysis.Solved(odds, ThrillDiggerSolver.recommend(odds.values)), states, loops)
+        return RngResult(DiggerAnalysis.Solved(odds, ThrillDiggerSolver.recommend(odds.values, d.width, near)), states, loops)
     }
 
     /**
