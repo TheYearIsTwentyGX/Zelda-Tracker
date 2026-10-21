@@ -5,7 +5,7 @@
     {
       "id": "shields",
       "title": "Shields",
-      "note": "Shields wear out as they block. Gondo repairs them at the Scrap Shop; a Revitalizing Potion does too.",
+      "note": "Shields wear out as they block. Gondo repairs them at the Scrap Shop; a Revitalizing Potion does too. The Item Upgrades tracker totals the materials, with its own progress.",
       "items": [
         {
           "id": "wooden_shield",

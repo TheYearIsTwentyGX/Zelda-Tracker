@@ -1,0 +1,1344 @@
+{
+  "sections": [
+    {
+      "id": "items",
+      "title": "Items",
+      "note": "Gondo upgrades these at his Scrap Shop in the Bazaar; he offers only what you're carrying."
+    },
+    {
+      "id": "shields",
+      "title": "Shields",
+      "note": "Gondo upgrades and repairs them. The Hylian Shield can't be upgraded."
+    },
+    {
+      "id": "pouch",
+      "title": "Pouch Items",
+      "note": "You can carry several of each in Adventure Pouch slots. Track each one; the totals count one of each."
+    },
+    {
+      "id": "potions",
+      "title": "Potions",
+      "optional": "Potions",
+      "note": "Luv sells them at the Potion Shop in the Bazaar and Bertie infuses them with bugs."
+    }
+  ],
+  "materials": [
+    {
+      "id": "skyloft_mantis",
+      "name": "Skyloft Mantis",
+      "kind": "BUG",
+      "farm": "On trees around Skyloft. Easy to catch.",
+      "regions": [
+        "Skyloft"
+      ],
+      "gameOrder": 1
+    },
+    {
+      "id": "sky_stag_beetle",
+      "name": "Sky Stag Beetle",
+      "kind": "BUG",
+      "farm": "On trees around Skyloft: roll into the trunk to knock it down.",
+      "regions": [
+        "Skyloft"
+      ],
+      "gameOrder": 2
+    },
+    {
+      "id": "starry_firefly",
+      "name": "Starry Firefly",
+      "kind": "BUG",
+      "farm": "Skyloft at night, the Waterfall Cave, Pumpkin Landing and Beedle's Island at night.",
+      "regions": [
+        "Skyloft",
+        "The Sky",
+        "Night"
+      ],
+      "gameOrder": 3
+    },
+    {
+      "id": "blessed_butterfly",
+      "name": "Blessed Butterfly",
+      "kind": "BUG",
+      "farm": "Everywhere in the Sky and on the Surface; they gather where a Goddess Wall or a harp spot is.",
+      "regions": [
+        "Everywhere"
+      ],
+      "gameOrder": 4
+    },
+    {
+      "id": "woodland_rhino_beetle",
+      "name": "Woodland Rhino Beetle",
+      "kind": "BUG",
+      "farm": "On tree trunks in Faron Woods and the Deep Woods: roll into the tree to knock it down. Slow and easy to catch.",
+      "regions": [
+        "Faron Woods",
+        "Skyloft"
+      ],
+      "gameOrder": 5
+    },
+    {
+      "id": "deku_hornet",
+      "name": "Deku Hornet",
+      "kind": "BUG",
+      "farm": "Around the hornet nests of the Deep Woods; knock a nest down and catch the swarm. Bug Rock in the Thunderhead has them too.",
+      "regions": [
+        "Faron Woods",
+        "Thunderhead"
+      ],
+      "gameOrder": 6
+    },
+    {
+      "id": "faron_grasshopper",
+      "name": "Faron Grasshopper",
+      "kind": "BUG",
+      "farm": "In the grass of Faron Woods, the Deep Woods and the Sealed Grounds. It leaps away: creep up slowly.",
+      "regions": [
+        "Faron Woods",
+        "Sealed Grounds"
+      ],
+      "gameOrder": 7
+    },
+    {
+      "id": "volcanic_ladybug",
+      "name": "Volcanic Ladybug",
+      "kind": "BUG",
+      "farm": "In groups on Eldin Volcano. Barely moves.",
+      "regions": [
+        "Eldin Volcano"
+      ],
+      "gameOrder": 8
+    },
+    {
+      "id": "eldin_roller",
+      "name": "Eldin Roller",
+      "kind": "BUG",
+      "farm": "Rare on Eldin Volcano, rolling a ball along the ground.",
+      "regions": [
+        "Eldin Volcano"
+      ],
+      "gameOrder": 9
+    },
+    {
+      "id": "lanayru_ant",
+      "name": "Lanayru Ant",
+      "kind": "BUG",
+      "farm": "In swarms at the Lanayru Mine, in Lanayru Desert and at the Temple of Time.",
+      "regions": [
+        "Lanayru Mine",
+        "Lanayru Desert"
+      ],
+      "gameOrder": 10
+    },
+    {
+      "id": "gerudo_dragonfly",
+      "name": "Gerudo Dragonfly",
+      "kind": "BUG",
+      "farm": "In Lanayru Desert. It flies far once disturbed: creep up on it.",
+      "regions": [
+        "Lanayru Desert"
+      ],
+      "gameOrder": 11
+    },
+    {
+      "id": "sand_cicada",
+      "name": "Sand Cicada",
+      "kind": "BUG",
+      "farm": "On trees and walls in Lanayru Desert, and on Skipper's Retreat. The hardest bug to catch: it flies off quickly.",
+      "regions": [
+        "Lanayru Desert",
+        "Lanayru Sand Sea"
+      ],
+      "gameOrder": 12
+    },
+    {
+      "id": "amber_relic",
+      "name": "Amber Relic",
+      "kind": "TREASURE",
+      "farm": "Everywhere: lying around the Surface, in pots and in chests.",
+      "regions": [
+        "Everywhere"
+      ],
+      "gameOrder": 13
+    },
+    {
+      "id": "hornet_larvae",
+      "name": "Hornet Larvae",
+      "kind": "TREASURE",
+      "farm": "Knock down a Deku Hornet nest (roll into its tree, or hit it with the Slingshot or Beetle) and pick them up.",
+      "regions": [
+        "Faron Woods"
+      ],
+      "gameOrder": 14
+    },
+    {
+      "id": "jelly_blob",
+      "name": "Jelly Blob",
+      "kind": "TREASURE",
+      "farm": "Dropped by Deku Babas, ChuChus and Arachas.",
+      "regions": [
+        "Enemy drop"
+      ],
+      "gameOrder": 15
+    },
+    {
+      "id": "bird_feather",
+      "name": "Bird Feather",
+      "kind": "TREASURE",
+      "farm": "Catch a Chirri, the little birds of Faron Woods and the Sealed Grounds, with the Bug Net.",
+      "regions": [
+        "Faron Woods",
+        "Sealed Grounds"
+      ],
+      "gameOrder": 16
+    },
+    {
+      "id": "blue_bird_feather",
+      "name": "Blue Bird Feather",
+      "kind": "TREASURE",
+      "farm": "Catch a rare blue Chirri in Faron Woods or the Sealed Grounds with the Bug Net. The Moonlight Merchant sells them late in the game.",
+      "regions": [
+        "Faron Woods",
+        "Sealed Grounds"
+      ],
+      "gameOrder": 17
+    },
+    {
+      "id": "monster_claw",
+      "name": "Monster Claw",
+      "kind": "TREASURE",
+      "farm": "Dropped by Keese, Walltulas and Guays.",
+      "regions": [
+        "Enemy drop"
+      ],
+      "gameOrder": 18
+    },
+    {
+      "id": "ornamental_skull",
+      "name": "Ornamental Skull",
+      "kind": "TREASURE",
+      "farm": "Dropped by Bokoblins, or whip it off one.",
+      "regions": [
+        "Enemy drop"
+      ],
+      "gameOrder": 19
+    },
+    {
+      "id": "golden_skull",
+      "name": "Golden Skull",
+      "kind": "TREASURE",
+      "farm": "Rarely from Bokoblins (whip it off one that carries it), in some chests, from the Clean Cut minigame on Bamboo Island, or from the Moonlight Merchant.",
+      "regions": [
+        "Enemy drop",
+        "The Sky"
+      ],
+      "gameOrder": 20
+    },
+    {
+      "id": "eldin_ore",
+      "name": "Eldin Ore",
+      "kind": "TREASURE",
+      "farm": "Dig it up from soft-soil spots on Eldin Volcano with the Digging Mitts.",
+      "regions": [
+        "Eldin Volcano"
+      ],
+      "gameOrder": 21
+    },
+    {
+      "id": "lizard_tail",
+      "name": "Lizard Tail",
+      "kind": "TREASURE",
+      "farm": "Dropped by Lizalfos, first met in the Earth Temple.",
+      "regions": [
+        "Enemy drop"
+      ],
+      "gameOrder": 22
+    },
+    {
+      "id": "tumbleweed",
+      "name": "Tumbleweed",
+      "kind": "TREASURE",
+      "farm": "Catch one rolling across Lanayru Desert with the Bug Net.",
+      "regions": [
+        "Lanayru Desert"
+      ],
+      "gameOrder": 23
+    },
+    {
+      "id": "ancient_flower",
+      "name": "Ancient Flower",
+      "kind": "TREASURE",
+      "farm": "Only blooms around an active Timeshift Stone, in Lanayru Desert, the Sand Sea and the Pirate Stronghold.",
+      "regions": [
+        "Lanayru Desert",
+        "Lanayru Sand Sea"
+      ],
+      "gameOrder": 24
+    },
+    {
+      "id": "dusk_relic",
+      "name": "Dusk Relic",
+      "kind": "TREASURE",
+      "farm": "Only in the Silent Realms, including replays in Lanayru's Lightning Round, or from the Moonlight Merchant.",
+      "regions": [
+        "Silent Realm"
+      ],
+      "gameOrder": 25
+    },
+    {
+      "id": "evil_crystal",
+      "name": "Evil Crystal",
+      "kind": "TREASURE",
+      "farm": "Dropped by Cursed Bokoblins and Dark Keese; also in some chests, from Clean Cut and from the Moonlight Merchant.",
+      "regions": [
+        "Enemy drop"
+      ],
+      "gameOrder": 26
+    },
+    {
+      "id": "monster_horn",
+      "name": "Monster Horn",
+      "kind": "TREASURE",
+      "farm": "Whip the horn from a Bokoblin leader before he blows it; also in some chests and from the Moonlight Merchant.",
+      "regions": [
+        "Enemy drop"
+      ],
+      "gameOrder": 27
+    },
+    {
+      "id": "goddess_plume",
+      "name": "Goddess Plume",
+      "kind": "TREASURE",
+      "farm": "Rare: in some chests, sometimes in place of an Amber or Dusk Relic, from Thrill Digger and Clean Cut, or from the Moonlight Merchant.",
+      "regions": [
+        "The Sky"
+      ],
+      "gameOrder": 28
+    }
+  ],
+  "items": [
+    {
+      "id": "slingshot",
+      "section": "items",
+      "levels": [
+        {
+          "id": "slingshot",
+          "name": "Slingshot"
+        },
+        {
+          "id": "scattershot",
+          "name": "Scattershot",
+          "effect": "Charge a shot to scatter Deku Seeds over a wide area"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "dusk_relic",
+              "qty": 2
+            },
+            {
+              "material": "amber_relic",
+              "qty": 2
+            },
+            {
+              "material": "jelly_blob",
+              "qty": 3
+            }
+          ],
+          "by": "Gondo's Scrap Shop",
+          "note": "Zelda Wiki says 20 Rupees."
+        }
+      ],
+      "acquire": [
+        {
+          "method": "REWARD",
+          "title": "Bucha, Faron Woods",
+          "detail": "The Kikwi elder gives it to you once you've found the three hiding Kikwis."
+        }
+      ]
+    },
+    {
+      "id": "beetle",
+      "section": "items",
+      "levels": [
+        {
+          "id": "beetle",
+          "name": "Beetle"
+        },
+        {
+          "id": "hook_beetle",
+          "name": "Hook Beetle",
+          "effect": "Carries and drops Bombs and other items"
+        },
+        {
+          "id": "quick_beetle",
+          "name": "Quick Beetle",
+          "effect": "Flies faster"
+        },
+        {
+          "id": "tough_beetle",
+          "name": "Tough Beetle",
+          "effect": "Flies much farther"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 0,
+          "materials": [],
+          "by": "A robot in Lanayru Desert",
+          "free": true,
+          "note": "Free, on your first visit in the story: save the robot from the Technoblins and it fits your Beetle with a claw."
+        },
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "ancient_flower",
+              "qty": 2
+            },
+            {
+              "material": "hornet_larvae",
+              "qty": 2
+            },
+            {
+              "material": "golden_skull",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "ancient_flower",
+              "qty": 3
+            },
+            {
+              "material": "amber_relic",
+              "qty": 4
+            },
+            {
+              "material": "blue_bird_feather",
+              "qty": 1
+            },
+            {
+              "material": "goddess_plume",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Skyview Temple",
+          "detail": "The dungeon item, in the chest after the Stalfos fight."
+        }
+      ]
+    },
+    {
+      "id": "bug_net",
+      "section": "items",
+      "levels": [
+        {
+          "id": "bug_net",
+          "name": "Bug Net"
+        },
+        {
+          "id": "big_bug_net",
+          "name": "Big Bug Net",
+          "effect": "Twice the size"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "tumbleweed",
+              "qty": 3
+            },
+            {
+              "material": "ancient_flower",
+              "qty": 2
+            },
+            {
+              "material": "evil_crystal",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Beedle's Airshop",
+          "detail": "Beedle's shop flies over Skyloft by day: hit the bell underneath to be pulled up.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "bow",
+      "section": "items",
+      "levels": [
+        {
+          "id": "bow",
+          "name": "Bow"
+        },
+        {
+          "id": "iron_bow",
+          "name": "Iron Bow",
+          "effect": "More power and range"
+        },
+        {
+          "id": "sacred_bow",
+          "name": "Sacred Bow",
+          "effect": "The most power and range"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "tumbleweed",
+              "qty": 3
+            },
+            {
+              "material": "evil_crystal",
+              "qty": 1
+            },
+            {
+              "material": "monster_claw",
+              "qty": 3
+            },
+            {
+              "material": "eldin_ore",
+              "qty": 2
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "tumbleweed",
+              "qty": 5
+            },
+            {
+              "material": "evil_crystal",
+              "qty": 2
+            },
+            {
+              "material": "lizard_tail",
+              "qty": 3
+            },
+            {
+              "material": "goddess_plume",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "CHEST",
+          "title": "Sandship",
+          "detail": "The dungeon item, won from the Scervo fight."
+        }
+      ]
+    },
+    {
+      "id": "wooden_shield",
+      "section": "shields",
+      "levels": [
+        {
+          "id": "wooden_shield",
+          "name": "Wooden Shield",
+          "effect": "Strength 4"
+        },
+        {
+          "id": "banded_shield",
+          "name": "Banded Shield",
+          "effect": "Strength 6"
+        },
+        {
+          "id": "braced_shield",
+          "name": "Braced Shield",
+          "effect": "Strength 8"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 30,
+          "materials": [
+            {
+              "material": "amber_relic",
+              "qty": 2
+            },
+            {
+              "material": "monster_claw",
+              "qty": 1
+            },
+            {
+              "material": "jelly_blob",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "amber_relic",
+              "qty": 3
+            },
+            {
+              "material": "monster_claw",
+              "qty": 2
+            },
+            {
+              "material": "tumbleweed",
+              "qty": 2
+            },
+            {
+              "material": "ornamental_skull",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "REWARD",
+          "title": "Owlan, Skyloft",
+          "detail": "Owlan gives you one outside the Knight Academy once you have the Goddess Sword."
+        },
+        {
+          "method": "SHOP",
+          "title": "Rupin's Gear Shop",
+          "detail": "In the Bazaar, again whenever yours breaks.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ],
+      "notes": "Wood: safe from electricity, but it burns."
+    },
+    {
+      "id": "iron_shield",
+      "section": "shields",
+      "levels": [
+        {
+          "id": "iron_shield",
+          "name": "Iron Shield",
+          "effect": "Strength 6"
+        },
+        {
+          "id": "reinforced_shield",
+          "name": "Reinforced Shield",
+          "effect": "Strength 9"
+        },
+        {
+          "id": "fortified_shield",
+          "name": "Fortified Shield",
+          "effect": "Strength 12"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "eldin_ore",
+              "qty": 2
+            },
+            {
+              "material": "monster_claw",
+              "qty": 2
+            },
+            {
+              "material": "ornamental_skull",
+              "qty": 2
+            }
+          ],
+          "by": "Gondo's Scrap Shop",
+          "note": "Zelda Wiki says 20 Rupees."
+        },
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "eldin_ore",
+              "qty": 3
+            },
+            {
+              "material": "monster_claw",
+              "qty": 3
+            },
+            {
+              "material": "tumbleweed",
+              "qty": 3
+            },
+            {
+              "material": "blue_bird_feather",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Rupin's Gear Shop",
+          "detail": "In the Bazaar, on sale after Skyview Temple.",
+          "cost": {
+            "rupees": 100
+          }
+        }
+      ],
+      "notes": "Iron: fireproof, but it conducts electricity."
+    },
+    {
+      "id": "sacred_shield",
+      "section": "shields",
+      "levels": [
+        {
+          "id": "sacred_shield",
+          "name": "Sacred Shield",
+          "effect": "Strength 2.5, repairs itself"
+        },
+        {
+          "id": "divine_shield",
+          "name": "Divine Shield",
+          "effect": "Strength 3.75, repairs itself"
+        },
+        {
+          "id": "goddess_shield",
+          "name": "Goddess Shield",
+          "effect": "Strength 5, repairs itself"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "dusk_relic",
+              "qty": 1
+            },
+            {
+              "material": "bird_feather",
+              "qty": 2
+            },
+            {
+              "material": "ornamental_skull",
+              "qty": 3
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 150,
+          "materials": [
+            {
+              "material": "dusk_relic",
+              "qty": 4
+            },
+            {
+              "material": "bird_feather",
+              "qty": 3
+            },
+            {
+              "material": "monster_horn",
+              "qty": 3
+            },
+            {
+              "material": "blue_bird_feather",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Rupin's Gear Shop",
+          "detail": "In the Bazaar, on sale after the first battle with the Imprisoned.",
+          "cost": {
+            "rupees": 500
+          }
+        }
+      ],
+      "notes": "Blocks fire, electricity and curses."
+    },
+    {
+      "id": "hylian_shield",
+      "section": "shields",
+      "levels": [
+        {
+          "id": "hylian_shield",
+          "name": "Hylian Shield",
+          "effect": "Never breaks"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "REWARD",
+          "title": "Thunder Dragon's Lightning Round",
+          "detail": "In Lanayru Gorge: win eight boss battles in a row, then stop to take your prize."
+        }
+      ],
+      "notes": "Blocks fire and electricity, and never breaks, so there's nothing to upgrade."
+    },
+    {
+      "id": "seed_satchel",
+      "name": "Seed Satchel",
+      "section": "pouch",
+      "multiple": true,
+      "levels": [
+        {
+          "id": "small_seed_satchel",
+          "name": "Small Seed Satchel",
+          "effect": "10 more Deku Seeds"
+        },
+        {
+          "id": "medium_seed_satchel",
+          "name": "Medium Seed Satchel",
+          "effect": "20 more Deku Seeds"
+        },
+        {
+          "id": "large_seed_satchel",
+          "name": "Large Seed Satchel",
+          "effect": "30 more Deku Seeds"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "amber_relic",
+              "qty": 4
+            },
+            {
+              "material": "monster_claw",
+              "qty": 3
+            },
+            {
+              "material": "ornamental_skull",
+              "qty": 3
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "amber_relic",
+              "qty": 5
+            },
+            {
+              "material": "monster_claw",
+              "qty": 3
+            },
+            {
+              "material": "golden_skull",
+              "qty": 1
+            },
+            {
+              "material": "blue_bird_feather",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Rupin's Gear Shop",
+          "detail": "In the Bazaar, once you have the Slingshot.",
+          "cost": {
+            "rupees": 100
+          }
+        },
+        {
+          "method": "CHEST",
+          "title": "Goddess Chest west of Fun Fun Island",
+          "detail": "Its Goddess Cube is on Eldin Volcano."
+        }
+      ],
+      "notes": "The Slingshot comes with room for 20 seeds that takes no pouch slot."
+    },
+    {
+      "id": "quiver",
+      "name": "Quiver",
+      "section": "pouch",
+      "multiple": true,
+      "levels": [
+        {
+          "id": "small_quiver",
+          "name": "Small Quiver",
+          "effect": "5 more Arrows"
+        },
+        {
+          "id": "medium_quiver",
+          "name": "Medium Quiver",
+          "effect": "10 more Arrows"
+        },
+        {
+          "id": "large_quiver",
+          "name": "Large Quiver",
+          "effect": "15 more Arrows"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "monster_horn",
+              "qty": 3
+            },
+            {
+              "material": "dusk_relic",
+              "qty": 3
+            },
+            {
+              "material": "amber_relic",
+              "qty": 5
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "monster_horn",
+              "qty": 2
+            },
+            {
+              "material": "dusk_relic",
+              "qty": 3
+            },
+            {
+              "material": "golden_skull",
+              "qty": 1
+            },
+            {
+              "material": "goddess_plume",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Rupin's Gear Shop",
+          "detail": "In the Bazaar, once you have the Bow.",
+          "cost": {
+            "rupees": 150
+          }
+        },
+        {
+          "method": "CHEST",
+          "title": "Goddess Chest in the Thunderhead",
+          "detail": "On the dig-in island; its Goddess Cube is on the way to the Fire Dragon."
+        }
+      ],
+      "notes": "The Bow carries Arrows of its own, which take no pouch slot."
+    },
+    {
+      "id": "bomb_bag",
+      "name": "Bomb Bag",
+      "section": "pouch",
+      "multiple": true,
+      "levels": [
+        {
+          "id": "small_bomb_bag",
+          "name": "Small Bomb Bag",
+          "effect": "5 more Bombs"
+        },
+        {
+          "id": "medium_bomb_bag",
+          "name": "Medium Bomb Bag",
+          "effect": "10 more Bombs"
+        },
+        {
+          "id": "large_bomb_bag",
+          "name": "Large Bomb Bag",
+          "effect": "15 more Bombs"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 50,
+          "materials": [
+            {
+              "material": "lizard_tail",
+              "qty": 1
+            },
+            {
+              "material": "ornamental_skull",
+              "qty": 3
+            },
+            {
+              "material": "blue_bird_feather",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        },
+        {
+          "rupees": 100,
+          "materials": [
+            {
+              "material": "lizard_tail",
+              "qty": 3
+            },
+            {
+              "material": "jelly_blob",
+              "qty": 4
+            },
+            {
+              "material": "hornet_larvae",
+              "qty": 2
+            },
+            {
+              "material": "golden_skull",
+              "qty": 1
+            }
+          ],
+          "by": "Gondo's Scrap Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Rupin's Gear Shop",
+          "detail": "In the Bazaar, after the Earth Temple.",
+          "cost": {
+            "rupees": 150
+          }
+        },
+        {
+          "method": "CHEST",
+          "title": "Goddess Chest on the Isle of Songs",
+          "detail": "On top of the island."
+        }
+      ],
+      "notes": "Separate from the Bomb Bag you find in the Earth Temple, which holds 10 and takes no pouch slot."
+    },
+    {
+      "id": "heart_potion",
+      "section": "potions",
+      "levels": [
+        {
+          "id": "heart_potion",
+          "name": "Heart Potion",
+          "effect": "Heals 8 hearts"
+        },
+        {
+          "id": "heart_potion_plus",
+          "name": "Heart Potion+",
+          "effect": "Heals all your hearts"
+        },
+        {
+          "id": "heart_potion_plus_plus",
+          "name": "Heart Potion++",
+          "effect": "Heals all your hearts, two servings"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 20,
+          "materials": [
+            {
+              "material": "blessed_butterfly",
+              "qty": 3
+            },
+            {
+              "material": "woodland_rhino_beetle",
+              "qty": 1
+            },
+            {
+              "material": "volcanic_ladybug",
+              "qty": 1
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        },
+        {
+          "rupees": 30,
+          "materials": [
+            {
+              "material": "blessed_butterfly",
+              "qty": 3
+            },
+            {
+              "material": "deku_hornet",
+              "qty": 3
+            },
+            {
+              "material": "sand_cicada",
+              "qty": 1
+            },
+            {
+              "material": "eldin_roller",
+              "qty": 1
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Luv's Potion Shop",
+          "detail": "In the Bazaar.",
+          "cost": {
+            "rupees": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "stamina_potion",
+      "section": "potions",
+      "levels": [
+        {
+          "id": "stamina_potion",
+          "name": "Stamina Potion",
+          "effect": "Slows the Stamina Gauge's drain"
+        },
+        {
+          "id": "stamina_potion_plus",
+          "name": "Stamina Potion+",
+          "effect": "The Stamina Gauge doesn't drain for 3 minutes"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 20,
+          "materials": [
+            {
+              "material": "volcanic_ladybug",
+              "qty": 3
+            },
+            {
+              "material": "sky_stag_beetle",
+              "qty": 2
+            },
+            {
+              "material": "gerudo_dragonfly",
+              "qty": 2
+            },
+            {
+              "material": "faron_grasshopper",
+              "qty": 1
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Luv's Potion Shop",
+          "detail": "In the Bazaar, on sale after the Lanayru Mining Facility.",
+          "cost": {
+            "rupees": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "air_potion",
+      "section": "potions",
+      "levels": [
+        {
+          "id": "air_potion",
+          "name": "Air Potion",
+          "effect": "Slows the loss of air underwater"
+        },
+        {
+          "id": "air_potion_plus",
+          "name": "Air Potion+",
+          "effect": "Your air doesn't run out for 3 minutes"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 20,
+          "materials": [
+            {
+              "material": "sky_stag_beetle",
+              "qty": 2
+            },
+            {
+              "material": "skyloft_mantis",
+              "qty": 2
+            },
+            {
+              "material": "lanayru_ant",
+              "qty": 2
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Luv's Potion Shop",
+          "detail": "In the Bazaar, on sale once you have the Water Dragon's Scale.",
+          "cost": {
+            "rupees": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "revitalizing_potion",
+      "section": "potions",
+      "levels": [
+        {
+          "id": "revitalizing_potion",
+          "name": "Revitalizing Potion",
+          "effect": "Repairs your shield and heals 4 hearts"
+        },
+        {
+          "id": "revitalizing_potion_plus",
+          "name": "Revitalizing Potion+",
+          "effect": "Saves a shield about to break, and heals 8 hearts"
+        },
+        {
+          "id": "revitalizing_potion_plus_plus",
+          "name": "Revitalizing Potion++",
+          "effect": "As Revitalizing Potion+, two servings"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 20,
+          "materials": [
+            {
+              "material": "woodland_rhino_beetle",
+              "qty": 2
+            },
+            {
+              "material": "skyloft_mantis",
+              "qty": 2
+            },
+            {
+              "material": "deku_hornet",
+              "qty": 3
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        },
+        {
+          "rupees": 30,
+          "materials": [
+            {
+              "material": "woodland_rhino_beetle",
+              "qty": 2
+            },
+            {
+              "material": "lanayru_ant",
+              "qty": 3
+            },
+            {
+              "material": "gerudo_dragonfly",
+              "qty": 1
+            },
+            {
+              "material": "sand_cicada",
+              "qty": 1
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Luv's Potion Shop",
+          "detail": "In the Bazaar.",
+          "cost": {
+            "rupees": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "guardian_potion",
+      "section": "potions",
+      "levels": [
+        {
+          "id": "guardian_potion",
+          "name": "Guardian Potion",
+          "effect": "Halves damage"
+        },
+        {
+          "id": "guardian_potion_plus",
+          "name": "Guardian Potion+",
+          "effect": "No damage for 3 minutes"
+        }
+      ],
+      "upgrades": [
+        {
+          "rupees": 40,
+          "materials": [
+            {
+              "material": "faron_grasshopper",
+              "qty": 1
+            },
+            {
+              "material": "eldin_roller",
+              "qty": 2
+            },
+            {
+              "material": "blessed_butterfly",
+              "qty": 3
+            },
+            {
+              "material": "starry_firefly",
+              "qty": 3
+            }
+          ],
+          "by": "Bertie's Infusion Shop"
+        }
+      ],
+      "acquire": [
+        {
+          "method": "SHOP",
+          "title": "Luv's Potion Shop",
+          "detail": "In the Bazaar.",
+          "cost": {
+            "rupees": 200
+          }
+        }
+      ]
+    }
+  ]
+}

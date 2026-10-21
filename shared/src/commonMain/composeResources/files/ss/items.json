@@ -15,7 +15,7 @@
     {
       "id": "equipment",
       "title": "Items",
-      "note": "Upgrades of one item are its tiers.",
+      "note": "Upgrades of one item are its tiers. The Item Upgrades tracker totals the materials, with its own progress.",
       "items": [
         {
           "id": "sailcloth",
@@ -179,7 +179,7 @@
       "title": "Capacity",
       "noun": "upgrade",
       "hiddenLabel": "Unfound upgrade",
-      "note": "Pouch items: each one carried adds ammunition. Buy more at Rupin's Gear Shop; Gondo upgrades each one.",
+      "note": "Pouch items: each one carried adds ammunition. Buy more at Rupin's Gear Shop; Gondo upgrades each one. The Item Upgrades tracker totals the materials, with its own progress.",
       "items": [
         {
           "id": "seed_satchel",
@@ -253,7 +253,7 @@
       "title": "Potion Infusions",
       "noun": "potion",
       "hiddenLabel": "Unmade potion",
-      "note": "An infused potion lasts until you drink it; tick each one you've made.",
+      "note": "An infused potion lasts until you drink it; tick each one you've made. The Item Upgrades tracker totals the materials, with its own progress.",
       "items": [
         {
           "id": "heart_potion",

@@ -2,8 +2,9 @@
 
 Skyward Sword's trackers are checklists (`TrackerKind.CHECKLIST`, see `docs/checklist-trackers.md`):
 eight JSON files in `shared/src/commonMain/composeResources/files/ss/`, listed in `core/Games.kt`
-after a Progress Overview. After them comes one tool, the [Thrill Digger Solver](#thrill-digger-solver)
-(`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files, and
+after a Progress Overview. After them come [Item Upgrades](#item-upgrades) (`TrackerKind.ITEM_UPGRADES`,
+modelled on BotW's armor tracker, from `upgrades.json`) and one tool, the
+[Thrill Digger Solver](#thrill-digger-solver) (`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files, and
 `ChecklistDatasetsTest` checks the format. No engine change was needed.
 
 The data is for the **Wii original (2011)**. Where **Skyward Sword HD** (Switch, 2021) differs for an
@@ -176,6 +177,148 @@ among seven Heart Container sources for six containers; Bilocyte gives none.
 | Goddess Cube for the pouch | Outside Skyview Temple (Zelda Wiki), Deep Woods near Gorko (Zelda Dungeon) | Deep Woods near Gorko, on the way to Skyview |
 | Woodland Rhino Beetle | Skyloft and Faron Woods (Zelda Wiki), the Deep Woods (Zelda Dungeon, Samurai Gamers) | Faron Woods, tagged Skyloft too |
 | Golden Skull, Monster Horn, Goddess Plume | Different lists of where to get them (Zelda Wiki, Zelda Dungeon) | Both, in notes |
+
+## Item Upgrades
+
+`TrackerKind.ITEM_UPGRADES`, in `upgrades/`, listed after the checklists. It's the BotW Armor
+tracker's layout for Gondo's Scrap Shop and Bertie's potion infusions: a list with icons, mark
+collected, a level per item, a page per item with the materials for every upgrade left, and **Total
+Materials Required** with the Collected / All switch. Its data is `files/ss/upgrades.json`.
+
+**What it reuses from armor.** `MaterialCost`, `MaterialSort`, `Acquisition` / `Cost` /
+`AcquireMethod`, `PieceProgress` (owned + level) and `OwnershipFilter` are imported from `armor/`
+unchanged; nothing in `armor/` was edited, so BotW's and TotK's armor behave as before. The screens
+follow the armor screens (section cards with a bulk-complete box on each header, a
+`BulkCompleteRow` under the filters, `LoadingOrError`, `SaveFilePicker`, `StarLevelButton`,
+`SortMenu`) and wear SS's theme automatically through the `gameId` route. Sections are laid out with
+`groupByRegion`. There are no discovery sets: nothing here is a spoiler to hide.
+
+**Why not shared armor code.** An armor piece has slots, sets, defence and set bonuses, and its totals
+are tied to `ArmorPiece`; an upgrade item has named forms, Rupee prices, copies and an optional
+section. Generalising `ArmorCalculator` would have meant touching every armor file for a small
+`totals` loop, so the calculator is its own (`UpgradeCalculator`) and the armor tests are untouched.
+
+### The data
+
+| Section (id) | Items | Upgrades | Who |
+|---|---|---|---|
+| Items (`items`) | Slingshot → Scattershot; Beetle → Hook → Quick → Tough Beetle; Bug Net → Big Bug Net; Bow → Iron → Sacred Bow | 7 | Gondo (the Hook Beetle: a robot in Lanayru Desert, free) |
+| Shields (`shields`) | Wooden → Banded → Braced; Iron → Reinforced → Fortified; Sacred → Divine → Goddess; Hylian Shield (no upgrades) | 6 | Gondo |
+| Pouch Items (`pouch`) | Small → Medium → Large Seed Satchel, Quiver and Bomb Bag | 6 | Gondo |
+| Potions (`potions`, optional) | Heart Potion → + → ++; Stamina → +; Air → +; Revitalizing → + → ++; Guardian → + | 7 | Bertie, at Luv's Potion Shop |
+
+16 items, 26 upgrades, 28 materials (all 12 bugs and all 16 treasures). Every step has its Rupees
+and materials except the Hook Beetle's (`free: true`). Each item has where to get it (`acquire`, with
+the price when sold) and `missable` (none is: every shop item stays on sale and every Goddess Chest
+stays open). Each material has its Collection-screen position, regions and where to farm it, copied
+from the Bugs & Treasures checklist so the two say the same. Ids are snake_case: items by their base
+name, levels by their form (`heart_potion_plus_plus`), materials by name.
+
+**Names.** The game's own: the pouch items are *Small*, *Medium* and *Large* (not "Large" and
+"Extra-Large"), and the pouch Bomb Bag is the *Small Bomb Bag*, separate from the Earth Temple's Bomb
+Bag, which holds 10 and takes no slot. The Slingshot's and the Bow's built-in seed and arrow room
+isn't a pouch item either.
+
+**Full totals** (everything from scratch, one of each pouch item): 195 materials and 1,510 Rupees
+(items 400, shields 480, pouch items 450, potions 180); without the potions, 145 treasures and 1,330
+Rupees. `SsUpgradeDatasetTest` checks each material's total against the Bugs & Treasures checklist's
+"Used in …: N in all" note, and every Rupee price against the Items & Equipment and Shields
+checklists' tiers, so the files can't drift apart.
+
+### The totals rule
+
+As the user asked: **every item fully upgraded, and exactly one of each pouch item** (one Seed
+Satchel, one Quiver, one Bomb Bag) fully upgraded.
+- You can carry several of each pouch item in Adventure Pouch slots, and track each copy: *Add Seed
+  Satchel #2* under the last one, or on its page. Copy 1 is stored under the item's id and later ones
+  as `seed_satchel#2`…, so adding copies never moves the first one's progress. Removing a copy moves
+  the later ones down a number; copy 1 can't be removed, only unticked.
+- The copy that counts is your **most upgraded owned copy** (the lowest number on a tie): that's the
+  one you'd finish. With none owned, *All items* counts copy 1 from the start and *Collected items*
+  counts nothing. Every other copy is tagged *Not in totals*; its own page still lists its upgrades.
+- *Collected items* counts what's left above each owned item's level. *All items (including not yet
+  obtained)* adds every other item's whole path. A level saved on an unticked item doesn't count.
+- The **Potions** chip is on by default, because "all items" includes them. Off, the potions leave the
+  list, the totals, *Mark all* and the overview row; their progress is kept. The preference is shared
+  by every save file, as armor's DLC chip is.
+- Total Rupees show above the materials. Tapping a material lists where to farm it and each upgrade
+  that needs it, with how many.
+
+### Storage
+
+`UpgradeStorage`: one `UpgradeProgress` per save file under `ss_upgrades@file_N` (each copy's
+owned/level and the copy counts, together, so every change is one DataStore write), and
+`ss_upgrades_prefs` (the hidden sections and the material sort), shared by every file. The active
+save file is SS's, shared with the checklists. *Mark all complete* collects or uncollects the copies
+shown in one write and leaves levels alone; its undo puts back exactly those copies.
+
+### Overlap with the checklists
+
+The Items & Equipment checklist has the same upgrades as tiers (and the Bomb Bag, Adventure Pouch,
+Bottles and wallets), and Shields has the shields. They keep their own progress: the checklists answer
+"have I done this once?" for a 100% run, and Item Upgrades plans the materials, with copies and the
+Collected / All scopes the checklists don't have. Rather than sync two shapes of progress, each of
+those checklist sections' notes points to Item Upgrades. Bugs & Treasures stays the place to tick one
+of each bug and treasure; Item Upgrades says how many you need.
+
+### Overview row
+
+Items obtained (an item counts once any copy is owned) of the 16, then upgrades done and what's
+left, "Upgrades 0 / 26 · 195 materials and 1,510 Rupees to go" on a new file (one copy of each pouch
+item; the potions chip applies), and *Next*:
+the first upgrade left on something you have, with who does it.
+
+### Icons
+
+The game's inventory icons for every form of every item, and its Collection icons for the 28
+materials: Zelda Wiki's `File:SS <name> Icon.png` (e.g. `SS Hook Beetle Icon.png`,
+`SS Heart Potion++ Icon.png`, `SS Amber Relic Icon.png`), fetched unscaled through the wiki's API by
+`scripts/fetch-ss-upgrade-icons.py` as `drawable/ss_up_<level id>.png` and `ss_mat_<material id>.png`
+(70 files, 40–150 px). An item's row shows the form you have.
+
+### Sources and discrepancies
+
+Every recipe and price was checked against at least two independent sources:
+- **Zelda Wiki**, through its API: Upgrading (with its *Quantities Required* table), Scrap Shop, Gear
+  Shop, Rupin, Potion Shop, Infusion Shop, Treasure, Insect, Pouch, Hylian Shield, Thunder Dragon's
+  Lightning Round, and each item's page.
+- **Zelda Dungeon**'s wiki, from Wayback copies since the live site blocks fetches: Skyward Sword
+  Upgrades, Gondo, Gear Shop, Luv and Bertie's Potion Shop, Beedle's Air Shop, Upgrade System and the
+  item pages.
+- **Zelda Universe**'s 2011 guides: equipment upgrades, treasures and bugs.
+- **GamerGuides**' HD guide (equipment upgrades, potion infusions, the Bazaar) and **GamingBolt**'s HD
+  upgrade list, with GameRevolution for the potions.
+- Samurai Gamers copies Zelda Dungeon's table row for row (its errors too), and Fandom's wiki is a
+  fork of Zelda Wiki, so neither counts as a second source. IGN and Nintendo Life couldn't be read.
+
+All 19 Scrap Shop recipes and 7 infusions agree with the Items & Equipment and Shields checklists,
+which came from the same sources earlier; the tests hold the two together.
+
+| Topic | Sources say | Used |
+|---|---|---|
+| Hook Beetle | The request listed it as a Scrap Shop upgrade; every source has an Ancient Robot in Lanayru Desert fit it free when you save it from Technoblins, on your first visit in the story | Free, by the robot (`free: true`); Gondo does Quick and Tough only |
+| Pouch item names | The request said Seed Satchel → Large → Extra-Large | The game's Small, Medium and Large Seed Satchel, Quiver and Bomb Bag (Zelda Wiki, Zelda Dungeon, the item icons) |
+| Who infuses potions | The request said Bertie / the Potion Shop | Luv sells the base potions; Bertie infuses at the same counter (Zelda Wiki, Zelda Dungeon, GamerGuides) |
+| Potion spelling | "Heart Potion +" with a space in HD's text and icons; "Heart Potion+" in the Wii icons | The Wii spelling, as the checklists use |
+| Scattershot, Reinforced Shield | 20 Rupees (Zelda Wiki); 50 (Zelda Dungeon, Zelda Universe, GamerGuides, GamingBolt) | 50; the step's note says 20 |
+| Heart Potion++ | 1 Deku Hornet (Zelda Dungeon's Upgrades and Heart Potion++ pages); 3 (Zelda Wiki, Zelda Dungeon's own Potion Shop and Heart Potion pages, GamerGuides, GamingBolt, GameRevolution) | 3 |
+| Medium Seed Satchel | 2 Ornamental Skulls (Samurai Gamers); 3 (everyone else, and Zelda Wiki's total of 12) | 3 |
+| Divine Shield | 1 Ornamental Skull (GamerGuides); 3 (Zelda Wiki, Zelda Dungeon, Zelda Universe, GamingBolt) | 3 |
+| Tough Beetle | 4 Ancient Flowers (GamerGuides); 3 (the rest, and Zelda Wiki's total of 7) | 3 |
+| Guardian Potion | 60 Rupees (Zelda Dungeon's shop page); 200 (Zelda Wiki quoting the game, Zelda Dungeon's item page, GamerGuides) | 200 |
+| Revitalizing Potion | 50 Rupees (GamingBolt); 30 (Zelda Wiki, Zelda Dungeon, GamerGuides) | 30 |
+| Small Seed Satchel, Small Quiver | 50 Rupees (GamingBolt, Zelda Dungeon's satchel infobox: that's the Item Check's buying price); 100 and 150 (Zelda Wiki's in-game quotes, Zelda Dungeon's Gear Shop, GamerGuides) | 100 and 150 |
+| A satchel with the Slingshot | Zelda Wiki's Small Seed Satchel page says one comes with it; its Seed Satchel and Gear Shop pages and Zelda Dungeon say the Slingshot has built-in room for 20 seeds and satchels are bought | Built-in room, in the notes |
+| Hylian Shield | Hero Mode only (GameRevolution); 8 Lightning Round wins in either mode (Zelda Wiki) | Either mode; GameRevolution's treasure totals are wrong too |
+
+**From one source only**, so written loosely or left out: the Air Potion going on sale with the Water
+Dragon's Scale (GamerGuides) and the Stamina Potion after the Lanayru Mining Facility (GamerGuides and
+Zelda Universe's walkthrough); the free satchel, quiver and bomb bag Goddess Chests' exact places
+(Zelda Wiki; Zelda Universe confirms each exists); the shields' strengths (Zelda Wiki gives only
+ratios, on stub pages, so the effects are approximate); how many Arrows the Bow holds without a quiver (no source says, so it isn't given); and that Gondo
+has no story lock (no source says either way; he offers what you carry). Item Check selling prices
+(Zelda Wiki only) aren't used. Nothing is missable: every base item is a story item, a shop item that
+stays on sale, or a prize that can be won again.
 
 ## Thrill Digger Solver
 
