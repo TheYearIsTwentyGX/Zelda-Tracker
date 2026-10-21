@@ -384,6 +384,9 @@ Instead `HazardCounter` sweeps the board **a column at a time** (a transfer matr
 - Run forward and backward, it gives each hole's share of the boards, and for each undug hole how
   many hazards would be around it, so the colour it would show.
 - It runs once with blocks allowed and once without, and the two are mixed by the weights above.
+- A **skipped** hole (dug, colour not seen, `Hole.SKIPPED`) is never a hazard but has no count to
+  check, so it's in every column's "never a hazard" mask and not among the Rupee rows. It gets no
+  odds and is never recommended.
 - The Bombs and Rupoors still hidden are interchangeable among the hazard holes, so a hole's Bomb
   chance is its hazard chance × Bombs left ÷ hazards left.
 
@@ -413,7 +416,8 @@ the main thread.
 - boards worked by hand;
 - boards dealt by a re-implementation of the game's rules (always possible, and certain once every
   Rupee is dug);
-- a Monte Carlo estimate of the block share.
+- a Monte Carlo estimate of the block share;
+- brute force again with some dug Rupees turned into skipped holes.
 
 It also checks impossible-board conflicts, that every conflict found is minimal, and the time.
 `ThrillDiggerViewModelTest` covers entering holes, the recommendation, undo, reset, difficulties
@@ -488,7 +492,9 @@ letters per row, G B R S Y for the Rupees, P for a Rupoor, X for a Bomb, ? for u
 board (every Rupee entered, `DiggerBoard.isFinished`) is also checked against the RNG port, with how
 many states deal it. Its undug holes must all be hazards, so they're written H (a Bomb or a Rupoor)
 and the check only asks that a state's hazards be there, along with every entered Rupee, Rupoor and
-Bomb. When exactly one state fits, its board follows, saying which H was which. The text and Copy
+Bomb. A skipped hole is written D (dug, colour not seen; the key line says so when there is one):
+the RNG mode, and the check, only ask that a state put some Rupee there. A skipped hole counts as
+dug, so a round can be finished with some. When exactly one state fits, its board follows, saying which H was which. The text and Copy
 show at once; the check follows when the RNG's boards are listed, and if anything goes wrong it
 says "Can't check this board" and why, never crashing.
 - **The first real board checked** (2026-10-20, a test in `ThrillDiggerRngTest`): an Expert round
@@ -508,23 +514,26 @@ says "Can't check this board" and why, never crashing.
 - the 2×2 check against brute force;
 - that dealt boards follow the rules;
 - the odds against counting a small table's states directly;
+- skipped holes, against counting the states with any Rupee there;
 - loop filtering, a board no state deals, and finding a board's own state;
 - the full Expert table's size and solve time.
 
 `ThrillDiggerViewModelTest` covers the defaults per difficulty, narrowing, the loop lock, the
-fallback and exporting.
+fallback and exporting, skipped holes (undo, reset, the D in the export), filling one from the
+in-game total, and that a save from before skipped holes still loads.
 
 ### The screen
 
 - **Landscape first.** The board fills the left and a panel on the right holds:
+  - **Rupees this round**, in large type (below);
   - the difficulty;
   - the picker;
-  - a status line: Rupees left and the haul, a finished board, or the conflict;
+  - a status line: Rupees left to dig, a finished board, or the conflict;
   - the chosen hole's details: its chances, its colour chances with small Rupee pictures, and its
     average worth.
 - In a short landscape window (under 480 dp tall, as on HW:DE's map) the top bar and system bars
   hide. The panel's top row then carries ☰ or Back, the title, **Undo** and **Reset**.
-- **Portrait:** the board on top, then the status, the picker and the details.
+- **Portrait:** the board on top, then the status, Rupees this round, the picker and the details.
 - **Undug holes** are tinted by their Bomb chance: green at 0%, through amber, to red at 50% and
   over. They show the Bomb percentage and, on boards with Rupoors, the Rupoor percentage under it,
   each by a small picture. A hole that must be a Bomb or a Rupoor shows that picture faded.
@@ -535,9 +544,27 @@ fallback and exporting.
   following the advice is **one tap per dig**. That's faster than a paint mode: each dig shows
   something different, so a brush would need changing nearly every time. Tapping the selected hole
   again deselects it, and **Clear** empties a hole.
-- **The picker** is a 4 × 2 grid of the five Rupees, the Rupoor, the Bomb and Clear. Each has its
-  name and its hazard range (`0`, `1–2`…), `−10` for the Rupoor and *Game over* for the Bomb. The
-  tile matching what's in the target hole is outlined.
+- **The picker** is the five Rupees in a row, then the Rupoor, the Bomb, **Skipped** and Clear. Each
+  has its name and its hazard range (`0`, `1–2`…), `−10` for the Rupoor, *Game over* for the Bomb
+  and *Missed it* for Skipped. The tile matching what's in the target hole is outlined.
+- **Skipped** is for a hole you dug without noticing the Rupee: a grey Rupee with a "?". It's safe
+  and dug (so it counts towards a finished round), but gives its neighbours no clue. Tap its
+  colour later if you remember it.
+- **Rupees this round** adds up the entered holes (`RupeeTotal`): Green 1, Blue 5, Red 20, Silver
+  100, Gold 300, Rupoor −10 (`Hole.rupees`). With skipped holes it shows the known part, "+ ? from
+  N skipped", and the range (each skipped hole 1 to 300).
+- **Enter in-game total** (shown while a hole is skipped) takes the Rupees the round has earned as
+  the game counts them (the game shows a running total for the round, not just the wallet) and works out the
+  skipped holes (`GameTotal.infer`). The skipped holes are worth the difference from the known
+  part. The five values are distinct, so one skipped hole's colour is certain: "That hole was a
+  Blue Rupee: fill it in?". With several, every set of colours that adds up is tried in every
+  order on the board (up to 200 orders), keeping the orders the solver calls possible, since the
+  colours are clues for their neighbours. One order left is offered to fill in; otherwise it lists
+  up to six colour sets ("Green + Blue, but the total can't tell which hole is which", or "It's
+  ambiguous: …"). The smallest count where two sets share a sum is six holes (five Greens and a
+  Silver, or a Blue and five Reds: 105). Filling in is one undoable change, and the filled holes
+  are ordinary clues from then on. A total nothing adds up to says to check the total and the
+  holes.
 - Under the details: the RNG switch and its status, and **Export board** ([The RNG mode](#the-rng-mode)).
 - **Undo** steps back through every change on that difficulty, Reset included, up to 200 steps.
   Reset clears the board for a new round.

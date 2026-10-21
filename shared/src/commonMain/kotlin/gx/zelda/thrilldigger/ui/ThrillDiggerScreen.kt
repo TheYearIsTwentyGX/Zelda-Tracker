@@ -20,6 +20,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,6 +29,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Switch
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -35,7 +38,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -49,6 +56,8 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -64,13 +73,15 @@ import gx.zelda.thrilldigger.model.DiggerAnalysis
 import gx.zelda.thrilldigger.model.DiggerBoard
 import gx.zelda.thrilldigger.model.Hole
 import gx.zelda.thrilldigger.model.HoleOdds
+import gx.zelda.thrilldigger.model.TotalInference
 import kotlin.math.roundToInt
 
 /**
  * The Thrill Digger solver. Landscape first: the board fills the left and a panel on the right
  * holds the picker, the difficulty and the chosen hole's odds; in a short landscape window (a phone
  * on its side) the top bar and system bars hide, as on HW:DE's map, and the panel carries the
- * menu or Back button. Portrait puts the board on top and the picker under it.
+ * menu or Back button. Portrait puts the board on top and the picker under it. The round's Rupee
+ * total sits big at the top of the panel, or above the picker in portrait.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -78,7 +89,18 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
     val state by viewModel.state.collectAsStateWithLifecycle()
     val check by viewModel.check.collectAsStateWithLifecycle()
     val problem by viewModel.problem.collectAsStateWithLifecycle()
+    val gameTotal by viewModel.gameTotal.collectAsStateWithLifecycle()
+    var enteringTotal by remember { mutableStateOf(false) }
     check?.let { BoardCheckDialog(it, onDismiss = viewModel::dismissCheck) }
+    val closeTotal = {
+        enteringTotal = false
+        viewModel.dismissGameTotal()
+    }
+    // Filled in, or the skipped holes cleared some other way: nothing left to work out.
+    val resolved = state?.total?.resolved ?: true
+    LaunchedEffect(resolved) { if (resolved) closeTotal() }
+    state?.takeIf { enteringTotal && !resolved }?.let { GameTotalDialog(it, gameTotal, viewModel, onDismiss = closeTotal) }
+    val enterTotal = { enteringTotal = true }
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val landscape = maxWidth > maxHeight
         val bars = !(landscape && maxHeight.value < AdventureChrome.COMPACT_HEIGHT_DP)
@@ -114,6 +136,7 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
                                 BoardActions(s, viewModel)
                             }
                         }
+                        RupeeTotalPanel(s, enterTotal)
                         DifficultyPicker(s.difficulty, viewModel::setDifficulty)
                         HolePicker(s, viewModel)
                         StatusLine(s, problem)
@@ -131,6 +154,7 @@ fun ThrillDiggerScreen(viewModel: ThrillDiggerViewModel, title: String, onBack: 
                     val cell = (screenWidth - 24.dp) / s.difficulty.width
                     DiggerBoardView(s, viewModel, Modifier.fillMaxWidth().height(cell * s.difficulty.height))
                     StatusLine(s, problem)
+                    RupeeTotalPanel(s, enterTotal)
                     HolePicker(s, viewModel)
                     TargetDetails(s)
                     RngControls(s, viewModel)
@@ -278,15 +302,16 @@ private fun OddsLabel(odds: HoleOdds, rupoors: Boolean, size: Dp) {
 }
 
 /**
- * The picker: the five Rupees, the Rupoor and the Bomb with their names and hazard counts, and
- * Clear. A tap puts that in the target hole: the one tapped, or else the recommended one.
+ * The picker: the five Rupees in a row with their names and hazard counts, then the Rupoor, the
+ * Bomb, Skipped (dug, colour not seen) and Clear. A tap puts that in the target hole: the one
+ * tapped, or else the recommended one.
  */
 @Composable
 private fun HolePicker(state: ThrillDiggerUiState, viewModel: ThrillDiggerViewModel) {
-    val choices = Hole.RUPEES + Hole.RUPOOR + Hole.BOMB + Hole.UNKNOWN
+    val rows = listOf(Hole.RUPEES, listOf(Hole.RUPOOR, Hole.BOMB, Hole.SKIPPED, Hole.UNKNOWN))
     val current = state.target?.let { state.board.holes[it] }
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        choices.chunked(4).forEach { row ->
+        rows.forEach { row ->
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 row.forEach { hole ->
                     PickerTile(hole, chosen = hole == current, enabled = state.target != null, onClick = { viewModel.enter(hole) }, modifier = Modifier.weight(1f))
@@ -303,6 +328,7 @@ private fun PickerTile(hole: Hole, chosen: Boolean, enabled: Boolean, onClick: (
         Hole.UNKNOWN -> "Not dug"
         Hole.RUPOOR -> "−10"
         Hole.BOMB -> "Game over"
+        Hole.SKIPPED -> "Missed it"
         else -> hole.hazardRange!!
     }
     OutlinedCard(
@@ -317,15 +343,15 @@ private fun PickerTile(hole: Hole, chosen: Boolean, enabled: Boolean, onClick: (
             } else {
                 HoleIcon(hole, Modifier.size(32.dp))
             }
-            Text(if (hole == Hole.UNKNOWN) "Clear" else hole.label, style = MaterialTheme.typography.labelMedium, maxLines = 1)
+            Text(if (hole == Hole.UNKNOWN) "Clear" else hole.label, style = MaterialTheme.typography.labelMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
             Text(detail, style = MaterialTheme.typography.labelSmall, color = colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }
 
 /**
- * One line on how the round stands: Rupees left and the haul, a finished board, or an impossible one;
- * and the [problem] the last action ran into, if any.
+ * One line on how the round stands: Rupees left, a finished board, or an impossible one; and the
+ * [problem] the last action ran into, if any. The haul is [RupeeTotalPanel]'s.
  */
 @Composable
 private fun StatusLine(state: ThrillDiggerUiState, problem: String?) {
@@ -336,8 +362,8 @@ private fun StatusLine(state: ThrillDiggerUiState, problem: String?) {
             "These ${a.conflict.size} outlined holes can't all be true: change or clear one of them." to colors.error
         is DiggerAnalysis.Solved -> when {
             state.board.isEmpty -> "Tap what you dug up: it goes in the ★ hole, or in the hole you tap first." to colors.onSurfaceVariant
-            a.allRupeesFound -> "Every Rupee is dug up: ${state.haul} Rupees this round." to colors.primary
-            else -> "${state.rupeesLeft} Rupees left · ${state.haul} so far" to colors.onSurface
+            a.allRupeesFound -> "Every Rupee is dug up: ${state.total.text} Rupees this round." to colors.primary
+            else -> "${state.rupeesLeft} Rupees left to dig" to colors.onSurface
         }
     }
     Text(text, style = MaterialTheme.typography.bodyMedium, color = color)
@@ -355,6 +381,10 @@ private fun TargetDetails(state: ThrillDiggerUiState) {
         Text(heading, style = MaterialTheme.typography.titleSmall)
         when {
             hole.isRupee -> Text("${holeName(hole)}: ${hole.hazardRange} hazards around it, worth ${hole.rupees}", style = MaterialTheme.typography.bodySmall)
+            hole == Hole.SKIPPED -> Text(
+                "Dug, colour not seen: a Rupee worth 1 to 300, and no clue for its neighbours. Enter the in-game total to work it out, or tap its colour if you know it.",
+                style = MaterialTheme.typography.bodySmall,
+            )
             hole != Hole.UNKNOWN -> Text(holeName(hole), style = MaterialTheme.typography.bodySmall)
             odds != null -> {
                 val parts = buildList {
@@ -380,6 +410,101 @@ private fun TargetDetails(state: ThrillDiggerUiState) {
             else -> Spacer(Modifier.height(0.dp))
         }
     }
+}
+
+/**
+ * The Rupees this round has earned from the holes entered, big enough to read at a glance: the
+ * known part, and with skipped holes, "+ ? from N skipped", the range, and Enter in-game total.
+ */
+@Composable
+private fun RupeeTotalPanel(state: ThrillDiggerUiState, onEnterGameTotal: () -> Unit) {
+    val total = state.total
+    val colors = MaterialTheme.colorScheme
+    val description = if (total.resolved) "${total.known} Rupees this round" else "${total.known} Rupees this round, plus ${total.skipped} skipped, ${total.text} in all"
+    Column(Modifier.fillMaxWidth().semantics(mergeDescendants = true) { contentDescription = description }) {
+        Text("Rupees this round", style = MaterialTheme.typography.labelMedium, color = colors.onSurfaceVariant)
+        Row(verticalAlignment = Alignment.Bottom) {
+            Text("${total.known}", style = MaterialTheme.typography.displaySmall, fontWeight = FontWeight.Bold)
+            if (!total.resolved) {
+                Text(
+                    " + ? from ${total.skipped} skipped",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = colors.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
+                )
+            }
+        }
+        if (!total.resolved) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("${total.text} in all", style = MaterialTheme.typography.bodySmall, color = colors.onSurfaceVariant, modifier = Modifier.weight(1f))
+                TextButton(onClick = onEnterGameTotal) { Text("Enter in-game total") }
+            }
+        }
+    }
+}
+
+/**
+ * Asks for the round's total as the game shows it and says what it makes the skipped holes: a
+ * colour for each, offered to fill in, or the colour sets it could be.
+ */
+@Composable
+private fun GameTotalDialog(state: ThrillDiggerUiState, check: GameTotalCheck?, viewModel: ThrillDiggerViewModel, onDismiss: () -> Unit) {
+    var text by remember { mutableStateOf("") }
+    val entered = text.toIntOrNull()
+    // Only an answer for this board and the number in the box.
+    val result = check?.takeIf { it.board == state.board && it.gameTotal == entered }?.result
+    val total = state.total
+    val submit = { entered?.let { viewModel.checkGameTotal(it) } }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Enter in-game total") },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                val holes = if (total.skipped == 1) "skipped hole is" else "${total.skipped} skipped holes are"
+                Text(
+                    "The round's total the game shows while you dig. The $holes worth that less the ${total.known} entered.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { new -> text = new.filter(Char::isDigit).take(5) },
+                    label = { Text("Rupees this round") },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(onDone = { submit() }),
+                )
+                if (result != null) Text(inferenceText(state.board, result), style = MaterialTheme.typography.bodyMedium)
+            }
+        },
+        confirmButton = {
+            if (result is TotalInference.Fill) {
+                TextButton(onClick = { viewModel.fillFromGameTotal() }) { Text(if (result.fill.size == 1) "Fill it in" else "Fill them in") }
+            } else {
+                TextButton(onClick = { submit() }, enabled = entered != null) { Text("Check") }
+            }
+        },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Close") } },
+    )
+}
+
+private fun colourName(hole: Hole) = "${hole.label} Rupee"
+
+/** What an in-game total says about [board]'s skipped holes, in a sentence or two. */
+internal fun inferenceText(board: DiggerBoard, result: TotalInference): String = when (result) {
+    is TotalInference.Fill -> if (result.fill.size == 1) {
+        "That hole was a ${colourName(result.fill.values.single())}: fill it in?"
+    } else {
+        "Those holes were " + result.fill.entries.joinToString(", ") { (i, h) -> "${holeLabel(board, i)} ${h.label}" } + ": fill them in?"
+    }
+    is TotalInference.Ambiguous -> {
+        val sets = result.combos.map { c -> c.joinToString(" + ") { it.label } }
+        if (sets.size == 1) {
+            "They're ${sets.single()}, but the total can't tell which hole is which. Tap one's colour if you remember it."
+        } else {
+            "It's ambiguous: " + sets.joinToString(", or ") + (if (result.more) ", or more" else "") + "."
+        }
+    }
+    is TotalInference.NoMatch -> "No Rupees for the skipped holes add up to ${result.difference} and fit the board. Check the total and the holes entered."
 }
 
 /**

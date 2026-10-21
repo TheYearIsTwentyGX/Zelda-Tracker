@@ -857,6 +857,12 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
     following the advice is one tap per dig.
   - Undo, Reset, and a saved board per difficulty. An impossible board outlines the holes that can't
     all be true.
+  - **Rupees this round**, big at the top of the panel (above the picker in portrait): Green 1,
+    Blue 5, Red 20, Silver 100, Gold 300, Rupoor −10.
+  - **Skipped**, for a hole you dug without seeing its colour. It counts as safe and dug, gives no
+    clue, and shows in the total as "+ ? from N skipped" with the range. **Enter in-game total**
+    works the colour back out from the game's count (one skipped hole always; several when the sums
+    and the board allow) and offers to fill it in, so it becomes a clue again.
   - It keeps no progress, so it isn't in the Progress Overview. `docs/ss.md` has the rules, the maths
     and the sources.
 - Regions are the game's areas (Skyloft, The Sky, Thunderhead, Faron Woods, Eldin Volcano, Lanayru
