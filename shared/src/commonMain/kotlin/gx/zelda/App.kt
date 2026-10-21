@@ -89,6 +89,10 @@ import gx.zelda.theme.GameThemes
 import gx.zelda.thrilldigger.data.ThrillDiggerStorage
 import gx.zelda.thrilldigger.ui.ThrillDiggerScreen
 import gx.zelda.thrilldigger.ui.ThrillDiggerViewModel
+import gx.zelda.upgrades.data.UpgradeStorage
+import gx.zelda.upgrades.ui.UpgradeDetailScreen
+import gx.zelda.upgrades.ui.UpgradeTrackerScreen
+import gx.zelda.upgrades.ui.UpgradeViewModel
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
@@ -139,6 +143,9 @@ import kotlinx.serialization.Serializable
 /** A Hyrule Warriors Adventure Mode map, named by its dataset since a game has several. */
 @Serializable private data class AdventureMap(val gameId: String, val dataFile: String)
 @Serializable private data class ThrillDigger(val gameId: String)
+@Serializable private data class ItemUpgrades(val gameId: String)
+/** One copy of an item: [copy] is 1, or 2 and up for extra Seed Satchels, Quivers and Bomb Bags. */
+@Serializable private data class ItemUpgradeDetail(val gameId: String, val itemId: String, val copy: Int)
 @Serializable private data object Settings
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
@@ -487,6 +494,29 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                     onBack = { nav.popBackStack() },
                 )
             }
+            composable<ItemUpgrades> { entry ->
+                val game = Games.byId(entry.toRoute<ItemUpgrades>().gameId)
+                val vm = upgradeViewModel(entry, dataStore, game)
+                val state by vm.state.collectAsStateWithLifecycle()
+                val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
+                UpgradeTrackerScreen(
+                    state = state,
+                    loadFailed = loadFailed,
+                    viewModel = vm,
+                    title = game.trackers.first { it.kind == TrackerKind.ITEM_UPGRADES }.title,
+                    onOpenItem = { itemId, copy -> nav.navigate(ItemUpgradeDetail(game.id, itemId, copy)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<ItemUpgradeDetail> { entry ->
+                val route = entry.toRoute<ItemUpgradeDetail>()
+                val trackerEntry = remember(entry) { nav.getBackStackEntry<ItemUpgrades>() }
+                val vm = upgradeViewModel(trackerEntry, dataStore, Games.byId(route.gameId))
+                val state by vm.state.collectAsStateWithLifecycle()
+                state?.let {
+                    UpgradeDetailScreen(it, route.itemId, route.copy, vm, onBack = { nav.popBackStack() })
+                }
+            }
             composable<ArmorTracker> { entry ->
                 val game = Games.byId(entry.toRoute<ArmorTracker>().gameId)
                 val vm = armorViewModel(entry, dataStore, game)
@@ -538,6 +568,14 @@ private fun armorViewModel(
     dataStore: DataStore<Preferences>,
     game: Game,
 ): ArmorViewModel = viewModel(owner, key = game.id) { ArmorViewModel(ArmorStorage(dataStore, game)) }
+
+/** The [UpgradeViewModel] for [game], owned by the upgrade list's back stack entry so its detail screen shares it. */
+@Composable
+private fun upgradeViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): UpgradeViewModel = viewModel(owner, key = "upgrades_${game.id}") { UpgradeViewModel(UpgradeStorage(dataStore, game)) }
 
 /** The [CompendiumViewModel] for [game], owned by the Compendium list's back stack entry so its detail screen shares it. */
 @Composable
@@ -603,6 +641,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind,
         TrackerKind.CHECKLIST -> if (dataFile != null) navigate(Checklist(game.id, dataFile))
         TrackerKind.ADVENTURE_MAP -> if (dataFile != null) navigate(AdventureMap(game.id, dataFile))
         TrackerKind.THRILL_DIGGER -> navigate(ThrillDigger(game.id))
+        TrackerKind.ITEM_UPGRADES -> navigate(ItemUpgrades(game.id))
     }
 }
 
@@ -724,6 +763,7 @@ private fun trackerRoute(gameId: String, tracker: Tracker): Any = when (tracker.
     TrackerKind.CHECKLIST -> Checklist(gameId, tracker.dataFile!!)
     TrackerKind.ADVENTURE_MAP -> AdventureMap(gameId, tracker.dataFile!!)
     TrackerKind.THRILL_DIGGER -> ThrillDigger(gameId)
+    TrackerKind.ITEM_UPGRADES -> ItemUpgrades(gameId)
 }
 
 /** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
@@ -748,6 +788,7 @@ private fun NavBackStackEntry.menuSelection(): MenuSelection {
         d.hasRoute<Checklist>() -> toRoute<Checklist>().let { MenuSelection.Tracker(it.gameId, TrackerKind.CHECKLIST, it.dataFile) }
         d.hasRoute<AdventureMap>() -> toRoute<AdventureMap>().let { MenuSelection.Tracker(it.gameId, TrackerKind.ADVENTURE_MAP, it.dataFile) }
         d.hasRoute<ThrillDigger>() -> MenuSelection.Tracker(toRoute<ThrillDigger>().gameId, TrackerKind.THRILL_DIGGER)
+        d.hasRoute<ItemUpgrades>() -> MenuSelection.Tracker(toRoute<ItemUpgrades>().gameId, TrackerKind.ITEM_UPGRADES)
         else -> MenuSelection.None
     }
 }

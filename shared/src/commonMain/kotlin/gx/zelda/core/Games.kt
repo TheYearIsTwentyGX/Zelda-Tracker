@@ -76,6 +76,13 @@ enum class TrackerKind {
      * Progress Overview row and no mark-all, and the menu and home screen list it under "Tools".
      */
     THRILL_DIGGER,
+
+    /**
+     * Skyward Sword's item upgrades (Gondo's Scrap Shop and Bertie's potion infusions), modelled on
+     * the armor tracker: each item's level, the materials and Rupees for every upgrade left, and the
+     * totals. Its data is `files/<game id>/upgrades.json`; see docs/ss.md.
+     */
+    ITEM_UPGRADES,
     ;
 
     /** True for the kinds that read their data from a [Tracker.dataFile], so a game can list several. */
@@ -438,8 +445,8 @@ object Games {
 
     /**
      * Three files on the Wii and in Skyward Sword HD, whose extra autosave slot isn't a file of its own.
-     * Every tracker is a checklist for the Wii original, with HD's differences in item notes, plus
-     * the Thrill Digger solver as a tool. The data and its sources are in docs/ss.md.
+     * Every tracker but Item Upgrades is a checklist for the Wii original, with HD's differences in
+     * item notes, plus the Thrill Digger solver as a tool. The data and its sources are in docs/ss.md.
      */
     val SS = Game(
         id = "ss",
@@ -457,6 +464,7 @@ object Games {
             ssChecklist("Side Quests & Minigames", "The minigames and their prizes, the other side quests and the Lightning Round", "side_quests"),
             ssChecklist("Shields", "All 10 shields, their upgrades and materials", "shields"),
             ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
+            Tracker(TrackerKind.ITEM_UPGRADES, "Item Upgrades", "Every Scrap Shop upgrade and potion infusion, with the treasures, bugs and Rupees still needed"),
             Tracker(TrackerKind.THRILL_DIGGER, "Thrill Digger Solver", "Every undug hole's Bomb and Rupoor odds, and the safest hole to dig next"),
         ),
     )

@@ -60,8 +60,8 @@ iOS port is mostly a matter of adding the iOS targets.
   - Every colour pair meets WCAG AA contrast (4.5:1 for text, 3:1 for outlines, bars and stars),
     checked by a test for every theme, light and dark. Body text stays in the system font; only
     headers use a theme's lettering.
-- **Mark all complete** (every checklist tracker, each HW:DE Adventure map, and every BotW, TotK and
-  Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
+- **Mark all complete** (every checklist tracker, each HW:DE Adventure map, Skyward Sword's Item
+  Upgrades, and every BotW, TotK and Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
   the box shows a dash when some are done. Upgrades go to their top level, or back to none.
   - It acts on the active save file, and on the rows the search and filter chips leave showing
@@ -785,10 +785,12 @@ guides number them differently. Sources and disagreements are in `docs/st.md`.
 
 **Skyward Sword**
 
-Every SS tracker is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
+Every SS tracker but Item Upgrades is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
 Skyward Sword HD differs (button controls, autosave, the amiibo's fast travel), the item's notes say
 so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
-- **Progress Overview** (first): a row per tracker with its count, totals and next step.
+- **Progress Overview** (first): a row per tracker with its count, totals and next step. Item
+  Upgrades' row counts items obtained (of 16), upgrades done (of 26) and the treasures, bugs and
+  Rupees still to go, and suggests the next upgrade on something you have.
 - **Main Quest:** the story as one chain in play order: the seven dungeons with each boss and
   dungeon item, the Goddess's Harp and the songs, the three battles with the Imprisoned, Levias, the
   Stone of Trials, Sky Keep and Demise. Tabs for the four Silent Realms (and what each gives), the
@@ -814,6 +816,27 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   Hylian Shield, with costs and durability.
 - **Bugs & Treasures:** one of each of the 12 bugs and 16 treasures, with where to find it and which
   upgrades and potions use it.
+- **Item Upgrades:** the BotW Armor tracker's layout for Gondo's Scrap Shop and Bertie's potion
+  infusions, with the game's own icons.
+  - Four sections: Items (Slingshot, Beetle, Bug Net, Bow), Shields (Wooden, Iron and Sacred, and the
+    Hylian Shield, which can't be upgraded), Pouch Items (Seed Satchel, Quiver, Bomb Bag) and Potions
+    (Heart, Stamina, Air, Revitalizing, Guardian). 16 items, 26 upgrades.
+  - Mark each item collected and set its level with the stars; the row shows the form you have
+    (*Quick Beetle*). Each item's page has its forms, where to get it, whether it's sold or missable,
+    and the treasures, bugs and Rupees for every upgrade left.
+  - **Pouch items:** you can carry several of each, so *Add Seed Satchel #2* tracks another copy with
+    its own level. Remove one from its page.
+  - **Total Materials Required:** every remaining upgrade summed, with the Rupees, for *Collected
+    items* or *All items (including not yet obtained)*. Tap a material for where to farm it and which
+    upgrades need how many.
+  - **The totals rule:** every item fully upgraded, and exactly one of each pouch item: your most
+    upgraded Seed Satchel, Quiver and Bomb Bag (copy #1 if you have none). Other copies are tracked but
+    tagged *Not in totals*. All items comes to 195 treasures and bugs and 1,510 Rupees.
+  - **Potions** chip (on by default, since the totals mean everything): off leaves the potions out of
+    the list, the totals and the overview row (145 treasures and 1,330 Rupees without them).
+  - Search, All / Owned / Missing, and *Mark all complete* per section and for the list (collects; levels
+    stay as they are). Progress is per save file and separate from the Items & Equipment and Shields
+    checklists' upgrade tiers; `docs/ss.md` says how the two relate.
 - **Thrill Digger Solver** (a tool, last): enter what each hole showed and every undug hole gets its
   exact Bomb and Rupoor chance, as a heat colour, with the safest hole to dig next starred.
   - It counts every board the game can deal, its re-deal of a 2×2 block of hazards included, on
@@ -988,6 +1011,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/checklist/  ← the generic, data-driven checklist tracker (docs/checklist-trackers.md)
   src/commonMain/kotlin/gx/zelda/adventure/  ← Hyrule Warriors Adventure Mode maps: the grid view, square sheet and list (docs/hwde.md)
   src/commonMain/kotlin/gx/zelda/thrilldigger/  ← Skyward Sword's Thrill Digger solver: the exact solver, its saved boards and screen (docs/ss.md)
+  src/commonMain/kotlin/gx/zelda/upgrades/  ← Skyward Sword's Item Upgrades tracker, built on the armor tracker's model (docs/ss.md)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces, the menu (AppDrawer.kt) and Mark all complete (BulkCompleteControl.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
@@ -1020,7 +1044,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
   src/commonMain/composeResources/files/ph/*.json   ← Phantom Hourglass checklists (docs/ph.md)
   src/commonMain/composeResources/files/st/*.json   ← Spirit Tracks checklists (docs/st.md)
-  src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists (docs/ss.md)
+  src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists, and upgrades.json for Item Upgrades (docs/ss.md)
   src/commonMain/composeResources/files/albw/*.json        ← A Link Between Worlds checklists (docs/albw.md)
   src/commonMain/composeResources/files/tfh/*.json  ← Tri Force Heroes checklists (docs/tfh.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
@@ -1030,6 +1054,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/drawable/map_*             ← BotW map marker icons (scripts/build-map-icons.py)
   src/commonMain/composeResources/drawable/hwde_*            ← HW:DE item-card and reward icons (tools/hwde/build_maps.py)
   src/commonMain/composeResources/drawable/thrill_*          ← SS Rupee, Rupoor and Bomb pictures (scripts/fetch-thrill-digger-icons.py)
+  src/commonMain/composeResources/drawable/ss_up_*, ss_mat_* ← SS item, treasure and bug icons (scripts/fetch-ss-upgrade-icons.py)
 androidApp/   Android application shell
 ```
 
@@ -1414,7 +1439,8 @@ snapshots) and Samurai Gamers, with StrategyWiki and Zelda's Palace for spot che
 Sword randomizer's check list, read from the game's files, settles where each item is and which cube
 opens which chest; the zeldaret/ss decompilation gives the save-file count. The Thrill Digger
 Solver's rules come from Zelda Wiki and lepelog's port of the game's board generator, and its
-pictures are Zelda Wiki's Skyward Sword renders. `docs/ss.md` covers each tracker, the solver, the HD
+pictures are Zelda Wiki's Skyward Sword renders. Item Upgrades' icons are the game's inventory and
+Collection icons, from Zelda Wiki. `docs/ss.md` covers each tracker, the solver, the HD
 differences and every disagreement.
 
 A Link Between Worlds data (`files/albw/`) comes from Zelda Wiki, Zelda Dungeon (via Wayback

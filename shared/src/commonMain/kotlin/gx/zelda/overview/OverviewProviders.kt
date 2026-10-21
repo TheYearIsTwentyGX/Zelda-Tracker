@@ -33,6 +33,8 @@ import gx.zelda.shrines.data.SpiritOrbProgressProvider
 import gx.zelda.shrines.data.shrineCatalogLoad
 import gx.zelda.sidequests.data.SideQuestProgressProvider
 import gx.zelda.sidequests.data.SideQuestStorage
+import gx.zelda.upgrades.data.UpgradeProgressProvider
+import gx.zelda.upgrades.data.UpgradeStorage
 
 /**
  * The Progress Overview's rows for [game]: one set per game, built from the trackers that game
@@ -77,6 +79,7 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             )
             // A tool keeps no progress.
             TrackerKind.THRILL_DIGGER -> emptyList()
+            TrackerKind.ITEM_UPGRADES -> listOf(UpgradeProgressProvider(UpgradeStorage(dataStore, game), tracker.title))
         }
     }
 }
