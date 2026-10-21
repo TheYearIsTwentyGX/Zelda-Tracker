@@ -411,7 +411,7 @@ in-game total, and that a save from before skipped holes still loads.
   100, Gold 300, Rupoor −10 (`Hole.rupees`). With skipped holes it shows the known part, "+ ? from
   N skipped", and the range (each skipped hole 1 to 300).
 - **Enter in-game total** (shown while a hole is skipped) takes the Rupees the round has earned as
-  the game counts them (or the wallet now less the wallet before the round) and works out the
+  the game counts them (the game shows a running total for the round, not just the wallet) and works out the
   skipped holes (`GameTotal.infer`). The skipped holes are worth the difference from the known
   part. The five values are distinct, so one skipped hole's colour is certain: "That hole was a
   Blue Rupee: fill it in?". With several, every set of colours that adds up is tried in every

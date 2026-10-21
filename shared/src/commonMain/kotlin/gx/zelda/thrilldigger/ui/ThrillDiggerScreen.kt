@@ -462,8 +462,7 @@ private fun GameTotalDialog(state: ThrillDiggerUiState, check: GameTotalCheck?, 
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 val holes = if (total.skipped == 1) "skipped hole is" else "${total.skipped} skipped holes are"
                 Text(
-                    "The Rupees this round has earned, as the game counts them. The $holes worth that less the ${total.known} entered. " +
-                        "If you only know your wallet, take away what it held when the round began.",
+                    "The round's total the game shows while you dig. The $holes worth that less the ${total.known} entered.",
                     style = MaterialTheme.typography.bodySmall,
                 )
                 OutlinedTextField(
