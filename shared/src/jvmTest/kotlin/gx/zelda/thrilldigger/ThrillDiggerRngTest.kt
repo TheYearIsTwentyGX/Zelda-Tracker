@@ -148,6 +148,41 @@ class ThrillDiggerRngTest {
         }
     }
 
+    /** A skipped hole keeps the states with a Rupee of any colour there, and only those. */
+    @Test
+    fun skippedHolesFitAnyRupee() {
+        val random = Random(5)
+        for (d in listOf(Difficulty.INTERMEDIATE, Difficulty.EXPERT)) {
+            val table = RngBoards.generate(d, testLoops)
+            repeat(10) {
+                val truth = PackedBoard.unpack(d, table.boards[random.nextInt(table.boards.size)])
+                val rupees = truth.holes.indices.filter { truth.holes[it].isRupee }.shuffled(random)
+                val seen = rupees.take(3).toSet()
+                val skipped = rupees.drop(3).take(3).toSet()
+                val shown = DiggerBoard(d, truth.holes.mapIndexed { i, h -> if (i in seen) h else if (i in skipped) Hole.SKIPPED else Hole.UNKNOWN })
+                val result = assertNotNull(RngSolver.solve(shown, table), "the true board fits")
+                var states = 0
+                val hazard = DoubleArray(d.cells)
+                var total = 0.0
+                for (loop in testLoops.indices) for (k in table.loopStart[loop] until table.loopStart[loop + 1]) {
+                    val board = PackedBoard.unpack(d, table.boards[k])
+                    if (seen.any { board.holes[it] != shown.holes[it] } || skipped.any { !board.holes[it].isRupee }) continue
+                    val w = testLoops[loop].share / testLoops[loop].length
+                    states++
+                    total += w
+                    board.holes.forEachIndexed { i, h -> if (h.isHazard) hazard[i] += w }
+                }
+                assertEquals(states, result.states)
+                assertTrue(skipped.none { it in result.analysis.odds }, "no odds on a skipped hole")
+                for ((i, o) in result.analysis.odds) assertClose(hazard[i] / total, o.hazard, "${d.label} hole $i hazard")
+            }
+            // A skipped hole on a hazard rules out the state that put it there.
+            val truth = PackedBoard.unpack(d, table.boards[10])
+            val onHazard = DiggerBoard.empty(d).let { b -> truth.holes.indices.filter { truth.holes[it].isHazard }.fold(b) { acc, i -> acc.with(i, Hole.SKIPPED) } }
+            assertTrue(RngSolver.solve(onHazard, table).let { it == null || it.states < RngSolver.solve(DiggerBoard.empty(d), table)!!.states })
+        }
+    }
+
     @Test
     fun aLoopCanBeSingledOutAndABoardCanFitNothing() {
         val table = RngBoards.generate(Difficulty.EXPERT, testLoops)

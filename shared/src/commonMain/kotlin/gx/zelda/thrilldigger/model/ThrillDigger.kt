@@ -23,7 +23,8 @@ enum class Difficulty(val label: String, val width: Int, val height: Int, val bo
 
 /**
  * What one hole holds, as far as the player knows. A dug Rupee's colour says how many of its eight
- * neighbours hold a hazard (a Bomb or a Rupoor), from [minHazards] to [maxHazards].
+ * neighbours hold a hazard (a Bomb or a Rupoor), from [minHazards] to [maxHazards]. [SKIPPED] is a
+ * hole dug without its colour being seen: a Rupee of some colour, so no hazard, but no clue either.
  */
 enum class Hole(val code: Char, val label: String, val rupees: Int, val minHazards: Int, val maxHazards: Int) {
     UNKNOWN('?', "Unknown", 0, 0, 8),
@@ -34,9 +35,13 @@ enum class Hole(val code: Char, val label: String, val rupees: Int, val minHazar
     GOLD('Y', "Gold", 300, 7, 8),
     RUPOOR('P', "Rupoor", -10, 0, 8),
     BOMB('X', "Bomb", 0, 0, 8),
+    SKIPPED('D', "Skipped", 0, 0, 8),
     ;
 
     val isRupee: Boolean get() = this in RUPEES
+
+    /** Dug and not a hazard: a Rupee, its colour seen or [SKIPPED]. */
+    val isSafe: Boolean get() = isRupee || this == SKIPPED
     val isHazard: Boolean get() = this == RUPOOR || this == BOMB
 
     /** "1–2" for a Rupee's hazard count, or null for anything else. */

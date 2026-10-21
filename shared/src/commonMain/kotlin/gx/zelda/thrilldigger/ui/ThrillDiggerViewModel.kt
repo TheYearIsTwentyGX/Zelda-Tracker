@@ -9,11 +9,14 @@ import gx.zelda.thrilldigger.data.ThrillDiggerStorage
 import gx.zelda.thrilldigger.model.Difficulty
 import gx.zelda.thrilldigger.model.DiggerAnalysis
 import gx.zelda.thrilldigger.model.DiggerBoard
+import gx.zelda.thrilldigger.model.GameTotal
 import gx.zelda.thrilldigger.model.Hole
 import gx.zelda.thrilldigger.model.HoleOdds
 import gx.zelda.thrilldigger.model.PackedBoard
 import gx.zelda.thrilldigger.model.RngSolver
+import gx.zelda.thrilldigger.model.RupeeTotal
 import gx.zelda.thrilldigger.model.ThrillDiggerSolver
+import gx.zelda.thrilldigger.model.TotalInference
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -84,6 +87,9 @@ data class BoardCheck(val board: DiggerBoard, val rng: RngCheck) {
     val states: Int? get() = (rng as? RngCheck.Dealt)?.states
 }
 
+/** The round's total in the game, [gameTotal], checked against [board]'s skipped holes. */
+data class GameTotalCheck(val board: DiggerBoard, val gameTotal: Int, val result: TotalInference)
+
 data class ThrillDiggerUiState(
     val board: DiggerBoard,
     /** The solver's answer for [board]. */
@@ -109,8 +115,8 @@ data class ThrillDiggerUiState(
 
     fun odds(index: Int): HoleOdds? = (analysis as? DiggerAnalysis.Solved)?.odds?.get(index)
 
-    /** Rupees dug so far, Rupoors taken off. */
-    val haul: Int get() = board.holes.sumOf { if (it.isRupee || it == Hole.RUPOOR) it.rupees else 0 }
+    /** Rupees dug so far, Rupoors taken off, with the skipped holes' unknown worth. */
+    val total: RupeeTotal get() = RupeeTotal.of(board)
 
     /** Holes still hiding a Rupee. */
     val rupeesLeft: Int get() = board.rupeesLeft
@@ -330,6 +336,47 @@ class ThrillDiggerViewModel(
         }
     }
 
+    private val _gameTotal = MutableStateFlow<GameTotalCheck?>(null)
+
+    /** The last in-game total entered and what it says about the skipped holes, until dismissed. */
+    val gameTotal: StateFlow<GameTotalCheck?> = _gameTotal
+
+    /**
+     * Works out the skipped holes' colours from [total], the Rupees the game says this round has
+     * earned ([GameTotal.infer]), into [gameTotal]. Null when no hole is skipped.
+     */
+    fun checkGameTotal(total: Int): Job? {
+        val board = state.value?.board?.takeIf { Hole.SKIPPED in it.holes } ?: return null
+        return act {
+            val result = withContext(work) { GameTotal.infer(board, total) }
+            _gameTotal.value = GameTotalCheck(board, total, result)
+        }
+    }
+
+    /**
+     * Fills the skipped holes with the colours [gameTotal] found, as one undoable change, so they
+     * become clues. Null unless it found one way and the board hasn't changed since.
+     */
+    fun fillFromGameTotal(): Job? {
+        val check = _gameTotal.value ?: return null
+        val fill = (check.result as? TotalInference.Fill)?.fill ?: return null
+        if (state.value?.board != check.board) return null
+        _gameTotal.value = null
+        selection.value = null
+        val d = check.board.difficulty
+        return act {
+            storage.update { save ->
+                var board = save.board(d)
+                for ((i, hole) in fill) if (board.holes[i] == Hole.SKIPPED) board = board.with(i, hole)
+                save.with(board)
+            }
+        }
+    }
+
+    fun dismissGameTotal() {
+        _gameTotal.value = null
+    }
+
     fun dismissCheck() {
         exporting?.cancel()
         exporting = null
@@ -340,7 +387,7 @@ class ThrillDiggerViewModel(
         /**
          * A board as text to paste into a report: a row of [Hole.code]s per row, a key, and the check.
          * On a finished board an undug hole is a hazard of either kind, [HAZARD]; when one RNG state
-         * fits, its board follows, saying which were which.
+         * fits, its board follows, saying which were which. A skipped hole is `D`: dug, some Rupee.
          */
         fun boardText(board: DiggerBoard, rng: RngCheck): String = buildString {
             val d = board.difficulty
@@ -350,7 +397,8 @@ class ThrillDiggerViewModel(
             }
             appendLine("Thrill Digger, ${d.label}")
             rows(board)
-            appendLine("G green, B blue, R red, S silver, Y gold, P Rupoor, X Bomb, " + if (board.isFinished) "$HAZARD Bomb or Rupoor, not dug" else "? not dug")
+            val skipped = if (Hole.SKIPPED in board.holes) "${Hole.SKIPPED.code} dug, colour not seen, " else ""
+            appendLine("G green, B blue, R red, S silver, Y gold, P Rupoor, X Bomb, $skipped" + if (board.isFinished) "$HAZARD Bomb or Rupoor, not dug" else "? not dug")
             val hidden = board.isFinished && Hole.UNKNOWN in board.holes
             val what = if (hidden) "a board with these Rupees and hazards" else "this board"
             append(
