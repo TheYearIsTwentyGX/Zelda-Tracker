@@ -421,6 +421,63 @@ GAMES = {
             "linked_secrets/secret_to_labrynna": "onoxs_castle",
         },
     },
+    "albw": {
+        # Hyrule is open from the start, and Ravio rents his items from the first visit home. What
+        # gates the rest is Wall Merge (the Eastern Palace), the Flippers and Pegasus Boots (had on
+        # the way to the House of Gales), the Power Glove, Lorule (after Hyrule Castle), the Sand Rod
+        # and the Titan's Mitt. A dungeon is gated by the step before it.
+        "region": {"Hyrule": "captains_sword", "Lorule": "hyrule_castle"},
+        "places": {
+            r"Eastern Palace": "sahasrahla",
+            r"House of Gales": "smooth_gem",
+            r"Zora's (Domain|River)": "eastern_palace",
+            r"Death Mountain|Tower of Hera": "power_glove",
+            r"Lorule|Fissure|Thieves' (Town|Hideout)|Dark Palace|Swamp Palace|Skull Woods|Turtle Rock|Ice Ruins": "hyrule_castle",
+            r"Desert Palace|Misery Mire": "thieves_hideout",
+        },
+        "needs": {
+            r"Wall Merg|[Ss]wim|[Dd]ive|Pegasus Boots|[Dd]ash into|Zora's Flippers": "eastern_palace",
+            r"[Ll]ift the (two |ring of )?small rocks|Power Glove": "power_glove",
+            r"Master Sword": "master_sword",
+            r"Sand Rod|build a sand path": "thieves_hideout",
+            r"[Ll]ift the large rock|Titan's Mitt": "desert_palace",
+        },
+        "tags": {
+            "Wall": "eastern_palace",
+            "Underwater": "eastern_palace",
+            "Tree": "eastern_palace",
+            "Rock": "power_glove",
+            "Sand": "thieves_hideout",
+        },
+        "after": {
+            "Entering Lorule (after Hyrule Castle)": "hyrule_castle",
+            "After the Thieves' Hideout (Sand Rod)": "thieves_hideout",
+            "After the Desert Palace (Titan's Mitt)": "desert_palace",
+        },
+        "sections": {
+            # Maiamai appear once Link has met Mother Maiamai, after the Eastern Palace.
+            "maiamais/maiamai": "eastern_palace",
+            # Ravio's Shop and the rest open with the Captain's Sword, once Link is out of his house.
+            "items/ravio": "captains_sword",
+            "items/equipment": "captains_sword",
+            "items/bottles": "captains_sword",
+        },
+        "items": {
+            "items/bow": "sahasrahla",
+            "items/sword": "captains_sword",
+            "items/shield": "captains_sword",
+            "items/lamp": "captains_sword",
+            "items/ravios_bracelet": "captains_sword",
+            "items/gloves": "power_glove",
+            "items/bell": "eastern_palace",
+            "items/sand_rod": "thieves_hideout",
+            "items/bee_badge": "captains_sword",
+            # Yuga drops it at the end of the Eastern Palace, before the step is ticked.
+            "heart_pieces/hc_eastern_palace": "sahasrahla",
+            # The Lost Woods lead to the pedestal once Link has the three Pendants.
+            "maiamais/lost_woods_master_sword_bushes": ("pendant_of_courage", "house_of_gales", "tower_of_hera"),
+        },
+    },
     "alttp": {
         "linear": True,
         # The Light World is open once Zelda is safe in the Sanctuary, the Dark World after Agahnim.

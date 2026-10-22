@@ -75,6 +75,42 @@ Order follows the story, since the overview's *Next* is the first undone item:
   Castle needs the Triforce, and Yuga Ganon and the ending follow.
 - Lost Maiamai and Heart Pieces follow Zelda Dungeon's numbering, which tracks its walkthrough.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, steps of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds ALBW's table.
+
+**Counts.** All 177 items outside the Main Quest are linked. Even Ravio's rentals and the Kakariko
+shops are gated, by `captains_sword`, once Link is out of his house.
+
+**How a step was chosen.** Ravio rents most items from the start, so what gates an item is the
+**latest** of the following.
+
+- *Where it is.*
+
+  | Where | Step |
+  |---|---|
+  | Hyrule | `captains_sword` |
+  | Zora's Domain and River | `eastern_palace` |
+  | Death Mountain and the Tower of Hera | `power_glove` |
+  | The House of Gales | `smooth_gem` |
+  | Lorule, its Fissures and dungeons | `hyrule_castle` |
+  | The Desert Palace and Misery Mire | `thieves_hideout` (the Sand Rod) |
+- *What its text or tags say it needs.*
+
+  | Need | Step |
+  |---|---|
+  | Wall Merge, swimming or diving, dashing into a tree | `eastern_palace` (Wall Merge, then the Flippers and Pegasus Boots on the way to the House of Gales) |
+  | Lifting small rocks | `power_glove` |
+  | Sand | `thieves_hideout` |
+  | A large rock (the Titan's Mitt) | `desert_palace` |
+- *Maiamai* appear once Link has met Mother Maiamai, so they're gated by `eastern_palace` at the
+  earliest. The bushes by the Master Sword are gated by the three Pendants.
+
+`AlbwDatasetTest` spot-checks the links and that every item has one.
+
 ## Sources
 
 - **Zelda Wiki** (zeldawiki.wiki), wikitext through the MediaWiki API: *Lost Maiamai*, *Mother
