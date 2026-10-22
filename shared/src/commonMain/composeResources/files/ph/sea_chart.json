@@ -23,72 +23,84 @@
         {
           "id": "island_ember",
           "name": "Isle of Ember",
+          "unlockedBy": ["totok_1f"],
           "region": "Southwestern Sea",
           "howTo": "In the south-east of the Southwestern Sea; Astrid's house and the Temple of Fire."
         },
         {
           "id": "island_cannon",
           "name": "Cannon Island",
+          "unlockedBy": ["totok_1f"],
           "region": "Southwestern Sea",
           "howTo": "Just south-west of Mercay Island; Eddo's garage and the Bomb Garden."
         },
         {
           "id": "island_molida",
           "name": "Molida Island",
+          "unlockedBy": ["totok_1f"],
           "region": "Southwestern Sea",
           "howTo": "In the west of the Southwestern Sea, past the dark rocks the Cannon breaks."
         },
         {
           "id": "island_spirit",
           "name": "Spirit Island",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "howTo": "Hidden in the triangle of rocks south of Molida Island (a Boing Statue on Molida hints at it); it's charted once Ciela spots it."
         },
         {
           "id": "island_gust",
           "name": "Isle of Gust",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "howTo": "In the middle of the Northwestern Sea, past the fog; the Temple of Wind."
         },
         {
           "id": "island_zauz",
           "name": "Zauz's Island",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "howTo": "Hidden at the north edge of the Northwestern Sea, its middle; the Old Wayfarer's map in the Isle of Gust's Cavern Study marks it."
         },
         {
           "id": "island_uncharted",
           "name": "Uncharted Island",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "howTo": "Hidden by the diagonal rock wall on the east edge, north-east of the Isle of Gust. It has no map: walk its coast and draw it yourself."
         },
         {
           "id": "island_bannan",
           "name": "Bannan Island",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "howTo": "In the north-east of the Northwestern Sea; the Old Wayfarer and Salvatore's Cannon Game."
         },
         {
           "id": "island_goron",
           "name": "Goron Island",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "howTo": "In the Southeastern Sea; the Goron Temple."
         },
         {
           "id": "island_frost",
           "name": "Isle of Frost",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "howTo": "In the Southeastern Sea; shoot down its ice walls to dock. The Temple of Ice."
         },
         {
           "id": "island_dee_ess",
           "name": "Dee Ess Island",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "howTo": "Hidden in the south of the Southeastern Sea; shaped like a Nintendo DS. The Goron Game."
         },
         {
           "id": "island_harrow",
           "name": "Harrow Island",
+          "unlockedBy": ["temple_of_ice"],
           "region": "Southeastern Sea",
           "howTo": "Hidden north of a triangle of rocks in the north-west of the Southeastern Sea; a Yook on the Isle of Frost tells you after the Temple of Ice. The Digging Game.",
           "after": "After the Temple of Ice"
@@ -96,18 +108,21 @@
         {
           "id": "island_dead",
           "name": "Isle of the Dead",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "howTo": "In the Northeastern Sea; shaped like a king's head."
         },
         {
           "id": "island_ruins",
           "name": "Isle of Ruins",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "howTo": "In the Northeastern Sea, behind a cyclone the Regal Necklace calms; Mutoh's Temple."
         },
         {
           "id": "island_maze",
           "name": "Maze Island",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "howTo": "In the north of the Northeastern Sea; the Treasure Maze."
         }
@@ -122,6 +137,7 @@
         {
           "id": "frog_south_mercay",
           "name": "Golden Frog south of Mercay",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Southwestern Sea",
           "howTo": "Leaping in the sea south of Mercay Island. Hit it with the Cannon; it shows the symbol to draw on the Cyclone Slate.",
           "reward": "A Cyclone Slate warp",
@@ -132,6 +148,7 @@
         {
           "id": "frog_north_molida",
           "name": "Golden Frog north of Molida",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Southwestern Sea",
           "howTo": "Leaping in the sea north of Molida Island. Hit it with the Cannon; it shows the symbol to draw on the Cyclone Slate.",
           "reward": "A Cyclone Slate warp",
@@ -142,6 +159,7 @@
         {
           "id": "frog_bannan_gust",
           "name": "Golden Frog between Bannan and Gust",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "howTo": "Leaping between Bannan Island and the Isle of Gust. Hit it with the Cannon; it shows the symbol to draw on the Cyclone Slate.",
           "reward": "A Cyclone Slate warp",
@@ -152,6 +170,7 @@
         {
           "id": "frog_north_dee_ess",
           "name": "Golden Frog north of Dee Ess",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "howTo": "Leaping north of Dee Ess Island. Hit it with the Cannon; it shows the symbol to draw on the Cyclone Slate.",
           "reward": "A Cyclone Slate warp",
@@ -162,6 +181,7 @@
         {
           "id": "frog_northwest_frost",
           "name": "Golden Frog north-west of Frost",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "howTo": "Leaping north-west of the Isle of Frost. Hit it with the Cannon; it shows the symbol to draw on the Cyclone Slate.",
           "reward": "A Cyclone Slate warp",
@@ -172,6 +192,7 @@
         {
           "id": "frog_south_dead",
           "name": "Golden Frog south of the Isle of the Dead",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "howTo": "Leaping south of the Isle of the Dead. Hit it with the Cannon; it shows the symbol to draw on the Cyclone Slate.",
           "reward": "A Cyclone Slate warp",

@@ -26,6 +26,7 @@
         {
           "id": "map_cannon_beehives",
           "name": "Treasure Map #1",
+          "unlockedBy": ["totok_1f"],
           "region": "Southwestern Sea",
           "area": "Cannon Island",
           "reward": "Random Ship Part",
@@ -44,6 +45,7 @@
         {
           "id": "map_molida_hideaway",
           "name": "Treasure Map #2",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "reward": "Sand of Hours (+1 minute)",
@@ -65,6 +67,7 @@
         {
           "id": "map_astrid_basement",
           "name": "Treasure Map #3",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Isle of Ember",
           "reward": "Random Ship Part",
@@ -86,6 +89,7 @@
         {
           "id": "map_ember_grass",
           "name": "Treasure Map #4",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Isle of Ember",
           "reward": "Sand of Hours (+1 minute)",
@@ -107,6 +111,7 @@
         {
           "id": "map_zauz_tiles",
           "name": "Treasure Map #5",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Zauz's Island",
           "reward": "Random Ship Part",
@@ -128,6 +133,7 @@
         {
           "id": "map_uncharted_eye",
           "name": "Treasure Map #6",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Uncharted Island",
           "reward": "Random Treasure",
@@ -149,6 +155,7 @@
         {
           "id": "map_gust_miniblin_pit",
           "name": "Treasure Map #7",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Isle of Gust",
           "reward": "Random Ship Part",
@@ -167,6 +174,7 @@
         {
           "id": "map_gust_sandworms",
           "name": "Treasure Map #8",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Isle of Gust",
           "reward": "Random Ship Part",
@@ -185,6 +193,7 @@
         {
           "id": "map_ojibe",
           "name": "Treasure Map #9",
+          "unlockedBy": ["totok_b4_b6"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "after": "After the Temple of the Ocean King's B6",
@@ -204,6 +213,7 @@
         {
           "id": "map_oshus_tree",
           "name": "Treasure Map #10",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "reward": "Random Ship Part",
@@ -225,6 +235,7 @@
         {
           "id": "map_totok_b6",
           "name": "Treasure Map #11",
+          "unlockedBy": ["ghost_ship"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "after": "After the Ghost Ship",
@@ -247,6 +258,7 @@
         {
           "id": "map_freedle",
           "name": "Treasure Map #12",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "after": "After the Southeastern Sea Chart",
@@ -266,6 +278,7 @@
         {
           "id": "map_molida_girl",
           "name": "Treasure Map #13",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "after": "After the Southeastern Sea Chart",
@@ -285,6 +298,7 @@
         {
           "id": "map_goron_chuchus",
           "name": "Treasure Map #14",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Goron Island",
           "reward": "Random Ship Part",
@@ -307,6 +321,7 @@
         {
           "id": "map_goron_temple",
           "name": "Treasure Map #15",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Goron Temple",
           "reward": "Random Ship Part",
@@ -325,6 +340,7 @@
         {
           "id": "map_goron_bombchu",
           "name": "Treasure Map #16",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Goron Island",
           "after": "After the Goron Temple",
@@ -347,6 +363,7 @@
         {
           "id": "map_frost_islet",
           "name": "Treasure Map #17",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Isle of Frost",
           "reward": "Random Ship Part",
@@ -368,6 +385,7 @@
         {
           "id": "map_harrow_1",
           "name": "Treasure Map #18",
+          "unlockedBy": ["temple_of_ice"],
           "region": "Southeastern Sea",
           "area": "Harrow Island",
           "after": "After the Temple of Ice",
@@ -391,6 +409,7 @@
         {
           "id": "map_harrow_2",
           "name": "Treasure Map #19",
+          "unlockedBy": ["temple_of_ice"],
           "region": "Southeastern Sea",
           "area": "Harrow Island",
           "after": "After the Temple of Ice",
@@ -414,6 +433,7 @@
         {
           "id": "map_molida_cucco",
           "name": "Treasure Map #20",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "reward": "Random Ship Part",
@@ -436,6 +456,7 @@
         {
           "id": "map_bannan_sign",
           "name": "Treasure Map #21",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "reward": "Random Ship Part",
@@ -457,6 +478,7 @@
         {
           "id": "map_bannan_chests",
           "name": "Treasure Map #22",
+          "unlockedBy": ["goron_temple"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "reward": "Random Ship Part",
@@ -479,6 +501,7 @@
         {
           "id": "map_totok_b5",
           "name": "Treasure Map #23",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "after": "After the Goron Temple",
@@ -502,6 +525,7 @@
         {
           "id": "map_harrow_3",
           "name": "Treasure Map #24",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Southeastern Sea",
           "area": "Harrow Island",
           "after": "After the Northeastern Sea Chart",
@@ -524,6 +548,7 @@
         {
           "id": "map_harrow_4",
           "name": "Treasure Map #25",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Southeastern Sea",
           "area": "Harrow Island",
           "after": "After the Northeastern Sea Chart",
@@ -546,6 +571,7 @@
         {
           "id": "map_man_of_smiles",
           "name": "Treasure Map #26",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Man of Smiles's ship",
           "after": "After the Northeastern Sea Chart",
@@ -565,6 +591,7 @@
         {
           "id": "map_maze_normal",
           "name": "Treasure Map #27",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Maze Island",
           "reward": "Random Ship Part",
@@ -583,6 +610,7 @@
         {
           "id": "map_dead_rupoor_room",
           "name": "Treasure Map #28",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Isle of the Dead",
           "reward": "Random Treasure",
@@ -604,6 +632,7 @@
         {
           "id": "map_dead_kings_eye",
           "name": "Treasure Map #29",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Isle of the Dead",
           "reward": "Random Ship Part",
@@ -622,6 +651,7 @@
         {
           "id": "map_totok_b10",
           "name": "Treasure Map #30",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "reward": "Random Ship Part",
@@ -643,6 +673,7 @@
         {
           "id": "map_totok_b12",
           "name": "Treasure Map #31",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "reward": "Big Gold Rupee (300 Rupees)",

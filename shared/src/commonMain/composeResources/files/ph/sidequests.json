@@ -18,6 +18,7 @@
         {
           "id": "fishing_rod_joanne",
           "name": "The 'mermaid'",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "howTo": "Clear the monsters around Bannan Island, hit the 'mermaid' (Joanne) with the Boomerang when she surfaces, then see the Old Wayfarer once she's moved in.",
@@ -26,6 +27,7 @@
         {
           "id": "fish_skippyjack",
           "name": "Skippyjack",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "At sea",
           "howTo": "Fish at any fish shadow on the Sea Chart; the smallest and most common catch.",
@@ -39,6 +41,7 @@
         {
           "id": "fish_toona",
           "name": "Toona",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "At sea",
           "howTo": "Fish at any fish shadow; common, a little larger than a Skippyjack.",
@@ -52,6 +55,7 @@
         {
           "id": "fish_loovar",
           "name": "Loovar",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "At sea",
           "howTo": "Fish at any fish shadow; rarer and larger.",
@@ -65,6 +69,7 @@
         {
           "id": "fishing_big_catch_lure",
           "name": "Big Catch Lure",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "howTo": "Show the Old Wayfarer a Loovar.",
@@ -77,6 +82,7 @@
         {
           "id": "fish_rusty_swordfish",
           "name": "Rusty Swordfish",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "At sea",
           "howTo": "With the Big Catch Lure, fish at a swordfish-shaped shadow, then show it to the Old Wayfarer.",
@@ -91,6 +97,7 @@
         {
           "id": "fish_neptoona",
           "name": "Neptoona",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "At sea",
           "howTo": "After the Rusty Swordfish, fish at the black swordfish shadows until one is the Neptoona, and show it to the Old Wayfarer.",
@@ -106,6 +113,7 @@
         {
           "id": "fish_stowfish",
           "name": "Stowfish",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "At sea",
           "howTo": "Sometimes attached to a larger fish you reel in; show it to the Old Wayfarer.",
@@ -128,6 +136,7 @@
         {
           "id": "trade_heros_new_clothes",
           "name": "Hero's New Clothes",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Man of Smiles's ship",
           "howTo": "Clear the enemies on the Man of Smiles's Traveler's Ship in the Northeastern Sea; he gives them with Treasure Map #26.",
@@ -136,6 +145,7 @@
         {
           "id": "trade_kaleidoscope",
           "name": "Kaleidoscope",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northwestern Sea",
           "area": "Prince of Red Lions",
           "howTo": "Give the Hero's New Clothes to Nyeve on the Prince of Red Lions.",
@@ -146,6 +156,7 @@
         {
           "id": "trade_guard_notebook",
           "name": "Guard Notebook",
+          "unlockedBy": ["totok_b10_b13"],
           "area": "Ho Ho Tribe's ship",
           "howTo": "Give the Kaleidoscope to the Ho Ho without a telescope (Hoiger Howgendoogen) on the Ho Ho Tribe's Traveler's Ship.",
           "requires": [
@@ -155,6 +166,7 @@
         {
           "id": "trade_wood_heart",
           "name": "Wood Heart",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Southwestern Sea",
           "area": "Nyave's ship",
           "howTo": "Give the Guard Notebook to Nyave on his Traveler's Ship in the Southwestern Sea.",
@@ -165,6 +177,7 @@
         {
           "id": "trade_swordsmans_scroll",
           "name": "Swordsman's Scroll",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northwestern Sea",
           "area": "S.S. Wayfarer",
           "howTo": "Give the Wood Heart to the Old Wayfarer, adrift on his ship the S.S. Wayfarer while the mermaid eats his supplies.",
@@ -185,6 +198,7 @@
         {
           "id": "cannon_game",
           "name": "Cannon Game",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "tiers": [
@@ -203,6 +217,7 @@
         {
           "id": "shooting_range",
           "name": "Shooting Range",
+          "unlockedBy": ["temple_of_courage"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "tiers": [
@@ -221,6 +236,7 @@
         {
           "id": "nyeve_challenge",
           "name": "Nyeve's challenge",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Prince of Red Lions",
           "howTo": "Hit Nyeve 100 times before he hits you three times.",
@@ -229,6 +245,7 @@
         {
           "id": "treasure_maze",
           "name": "Treasure Maze",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Maze Island",
           "tiers": [
@@ -252,6 +269,7 @@
         {
           "id": "goron_game",
           "name": "Goron Game",
+          "unlockedBy": ["temple_of_ice"],
           "region": "Southeastern Sea",
           "area": "Dee Ess Island",
           "howTo": "After the Temple of Ice and Gongoron's letter, steer Gongoron through the island's crystals (50 Rupees) and beat the 35-second record.",
@@ -260,6 +278,7 @@
         {
           "id": "digging_game",
           "name": "Digging Game",
+          "unlockedBy": ["temple_of_ice"],
           "region": "Southeastern Sea",
           "area": "Harrow Island",
           "howTo": "Pay 50 Rupees and dig for up to ten buried prizes, avoiding Rupoors. Keep playing until all four Treasure Maps have turned up.",
@@ -277,6 +296,7 @@
         {
           "id": "beedle_freebie_card",
           "name": "Freebie Card",
+          "unlockedBy": ["totok_1f"],
           "area": "Beedle's Shop Ship",
           "howTo": "Reach 20 points (Silver) at Beedle's Shop Ship; he mails it.",
           "reward": "One free item"
@@ -284,6 +304,7 @@
         {
           "id": "beedle_compliment_card",
           "name": "Compliment Card",
+          "unlockedBy": ["totok_1f"],
           "area": "Beedle's Shop Ship",
           "howTo": "Reach 50 points (Gold) at Beedle's Shop Ship; he mails it.",
           "requires": [
@@ -293,6 +314,7 @@
         {
           "id": "beedle_complimentary_card",
           "name": "Complimentary Card",
+          "unlockedBy": ["totok_1f"],
           "area": "Beedle's Shop Ship",
           "howTo": "Reach 100 points (Platinum) at Beedle's Shop Ship; he mails it.",
           "requires": [
@@ -303,6 +325,7 @@
         {
           "id": "prize_postcard",
           "name": "Prize Postcard",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Man of Smiles's ship",
           "howTo": "Clear the Man of Smiles's ship a second time; mail the card for a prize draw.",

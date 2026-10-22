@@ -334,6 +334,88 @@ GAMES = {
             "figurines/link_and_the_king_of_red_lions": "triforce_of_courage",
         },
     },
+    "ph": {
+        # Mercay is open from the start; the ship comes with Linebeck (`totok_1f`). Each sea opens
+        # with its chart, but the Northwestern Sea's storm needs the fog route from Molida. A dungeon
+        # is gated by the step that opens it; tags and text name the gear an item needs.
+        "region": {
+            "Southwestern Sea": "totok_1f",
+            "Northwestern Sea": "molida_fog_route",
+            "Southeastern Sea": "totok_b7_b9",
+            "Northeastern Sea": "totok_b10_b13",
+        },
+        "places": {
+            r"Temple of the Ocean King": "oshus_sword",
+            r"Isle of Ember|Temple of Fire|Cannon Island|Beedle's Shop Ship|Masked Ship": "totok_1f",
+            r"Molida Island|Spirit Island": "eddos_cannon",
+            r"Temple of Wind|Isle of Gust|Bannan Island|Zauz's Island|Uncharted Island": "molida_fog_route",
+            r"Temple of Courage": "salvage_sun_key",
+            r"Ghost Ship": "temple_of_courage",
+            r"Goron Temple": "totok_b7_b9",
+            r"Temple of Ice": "goron_temple",
+            r"Isle of the Dead": "totok_b10_b13",
+            r"Mutoh's Temple|Isle of Ruins": "isle_of_the_dead",
+        },
+        "needs": {
+            r"with the Cannon": "eddos_cannon",
+            r"\bSalvage it\b": "buy_salvage_arm",
+        },
+        # Each dungeon's item: the Shovel is found on Molida, the Bombs in the Temple of Wind, and so on.
+        "tags": {
+            "Shovel": "eddos_cannon",
+            "Bombs": "molida_fog_route",
+            "Bow": "salvage_sun_key",
+            "Bombchus": "totok_b7_b9",
+            "Grappling Hook": "goron_temple",
+            "Hammer": "isle_of_the_dead",
+            "Fish": "molida_fog_route",
+        },
+        "after": {
+            "After the Temple of Fire": "temple_of_fire",
+            "After the Temple of Wind": "temple_of_wind",
+            "After the Temple of the Ocean King's B6": "totok_b4_b6",
+            "After the Sun Key": "salvage_sun_key",
+            "After the Temple of Courage": "temple_of_courage",
+            "After the Ghost Ship": "ghost_ship",
+            "After the Southeastern Sea Chart": "totok_b7_b9",
+            "After the Goron Temple": "goron_temple",
+            "After the Temple of Ice": "temple_of_ice",
+            "After the Northeastern Sea Chart": "totok_b10_b13",
+            "After lowering the water": "isle_of_the_dead",
+            "After Mutoh's Temple": "mutohs_temple",
+            "After showing the Old Wayfarer a Rusty Swordfish": "molida_fog_route",
+        },
+        # Ship parts and treasures come at random from chests, salvage and shops, once Link has a ship.
+        "sections": {
+            **{
+                f"ship_parts/{part}": "totok_1f"
+                for part in ("bright_ship", "iron_ship", "stone_ship", "vintage_ship", "demon_ship", "tropical_ship",
+                             "dignified_ship", "golden_ship", "treasure")
+            },
+            # A golden frog's warp needs the Cyclone Slate, from Uncharted Island.
+            "sea_chart/golden_frogs": "molida_fog_route",
+        },
+        "items": {
+            "items/sword": "oshus_sword",
+            "items/wooden_shield": None,
+            "spirit_gems/power_mercay_shop": None,
+            "sea_chart/island_mercay": None,
+            "items/phantom_hourglass": "temple_of_fire",
+            "items/cannon": "totok_b1_b3",
+            "items/salvage_arm": "totok_b4_b6",
+            "items/fishing_rod": "molida_fog_route",
+            "sidequests/fishing_rod_joanne": "molida_fog_route",
+            "heart_containers/island_shop_heart": "goron_temple",
+            "heart_containers/shooting_range_heart": "temple_of_courage",
+            "sidequests/shooting_range": "temple_of_courage",
+            "sidequests/goron_game": "temple_of_ice",
+            # The Temple of the Ocean King's floors open with the doors each spirit unlocks: B4–B6
+            # after the Temple of Wind, B7–B9 after the Ghost Ship (the others' gear already says so).
+            "spirit_gems/power_totok_b4": "temple_of_wind",
+            "spirit_gems/courage_totok_b8": "ghost_ship",
+            "spirit_gems/wisdom_totok_b9": "ghost_ship",
+        },
+    },
     "eow": {
         # Zelda wakes in Suthorn after escaping the castle; once the Suthorn Ruins are cleared all of
         # Hyrule is open to explore, though each region's rifts wait for the story. So places outside

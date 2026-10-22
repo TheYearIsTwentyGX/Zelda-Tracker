@@ -22,6 +22,7 @@
         {
           "id": "blaaz_heart",
           "name": "Blaaz's Heart Container",
+          "unlockedBy": ["totok_1f"],
           "region": "Southwestern Sea",
           "area": "Temple of Fire",
           "howTo": "Defeat Blaaz, the boss of the Temple of Fire.",
@@ -33,6 +34,7 @@
         {
           "id": "cyclok_heart",
           "name": "Cyclok's Heart Container",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Temple of Wind",
           "howTo": "Defeat Cyclok, the boss of the Temple of Wind.",
@@ -44,6 +46,7 @@
         {
           "id": "crayk_heart",
           "name": "Crayk's Heart Container",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Temple of Courage",
           "howTo": "Defeat Crayk, the boss of the Temple of Courage.",
@@ -55,6 +58,7 @@
         {
           "id": "cubus_sisters_heart",
           "name": "Cubus Sisters's Heart Container",
+          "unlockedBy": ["temple_of_courage"],
           "region": "Northwestern Sea",
           "area": "Ghost Ship",
           "howTo": "Defeat the Cubus Sisters, the boss of the Ghost Ship.",
@@ -66,6 +70,7 @@
         {
           "id": "dongorongo_heart",
           "name": "Dongorongo's Heart Container",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Goron Temple",
           "howTo": "Defeat Dongorongo, the boss of the Goron Temple.",
@@ -77,6 +82,7 @@
         {
           "id": "gleeok_heart",
           "name": "Gleeok's Heart Container",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Temple of Ice",
           "howTo": "Defeat Gleeok, the boss of the Temple of Ice.",
@@ -88,6 +94,7 @@
         {
           "id": "eox_heart",
           "name": "Eox's Heart Container",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "area": "Mutoh's Temple",
           "howTo": "Defeat Eox, the boss of Mutoh's Temple.",
@@ -106,6 +113,7 @@
         {
           "id": "nyeve_heart",
           "name": "Nyeve's challenge",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Prince of Red Lions",
           "howTo": "Board Nyeve's ship, the Prince of Red Lions, in the Northwestern Sea, talk to him twice and hit him 100 times before he hits you three times.",
@@ -118,6 +126,7 @@
         {
           "id": "shooting_range_heart",
           "name": "Shooting Range",
+          "unlockedBy": ["temple_of_courage"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "howTo": "Score 2,000 points or more at Romanos's Shooting Range (20 Rupees a go), open after the Temple of Courage.",
@@ -131,6 +140,7 @@
         {
           "id": "masked_ship_heart",
           "name": "Masked Ship",
+          "unlockedBy": ["totok_1f"],
           "area": "Masked Ship",
           "howTo": "Buy it from Beedle's Assistant on the Masked Ship for 1,500 Rupees. The Masked Ship replaces Beedle's Shop Ship from 10pm to midnight on weekdays and 10am to noon on weekends, by the DS clock.",
           "reward": "Heart Container",
@@ -141,6 +151,7 @@
         {
           "id": "neptoona_heart",
           "name": "The Neptoona",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "howTo": "Catch a Neptoona at a black swordfish-shaped fish shadow and show it to the Old Wayfarer.",
@@ -154,6 +165,7 @@
         {
           "id": "island_shop_heart",
           "name": "Island Shop",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Mercay Island Shop",
           "howTo": "After the Goron Temple, and once you've bought the Bomb Bag, Quiver and Bombchu Bag upgrades, buy it for 2,000 Rupees at the Mercay, Molida or Goron Island Shop.",
@@ -166,6 +178,7 @@
         {
           "id": "treasure_maze_heart",
           "name": "Treasure Maze: Expert",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Maze Island",
           "howTo": "Clear the Treasure Maze's Expert level (100 Rupees): strike 14 Boing Statues in 120 seconds, then open the chest. Beginner and Normal come first.",

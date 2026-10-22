@@ -10,6 +10,7 @@
         {
           "id": "bright_prow",
           "name": "Bell Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -18,6 +19,7 @@
         {
           "id": "bright_anchor",
           "name": "Bell Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -26,6 +28,7 @@
         {
           "id": "bright_hull",
           "name": "Bright Hull",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -34,6 +37,7 @@
         {
           "id": "bright_cannon",
           "name": "Artistic Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Cannon"
@@ -42,6 +46,7 @@
         {
           "id": "bright_handrail",
           "name": "Arch Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Handrail"
@@ -50,6 +55,7 @@
         {
           "id": "bright_bridge",
           "name": "Restful Cabin",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Bridge"
@@ -58,6 +64,7 @@
         {
           "id": "bright_chimney",
           "name": "Elegant Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -66,6 +73,7 @@
         {
           "id": "bright_wheel",
           "name": "Paddling Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Wheel"
@@ -82,6 +90,7 @@
         {
           "id": "iron_prow",
           "name": "Drill Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -90,6 +99,7 @@
         {
           "id": "iron_anchor",
           "name": "Iron Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -98,6 +108,7 @@
         {
           "id": "iron_hull",
           "name": "Iron Hull",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -106,6 +117,7 @@
         {
           "id": "iron_cannon",
           "name": "Strong Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "notes": "Called the Staunch Cannon on IGN.",
           "tags": [
@@ -115,6 +127,7 @@
         {
           "id": "iron_handrail",
           "name": "Chain Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Handrail"
@@ -123,6 +136,7 @@
         {
           "id": "iron_bridge",
           "name": "Conning Tower",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "notes": "Called the Control Tower on IGN.",
           "tags": [
@@ -132,6 +146,7 @@
         {
           "id": "iron_chimney",
           "name": "Parasol Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -140,6 +155,7 @@
         {
           "id": "iron_wheel",
           "name": "Battle Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "notes": "Called the Screw Wheel on IGN.",
           "tags": [
@@ -157,6 +173,7 @@
         {
           "id": "stone_prow",
           "name": "Mermaid Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -165,6 +182,7 @@
         {
           "id": "stone_anchor",
           "name": "Ancient Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -173,6 +191,7 @@
         {
           "id": "stone_hull",
           "name": "Stone Hull",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -181,6 +200,7 @@
         {
           "id": "stone_cannon",
           "name": "Ancient Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Cannon"
@@ -189,6 +209,7 @@
         {
           "id": "stone_handrail",
           "name": "Pillar Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Handrail"
@@ -197,6 +218,7 @@
         {
           "id": "stone_bridge",
           "name": "Peaceful Bridge",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Bridge"
@@ -205,6 +227,7 @@
         {
           "id": "stone_chimney",
           "name": "Stone Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -213,6 +236,7 @@
         {
           "id": "stone_wheel",
           "name": "Rock Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "notes": "Called the Stone Wheel on IGN and StrategyWiki.",
           "tags": [
@@ -230,6 +254,7 @@
         {
           "id": "vintage_prow",
           "name": "Log Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -238,6 +263,7 @@
         {
           "id": "vintage_anchor",
           "name": "Swim Ring",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -246,6 +272,7 @@
         {
           "id": "vintage_hull",
           "name": "Vintage Hull",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -254,6 +281,7 @@
         {
           "id": "vintage_cannon",
           "name": "Meager Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Cannon"
@@ -262,6 +290,7 @@
         {
           "id": "vintage_handrail",
           "name": "Worn Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Handrail"
@@ -270,6 +299,7 @@
         {
           "id": "vintage_bridge",
           "name": "Barrel Shack",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Bridge"
@@ -278,6 +308,7 @@
         {
           "id": "vintage_chimney",
           "name": "Strange Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -286,6 +317,7 @@
         {
           "id": "vintage_wheel",
           "name": "Simple Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Wheel"
@@ -302,6 +334,7 @@
         {
           "id": "demon_prow",
           "name": "Demon Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -310,6 +343,7 @@
         {
           "id": "demon_anchor",
           "name": "Sickle Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -318,6 +352,7 @@
         {
           "id": "demon_hull",
           "name": "Demon Ship",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -326,6 +361,7 @@
         {
           "id": "demon_cannon",
           "name": "Fear Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Cannon"
@@ -334,6 +370,7 @@
         {
           "id": "demon_handrail",
           "name": "Spike Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "notes": "Called the Spiked Handrail on IGN and StrategyWiki.",
           "tags": [
@@ -343,6 +380,7 @@
         {
           "id": "demon_bridge",
           "name": "Demon Prison",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Bridge"
@@ -351,6 +389,7 @@
         {
           "id": "demon_chimney",
           "name": "Demon Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -359,6 +398,7 @@
         {
           "id": "demon_wheel",
           "name": "Insect Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Wheel"
@@ -375,6 +415,7 @@
         {
           "id": "tropical_prow",
           "name": "Tropical Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -383,6 +424,7 @@
         {
           "id": "tropical_anchor",
           "name": "Shell Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -391,6 +433,7 @@
         {
           "id": "tropical_hull",
           "name": "Tropical Ship",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -399,6 +442,7 @@
         {
           "id": "tropical_cannon",
           "name": "Seapony Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Cannon"
@@ -407,6 +451,7 @@
         {
           "id": "tropical_handrail",
           "name": "Wood Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Handrail"
@@ -415,6 +460,7 @@
         {
           "id": "tropical_bridge",
           "name": "Shell Apartment",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Bridge"
@@ -423,6 +469,7 @@
         {
           "id": "tropical_chimney",
           "name": "Horn Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -431,6 +478,7 @@
         {
           "id": "tropical_wheel",
           "name": "Shell Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "notes": "Called the Shell Paddle on IGN and StrategyWiki.",
           "tags": [
@@ -448,6 +496,7 @@
         {
           "id": "dignified_prow",
           "name": "Tourist Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Prow"
@@ -456,6 +505,7 @@
         {
           "id": "dignified_anchor",
           "name": "Weighty Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Anchor"
@@ -464,6 +514,7 @@
         {
           "id": "dignified_hull",
           "name": "Dignified Ship",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Hull"
@@ -472,6 +523,7 @@
         {
           "id": "dignified_cannon",
           "name": "Red Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Cannon"
@@ -480,6 +532,7 @@
         {
           "id": "dignified_handrail",
           "name": "Utility Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Handrail"
@@ -488,6 +541,7 @@
         {
           "id": "dignified_bridge",
           "name": "Practical Bridge",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Bridge"
@@ -496,6 +550,7 @@
         {
           "id": "dignified_chimney",
           "name": "Tall Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Chimney"
@@ -504,6 +559,7 @@
         {
           "id": "dignified_wheel",
           "name": "Red Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: Sunken Treasures, chests, Beedle and the island shops, and mini-game prizes all give a part from a random set.",
           "tags": [
             "Wheel"
@@ -520,6 +576,7 @@
         {
           "id": "golden_prow",
           "name": "Golden Prow",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Prow"
@@ -528,6 +585,7 @@
         {
           "id": "golden_anchor",
           "name": "Gem Anchor",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Anchor"
@@ -536,6 +594,7 @@
         {
           "id": "golden_hull",
           "name": "Golden Hull",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Hull"
@@ -544,6 +603,7 @@
         {
           "id": "golden_cannon",
           "name": "Golden Cannon",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Cannon"
@@ -552,6 +612,7 @@
         {
           "id": "golden_handrail",
           "name": "Golden Handrail",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Handrail"
@@ -560,6 +621,7 @@
         {
           "id": "golden_bridge",
           "name": "Golden Bridge",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Bridge"
@@ -568,6 +630,7 @@
         {
           "id": "golden_chimney",
           "name": "Golden Chimney",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Chimney"
@@ -576,6 +639,7 @@
         {
           "id": "golden_wheel",
           "name": "Golden Wheel",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Rare: Golden parts are the hardest to find. The Masked Ship sells them, and any random part source can give one.",
           "tags": [
             "Wheel"
@@ -594,41 +658,49 @@
         {
           "id": "pink_coral",
           "name": "Pink Coral",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "pearl_necklace",
           "name": "Pearl Necklace",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "dark_pearl_loop",
           "name": "Dark Pearl Loop",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "zora_scale",
           "name": "Zora Scale",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "goron_amber",
           "name": "Goron Amber",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "ruto_crown",
           "name": "Ruto Crown",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "helmaroc_plume",
           "name": "Helmaroc Plume",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         },
         {
           "id": "regal_ring",
           "name": "Regal Ring",
+          "unlockedBy": ["totok_1f"],
           "howTo": "Random: chests, Sunken Treasures, Beedle and mini-game prizes. Sell spares to the Treasure Teller on Mercay Island or to the Ho Ho Tribe."
         }
       ]
