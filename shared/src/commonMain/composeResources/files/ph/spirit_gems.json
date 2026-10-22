@@ -40,6 +40,7 @@
         {
           "id": "power_astrid_fire",
           "name": "Astrid's reward",
+          "unlockedBy": ["temple_of_fire"],
           "region": "Southwestern Sea",
           "area": "Isle of Ember",
           "howTo": "Astrid gives it to you after the Temple of Fire.",
@@ -49,6 +50,7 @@
         {
           "id": "power_bomb_garden",
           "name": "Bomb Garden Cavern",
+          "unlockedBy": ["totok_1f"],
           "region": "Southwestern Sea",
           "area": "Cannon Island",
           "howTo": "In a chest in the Bomb Garden Cavern, on the way to Eddo.",
@@ -57,6 +59,7 @@
         {
           "id": "power_gust_west_ledge",
           "name": "Isle of Gust west ledge",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Isle of Gust",
           "howTo": "In a chest on a raised platform along the island's west edge, reached by digging up an Updraft in the vent field.",
@@ -68,6 +71,7 @@
         {
           "id": "power_temple_of_wind",
           "name": "Temple of Wind B2",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Temple of Wind",
           "howTo": "In a chest on the west side of the Sandworm room on B2.",
@@ -76,6 +80,7 @@
         {
           "id": "power_oshus_wind",
           "name": "Oshus's reward",
+          "unlockedBy": ["temple_of_wind"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "howTo": "Talk to Oshus in his house after the Temple of Wind. If you don't, he mails it.",
@@ -85,6 +90,7 @@
         {
           "id": "power_mercay_bomb_cave",
           "name": "Mercay cave by the temple",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "howTo": "In a chest in the cave you bomb open on the path to the Temple of the Ocean King.",
@@ -96,6 +102,7 @@
         {
           "id": "power_totok_b4",
           "name": "Temple of the Ocean King B4",
+          "unlockedBy": ["temple_of_wind"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Defeat the three Phantom Eyes on B4 and open the chest that appears.",
@@ -104,6 +111,7 @@
         {
           "id": "power_courage_1f",
           "name": "Temple of Courage 1F",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Temple of Courage",
           "howTo": "In a chest in the north-west corner of 1F, behind a bombable wall between two tablets.",
@@ -115,6 +123,7 @@
         {
           "id": "power_courage_2f",
           "name": "Temple of Courage 2F",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Temple of Courage",
           "howTo": "Shoot the two Eyeball Switches in the south room of 2F for a chest.",
@@ -126,6 +135,7 @@
         {
           "id": "power_totok_b3",
           "name": "Temple of the Ocean King B3",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Shoot the Eyeball Switch in the north-east of B3 (seen from the trapdoor buttons' platform) for a chest by the pedestals.",
@@ -137,6 +147,7 @@
         {
           "id": "power_goron_north_maze",
           "name": "Goron Island North Maze",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Goron Island",
           "howTo": "In a chest in the North Maze on the way to the Goron Temple.",
@@ -148,6 +159,7 @@
         {
           "id": "power_great_ice_field",
           "name": "Great Ice Field ledge",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Isle of Frost",
           "howTo": "In a chest on a high ledge in the Great Ice Field.",
@@ -159,6 +171,7 @@
         {
           "id": "power_molida_cavern",
           "name": "Molida Island Cavern ledge",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "howTo": "In a chest on a high ledge in the Molida Island Cavern (the Old Wayfarer's first hideaway).",
@@ -170,6 +183,7 @@
         {
           "id": "power_spirit_island_east",
           "name": "Spirit Island east side",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Spirit Island",
           "howTo": "In a chest on the island's east side, across the channel.",
@@ -181,6 +195,7 @@
         {
           "id": "power_bannan_islet",
           "name": "Bannan Island islet",
+          "unlockedBy": ["goron_temple"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "howTo": "In a chest on a tiny island off the west side, south of its lower section.",
@@ -192,6 +207,7 @@
         {
           "id": "power_totok_b7",
           "name": "Temple of the Ocean King B7",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Hit the Shock Switch in the north-east of B7 for a large chest.",
@@ -203,6 +219,7 @@
         {
           "id": "power_dead_hidden_cave",
           "name": "Isle of the Dead hidden cave",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Isle of the Dead",
           "howTo": "In a chest behind a bombable wall in the island's hidden underground cave.",
@@ -215,6 +232,7 @@
         {
           "id": "power_ruins_maze",
           "name": "Isle of Ruins maze",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "area": "Isle of Ruins",
           "howTo": "After lowering the water, in a chest in the north-east of the maze.",
@@ -224,6 +242,7 @@
         {
           "id": "power_mutoh_letter",
           "name": "King Mutoh's letter",
+          "unlockedBy": ["mutohs_temple"],
           "howTo": "A letter from King Mutoh arrives at any Mailbox after Mutoh's Temple.",
           "after": "After Mutoh's Temple",
           "reward": "Power Gem"
@@ -240,6 +259,7 @@
         {
           "id": "wisdom_beedle_shop",
           "name": "Beedle's Shop Ship",
+          "unlockedBy": ["totok_1f"],
           "area": "Beedle's Shop Ship",
           "howTo": "Buy the 'Good Thing' from Beedle for 500 Rupees.",
           "reward": "Wisdom Gem"
@@ -247,6 +267,7 @@
         {
           "id": "wisdom_zauz_cucco",
           "name": "Zauz's Island chest",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Zauz's Island",
           "howTo": "Glide with a Cucco to the chest east of Zauz's Hut.",
@@ -255,6 +276,7 @@
         {
           "id": "wisdom_miniblin_pit",
           "name": "Isle of Gust Miniblin Pit",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Isle of Gust",
           "howTo": "In a chest in the Miniblin Pit cave, next to the one with Treasure Map #7.",
@@ -263,6 +285,7 @@
         {
           "id": "wisdom_salvatore_letter",
           "name": "Salvatore's letter",
+          "unlockedBy": ["temple_of_wind"],
           "howTo": "Play Salvatore's Cannon Game on Bannan Island once; a letter with the gem comes the next day.",
           "after": "After the Temple of Wind",
           "reward": "Wisdom Gem",
@@ -273,6 +296,7 @@
         {
           "id": "wisdom_astrid_wind",
           "name": "Astrid's fortune",
+          "unlockedBy": ["temple_of_wind"],
           "region": "Southwestern Sea",
           "area": "Isle of Ember",
           "howTo": "Have Astrid tell your fortune after the Temple of Wind.",
@@ -282,6 +306,7 @@
         {
           "id": "wisdom_molida_northern_woods",
           "name": "Molida Island Northern Woods",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "howTo": "Past the sun door, dig the soil patch at the entrance to the Northern Woods and open the chest below.",
@@ -294,6 +319,7 @@
         {
           "id": "wisdom_courage_b1",
           "name": "Temple of Courage B1",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Temple of Courage",
           "howTo": "Shoot the Arrow Aimer in the north-east part of B1 for a chest.",
@@ -305,6 +331,7 @@
         {
           "id": "wisdom_freedle_isle",
           "name": "Freedle's isle",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "howTo": "In a chest just east of Freedle on Mercay's north-east isle.",
@@ -317,6 +344,7 @@
         {
           "id": "wisdom_jolenes_letter",
           "name": "Jolene's Letter",
+          "unlockedBy": ["temple_of_courage"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "howTo": "After the Temple of Courage the Postman hands you Jolene's Letter; deliver it to Joanne in the Old Wayfarer's Hut.",
@@ -326,6 +354,7 @@
         {
           "id": "wisdom_totok_b9",
           "name": "Temple of the Ocean King B9",
+          "unlockedBy": ["ghost_ship"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Defeat the four Wizzrobes on B9 for a large chest.",
@@ -334,6 +363,7 @@
         {
           "id": "wisdom_biggoron_quiz",
           "name": "Biggoron's quiz",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Goron Island",
           "howTo": "Answer all six of Biggoron's questions correctly (20 Rupees a try).",
@@ -342,6 +372,7 @@
         {
           "id": "wisdom_ice_3f",
           "name": "Temple of Ice 3F",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Temple of Ice",
           "howTo": "In a chest at the west end of 3F; drop a Bomb on the switch to lower the blocks.",
@@ -353,6 +384,7 @@
         {
           "id": "wisdom_ice_b1",
           "name": "Temple of Ice B1",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Temple of Ice",
           "howTo": "In a chest in the locked north-east room of B1.",
@@ -364,6 +396,7 @@
         {
           "id": "wisdom_frost_southwest",
           "name": "Isle of Frost south-west",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Isle of Frost",
           "howTo": "In a chest on a raised platform in the south-west of the island.",
@@ -375,6 +408,7 @@
         {
           "id": "wisdom_aroo_letter",
           "name": "Aroo's letter",
+          "unlockedBy": ["temple_of_ice"],
           "howTo": "A letter from Aroo arrives at any Mailbox after the Temple of Ice.",
           "after": "After the Temple of Ice",
           "reward": "Wisdom Gem"
@@ -382,6 +416,7 @@
         {
           "id": "wisdom_totok_b2",
           "name": "Temple of the Ocean King B2",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Steer a Bombchu to the Shock Switch in the north-west corner of B2 for a chest.",
@@ -393,6 +428,7 @@
         {
           "id": "wisdom_maze_beginner",
           "name": "Treasure Maze: Beginner",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Maze Island",
           "howTo": "Clear the Treasure Maze's Beginner level (20 Rupees: four Boing Statues in 90 seconds).",
@@ -401,6 +437,7 @@
         {
           "id": "wisdom_maze_bomb_wall",
           "name": "Treasure Maze bomb wall",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Maze Island",
           "howTo": "In a chest behind a bombable wall in the centre-east of the maze, once the maze is open to explore.",
@@ -412,6 +449,7 @@
         {
           "id": "wisdom_bremeur_cave",
           "name": "Cave by Bremeur's Temple",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "area": "Isle of Ruins",
           "howTo": "After lowering the water, in a chest in a cave south-east of Bremeur's Temple.",
@@ -421,6 +459,7 @@
         {
           "id": "wisdom_max_boulder",
           "name": "Boulder by Max's Temple",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "area": "Isle of Ruins",
           "howTo": "Push the boulder across the bridge just north of Max's Temple to reach the chest.",
@@ -438,6 +477,7 @@
         {
           "id": "courage_spirit_island_dock",
           "name": "Spirit Island",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Spirit Island",
           "howTo": "In a chest east of the dock, on the field by the shrine.",
@@ -446,6 +486,7 @@
         {
           "id": "courage_masked_ship",
           "name": "Masked Ship",
+          "unlockedBy": ["totok_1f"],
           "area": "Masked Ship",
           "howTo": "Buy the 'Good Thing' from Beedle's Assistant for 500 Rupees (weekdays 10pm–midnight, weekends 10am–noon).",
           "reward": "Courage Gem"
@@ -453,6 +494,7 @@
         {
           "id": "courage_cavern_study",
           "name": "Isle of Gust Cavern Study",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Isle of Gust",
           "howTo": "Bomb the cracked wall into the hidden Cavern Study, the Old Wayfarer's old room, and open the chest.",
@@ -464,6 +506,7 @@
         {
           "id": "courage_temple_of_wind",
           "name": "Temple of Wind B1",
+          "unlockedBy": ["molida_fog_route"],
           "region": "Northwestern Sea",
           "area": "Temple of Wind",
           "howTo": "In a chest reached by riding the Gust Geysers on B1.",
@@ -472,6 +515,7 @@
         {
           "id": "courage_courage_3f",
           "name": "Temple of Courage 3F",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Temple of Courage",
           "howTo": "In a hidden room north of the Blue Light on 3F, behind a bombable wall.",
@@ -483,6 +527,7 @@
         {
           "id": "courage_mercay_north_cave",
           "name": "Mercay hidden cave",
+          "unlockedBy": ["salvage_sun_key"],
           "region": "Southwestern Sea",
           "area": "Mercay Island",
           "howTo": "Hit the Shock Switch south of the bridge to open the hidden cave in the north; the chest is inside.",
@@ -495,6 +540,7 @@
         {
           "id": "courage_totok_b8",
           "name": "Temple of the Ocean King B8",
+          "unlockedBy": ["ghost_ship"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Place the Triangle Crystal on the north pedestal of B8; a large chest appears on invisible ground.",
@@ -506,6 +552,7 @@
         {
           "id": "courage_linebeck_pirates",
           "name": "Linebeck's reward",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "SS Linebeck",
           "howTo": "Defeat the Pirate Miniblins that board the ship when you first enter the Southeastern Sea.",
@@ -515,6 +562,7 @@
         {
           "id": "courage_dee_ess_dig",
           "name": "Dee Ess Island dig spot",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Dee Ess Island",
           "howTo": "Dig at the bottom-left corner of the island's lower 'screen', where the Menu button would be.",
@@ -526,6 +574,7 @@
         {
           "id": "courage_dee_ess_hinox",
           "name": "Dee Ess Island Hinoxes",
+          "unlockedBy": ["totok_b7_b9"],
           "region": "Southeastern Sea",
           "area": "Dee Ess Island",
           "howTo": "Defeat the two Hinoxes in the pit of the upper 'screen' for a chest.",
@@ -534,6 +583,7 @@
         {
           "id": "courage_gongoron_letter",
           "name": "Gongoron's letter",
+          "unlockedBy": ["goron_temple"],
           "howTo": "A letter from Gongoron arrives at any Mailbox after the Goron Temple.",
           "after": "After the Goron Temple",
           "reward": "Courage Gem"
@@ -541,6 +591,7 @@
         {
           "id": "courage_goron_rooftop",
           "name": "Goron rooftop",
+          "unlockedBy": ["goron_temple"],
           "region": "Southeastern Sea",
           "area": "Goron Island",
           "howTo": "In a chest on top of a Goron's home in the south-west; grapple across from a nearby rock.",
@@ -552,6 +603,7 @@
         {
           "id": "courage_ember_islet",
           "name": "Isle of Ember islet",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Isle of Ember",
           "howTo": "In a chest on a tiny islet in the north-west of the island.",
@@ -563,6 +615,7 @@
         {
           "id": "courage_molida_islet",
           "name": "Molida Island islet",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Molida Island",
           "howTo": "In a chest on a tiny islet just west of the Temple of Courage.",
@@ -574,6 +627,7 @@
         {
           "id": "courage_bannan_salvatore_islet",
           "name": "Bannan islet by Salvatore",
+          "unlockedBy": ["goron_temple"],
           "region": "Northwestern Sea",
           "area": "Bannan Island",
           "howTo": "In one of the two chests on an islet north of Salvatore's Cannon Game.",
@@ -585,6 +639,7 @@
         {
           "id": "courage_uncharted_cave",
           "name": "Uncharted Island cave",
+          "unlockedBy": ["goron_temple"],
           "region": "Northwestern Sea",
           "area": "Uncharted Island",
           "howTo": "In a chest on a ledge in the island's central cave.",
@@ -596,6 +651,7 @@
         {
           "id": "courage_totok_b1",
           "name": "Temple of the Ocean King B1",
+          "unlockedBy": ["goron_temple"],
           "region": "Southwestern Sea",
           "area": "Temple of the Ocean King",
           "howTo": "Stretch a tightrope across the gap on B1 and shoot the Eyeball Switch from it for a large chest.",
@@ -608,6 +664,7 @@
         {
           "id": "courage_dead_rupoor_room",
           "name": "Isle of the Dead Rupoor room",
+          "unlockedBy": ["totok_b10_b13"],
           "region": "Northeastern Sea",
           "area": "Isle of the Dead",
           "howTo": "In one of the four chests at the back of the Rupoor-filled room behind the bombable wall in McNey's cave.",
@@ -619,6 +676,7 @@
         {
           "id": "courage_doylan_front",
           "name": "In front of Doylan's Temple",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "area": "Isle of Ruins",
           "howTo": "After lowering the water, in a chest in front of Doylan's Temple.",
@@ -628,6 +686,7 @@
         {
           "id": "courage_mutohs_temple",
           "name": "Mutoh's Temple B2",
+          "unlockedBy": ["isle_of_the_dead"],
           "region": "Northeastern Sea",
           "area": "Mutoh's Temple",
           "howTo": "In a chest in the south-west corner of B2.",
@@ -644,6 +703,7 @@
         {
           "id": "spirit_of_power",
           "name": "Spirit of Power (Leaf)",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Spirit Island",
           "notes": "Equip a powered-up spirit on the Collection Screen; only one at a time.",
@@ -663,6 +723,7 @@
         {
           "id": "spirit_of_wisdom",
           "name": "Spirit of Wisdom (Neri)",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Spirit Island",
           "tiers": [
@@ -681,6 +742,7 @@
         {
           "id": "spirit_of_courage",
           "name": "Spirit of Courage (Ciela)",
+          "unlockedBy": ["eddos_cannon"],
           "region": "Southwestern Sea",
           "area": "Spirit Island",
           "tiers": [

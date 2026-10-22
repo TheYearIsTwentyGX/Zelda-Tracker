@@ -186,4 +186,19 @@ class PhDatasetTest {
         val FILES = listOf("main_quest", "items", "heart_containers", "spirit_gems", "treasure_maps", "ship_parts", "sea_chart", "sidequests")
         val SEAS = listOf("Southwestern Sea", "Northwestern Sea", "Southeastern Sea", "Northeastern Sea")
     }
+    /**
+     * Story links (docs/ph.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and lists what's had on Mercay from the start.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = runTest {
+        val files = listOf("items", "heart_containers", "spirit_gems", "treasure_maps", "ship_parts", "sea_chart", "sidequests")
+        val links = files.flatMap { load(it).items }.associate { it.id to it.unlockedBy }
+        assertEquals(setOf("wooden_shield", "power_mercay_shop", "island_mercay"), links.filterValues { it.isEmpty() }.keys)
+        assertEquals(listOf("molida_fog_route"), links["island_bannan"], "the Northwestern Sea's storm needs the fog route")
+        assertEquals(listOf("goron_temple"), links["courage_ember_islet"], "the Grappling Hook, from the Temple of Ice")
+        assertEquals(listOf("ghost_ship"), links["wisdom_totok_b9"], "B7–B9 open after the Ghost Ship")
+        assertEquals(listOf("buy_salvage_arm"), links["sand_map_2"], "salvaged")
+        assertEquals(listOf("totok_1f"), links["golden_prow"], "random, once Link has a ship")
+    }
 }

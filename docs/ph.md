@@ -88,6 +88,50 @@ Nothing is missable for good. The Masked Ship and its Heart Container and Courag
 DS clock, not the story. Zelda Wiki says the S.S. Wayfarer, the last trade, appears only once, but
 only for that trade, so it can't be missed before you need it.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds PH's table.
+
+**Counts.** 249 of the 252 items outside the Main Quest are linked. The other 3 are had on Mercay
+from the start: the Wooden Shield, the shop's Power Gem and Mercay Island itself.
+
+**How a step was chosen.** An item is gated by the **latest** of the following.
+
+- *The sea it's in.* Each sea opens with its chart.
+
+  | Sea | Step |
+  |---|---|
+  | Southwestern | `totok_1f` (Linebeck's ship) |
+  | Northwestern | `molida_fog_route` (its storm needs the fog route) |
+  | Southeastern | `totok_b7_b9` |
+  | Northeastern | `totok_b10_b13` |
+- *Where it is.*
+  - Molida and Spirit Island are gated by `eddos_cannon`, since the Cannon breaks the rocks.
+  - The Isle of Ruins is gated by `isle_of_the_dead` (the Regal Necklace calms its cyclone).
+  - Each dungeon is gated by the step that opens it: the Temple of Courage by `salvage_sun_key`,
+    the Ghost Ship by `temple_of_courage`, and so on.
+- *The Temple of the Ocean King's floors.* B4–B6 open after the Temple of Wind, and B7–B9 after
+  the Ghost Ship.
+- *Gear, by tag.*
+
+  | Gear | Step |
+  |---|---|
+  | Shovel | `eddos_cannon` |
+  | Bombs, fishing | `molida_fog_route` |
+  | Bow | `salvage_sun_key` |
+  | Bombchus | `totok_b7_b9` |
+  | Grappling Hook | `goron_temple` |
+  | Hammer | `isle_of_the_dead` |
+- *Salvaging* ("Salvage it …") is gated by `buy_salvage_arm`. The golden frogs need the Cyclone
+  Slate (`molida_fog_route`).
+- *Ship parts and treasures* come at random from chests, salvage and shops, so they're gated by
+  `totok_1f`, once Link has a ship. Their `Cannon` tag is the part, not the item.
+
+`PhDatasetTest` spot-checks the links and lists the three start items.
+
 ## Sources
 
 - **Zelda Wiki** (zeldawiki.wiki, read as wikitext through its API): Power Gem, Wisdom Gem, Courage
