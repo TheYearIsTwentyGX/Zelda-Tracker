@@ -17,6 +17,7 @@
         {
           "id": "spirit_engine",
           "name": "Spirit Engine",
+          "unlockedBy": ["tower_forest_rail_map"],
           "howTo": "Anjean turns the statue in the Tower of Spirits' lobby into the Spirit Train after the first climb.",
           "tags": [
             "Engine"
@@ -26,6 +27,7 @@
         {
           "id": "practical_cannon",
           "name": "Practical Cannon",
+          "unlockedBy": ["alfonzo_cannon"],
           "howTo": "Alfonzo fits it in Aboda Village after you bring him home (after the Snow Rail Map).",
           "tags": [
             "Cannon"
@@ -34,6 +36,7 @@
         {
           "id": "solid_passenger_car",
           "name": "Solid Passenger Car",
+          "unlockedBy": ["tower_forest_rail_map"],
           "howTo": "Part of the Spirit Train from the start.",
           "tags": [
             "Passenger Car"
@@ -43,6 +46,7 @@
         {
           "id": "trusty_freight_car",
           "name": "Trusty Freight Car",
+          "unlockedBy": ["kagoron_mega_ice"],
           "howTo": "Kagoron lends it in Goron Village when he asks for Mega Ice.",
           "tags": [
             "Freight Car"
@@ -60,6 +64,7 @@
         {
           "id": "wooden_engine",
           "name": "Wooden Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Wood Hearts, 2 Star Fragments, 1 Dark Pearl Loop.",
           "tags": [
@@ -69,6 +74,7 @@
         {
           "id": "wooden_cannon",
           "name": "Wooden Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Wood Hearts, 1 Stalfos Skull, 1 Ruto Crown.",
           "tags": [
@@ -78,6 +84,7 @@
         {
           "id": "wood_passenger_car",
           "name": "Wood Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Wood Heart, 1 Bee Larvae, 1 Dragon Scale.",
           "tags": [
@@ -87,6 +94,7 @@
         {
           "id": "wooden_freight_car",
           "name": "Wooden Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Wood Heart, 2 Demon Fossils, 1 Pearl Necklace.",
           "tags": [
@@ -104,6 +112,7 @@
         {
           "id": "steel_engine",
           "name": "Steel Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pearl Necklaces, 1 Ruto Crown, 1 Goron Amber.",
           "tags": [
@@ -113,6 +122,7 @@
         {
           "id": "heavy_cannon",
           "name": "Heavy Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pearl Necklaces, 2 Dragon Scales, 1 Mystic Jade.",
           "tags": [
@@ -122,6 +132,7 @@
         {
           "id": "sturdy_passenger_car",
           "name": "Sturdy Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pearl Necklaces, 3 Pirate Necklaces, 1 Ancient Gold Piece.",
           "tags": [
@@ -131,6 +142,7 @@
         {
           "id": "efficient_freight_car",
           "name": "Efficient Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pearl Necklaces, 2 Dark Pearl Loops, 1 Goron Amber.",
           "tags": [
@@ -148,6 +160,7 @@
         {
           "id": "skull_engine",
           "name": "Skull Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 4 Stalfos Skulls, 3 Bee Larvae, 2 Ruto Crowns.",
           "tags": [
@@ -157,6 +170,7 @@
         {
           "id": "skull_cannon",
           "name": "Skull Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Stalfos Skulls, 3 Demon Fossils, 1 Dragon Scale.",
           "tags": [
@@ -166,6 +180,7 @@
         {
           "id": "skull_passenger_car",
           "name": "Skull Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 3 Stalfos Skulls, 2 Star Fragments, 1 Pearl Necklace.",
           "tags": [
@@ -175,6 +190,7 @@
         {
           "id": "skull_freight_car",
           "name": "Skull Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Stalfos Skulls, 4 Wood Hearts, 2 Pirate Necklaces.",
           "tags": [
@@ -192,6 +208,7 @@
         {
           "id": "stagecoach_engine",
           "name": "Stagecoach Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 3 Dragon Scales, 8 Bee Larvae.",
           "tags": [
@@ -201,6 +218,7 @@
         {
           "id": "tower_cannon",
           "name": "Tower Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 3 Dark Pearl Loops, 2 Pirate Necklaces.",
           "tags": [
@@ -211,6 +229,7 @@
         {
           "id": "quaint_passenger_car",
           "name": "Quaint Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 3 Ruto Crowns, 5 Star Fragments.",
           "tags": [
@@ -220,6 +239,7 @@
         {
           "id": "garden_freight_car",
           "name": "Garden Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Ancient Gold Piece, 2 Pearl Necklaces, 7 Stalfos Skulls.",
           "tags": [
@@ -237,6 +257,7 @@
         {
           "id": "dragonhead_engine",
           "name": "Dragonhead Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pirate Necklaces, 1 Mystic Jade, 12 Demon Fossils.",
           "tags": [
@@ -246,6 +267,7 @@
         {
           "id": "dragon_cannon",
           "name": "Dragon Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pirate Necklaces, 1 Goron Amber, 9 Wood Hearts.",
           "tags": [
@@ -255,6 +277,7 @@
         {
           "id": "dragon_passenger_car",
           "name": "Dragon Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Pirate Necklace, 3 Dark Pearl Loops, 8 Demon Fossils.",
           "tags": [
@@ -264,6 +287,7 @@
         {
           "id": "dragon_freight_car",
           "name": "Dragon Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 2 Pirate Necklaces, 2 Ruto Crowns, 6 Bee Larvae.",
           "tags": [
@@ -281,6 +305,7 @@
         {
           "id": "sweet_engine",
           "name": "Sweet Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Palace Dish, 2 Mystic Jades, 1 Ancient Gold Piece.",
           "tags": [
@@ -290,6 +315,7 @@
         {
           "id": "honey_cannon",
           "name": "Honey Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Palace Dish, 5 Pearl Necklaces, 1 Goron Amber.",
           "tags": [
@@ -299,6 +325,7 @@
         {
           "id": "cake_passenger_car",
           "name": "Cake Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Palace Dish, 3 Dragon Scales, 4 Ruto Crowns.",
           "tags": [
@@ -308,6 +335,7 @@
         {
           "id": "pie_freight_car",
           "name": "Pie Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Palace Dish, 1 Goron Amber, 3 Dark Pearl Loops.",
           "tags": [
@@ -325,6 +353,7 @@
         {
           "id": "golden_engine",
           "name": "Golden Engine",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Alchemy Stone, 2 Ancient Gold Pieces, 3 Mystic Jades.",
           "tags": [
@@ -334,6 +363,7 @@
         {
           "id": "brawny_cannon",
           "name": "Brawny Cannon",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Alchemy Stone, 3 Palace Dishes, 2 Goron Ambers.",
           "tags": [
@@ -344,6 +374,7 @@
         {
           "id": "royal_passenger_car",
           "name": "Royal Passenger Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Regal Ring, 4 Dragon Scales, 2 Ancient Gold Pieces.",
           "tags": [
@@ -354,6 +385,7 @@
         {
           "id": "golden_freight_car",
           "name": "Golden Freight Car",
+          "unlockedBy": ["trading_post_bridge"],
           "area": "Trading Post",
           "howTo": "Trade Linebeck III 1 Regal Ring, 4 Pearl Necklaces, 1 Mystic Jade.",
           "tags": [

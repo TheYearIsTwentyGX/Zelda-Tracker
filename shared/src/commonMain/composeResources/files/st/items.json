@@ -20,6 +20,7 @@
         {
           "id": "sword",
           "name": "Sword",
+          "unlockedBy": ["recruits_sword"],
           "area": "Hyrule Castle",
           "tiers": [
             {
@@ -36,6 +37,7 @@
         {
           "id": "spirit_flute",
           "name": "Spirit Flute",
+          "unlockedBy": ["recruits_sword"],
           "area": "Hyrule Castle",
           "howTo": "After the disaster, Zelda's spirit asks you to bring it from her chamber in Hyrule Castle.",
           "notes": "Played by blowing into the microphone while sliding the pipes. Anjean gave it to Zelda's ancestors."
@@ -50,12 +52,14 @@
         {
           "id": "whirlwind",
           "name": "Whirlwind",
+          "unlockedBy": ["gage_duet"],
           "area": "Forest Temple",
           "howTo": "The dungeon item of the Forest Temple: the chest after the four Vengas on 2F."
         },
         {
           "id": "stamp_book",
           "name": "Stamp Book",
+          "unlockedBy": ["alfonzo_cannon"],
           "area": "Aboda Village",
           "howTo": "Niko gives it in your house after you bring Alfonzo home to Aboda Village.",
           "notes": "The stamps are in their own tracker."
@@ -63,6 +67,7 @@
         {
           "id": "rabbit_net",
           "name": "Rabbit Net",
+          "unlockedBy": ["tower_snow_rail_map"],
           "area": "Rabbitland Rescue",
           "howTo": "Stop at Rabbitland Rescue on the north-west line towards the Snow Realm and tell Bunnio how much you love rabbits.",
           "notes": "The rabbits are in their own tracker."
@@ -70,12 +75,14 @@
         {
           "id": "boomerang",
           "name": "Boomerang",
+          "unlockedBy": ["steem_duet"],
           "area": "Snow Temple",
           "howTo": "The dungeon item of the Snow Temple: the chest after the three Ice Keese on B1."
         },
         {
           "id": "shield_of_antiquity",
           "name": "Shield of Antiquity",
+          "unlockedBy": ["alfonzo_cannon"],
           "area": "Aboda Village",
           "howTo": "Show Niko 10 stamps in the Stamp Book.",
           "notes": "The Hero of Winds' shield from Phantom Hourglass. Like Likes can't eat it. Swap shields at the fireplace in your house. Needed for speedrun.com's 100%."
@@ -83,12 +90,14 @@
         {
           "id": "whip",
           "name": "Whip",
+          "unlockedBy": ["carben_duet"],
           "area": "Ocean Temple",
           "howTo": "The dungeon item of the Ocean Temple: beat the Snapper on 3F."
         },
         {
           "id": "engineers_clothes",
           "name": "Engineer's Clothes",
+          "unlockedBy": ["alfonzo_cannon"],
           "area": "Aboda Village",
           "howTo": "Show Niko 15 stamps in the Stamp Book; talk to him to switch between them and the Recruit Uniform.",
           "notes": "The clothes Link starts in. No effect in play. Needed for speedrun.com's 100%."
@@ -96,6 +105,7 @@
         {
           "id": "bow",
           "name": "Bow",
+          "unlockedBy": ["fire_temple_keys"],
           "tiers": [
             {
               "name": "Bow",
@@ -112,6 +122,7 @@
         {
           "id": "sand_wand",
           "name": "Sand Wand",
+          "unlockedBy": ["three_trials"],
           "area": "Sand Temple",
           "howTo": "The dungeon item of the Sand Temple: past the three Stalfos Warriors on 3F."
         }
@@ -126,6 +137,7 @@
         {
           "id": "bomb_bag",
           "name": "Bomb Bag",
+          "unlockedBy": ["snow_temple"],
           "value": 10,
           "notes": "IGN says the first bag holds 20; Zelda Wiki and Zelda Dungeon say 10, 20 and 30.",
           "tiers": [
@@ -146,6 +158,7 @@
         {
           "id": "quiver",
           "name": "Quiver",
+          "unlockedBy": ["fire_temple_keys"],
           "notes": "The two upgrades are 30 and 50 arrows. Which source gives which differs: the Goron store gives 30 and the Pirate Hideout 50 (Zelda Wiki, IGN), or the reverse (Zelda Dungeon). Most likely whichever you get first gives 30.",
           "tiers": [
             {
@@ -176,6 +189,7 @@
         {
           "id": "great_spin_attack",
           "name": "Great Spin Attack",
+          "unlockedBy": ["tower_byrne"],
           "area": "Aboda Village",
           "howTo": "Show Niko all 20 stamps.",
           "reward": "Swordsman's Scroll: three spin attacks in a row",
@@ -184,6 +198,7 @@
         {
           "id": "sword_beam",
           "name": "Sword Beam",
+          "unlockedBy": ["tower_byrne"],
           "area": "Rabbitland Rescue",
           "howTo": "Bring all 50 rabbits to Bunnio at Rabbitland Rescue.",
           "reward": "Swordsman's Scroll: sword beams at full health"

@@ -16,6 +16,7 @@
         {
           "id": "take_em_all_on_1",
           "name": "Take 'Em All On! level 1",
+          "unlockedBy": ["forest_temple"],
           "region": "Forest Realm",
           "area": "Castle Town",
           "howTo": "The green door in the building at the south-east of Castle Town (50 Rupees): 10 rooms ending with Stagnox. No hearts drop, so bring potions.",
@@ -29,6 +30,7 @@
         {
           "id": "russell_training",
           "name": "Russell's training",
+          "unlockedBy": ["snow_temple"],
           "region": "Forest Realm",
           "area": "Hyrule Castle",
           "howTo": "After the Snow Temple, answer Russell's letter: land 60 hits on his three guards before taking three hits.",
@@ -42,6 +44,7 @@
         {
           "id": "beedle_membership",
           "name": "Beedle's club",
+          "unlockedBy": ["snow_temple"],
           "area": "Beedle's Air Shop",
           "howTo": "Buy something from Beedle, then join his club for 100 Rupees; the cards come by post. One point per 10 Rupees spent.",
           "after": "Snow Temple",
@@ -79,6 +82,7 @@
         {
           "id": "whip_race_bomb_bag",
           "name": "Whip Race: under 1:30",
+          "unlockedBy": ["ocean_temple"],
           "region": "Forest Realm",
           "area": "Whittleton, north-east",
           "howTo": "Swing across north Whittleton with the Whip to the race in the north-east corner (50 Rupees) and finish in under 1:30.",
@@ -93,6 +97,7 @@
         {
           "id": "whip_race_fast",
           "name": "Whip Race: under 1:15",
+          "unlockedBy": ["ocean_temple"],
           "region": "Forest Realm",
           "area": "Whittleton, north-east",
           "howTo": "Finish the Whip Race in under 1:15 without falling.",
@@ -109,6 +114,7 @@
         {
           "id": "take_em_all_on_2",
           "name": "Take 'Em All On! level 2",
+          "unlockedBy": ["ocean_temple"],
           "region": "Forest Realm",
           "area": "Castle Town",
           "howTo": "The blue door (50 Rupees): 14 rooms with Stagnox, Fraaz and Phytops.",
@@ -125,6 +131,7 @@
         {
           "id": "snowdrift_station_dungeon",
           "name": "Snowdrift Station",
+          "unlockedBy": ["kagoron_mega_ice"],
           "region": "Snow Realm",
           "area": "Snowdrift Station cave",
           "howTo": "The four side chambers each hold a clue to the five switches. From the high platform hit, left to right, the 1st, 4th, 2nd and 5th with one Boomerang throw (not the middle one), then beat the Freezards.",
@@ -138,6 +145,7 @@
         {
           "id": "slippery_station_rink",
           "name": "Slippery Station skating rink",
+          "unlockedBy": ["kagoron_mega_ice"],
           "region": "Snow Realm",
           "area": "Slippery Station cave",
           "howTo": "Step on a course's switch and skate to its door before it shuts: bottom switch Amateur, middle Pro, top Champion. Cut the corners and use the patches of solid ground.",
@@ -163,6 +171,7 @@
         {
           "id": "goron_target_range",
           "name": "Goron Target Range",
+          "unlockedBy": ["fire_temple"],
           "region": "Fire Realm",
           "area": "Goron Target Range",
           "howTo": "20 Rupees a go: shoot blue targets (10 points) and red ones (30, up to three hits), not the Goron targets (minus 30). Pick one of two chests at the end.",
@@ -185,6 +194,7 @@
         {
           "id": "disorientation_station_cave",
           "name": "Disorientation Station",
+          "unlockedBy": ["fire_temple"],
           "region": "Fire Realm",
           "area": "Disorientation Station cave",
           "howTo": "Climb to the Castle Guard (Song of Birds and Whip for the ledges), then in the maze go east, south, north and north. Beat the Fire Babas and play the Song of Discovery by the stone block in the north-east.",
@@ -199,6 +209,7 @@
         {
           "id": "pirate_hideout_quiver",
           "name": "Pirate Hideout: 3,000 points",
+          "unlockedBy": ["fire_temple"],
           "region": "Ocean Realm",
           "area": "Pirate Hideout",
           "howTo": "After freeing Wadatsumi, play the shooting gallery again (a Goron is the prisoner now) and score 3,000–3,999. Hit Miniblins in a row for the multiplier.",
@@ -213,6 +224,7 @@
         {
           "id": "pirate_hideout_high_score",
           "name": "Pirate Hideout: 4,000 points",
+          "unlockedBy": ["fire_temple"],
           "region": "Ocean Realm",
           "area": "Pirate Hideout",
           "howTo": "Score 4,000 or more in the Pirate Hideout's shooting gallery.",
@@ -229,6 +241,7 @@
         {
           "id": "take_em_all_on_3",
           "name": "Take 'Em All On! level 3",
+          "unlockedBy": ["sand_temple"],
           "region": "Forest Realm",
           "area": "Castle Town",
           "howTo": "The red door (50 Rupees): 15 rooms with all five temple bosses, then Dark Link. Bring two potions and the Great Spin Attack.",
@@ -244,6 +257,7 @@
         {
           "id": "ends_of_the_earth_puzzles",
           "name": "Ends of the Earth block puzzles",
+          "unlockedBy": ["sand_temple"],
           "region": "Fire Realm",
           "area": "Ends of the Earth Station",
           "howTo": "Each of the three caves has three Sand Wand block-rolling puzzles: roll every block until its blue spike sits in a blue panel.",
@@ -271,6 +285,7 @@
         {
           "id": "lost_at_sea_station_dungeon",
           "name": "Lost at Sea Station",
+          "unlockedBy": ["sand_temple"],
           "region": "Ocean Realm",
           "area": "Lost at Sea Station",
           "howTo": "Ride a bird (Song of Birds and Whip) up the cliff, play the Song of Light at the beacon and bomb the wall it lights. Then clear five Phantom floors without the sword or bow: light the torches, blow out 13 torches, pull the right handles, smash every block and open all four chests.",
