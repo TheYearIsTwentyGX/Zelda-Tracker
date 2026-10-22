@@ -18,6 +18,7 @@
         {
           "id": "male_beetle",
           "name": "Male Beetle",
+          "unlockedBy": ["forest_temple"],
           "region": "Faron Province",
           "area": "Hyrule Field, Faron Province",
           "howTo": "From the Faron Woods exit, follow the path north and veer slightly west where the ground rises: the beetle is on the trunk of a tree there.",
@@ -26,6 +27,7 @@
         {
           "id": "female_beetle",
           "name": "Female Beetle",
+          "unlockedBy": ["forest_temple"],
           "region": "Faron Province",
           "area": "Hyrule Field, Faron Province, northeast corner",
           "howTo": "On a tree trunk on a high, unreachable ledge at the northeast corner of the field. Walk the path north to south so you can see the north side of the trunk, then pull it down with the Gale Boomerang.",
@@ -37,6 +39,7 @@
         {
           "id": "male_ant",
           "name": "Male Ant",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Eldin Province",
           "area": "Kakariko Graveyard",
           "howTo": "On the ground by the tree in the northeast part of the graveyard.",
@@ -45,6 +48,7 @@
         {
           "id": "female_ant",
           "name": "Female Ant",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Eldin Province",
           "area": "Kakariko Village, empty house",
           "howTo": "On the floor of the boarded-up houses along the east side of the village, the third one (the one you can enter), next to Barnes Bombs.",
@@ -53,6 +57,7 @@
         {
           "id": "female_pill_bug",
           "name": "Female Pill Bug",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Eldin Province",
           "area": "Kakariko Gorge, southeast",
           "howTo": "In the southeast part of Kakariko Gorge there are four trees; the bug is by the second-southernmost one and may crawl into the tall grass. Listen for its chime.",
@@ -61,6 +66,7 @@
         {
           "id": "male_pill_bug",
           "name": "Male Pill Bug",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Eldin Province",
           "area": "Kakariko Gorge, by the bridge",
           "howTo": "Cross the wooden bridge over Kakariko Gorge toward Kakariko and turn right: it is in the open where the fence meets the cliff.",
@@ -69,6 +75,7 @@
         {
           "id": "female_grasshopper",
           "name": "Female Grasshopper",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Hyrule Field north of Kakariko Village",
           "howTo": "Hopping around in the open in the northwest part of the field north of Kakariko. Leevers keep surfacing here.",
@@ -77,6 +84,7 @@
         {
           "id": "male_grasshopper",
           "name": "Male Grasshopper",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Hyrule Field north of Kakariko Village",
           "howTo": "In the south-central part of the same field, just west of the short rock wall (a vertical line on the map). It is fast; the Gale Boomerang helps.",
@@ -85,6 +93,7 @@
         {
           "id": "male_phasmid",
           "name": "Male Phasmid",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Bridge of Eldin, south end",
           "howTo": "As you reach the bridge from the south, it is high on the right-hand pillar of the gateway. Pull it down with the Gale Boomerang or Clawshot.",
@@ -96,6 +105,7 @@
         {
           "id": "female_phasmid",
           "name": "Female Phasmid",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Bridge of Eldin, north end",
           "howTo": "Cross to the north end of the bridge, turn right and look up at the high ledge. Creep to the edge and snag it with the Gale Boomerang, or Clawshot up to the ledge.",
@@ -107,6 +117,7 @@
         {
           "id": "female_ladybug",
           "name": "Female Ladybug",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field south of Castle Town",
           "howTo": "Leave Castle Town by the south gate, cross the bridge and go down the steps on the right: it is on the middle of three trees beside the pool. It flies off when approached, so chase it.",
@@ -115,6 +126,7 @@
         {
           "id": "male_ladybug",
           "name": "Male Ladybug",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field south of Castle Town",
           "howTo": "On the east side of the same field, on or around the big stone pillar (the tower crows circle) among the flowers.",
@@ -123,6 +135,7 @@
         {
           "id": "male_butterfly",
           "name": "Male Butterfly",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field west of Castle Town",
           "howTo": "Follow the road south of Castle Town's west gate to a patch of pink flowers; the butterfly flutters around them.",
@@ -132,6 +145,7 @@
         {
           "id": "female_butterfly",
           "name": "Female Butterfly",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field west of Castle Town, high ledge",
           "howTo": "On the high ledge just north of the road to the Great Bridge of Hylia, flying around flowers. Get close enough below to hit it with the Gale Boomerang, or Clawshot up to the ledge.",
@@ -143,6 +157,7 @@
         {
           "id": "female_mantis",
           "name": "Female Mantis",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Great Bridge of Hylia field",
           "howTo": "Coming from the south, cross the small wooden bridge and look high on the rock wall to the left, under the overhang. Pull it down with the Gale Boomerang.",
@@ -154,6 +169,7 @@
         {
           "id": "male_mantis",
           "name": "Male Mantis",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Great Bridge of Hylia, north end",
           "howTo": "Under the arch at the north end of the bridge; it flits in and out of the pillars, so wait if you don't see it. Gale Boomerang.",
@@ -165,6 +181,7 @@
         {
           "id": "male_stag_beetle",
           "name": "Male Stag Beetle",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field north of Castle Town",
           "howTo": "Enter the north field and follow the path to the fork: it is on the lone tree stump straight ahead, west of the river from Zora's Domain.",
@@ -173,6 +190,7 @@
         {
           "id": "female_stag_beetle",
           "name": "Female Stag Beetle",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field north of Castle Town, mountain path",
           "howTo": "Climb the mountain path at the north of the field and keep to the lower path at the fork until an opening with a bombable boulder: the bug is on the wall above it. Gale Boomerang.",
@@ -184,6 +202,7 @@
         {
           "id": "male_dragonfly",
           "name": "Male Dragonfly",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Zora's Domain, waterfall basin",
           "howTo": "In the basin at the bottom of the Zora's Domain waterfall, climb up to the dry ground on the east side; it hovers near some boxes.",
@@ -192,6 +211,7 @@
         {
           "id": "female_dragonfly",
           "name": "Female Dragonfly",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Upper Zora's River, Iza's Boat Rental",
           "howTo": "Hovering over the water in front of Iza's boat rental. Stand at the water's edge and pull it in with the Gale Boomerang.",
@@ -203,6 +223,7 @@
         {
           "id": "male_snail",
           "name": "Male Snail",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Faron Province",
           "area": "Sacred Grove",
           "howTo": "Near the guardian statues, take the left of the two openings, turn around and look up: the snail is high on the wall or ceiling. Pull it down with the Gale Boomerang.",
@@ -214,6 +235,7 @@
         {
           "id": "male_dayfly",
           "name": "Male Dayfly",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Gerudo Desert, south-central",
           "howTo": "Out in the open in the south-central desert, just northeast of a large rock and south of the wooden gates you can ram with a boar. It shows up best at night.",
@@ -222,6 +244,7 @@
         {
           "id": "female_dayfly",
           "name": "Female Dayfly",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Gerudo Desert, trenches north of the statue ruin",
           "howTo": "West of the male, find the ruin with a statue and a chest on a pillar. Of the trenches just north of it, the bug is in the northern one, on the wall.",
@@ -230,6 +253,7 @@
         {
           "id": "female_snail",
           "name": "Female Snail",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Faron Province",
           "area": "Sacred Grove: Temple of Time entrance hall",
           "howTo": "Inside the Temple of Time, go down the entrance stairs and U-turn to the right: it is on the wall beside the steps. Gale Boomerang.",
@@ -251,6 +275,7 @@
         {
           "id": "agitha_first_bug",
           "name": "First Golden Bug",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Agitha's Castle, Castle Town",
           "howTo": "Talk to Agitha in her castle off Castle Town's south road and hand her any Golden Bug.",
@@ -261,6 +286,7 @@
         {
           "id": "agitha_all_bugs",
           "name": "All 24 Golden Bugs",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Agitha's Castle, Castle Town",
           "howTo": "Give Agitha the rest of the 24 bugs. Turning them in as you go pays 1,650 Rupees in all; don't hand one over when your wallet can't hold the payment.",

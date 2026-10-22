@@ -139,6 +139,64 @@ sources differ) loses "Dear Adventurer (2)". Everything else stays available unt
 - **zeldaret/tp**, the decompilation, for the letters' triggers (`d_meter2_info.cpp`) and the
   Ooccoo flags.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds TP's table.
+
+**Counts.** 360 of the 365 items outside the Main Quest are linked. The other 5 can be had in Ordon
+from the first day: the Fishing Rod, the Slingshot, Sera's Bottle, the Greengill and the Ordon
+Catfish.
+
+**How a step was chosen:**
+
+- *Inside a dungeon*, chests, Poes, stamps and the boss's Heart Container are gated by the step
+  that opens the dungeon:
+
+  | Dungeon | Step that opens it |
+  |---|---|
+  | Forest Temple | `faron_twilight` |
+  | Goron Mines | `wrestle_bo` (the Iron Boots) |
+  | Lakebed Temple | `rutela_gift` (the Zora Armor) |
+  | Arbiter's Grounds | `gerudo_desert` |
+  | Snowpeak Ruins | `reekfish_scent` |
+  | Temple of Time | `snowpeak_ruins` |
+  | City in the Sky | `sky_characters` |
+  | Palace of Twilight | `city_in_the_sky` |
+  | Hyrule Castle | `palace_of_twilight` |
+
+  When an item needs something from a later dungeon, the later step wins. One HD stamp in the
+  Goron Mines needs the Clawshot, so it's gated by `lakebed_temple`.
+- *Provinces*: Link is human in a province once its Twilight lifts, so Faron, Eldin and Lanayru are
+  gated by `faron_twilight`, `eldin_twilight` and `lanayru_twilight`. The Gerudo Desert and the
+  Bridge of Eldin's middle are gated by `gerudo_desert`, and Snowpeak by `reekfish_scent`.
+- *The `after` text*:
+  - a dungeon named alone ("After Goron Mines") is gated by that dungeon's step;
+  - a dungeon named with its item ("Arbiter's Grounds (Spinner)") is gated by the step that opens
+    the dungeon, since that's when you can first have the item.
+- *Wolf Link at will* comes with the Shadow Crystal (`draw_master_sword`). So Poes outside the
+  dungeons, Jovani's rewards and the Ghost Lantern are gated by it. The exception is Jovani's own
+  Poe, met as a wolf after the Lakebed Temple.
+- *The Cave of Ordeals*:
+  - Only some floors name what they need (1, 11, 21, 31 and 41). Each floor in between inherits
+    the gate of the last floor that did.
+  - So floors 1–20 are gated by `gerudo_desert`, 21–30 by `reekfish_scent` (the Ball and Chain),
+    31–40 by `ilia_memory` (the restored Dominion Rod) and 41–50 by `sky_characters` (the Double
+    Clawshots).
+  - The Cave of Shadows follows the same rule.
+- *Hidden Skills* follow their Howling Stones, since each skill requires its stone.
+- *Judgement calls*, all gated as early as the sources allow:
+  - The Malo Mart bridge fund, its Springwater Rush and the Castle Town branch (and the Magic Armor)
+    come after the Master Sword.
+  - The Wooden Shield is gated by `eldin_twilight`, when Malo opens in Kakariko. The Hylian Shield
+    is gated by `king_bulblin_bridge`, once Colin is back.
+  - Twili Midna, the 50th stamp, needs the other 49, so it's gated by `palace_of_twilight`.
+
+`TpDatasetTest` spot-checks the links and lists the five start items, so a new item can't go
+unreviewed.
+
 ## Discrepancies
 
 ### Counts

@@ -27,6 +27,7 @@
         {
           "id": "talo_target_practice",
           "name": "Talo's target practice",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Kakariko Village",
           "howTo": "Talk to Talo on the lookout and hit the three targets around the village with the Hero's Bow.",
@@ -40,6 +41,7 @@
         {
           "id": "iza_river_bomb_bag",
           "name": "Iza's blocked river",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Iza's Boat Rental, Upper Zora's River",
           "howTo": "Iza lends you a Bomb Bag. Blow up the boulders at her cabin and then down the river with Bomb Arrows from the canoe.",
@@ -53,6 +55,7 @@
         {
           "id": "iza_rapids_ride",
           "name": "Iza's Rapid Ride",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Iza's Boat Rental, Upper Zora's River",
           "howTo": "Pay 20 Rupees and ride the rapids to Lake Hylia shooting jars with Bomb Arrows: yellow +1, red +2, -1 per bump. Score 25 or more.",
@@ -69,6 +72,7 @@
         {
           "id": "fishing_hole_sinking_lure",
           "name": "Sinking Lure",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hena's Fishing Hole, Upper Zora's River",
           "howTo": "After catching a Hyrule Bass, an Ordon Catfish and a Hylian Pike by lure fishing (canoe, 20 Rupees), the lure shows up at the highest point of the east bank or the west end of the south bank. Reel it in with the Fishing Rod.",
@@ -82,6 +86,7 @@
         {
           "id": "rollgoal",
           "name": "Rollgoal",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hena's Hut, Fishing Hole",
           "howTo": "Look at the board beside the door in first person and play for 5 Rupees a try: tilt it to roll the ball to the goal in time. Each level cleared pays 10 Rupees; a new layout is ready each time you re-enter the hut.",
@@ -104,6 +109,7 @@
         {
           "id": "charlo_donations",
           "name": "Charlo's donations",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Castle Town, west road by the goat pens",
           "howTo": "Donate 30 or 50 Rupees at a time to the beggar Charlo until you have given 1,000 in all.",
@@ -117,6 +123,7 @@
         {
           "id": "star_game_big_quiver",
           "name": "STAR Game",
+          "unlockedBy": ["rutela_gift"],
           "region": "Lanayru Province",
           "area": "STAR tent, west Castle Town",
           "howTo": "Pay Purlo 10 Rupees and grab every glowing orb in the cage before time runs out, Clawshotting between the ceiling grates.",
@@ -130,6 +137,7 @@
         {
           "id": "malo_mart_bridge",
           "name": "Malo Mart: bridge donation",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Eldin Province",
           "area": "Malo Mart, Kakariko Village",
           "howTo": "Gor Ebizo at Malo Mart asks for donations to the townspeople-relief plan. Give 1,000 Rupees in total to repair the bridge to Castle Town's east gate.",
@@ -142,6 +150,7 @@
         {
           "id": "hot_springwater",
           "name": "Hot springwater delivery",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Eldin Province",
           "area": "Kakariko Village to the bridge east of Castle Town",
           "howTo": "Talk to the worn-out Goron at the repaired bridge, then get a barrel of hot springwater from Gor Liggs in Kakariko and carry it across the field without being hit. Throw it on the Goron.",
@@ -154,6 +163,7 @@
         {
           "id": "castle_town_malo_mart",
           "name": "Malo Mart: Castle Town branch",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Eldin Province",
           "area": "Malo Mart, Kakariko Village",
           "howTo": "Donate the rest at Kakariko Malo Mart: 200 Rupees after the hot springwater delivery, 2,000 without it. Malo Mart buys Chudley's Emporium in Castle Town; the Postman's letter \"Heroes, Come Together\" announces the opening.",
@@ -168,6 +178,7 @@
         {
           "id": "snowpeak_races",
           "name": "Snowboard races with Yeto and Yeta",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Snowpeak",
           "area": "Snowpeak summit down to Snowpeak Ruins",
           "howTo": "Warp to Snowpeak's summit and talk to Yeto to race him down to the mansion on your shield. Beat him, then race Yeta.",
@@ -187,6 +198,7 @@
         {
           "id": "star_game_giant_quiver",
           "name": "STAR Game: Double Clawshot round",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Lanayru Province",
           "area": "STAR tent, west Castle Town",
           "howTo": "Purlo's harder round (15 Rupees): collect every orb within 1:30, swinging between grates with the Double Clawshots. Afterwards a time trial against your best time is open.",
@@ -213,6 +225,7 @@
         {
           "id": "letter_post_office_notice",
           "name": "Post Office Notice",
+          "unlockedBy": ["forest_temple"],
           "area": "Hyrule Field",
           "howTo": "From the Postman himself, on your first trip across Hyrule Field toward the Eldin twilight wall.",
           "after": "Forest Temple"
@@ -220,6 +233,7 @@
         {
           "id": "letter_ooccoo_dear_adventurer",
           "name": "DEAR ADVENTURER",
+          "unlockedBy": ["forest_temple"],
           "area": "Hyrule Field",
           "howTo": "From Ooccoo. Arrives after a dungeon in which you met Ooccoo but never used her, normally the Forest Temple.",
           "after": "Forest Temple",
@@ -229,6 +243,7 @@
         {
           "id": "letter_kakariko_goods",
           "name": "URGENT NOTICE",
+          "unlockedBy": ["goron_mines"],
           "area": "Hyrule Field",
           "howTo": "From Kakariko Goods (Malo Mart): the Kakariko shop's grand opening, with the Hylian Shield as its exclusive. Arrives once Colin is rescued from King Bulblin.",
           "after": "Goron Mines"
@@ -236,6 +251,7 @@
         {
           "id": "letter_barnes_bomb_arrows",
           "name": "URGENT: Bomb Arrows",
+          "unlockedBy": ["goron_mines"],
           "area": "Hyrule Field",
           "howTo": "From Barnes Bombs, explaining Bomb Arrows; sent after you buy your first Bomb Bag from Barnes.",
           "after": "Goron Mines"
@@ -243,6 +259,7 @@
         {
           "id": "letter_barnes_water_bombs",
           "name": "Good Stuff Inside",
+          "unlockedBy": ["lanayru_twilight"],
           "area": "Hyrule Field",
           "howTo": "From Barnes Bombs: Water Bombs are now in stock. Arrives once the Lanayru spirit is restored.",
           "after": "Lanayru Twilight"
@@ -250,6 +267,7 @@
         {
           "id": "letter_lanayru_tourism",
           "name": "Now Open for Business",
+          "unlockedBy": ["lanayru_twilight"],
           "area": "Hyrule Field",
           "howTo": "From Lanayru Tourism, advertising Iza's Rapid Ride and Hena's Fishing Hole. Arrives with \"Good Stuff Inside\".",
           "after": "Lanayru Twilight"
@@ -257,6 +275,7 @@
         {
           "id": "letter_telma",
           "name": "They Came So Quickly!",
+          "unlockedBy": ["draw_master_sword"],
           "area": "Hyrule Field, bridge to Castle Town",
           "howTo": "From Telma, asking you to come to her bar to meet the Resistance.",
           "after": "Master Sword"
@@ -264,6 +283,7 @@
         {
           "id": "letter_ooccoo_dear_adventurer_2",
           "name": "Dear Adventurer (2)",
+          "unlockedBy": ["forest_temple"],
           "area": "Hyrule Field",
           "howTo": "From Ooccoo. Arrives after a dungeon in which you used Ooccoo and so met her son.",
           "missable": true,
@@ -272,6 +292,7 @@
         {
           "id": "letter_barnes_bomblings",
           "name": "Rare Item in Stock",
+          "unlockedBy": ["arbiters_grounds"],
           "area": "Hyrule Field, bridge to Castle Town",
           "howTo": "From Barnes: Bomblings are now in stock.",
           "after": "Arbiter's Grounds"
@@ -279,6 +300,7 @@
         {
           "id": "letter_agitha",
           "name": "Agitha's Dream",
+          "unlockedBy": ["snowpeak_ruins"],
           "area": "Hyrule Field",
           "howTo": "From Agitha. Arrives after the Snowpeak Ruins if you have given her at least one Golden Bug.",
           "after": "Snowpeak Ruins",
@@ -287,6 +309,7 @@
         {
           "id": "letter_yeta",
           "name": "From Wife of Yeto",
+          "unlockedBy": ["snowpeak_ruins"],
           "area": "Hyrule Field, near Castle Town",
           "howTo": "From Yeta, inviting you back to Snowpeak (the snowboard races).",
           "after": "Snowpeak Ruins"
@@ -294,6 +317,7 @@
         {
           "id": "letter_malo_mart",
           "name": "Heroes, Come Together",
+          "unlockedBy": ["draw_master_sword"],
           "area": "Hyrule Field",
           "howTo": "From Malo Mart: the Castle Town branch's grand opening, with the Magic Armor as its special. Arrives after the last Malo Mart donation.",
           "requires": [
@@ -304,6 +328,7 @@
         {
           "id": "letter_renado",
           "name": "About Ilia's Memory",
+          "unlockedBy": ["temple_of_time"],
           "area": "Hyrule Field, bridge to Castle Town",
           "howTo": "From Renado, about a way to bring back Ilia's memory.",
           "after": "Temple of Time"
@@ -311,6 +336,7 @@
         {
           "id": "letter_shad",
           "name": "Update",
+          "unlockedBy": ["sky_characters"],
           "area": "Hyrule Field",
           "howTo": "From Shad, once all six Sky Characters are restored to the Ancient Sky Book.",
           "after": "All six Sky Characters"
@@ -318,6 +344,7 @@
         {
           "id": "letter_purlo",
           "name": "Challenge for You",
+          "unlockedBy": ["city_in_the_sky"],
           "area": "Hyrule Field",
           "howTo": "From Purlo: the new Double Clawshot round of the STAR Game is open.",
           "after": "City in the Sky"
@@ -325,6 +352,7 @@
         {
           "id": "letter_ooccoo_jr",
           "name": "Hey Kid!!!",
+          "unlockedBy": ["city_in_the_sky"],
           "area": "Hyrule Field",
           "howTo": "From Jr. (Ooccoo Jr.), with a note from Ooccoo, after the City in the Sky. Arrives with Purlo's letter.",
           "after": "City in the Sky"
@@ -362,6 +390,7 @@
         {
           "id": "fish_hyrule_bass",
           "name": "Hyrule Bass",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Eldin Province",
           "area": "Kakariko Graveyard lake and Eldin Spring",
           "howTo": "In the lake behind Kakariko Graveyard or behind Eldin Spring; also the southeast corner of Hena's Fishing Hole, nearest the hut.",
@@ -373,6 +402,7 @@
         {
           "id": "fish_hylian_loach",
           "name": "Hylian Loach",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Grottos and springs",
           "howTo": "Young loaches bite your rod in the grotto by the Lake Hylia Howling Stone, the grass-circle grotto in the Faron field, the Kakariko spring where the Zora Armor is, and Lanayru Spring.",
@@ -384,6 +414,7 @@
         {
           "id": "fish_hylian_pike",
           "name": "Hylian Pike",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "South of Castle Town and Hena's Fishing Hole",
           "howTo": "Dig on top of the tall pillar circled by birds south of Castle Town to reach a grotto spring full of pike. Also near the shore at Hena's Fishing Hole.",
@@ -396,6 +427,7 @@
         {
           "id": "fish_reekfish",
           "name": "Reekfish",
+          "unlockedBy": ["arbiters_grounds"],
           "region": "Lanayru Province",
           "area": "Zora's Domain, Mother-and-Child Rocks",
           "howTo": "Fit Prince Ralis' Coral Earring to your rod and fish by the Mother-and-Child Rocks in the waterfall basin below Zora's Domain.",
@@ -419,6 +451,7 @@
         {
           "id": "stamp_a",
           "name": "Hylian Letter A",
+          "unlockedBy": ["faron_twilight"],
           "region": "Forest Temple",
           "area": "Big Key room",
           "howTo": "In the room with the Big Key, take the passage at water level to the south to a chest."
@@ -426,6 +459,7 @@
         {
           "id": "stamp_n",
           "name": "Hylian Letter N",
+          "unlockedBy": ["faron_twilight"],
           "region": "Forest Temple",
           "area": "Tile Worm room",
           "howTo": "In the room with the Tile Worms (and the Piece of Heart), in a raised chest."
@@ -433,6 +467,7 @@
         {
           "id": "stamp_h",
           "name": "Hylian Letter H",
+          "unlockedBy": ["wrestle_bo"],
           "region": "Goron Mines",
           "area": "Second floor, big room full of Bulblin Archers",
           "howTo": "In the large room with many archers, sink with the Iron Boots to the underwater chest on the east side.",
@@ -443,6 +478,7 @@
         {
           "id": "stamp_o",
           "name": "Hylian Letter O",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Kakariko Gorge lantern cavern",
           "howTo": "Bomb open the cave south-east of the Kakariko Gorge bridge (the one with a Poe). The chest is in the north, beside a Skulltula: north, then north-west at the forks.",
@@ -455,6 +491,7 @@
         {
           "id": "stamp_j",
           "name": "Hylian Letter J",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Lake Hylia lantern cavern",
           "howTo": "In the long dark cave up the ladder in the south of Lake Hylia, go east, east, north, east at the forks and light the two torches to make the chest appear.",
@@ -468,6 +505,7 @@
         {
           "id": "stamp_treasure_chest",
           "name": "Treasure Chest",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Lake Hylia lantern cavern",
           "howTo": "In the same cave, go east, east, north, west, west, west, north, south, east and bomb the rock to the east next to the last room.",
@@ -481,6 +519,7 @@
         {
           "id": "stamp_cucco",
           "name": "Cucco",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Lake Hylia, Flight-by-Fowl",
           "howTo": "One of the Flight-by-Fowl prize chests (the one that held a Purple Rupee).",
@@ -492,6 +531,7 @@
         {
           "id": "stamp_k",
           "name": "Hylian Letter K",
+          "unlockedBy": ["rutela_gift"],
           "region": "Lakebed Temple",
           "area": "Central room, basement",
           "howTo": "In the central room's basement, just below the door to the boss, after you first make the water flow."
@@ -499,6 +539,7 @@
         {
           "id": "stamp_y",
           "name": "Hylian Letter Y",
+          "unlockedBy": ["rutela_gift"],
           "region": "Lakebed Temple",
           "area": "Top floor, where you first made the water flow",
           "howTo": "Clawshot up the wall where you first set the water flowing to reach the chest.",
@@ -509,6 +550,7 @@
         {
           "id": "stamp_u",
           "name": "Hylian Letter U",
+          "unlockedBy": ["lakebed_temple"],
           "region": "Goron Mines",
           "area": "Big archer room, north-east corner",
           "howTo": "From the Letter H chest, climb the ladder, go east and look north. Clawshot the iron grate and climb it to the chest.",
@@ -520,6 +562,7 @@
         {
           "id": "stamp_malo_mart",
           "name": "Malo Mart",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Malo Mart, Castle Town",
           "howTo": "Buy it for 50 Rupees once the Castle Town Malo Mart opens.",
@@ -531,6 +574,7 @@
         {
           "id": "stamp_wolf_link",
           "name": "Wolf Link",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Faron Province",
           "area": "Hyrule Field (Faron), south part",
           "howTo": "From the Horse Grass in the south of Faron Field, follow the wall east to some tall grass and dig as a wolf into a hidden cave.",
@@ -542,6 +586,7 @@
         {
           "id": "stamp_happy_link",
           "name": "Happy Link",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Ordona Province",
           "area": "Ordon Ranch, goat barn",
           "howTo": "By day, go into the barn at Ordon Ranch, dig as a wolf where your senses show, and light the two torches in the grotto.",
@@ -554,6 +599,7 @@
         {
           "id": "stamp_c",
           "name": "Hylian Letter C",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Eldin Province",
           "area": "Hyrule Field (Eldin), grotto by the highest hill",
           "howTo": "In the field with the wild boars, near the highest hill (north-west of the biggest pool), dig as a wolf in the bare patch inside the grass and light the two torches.",
@@ -566,6 +612,7 @@
         {
           "id": "stamp_angry_link",
           "name": "Angry Link",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Hyrule Field west of Castle Town, grotto",
           "howTo": "North-west of Castle Town's west gate, dig as a wolf inside the ring of stones (where the female Golden Butterfly is).",
@@ -577,6 +624,7 @@
         {
           "id": "stamp_i",
           "name": "Hylian Letter I",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Hyrule Field north of Castle Town, grotto",
           "howTo": "North of the castle, on the east bank, dig as a wolf in the grass ring to the south near the water.",
@@ -588,6 +636,7 @@
         {
           "id": "stamp_p",
           "name": "Hylian Letter P",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Hyrule Field north of Castle Town, grotto by the river tunnel",
           "howTo": "In the far north where the river comes out of a tunnel, dig as a wolf in the grass ring on the east shore. Beat the spiders and light the three torches.",
@@ -600,6 +649,7 @@
         {
           "id": "stamp_f",
           "name": "Hylian Letter F",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field north of Castle Town, by the castle wall",
           "howTo": "North of Hyrule Castle, in a cage in the water against the castle, reached from above."
@@ -607,6 +657,7 @@
         {
           "id": "stamp_s",
           "name": "Hylian Letter S",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Lake Hylia, grotto by the watchtower",
           "howTo": "In the south-west, climb the ladder to the watchtower, go on a little and dig where your senses show. Clear out the frogs to open the chest.",
@@ -618,6 +669,7 @@
         {
           "id": "stamp_m",
           "name": "Hylian Letter M",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Grotto on the crag below the Great Bridge of Hylia",
           "howTo": "On the road with the fire-arrow archers, Bomb-Arrow the high rocks and Clawshot up the targets (where a Poe floats), then dig as a wolf and beat the skeletons.",
@@ -632,6 +684,7 @@
         {
           "id": "stamp_w",
           "name": "Hylian Letter W",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Lake Hylia, by the portal",
           "howTo": "From the Lake Hylia portal take the path towards the Poe's platform; jump into the water and put on the Iron Boots just before landing on the platform with the chest.",
@@ -643,6 +696,7 @@
         {
           "id": "stamp_r",
           "name": "Hylian Letter R",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "North-west of the Cave of Ordeals",
           "howTo": "From the Cave of Ordeals entrance go north-west, Clawshot onto the flying Peahat plant and let go at the far west, by the chest.",
@@ -654,6 +708,7 @@
         {
           "id": "stamp_sad_midna",
           "name": "Sad Midna",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Three skulls grotto",
           "howTo": "In the grotto under the ring of three skulls (two Poes), beat the Poes, destroy the rock and light the three torches.",
@@ -667,6 +722,7 @@
         {
           "id": "stamp_d",
           "name": "Hylian Letter D",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Arbiter's Grounds",
           "area": "Basement, the big Spinner room",
           "howTo": "Soon after getting the Spinner, ride the rails up the large room; in its second part, open the chest guarded by two Stalfos.",
@@ -677,6 +733,7 @@
         {
           "id": "stamp_surprised_midna",
           "name": "Surprised Midna",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Arbiter's Grounds",
           "area": "First floor, chandelier room after the third Poe",
           "howTo": "Raise the chandelier with the mechanism, then cross quickly while it's at the ceiling and open the chest."
@@ -684,6 +741,7 @@
         {
           "id": "stamp_piece_of_heart",
           "name": "Piece of Heart",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Eldin Province",
           "area": "Bridge of Eldin magnet cavern",
           "howTo": "In the cave north of the Bridge of Eldin, light the two torches just before the Piece of Heart chest.",
@@ -697,6 +755,7 @@
         {
           "id": "stamp_sad_link",
           "name": "Sad Link",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Eldin Province",
           "area": "Hyrule Field (Eldin), grotto by the Bridge of Eldin",
           "howTo": "Near the Bridge of Eldin, dig as a wolf on the left as you come off the bridge.",
@@ -708,6 +767,7 @@
         {
           "id": "stamp_surprised_zelda",
           "name": "Surprised Zelda",
+          "unlockedBy": ["arbiters_grounds"],
           "region": "Lanayru Province",
           "area": "Hyrule Field below Castle Town's south gate",
           "howTo": "Clawshot the pillar to the north-west of the south gate, let go, ride the Spinner and jump a little before halfway to land by the fountain chest.",
@@ -720,6 +780,7 @@
         {
           "id": "stamp_agitha",
           "name": "Agitha",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Agitha's Castle, Castle Town",
           "howTo": "Give Agitha 12 Golden Bugs.",
@@ -730,6 +791,7 @@
         {
           "id": "stamp_surprised_link",
           "name": "Surprised Link",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Cave of Ordeals, floor 10",
           "howTo": "Reach the Great Fairy on floor 10; the stamp is by her door.",
@@ -738,6 +800,7 @@
         {
           "id": "stamp_angry_zelda",
           "name": "Angry Zelda",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Cave of Ordeals, floor 20",
           "howTo": "Reach the Great Fairy on floor 20; the stamp is by her door.",
@@ -749,6 +812,7 @@
         {
           "id": "stamp_b",
           "name": "Hylian Letter B",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Snowpeak Ruins",
           "area": "First floor, beam room past the first cannon",
           "howTo": "Shortly after clearing the way with the first cannon, in the room where you walk on beams."
@@ -756,6 +820,7 @@
         {
           "id": "stamp_q",
           "name": "Hylian Letter Q",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Snowpeak Ruins",
           "area": "First floor, entrance hall",
           "howTo": "Behind a suit of armour in the hall that you smash completely with the Ball and Chain.",
@@ -766,6 +831,7 @@
         {
           "id": "stamp_happy_midna",
           "name": "Happy Midna",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Cave of Ordeals, floor 30",
           "howTo": "Reach the Great Fairy on floor 30; the stamp is by her door.",
@@ -777,6 +843,7 @@
         {
           "id": "stamp_x",
           "name": "Hylian Letter X",
+          "unlockedBy": ["arbiters_grounds"],
           "region": "Faron Province",
           "area": "Sacred Grove, the Lost Woods maze",
           "howTo": "Next to the statue clearing, climb the vine wall into the maze, then ride the Spinner almost all the way round to the platform with the chest.",
@@ -788,6 +855,7 @@
         {
           "id": "stamp_l",
           "name": "Hylian Letter L",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Temple of Time",
           "area": "Fifth floor, spider room",
           "howTo": "In the room with the spiders (where a Piece of Heart needs the Dominion Rod), in the chest at the back."
@@ -795,6 +863,7 @@
         {
           "id": "stamp_t",
           "name": "Hylian Letter T",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Temple of Time",
           "area": "Scale room near the top",
           "howTo": "Use the scales to Clawshot higher, then the Spinner to reach the chest just behind the Poe.",
@@ -807,6 +876,7 @@
         {
           "id": "stamp_e",
           "name": "Hylian Letter E",
+          "unlockedBy": ["ilia_memory"],
           "region": "Eldin Province",
           "area": "Kakariko Gorge, owl statue",
           "howTo": "In the field with the small bridge before Kakariko, use the Dominion Rod on the Owl Statue to reach the high chest.",
@@ -818,6 +888,7 @@
         {
           "id": "stamp_heart_container",
           "name": "Heart Container",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Cave of Ordeals, floor 40",
           "howTo": "Reach the Great Fairy on floor 40; the stamp is by her door.",
@@ -829,6 +900,7 @@
         {
           "id": "stamp_g",
           "name": "Hylian Letter G",
+          "unlockedBy": ["sky_characters"],
           "region": "City in the Sky",
           "area": "Second floor, outdoor room with flying plants",
           "howTo": "Cross the outdoor room on the flying plants; the chest is where a Poe also floats.",
@@ -839,6 +911,7 @@
         {
           "id": "stamp_z",
           "name": "Hylian Letter Z",
+          "unlockedBy": ["sky_characters"],
           "region": "City in the Sky",
           "area": "Fourth floor, outdoor room with ropes",
           "howTo": "In the chest by the Poe in the outdoor room with ropes.",
@@ -849,6 +922,7 @@
         {
           "id": "stamp_ooccoo",
           "name": "Ooccoo",
+          "unlockedBy": ["sky_characters"],
           "region": "City in the Sky",
           "area": "First floor, west rooms",
           "howTo": "In the west rooms where you climb up and down with targets and iron grates, turn round before going on to the Big Baba room.",
@@ -859,6 +933,7 @@
         {
           "id": "stamp_v",
           "name": "Hylian Letter V",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Lanayru Province",
           "area": "Hyrule Field, the chasm below Castle Town's south stairs",
           "howTo": "At the foot of the stairs south of Castle Town, follow the Clawshot targets over the drop towards Lake Hylia; the chest is by the fourth target.",
@@ -870,6 +945,7 @@
         {
           "id": "stamp_fairy",
           "name": "Fairy",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Gerudo Desert",
           "area": "Cave of Ordeals, floor 49",
           "howTo": "On the small landing at the end of floor 49, just before you drop into the Great Fairy's room.",
@@ -881,6 +957,7 @@
         {
           "id": "stamp_angry_midna",
           "name": "Angry Midna",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Palace of Twilight",
           "area": "First floor, first fog room",
           "howTo": "In the first room whose fog turns you into a wolf, Clawshot up after beating Zant's Hand.",
@@ -891,6 +968,7 @@
         {
           "id": "stamp_zant",
           "name": "Zant",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Palace of Twilight",
           "area": "First floor, second room on the right",
           "howTo": "Clawshot along the high targets and check the recesses on your left.",
@@ -901,6 +979,7 @@
         {
           "id": "stamp_happy_zelda",
           "name": "Happy Zelda",
+          "unlockedBy": ["palace_of_twilight"],
           "region": "Hyrule Castle",
           "area": "Treasure room next to the boss door",
           "howTo": "In the room of treasure chests beside the door to the boss.",
@@ -909,6 +988,7 @@
         {
           "id": "stamp_sad_zelda",
           "name": "Sad Zelda",
+          "unlockedBy": ["palace_of_twilight"],
           "region": "Hyrule Castle",
           "area": "Past the Dungeon Map",
           "howTo": "After the Dungeon Map, climb the ladder to the right of its chest and follow the path to the end."
@@ -916,6 +996,7 @@
         {
           "id": "stamp_rupee",
           "name": "Rupee",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Jovani's house, Castle Town",
           "howTo": "After all 60 Poe Souls, find Jovani in Telma's Bar, then go back to Gengle: he gives you 200 Rupees and this stamp.",
@@ -927,6 +1008,7 @@
         {
           "id": "stamp_twili_midna",
           "name": "Twili Midna",
+          "unlockedBy": ["palace_of_twilight"],
           "howTo": "Unlocked automatically once you have the other 49 stamps."
         }
       ]
