@@ -16,6 +16,7 @@ import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 /** Skyward Sword's overview has an Item Upgrades row, from the bundled data, following the save file and the potion chip. */
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -54,5 +55,31 @@ class SsUpgradeOverviewTest {
         val noPotions = vm.state.first { it.upgrades()?.total == 11 }.upgrades()!!
         assertEquals("Upgrades 1 / 19 · 145 materials and 1,330 Rupees to go", noPotions.secondary)
         assertEquals(PieceProgress(), storage.progress("file_1").first().of("beetle"))
+    }
+
+    private fun OverviewUiState?.row(title: String): ProgressSummary? =
+        (this?.rows?.singleOrNull { it.title == title }?.status as? RowStatus.Ready)?.summary
+
+    /**
+     * The rows that share progress agree: an upgrade counts in Item Upgrades and Items & Equipment
+     * alike, and a potion in Potion Infusions and Item Upgrades. Items & Equipment no longer counts potions.
+     */
+    @Test
+    fun rowsThatShareProgressAgree() = runTest {
+        val vm = main.track(OverviewViewModel(dataStore, Games.SS, loadDispatcher = dispatcher))
+        val fresh = vm.state.first { it.row("Potion Infusions") != null && it.row("Items & Equipment") != null }
+        assertEquals(0 to 12, fresh.row("Potion Infusions")!!.let { it.done to it.total })
+        val itemsTotal = fresh.row("Items & Equipment")!!.total
+        assertTrue("Potion" !in fresh.row("Items & Equipment")!!.secondary.orEmpty())
+
+        storage.update("file_1") { p ->
+            p.withCopy("beetle") { it.copy(owned = true, level = 2) }
+                .withCopy("heart_potion") { it.copy(owned = true, level = 1) }
+        }
+        val after = vm.state.first { it.row("Potion Infusions")?.done == 2 && it.upgrades()?.done == 2 && it.row("Items & Equipment")?.done == 3 }
+        assertEquals("Upgrades 3 / 26 · 185 materials and 1,440 Rupees to go", after.upgrades()!!.secondary)
+        val items = after.row("Items & Equipment")!!
+        assertEquals(itemsTotal, items.total)
+        assertTrue(items.secondary!!.contains("Items 3 / 21"), "the Beetle's three tiers: Beetle, Hook Beetle, Quick Beetle")
     }
 }

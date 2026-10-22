@@ -3,14 +3,19 @@ package gx.zelda.core
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.upgrades.data.SharedProgressMigration
 import kotlinx.coroutines.flow.Flow
 import okio.Path.Companion.toPath
 
 const val DATA_STORE_FILE = "zeldagx.preferences_pb"
 
-/** Each platform supplies the directory; [DATA_STORE_FILE] is created inside it. */
+/**
+ * Each platform supplies the directory; [DATA_STORE_FILE] is created inside it. The migrations run
+ * once the store is first read, before anything sees its data.
+ */
 fun createDataStore(directory: String): DataStore<Preferences> =
     PreferenceDataStoreFactory.createWithPath(
+        migrations = listOf(SharedProgressMigration()),
         produceFile = { "$directory/$DATA_STORE_FILE".toPath() },
     )
 

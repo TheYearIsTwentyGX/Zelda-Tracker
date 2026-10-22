@@ -15,7 +15,7 @@
     {
       "id": "equipment",
       "title": "Items",
-      "note": "Upgrades of one item are its tiers. The Item Upgrades tracker totals the materials, with its own progress.",
+      "note": "Upgrades of one item are its tiers. Item Upgrades shares this progress and totals the materials.",
       "items": [
         {
           "id": "sailcloth",
@@ -179,7 +179,7 @@
       "title": "Capacity",
       "noun": "upgrade",
       "hiddenLabel": "Unfound upgrade",
-      "note": "Pouch items: each one carried adds ammunition. Buy more at Rupin's Gear Shop; Gondo upgrades each one. The Item Upgrades tracker totals the materials, with its own progress.",
+      "note": "Pouch items: each one carried adds ammunition. Buy more at Rupin's Gear Shop; Gondo upgrades each one. Item Upgrades shares this progress for your first of each, and tracks any more.",
       "items": [
         {
           "id": "seed_satchel",
@@ -245,70 +245,6 @@
               "reward": "15 more Arrows"
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "potions",
-      "title": "Potion Infusions",
-      "noun": "potion",
-      "hiddenLabel": "Unmade potion",
-      "note": "An infused potion lasts until you drink it; tick each one you've made. The Item Upgrades tracker totals the materials, with its own progress.",
-      "items": [
-        {
-          "id": "heart_potion",
-          "name": "Heart Potion",
-          "notes": "Luv sells the Heart Potion for 20 Rupees; it heals 8 hearts. Zelda Dungeon lists 1 Deku Hornet for the Heart Potion++; Zelda Wiki and Samurai Gamers say 3.",
-          "tiers": [
-            {
-              "name": "Heart Potion+",
-              "howTo": "Have Bertie infuse a Heart Potion at the Infusion Shop: 3 Blessed Butterflies, 1 Woodland Rhino Beetle, 1 Volcanic Ladybug and 20 Rupees.",
-              "reward": "Heals all your hearts"
-            },
-            {
-              "name": "Heart Potion++",
-              "howTo": "Have Bertie infuse a Heart Potion+ at the Infusion Shop: 3 Blessed Butterflies, 3 Deku Hornets, 1 Sand Cicada, 1 Eldin Roller and 30 Rupees.",
-              "reward": "Heals all your hearts, two servings"
-            }
-          ]
-        },
-        {
-          "id": "revitalizing_potion",
-          "name": "Revitalizing Potion",
-          "notes": "Luv sells it for 30 Rupees. It repairs your shield, heals 4 hearts and saves a shield that would break.",
-          "tiers": [
-            {
-              "name": "Revitalizing Potion+",
-              "howTo": "Have Bertie infuse a Revitalizing Potion at the Infusion Shop: 2 Woodland Rhino Beetles, 2 Skyloft Mantises, 3 Deku Hornets and 20 Rupees.",
-              "reward": "Heals 8 hearts as well"
-            },
-            {
-              "name": "Revitalizing Potion++",
-              "howTo": "Have Bertie infuse a Revitalizing Potion+ at the Infusion Shop: 2 Woodland Rhino Beetles, 3 Lanayru Ants, 1 Gerudo Dragonfly, 1 Sand Cicada and 30 Rupees.",
-              "reward": "Heals 8 hearts, two servings"
-            }
-          ]
-        },
-        {
-          "id": "stamina_potion",
-          "name": "Stamina Potion+",
-          "howTo": "Have Bertie infuse a Stamina Potion at the Infusion Shop: 3 Volcanic Ladybugs, 2 Sky Stag Beetles, 2 Gerudo Dragonflies, 1 Faron Grasshopper and 20 Rupees.",
-          "reward": "The Stamina Gauge doesn't drain for 3 minutes",
-          "notes": "Luv sells the Stamina Potion for 50 Rupees; it only slows the drain."
-        },
-        {
-          "id": "air_potion",
-          "name": "Air Potion+",
-          "howTo": "Have Bertie infuse a Air Potion at the Infusion Shop: 2 Sky Stag Beetles, 2 Skyloft Mantises, 2 Lanayru Ants and 20 Rupees.",
-          "reward": "Your air doesn't run out underwater for 3 minutes",
-          "notes": "Luv sells the Air Potion for 20 Rupees; it only slows the loss."
-        },
-        {
-          "id": "guardian_potion",
-          "name": "Guardian Potion+",
-          "howTo": "Have Bertie infuse a Guardian Potion at the Infusion Shop: 1 Faron Grasshopper, 2 Eldin Rollers, 3 Blessed Butterflies, 3 Starry Fireflies and 40 Rupees.",
-          "reward": "No damage for 3 minutes",
-          "notes": "The Guardian Potion halves damage. Zelda Wiki prices it at 200 Rupees at Luv's shop; Samurai Gamers says 60."
         }
       ]
     },

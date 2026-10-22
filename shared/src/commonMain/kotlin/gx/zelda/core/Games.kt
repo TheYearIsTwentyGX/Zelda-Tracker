@@ -83,6 +83,12 @@ enum class TrackerKind {
      * totals. Its data is `files/<game id>/upgrades.json`; see docs/ss.md.
      */
     ITEM_UPGRADES,
+
+    /**
+     * Skyward Sword's Potion Infusions recipe book: each of Luv's potions and Bertie's infusions, with
+     * the bugs, Rupees and where to catch them. Its progress is [ITEM_UPGRADES]' potions; see docs/ss.md.
+     */
+    POTIONS,
     ;
 
     /** True for the kinds that read their data from a [Tracker.dataFile], so a game can list several. */
@@ -464,6 +470,7 @@ object Games {
             ssChecklist("Side Quests & Minigames", "The minigames and their prizes, the other side quests and the Lightning Round", "side_quests"),
             ssChecklist("Shields", "All 10 shields, their upgrades and materials", "shields"),
             ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
+            Tracker(TrackerKind.POTIONS, "Potion Infusions", "A recipe book of Luv's five potions and Bertie's infusions: the bugs and Rupees for each, and where to catch them"),
             Tracker(TrackerKind.ITEM_UPGRADES, "Item Upgrades", "Every Scrap Shop upgrade and potion infusion, with the treasures, bugs and Rupees still needed"),
             Tracker(TrackerKind.THRILL_DIGGER, "Thrill Digger Solver", "Every undug hole's Bomb and Rupoor odds, and the safest hole to dig next"),
         ),

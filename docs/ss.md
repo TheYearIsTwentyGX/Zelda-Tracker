@@ -2,8 +2,10 @@
 
 Skyward Sword's trackers are checklists (`TrackerKind.CHECKLIST`, see `docs/checklist-trackers.md`):
 eight JSON files in `shared/src/commonMain/composeResources/files/ss/`, listed in `core/Games.kt`
-after a Progress Overview. After them come [Item Upgrades](#item-upgrades) (`TrackerKind.ITEM_UPGRADES`,
-modelled on BotW's armor tracker, from `upgrades.json`) and one tool, the
+after a Progress Overview. After them come the [Potion Infusions](#potion-infusions) recipe book
+(`TrackerKind.POTIONS`) and [Item Upgrades](#item-upgrades) (`TrackerKind.ITEM_UPGRADES`, modelled on
+BotW's armor tracker), both from `upgrades.json` and [sharing progress](#shared-progress) with the
+checklists, and one tool, the
 [Thrill Digger Solver](#thrill-digger-solver) (`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files, and
 `ChecklistDatasetsTest` checks the format. No engine change was needed.
 
@@ -32,7 +34,7 @@ file; HD lets it go in a slot of its own. The placeholder in `Games.kt` was alre
 | File | Tracker | Sections (ids) | Count |
 |---|---|---|---|
 | `main_quest.json` | Main Quest | `quest`, `silent_realms`, `hero_song`, `sacred_flames`, `sword` | 30 story steps with the 7 dungeons, 4 Silent Realms, 4 parts of the Song of the Hero, 3 Sacred Flames, and the sword's 5 forms as tiers of one row (46 steps). Summaries: Dungeons `quest.value` (of 7), Silent Realms (of 4), Sacred Flames (of 3, on its tab) |
-| `items.json` | Items & Equipment | `equipment`, `capacity`, `potions`, `pouch`, `bottles`, `wallets` | 13 items (21 steps: Slingshot, Bug Net, Beetle, Digging Mitts and Bow with their upgrades as tiers), 3 capacity items (Seed Satchel, Bomb Bag, Quiver; 3 tiers each), 5 potion infusions (7 steps), 5 Adventure Pouch rows, 5 Bottles, the Wallet (4 tiers) and Extra Wallets (3). Summaries: Pouch slots `pouch.value` (4 to 8), Rupees you can carry `300 + wallet.value + extra_wallets.value` (300 to 9,900) |
+| `items.json` | Items & Equipment | `equipment`, `capacity`, `pouch`, `bottles`, `wallets` | 13 items (21 steps: Slingshot, Bug Net, Beetle, Digging Mitts and Bow with their upgrades as tiers), 3 capacity items (Seed Satchel, Bomb Bag, Quiver; 3 tiers each), 5 Adventure Pouch rows, 5 Bottles, the Wallet (4 tiers) and Extra Wallets (3). Summaries: Pouch slots `pouch.value` (4 to 8), Rupees you can carry `300 + wallet.value + extra_wallets.value` (300 to 9,900) |
 | `heart_pieces.json` | Heart Pieces | `pieces`, `containers` | 24 + 6; Hearts `6 + pieces / 4 + containers`, 6 to 18 |
 | `goddess_cubes.json` | Goddess Cubes | `cubes` | 27 cubes, each with two tiers: *Cube struck* (value 1) and *Chest opened* (value 0), so 54 steps. Summaries: Goddess Cubes struck `cubes.value` and Goddess Chests opened `cubes - cubes.value`, each of 27 |
 | `gratitude_crystals.json` | Gratitude Crystals | `crystal_quests`, `loose_crystals`, `batreaux` | 12 quests (11 × 5 and Orielle's Loftwing × 10 = 65, as `value`), 15 loose crystals, and Batreaux's 7 rewards (5, 10, 30, 40, 50, 70, 80). Gratitude Crystals `crystal_quests.value + loose_crystals.value` = 80 |
@@ -80,8 +82,9 @@ Collection screen and are what the upgrades are made of, so completionists track
 - **Upgrades** at Gondo's Scrap Shop are each item's tiers, with the treasures, bugs and Rupees for
   each. The "Used in …" note on every bug and treasure is worked out from the same recipe table, so
   they can't disagree; each treasure's total matches Zelda Wiki's *Quantities Required* table.
-- **Potion infusions** are listed (all three sources give the same costs but one), but an infused
-  potion is used up when drunk, so the tab counts each infusion made at least once.
+- **Potion infusions** were a tab of Items & Equipment until October 2026; they're now the
+  [Potion Infusions](#potion-infusions) recipe book. An infused potion is used up when drunk, so it
+  counts each step made at least once.
 - **Goddess Cubes** are one row per cube with the chest as its second tier, since a cube is pointless
   without its chest and the chest can't be opened without it. The two totals count each.
 - **The Lightning Round** is in Lanayru Gorge with the Thunder Dragon (not the Thunderhead). Its
@@ -246,20 +249,67 @@ Satchel, one Quiver, one Bomb Bag) fully upgraded.
 
 ### Storage
 
-`UpgradeStorage`: one `UpgradeProgress` per save file under `ss_upgrades@file_N` (each copy's
-owned/level and the copy counts, together, so every change is one DataStore write), and
-`ss_upgrades_prefs` (the hidden sections and the material sort), shared by every file. The active
-save file is SS's, shared with the checklists. *Mark all complete* collects or uncollects the copies
-shown in one write and leaves levels alone; its undo puts back exactly those copies.
+`UpgradeStorage`: one `UpgradeProgress` per save file under `ss_upgrades@file_N` (extra copies, the
+copy counts and the potions), and `ss_upgrades_prefs` (the hidden sections and the material sort),
+shared by every file. Copy 1 of every other item is read from and written to its checklist (see
+[Shared progress](#shared-progress)); `progress` joins the two and `update` splits them again in one
+DataStore edit, so every change is still one write. The active save file is SS's, shared with the
+checklists. *Mark all complete* collects or uncollects the copies shown in one write and leaves levels
+alone, except that an uncollected shared item loses its upgrades (below); its undo puts back exactly
+those copies, levels included.
 
-### Overlap with the checklists
+### Shared progress
 
-The Items & Equipment checklist has the same upgrades as tiers (and the Bomb Bag, Adventure Pouch,
-Bottles and wallets), and Shields has the shields. They keep their own progress: the checklists answer
-"have I done this once?" for a 100% run, and Item Upgrades plans the materials, with copies and the
-Collected / All scopes the checklists don't have. Rather than sync two shapes of progress, each of
-those checklist sections' notes points to Item Upgrades. Bugs & Treasures stays the place to tick one
-of each bug and treasure; Item Upgrades says how many you need.
+The Items & Equipment and Shields checklists have the same items as tiers, and until October 2026 the
+two trackers kept separate progress for them: ticking the Quick Beetle in one didn't show in the other.
+Now they share one. `UpgradeLinks.SS` pairs each upgrade item with its checklist row:
+
+| Item Upgrades | Checklist row | Checklist level |
+|---|---|---|
+| `slingshot`, `beetle`, `bug_net`, `bow` | Items & Equipment's same ids (`equipment`) | 0 without the item, then 1 + its upgrade level |
+| `wooden_shield`, `iron_shield`, `sacred_shield`, `hylian_shield` | Shields' same ids | the same |
+| `seed_satchel`, `quiver` | Items & Equipment's same ids (`capacity`) | the same, for copy 1 |
+| `bomb_bag` | Items & Equipment's `extra_bomb_bag` (`capacity`) | the same, for copy 1; the checklist's `bomb_bag` is the Earth Temple's, which takes no slot and can't be upgraded |
+
+**Which store is canonical: the checklists'.** Their keys (`ss_checklist_items@file_N`,
+`ss_checklist_shields@file_N`) shipped first, with SS's checklists, and the checklist engine is shared
+by every game: making its levels the source needs no engine change at all, where the reverse would
+need a hook in the engine for one game's items. One tier count holds the upgrade tracker's state
+losslessly (owned with level *n* is tier *n* + 1), except a level kept on an uncollected item, which
+the totals already ignored. So unticking a shared item clears its upgrades, as unticking its
+checklist row does; items only Item Upgrades has (extra copies, potions) keep their level as before.
+The only shared-code change is `ChecklistStorage.progressKey`, so the key format is written once.
+
+**Tiers ↔ levels.** The tiers are the base item then each form, so they line up with the upgrade
+levels one for one: the Beetle's are Beetle, Hook Beetle, Quick Beetle, Tough Beetle, and the Hook
+Beetle is upgrade 1 in both, the free one the robot fits (`free: true`), not one of Gondo's.
+`SsUpgradeDatasetTest` checks every pair has the same forms in the same order, and that every item
+but the potions is linked once.
+
+**Pouch copies.** Copy 1 of the Seed Satchel, Quiver and Bomb Bag is the checklist's capacity row.
+*Seed Satchel #2* and later copies, and how many you track, are Item Upgrades' alone: the checklist
+has one row each, for a 100% run. Removing a copy never touches copy 1.
+
+**Potions** have one store too: `ss_upgrades@file_N`, which the Potion Infusions book and Item
+Upgrades' Potions section both read. Their checklist tab is gone.
+
+**The migration** (`SharedProgressMigration`, a DataStore migration in `createDataStore`). Each save
+file is merged on its own, once, when the app opens the store and before anything reads it:
+- each linked item's copy 1 moves from `ss_upgrades@file_N` to its checklist row, at the higher of the
+  two levels (an uncollected copy counts as 0);
+- each old Potion Infusions row moves from `ss_checklist_items@file_N` to the upgrade key: its tiers
+  were infusions, so the level is the higher of the two and the potion counts as bought;
+- extra copies and copy counts stay as they are; a file whose stores can't be read is left alone.
+
+It moves rather than copies, so it's idempotent: nothing writes those places any more, so once a
+file is merged there's nothing left to merge. `SharedProgressMigrationTest` runs it on saves in the old
+formats (both stores, differing levels both ways, extra copies, potions, one store only, an unreadable
+one) and end to end through a store written by the old app.
+
+**Overview rows.** Items & Equipment, Shields and Item Upgrades count the same things from the same
+place, so they always agree, each in its own terms (tiers for a 100% run; items obtained, upgrades
+and materials left). Items & Equipment no longer counts potions; Potion Infusions and Item Upgrades
+(with its chip on) do, from one store.
 
 ### Overview row
 
@@ -319,6 +369,38 @@ ratios, on stub pages, so the effects are approximate); how many Arrows the Bow 
 has no story lock (no source says either way; he offers what you carry). Item Check selling prices
 (Zelda Wiki only) aren't used. Nothing is missable: every base item is a story item, a shop item that
 stays on sale, or a prize that can be won again.
+
+## Potion Infusions
+
+`TrackerKind.POTIONS`, in `potions/`, listed just before Item Upgrades. A recipe book for Luv's and
+Bertie's potions, which the user asked for in place of Items & Equipment's Potion Infusions tab.
+
+- **The cover** (`PotionBookScreen`): a card per base potion (Heart, Stamina, Air, Revitalizing,
+  Guardian) with its icon, the most infused form you've made and a dot per step, the save file picker,
+  and *Mark all complete*.
+- **A recipe** (`PotionRecipeScreen`): the base potion, then each infusion in order, each a card with
+  its icon, effect, who does it, its Rupees and its bugs as icons with quantities, and a *Bought* /
+  *Infused* box. Then *Still needed* (that potion's bugs and Rupees left, the base price included) and
+  *Where to catch them* (each bug's regions and how to farm it).
+- **Who does what**, from `upgrades.json` and checked by `SsUpgradeDatasetTest`: Luv sells the five
+  base potions at her Potion Shop in the Bazaar (20, 50, 20, 30 and 200 Rupees), and Bertie does every
+  infusion at the Infusion Shop on the same counter, for bugs only.
+- **Steps tick like a checklist's tiers**: making Heart Potion++ makes the Heart Potion and Heart
+  Potion+ too; unticking the Heart Potion clears its infusions.
+
+**No new data.** It reads `upgrades.json`'s `potions` section (`PotionBook.potions`), and its progress
+is those items' state in `ss_upgrades@file_N`: *owned* is bought, the level is the infusions done.
+So the book and Item Upgrades' Potions section always agree. Item Upgrades keeps the potions, with
+its Potions chip, because its Total Materials Required is the one place that adds bugs up across
+everything; the chip doesn't hide them from the book. The notes from the old checklist tab (the
+Heart Potion++'s Deku Hornets and the Guardian Potion's price) moved to `upgrades.json`.
+
+**Overview row** (`PotionProgressProvider`): steps made of 12 (5 potions, 7 infusions), how many
+potions are fully infused, and the next step with who does it ("Heart Potion (Luv's Potion Shop)").
+
+**Tests:** `PotionBookTest` (the recipes, the tick rules, the row) and `PotionViewModelTest` (the
+cards, one write per tick, the progress shared with Item Upgrades both ways, mark all and undo, save
+files).
 
 ## Thrill Digger Solver
 

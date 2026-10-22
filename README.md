@@ -70,7 +70,7 @@ iOS port is mostly a matter of adding the iOS targets.
     checked by a test for every theme, light and dark. Body text stays in the system font; only
     headers use a theme's lettering.
 - **Mark all complete** (every checklist tracker, each HW:DE Adventure map, Skyward Sword's Item
-  Upgrades, and every BotW, TotK and Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
+  Upgrades and Potion Infusions, and every BotW, TotK and Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
   the box shows a dash when some are done. Upgrades go to their top level, or back to none.
   - It acts on the active save file, and on the rows the search and filter chips leave showing
@@ -794,12 +794,14 @@ guides number them differently. Sources and disagreements are in `docs/st.md`.
 
 **Skyward Sword**
 
-Every SS tracker but Item Upgrades is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
+Every SS tracker but Potion Infusions and Item Upgrades is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
 Skyward Sword HD differs (button controls, autosave, the amiibo's fast travel), the item's notes say
 so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
 - **Progress Overview** (first): a row per tracker with its count, totals and next step. Item
   Upgrades' row counts items obtained (of 16), upgrades done (of 26) and the treasures, bugs and
-  Rupees still to go, and suggests the next upgrade on something you have.
+  Rupees still to go, and suggests the next upgrade on something you have. Potion Infusions' row
+  counts recipe steps made (of 12) and names the next one. Rows that share progress (below) always
+  agree: a Quick Beetle counts in Items & Equipment and Item Upgrades alike.
 - **Main Quest:** the story as one chain in play order: the seven dungeons with each boss and
   dungeon item, the Goddess's Harp and the songs, the three battles with the Imprisoned, Levias, the
   Stone of Trials, Sky Keep and Demise. Tabs for the four Silent Realms (and what each gives), the
@@ -808,7 +810,7 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   3) are totalled.
 - **Items & Equipment:** the 13 items, with the Scrap Shop upgrades as tiers (Hook, Quick and Tough
   Beetle; Scattershot; Iron and Sacred Bow; Big Bug Net) and the treasures, bugs and Rupees each
-  costs; the Seed Satchel, Bomb Bag and Quiver upgrades; potion infusions; the Adventure Pouch (4
+  costs; the Seed Satchel, Bomb Bag and Quiver upgrades; the Adventure Pouch (4
   slots and 4 expansions, totalled to 8); the 5 Bottles; and the wallets, with how many Rupees you
   can carry (300 to 9,900).
 - **Heart Pieces:** 24 Pieces of Heart by area and the 6 bosses' Heart Containers, with the hearts
@@ -825,6 +827,16 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   Hylian Shield, with costs and durability.
 - **Bugs & Treasures:** one of each of the 12 bugs and 16 treasures, with where to find it and which
   upgrades and potions use it.
+- **Potion Infusions:** a recipe book. The cover shows Luv's five potions (Heart, Stamina, Air,
+  Revitalizing, Guardian) as cards with the game's icons and how much of each recipe you've made.
+  - Pick one for its recipe, top to bottom: the base potion (Luv's Potion Shop, and its price), then
+    each of Bertie's infusions (+, then ++) with its bugs as icons and quantities, its Rupees and what
+    it does. Tick each step *Bought* / *Infused*; ticking one ticks those before it, unticking one
+    clears those after.
+  - *Still needed* adds up the bugs and Rupees left for that potion, and *Where to catch them* lists
+    each bug with its regions and how to farm it, from the same data as Item Upgrades.
+  - Per save file, with *Mark all complete* (every potion bought and fully infused) and Undo. It's
+    the same progress as Item Upgrades' Potions section, so a tick in one shows in the other.
 - **Item Upgrades:** the BotW Armor tracker's layout for Gondo's Scrap Shop and Bertie's potion
   infusions, with the game's own icons.
   - Four sections: Items (Slingshot, Beetle, Bug Net, Bow), Shields (Wooden, Iron and Sacred, and the
@@ -844,8 +856,13 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   - **Potions** chip (on by default, since the totals mean everything): off leaves the potions out of
     the list, the totals and the overview row (145 treasures and 1,330 Rupees without them).
   - Search, All / Owned / Missing, and *Mark all complete* per section and for the list (collects; levels
-    stay as they are). Progress is per save file and separate from the Items & Equipment and Shields
-    checklists' upgrade tiers; `docs/ss.md` says how the two relate.
+    stay as they are).
+  - **Shared progress:** the items, shields and pouch items are the Items & Equipment and Shields
+    checklists' own rows, so setting the Quick Beetle in either shows in the other at once, on the
+    same save file, and either screen's *Mark all* shows on both. The potions are Potion Infusions'.
+    Only extra pouch copies (*Seed Satchel #2*…) are Item Upgrades' alone. Unticking a shared item
+    clears its upgrades, as unticking its checklist row does. Saves from before this were merged once,
+    at the higher level of the two; `docs/ss.md` has the details.
 - **Thrill Digger Solver** (a tool, last): enter what each hole showed and every undug hole gets its
   exact Bomb and Rupoor chance, as a heat colour, with the safest hole to dig next starred.
   - It counts every board the game can deal, its re-deal of a 2×2 block of hazards included, on
@@ -1031,7 +1048,8 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/checklist/  ← the generic, data-driven checklist tracker (docs/checklist-trackers.md)
   src/commonMain/kotlin/gx/zelda/adventure/  ← Hyrule Warriors Adventure Mode maps: the grid view, square sheet and list (docs/hwde.md)
   src/commonMain/kotlin/gx/zelda/thrilldigger/  ← Skyward Sword's Thrill Digger solver: the exact solver, its saved boards and screen (docs/ss.md)
-  src/commonMain/kotlin/gx/zelda/upgrades/  ← Skyward Sword's Item Upgrades tracker, built on the armor tracker's model (docs/ss.md)
+  src/commonMain/kotlin/gx/zelda/upgrades/  ← Skyward Sword's Item Upgrades tracker, built on the armor tracker's model, its progress shared with the checklists (docs/ss.md)
+  src/commonMain/kotlin/gx/zelda/potions/   ← Skyward Sword's Potion Infusions recipe book, on Item Upgrades' data and progress (docs/ss.md)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces, the menu (AppDrawer.kt) and Mark all complete (BulkCompleteControl.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
@@ -1064,7 +1082,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/composeResources/files/tp/*.json   ← Twilight Princess checklists (docs/tp.md)
   src/commonMain/composeResources/files/ph/*.json   ← Phantom Hourglass checklists (docs/ph.md)
   src/commonMain/composeResources/files/st/*.json   ← Spirit Tracks checklists (docs/st.md)
-  src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists, and upgrades.json for Item Upgrades (docs/ss.md)
+  src/commonMain/composeResources/files/ss/*.json   ← Skyward Sword checklists, and upgrades.json for Item Upgrades and Potion Infusions (docs/ss.md)
   src/commonMain/composeResources/files/albw/*.json        ← A Link Between Worlds checklists (docs/albw.md)
   src/commonMain/composeResources/files/tfh/*.json  ← Tri Force Heroes checklists (docs/tfh.md)
   src/commonMain/composeResources/files/eow/*.json  ← Echoes of Wisdom checklists (docs/eow.md)
