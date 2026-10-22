@@ -125,7 +125,7 @@ class OoaChecklistDatasetTest {
         assertEquals(53, items.count { it.unlockedBy.isEmpty() }, "random rings, Vasu's, Seasons-side secrets")
         assertEquals(listOf("nayru_possessed"), links["maku_road_block_puzzle"], "the past, through the first time portal")
         assertEquals(listOf("spirits_grave"), links["roc_feather"], "the Wing Dungeon's item, by the step before it")
-        assertEquals(listOf("crown_dungeon"), links["crescent_island_underwater_cave"], "the Mermaid Suit")
+        assertEquals(listOf("mermaids_cave"), links["crescent_island_underwater_cave"], "after Mermaid's Cave, later than the Mermaid Suit")
         assertEquals(emptyList(), links["troy_secret"], "heard in the linked Seasons game")
     }
 }
