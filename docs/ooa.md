@@ -96,6 +96,49 @@ Ricky's Gloves are in Items and Animal Companions; each tracker counts its own.
 - **Linked Secrets**: as in Seasons, each secret has two steps: the reward where it's told, then the
   return secret told to Farore in the Hall of Secrets, which gives the same reward in the other game.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, steps of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds OoA's table. It works as in Oracle of Seasons.
+
+**Counts.** 141 of the 194 items outside the Main Quest are linked. The other 53 can be had
+whenever Link likes, or come from the linked Seasons game: random rings from Gasha Nuts and Maple,
+Vasu's rings, and the Seasons-side secrets.
+
+**How a step was chosen.** An item is gated by the **latest** of the following.
+
+- *Places*, by the step that opens them. A dungeon is gated by the step before it.
+
+  | Places | Step |
+  |---|---|
+  | Lynna in the present | none (open from the start) |
+  | The past (the `Past` tag, Ambi's Palace, the Black Tower's Shovel) | `nayru_possessed` (the first time portal) |
+  | Yoll Graveyard, the Deku Forest | `maku_tree_rescue` (the Seed Satchel's Ember Seeds) |
+  | The Fairies' Woods | `spirits_grave` |
+  | Talus Peaks, Crescent Island | `wing_dungeon` |
+  | Symmetry, the Nuun Highlands | `moonlit_grotto` |
+  | Rolling Ridge | `skull_dungeon` |
+  | The Zora Seas and Village, the Eyeglass Library | `rescue_nayru` (the Tune of Ages) |
+  | The Sea of Storms, the Sea of No Return | `jabu_jabus_belly` (the Zora Scale) |
+- *Gear*, by the step before the dungeon that gives it:
+
+  | Gear | Step |
+  |---|---|
+  | Power Bracelet | `maku_tree_rescue` |
+  | Roc's Feather | `spirits_grave` |
+  | Seed Shooter, Zora's Flippers | `wing_dungeon` |
+  | Switch Hook, Tune of Currents | `moonlit_grotto` |
+  | Cane of Somaria | `skull_dungeon` |
+  | Mermaid Suit | `crown_dungeon` |
+  | Long Hook | `rescue_nayru` |
+- *`after`.* A dungeon named alone means after it. Secrets heard in a linked Seasons game aren't
+  gated by this game's story.
+- *What it requires.* The trading sequence keeps its order.
+
+`OoaChecklistDatasetTest` spot-checks the links and counts the start items.
+
 ## Sources
 
 - **Zelda Wiki** (zeldawiki.wiki), through its MediaWiki API

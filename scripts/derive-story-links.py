@@ -56,6 +56,12 @@ OOS_DUNGEONS = (
     "ancient_ruins", "explorers_crypt", "sword_and_shield_maze",
 )
 
+# Oracle of Ages' eight dungeons: what the Huge Maku Seed needs.
+OOA_DUNGEONS = (
+    "spirits_grave", "wing_dungeon", "moonlit_grotto", "skull_dungeon", "crown_dungeon", "mermaids_cave",
+    "jabu_jabus_belly", "ancient_tomb",
+)
+
 # Echoes of Wisdom: the three small rifts that open the desert warriors' rift, and the three temples
 # of the Lands of the Goddesses, which open the Eternal Forest.
 EOW_DESERT_RIFTS = ("southern_oasis_ruins_rift", "ancestors_cave_rift", "southern_gerudo_desert_rift")
@@ -412,6 +418,75 @@ GAMES = {
             "items/gnarled_key": "maku_tree",
             "items/huge_maku_seed": OOS_DUNGEONS,
             "linked_secrets/secret_to_labrynna": "onoxs_castle",
+        },
+    },
+    "ooa": {
+        # Lynna is open from the start, the past from the first time portal (`nayru_possessed`), and the
+        # rest of Labrynna with the dungeon item, animal or tune that reaches it. A dungeon is gated by
+        # the step before it; a dungeon named alone in `after` means after it.
+        "places": {
+            r"Black Tower \(past\)|Ambi's Palace": "nayru_possessed",
+            r"Yoll Graveyard|Deku Forest|Spirit's Grave": "maku_tree_rescue",
+            r"Fairies' Woods|Wing Dungeon": "spirits_grave",
+            r"Talus Peaks|Crescent Island|Moonlit Grotto": "wing_dungeon",
+            r"Symmetry|Nuun Highlands|Skull Dungeon": "moonlit_grotto",
+            r"Rolling Ridge|Crown Dungeon": "skull_dungeon",
+            r"Mermaid's Cave": "crown_dungeon",
+            r"Zora Village|Zora Seas|Eyeglass Library|Jabu-Jabu's Belly": "rescue_nayru",
+            r"Sea of Storms|Sea of No Return|Ancient Tomb": "jabu_jabus_belly",
+        },
+        "needs": {
+            r"Seed Shooter": "wing_dungeon",
+            r"Switch Hook": "moonlit_grotto",
+            r"Cane of Somaria": "skull_dungeon",
+            r"Long Hook": "rescue_nayru",
+        },
+        "tags": {
+            "Past": "nayru_possessed",
+            "Shovel": "nayru_possessed",
+            "Bombs": "nayru_possessed",
+            "Ember Seeds": "maku_tree_rescue",
+            "Power Bracelet": "maku_tree_rescue",
+            "Roc's Feather": "spirits_grave",
+            "Zora's Flippers": "wing_dungeon",
+            "Animal companion": "wing_dungeon",
+            "Tune of Currents": "moonlit_grotto",
+            "Dimitri or Mermaid Suit": "moonlit_grotto",
+            "Mermaid Suit": "crown_dungeon",
+            "Tune of Ages": "mermaids_cave",
+            "Zora Scale": "jabu_jabus_belly",
+        },
+        "after": {
+            "Shovel": "nayru_possessed",
+            "Ember Seeds": "maku_tree_rescue",
+            "Spirit's Grave": "spirits_grave",
+            "Wing Dungeon (Roc's Feather)": "spirits_grave",
+            "Wing Dungeon": "wing_dungeon",
+            "Moonlit Grotto": "moonlit_grotto",
+            "Tune of Currents": "moonlit_grotto",
+            "Skull Dungeon": "skull_dungeon",
+            "Crown Dungeon": "crown_dungeon",
+            "Mermaid's Cave": "mermaids_cave",
+            "The end of a linked game": "ganon",
+            # Secrets heard in a linked Seasons game come from that game's story, not this one.
+            **{text: None for text in (
+                "Poison Moth's Lair (in Seasons)", "First meeting the Maku Tree (in Seasons)", "Snake's Remains (in Seasons)",
+                "Power of Winter (in Seasons)", "Poison Moth's Lair (Roc's Feather) (in Seasons)",
+                "Destroying Moblin's Keep (in Seasons)", "Power of Autumn (in Seasons)", "Helping the Piratians (in Seasons)",
+                "Curing Biggoron's cold (in Seasons)",
+            )},
+        },
+        "items": {
+            "items/sword": "nayru_possessed",
+            "items/seed_satchel": "maku_tree_rescue",
+            "items/ember_seeds": "maku_tree_rescue",
+            "items/zora_flippers": "wing_dungeon",
+            "items/ricky_gloves": "wing_dungeon",
+            "items/island_chart": "wing_dungeon",
+            "items/huge_maku_seed": OOA_DUNGEONS,
+            "harp_songs/tune_of_echoes": "spirits_grave",
+            "harp_songs/tune_of_ages": "mermaids_cave",
+            "linked_secrets/secret_to_holodrum": "black_tower",
         },
     },
     "st": {

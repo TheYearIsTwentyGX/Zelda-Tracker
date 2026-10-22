@@ -11,6 +11,7 @@
         {
           "id": "poe_clock",
           "name": "Poe Clock",
+          "unlockedBy": ["spirits_grave"],
           "area": "Yoll Graveyard (Present)",
           "howTo": "A Poe in Yoll Graveyard says a headstone blocks its way to the afterlife. Move it with the Power Bracelet, go down into the grave, and the Clock Poe gives you the Poe Clock.",
           "after": "Spirit's Grave",
@@ -22,6 +23,7 @@
         {
           "id": "stationery",
           "name": "Stationery",
+          "unlockedBy": ["spirits_grave"],
           "area": "Post Office, Lynna Village (Past)",
           "howTo": "The Postman can't deliver on time without knowing the time. Give him the Poe Clock and he gives you Stationery.",
           "tags": [
@@ -34,6 +36,7 @@
         {
           "id": "stink_bag",
           "name": "Stink Bag",
+          "unlockedBy": ["spirits_grave"],
           "area": "The Toilet, Lynna Village (Past)",
           "howTo": "A mysterious hand (???) in the Toilet just below the Post Office begs for paper. Give it the Stationery and it hands back the Stink Bag.",
           "tags": [
@@ -46,6 +49,7 @@
         {
           "id": "tasty_meat",
           "name": "Tasty Meat",
+          "unlockedBy": ["wing_dungeon"],
           "area": "Crescent Island (Present)",
           "howTo": "The Tokay Chef on Crescent Island has a stuffed nose and can't cook. One sniff of the Stink Bag clears it, and he gives you Tasty Meat.",
           "tags": [
@@ -58,6 +62,7 @@
         {
           "id": "doggie_mask",
           "name": "Doggie Mask",
+          "unlockedBy": ["wing_dungeon"],
           "area": "Mask Shop, Lynna City (Present)",
           "howTo": "The starving Happy Mask Salesman eats the Tasty Meat and, grudgingly, gives you the Doggie Mask.",
           "tags": [
@@ -70,6 +75,7 @@
         {
           "id": "dumbbell",
           "name": "Dumbbell",
+          "unlockedBy": ["wing_dungeon"],
           "area": "Mamamu Yan's house, Lynna City (Present)",
           "howTo": "Mamamu Yan, in the small house in the southwest of Lynna City, wants to hide her shy dog's face. Give her the Doggie Mask for the dog's toy, a Dumbbell.",
           "tags": [
@@ -82,6 +88,7 @@
         {
           "id": "cheesy_mustache",
           "name": "Cheesy Mustache",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Middle House, Symmetry Village (Past)",
           "howTo": "Skinny Thomas in the basement of the Middle House in Symmetry Village has only one Dumbbell. Give him yours and he rips off his Cheesy Mustache for you.",
           "tags": [
@@ -94,6 +101,7 @@
         {
           "id": "funny_joke",
           "name": "Funny Joke",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Lynna City (Present)",
           "howTo": "The Comedian in the middle of Lynna City needs something funny. Give him the Cheesy Mustache and he teaches you his best gag, the Funny Joke.",
           "tags": [
@@ -106,6 +114,7 @@
         {
           "id": "touching_book",
           "name": "Touching Book",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Dekadin's house, Lynna Village (Past)",
           "howTo": "Tell the Funny Joke to depressed Dekadin in the small dark house west of Lynna Village. He lets you take a book from his shelf: the Touching Book.",
           "tags": [
@@ -118,6 +127,7 @@
         {
           "id": "magic_oar",
           "name": "Magic Oar",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Wherever Maple appears",
           "howTo": "Defeat 30 enemies (15 with Maple's Ring) to meet Maple. The Touching Book falls out when you bump into her; she reads it, sobs, and gives you the Magic Oar she made.",
           "tags": [
@@ -130,6 +140,7 @@
         {
           "id": "sea_ukulele",
           "name": "Sea Ukulele",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Rafton's house, South Shore (Past)",
           "howTo": "Rafton wants a good oar for a raft race. Give him the Magic Oar and he gives you the Sea Ukulele.",
           "tags": [
@@ -142,6 +153,7 @@
         {
           "id": "broken_sword",
           "name": "Broken Sword",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Cave on the Coast of No Return (Past)",
           "howTo": "The Old Zora in a cave on the Coast of No Return was once the best Zora musician. Give him the Sea Ukulele and he hands you his ancestors' 'Hero's Sword', which turns out to be a Broken Sword.",
           "tags": [
@@ -154,6 +166,7 @@
         {
           "id": "noble_sword",
           "name": "Noble Sword",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Patch, atop the Restoration Wall (Past)",
           "howTo": "Take the Broken Sword to Patch atop the Restoration Wall, just south of Symmetry Village in the past, and win his repair ceremony minigame. He mends it into the Noble Sword.",
           "reward": "Noble Sword (Master Sword if a linked secret already gave you the Noble Sword)",

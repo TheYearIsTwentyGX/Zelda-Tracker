@@ -60,6 +60,7 @@
         {
           "id": "power_ring_l1",
           "name": "Power Ring L-1",
+          "unlockedBy": ["maku_tree_rescue"],
           "howTo": "Chest in the Spirit's Grave.",
           "area": "Spirit's Grave",
           "notes": "Effect: Sword damage ▲, damage taken ▲. TourianTourist: +1 sword damage, +¼ heart on every hit you take.",
@@ -70,6 +71,7 @@
         {
           "id": "power_ring_l2",
           "name": "Power Ring L-2",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "In a cave on Crescent Island in the past, reached with the Long Hook. Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
           "area": "Crescent Island (Past)",
           "notes": "Effect: Sword damage ▲▲, damage taken ▲▲. TourianTourist: +2 sword damage, +½ heart on every hit you take.",
@@ -90,6 +92,7 @@
         {
           "id": "armor_ring_l1",
           "name": "Armor Ring L-1",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "Inside the Great Moblin's Keep on Rolling Ridge (present).",
           "area": "Great Moblin's Keep, Rolling Ridge",
           "notes": "Effect: Damage taken ▼, sword damage ▼."
@@ -126,6 +129,7 @@
         {
           "id": "blue_ring",
           "name": "Blue Ring",
+          "unlockedBy": ["jabu_jabus_belly"],
           "howTo": "On the Sea of No Return (past), under a statue by the Ancient Tomb. You need the Power Glove to move it.",
           "area": "Sea of No Return (Past)",
           "notes": "Effect: Damage taken = ½."
@@ -133,6 +137,7 @@
         {
           "id": "green_ring",
           "name": "Green Ring",
+          "unlockedBy": ["jabu_jabus_belly"],
           "howTo": "Random ring, class 5: only from Gasha Nuts at the class 3–5 spots: Crescent Island in the past (south of the Tokay statue) and, in a linked game, the Sea of Storms.",
           "notes": "Effect: Sword damage ▲, damage taken ▼. TourianTourist: sword damage ×1.5 and damage taken ×0.75.",
           "tags": [
@@ -207,6 +212,7 @@
         {
           "id": "pegasus_ring",
           "name": "Pegasus Ring",
+          "unlockedBy": ["jabu_jabus_belly"],
           "howTo": "In a cave in the Sea of Storms, in the past (in the present in a linked game). You need the Zora Scale.",
           "area": "Sea of Storms",
           "notes": "Effect: Lengthens the Pegasus Seed effect (about twice as long)."
@@ -214,6 +220,7 @@
         {
           "id": "toss_ring",
           "name": "Toss Ring",
+          "unlockedBy": ["crown_dungeon"],
           "howTo": "At the entrance of Mermaid's Cave in the present, with the Mermaid Suit, or as a Big Bang Game prize. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
           "area": "Mermaid's Cave entrance (Present)",
           "notes": "Effect: Throwing distance ▲ (twice as far, Bombs included).",
@@ -266,6 +273,7 @@
         {
           "id": "light_ring_l1",
           "name": "Light Ring L-1",
+          "unlockedBy": ["moonlit_grotto"],
           "howTo": "In a cave in the Nuun Highlands.",
           "area": "Nuun Highlands",
           "notes": "Effect: Sword beams at -2 Hearts (Noble and Master Swords only)."
@@ -280,6 +288,7 @@
         {
           "id": "bombers_ring",
           "name": "Bomber's Ring",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "A perfect score on the Platinum level of the Goron Dance in the past (Rolling Ridge). The prize is either this ring or the Protection Ring.",
           "area": "Goron Dance, Rolling Ridge (Past)",
           "notes": "Effect: Set two Bombs at once."
@@ -287,6 +296,7 @@
         {
           "id": "green_luck_ring",
           "name": "Green Luck Ring",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "In Mayor Plen's house in Lynna City (present). You need the Long Hook.",
           "area": "Mayor Plen's House, Lynna City",
           "notes": "Effect: ½ damage from traps. TourianTourist calls it much easier to get in Ages."
@@ -294,6 +304,7 @@
         {
           "id": "blue_luck_ring",
           "name": "Blue Luck Ring",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "In a cave by Zora Village; Zelda Wiki says above the village in the present, behind a rock you need the Power Glove for. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
           "area": "Zora Village",
           "notes": "Effect: ½ damage from beams (Beamos). Ages location disagreement: Zelda Wiki says the cave above Zora Village in the present; TourianTourist lists Zora Village (past) plus the Sea of Storms (linked).",
@@ -304,6 +315,7 @@
         {
           "id": "gold_luck_ring",
           "name": "Gold Luck Ring",
+          "unlockedBy": ["nayru_possessed"],
           "howTo": "Inside Ambi's Palace (past).",
           "area": "Ambi's Palace (Past)",
           "notes": "Effect: ½ damage from falls."
@@ -311,6 +323,7 @@
         {
           "id": "red_luck_ring",
           "name": "Red Luck Ring",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "A Goron in a cave on Rolling Ridge in the past asks for 20 Ember Seeds and 20 Bombs. Come back later and pick one of his two chests. It's also a 350-point prize at the Lynna Village Shooting Gallery. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
           "area": "Rolling Ridge (Past)",
           "notes": "Effect: ½ damage from spiked floors.",
@@ -322,6 +335,7 @@
         {
           "id": "green_holy_ring",
           "name": "Green Holy Ring",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "On the shore south of Fairies' Woods, reached through the Zora Seas, or for a perfect score on the Gold level of the Goron Dance. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
           "area": "Shore south of Fairies' Woods",
           "notes": "Effect: No damage from electricity.",
@@ -342,6 +356,7 @@
         {
           "id": "red_holy_ring",
           "name": "Red Holy Ring",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "In an underwater cave in the Zora Seas (present). You need the Long Hook. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
           "area": "Zora Seas (Present)",
           "notes": "Effect: No damage from small rocks (Octoroks). Seasons: Zelda Dungeon and StrategyWiki also list it as a Subrosian minigame prize, and TourianTourist marks it as having a fixed Seasons source without naming it. Unverified, so only the random sources are given here.",
@@ -373,6 +388,7 @@
         {
           "id": "quicksand_ring",
           "name": "Quicksand Ring",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "A Big Bang Game prize. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Treasure Chest Game (four chests in a row), or the Wild Tokay game.",
           "area": "Big Bang Game, Rolling Ridge",
           "notes": "Effect: No sinking in quicksand. TourianTourist: also stops conveyor floors from moving you.",
@@ -394,6 +410,7 @@
         {
           "id": "blue_joy_ring",
           "name": "Blue Joy Ring",
+          "unlockedBy": ["wing_dungeon"],
           "howTo": "Linked game only, with Seasons played first: Impa sends you into the Black Tower to save Princess Zelda from Vire (Zelda Wiki: after Moonlit Grotto). She gives you the ring.",
           "area": "Black Tower",
           "notes": "Effect: Beasts drop double Hearts.",
@@ -404,6 +421,7 @@
         {
           "id": "gold_joy_ring",
           "name": "Gold Joy Ring",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "Behind a bombable wall in a cave on Rolling Ridge (present).",
           "area": "Rolling Ridge (Present)",
           "notes": "Effect: Find double items (Rupees, Hearts, Ore, Bombs and seeds from the ground)."
@@ -420,6 +438,7 @@
         {
           "id": "discovery_ring",
           "name": "Discovery Ring",
+          "unlockedBy": ["maku_tree_rescue"],
           "howTo": "Chest in the Spirit's Grave.",
           "area": "Spirit's Grave",
           "notes": "Effect: Sense soft earth nearby: a chime plays on screens with a Gasha spot.",
@@ -430,6 +449,7 @@
         {
           "id": "rang_ring_l2",
           "name": "Rang Ring L-2",
+          "unlockedBy": ["jabu_jabus_belly"],
           "howTo": "Random ring, class 5: only from Gasha Nuts at the class 3–5 spots: Crescent Island in the past (south of the Tokay statue) and, in a linked game, the Sea of Storms.",
           "notes": "Effect: Boomerang damage ▲▲.",
           "tags": [
@@ -458,6 +478,7 @@
         {
           "id": "like_like_ring",
           "name": "Like Like Ring",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "Inside Jabu-Jabu's Belly. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Treasure Chest Game (three chests in a row), or the one-time ring in the Lynna City shop (300 Rupees).",
           "area": "Jabu-Jabu's Belly",
           "notes": "Effect: Become a Like Like. You can't use items, but Like Likes can't eat your shield.",
@@ -497,6 +518,7 @@
         {
           "id": "bombproof_ring",
           "name": "Bombproof Ring",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "A perfect score on the Gold level of the Goron Dance. Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots.",
           "area": "Goron Dance, Rolling Ridge",
           "notes": "Effect: No damage from your own Bombs.",
@@ -632,6 +654,7 @@
         {
           "id": "whimsical_ring",
           "name": "Whimsical Ring",
+          "unlockedBy": ["rescue_nayru"],
           "howTo": "Chest on the Zora Seas (present). Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
           "area": "Zora Seas (Present)",
           "notes": "Effect: Sword damage ▼, sometimes deadly (a very rare one-hit kill).",
@@ -644,6 +667,7 @@
         {
           "id": "protection_ring",
           "name": "Protection Ring",
+          "unlockedBy": ["skull_dungeon"],
           "howTo": "A perfect score on the Platinum level of the Goron Dance in the past; the prize is either this or the Bomber's Ring. Random ring, class 3: Gasha Nuts from the class 1–3, 2–4 and 3–5 spots, Maple, or the Treasure Chest Game (five chests in a row).",
           "area": "Goron Dance, Rolling Ridge (Past)",
           "notes": "Effect: Damage taken is always one Heart.",
