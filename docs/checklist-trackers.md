@@ -207,6 +207,10 @@ off by default. It makes a checklist follow the game's Main Quest on the active 
   on the save file, and nothing on the item is done. So anything ticked, or partly done, is never
   hidden, even when it was ticked ahead of the story. A step id the story file doesn't have gates
   nothing.
+- **A ticked step implies what it requires.** For gating, a ticked step counts every step it
+  `requires`, however far back, as done. So a save that ticked a temple but never its opening
+  step still unlocks what that step gates. This is gating only: the Main Quest's rows and counts
+  still show exactly what was ticked.
 - **A locked item** has no row:
   - search and the *Missable* chip can't find it, even by its heading;
   - mark-all leaves it alone, and its dialog says how many it left;
@@ -227,7 +231,8 @@ Writing links:
 - Several ids mean all of them. There's no "either of". **When in doubt, gate earlier**: hiding
   something that's already available is the mistake to avoid.
 - `scripts/derive-story-links.py <game>` proposes a link for every item from its `after`, `area`
-  and `region`, using that game's table in the script, and prints a table to review. With
+  and `region`, using that game's table in the script, and prints a table to review. It raises an
+  item's gate to that of anything it `requires` that comes later in the story. With
   `--apply`, it writes the links into the files as text, so hand-made layouts survive.
 - Steps must be untiered. `StoryLinksDatasetTest` checks every link in every game, and that no
   item unlocks before something it `requires` (by `storyOrder`). The game's own dataset test

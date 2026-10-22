@@ -36,7 +36,7 @@ rewards) are what's kept.
 
 | File | Tracker | Sections (items) |
 |---|---|---|
-| `main_quest.json` | Main Quest | Clock Town 1, Temples 4, The Moon 1. Summary: Remains of 4. |
+| `main_quest.json` | Main Quest | Clock Town 1, Temple Songs 4, Temples 4, The Moon 1 (10 steps). Summary: Remains of 4. |
 | `masks.json` | Masks | Transformation Masks 4, Masks 20 (24 in all) |
 | `heart_pieces.json` | Heart Pieces | Pieces of Heart 52, Heart Containers 4. Summary: hearts = 3 + ⌊pieces / 4⌋ + containers, 20 at most. |
 | `bombers_notebook.json` | Bombers' Notebook | 20 people |
@@ -66,6 +66,14 @@ its own.
 - **Main Quest** is short because almost nothing in the story persists: the temples' Remains are
   the milestones, and each temple item names what it takes to get in (masks, songs, Hookshot,
   Elegy). The Giant each boss frees is in its reward.
+  - It has 10 steps; there were 6 until story gating. The *Temple Songs* section adds the song
+    that opens each temple: the Sonata of Awakening, the Goron Lullaby, the New Wave Bossa Nova
+    and the Elegy of Emptiness.
+  - Songs persist through the Song of Time, and each temple `requires` its song. So story gating
+    can show what a temple holds, or what its item opens, before the temple is finished. See
+    *Story links*.
+  - A save that ticked a temple before these steps existed counts its song as reached for
+    gating. The song's own row stays unticked until you tick it.
 - **Masks**: 24, which Zelda Wiki, Zelda Dungeon and StrategyWiki agree on. The 20 non-transformation
   masks are their own section because that's the Moon Children's requirement.
 - **Heart Pieces**: 52 pieces and 4 containers (Zelda Wiki: "There are 52 Pieces of Heart in
@@ -94,6 +102,45 @@ its own.
 
 Not tracked: Gossip Stones, the Keaton quiz answers, Rupee-only minigames (lottery, Zora Cape pots),
 the Deku Scrub trade items themselves, and the ending's scenes.
+
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, steps of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds MM's table.
+
+**Counts.** 268 of the 285 items outside the Main Quest are linked. The other 17 a Deku can get in
+the first cycle in Clock Town, such as the Bombers, the magic, the bank and the Deku Playground.
+
+**How a step was chosen.** An item is gated by the **latest** of:
+
+- *Where it is.*
+
+  | Place | Step |
+  |---|---|
+  | Clock Town and the rest of Termina | `reclaim_ocarina` (human Link) |
+  | Ikana | `woodfall_sonata` (the Road to Ikana needs Epona, and her song is won with the Hero's Bow) |
+  | Upper Ikana Canyon | `great_bay_bossa_nova` (the Ice Arrows, from the Great Bay Temple) |
+  | Stone Tower | `ikana_elegy` |
+  | The Moon | all four temples |
+- *Inside a temple*, its Stray Fairies, chests and boss are gated by the temple's song, which
+  opens it.
+- *What it needs*, by tag, `after` or text:
+
+  | Need | Step |
+  |---|---|
+  | The Bow, Epona, Romani's or Garo's Mask | `woodfall_sonata` |
+  | Fire Arrows | `snowhead_lullaby` |
+  | Ice Arrows, Gibdo Mask | `great_bay_bossa_nova` |
+  | Mirror Shield | `great_bay_temple` |
+  | Light Arrows, the inverted temple | `ikana_elegy` |
+  | Goron or Zora form, Hookshot, Bombs, Lens of Truth | `reclaim_ocarina` |
+- *After a temple*, spring in Snowhead or the clear sea is gated by that temple's step: the Goron
+  Race, Koume's boat archery, the Fisherman's jumping game.
+- *What it requires.* A reward that needs every Skulltula takes the latest of their gates.
+
+`MmChecklistDatasetTest` spot-checks the links and counts the start items.
 
 ## Sources
 

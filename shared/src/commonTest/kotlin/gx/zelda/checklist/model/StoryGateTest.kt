@@ -34,6 +34,16 @@ class StoryGateTest {
         assertFalse(gate("forest", "fire", "water").isLocked(item("both"), progress()))
     }
 
+    /** Ticking a later step counts what it requires as reached, for gating only. */
+    @Test
+    fun aTickedStepCountsWhatItRequiresAsDone() {
+        val gate = gate("finale")
+        assertEquals(setOf("finale", "fire", "water", "forest"), gate.done)
+        assertFalse(gate.isLocked(item("forest_piece"), progress()), "forest comes before the finale")
+        assertFalse(gate.isLocked(item("both"), progress()))
+        assertEquals(setOf("fire", "forest"), gate("fire").done, "but not a branch it doesn't require")
+    }
+
     @Test
     fun anUnknownStepGatesNothing() {
         assertFalse(gate().isLocked(item("typo"), progress()))

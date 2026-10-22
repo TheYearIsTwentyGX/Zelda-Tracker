@@ -10,15 +10,15 @@
       "note": "Strike a statue with your sword to make it a Song of Soaring warp point. Struck statues stay struck through the Song of Time, and you can quit-save (an owl save) at any of them.",
       "items": [
         {"id": "owl_clock_town", "name": "Clock Town", "howTo": "In South Clock Town, the plaza around the Clock Tower."},
-        {"id": "owl_milk_road", "name": "Milk Road", "howTo": "On Milk Road, near where Tingle floats."},
-        {"id": "owl_southern_swamp", "name": "Southern Swamp", "howTo": "By the Swamp Tourist Center."},
-        {"id": "owl_woodfall", "name": "Woodfall", "howTo": "On one of the platforms around Woodfall Temple, reached by Deku flower.", "tags": ["Deku"]},
-        {"id": "owl_mountain_village", "name": "Mountain Village", "howTo": "In Mountain Village."},
-        {"id": "owl_snowhead", "name": "Snowhead", "howTo": "On the path up to Snowhead Temple."},
-        {"id": "owl_great_bay_coast", "name": "Great Bay Coast", "howTo": "On Great Bay Coast."},
-        {"id": "owl_zora_cape", "name": "Zora Cape", "howTo": "At Zora Cape."},
-        {"id": "owl_ikana_canyon", "name": "Ikana Canyon", "area": "Ikana Canyon", "howTo": "On the upper level of the canyon, which you reach by freezing the Octoroks in the river with Ice Arrows and Hookshotting up.", "after": "Ice Arrows, Hookshot"},
-        {"id": "owl_stone_tower", "name": "Stone Tower", "howTo": "At Stone Tower, once you've climbed it with the Elegy of Emptiness.", "after": "Elegy of Emptiness"}
+        {"id": "owl_milk_road", "name": "Milk Road", "unlockedBy": ["reclaim_ocarina"], "howTo": "On Milk Road, near where Tingle floats."},
+        {"id": "owl_southern_swamp", "name": "Southern Swamp", "unlockedBy": ["reclaim_ocarina"], "howTo": "By the Swamp Tourist Center."},
+        {"id": "owl_woodfall", "name": "Woodfall", "unlockedBy": ["reclaim_ocarina"], "howTo": "On one of the platforms around Woodfall Temple, reached by Deku flower.", "tags": ["Deku"]},
+        {"id": "owl_mountain_village", "name": "Mountain Village", "unlockedBy": ["reclaim_ocarina"], "howTo": "In Mountain Village."},
+        {"id": "owl_snowhead", "name": "Snowhead", "unlockedBy": ["snowhead_lullaby"], "howTo": "On the path up to Snowhead Temple."},
+        {"id": "owl_great_bay_coast", "name": "Great Bay Coast", "unlockedBy": ["reclaim_ocarina"], "howTo": "On Great Bay Coast."},
+        {"id": "owl_zora_cape", "name": "Zora Cape", "unlockedBy": ["reclaim_ocarina"], "howTo": "At Zora Cape."},
+        {"id": "owl_ikana_canyon", "name": "Ikana Canyon", "unlockedBy": ["great_bay_bossa_nova"], "area": "Ikana Canyon", "howTo": "On the upper level of the canyon, which you reach by freezing the Octoroks in the river with Ice Arrows and Hookshotting up.", "after": "Ice Arrows, Hookshot"},
+        {"id": "owl_stone_tower", "name": "Stone Tower", "unlockedBy": ["ikana_elegy"], "howTo": "At Stone Tower, once you've climbed it with the Elegy of Emptiness.", "after": "Elegy of Emptiness"}
       ]
     },
     {
@@ -29,11 +29,11 @@
       "note": "Pop Tingle's balloon with a bubble, an arrow or the Hookshot, then buy from him. Each Tingle sells his own region's map and the next one's, which costs more. Maps stay through the Song of Time.",
       "items": [
         {"id": "map_clock_town", "name": "Map of Clock Town", "area": "North Clock Town", "howTo": "From Tingle in North Clock Town, for 5 Rupees. Tingle in Ikana Canyon sells it too."},
-        {"id": "map_woodfall", "name": "Map of Woodfall", "area": "Road to Southern Swamp", "howTo": "From Tingle on the Road to Southern Swamp, for 20 Rupees. Tingle in North Clock Town sells it too, for more."},
-        {"id": "map_snowhead", "name": "Map of Snowhead", "area": "Twin Islands, Snowhead", "howTo": "From Tingle on the way to Goron Village. Tingle on the Road to Southern Swamp sells it too."},
-        {"id": "map_romani_ranch", "name": "Map of Romani Ranch", "area": "Milk Road", "howTo": "From Tingle on Milk Road, for 20 Rupees. Tingle in Snowhead sells it too."},
-        {"id": "map_great_bay", "name": "Map of Great Bay", "area": "Great Bay Coast", "howTo": "From Tingle on Great Bay Coast. Tingle on Milk Road sells it too."},
-        {"id": "map_stone_tower", "name": "Map of Stone Tower", "area": "Ikana Canyon", "howTo": "From Tingle in Ikana Canyon. Tingle on Great Bay Coast sells it too."}
+        {"id": "map_woodfall", "name": "Map of Woodfall", "unlockedBy": ["reclaim_ocarina"], "area": "Road to Southern Swamp", "howTo": "From Tingle on the Road to Southern Swamp, for 20 Rupees. Tingle in North Clock Town sells it too, for more."},
+        {"id": "map_snowhead", "name": "Map of Snowhead", "unlockedBy": ["reclaim_ocarina"], "area": "Twin Islands, Snowhead", "howTo": "From Tingle on the way to Goron Village. Tingle on the Road to Southern Swamp sells it too."},
+        {"id": "map_romani_ranch", "name": "Map of Romani Ranch", "unlockedBy": ["reclaim_ocarina"], "area": "Milk Road", "howTo": "From Tingle on Milk Road, for 20 Rupees. Tingle in Snowhead sells it too."},
+        {"id": "map_great_bay", "name": "Map of Great Bay", "unlockedBy": ["reclaim_ocarina"], "area": "Great Bay Coast", "howTo": "From Tingle on Great Bay Coast. Tingle on Milk Road sells it too."},
+        {"id": "map_stone_tower", "name": "Map of Stone Tower", "unlockedBy": ["great_bay_bossa_nova"], "area": "Ikana Canyon", "howTo": "From Tingle in Ikana Canyon. Tingle on Great Bay Coast sells it too."}
       ]
     },
     {
