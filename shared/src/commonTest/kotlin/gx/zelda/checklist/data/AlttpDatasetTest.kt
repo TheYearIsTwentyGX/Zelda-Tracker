@@ -116,4 +116,17 @@ class AlttpDatasetTest {
             c.items.filter { it.tiers.isEmpty() }.forEach { assertTrue(!it.howTo.isNullOrBlank(), "${it.id} in $name") }
         }
     }
+    /**
+     * Story links (docs/alttp.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand. Only the Lamp, in Link's House, is had before the uncle.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = withCatalogs { all ->
+        val links = all.filterKeys { it != "main_quest" }.values.flatMap { it.items }.associate { it.id to it.unlockedBy }
+        assertEquals(setOf("lamp"), links.filterValues { it.isEmpty() }.keys)
+        assertEquals(listOf("sanctuary"), links["poh_kakariko_well"], "the Light World, once Zelda is safe")
+        assertEquals(listOf("eastern_palace"), links["poh_desert_ledge"], "the desert, with the Pegasus Shoes for the Book of Mudora")
+        assertEquals(listOf("agahnim"), links["poh_village_chest_game"], "the Dark World")
+        assertEquals(listOf("thieves_town"), links["poh_stake_garden"], "the Titan's Mitt, from Thieves' Town")
+    }
 }

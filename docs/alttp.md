@@ -83,6 +83,44 @@ Order follows the story where it can, since the overview's *Next* is the first u
   Mire (Cane of Somaria), Ganon's Tower needs all 7 Crystals and Ganon needs the tower.
 - Heart Pieces follow Zelda Dungeon's numbering, which tracks the walkthrough.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds ALttP's table.
+
+**Counts.** 66 of the 67 items outside the Main Quest are linked. Only the Lamp, in Link's House, is
+had from the very start.
+
+**How a step was chosen.** The Main Quest's steps don't `require` each other, so the script orders
+them as the file does (`linear`). An item is gated by the **latest** of the following.
+
+- *Where it is.*
+  - The Light World is gated by `sanctuary`, once Zelda is safe.
+  - The desert and Death Mountain are gated by `eastern_palace` (the Pegasus Shoes and the Power
+    Glove).
+  - The Tower of Hera is gated by `desert_palace`.
+  - The Dark World is gated by `agahnim`.
+  - The Ice Palace, Misery Mire and the Swamp of Evil are gated by `thieves_town` (the Titan's
+    Mitt).
+  - Turtle Rock is gated by `misery_mire`.
+- *Gear its text names*, by the step before the dungeon or person that gives it:
+
+  | Gear | Step |
+  |---|---|
+  | The Bow | `sahasrahla` |
+  | Pegasus Shoes, Power Glove, Magic Mirror, Book of Mudora | `eastern_palace` |
+  | Moon Pearl | `desert_palace` |
+  | Master Sword | `master_sword` |
+  | Hammer, Hookshot, Fire Rod, Flute | `agahnim` |
+  | Titan's Mitt | `thieves_town` |
+  | Cane of Somaria | `misery_mire` |
+- *The purple chest* waits for the swordsmiths to be reunited. The frog is behind a dark rock, so
+  it's gated by `thieves_town`.
+
+`AlttpDatasetTest` spot-checks the links.
+
 ## Sources
 
 Every count was checked against three sources:
