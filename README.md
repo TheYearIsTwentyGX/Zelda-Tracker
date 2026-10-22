@@ -42,8 +42,8 @@ iOS port is mostly a matter of adding the iOS targets.
 - **Hide what the story hasn't unlocked yet** (Settings → Progress, off by default): checklists
   leave out what the game's Main Quest hasn't reached on the active save file, such as a heart
   piece behind a dungeon you haven't finished. This works only where the data links items to Main
-  Quest steps (`unlockedBy`, see `docs/checklist-trackers.md`). So far that's Skyward Sword
-  and Twilight Princess (each game's doc, *Story links*).
+  Quest steps (`unlockedBy`, see `docs/checklist-trackers.md`). So far that's Skyward Sword,
+  Twilight Princess and The Wind Waker (each game's doc, *Story links*).
   - Anything you've ticked always shows, even if you ticked it ahead of the story.
   - Counts keep their true totals, and each region card says how many more unlock later in the
     story, without naming them.

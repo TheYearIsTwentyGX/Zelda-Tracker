@@ -175,6 +175,64 @@ Every count was checked against at least two of:
 | Bottles | 4 | 4 | — |
 | Save files | — | — | — (zeldaret/tww: 3) |
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds WW's table.
+
+All 419 items outside the Main Quest are linked. Even the Hero's Sword, Shield and Telescope are
+gated, by `outset_island`, whose rewards they are.
+
+**How a step was chosen.** The Great Sea opens with the Wind Waker (`dragon_roost_island`). After
+that, what gates something is mostly the gear it needs, and each item's text names it. So an item
+is gated by the **latest** of:
+
+- its `after` text;
+- where it is:
+  - Windfall: `windfall_sail`;
+  - Forest Haven: `dins_pearl`;
+  - a dungeon: the step that opens it (the Forbidden Woods by `forest_haven`, the Tower of the
+    Gods by `nayrus_pearl`, Hyrule Castle by `tower_of_the_gods`, the second Forsaken Fortress by
+    `hyrule_castle`, the Earth and Wind Temples by `forsaken_fortress_second`);
+  - any other island, Outset included: `dragon_roost_island`;
+- the gear its text names, by the step that gives it:
+
+  | Gear | Step |
+  |---|---|
+  | Grappling Hook, Wind's Requiem, Song of Passing, Hyoi Pears and Beedle | `dragon_roost_island` |
+  | Deku Leaf, Boomerang | `forest_haven` |
+  | Bombs and the boat's cannon | `windfall_bombs` |
+  | Hero's Bow, Ballad of Gales, Command Melody, Darknuts' Knight's Crests | `nayrus_pearl` |
+  | Skull Hammer, Master Sword | `hyrule_castle` |
+  | Fire and Ice Arrows, Hookshot, Power Bracelets, Iron Boots, Mirror Shield | `forsaken_fortress_second` |
+
+  The Fairy Queen gives the Fire and Ice Arrows only once Aryll is rescued.
+- the treasure chart it names ("Open Treasure Chart 33"), whose gate it shares.
+
+For a treasure chart's row, it's the chart's own how-to that counts (its first tier), not where
+its treasure is salvaged.
+
+**Figurines** need a colour pictograph shown to Carlov:
+- The Deluxe Picto Box needs a Forest Firefly from Forest Haven, and the Nintendo Gallery's door
+  needs a Hyoi Pear. So none comes before `dins_pearl`.
+- After that, each figurine is gated by the **earliest** place its subject can be photographed.
+- Gohma is met only before the Deluxe Picto Box, so hers is gated by `triforce_of_courage`, for
+  her rematch in Ganon's Tower.
+- Lenzo sells Legendary Pictographs once Aryll is rescued (`forsaken_fortress_second`).
+- Tetra's crew come with her figurine (Hyrule Castle).
+
+**Judgement calls**, gated as early as the sources allow:
+- Where the text offers alternatives ("with arrows, the Boomerang or the cannon"; "either Great
+  Fairy"), the earliest is used.
+- Some enemies are gated by an open island where they're first met, even when that island's cave
+  needs later gear.
+
+Sources: Zelda Wiki (Nintendo Gallery, Deluxe Picto Box, Picto Box, Lenzo's Research Assistant,
+Hyoi Pear, Fire Arrow, Ballad of Gales, Song of Passing, Bait Bag, Magic Armor), read through its
+API, and the data's own how-to text. `WwDatasetTest` spot-checks the links.
+
 ## Discrepancies and how they were settled
 
 **Pieces of Heart**
