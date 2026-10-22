@@ -22,6 +22,7 @@
         {
           "id": "wryna_finding_kukiel",
           "name": "Finding Kukiel",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Kukiel's house; Batreaux's House below the graveyard",
           "howTo": "Wryna is outside the Statue of the Goddess calling for her daughter. Ask around (Orielle points you to Rusta in the Lumpy Pumpkin), then at night hit the graveyard tombstone nearest the tree and push it: the shed door opens. Go down the ladder to Batreaux's House, swing at Batreaux, and hear him out. Next morning, talk to Wryna in Kukiel's house.",
@@ -33,6 +34,7 @@
         {
           "id": "parrow_orielles_loftwing",
           "name": "Orielle's injured Loftwing",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "The Plaza; small island in the south-west Sky",
           "howTo": "Parrow paces the Plaza: his sister Orielle hasn't come back. Fly south-west towards Fun Fun Island and land on the small green island where she crashed. Get Mushroom Spores from Parrow (he gives a Bottle of them), give them to Orielle for 5 crystals, then tell Parrow for 5 more.",
@@ -47,6 +49,7 @@
         {
           "id": "peatrice_unwanted_admirer",
           "name": "Peatrice's admirer",
+          "unlockedBy": ["lanayru_mining_facility"],
           "region": "Skyloft",
           "area": "Item Check, Bazaar; Peatrice's house",
           "howTo": "Keep using the Item Check on different days until Peatrice calls you her darling. Then talk to her father Peater at night in their house by the Bazaar's south entrance, and next day agree to see Peatrice there at night. Say you love her (5 crystals from her), or turn her down and talk to Peater the next night (5 crystals from him).",
@@ -58,6 +61,7 @@
         {
           "id": "mallara_dusty_house",
           "name": "Mallara's dusty house",
+          "unlockedBy": ["power_generator"],
           "region": "Skyloft",
           "area": "Pipit's house, Skyloft Village",
           "howTo": "In Pipit's house, agree to dust for Mallara and blow every bit of dust away with the Gust Bellows: floor, walls, shelves and windows. She stops you when it's done.",
@@ -72,6 +76,7 @@
         {
           "id": "cawlin_love_letter",
           "name": "Cawlin's love letter",
+          "unlockedBy": ["imprisoned_first"],
           "region": "Skyloft",
           "area": "Knight Academy",
           "howTo": "At night a voice in the Knight Academy's downstairs toilet begs for paper. Next morning Cawlin asks you to give his letter to Karane. Either give it to the hand in the toilet at night, then see Cawlin by day and the hand in Groose's room the next night; or give it to Karane in the classroom, talk to Pipit upstairs and follow them back to the classroom.",
@@ -83,6 +88,7 @@
         {
           "id": "dodoh_party_wheel",
           "name": "Dodoh's Party Wheel",
+          "unlockedBy": ["farores_courage"],
           "region": "The Sky",
           "area": "Fun Fun Island",
           "howTo": "Dodoh's Party Wheel has fallen to the surface. Land at the Lanayru Desert Entrance statue, bomb the rocks by the mine cart to the south, hit the Timeshift Stone, climb the vines and follow the ledge left to the wheel. Have Fi call Scrapper to carry it to Dodoh.",
@@ -97,6 +103,7 @@
         {
           "id": "bertie_babys_rattle",
           "name": "Bertie's missing rattle",
+          "unlockedBy": ["trial_nayru"],
           "region": "Skyloft",
           "area": "Bertie and Luv's house, Skyloft Village",
           "howTo": "At night Bertie is up with the crying baby: the rattle is lost. Clawshot up the floating islands to the top of the big waterfall island, then take a running jump off its south side and glide to the bird's nest on the windmill. Blow the junk away with the Gust Bellows, take the rattle and give it to Bertie at night.",
@@ -113,6 +120,7 @@
         {
           "id": "fledge_push_ups",
           "name": "Fledge's confidence",
+          "unlockedBy": ["lanayru_mining_facility"],
           "region": "Skyloft",
           "area": "Fledge's room, Knight Academy",
           "howTo": "Buy a Stamina Potion from Luv in the Bazaar and visit Fledge in his room at night: he's trying to do push-ups. Give him the potion. After another dungeon, give him a second one at night. A good while later he shows off and thanks you.",
@@ -128,6 +136,7 @@
         {
           "id": "kina_pumpkin_harvest",
           "name": "Kina's pumpkin harvest",
+          "unlockedBy": ["fire_sanctuary"],
           "region": "The Sky",
           "area": "Pumpkin patch, Pumpkin Landing",
           "howTo": "By day, Kina wants someone to help in the pumpkin patch. Land at Eldin's Volcano East statue, ride the updraft into the small volcano and glide to the top-right pillar where the Mogma elder Guld sits. Talk to him and have Scrapper fly him to Kina.",
@@ -142,6 +151,7 @@
         {
           "id": "sparrot_crystal_ball",
           "name": "Sparrot's crystal ball",
+          "unlockedBy": ["levias"],
           "region": "Skyloft",
           "area": "Sparrot's house, east Skyloft",
           "howTo": "Sparrot has left the Bazaar: his crystal ball broke. Talk to him at home (reach it from the left, under the land bridge). In Eldin, at the Earth Temple statue, take the updraft left of the temple and clawshot to the orb on the lamp post by the entrance. Have Scrapper carry it to Sparrot.",
@@ -157,6 +167,7 @@
         {
           "id": "beedle_horned_colossus_beetle",
           "name": "Beedle's Horned Colossus Beetle",
+          "unlockedBy": ["levias"],
           "region": "The Sky",
           "area": "Beedle's Island at night; Bug Rock",
           "howTo": "After talking to Strich on Bug Rock, sleep in the bed in Beedle's Airshop to reach Beedle's Island at night: his beetle is missing. Strich has it. Beat his special bug-catching challenge in under three minutes to win it back, then return it to Beedle on his island at night.",
@@ -172,6 +183,7 @@
         {
           "id": "owlan_rare_plant",
           "name": "Instructor Owlan's request",
+          "unlockedBy": ["levias"],
           "region": "Skyloft",
           "area": "Owlan's room, Knight Academy",
           "howTo": "Owlan has studied every plant in the Sky and wants something new. Dowse for it in Faron Woods: it leads to Oolo the Kikwi. Have Scrapper fly Oolo to Owlan.",
@@ -195,6 +207,7 @@
         {
           "id": "crystal_links_room",
           "name": "Link's room",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Knight Academy",
           "howTo": "On the desk in Link's room. Only there at night.",
@@ -208,6 +221,7 @@
         {
           "id": "crystal_academy_plant",
           "name": "Knight Academy plant",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Knight Academy",
           "howTo": "Upstairs in the Knight Academy, in the plant in the corner by the upper exit. Only there at night.",
@@ -220,6 +234,7 @@
         {
           "id": "crystal_sparring_hall",
           "name": "Sparring Hall rafters",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Sparring Hall",
           "howTo": "Up in the rafters at the back of the Sparring Hall. Fly the Beetle up to grab it. Only there at night.",
@@ -233,6 +248,7 @@
         {
           "id": "crystal_orielle_parrow_house",
           "name": "Orielle and Parrow's house",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Orielle and Parrow's house",
           "howTo": "In the corner of the room. Their house is the first on the left after the Knight Academy's lower gate. Only there at night.",
@@ -245,6 +261,7 @@
         {
           "id": "crystal_west_cliff",
           "name": "Ledge south of the Academy",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "West cliff",
           "howTo": "Just south of the Knight Academy, look west for vines leading down to a ledge by the southern windmill. Climb down to it, or grab it with the Beetle. Only there at night.",
@@ -257,6 +274,7 @@
         {
           "id": "crystal_light_tower",
           "name": "Light Tower",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "The Plaza",
           "howTo": "Climb to the base of the Light Tower in the Plaza and walk round the back. Only there at night.",
@@ -269,6 +287,7 @@
         {
           "id": "crystal_pumpkin_patch_tree",
           "name": "Tree by the pumpkin patch",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Skyloft Village",
           "howTo": "Over the bridge in the houses to the east, behind the tree by the pumpkin patch. Only there at night.",
@@ -281,6 +300,7 @@
         {
           "id": "crystal_after_waterfall_cave",
           "name": "Waterfall Cave exit",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Waterfall Cave",
           "howTo": "Cross the river on the stepping stones and fight through the Waterfall Cave; the crystal is at the far exit. Only there at night.",
@@ -293,6 +313,7 @@
         {
           "id": "crystal_loftwing_prison",
           "name": "Loftwing's prison",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Behind the waterfall",
           "howTo": "In the alcove where Groose hid your Loftwing, through the Waterfall Cave. Only there at night.",
@@ -305,6 +326,7 @@
         {
           "id": "crystal_bazaar_planks",
           "name": "Below the Bazaar's north exit",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "North of the Bazaar",
           "howTo": "Leave the Bazaar by the north exit and go one level down to the east: cross the wooden planks to the grassy patch. The Beetle helps spot it. Only there at night.",
@@ -317,6 +339,7 @@
         {
           "id": "crystal_lumpy_pumpkin_inside",
           "name": "Inside the Lumpy Pumpkin",
+          "unlockedBy": ["skyview_temple"],
           "region": "The Sky",
           "area": "Lumpy Pumpkin, Pumpkin Landing",
           "howTo": "Sleep in a bed in the Lumpy Pumpkin to make it night, then go upstairs: it's on the counter. Only there at night.",
@@ -329,6 +352,7 @@
         {
           "id": "crystal_lumpy_pumpkin_shed",
           "name": "Pumpkin Landing shed",
+          "unlockedBy": ["skyview_temple"],
           "region": "The Sky",
           "area": "Pumpkin Landing",
           "howTo": "Facing the big pumpkin patch, turn right and follow the ramp down to the storage shed. Only there at night.",
@@ -341,6 +365,7 @@
         {
           "id": "crystal_beedles_island",
           "name": "Above Beedle's propeller",
+          "unlockedBy": ["skyview_temple"],
           "region": "The Sky",
           "area": "Beedle's Island",
           "howTo": "Enter Beedle's Airshop by day and sleep in his bed to wake on Beedle's Island at night. Outside, look up: the crystal floats above a propeller. Fetch it with the Beetle. Only there at night.",
@@ -354,6 +379,7 @@
         {
           "id": "crystal_waterfall_island",
           "name": "Top of the waterfall",
+          "unlockedBy": ["trial_nayru"],
           "region": "Skyloft",
           "area": "Waterfall island",
           "howTo": "Clawshot up the vines of the floating islands to the big waterfall island; the crystal is at the mouth of the waterfall. A Tough Beetle can fetch it from the ground. Only there at night.",
@@ -367,6 +393,7 @@
         {
           "id": "crystal_zeldas_room",
           "name": "Zelda's room",
+          "unlockedBy": ["trial_nayru"],
           "region": "Skyloft",
           "area": "Knight Academy",
           "howTo": "Climb onto the Knight Academy roof, clawshot to the target on the bath chimney, drop in and crawl through to Zelda's room. The crystal is on the floor. Only there at night.",
@@ -389,6 +416,7 @@
         {
           "id": "batreaux_5",
           "name": "5 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 5 Gratitude Crystals in all.",
@@ -399,6 +427,7 @@
         {
           "id": "batreaux_10",
           "name": "10 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 10 Gratitude Crystals in all.",
@@ -415,6 +444,7 @@
         {
           "id": "batreaux_30",
           "name": "30 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 30 Gratitude Crystals in all.",
@@ -428,6 +458,7 @@
         {
           "id": "batreaux_40",
           "name": "40 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 40 Gratitude Crystals in all.",
@@ -441,6 +472,7 @@
         {
           "id": "batreaux_50",
           "name": "50 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 50 Gratitude Crystals in all.",
@@ -454,6 +486,7 @@
         {
           "id": "batreaux_70",
           "name": "70 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 70 Gratitude Crystals in all.",
@@ -467,6 +500,7 @@
         {
           "id": "batreaux_80",
           "name": "80 Gratitude Crystals",
+          "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
           "howTo": "Talk to Batreaux once you've collected 80 Gratitude Crystals in all.",

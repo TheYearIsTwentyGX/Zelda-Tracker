@@ -10,6 +10,7 @@
         {
           "id": "wooden_shield",
           "name": "Wooden Shield",
+          "unlockedBy": ["statue_of_the_goddess"],
           "area": "Skyloft",
           "notes": "Strength 4, 6 and 8 (hits of one heart it takes before breaking). Wood: safe from electricity, so good in Lanayru, but it burns. Arrows that stick in it can be collected. Rupin's Gear Shop sells it again if it breaks.",
           "tiers": [
@@ -70,6 +71,7 @@
         {
           "id": "hylian_shield",
           "name": "Hylian Shield",
+          "unlockedBy": ["hero_song_lanayru"],
           "area": "Lanayru Gorge",
           "howTo": "Once you've cured Lanayru with the Life Tree Fruit, talk to him in Lanayru Gorge to play the Thunder Dragon's Lightning Round. Win eight boss battles in a row, then stop to take your prize.",
           "reward": "Hylian Shield",

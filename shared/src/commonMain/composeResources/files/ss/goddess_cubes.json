@@ -30,6 +30,7 @@
         {
           "id": "cube_deep_woods_gorko",
           "name": "Deep Woods: Gorko's cube",
+          "unlockedBy": ["faron_woods"],
           "region": "Faron Woods",
           "area": "Deep Woods",
           "howTo": "Cube: After the tightropes in the Deep Woods, Gorko is studying this cube. Chest: Pumpkin Landing.",
@@ -52,6 +53,7 @@
         {
           "id": "cube_deep_woods_skyview_entrance",
           "name": "Deep Woods: by the Skyview Temple entrance",
+          "unlockedBy": ["faron_woods"],
           "region": "Faron Woods",
           "area": "Deep Woods",
           "howTo": "Cube: Just outside the entrance to the Skyview Temple. Chest: island by the Faron pillar.",
@@ -74,6 +76,7 @@
         {
           "id": "cube_skyview_spring",
           "name": "Skyview Spring",
+          "unlockedBy": ["faron_woods"],
           "region": "Faron Woods",
           "area": "Skyview Spring",
           "howTo": "Cube: In the Skyview Spring at the end of the Skyview Temple: drop into the water and go behind the goddess statue's platform. Chest: Lumpy Pumpkin roof.",
@@ -95,6 +98,7 @@
         {
           "id": "cube_eldin_entrance",
           "name": "Eldin Volcano entrance",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "Near the Volcano Entry Bird Statue",
           "howTo": "Cube: Right at the start of Eldin Volcano: walk forward, take the first left and drop to the lower ledge. Chest: island north-west of Fun Fun Island.",
@@ -116,6 +120,7 @@
         {
           "id": "cube_eldin_volcano_east",
           "name": "Volcano East three-way split",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "Past the Volcano East Bird Statue",
           "howTo": "Cube: After the Mogma who teaches you about Bomb Flowers, go past the Bird Statue to where the path splits three ways and go straight ahead. Chest: island next to Bamboo Island.",
@@ -137,6 +142,7 @@
         {
           "id": "cube_eldin_volcano_pillar",
           "name": "Pillar inside the small volcano",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "Inside the small volcano (Mogma Turf)",
           "howTo": "Cube: Jump down into the small volcano and steer your fall: the cube is on a pillar to the right. Chest: outside the Isle of Songs.",
@@ -158,6 +164,7 @@
         {
           "id": "cube_earth_temple_west",
           "name": "West of the Earth Temple entrance",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "Outside the Earth Temple",
           "howTo": "Cube: West of the Earth Temple entrance, dig the soft soil: one spot uncovers an updraft. Chest: Bamboo Island.",
@@ -182,6 +189,7 @@
         {
           "id": "cube_earth_temple_east",
           "name": "East of the Earth Temple entrance",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "Outside the Earth Temple",
           "howTo": "Cube: East of the Earth Temple entrance, past the Bokoblins and their huts, a ramp leads down to the cube. Chest: caged chest near Beedle's Island.",
@@ -203,6 +211,7 @@
         {
           "id": "cube_eldin_sand_slide",
           "name": "Below the sand slide",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "North-east corner, big sand slide",
           "howTo": "Cube: Slide down the big sand slide in the north-east and ride the left updraft to a higher platform. Chest: Skyloft shed.",
@@ -228,6 +237,7 @@
         {
           "id": "cube_lanayru_mine_entrance",
           "name": "Lanayru Mine entrance",
+          "unlockedBy": ["earth_temple"],
           "region": "Lanayru Mine",
           "area": "By the first Bird Statue",
           "howTo": "Cube: At the start of the Lanayru Mine, where the Bird Statue is, go to the far south. Chest: bombable wall near Beedle's Island.",
@@ -253,6 +263,7 @@
         {
           "id": "cube_lanayru_sand_oasis",
           "name": "South-west desert sands",
+          "unlockedBy": ["lanayru_mining_facility"],
           "region": "Lanayru Desert",
           "area": "Sand Oasis, south-west Lanayru Desert",
           "howTo": "Cube: In the sandy south-west of the desert, knock out an Ampilus with a bomb and stand on its shell to get your stamina back, then dash across the sand to the cube. Chest: outside the volcanic island.",
@@ -278,6 +289,7 @@
         {
           "id": "cube_temple_of_time_minecart",
           "name": "Temple of Time mine cart",
+          "unlockedBy": ["lanayru_mining_facility"],
           "region": "Lanayru Desert",
           "area": "Temple of Time, north-west",
           "howTo": "Cube: At the north-west of the Temple of Time, hit the Timeshift Stone to power the mine cart, ride it across the gap and Skyward Strike the cube as you pass. Chest: Beedle's Island.",
@@ -300,6 +312,7 @@
         {
           "id": "cube_great_tree_west",
           "name": "Great Tree: west side",
+          "unlockedBy": ["trial_farore"],
           "region": "Faron Woods",
           "area": "Outside the Great Tree, west side",
           "howTo": "Cube: Swim into the Great Tree and climb out of the top exit. Chest: Skyloft, south of the Knight Academy.",
@@ -324,6 +337,7 @@
         {
           "id": "cube_great_tree_southeast",
           "name": "Great Tree: south-east ledge",
+          "unlockedBy": ["trial_farore"],
           "region": "Faron Woods",
           "area": "Outside the Great Tree, south-east side",
           "howTo": "Cube: From the top of the Great Tree, walk anticlockwise round the outside to the south-east. Chest: inside the volcanic island.",
@@ -349,6 +363,7 @@
         {
           "id": "cube_great_tree_tightrope",
           "name": "Great Tree: tightrope ledge",
+          "unlockedBy": ["trial_farore"],
           "region": "Faron Woods",
           "area": "Outside the Great Tree, near the top",
           "howTo": "Cube: Near the top of the Great Tree, where you met the Kikwi, hang off the ledge just south of the part facing the viewing platform. Chest: Thunderhead island north-east of the Isle of Songs.",
@@ -373,6 +388,7 @@
         {
           "id": "cube_lake_floria_cavern",
           "name": "Lake Floria: behind the Bird Statue",
+          "unlockedBy": ["trial_farore"],
           "region": "Lake Floria",
           "area": "Cavern by the Lake Floria Bird Statue",
           "howTo": "Cube: At the Lake Floria Bird Statue on the surface, turn round and walk to the back of the cavern. Chest: Skyloft floating island.",
@@ -398,6 +414,7 @@
         {
           "id": "cube_lanayru_secret_passage",
           "name": "North-east desert passage",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Desert",
           "area": "Secret passageway, north-east Lanayru Desert",
           "howTo": "Cube: Bomb the cracked wall in the north-east of the desert and follow the narrow corridor. Chest: underwater, island next to Bamboo Island.",
@@ -425,6 +442,7 @@
         {
           "id": "cube_lanayru_caged_robot",
           "name": "South-west of the Mining Facility",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Desert",
           "area": "High platform near the caged robot",
           "howTo": "Cube: Just south-west of the Lanayru Mining Facility, clawshot up to the higher platforms. Chest: island north-west of Fun Fun Island.",
@@ -449,6 +467,7 @@
         {
           "id": "cube_ancient_harbour",
           "name": "Ancient Harbour",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Sand Sea",
           "area": "Ancient Harbour, north end",
           "howTo": "Cube: At the north end of the harbour where you first met Skipper, clawshot from a box into the northern cavern. Chest: Skyloft, behind Gondo's Scrap Shop.",
@@ -473,6 +492,7 @@
         {
           "id": "cube_skippers_retreat",
           "name": "Skipper's Retreat pillar",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Sand Sea",
           "area": "Skipper's Retreat",
           "howTo": "Cube: Past the bridge with the Moblin, where a Quadro Baba waits, look left for a pillar with vines. Chest: caged chest north-west of Fun Fun Island.",
@@ -498,6 +518,7 @@
         {
           "id": "cube_pirate_stronghold",
           "name": "Above the Pirate Stronghold door",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Sand Sea",
           "area": "Pirate Stronghold",
           "howTo": "Cube: After the Pirate Stronghold, turn round as you come out: clawshot to the target above the door, then to the next one, up to the platform with the cube. Chest: top of Skyloft's waterfall.",
@@ -523,6 +544,7 @@
         {
           "id": "cube_skyview_temple_roof",
           "name": "On top of the Skyview Temple",
+          "unlockedBy": ["trial_nayru"],
           "region": "Faron Woods",
           "area": "Deep Woods, Skyview Temple roof",
           "howTo": "Cube: Walk to the right of the Skyview Temple entrance and clawshot to the vines to climb onto the roof. Chest: Beedle's Island at night.",
@@ -549,6 +571,7 @@
         {
           "id": "cube_ancient_cistern_entrance",
           "name": "Outside the Ancient Cistern",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lake Floria",
           "area": "Floria Waterfall, Ancient Cistern entrance",
           "howTo": "Cube: Facing the path to the Water Dragon outside the Ancient Cistern, look up and slightly left for hanging vines. Chest: under Fun Fun Island.",
@@ -573,6 +596,7 @@
         {
           "id": "cube_summit_waterfall",
           "name": "Volcano Summit waterfall",
+          "unlockedBy": ["trial_din"],
           "region": "Volcano Summit",
           "area": "Waterfall area",
           "howTo": "Cube: In the Volcano Summit waterfall area, run off the diving ledge and glide forward. Chest: Bug Rock.",
@@ -595,6 +619,7 @@
         {
           "id": "cube_fire_sanctuary_entrance",
           "name": "Near the Fire Sanctuary entrance",
+          "unlockedBy": ["trial_din"],
           "region": "Volcano Summit",
           "area": "Outside the Fire Sanctuary",
           "howTo": "Cube: Facing the Fire Sanctuary entrance, turn left and climb out of the window ahead. Chest: top of the Isle of Songs.",
@@ -619,6 +644,7 @@
         {
           "id": "cube_volcano_summit_eldin_lair",
           "name": "Volcano Summit: by Eldin's lair",
+          "unlockedBy": ["levias"],
           "region": "Volcano Summit",
           "area": "South-east platform near the Fire Dragon",
           "howTo": "Cube: When you come back to the Volcano Summit for the Song of the Hero, the cube is in the room just to the right as you enter. Chest: first chest, Mogma Mitts island.",
@@ -645,6 +671,7 @@
         {
           "id": "cube_lanayru_gorge",
           "name": "Lanayru Gorge",
+          "unlockedBy": ["levias"],
           "region": "Lanayru Gorge",
           "area": "Near the Life Tree",
           "howTo": "Cube: In the north-east of Lanayru Gorge, right by the spot where you plant the Life Tree Seedling. Chest: second chest, Mogma Mitts island.",

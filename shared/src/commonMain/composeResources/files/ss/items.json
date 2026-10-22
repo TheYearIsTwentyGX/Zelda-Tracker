@@ -20,6 +20,7 @@
         {
           "id": "sailcloth",
           "name": "Sailcloth",
+          "unlockedBy": ["wing_ceremony"],
           "area": "Skyloft",
           "howTo": "Zelda gives it to you on the Statue of the Goddess for winning the Wing Ceremony.",
           "notes": "Open it while falling to land safely, as when you jump off your Loftwing. HD: the Zelda & Loftwing amiibo takes you up to the Sky from anywhere on the Surface, even in a dungeon, and back to the same spot."
@@ -27,6 +28,7 @@
         {
           "id": "slingshot",
           "name": "Slingshot",
+          "unlockedBy": ["faron_woods"],
           "area": "Faron Woods",
           "notes": "Zelda Wiki prices the Scattershot at 20 Rupees; Zelda Dungeon and Samurai Gamers say 50. HD: with button controls you aim it with the right stick instead of pointing the Wii Remote.",
           "tiers": [
@@ -44,6 +46,7 @@
         {
           "id": "bug_net",
           "name": "Bug Net",
+          "unlockedBy": ["wing_ceremony"],
           "area": "Beedle's Airshop",
           "notes": "Catches bugs, Fairies, Tumbleweeds and Chirris (whose feathers are treasures). Beedle's shop flies over Skyloft by day: hit the bell underneath with the Slingshot or Beetle to be pulled up.",
           "tiers": [
@@ -61,6 +64,7 @@
         {
           "id": "beetle",
           "name": "Beetle",
+          "unlockedBy": ["faron_woods"],
           "area": "Skyview Temple",
           "notes": "HD: with button controls you steer it with the right stick; with motion controls you tilt the Joy-Con, as with the Wii Remote.",
           "tiers": [
@@ -88,6 +92,7 @@
         {
           "id": "digging_mitts",
           "name": "Digging Mitts",
+          "unlockedBy": ["skyview_temple"],
           "area": "Eldin Volcano",
           "notes": "Zelda Wiki's Upgrade table lists the two the other way round; its item pages, Zelda Dungeon and the story order agree the Digging Mitts come first.",
           "tiers": [
@@ -106,6 +111,7 @@
         {
           "id": "bomb_bag",
           "name": "Bomb Bag",
+          "unlockedBy": ["key_pieces"],
           "area": "Earth Temple",
           "howTo": "The dungeon item of the Earth Temple: Ledd the Mogma gives it to you after you win it back from two Lizalfos.",
           "notes": "Holds 10 Bombs, picked from Bomb Flowers or bought at Rupin's Gear Shop (10 for 20 Rupees). Extra bags for the Adventure Pouch are under Capacity."
@@ -113,6 +119,7 @@
         {
           "id": "gust_bellows",
           "name": "Gust Bellows",
+          "unlockedBy": ["power_generator"],
           "area": "Lanayru Mining Facility",
           "howTo": "The dungeon item of the Lanayru Mining Facility, in the sand-filled warehouse patrolled by Froaks.",
           "notes": "Blows away sand and dust, and opens Mallara's house cleaning in Skyloft."
@@ -120,6 +127,7 @@
         {
           "id": "goddess_harp",
           "name": "Goddess's Harp",
+          "unlockedBy": ["temple_of_time"],
           "area": "Temple of Time",
           "howTo": "Zelda gives it to you at the Temple of Time, at the end of the Lanayru Mining Facility.",
           "notes": "The old woman teaches you to play it. HD: with button controls you strum with the right stick."
@@ -127,6 +135,7 @@
         {
           "id": "water_dragons_scale",
           "name": "Water Dragon's Scale",
+          "unlockedBy": ["trial_farore"],
           "area": "Faron Woods",
           "howTo": "The reward for Farore's Silent Realm in Faron Woods.",
           "notes": "Lets you dive and swim underwater; needed to reach Lake Floria."
@@ -134,6 +143,7 @@
         {
           "id": "whip",
           "name": "Whip",
+          "unlockedBy": ["lake_floria"],
           "area": "Ancient Cistern",
           "howTo": "The dungeon item of the Ancient Cistern.",
           "notes": "Also steals Monster Horns from Bokoblins."
@@ -141,6 +151,7 @@
         {
           "id": "clawshots",
           "name": "Clawshots",
+          "unlockedBy": ["trial_nayru"],
           "area": "Lanayru Desert",
           "howTo": "The reward for Nayru's Silent Realm in Lanayru Desert.",
           "notes": "A pair: you can chain from target to target. HD: with button controls you aim it with the right stick instead of pointing the Wii Remote."
@@ -148,6 +159,7 @@
         {
           "id": "bow",
           "name": "Bow",
+          "unlockedBy": ["lanayru_sand_sea"],
           "area": "Sandship",
           "notes": "Each upgrade adds power and range. HD: with button controls you aim it with the right stick instead of pointing the Wii Remote.",
           "tiers": [
@@ -168,6 +180,7 @@
         {
           "id": "fireshield_earrings",
           "name": "Fireshield Earrings",
+          "unlockedBy": ["trial_din"],
           "area": "Eldin Volcano",
           "howTo": "The reward for Din's Silent Realm in Eldin Volcano.",
           "notes": "Stop your clothes catching fire in the heat of the Volcano Summit. They don't protect you from lava or fire attacks."
@@ -184,6 +197,7 @@
         {
           "id": "seed_satchel",
           "name": "Seed Satchel",
+          "unlockedBy": ["faron_woods"],
           "notes": "The Slingshot comes with a satchel for 20 seeds that takes no pouch slot. Samurai Gamers lists 2 Ornamental Skulls for the Medium Seed Satchel; Zelda Wiki and Zelda Dungeon say 3.",
           "tiers": [
             {
@@ -206,6 +220,7 @@
         {
           "id": "extra_bomb_bag",
           "name": "Small Bomb Bag",
+          "unlockedBy": ["key_pieces"],
           "notes": "Separate from the Bomb Bag you find in the Earth Temple, which holds 10 and takes no pouch slot.",
           "tiers": [
             {
@@ -228,6 +243,7 @@
         {
           "id": "quiver",
           "name": "Quiver",
+          "unlockedBy": ["lanayru_sand_sea"],
           "tiers": [
             {
               "name": "Small Quiver",
@@ -258,6 +274,7 @@
         {
           "id": "pouch_fledge",
           "name": "Adventure Pouch",
+          "unlockedBy": ["statue_of_the_goddess"],
           "area": "Skyloft",
           "value": 4,
           "howTo": "Fledge gives it to you outside the Knight Academy once you have the Goddess Sword.",
@@ -267,6 +284,7 @@
         {
           "id": "pouch_goddess_chest",
           "name": "Pouch expansion (Pumpkin Landing)",
+          "unlockedBy": ["faron_woods"],
           "area": "Pumpkin Landing",
           "howTo": "Strike the Goddess Cube in the Deep Woods near Gorko, on the way to Skyview Temple, then open its Goddess Chest on Pumpkin Landing.",
           "reward": "1 more slot"
@@ -274,6 +292,7 @@
         {
           "id": "pouch_beedle_300",
           "name": "Pouch expansion (300 Rupees)",
+          "unlockedBy": ["wing_ceremony"],
           "area": "Beedle's Airshop",
           "howTo": "Buy it at Beedle's Airshop for 300 Rupees.",
           "reward": "1 more slot"
@@ -281,6 +300,7 @@
         {
           "id": "pouch_beedle_600",
           "name": "Pouch expansion (600 Rupees)",
+          "unlockedBy": ["wing_ceremony"],
           "area": "Beedle's Airshop",
           "howTo": "Buy it at Beedle's Airshop for 600 Rupees, after the 300-Rupee one.",
           "requires": [
@@ -291,6 +311,7 @@
         {
           "id": "pouch_beedle_1200",
           "name": "Pouch expansion (1,200 Rupees)",
+          "unlockedBy": ["wing_ceremony"],
           "area": "Beedle's Airshop",
           "howTo": "Buy it at Beedle's Airshop for 1,200 Rupees, after the 600-Rupee one.",
           "requires": [
@@ -311,6 +332,7 @@
         {
           "id": "bottle_luv",
           "name": "Luv's Bottle",
+          "unlockedBy": ["statue_of_the_goddess"],
           "area": "Skyloft Bazaar",
           "howTo": "Talk to Luv at the Potion Shop in the Bazaar after Zelda falls; she gives you one free.",
           "after": "After the Goddess Sword"
@@ -318,6 +340,7 @@
         {
           "id": "bottle_sealed_temple",
           "name": "Sealed Temple Bottle",
+          "unlockedBy": ["statue_of_the_goddess"],
           "area": "Sealed Temple",
           "howTo": "Open the chest to the right of the old woman in the Sealed Temple.",
           "reward": "Empty Bottle, filled with a Revitalizing Potion"
@@ -325,6 +348,7 @@
         {
           "id": "bottle_parrow",
           "name": "Parrow's Bottle",
+          "unlockedBy": ["skyview_temple"],
           "area": "Skyloft",
           "howTo": "Parrow paces the Plaza looking for his sister Orielle. Find her stranded with her hurt Loftwing on the small round island just east of Fun Fun Island, then tell Parrow: he gives you his medicine in a Bottle to keep.",
           "after": "After meeting Batreaux",
@@ -334,12 +358,14 @@
         {
           "id": "bottle_fire_sanctuary",
           "name": "Fire Sanctuary Bottle",
+          "unlockedBy": ["volcano_summit"],
           "area": "Fire Sanctuary",
           "howTo": "With the Mogma Mitts, go back to the first room with a lone Magmanos, open the gate to the water plants, beat the Magmanos with a water bulb and take the ground-level passage west to the chest."
         },
         {
           "id": "bottle_thunderhead",
           "name": "Thunderhead Bottle",
+          "unlockedBy": ["levias"],
           "area": "Thunderhead",
           "howTo": "Strike the Goddess Cube on a floating platform in the cave to the Fire Dragon, during the Song of the Hero. Its Goddess Chest is on a small island in the west of the Thunderhead: dig in with the Mogma Mitts, break the boulders in one corner and climb the vines.",
           "after": "During the Song of the Hero",
@@ -357,6 +383,7 @@
         {
           "id": "wallet",
           "name": "Wallet",
+          "unlockedBy": ["skyview_temple"],
           "area": "Batreaux's House",
           "notes": "You start with the Small Wallet (300 Rupees). Batreaux, in his house under the Skyloft graveyard, swaps it for a bigger one as you bring him Gratitude Crystals; his rewards are also in the Gratitude Crystals tracker.",
           "tiers": [
@@ -389,6 +416,7 @@
         {
           "id": "extra_wallets",
           "name": "Extra Wallets",
+          "unlockedBy": ["wing_ceremony"],
           "area": "Beedle's Airshop",
           "value": 300,
           "notes": "Each adds 300 Rupees to whatever wallet you have, up to 9,900 with the Tycoon Wallet.",
