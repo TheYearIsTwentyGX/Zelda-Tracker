@@ -54,6 +54,7 @@
         {
           "id": "goddess_chest_faron_pillar",
           "name": "Goddess Chest by the Faron pillar",
+          "sameAs": "goddess_cubes:cube_deep_woods_skyview_entrance@2",
           "unlockedBy": ["faron_woods"],
           "region": "The Sky",
           "area": "Small island closest to the Faron pillar of light, near Pumpkin Landing",
@@ -133,6 +134,7 @@
         {
           "id": "goddess_chest_beedles_island",
           "name": "Goddess Chest on Beedle's Island",
+          "sameAs": "goddess_cubes:cube_temple_of_time_minecart@2",
           "unlockedBy": ["lanayru_mining_facility"],
           "region": "The Sky",
           "area": "Beedle's Island, above Beedle's hut",
@@ -147,6 +149,7 @@
         {
           "id": "pumm_chores_reward",
           "name": "Pumm's chores",
+          "sameAs": "side_quests:pumm_chandelier_debt@3",
           "unlockedBy": ["temple_of_time"],
           "region": "The Sky",
           "area": "Lumpy Pumpkin, Pumpkin Landing",
@@ -180,6 +183,7 @@
         {
           "id": "skyloft_shed_goddess_chest",
           "name": "Goddess Chest in the locked shed",
+          "sameAs": "goddess_cubes:cube_eldin_sand_slide@2",
           "unlockedBy": ["trial_farore"],
           "region": "Skyloft",
           "area": "Shed reached by an underwater passage",
@@ -195,6 +199,7 @@
         {
           "id": "goddess_chest_volcanic_island",
           "name": "Goddess Chest inside the volcanic island",
+          "sameAs": "goddess_cubes:cube_great_tree_southeast@2",
           "unlockedBy": ["trial_farore"],
           "region": "The Sky",
           "area": "Crater-shaped island east of the Lanayru pillar of light",
@@ -237,6 +242,7 @@
         {
           "id": "skyloft_waterfall_goddess_chest",
           "name": "Goddess Chest atop the waterfall",
+          "sameAs": "goddess_cubes:cube_pirate_stronghold@2",
           "unlockedBy": ["trial_nayru"],
           "region": "Skyloft",
           "area": "Top of the waterfall island",
@@ -252,6 +258,7 @@
         {
           "id": "rickety_coaster_record",
           "name": "Rickety Coaster: Heart Stopping! track",
+          "sameAs": "side_quests:rickety_coaster@2",
           "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Sand Sea",
           "area": "Shipyard",
@@ -266,6 +273,7 @@
         {
           "id": "pumpkin_pull_score",
           "name": "Fledge's Pumpkin Pull",
+          "sameAs": "side_quests:pumpkin_pull@3",
           "unlockedBy": ["lanayru_sand_sea"],
           "region": "Skyloft",
           "area": "Outside the Sparring Hall",
@@ -308,6 +316,7 @@
         {
           "id": "goddess_chest_bug_rock",
           "name": "Goddess Chest on Bug Rock",
+          "sameAs": "goddess_cubes:cube_summit_waterfall@2",
           "unlockedBy": ["trial_din"],
           "region": "Thunderhead",
           "area": "Bug Rock",
@@ -352,6 +361,7 @@
         {
           "id": "lightning_round_four_wins",
           "name": "Thunder Dragon's Lightning Round: 4 wins",
+          "sameAs": "side_quests:thunder_dragon_boss_rush@1",
           "unlockedBy": ["hero_song_lanayru"],
           "region": "Lanayru Gorge",
           "area": "Thunder Dragon's lair",

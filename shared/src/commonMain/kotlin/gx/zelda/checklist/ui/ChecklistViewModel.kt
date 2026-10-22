@@ -10,6 +10,7 @@ import gx.zelda.checklist.model.ChecklistItem
 import gx.zelda.checklist.model.ChecklistPrefs
 import gx.zelda.checklist.model.ChecklistProgress
 import gx.zelda.checklist.model.ChecklistSection
+import gx.zelda.checklist.model.LevelRef
 import gx.zelda.checklist.model.StoryGate
 import gx.zelda.checklist.model.SummaryValue
 import gx.zelda.core.BulkAction
@@ -59,6 +60,8 @@ data class ChecklistUiState(
     val filters: ChecklistFilters,
     /** What the story has unlocked on [saveFile]; [StoryGate.OFF] gates nothing. */
     val gate: StoryGate = StoryGate.OFF,
+    /** The game's checklists' titles by file name ("items" → "Items & Equipment"), to say where a linked item is shared. */
+    val trackerTitles: Map<String, String> = emptyMap(),
 ) {
     /** The section on screen; null for "All". A stale id (the file changed) falls back to "All". */
     val section: ChecklistSection? = filters.section?.let(catalog::section)
@@ -124,6 +127,21 @@ data class ChecklistUiState(
     fun after(item: ChecklistItem): String? =
         item.after ?: gate.stepsFor(item).takeIf { it.isNotEmpty() }?.let { "After ${it.joinToString(" and ")}" }
 
+    /**
+     * Where [item]'s progress is shared, for its page, when it has a `sameAs` link: the other
+     * tracker, or the item on this list (by its hidden label while that one's hidden).
+     */
+    fun sharedWith(item: ChecklistItem): String? {
+        val link = item.link ?: return null
+        if (link.file != null) return trackerTitles[link.file]?.let { "Shared with $it: ticking it in either ticks it in both." }
+        val target = catalog.item(link.itemId) ?: return null
+        val name = when {
+            isHidden(target) || isLocked(target) -> catalog.hiddenLabelOf(target)
+            else -> link.tier?.let { target.tiers.getOrNull(it - 1) }?.let { "${target.name}: ${it.name}" } ?: target.name
+        }
+        return "The same as $name, on this list: ticking either ticks both."
+    }
+
     /** True when a search or filter chip is on, so a bulk toggle acts on the rows shown only. */
     val filtered: Boolean get() = filters.query.isNotBlank() || filters.incompleteOnly || filters.missableOnly
 
@@ -167,6 +185,7 @@ data class ChecklistUiState(
                 1 -> "1 $lockedNoun the story hasn't unlocked yet isn't changed."
                 else -> "${countOf(locked.size, lockedNoun, lockedPlural)} the story hasn't unlocked yet aren't changed."
             },
+            "Rows shared with another tracker change there too.".takeIf { items.any { it.link?.file != null } },
         )
         return scope.copy(note = note.joinToString(" ").ifEmpty { null })
     }
@@ -202,6 +221,10 @@ class ChecklistViewModel(
             combine(storage.progress(file.id), storyGate(file.id)) { progress, gate -> Triple(file, progress, gate) }
         }
 
+    private val trackerTitles: Map<String, String> = storage.game.trackers
+        .filter { it.dataFile != null && it.dataFile in ChecklistStorage.checklistFiles(storage.game) }
+        .associate { ChecklistStorage.stemOf(it.dataFile!!) to it.title }
+
     private val progressByFile: Flow<List<Pair<SaveFile, ChecklistProgress>>> = combine(
         storage.game.saveFiles.map { file -> storage.progress(file.id).map { file to it } },
     ) { it.toList() }
@@ -221,6 +244,7 @@ class ChecklistViewModel(
             saveFiles = byFile.map { (f, p) -> ChecklistSaveSummary(f, catalog.count(p)) },
             filters = filters,
             gate = gate,
+            trackerTitles = trackerTitles,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
@@ -249,7 +273,7 @@ class ChecklistViewModel(
         return viewModelScope.launch { storage.setLevel(state.saveFile.id, item, level) }
     }
 
-    private val _bulkChange = MutableStateFlow<BulkChange<MapSnapshot<String, Int>>?>(null)
+    private val _bulkChange = MutableStateFlow<BulkChange<MapSnapshot<LevelRef, Int>>?>(null)
 
     /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
     val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange
@@ -266,7 +290,9 @@ class ChecklistViewModel(
         val levels = items.associateWith { if (done) it.steps else 0 }
         return viewModelScope.launch {
             val snapshot = storage.setLevels(state.saveFile.id, levels)
-            val changed = items.count { item -> (snapshot.before[item.id] ?: 0).coerceIn(0, item.steps) != levels.getValue(item) }
+            // What each row was, read inside the write: a linked row's level is the one its link names.
+            val before = snapshot.before.entries.fold(ChecklistProgress()) { p, (ref, level) -> p.withRaw(ref, level) }
+            val changed = items.count { item -> before.level(item) != levels.getValue(item) }
             if (changed > 0) {
                 val action = if (done) BulkAction.MARK else BulkAction.CLEAR
                 _bulkChange.value = BulkChange(action, changed, scope.noun, scope.plural, state.saveFile, snapshot)

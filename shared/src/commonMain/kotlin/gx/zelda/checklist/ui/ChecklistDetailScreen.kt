@@ -152,6 +152,8 @@ fun ChecklistDetailScreen(state: ChecklistUiState, itemId: String, viewModel: Ch
 
             item.reward?.let { Section("Reward") { Text(it, style = MaterialTheme.typography.bodyLarge) } }
 
+            state.sharedWith(item)?.let { Section("Shared") { Text(it, style = MaterialTheme.typography.bodyLarge) } }
+
             if (item.value != 1.0) {
                 Section("Counts as") { Text(formatAmount(item.value), style = MaterialTheme.typography.bodyLarge) }
             }

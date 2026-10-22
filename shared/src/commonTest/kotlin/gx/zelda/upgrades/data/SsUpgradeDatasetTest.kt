@@ -1,5 +1,6 @@
 package gx.zelda.upgrades.data
 
+import gx.zelda.checklist.data.ChecklistLinks
 import gx.zelda.checklist.data.ChecklistRepository
 import gx.zelda.core.Games
 import gx.zelda.core.TrackerKind
@@ -208,5 +209,19 @@ class SsUpgradeDatasetTest {
         }
         // The checklist's Bomb Bag is the Earth Temple's; the pouch one is its capacity row.
         assertEquals("extra_bomb_bag", UpgradeLinks.SS.single { it.itemId == "bomb_bag" }.checklistItemId)
+    }
+
+    /**
+     * A checklist row with a `sameAs` link keeps no level of its own, so Item Upgrades reads the one
+     * the link names: each [ChecklistLink.via] is its row's link, and a row without one has none.
+     */
+    @Test
+    fun everyLinkReadsWhereItsChecklistRowIsStored() = runTest {
+        for (link in UpgradeLinks.SS) {
+            val row = ChecklistRepository.load(link.dataFile).item(link.checklistItemId)!!
+            val expected = row.link?.let { ChecklistLink.Via(ChecklistLinks.fileOf(Games.SS, it.file!!)!!, it) }
+            assertEquals(expected, link.via, link.itemId)
+        }
+        assertEquals(listOf("hylian_shield"), UpgradeLinks.SS.filter { it.via != null }.map { it.itemId })
     }
 }

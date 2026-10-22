@@ -48,6 +48,9 @@ class JsonStore<T>(
 
     fun has(prefs: Preferences): Boolean = prefKey in prefs
 
+    /** The stored text as it is, undecoded: cheap to compare, to skip decoding when nothing changed. */
+    fun raw(prefs: Preferences): String? = prefs[prefKey]
+
     fun remove(prefs: MutablePreferences) {
         prefs.remove(prefKey)
     }

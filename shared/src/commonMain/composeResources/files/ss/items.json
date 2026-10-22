@@ -20,6 +20,7 @@
         {
           "id": "sailcloth",
           "name": "Sailcloth",
+          "sameAs": "main_quest:wing_ceremony",
           "unlockedBy": ["wing_ceremony"],
           "area": "Skyloft",
           "howTo": "Zelda gives it to you on the Statue of the Goddess for winning the Wing Ceremony.",
@@ -127,6 +128,7 @@
         {
           "id": "goddess_harp",
           "name": "Goddess's Harp",
+          "sameAs": "main_quest:temple_of_time",
           "unlockedBy": ["temple_of_time"],
           "area": "Temple of Time",
           "howTo": "Zelda gives it to you at the Temple of Time, at the end of the Lanayru Mining Facility.",
@@ -135,6 +137,7 @@
         {
           "id": "water_dragons_scale",
           "name": "Water Dragon's Scale",
+          "sameAs": "main_quest:trial_farore",
           "unlockedBy": ["trial_farore"],
           "area": "Faron Woods",
           "howTo": "The reward for Farore's Silent Realm in Faron Woods.",
@@ -151,6 +154,7 @@
         {
           "id": "clawshots",
           "name": "Clawshots",
+          "sameAs": "main_quest:trial_nayru",
           "unlockedBy": ["trial_nayru"],
           "area": "Lanayru Desert",
           "howTo": "The reward for Nayru's Silent Realm in Lanayru Desert.",
@@ -180,6 +184,7 @@
         {
           "id": "fireshield_earrings",
           "name": "Fireshield Earrings",
+          "sameAs": "main_quest:trial_din",
           "unlockedBy": ["trial_din"],
           "area": "Eldin Volcano",
           "howTo": "The reward for Din's Silent Realm in Eldin Volcano.",
@@ -284,6 +289,7 @@
         {
           "id": "pouch_goddess_chest",
           "name": "Pouch expansion (Pumpkin Landing)",
+          "sameAs": "goddess_cubes:cube_deep_woods_gorko@2",
           "unlockedBy": ["faron_woods"],
           "area": "Pumpkin Landing",
           "howTo": "Strike the Goddess Cube in the Deep Woods near Gorko, on the way to Skyview Temple, then open its Goddess Chest on Pumpkin Landing.",
@@ -365,6 +371,7 @@
         {
           "id": "bottle_thunderhead",
           "name": "Thunderhead Bottle",
+          "sameAs": "goddess_cubes:cube_volcano_summit_eldin_lair@2",
           "unlockedBy": ["levias"],
           "area": "Thunderhead",
           "howTo": "Strike the Goddess Cube on a floating platform in the cave to the Fire Dragon, during the Song of the Hero. Its Goddess Chest is on a small island in the west of the Thunderhead: dig in with the Mogma Mitts, break the boulders in one corner and climb the vines.",

@@ -4,6 +4,7 @@ import gx.zelda.checklist.ChecklistFixture
 import gx.zelda.checklist.ChecklistTestGame
 import gx.zelda.checklist.model.ChecklistPrefs
 import gx.zelda.checklist.model.ChecklistProgress
+import gx.zelda.checklist.model.LevelRef
 import gx.zelda.core.CountingDataStore
 import gx.zelda.core.Tracker
 import gx.zelda.core.TrackerKind
@@ -19,6 +20,7 @@ class ChecklistStorageTest {
     private fun newDataStore() = createDataStore(Files.createTempDirectory("zgx").toString())
     private val game = ChecklistTestGame
     private fun item(id: String) = ChecklistFixture.catalog.item(id)!!
+    private fun own(id: String) = LevelRef(null, id)
 
     @Test
     fun saveFilesKeepTheirOwnProgress() = runTest {
@@ -45,7 +47,7 @@ class ChecklistStorageTest {
         val snapshot = storage.setLevels("file_1", mapOf(item("sword") to 3, item("field_cave") to 1, item("field_race") to 0))
         assertEquals(writes + 1, dataStore.writes)
         assertEquals(mapOf("sword" to 3, "field_cave" to 1), storage.progress("file_1").first().levels)
-        assertEquals(mapOf("sword" to 1, "field_cave" to null, "field_race" to 1), snapshot.before)
+        assertEquals(mapOf(own("sword") to 1, own("field_cave") to null, own("field_race") to 1), snapshot.before)
         assertEquals(emptyMap(), storage.progress("file_2").first().levels)
 
         storage.setDone("file_1", item("boss_jabul"), true)
@@ -61,7 +63,7 @@ class ChecklistStorageTest {
 
         val keys = dataStore.data.first().asMap().keys.map { it.name }.toSet()
         assertEquals(setOf("test_checklist_hearts@file_2", "test_checklist_echoes_prefs"), keys)
-        assertEquals(ChecklistProgress(), ChecklistStorage(dataStore, game, "test/echoes.json").progress("file_2").first())
+        assertEquals(emptyMap(), ChecklistStorage(dataStore, game, "test/echoes.json").progress("file_2").first().levels)
         assertEquals(ChecklistPrefs(), ChecklistStorage(dataStore, game, "test/hearts.json").prefs.first())
     }
 
