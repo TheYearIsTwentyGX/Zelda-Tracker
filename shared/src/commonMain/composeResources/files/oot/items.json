@@ -41,6 +41,7 @@
         {
           "id": "bombs",
           "name": "Bombs",
+          "unlockedBy": ["meet_zelda"],
           "area": "Dodongo's Cavern",
           "howTo": "Comes with the Bomb Bag, the dungeon item of Dodongo's Cavern.",
           "tags": ["Either"]
@@ -48,6 +49,7 @@
         {
           "id": "boomerang",
           "name": "Boomerang",
+          "unlockedBy": ["meet_zelda"],
           "area": "Inside Jabu-Jabu's Belly",
           "howTo": "The dungeon item of Inside Jabu-Jabu's Belly.",
           "notes": "Young Link only.",
@@ -64,6 +66,7 @@
         {
           "id": "bombchus",
           "name": "Bombchus",
+          "unlockedBy": ["meet_zelda"],
           "area": "Hyrule Market",
           "howTo": "Buy them at the Bombchu Shop in the Market's back alley, or win them at the Bombchu Bowling Alley. Some dungeon chests hold them too.",
           "tags": ["Either"]
@@ -71,6 +74,7 @@
         {
           "id": "dins_fire",
           "name": "Din's Fire",
+          "unlockedBy": ["meet_zelda"],
           "area": "Hyrule Castle",
           "howTo": "From the Great Fairy behind the boulder on the dead-end path near Hyrule Castle.",
           "notes": "Needed to open the Shadow Temple.",
@@ -79,6 +83,7 @@
         {
           "id": "farores_wind",
           "name": "Farore's Wind",
+          "unlockedBy": ["meet_zelda"],
           "area": "Zora's Fountain",
           "howTo": "From the Great Fairy behind the bombable wall on the small island behind Lord Jabu-Jabu.",
           "tags": ["Either"]
@@ -86,6 +91,7 @@
         {
           "id": "hookshot",
           "name": "Hookshot",
+          "unlockedBy": ["master_sword"],
           "tiers": [
             {"name": "Hookshot", "howTo": "Beat Dampé's race through his grave in Kakariko Graveyard as adult Link."},
             {"name": "Longshot", "howTo": "The dungeon item of the Water Temple."}
@@ -95,6 +101,7 @@
         {
           "id": "fairy_bow",
           "name": "Fairy Bow",
+          "unlockedBy": ["light_medallion"],
           "area": "Forest Temple",
           "howTo": "The dungeon item of the Forest Temple. It comes with a Quiver of 30 arrows.",
           "tags": ["Adult"]
@@ -102,6 +109,7 @@
         {
           "id": "megaton_hammer",
           "name": "Megaton Hammer",
+          "unlockedBy": ["light_medallion"],
           "area": "Fire Temple",
           "howTo": "The dungeon item of the Fire Temple.",
           "tags": ["Adult"]
@@ -109,6 +117,7 @@
         {
           "id": "lens_of_truth",
           "name": "Lens of Truth",
+          "unlockedBy": ["light_medallion"],
           "area": "Bottom of the Well",
           "howTo": "Beat Dead Hand in the Bottom of the Well as young Link.",
           "notes": "Uses magic.",
@@ -117,6 +126,7 @@
         {
           "id": "fire_arrows",
           "name": "Fire Arrows",
+          "unlockedBy": ["water_temple"],
           "area": "Lake Hylia",
           "howTo": "After the Water Temple, stand on the platform above its entrance at sunrise and shoot an arrow into the sun, then fetch the arrow from the island.",
           "notes": "You can also reach the island before the Water Temple with the Longshot and the Scarecrow's Song, or a Magic Bean plant.",
@@ -125,6 +135,7 @@
         {
           "id": "nayrus_love",
           "name": "Nayru's Love",
+          "unlockedBy": ["gerudo_fortress"],
           "area": "Desert Colossus",
           "howTo": "From the Great Fairy behind the bombable wall between two palm trees in the Desert Colossus.",
           "tags": ["Either"]
@@ -132,6 +143,7 @@
         {
           "id": "ice_arrows",
           "name": "Ice Arrows",
+          "unlockedBy": ["gerudo_fortress"],
           "area": "Gerudo Training Ground",
           "howTo": "The treasure at the end of the Gerudo Training Ground.",
           "notes": "Optional.",
@@ -140,6 +152,7 @@
         {
           "id": "light_arrows",
           "name": "Light Arrows",
+          "unlockedBy": ["forest_temple", "fire_temple", "water_temple", "shadow_temple", "spirit_temple"],
           "area": "Temple of Time",
           "howTo": "Zelda gives them to you in the Temple of Time once all six Sages are awake.",
           "tags": ["Adult"]
@@ -177,6 +190,7 @@
         {
           "id": "master_sword",
           "name": "Master Sword",
+          "unlockedBy": ["master_sword"],
           "area": "Temple of Time",
           "howTo": "Draw it from the Pedestal of Time behind the Door of Time.",
           "tags": ["Adult"]
@@ -184,6 +198,7 @@
         {
           "id": "goron_tunic",
           "name": "Goron Tunic",
+          "unlockedBy": ["master_sword"],
           "area": "Goron City",
           "howTo": "Stop Darunia's son Link as he rolls around Goron City's middle floor, or buy it at the Goron Shop for 200 Rupees.",
           "tags": ["Adult"]
@@ -191,6 +206,7 @@
         {
           "id": "zora_tunic",
           "name": "Zora Tunic",
+          "unlockedBy": ["light_medallion"],
           "area": "Zora's Domain",
           "howTo": "Thaw King Zora with Blue Fire from the Ice Cavern, or buy it at the Zora Shop for 300 Rupees.",
           "tags": ["Adult"]
@@ -198,6 +214,7 @@
         {
           "id": "iron_boots",
           "name": "Iron Boots",
+          "unlockedBy": ["light_medallion"],
           "area": "Ice Cavern",
           "howTo": "The treasure at the end of the Ice Cavern.",
           "tags": ["Adult"]
@@ -205,6 +222,7 @@
         {
           "id": "hover_boots",
           "name": "Hover Boots",
+          "unlockedBy": ["bottom_of_the_well"],
           "area": "Shadow Temple",
           "howTo": "The dungeon item of the Shadow Temple, behind Dead Hand.",
           "notes": "On the 3DS they're an item for a button rather than equipment.",
@@ -213,6 +231,7 @@
         {
           "id": "mirror_shield",
           "name": "Mirror Shield",
+          "unlockedBy": ["gerudo_fortress"],
           "area": "Spirit Temple",
           "howTo": "The adult dungeon item of the Spirit Temple, on a ledge past an Iron Knuckle.",
           "tags": ["Adult"]
@@ -220,6 +239,7 @@
         {
           "id": "giants_knife",
           "name": "Giant's Knife",
+          "unlockedBy": ["master_sword"],
           "area": "Goron City",
           "howTo": "Blow open Medigoron's room on Goron City's middle floor and buy it as adult Link for 200 Rupees.",
           "notes": "Two-handed, and it breaks after a few hits. Not needed once you have Biggoron's Sword.",
@@ -228,6 +248,7 @@
         {
           "id": "biggorons_sword",
           "name": "Biggoron's Sword",
+          "unlockedBy": ["light_medallion"],
           "area": "Death Mountain Trail",
           "howTo": "The end of the adult trading sequence: hand Biggoron the Claim Check.",
           "notes": "Two-handed and unbreakable. Also ticked off in the Trading Sequences tracker.",
@@ -243,6 +264,7 @@
         {
           "id": "strength",
           "name": "Strength",
+          "unlockedBy": ["meet_zelda"],
           "tiers": [
             {"name": "Goron's Bracelet", "howTo": "Darunia gives it to young Link after you play Saria's Song for him in Goron City."},
             {"name": "Silver Gauntlets", "howTo": "Young Link's dungeon item in the Spirit Temple, the treasure Nabooru asks him to fetch."},
@@ -252,6 +274,7 @@
         {
           "id": "scale",
           "name": "Scale",
+          "unlockedBy": ["meet_zelda"],
           "tiers": [
             {"name": "Silver Scale", "howTo": "Win the diving game at the top of the waterfall in Zora's Domain as young Link."},
             {"name": "Golden Scale", "howTo": "Catch a fish that beats the Fishing Pond record as adult Link, at Lake Hylia."}
@@ -279,6 +302,7 @@
         {
           "id": "bomb_bag",
           "name": "Bomb Bag",
+          "unlockedBy": ["meet_zelda"],
           "tiers": [
             {"name": "Big Bomb Bag (30)", "howTo": "Whichever you do first: stop the rolling Hot Rodder Goron in Goron City with a bomb as young Link, or win it at the Bombchu Bowling Alley in Hyrule Market."},
             {"name": "Biggest Bomb Bag (40)", "howTo": "Whichever of the two you do second."}
@@ -288,6 +312,7 @@
         {
           "id": "quiver",
           "name": "Quiver",
+          "unlockedBy": ["light_medallion"],
           "tiers": [
             {"name": "Big Quiver (40)", "howTo": "Whichever you do first: hit all 10 targets at the Kakariko Shooting Gallery as adult Link, or score 1,500 points at Horseback Archery in Gerudo's Fortress."},
             {"name": "Biggest Quiver (50)", "howTo": "Whichever of the two you do second."}
@@ -331,6 +356,7 @@
         {
           "id": "gerudos_card",
           "name": "Gerudo's Card",
+          "unlockedBy": ["gerudo_fortress"],
           "area": "Gerudo's Fortress",
           "howTo": "Free the four carpenters held in Gerudo's Fortress.",
           "notes": "Opens the Haunted Wasteland gate and the Gerudo Training Ground."

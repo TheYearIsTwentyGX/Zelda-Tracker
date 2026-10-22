@@ -10,6 +10,7 @@
         {
           "id": "hyrule_castle",
           "name": "Great Fairy of Magic (Hyrule Castle)",
+          "unlockedBy": ["meet_zelda"],
           "area": "Hyrule Castle",
           "howTo": "As young Link, bomb the boulder at the end of the path signposted as a dead end on the way up to the castle, and crawl through.",
           "reward": "Din's Fire",
@@ -19,6 +20,7 @@
         {
           "id": "death_mountain_summit",
           "name": "Great Fairy of Power (Death Mountain Summit)",
+          "unlockedBy": ["meet_zelda"],
           "area": "Death Mountain Trail",
           "howTo": "Climb to the summit of Death Mountain Trail, sheltering under the Hylian Shield from falling rocks, and bomb the cracked wall near the top.",
           "reward": "Magic Meter, Magic Spin Attack",
@@ -28,6 +30,7 @@
         {
           "id": "zoras_fountain",
           "name": "Great Fairy of Magic (Zora's Fountain)",
+          "unlockedBy": ["meet_zelda"],
           "area": "Zora's Fountain",
           "howTo": "Swim to the small island with a lone tree behind Lord Jabu-Jabu and bomb the boulder against its wall.",
           "reward": "Farore's Wind",
@@ -36,6 +39,7 @@
         {
           "id": "desert_colossus",
           "name": "Great Fairy of Magic (Desert Colossus)",
+          "unlockedBy": ["gerudo_fortress"],
           "area": "Desert Colossus",
           "howTo": "Bomb the cracked wall between two palm trees on the right as you arrive from the Haunted Wasteland.",
           "reward": "Nayru's Love",
@@ -45,6 +49,7 @@
         {
           "id": "death_mountain_crater",
           "name": "Great Fairy of Wisdom (Death Mountain Crater)",
+          "unlockedBy": ["light_medallion"],
           "area": "Death Mountain Crater",
           "howTo": "As adult Link, enter the crater from Darunia's room in Goron City, cross the bridge to the right and smash the boulders along the wall with the Megaton Hammer.",
           "reward": "Enhanced Magic Meter (double magic)",
@@ -54,6 +59,7 @@
         {
           "id": "outside_ganons_castle",
           "name": "Great Fairy of Courage (Outside Ganon's Castle)",
+          "unlockedBy": ["forest_temple", "fire_temple", "water_temple", "shadow_temple", "spirit_temple"],
           "area": "Outside Ganon's Castle",
           "howTo": "With the Golden Gauntlets from the Shadow Trial, lift the huge black pillar at the dead end of the side path, among the boulders.",
           "reward": "Defensive Power (double defense)",

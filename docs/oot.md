@@ -85,6 +85,55 @@ and the items or songs needed, so search and the tag line show what to bring.
   `z_fishing.c`, `z_en_tk.c` (gravedigging), `z_en_po_relay.c` (Dampé's race), `z_en_gb.c` (Poe
   Collector) and `z_en_po_field.c` (Big Poe spawns).
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, steps of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds OoT's table.
+
+**Counts.** 183 of the 241 items outside the Main Quest are linked. The other 58 can be had as
+young Link from the start, in Kokiri Forest, the Lost Woods, Hyrule Field and Market, Lon Lon
+Ranch, Kakariko, Zora's River, Lake Hylia, Gerudo Valley and the Deku Tree.
+
+**How a step was chosen.** An item is gated by the **latest** of where it is and what its tags say
+it needs.
+
+- *Places.*
+
+  | Place | Step |
+  |---|---|
+  | Death Mountain, Goron City, the Crater, Zora's Domain and Fountain, Dodongo's Cavern, Jabu-Jabu | `meet_zelda` (Zelda's Letter and Lullaby) |
+  | Gerudo's Fortress, the Temple of Time, outside Ganon's Castle | `master_sword` |
+  | The Forest and Fire Temples, the Ice Cavern, the Bottom of the Well | `light_medallion` |
+  | The Water Temple | `ice_cavern` (the Iron Boots) |
+  | The Shadow Temple | `bottom_of_the_well` (the Lens of Truth) |
+  | The Wasteland, the Colossus, the Spirit Temple, the Gerudo Training Ground | `gerudo_fortress` |
+- *Tags.*
+
+  | Tag | Step |
+  |---|---|
+  | Adult, Hookshot, Epona, Song of Storms | `master_sword` |
+  | Boomerang, Bombs, Silver Scale, Saria's and the Sun's Song | `meet_zelda` |
+  | Megaton Hammer, Iron Boots, Blue Fire, Zora Tunic, Fairy Bow | `light_medallion` |
+  | Longshot | `ice_cavern` |
+  | Lens of Truth | `bottom_of_the_well` |
+  | Requiem of Spirit, Silver Gauntlets, Gerudo's Card | `gerudo_fortress` |
+- *Several steps at once.* The temples after the Light Medallion can be done in any order, so
+  what needs them is gated by all of them:
+  - the Golden Gauntlets' Great Fairy and the Light Arrows by all five temples;
+  - the Nocturne of Shadow by the Forest, Fire and Water Temples;
+  - the Bunny Hood and the Mask of Truth by all three Spiritual Stones (the Running Man waits for
+    them).
+- *Judgement calls.*
+  - Big Poes are gated by `light_medallion`, since they need Epona and the Fairy Bow.
+  - The adult trading sequence is gated by `master_sword`, and by `light_medallion` from the
+    Eyeball Frog on (King Zora is thawed with Blue Fire).
+  - The Fire Arrows are gated by `water_temple`.
+
+`OotDatasetTest` spot-checks the links, checks that every Adult-tagged item is gated, and counts
+the start items.
+
 ## Discrepancies
 
 ### Gold Skulltulas
