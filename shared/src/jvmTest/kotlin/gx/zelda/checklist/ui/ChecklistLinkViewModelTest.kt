@@ -166,14 +166,14 @@ class ChecklistLinkViewModelTest {
         val locked = rewardsVm.whenState { it.isLocked(afterTrial) && it.isLocked(reward30) }
         assertEquals(3, locked.bulkScope().changes, "mark-all leaves the three locked rows alone")
 
-        // The trial is the Sword's second tier, in Items: reaching it there unlocks what the trial gates.
-        items.setLevel("file_1", LinkFixture.item("sword"), 2)
-        rewardsVm.whenState { !it.isLocked(afterTrial) && it.isLocked(reward30) }
-        assertTrue(story.progress("file_1").first().isDone(LinkFixture.story.item("trial")!!))
-
         // The Big Wallet ticked in Items shows its reward, though the temple isn't done.
         items.setLevel("file_1", LinkFixture.item("wallet"), 2)
-        rewardsVm.whenState { !it.isLocked(reward30) && it.done("reward_30") }
+        rewardsVm.whenState { !it.isLocked(reward30) && it.done("reward_30") && it.isLocked(afterTrial) }
+
+        // The trial is the Sword's second tier, in Items: reaching it there unlocks what the trial gates.
+        items.setLevel("file_1", LinkFixture.item("sword"), 2)
+        rewardsVm.whenState { !it.isLocked(afterTrial) }
+        assertTrue(story.progress("file_1").first().isDone(LinkFixture.story.item("trial")!!))
     }
 
     @Test

@@ -82,12 +82,15 @@ class ChecklistLinkTest {
         // The trial is the Sword's second tier: the sword at 2 means the trial is done, so what it unlocks shows.
         val storyProgress = ChecklistProgress(linked = mapOf("items" to mapOf("sword" to 2))).withDone(story.item("start")!!, true)
         val gate = StoryGate.of(true, story, storyProgress)
-        assertEquals(setOf("start", "trial"), gate.done)
+        // The trial requires the temple, so reaching it counts the temple as reached too.
+        assertEquals(setOf("start", "temple", "trial"), gate.done)
         assertFalse(gate.isLocked(item("after_trial"), rewardsProgress()))
+        assertFalse(gate.isLocked(item("reward_30"), rewardsProgress(items = mapOf("wallet" to 1))))
 
-        // The Big Wallet ticked in Items shows the 30-crystal reward, though the temple isn't done: ticked is never hidden.
-        assertTrue(gate.isLocked(item("reward_30"), rewardsProgress(items = mapOf("wallet" to 1))))
-        assertFalse(gate.isLocked(item("reward_30"), rewardsProgress(items = mapOf("wallet" to 2))))
+        // Before the temple, the Big Wallet ticked in Items shows the 30-crystal reward: ticked is never hidden.
+        val early = StoryGate.of(true, story, ChecklistProgress().withDone(story.item("start")!!, true))
+        assertTrue(early.isLocked(item("reward_30"), rewardsProgress(items = mapOf("wallet" to 1))))
+        assertFalse(early.isLocked(item("reward_30"), rewardsProgress(items = mapOf("wallet" to 2))))
     }
 
     @Test
