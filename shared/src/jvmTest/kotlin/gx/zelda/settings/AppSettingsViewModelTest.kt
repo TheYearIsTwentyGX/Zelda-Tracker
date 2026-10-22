@@ -2,7 +2,10 @@ package gx.zelda.settings
 
 import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.model.PieceProgress
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import gx.zelda.core.AppSettingsStorage
+import gx.zelda.core.ThemeMode
 import gx.zelda.core.TestMain
 import gx.zelda.core.comingSoonGame
 import gx.zelda.core.createDataStore
@@ -20,6 +23,7 @@ import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -38,11 +42,10 @@ class AppSettingsViewModelTest {
         backgroundScope.launchCollect(vm)
         val settings = vm.settings.filterNotNull().first()
         assertEquals(gamesWithTrackers, settings.shownGames().map { it.id })
-        assertTrue(settings.expandedGames.isEmpty())
     }
 
     /**
-     * Choices and open sections are written to the DataStore, so a new view model sees them. Uses
+     * Choices are written to the DataStore, so a new view model sees them. Uses
      * [comingSoonGame] as the game turned on, whichever real games are still coming soon.
      */
     @Test
@@ -55,13 +58,11 @@ class AppSettingsViewModelTest {
         vm.settings.filterNotNull().first()
         vm.setShown(comingSoonGame.id, true).join()
         vm.setShown("totk", false).join()
-        vm.setExpanded("botw", true).join()
 
         val expected = games.filter { (!it.comingSoon || it == comingSoonGame) && it != Games.TOTK }.map { it.id }
         val reloaded = AppSettingsStorage(dataStore, games).settings.first()
         assertEquals(expected, reloaded.shownGames(games).map { it.id })
-        assertEquals(setOf("botw"), reloaded.expandedGames)
-        assertEquals(expected, vm.settings.filterNotNull().first { "botw" in it.expandedGames }.shownGames(games).map { it.id })
+        assertEquals(expected, vm.settings.filterNotNull().first { it.gameChoices.size == 2 }.shownGames(games).map { it.id })
     }
 
     @Test
@@ -88,6 +89,25 @@ class AppSettingsViewModelTest {
         storage.setShown("totk", false)
         assertTrue(Games.TOTK !in storage.settings.first().shownGames())
         assertEquals(PieceProgress(owned = true), armor.pieces("file_1").first()["hylian_hood"])
+    }
+
+    /**
+     * Settings stored by older versions, with the menu's open sections, still load through the
+     * DataStore; the old key is dropped on the next write.
+     */
+    @Test
+    fun olderStoredSettingsStillLoad() = runTest {
+        val dataStore = newDataStore()
+        dataStore.edit { it[stringPreferencesKey("app_settings")] = """{"gameChoices":{"totk":false},"expandedGames":["botw"],"themeMode":"DARK"}""" }
+        val vm = main.track(AppSettingsViewModel(AppSettingsStorage(dataStore)))
+        backgroundScope.launchCollect(vm)
+        val settings = vm.settings.filterNotNull().first()
+        assertEquals(ThemeMode.DARK, settings.themeMode)
+        assertTrue(Games.TOTK !in settings.shownGames())
+
+        vm.setGameThemes(false).join()
+        val stored = dataStore.data.first()[stringPreferencesKey("app_settings")].orEmpty()
+        assertFalse("expandedGames" in stored, stored)
     }
 
     /** [AppSettingsViewModel.settings] only updates while something collects it. */

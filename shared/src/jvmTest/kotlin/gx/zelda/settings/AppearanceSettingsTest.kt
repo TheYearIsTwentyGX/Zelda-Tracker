@@ -34,11 +34,13 @@ class AppearanceSettingsTest {
         assertTrue(AppSettings().gameThemes)
     }
 
-    /** Settings saved before these existed load with the defaults. */
+    /**
+     * Settings saved before these existed load with the defaults, and the open menu sections older
+     * versions stored are ignored.
+     */
     @Test
     fun olderSettingsLoadWithTheDefaults() {
         val old = Json { ignoreUnknownKeys = true }.decodeFromString(AppSettings.serializer(), """{"expandedGames":["botw"]}""")
-        assertEquals(setOf("botw"), old.expandedGames)
         assertEquals(ThemeMode.SYSTEM, old.themeMode)
         assertTrue(old.gameThemes)
     }

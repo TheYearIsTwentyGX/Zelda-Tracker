@@ -7,8 +7,6 @@ import kotlinx.serialization.Serializable
 data class AppSettings(
     /** Games the user has turned on or off in Settings, by id; the rest follow [Game.shownByDefault]. */
     val gameChoices: Map<String, Boolean> = emptyMap(),
-    /** The games whose section in the menu is open. */
-    val expandedGames: Set<String> = emptySet(),
     /** Light or dark, or whichever the system is set to. */
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
     /** Screens inside a game wear that game's theme; off keeps the app's own look everywhere. */
@@ -31,13 +29,22 @@ data class AppSettings(
     fun withShown(game: Game, shown: Boolean, games: List<Game> = Games.all): AppSettings =
         if (!shown && !canHide(game, games)) this else copy(gameChoices = gameChoices + (game.id to shown))
 
-    fun withExpanded(gameId: String, expanded: Boolean): AppSettings =
-        copy(expandedGames = if (expanded) expandedGames + gameId else expandedGames - gameId)
-
-    /** The menu's sections: every shown game in release order, open if the user left it open. */
-    fun gameMenu(games: List<Game> = Games.all): List<GameMenuSection> =
-        shownGames(games).map { GameMenuSection(it, expanded = !it.comingSoon && it.id in expandedGames) }
+    /**
+     * The menu's sections: every shown game in release order, open if its id is in [expanded]. Which
+     * sections are open isn't stored; see [menuOpenedIn].
+     */
+    fun gameMenu(expanded: Set<String>, games: List<Game> = Games.all): List<GameMenuSection> =
+        shownGames(games).map { GameMenuSection(it, expanded = !it.comingSoon && it.id in expanded) }
 }
+
+/**
+ * The sections open each time the menu opens: only the current game's, or none on Home and
+ * Settings. Sections opened or closed by hand last until the menu closes.
+ */
+fun menuOpenedIn(currentGameId: String?): Set<String> = setOfNotNull(currentGameId)
+
+/** [this] with [gameId]'s section opened or closed. */
+fun Set<String>.withExpanded(gameId: String, expanded: Boolean): Set<String> = if (expanded) this + gameId else this - gameId
 
 /**
  * [items] as the home screen, the menu and Settings list them: the mainline games, then the
