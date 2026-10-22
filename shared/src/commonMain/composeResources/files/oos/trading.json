@@ -11,6 +11,7 @@
         {
           "id": "cuccodex",
           "name": "Cuccodex",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Dr. Left's house, Horon Village",
           "howTo": "Dr. Left's house is in the southeast of Horon Village, one screen right of the Ember Tree. Light his torches with Ember Seeds so he can read, and he gives you the Cuccodex.",
           "after": "Gnarled Root Dungeon",
@@ -21,6 +22,7 @@
         {
           "id": "lon_lon_egg",
           "name": "Lon Lon Egg",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Malon's house, Horon Village",
           "howTo": "Give the Cuccodex to Malon, who is minding the hens while Talon climbs Mt. Cucco. Her house is one screen north of where Din's troupe danced at the start.",
           "requires": [
@@ -30,6 +32,7 @@
         {
           "id": "ghastly_doll",
           "name": "Ghastly Doll",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Wherever Maple appears",
           "howTo": "Defeat 30 enemies (15 with Maple's Ring) to meet Maple. When you bump into her the Lon Lon Egg falls out, and she trades you her Ghastly Doll for it.",
           "tags": [
@@ -42,6 +45,7 @@
         {
           "id": "iron_pot",
           "name": "Iron Pot",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Mrs. Ruul's Villa, Holodrum Plain",
           "howTo": "Mrs. Ruul is too hot even by her Soothing Pool. Give her the Ghastly Doll for a chill and she gives you her Iron Pot. Her villa is the house one screen below the cliff into Spool Swamp.",
           "notes": "Zelda Wiki names the character Inga; Zelda Dungeon says Mrs. Ruul, the mayor's wife.",
@@ -52,6 +56,7 @@
         {
           "id": "lava_soup",
           "name": "Lava Soup",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Subrosian Chef's kitchen, Subrosia",
           "howTo": "Take the Iron Pot to the Subrosian Chef in the west of Subrosia. He cooks Lava Soup in it. StrategyWiki's route from the portal you first followed Rosa through: down the left stairs, left two screens, down the stairs and one screen, left one, then hop the lava going up to his house.",
           "tags": [
@@ -64,6 +69,7 @@
         {
           "id": "goron_vase",
           "name": "Goron Vase",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Biggoron, top of Goron Mountain",
           "howTo": "Biggoron has a cold. Give him the Lava Soup and he thanks you with the Goron Vase. StrategyWiki's route: through the diving spot in Sunken City, up the vines and west to the cave into Goron Mountain, then up to the summit.",
           "notes": "In a linked game (Ages played first), curing Biggoron also makes a red Goron appear in the cave below him with the Elder Secret, which leads to Biggoron's Sword in Ages.",
@@ -77,6 +83,7 @@
         {
           "id": "fish",
           "name": "Fish",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Ingo's house, Sunken City",
           "howTo": "Ingo the vase collector in Sunken City gives you his dinner, a Fish, for the Goron Vase.",
           "requires": [
@@ -86,6 +93,7 @@
         {
           "id": "megaphone",
           "name": "Megaphone",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "North Horon",
           "howTo": "A man in North Horon can't get his cat Mittens down from a tree. Give him the Fish, her favourite treat, and he gives you the Megaphone.",
           "notes": "Zelda Dungeon and StrategyWiki put him in North Horon; Zelda Wiki's table says Eyeglass Pond.",
@@ -96,6 +104,7 @@
         {
           "id": "mushroom",
           "name": "Mushroom",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Talon's Cave, Mt. Cucco",
           "howTo": "Talon is asleep in a cave on Mt. Cucco. Wake him with the Megaphone and he swaps it for a Mushroom on his way home.",
           "notes": "Waking him also opens the chest behind him, which holds the Subrosian Ring.",
@@ -106,6 +115,7 @@
         {
           "id": "wooden_bird",
           "name": "Wooden Bird",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Syrup's Potion Shop",
           "howTo": "Syrup the witch smells the Mushroom and trades you her Wooden Bird for it.",
           "notes": "Syrup can now brew Magic Potions, which she sells for 300 Rupees. Zelda Dungeon and StrategyWiki place her shop in Sunken City.",
@@ -116,6 +126,7 @@
         {
           "id": "engine_grease",
           "name": "Engine Grease",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Clock Shop, Horon Village",
           "howTo": "Tick Tock at the Clock Shop wants a breathtaking wooden bird for his cuckoo clock. Give him the Wooden Bird for the Engine Grease.",
           "requires": [
@@ -125,6 +136,7 @@
         {
           "id": "phonograph",
           "name": "Phonograph",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Windmill, Eastern Suburbs",
           "howTo": "Guru-Guru by the windmill east of Horon Village wants it to turn faster. Give him the Engine Grease and he gives you his Phonograph.",
           "notes": "Zelda Wiki's table says Horon Village; the windmill stands in the Eastern Suburbs.",
@@ -135,6 +147,7 @@
         {
           "id": "noble_sword",
           "name": "Noble Sword",
+          "unlockedBy": ["unicorns_cave"],
           "area": "Lost Woods",
           "howTo": "Play the Phonograph to the music-loving Deku Scrub in the Tarm Ruins. He tells you the way to his secret spot in the Lost Woods: follow his directions, changing the season as he says, to find the Noble Sword.",
           "reward": "Noble Sword (Master Sword if a linked secret already gave you the Noble Sword)",

@@ -59,6 +59,7 @@
         {
           "id": "power_ring_l1",
           "name": "Power Ring L-1",
+          "unlockedBy": ["ancient_ruins"],
           "howTo": "Chest in the Explorer's Crypt, in the room east of the entrance.",
           "area": "Explorer's Crypt",
           "notes": "Effect: Sword damage ▲, damage taken ▲. TourianTourist: +1 sword damage, +¼ heart on every hit you take.",
@@ -99,6 +100,7 @@
         {
           "id": "armor_ring_l2",
           "name": "Armor Ring L-2",
+          "unlockedBy": ["poison_moths_lair"],
           "howTo": "Chest in the upper right corner of the upper floor of the Goron cave inside Goron Mountain, behind crumbled rocks. You need the Roc's Cape to reach it.",
           "area": "Goron cave, Goron Mountain",
           "notes": "Effect: Damage taken ▼▼, sword damage ▼▼. TourianTourist: sword damage actually drops by only 1.",
@@ -118,6 +120,7 @@
         {
           "id": "red_ring",
           "name": "Red Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "In North Horon, cast Summer and take the stairs below the Gnarled Root Dungeon entrance to the Golden Sage. He asks you to slay the four golden beasts, each appearing in one place and one season only: the Golden Octorok in the southwest of Spool Swamp (summer), the Golden Moblin at the entrance of Snake's Remains (autumn), the Golden Lynel north of the Tarm Ruins entrance (winter) and the Golden Darknut east of the Hero's Cave (spring). Return to him for the ring.",
           "area": "Golden Sage's cave, North Horon",
           "notes": "Effect: Sword damage ×2."
@@ -134,6 +137,7 @@
         {
           "id": "green_ring",
           "name": "Green Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 5: only from Gasha Nuts at the two class 3–5 spots, Goron Mountain and Tarm Ruins.",
           "notes": "Effect: Sword damage ▲, damage taken ▼. TourianTourist: sword damage ×1.5 and damage taken ×0.75.",
           "tags": [
@@ -143,6 +147,7 @@
         {
           "id": "cursed_ring",
           "name": "Cursed Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "notes": "Effect: ½ sword damage, damage taken ×2. A challenge ring.",
           "tags": [
@@ -152,6 +157,7 @@
         {
           "id": "experts_ring",
           "name": "Expert's Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots (Eyeglass Lake, Mt. Cucco in autumn, Goron Mountain, Tarm Ruins).",
           "notes": "Effect: Punch when nothing is equipped. TourianTourist: an explosive punch doing 4 damage.",
           "tags": [
@@ -161,6 +167,7 @@
         {
           "id": "blast_ring",
           "name": "Blast Ring",
+          "unlockedBy": ["ancient_ruins"],
           "howTo": "Chest right next to the pirate ship on the Western Coast, once you've sailed there with the Piratians.",
           "area": "Western Coast",
           "notes": "Effect: Bomb damage ▲.",
@@ -171,6 +178,7 @@
         {
           "id": "rang_ring_l1",
           "name": "Rang Ring L-1",
+          "unlockedBy": ["poison_moths_lair"],
           "howTo": "Samasa Desert: a chest sits on a ridge in the southeast corner. Go two screens west, jump into the quicksand hole and follow the passage underneath to the chest.",
           "area": "Samasa Desert",
           "notes": "Effect: Boomerang damage ▲.",
@@ -190,6 +198,7 @@
         {
           "id": "maples_ring",
           "name": "Maple's Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: Maple meetings ▲. Maple appears after 15 kills instead of 30. TourianTourist: you only need to wear it when the meeting would happen, not while slaying.",
           "tags": [
@@ -200,6 +209,7 @@
         {
           "id": "steadfast_ring",
           "name": "Steadfast Ring",
+          "unlockedBy": ["explorers_crypt"],
           "howTo": "Sword & Shield Maze: once you have the Hyper Slingshot, go back to the entrance, up one room and down the stairs, then shoot all three eye statues at once to make a chest appear.",
           "area": "Sword & Shield Maze",
           "notes": "Effect: Get knocked back less.",
@@ -219,6 +229,7 @@
         {
           "id": "toss_ring",
           "name": "Toss Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: Throwing distance ▲ (twice as far, Bombs included).",
           "tags": [
@@ -229,6 +240,7 @@
         {
           "id": "heart_ring_l1",
           "name": "Heart Ring L-1",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Linked: Temple Secret, with Seasons played first. In the linked Ages, after Wing Dungeon, the Great Fairy over the dungeon's ruins in Fairies' Woods (present) tells you the secret. Here, walk through the waterfall in the Temple of Seasons room where you got the Rod of Seasons and tell it to the Great Fairy behind it.",
           "area": "Temple of Seasons, Subrosia",
           "notes": "Effect: Slowly recover lost Hearts while moving.",
@@ -250,6 +262,7 @@
         {
           "id": "swimmers_ring",
           "name": "Swimmer's Ring",
+          "unlockedBy": ["poison_moths_lair"],
           "howTo": "Linked: Diver Secret, with Seasons played first. In the linked Ages, after Mermaid's Cave, the Master Diver's pupil on the beach above Zora Village (present) tells you the secret. Tell it to the Master Diver in the house at the Sunken City entrance and grab the star at the end of his underwater course within 30 seconds.",
           "area": "Master Diver's house, Sunken City",
           "notes": "Effect: Swimming speed ▲ (twice as fast).",
@@ -261,6 +274,7 @@
         {
           "id": "charge_ring",
           "name": "Charge Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots (Eyeglass Lake, Mt. Cucco in autumn, Goron Mountain, Tarm Ruins).",
           "notes": "Effect: Spin Attack charges quickly.",
           "tags": [
@@ -297,6 +311,7 @@
         {
           "id": "green_luck_ring",
           "name": "Green Luck Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "A one-time prize in Subrosia: the Subrosian Dance Hall and the Treasure Grove (following the Strange Brothers) each hand out mostly Gasha Seeds and Ore Chunks, but one of them eventually gives this ring and the other the Green Holy Ring.",
           "area": "Subrosian Dance Hall / Treasure Grove",
           "notes": "Effect: ½ damage from traps. TourianTourist calls it much easier to get in Ages."
@@ -304,6 +319,7 @@
         {
           "id": "blue_luck_ring",
           "name": "Blue Luck Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "notes": "Effect: ½ damage from beams (Beamos). Ages location disagreement: Zelda Wiki says the cave above Zora Village in the present; TourianTourist lists Zora Village (past) plus the Sea of Storms (linked).",
           "tags": [
@@ -322,6 +338,7 @@
         {
           "id": "red_luck_ring",
           "name": "Red Luck Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: ½ damage from spiked floors.",
           "tags": [
@@ -332,6 +349,7 @@
         {
           "id": "green_holy_ring",
           "name": "Green Holy Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "A one-time prize in Subrosia: either the Subrosian Dance Hall or the Treasure Grove (Strange Brothers) gives it, and the other gives the Green Luck Ring. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "area": "Subrosian Dance Hall / Treasure Grove",
           "notes": "Effect: No damage from electricity.",
@@ -342,6 +360,7 @@
         {
           "id": "blue_holy_ring",
           "name": "Blue Holy Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "notes": "Effect: No damage from Zora's fire (River Zoras only).",
           "tags": [
@@ -351,6 +370,7 @@
         {
           "id": "red_holy_ring",
           "name": "Red Holy Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "notes": "Effect: No damage from small rocks (Octoroks). Seasons: Zelda Dungeon and StrategyWiki also list it as a Subrosian minigame prize, and TourianTourist marks it as having a fixed Seasons source without naming it. Unverified, so only the random sources are given here.",
           "tags": [
@@ -371,6 +391,7 @@
         {
           "id": "rocs_ring",
           "name": "Roc's Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: Cracked floors don't crumble.",
           "tags": [
@@ -381,6 +402,7 @@
         {
           "id": "quicksand_ring",
           "name": "Quicksand Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "In a North Horon cave blocked by Rock Mushrooms until autumn. One screen north of Mrs. Ruul's Villa, cast Autumn, take the stairs east of the house into the river and swim one screen east, three north and one east to the mushrooms. Don't swim east any earlier, or the season resets. Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "area": "Cave in North Horon",
           "notes": "Effect: No sinking in quicksand. TourianTourist: also stops conveyor floors from moving you.",
@@ -402,6 +424,7 @@
         {
           "id": "blue_joy_ring",
           "name": "Blue Joy Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Linked game only, with Ages played first: after Snake's Remains, Impa sends you north. Save Princess Zelda from the Great Moblin in North Horon and she gives you the ring.",
           "area": "North Horon",
           "notes": "Effect: Beasts drop double Hearts.",
@@ -421,6 +444,7 @@
         {
           "id": "green_joy_ring",
           "name": "Green Joy Ring",
+          "unlockedBy": ["poison_moths_lair"],
           "howTo": "Mt. Cucco: in the cave just below the Spring Banana tree (the peak you reach with the Flying Rooster). Ride the circling platform to the switch on the left, and the ring appears on the right.",
           "area": "Mt. Cucco",
           "notes": "Effect: Find double Ore Chunks."
@@ -428,6 +452,7 @@
         {
           "id": "discovery_ring",
           "name": "Discovery Ring",
+          "unlockedBy": ["maku_tree"],
           "howTo": "Chest in the Gnarled Root Dungeon, at the west end of the two Floormaster rooms on the way to the boss.",
           "area": "Gnarled Root Dungeon",
           "notes": "Effect: Sense soft earth nearby: a chime plays on screens with a Gasha spot.",
@@ -438,6 +463,7 @@
         {
           "id": "rang_ring_l2",
           "name": "Rang Ring L-2",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 5: only from Gasha Nuts at the two class 3–5 spots, Goron Mountain and Tarm Ruins.",
           "notes": "Effect: Boomerang damage ▲▲.",
           "tags": [
@@ -447,6 +473,7 @@
         {
           "id": "octo_ring",
           "name": "Octo Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Chest in a cave in the water south of Mrs. Ruul's Villa, Holodrum Plain. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "area": "Holodrum Plain",
           "notes": "Effect: Become an Octorok. You can't use items, but Like Likes can't eat your shield.",
@@ -458,6 +485,7 @@
         {
           "id": "moblin_ring",
           "name": "Moblin Ring",
+          "unlockedBy": ["poison_moths_lair"],
           "howTo": "Chest in a cave east of Snake's Remains in the Woods of Winter, blocked by Rock Mushrooms: cast Autumn on the hilltop stump, then use the Magnetic Gloves to reach the chest. Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "area": "Woods of Winter",
           "notes": "Effect: Become a Moblin. You can't use items, but Like Likes can't eat your shield. TourianTourist: late in the game the hilltop stump is only reachable through Snake's Remains.",
@@ -469,6 +497,7 @@
         {
           "id": "like_like_ring",
           "name": "Like Like Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 1: Gasha Nuts from any spot whose range starts at class 1, the Chest Game (three chests in a row), and the one-time rings in the Subrosia Market (30, 40 or 50 Ore Chunks).",
           "notes": "Effect: Become a Like Like. You can't use items, but Like Likes can't eat your shield.",
           "tags": [
@@ -478,6 +507,7 @@
         {
           "id": "subrosian_ring",
           "name": "Subrosian Ring",
+          "unlockedBy": ["poison_moths_lair"],
           "howTo": "Chest behind Talon in his cave on Mt. Cucco, on the way to the Dancing Dragon Dungeon. Wake him with the Megaphone from the trading sequence.",
           "area": "Talon's Cave, Mt. Cucco",
           "notes": "Effect: Become a Subrosian. You can't use items, but Like Likes can't eat your shield.",
@@ -488,6 +518,7 @@
         {
           "id": "first_gen_ring",
           "name": "First Gen Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots (Eyeglass Lake, Mt. Cucco in autumn, Goron Mountain, Tarm Ruins).",
           "notes": "Effect: Become something: Link as he looked in the first Zelda.",
           "tags": [
@@ -508,6 +539,7 @@
         {
           "id": "bombproof_ring",
           "name": "Bombproof Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots (Eyeglass Lake, Mt. Cucco in autumn, Goron Mountain, Tarm Ruins).",
           "notes": "Effect: No damage from your own Bombs.",
           "tags": [
@@ -517,6 +549,7 @@
         {
           "id": "energy_ring",
           "name": "Energy Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots (Eyeglass Lake, Mt. Cucco in autumn, Goron Mountain, Tarm Ruins).",
           "notes": "Effect: A sword beam replaces the Spin Attack.",
           "tags": [
@@ -526,6 +559,7 @@
         {
           "id": "dbl_edged_ring",
           "name": "Dbl. Edged Ring",
+          "unlockedBy": ["unicorns_cave"],
           "howTo": "Random ring, class 4: only from Gasha Nuts at the class 2–4 and 3–5 spots (Eyeglass Lake, Mt. Cucco in autumn, Goron Mountain, Tarm Ruins).",
           "notes": "Effect: Sword damage ▲, but you get hurt on every hit you land. TourianTourist: +8 damage, 1 heart to you.",
           "tags": [
@@ -574,6 +608,7 @@
         {
           "id": "sign_ring",
           "name": "Sign Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Break 100 signs, then talk to the Sign-Loving Subrosian in the east of Subrosia, who has been counting. TourianTourist suggests a sign by the west edge of a Subrosia screen that you can break again by stepping off and back.",
           "area": "Subrosia",
           "notes": "Effect: 100 signs broken. No effect."
@@ -591,6 +626,7 @@
         {
           "id": "whisp_ring",
           "name": "Whisp Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: No effect from jinxes (Bubbles).",
           "tags": [
@@ -621,6 +657,7 @@
         {
           "id": "zora_ring",
           "name": "Zora Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: Dive without breathing.",
           "tags": [
@@ -631,6 +668,7 @@
         {
           "id": "fist_ring",
           "name": "Fist Ring",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "howTo": "Random ring, class 2: Gasha Nuts from the class 1–2, 1–3 and 2–4 spots, Maple, the Chest Game (four chests in a row), or the one-time 70-Ore-Chunk ring in the Subrosia Market.",
           "notes": "Effect: Punch when nothing is equipped (the weakest attack).",
           "tags": [

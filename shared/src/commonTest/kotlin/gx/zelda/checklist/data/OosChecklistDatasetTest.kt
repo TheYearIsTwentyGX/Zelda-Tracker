@@ -101,4 +101,19 @@ class OosChecklistDatasetTest {
 
         assertEquals(mapOf("visits" to 7, "market" to 6, "ores" to 6, "pastimes" to 4), load("subrosia").sizes())
     }
+    /**
+     * Story links (docs/oos.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and counts what's had from the start.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = runTest {
+        val files = listOf("items", "seasons", "heart_pieces", "rings", "gasha", "trading", "animal_companions", "linked_secrets", "subrosia")
+        val items = files.flatMap { load(it).items }
+        val links = items.associate { it.id to it.unlockedBy }
+        assertEquals(42, items.count { it.unlockedBy.isEmpty() }, "random rings, Ages-side secrets and Horon's own")
+        assertEquals(listOf("snakes_remains"), links["roc_feather"], "Poison Moth's Lair's item, by the step before it")
+        assertEquals(listOf("gnarled_root_dungeon"), links["eastern_suburbs_winter_cave"], "winter, from the Rod after the first dungeon")
+        assertEquals(listOf("poison_moths_lair"), links["x_shaped_jewel"], "an Ember Seed from the Slingshot")
+        assertEquals(emptyList(), links["deku_secret"], "heard in the linked Ages game")
+    }
 }

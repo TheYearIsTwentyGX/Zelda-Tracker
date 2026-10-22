@@ -10,6 +10,7 @@
         {
           "id": "ricky_gloves",
           "name": "Win back Ricky's Gloves",
+          "unlockedBy": ["snakes_remains"],
           "area": "Blaino's Gym, North Horon",
           "howTo": "Ricky, on Holodrum Plain, lost his boxing gloves to Blaino. Pay Blaino 10 Rupees and knock him out of the ring, using no items or rings.",
           "after": "Snake's Remains",
@@ -19,6 +20,7 @@
         {
           "id": "companion_flute",
           "name": "Choose a partner",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Horon Village / Subrosia / Holodrum Plain",
           "howTo": "Before you return Ricky's gloves, buy a Strange Flute at the Horon Village Shop (150 Rupees) for Moosh, or win one at the Subrosian Dance Hall for Dimitri. With neither, Ricky gives you Ricky's Flute.",
           "reward": "Ricky's, Dimitri's or Moosh's Flute",
@@ -27,6 +29,7 @@
         {
           "id": "ricky",
           "name": "Ricky",
+          "unlockedBy": ["snakes_remains"],
           "area": "Holodrum Plain",
           "howTo": "Give Ricky his gloves; he lets you ride in his pouch to Spool Swamp, jumping the holes on the way.",
           "requires": ["ricky_gloves"],
@@ -35,6 +38,7 @@
         {
           "id": "natzu",
           "name": "Cross Natzu",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Natzu",
           "howTo": "Call your partner to cross Natzu, between Holodrum Plain and Sunken City: Natzu Prairie for Ricky's jumps, Natzu River for Dimitri's swimming, Natzu Wasteland for Moosh's flying.",
           "requires": ["companion_flute"],
@@ -44,6 +48,7 @@
         {
           "id": "dimitri",
           "name": "Dimitri",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Sunken City",
           "howTo": "If he isn't your partner, give the 'Safety Patrol' kids harassing him all your Bombs. He swims you up the waterfalls to the Master Diver.",
           "after": "Poison Moth's Lair",
@@ -52,6 +57,7 @@
         {
           "id": "moosh",
           "name": "Moosh",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Mt. Cucco",
           "howTo": "In spring, take a Flying Cucco up to the eastern summit for a Spring Banana and feed Moosh. He flies you over the pits on Goron Mountain to the Dragon Key.",
           "after": "Poison Moth's Lair",

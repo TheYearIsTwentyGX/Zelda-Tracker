@@ -50,6 +50,12 @@ OOT_PLACES = {
     **{place: "gerudo_fortress" for place in ("Spirit Temple", "Haunted Wasteland", "Desert Colossus", "Gerudo Training Ground")},
 }
 
+# Oracle of Seasons' eight dungeons: what the Huge Maku Seed needs.
+OOS_DUNGEONS = (
+    "gnarled_root_dungeon", "snakes_remains", "poison_moths_lair", "dancing_dragon_dungeon", "unicorns_cave",
+    "ancient_ruins", "explorers_crypt", "sword_and_shield_maze",
+)
+
 # Echoes of Wisdom: the three small rifts that open the desert warriors' rift, and the three temples
 # of the Lands of the Goddesses, which open the Eternal Forest.
 EOW_DESERT_RIFTS = ("southern_oasis_ruins_rift", "ancestors_cave_rift", "southern_gerudo_desert_rift")
@@ -332,6 +338,80 @@ GAMES = {
             "sea_chart/f6_forest_haven": "dragon_roost_cavern",
             "figurines/gohma": "triforce_of_courage",
             "figurines/link_and_the_king_of_red_lions": "triforce_of_courage",
+        },
+    },
+    "oos": {
+        # Horon Village and the Western Coast are open from the start, the rest of Holodrum once Link
+        # has a sword, and each further place with the dungeon item or animal that reaches it. A
+        # dungeon is gated by the step before it; a dungeon named alone in `after` means after it.
+        "places": {
+            r"North Horon|Eastern Suburbs|Holodrum Plain|Anywhere in Holodrum": "heros_cave",
+            r"Gnarled Root Dungeon": "maku_tree",
+            r"Woods of Winter|Subrosia|Temple of Seasons|Snake's Remains": "gnarled_root_dungeon",
+            r"Spool Swamp|Poison Moth's Lair": "snakes_remains",
+            r"Natzu|Sunken City|Mt\. Cucco|Goron Mountain|Eyeglass Lake|Samasa Desert|Dancing Dragon|Unicorn's Cave": "poison_moths_lair",
+            r"Tarm Ruins|Lost Woods|Ancient Ruins": "unicorns_cave",
+            r"Graveyard|Explorer's Crypt": "ancient_ruins",
+            r"Temple Remains|Sword & Shield Maze": "explorers_crypt",
+        },
+        # Dungeon items named in the text, by the step before their dungeon.
+        "needs": {
+            r"Boomerang": "gnarled_root_dungeon",
+            r"Slingshot|Magnetic Gloves": "poison_moths_lair",
+            r"Piratians": "ancient_ruins",
+            r"Hyper Slingshot": "explorers_crypt",
+        },
+        "tags": {
+            "Ember Seeds": "maku_tree",
+            "Bombs": "maku_tree",
+            "Power Bracelet": "gnarled_root_dungeon",
+            "Rod of Seasons (Winter)": "gnarled_root_dungeon",
+            "Ore Chunks": "gnarled_root_dungeon",
+            "Roc's Feather": "snakes_remains",
+            "Rod of Seasons (Summer)": "snakes_remains",
+            "Animal companion": "snakes_remains",
+            "Rod of Seasons (Spring)": "poison_moths_lair",
+            "Rod of Seasons (Autumn)": "poison_moths_lair",
+            "Zora's Flippers": "poison_moths_lair",
+            "Dimitri or Zora's Flippers": "poison_moths_lair",
+            "Zora's Flippers or Dimitri": "poison_moths_lair",
+            "Roc's Cape": "ancient_ruins",
+        },
+        "after": {
+            "First meeting the Maku Tree": "maku_tree",
+            "Gnarled Root Dungeon": "gnarled_root_dungeon",
+            "Reaching Subrosia": "gnarled_root_dungeon",
+            "Power of Winter": "gnarled_root_dungeon",
+            "Snake's Remains": "snakes_remains",
+            "Pegasus Seeds": "snakes_remains",
+            "Poison Moth's Lair (Roc's Feather)": "snakes_remains",
+            "Poison Moth's Lair": "poison_moths_lair",
+            "Power of Spring": "poison_moths_lair",
+            "Power of Autumn": "poison_moths_lair",
+            "Destroying Moblin's Keep": "poison_moths_lair",
+            "Curing Biggoron's cold": "poison_moths_lair",
+            "Dancing Dragon Dungeon": "dancing_dragon_dungeon",
+            "Unicorn's Cave": "unicorns_cave",
+            "Ancient Ruins": "ancient_ruins",
+            "Helping the Piratians": "ancient_ruins",
+            "Explorer's Crypt": "explorers_crypt",
+            "Volcano eruption": "explorers_crypt",
+            "The end of a linked game": "ganon",
+            # Secrets heard in a linked Ages game come from that game's story, not this one.
+            **{text: None for text in (
+                "Spirit's Grave (in Ages)", "Wing Dungeon (in Ages)", "Wing Dungeon (Roc's Feather) (in Ages)",
+                "Skull Dungeon (in Ages)", "Crown Dungeon (in Ages)", "Mermaid's Cave (in Ages)",
+            )},
+        },
+        "items": {
+            "items/ember_seeds": "maku_tree",
+            "items/rod_of_seasons": "gnarled_root_dungeon",
+            "items/strange_flute": "snakes_remains",
+            "items/scent_seeds": "maku_tree",
+            "items/sword": "heros_cave",
+            "items/gnarled_key": "maku_tree",
+            "items/huge_maku_seed": OOS_DUNGEONS,
+            "linked_secrets/secret_to_labrynna": "onoxs_castle",
         },
     },
     "st": {

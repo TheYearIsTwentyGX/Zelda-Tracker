@@ -94,6 +94,49 @@ Ricky's Gloves are in Items and Animal Companions. Each tracker counts its own.
   Piratians), the Market's wares, the ores and what the Great Furnace and Smithy make of them, and
   the Dance Hall, buried treasure and Sign-Loving Subrosian.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, steps of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds OoS's table.
+
+**Counts.** 174 of the 216 items outside the Main Quest are linked. The other 42 can be had
+whenever Link likes, or come from the linked Ages game:
+- random rings from Gasha Nuts and Maple;
+- Vasu's rings;
+- the Ages-side secrets;
+- Horon Village's shop and Gasha spot.
+
+**How a step was chosen.** An item is gated by the **latest** of the following.
+
+- *Places*, by the step that opens them. A dungeon is gated by the step before it.
+
+  | Places | Step |
+  |---|---|
+  | Horon Village, the Western Coast | none (open from the start) |
+  | North Horon, the Eastern Suburbs, Holodrum Plain | `heros_cave` (the sword) |
+  | The Woods of Winter, Subrosia | `gnarled_root_dungeon` (Rosa's portal) |
+  | Spool Swamp | `snakes_remains` (Ricky) |
+  | Natzu, Sunken City, Mt. Cucco, Goron Mountain, Eyeglass Lake, Samasa Desert | `poison_moths_lair` |
+  | The Tarm Ruins | `unicorns_cave` (the jewels) |
+  | The Graveyard | `ancient_ruins` |
+  | The Temple Remains | `explorers_crypt` |
+- *Tags and text.* The gear an item needs, by the step before the dungeon that gives it:
+
+  | Gear | Step |
+  |---|---|
+  | Power Bracelet | `gnarled_root_dungeon` |
+  | Roc's Feather | `snakes_remains` |
+  | Slingshot, Magnetic Gloves, Zora's Flippers | `poison_moths_lair` |
+  | Roc's Cape | `ancient_ruins` |
+
+  Each season comes from its tower, whose trip the Main Quest step before it opens.
+- *`after`.* A dungeon named alone means after it, as in the earlier games. Secrets heard in a
+  linked Ages game aren't gated by this game's story.
+
+`OosChecklistDatasetTest` spot-checks the links and counts the start items.
+
 ## Sources
 
 - **Zelda Wiki** (zeldawiki.wiki), through its MediaWiki API

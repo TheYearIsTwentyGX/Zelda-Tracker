@@ -44,7 +44,8 @@ iOS port is mostly a matter of adding the iOS targets.
   piece behind a dungeon you haven't finished. This works only where the data links items to Main
   Quest steps (`unlockedBy`, see `docs/checklist-trackers.md`). So far that's Skyward Sword,
   Twilight Princess, The Wind Waker, Ocarina of Time, Majora's Mask, Echoes of
-  Wisdom, Phantom Hourglass and Spirit Tracks (each game's doc, *Story links*).
+  Wisdom, Phantom Hourglass, Spirit Tracks and Oracle of Seasons (each game's doc, *Story
+  links*).
   - Anything you've ticked always shows, even if you ticked it ahead of the story.
   - Counts keep their true totals, and each region card says how many more unlock later in the
     story, without naming them.

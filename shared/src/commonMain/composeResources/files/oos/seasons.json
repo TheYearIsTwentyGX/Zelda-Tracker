@@ -13,6 +13,7 @@
         {
           "id": "rod_of_seasons",
           "name": "Rod of Seasons",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Temple of Seasons, Subrosia",
           "howTo": "After the Gnarled Root Dungeon, follow Rosa north from the Eastern Suburbs, unseen, to a hidden portal. In Subrosia, go east to the Temple of Seasons and stand on the pedestal at the central altar.",
           "reward": "Rod of Seasons",
@@ -22,6 +23,7 @@
         {
           "id": "power_of_winter",
           "name": "Winter",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Tower of Winter (southeast)",
           "howTo": "Hit the crystal switch across the lava with the Boomerang from the Subrosian Dance Hall, or a thrown bomb, to raise a bridge; the Spirit of Winter is upstairs.",
           "requires": ["rod_of_seasons"],
@@ -31,6 +33,7 @@
         {
           "id": "power_of_summer",
           "name": "Summer",
+          "unlockedBy": ["snakes_remains"],
           "area": "Tower of Summer (northwest)",
           "howTo": "From the Spool Swamp portal, dig up the Star-Shaped Ore at the Subrosia Seaside with the Shovel, trade it for the Ribbon at Subrosia Market and give it to Rosa. On your 'date' her key opens the locked doors, including the tower's.",
           "requires": ["power_of_winter"],
@@ -41,6 +44,7 @@
         {
           "id": "power_of_spring",
           "name": "Spring",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Tower of Spring (southwest)",
           "howTo": "Take the portal on Mt. Cucco. When the Strange Brothers take Roc's Feather, follow them unseen through the Treasure Grove and dig it up, then jump the lava to the cave by the portal; its tunnel leads to the tower.",
           "requires": ["power_of_summer"],
@@ -51,6 +55,7 @@
         {
           "id": "power_of_autumn",
           "name": "Autumn",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Tower of Autumn (northeast)",
           "howTo": "From the Eyeglass Lake portal, cross Lava Lake with Roc's Feather and pull up its lone Bomb Flower with the Power Bracelet. The Subrosian Smelter at the tower uses it to blast the rubble from the door.",
           "requires": ["power_of_summer"],
