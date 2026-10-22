@@ -89,6 +89,52 @@ each item's `area`. Guides disagree on the region of some border spots:
 
 Each of these items' `notes` gives the alternative.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, steps of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds EoW's table.
+
+**Counts.** 500 of the 509 items outside the Main Quest are linked. The other 9 are had from the
+very start: the Echoes learned escaping the castle, and the amiibo outfits.
+
+**How a step was chosen.** An item is gated by the **latest** of where it is, the dungeon or Still
+World its text names, and its `after` text.
+
+- *Places.*
+  - Suthorn is gated by `escape_castle`.
+  - Once the Suthorn Ruins are cleared, all of Hyrule can be explored, though each region's rifts
+    wait for the story. So every other region is gated by `suthorn_ruins`.
+  - The Eternal Forest needs all three Lands of the Goddesses temples.
+- *Dungeons and Still Worlds.*
+
+  | Where | Step that opens it |
+  |---|---|
+  | The Suthorn Ruins | `stilled_suthorn_forest` |
+  | The Gerudo Sanctum | `cryptic_cavern` |
+  | The Jabul Ruins | `lord_jabu_jabus_den` |
+  | Hyrule Castle | `still_missing_castle_town` |
+  | The Eldin Temple | `eldin_crater_shortcut` |
+  | The Lanayru Temple | `holy_mount_lanayru_ascent` |
+  | The Faron Temple | `faron_sweet_spot` |
+  | Null's Body | `stilled_ancient_ruins` |
+  | The Stilled Goron City, Heart Lake and Faron | `hyrule_castle` (*Lands of the Goddesses*) |
+- *`after` text*:
+  - "After X" is gated by step X, and "During X" by the step that opens X.
+  - *Still Missing* runs from Lueburry's report to the King's rescue. So during it means both
+    Gerudo Sanctum and Jabul Ruins, and after it means `hyrule_castle`.
+- *Smoothies, potions and stamp rewards* are gated by `suthorn_ruins`, since the shops and the
+  Stamp Guy are outside Suthorn.
+- *What it requires.* A side quest that follows another takes the later gate, as Dampé's
+  automaton quests do.
+
+Sources: the data's own `after` notes, and region access from
+[Nintendo Life](https://www.nintendolife.com/guides/zelda-echoes-of-wisdom-which-region-should-i-visit-first)
+and [Siliconera](https://www.siliconera.com/best-legend-of-zelda-echoes-of-wisdom-dungeons-rifts-order/),
+which agree the three Goddess regions can be visited early but their rifts open only with the
+story. `EowDatasetTest` spot-checks the links.
+
 ## Sources
 
 Every count was checked against three sources:

@@ -157,4 +157,19 @@ class EowDatasetTest {
             assertEquals(emptyList(), vague, name)
         }
     }
+    /**
+     * Story links (docs/eow.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and counts what's had from the very start.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepsThatOpenIt() = withCatalogs { catalogs ->
+        val items = catalogs.filterKeys { it != "main_quest" }.values.flatMap { it.items }
+        val links = items.associate { it.id to it.unlockedBy }
+        assertEquals(9, items.count { it.unlockedBy.isEmpty() }, "the prologue's Echoes and the amiibo outfits")
+        assertEquals(listOf("escape_castle"), links["poh_suthorn_beach"], "Suthorn, where Zelda wakes")
+        assertEquals(listOf("suthorn_ruins"), links["poh_hyrule_field_stump"], "Hyrule opens after the Suthorn Ruins")
+        assertEquals(listOf("jabul_waters_rift_start"), links["echo_bombfish"], "in the Stilled Upper Zora River")
+        assertEquals(listOf("still_missing_castle_town"), links["echo_gustmaster"], "inside Hyrule Castle, which Castle Town's rift opens")
+        assertEquals(listOf("eldin_temple", "lanayru_temple", "faron_temple"), links["poh_acorn_gathering"])
+    }
 }
