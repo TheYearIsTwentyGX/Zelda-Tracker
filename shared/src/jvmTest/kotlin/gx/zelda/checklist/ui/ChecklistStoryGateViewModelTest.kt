@@ -87,6 +87,29 @@ class ChecklistStoryGateViewModelTest {
         vm.state.filterNotNull().first { !it.isLocked(forestPiece) }
     }
 
+    /**
+     * A save that ticked only a later step: what its prerequisites unlock shows, but the Main Quest
+     * itself still has just that one row ticked, and its count says so.
+     */
+    @Test
+    fun aTickedLaterStepUnlocksWhatItsPrerequisitesGateWithoutTickingThem() = runTest {
+        val vm = viewModel()
+        backgroundScope.launchCollect(vm)
+        val forestPiece = StoryFixture.gated.item("forest_piece")!!
+        vm.state.filterNotNull().first()
+        settings.setStoryGating(true)
+        vm.state.filterNotNull().first { it.isLocked(forestPiece) }
+
+        story.setDone("file_1", StoryFixture.story.item("finale")!!, true)
+        val unlocked = vm.state.filterNotNull().first { !it.isLocked(forestPiece) }
+        assertEquals(8, unlocked.count.total, "the hearts' own counts don't change")
+        assertEquals(0, unlocked.count.done)
+
+        val questProgress = story.progress("file_1").first()
+        assertEquals(mapOf("finale" to 1), questProgress.levels, "forest, fire and water stay unticked")
+        assertEquals(1, StoryFixture.story.count(questProgress).done)
+    }
+
     @Test
     fun markAllWithGatingOnWritesOnlyWhatsUnlocked() = runTest {
         val vm = viewModel()

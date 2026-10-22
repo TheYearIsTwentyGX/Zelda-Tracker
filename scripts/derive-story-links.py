@@ -50,6 +50,9 @@ OOT_PLACES = {
     **{place: "gerudo_fortress" for place in ("Spirit Temple", "Haunted Wasteland", "Desert Colossus", "Gerudo Training Ground")},
 }
 
+# Majora's Mask's four temples: what the Moon needs.
+MM_TEMPLES = ("woodfall_temple", "snowhead_temple", "great_bay_temple", "stone_tower_temple")
+
 # The five temples after the Light Medallion, in any order: what opens Ganon's Castle.
 OOT_TEMPLES = ("forest_temple", "fire_temple", "water_temple", "shadow_temple", "spirit_temple")
 
@@ -324,6 +327,185 @@ GAMES = {
             "sea_chart/f6_forest_haven": "dragon_roost_cavern",
             "figurines/gohma": "triforce_of_courage",
             "figurines/link_and_the_king_of_red_lions": "triforce_of_courage",
+        },
+    },
+    "mm": {
+        # The first cycle is spent as a Deku in Clock Town; human Link and the rest of Termina come
+        # with the Ocarina. Each temple opens with its song (the `temple_songs` steps), and what's in
+        # a temple, or needs its item, is gated by that song. The Road to Ikana needs Epona, whose
+        # song is won with the Hero's Bow; upper Ikana Canyon needs the Ice Arrows.
+        "region": {
+            "Clock Town": "reclaim_ocarina",
+            "Termina Field": "reclaim_ocarina",
+            "Romani Ranch": "reclaim_ocarina",
+            "Southern Swamp": "reclaim_ocarina",
+            "Woodfall": "reclaim_ocarina",
+            "Snowhead": "reclaim_ocarina",
+            "Great Bay": "reclaim_ocarina",
+            "Ikana": "woodfall_sonata",
+            "The Moon": MM_TEMPLES,
+        },
+        "after": {
+            "Powder Keg, to blow up the boulder on Milk Road": "reclaim_ocarina",
+            "All-Night Mask": "woodfall_sonata",
+            "Giant's Wallet (500 Rupees)": "woodfall_sonata",
+            "Hero's Bow": "woodfall_sonata",
+            "Couple's Mask": "great_bay_bossa_nova",
+            "Kamaro's Mask": "reclaim_ocarina",
+            "Goron Mask": "reclaim_ocarina",
+            "Zora Mask": "reclaim_ocarina",
+            "Light Arrows": "ikana_elegy",
+            "Captain's Hat": "woodfall_sonata",
+            "Ikana Canyon": "great_bay_bossa_nova",
+            "Ikana Canyon (Sakon's Hideout)": "great_bay_bossa_nova",
+            "Romani's Mask, Goron and Zora Masks": "woodfall_sonata",
+            "Bremen Mask and the Powder Keg": "reclaim_ocarina",
+            "Epona's Song": "woodfall_sonata",
+            "Epona's Song (Day 1, same cycle)": "woodfall_sonata",
+            "Epona's Song and the Powder Keg": "woodfall_sonata",
+            "Powder Keg, and Epona and the Hero's Bow": "woodfall_sonata",
+            "Keaton Mask": "reclaim_ocarina",
+            "Postman's Hat": "reclaim_ocarina",
+            "Bomb Bag and Hero's Bow": "woodfall_sonata",
+            "Any one transformation song": "reclaim_ocarina",
+            "Pictograph Box": "reclaim_ocarina",
+            "Woodfall Temple": "woodfall_temple",
+            "Woodfall Temple, Hero's Bow": "woodfall_temple",
+            "Lens of Truth, Hookshot and the Scarecrow's Song": "reclaim_ocarina",
+            "Snowhead Temple": "snowhead_temple",
+            "Snowhead Temple, Powder Keg": "snowhead_temple",
+            "Goron Lullaby, before Snowhead Temple (while it's winter)": "snowhead_lullaby",
+            "Don Gero's Mask, Woodfall and Great Bay temples": ("woodfall_temple", "great_bay_temple"),
+            "Bottles": "reclaim_ocarina",
+            "Pictograph Box, Zora Mask, a free Bottle": "reclaim_ocarina",
+            "Zora Mask, Hookshot": "reclaim_ocarina",
+            "Hookshot, Zora Mask": "reclaim_ocarina",
+            "Zora Mask, Hookshot, Bottles": "reclaim_ocarina",
+            "Hookshot": "reclaim_ocarina",
+            "Captain's Hat, Hookshot, Hero's Bow": "woodfall_sonata",
+            "Hookshot, Magic Beans and the Scarecrow's Song": "reclaim_ocarina",
+            "Great Bay Temple": "great_bay_temple",
+            "Captain's Hat, Lens of Truth": "woodfall_sonata",
+            "Lens of Truth": "reclaim_ocarina",
+            "Lens of Truth and a Bottle of potion": "reclaim_ocarina",
+            "Ice Arrows, to reach upper Ikana Canyon": "great_bay_bossa_nova",
+            "Ice Arrows, Hookshot": "great_bay_bossa_nova",
+            "Ice Arrows and the Song of Storms": "great_bay_bossa_nova",
+            "Gibdo Mask": "great_bay_bossa_nova",
+            "Garo's or Gibdo Mask to get into Ikana Canyon": "woodfall_sonata",
+            "Mirror Shield, Hero's Bow and Powder Keg or Fire Arrows": "great_bay_temple",
+            "Elegy of Emptiness": "ikana_elegy",
+            "All four Remains, Night of the Final Day": MM_TEMPLES,
+        },
+        "needs": {
+            r"Woodfall Temple": "woodfall_sonata",
+            r"Snowhead Temple|path up to Snowhead": "snowhead_lullaby",
+            r"Great Bay Temple": "great_bay_bossa_nova",
+            r"Stone Tower": "ikana_elegy",
+            r"Ikana Canyon|Spirit House|Secret Shrine|Ancient Castle|Beneath the Well|Music Box House": "great_bay_bossa_nova",
+            r"Road to Ikana|Ikana Graveyard|Beneath the Graveyard": "woodfall_sonata",
+            r"Hero's Bow|Romani's Mask|Garo's Mask|Epona": "woodfall_sonata",
+            r"Fire Arrow": "snowhead_lullaby",
+            r"Ice Arrow|Gibdo Mask": "great_bay_bossa_nova",
+            r"Light Arrow": "ikana_elegy",
+            r"Mirror Shield": "great_bay_temple",
+            r"human( Link| form)": "reclaim_ocarina",
+        },
+        "tags": {
+            "Bow": "woodfall_sonata",
+            "Fire Arrows": "snowhead_lullaby",
+            "Ice Arrows": "great_bay_bossa_nova",
+            "Light Arrows": "ikana_elegy",
+            "Inverted": "ikana_elegy",
+            "Elegy of Emptiness": "ikana_elegy",
+            "Mirror Shield": "great_bay_temple",
+            **{tag: "reclaim_ocarina" for tag in (
+                "Goron", "Zora", "Hookshot", "Bombs", "Bottle", "Lens of Truth", "Magic Bean", "Sonata of Awakening",
+                "Great Fairy's Mask", "Bugs",
+            )},
+        },
+        # A temple's Stray Fairies are inside it; the Spider Houses are in the swamp and by the sea.
+        "sections": {
+            "stray_fairies/woodfall": "woodfall_sonata",
+            "stray_fairies/snowhead": "snowhead_lullaby",
+            "stray_fairies/great_bay": "great_bay_bossa_nova",
+            "stray_fairies/stone_tower": "ikana_elegy",
+            "spider_houses/swamp_spider_house": "reclaim_ocarina",
+            "spider_houses/oceanside_spider_house": "reclaim_ocarina",
+        },
+        "items": {
+            # What a Deku can do in the first cycle.
+            "heart_pieces/north_clock_town_tree": None,
+            "heart_pieces/clock_tower_ledge": None,
+            "heart_pieces/deku_playground": None,
+            "heart_pieces/bank_5000": None,
+            "stray_fairies/clock_town_stray_fairy": None,
+            "stray_fairies/great_fairy_clock_town_magic": None,
+            "bombers_notebook/bombers": None,
+            "bombers_notebook/bomb_shop_old_lady": None,
+            "items/deku_sticks": None,
+            "items/deku_nuts": None,
+            "items/wallet": None,
+            "items/magic": None,
+            "world/bank_adult_wallet": None,
+            "world/bank_interest": None,
+            "world/bank_heart_piece": None,
+            "world/owl_clock_town": None,
+            "world/map_clock_town": None,
+            "masks/kafei_mask": None,
+            "masks/blast_mask": None,
+            "songs/inverted_song_of_time": "reclaim_ocarina",
+            "songs/song_of_double_time": "reclaim_ocarina",
+            # Rewards of a step.
+            "masks/deku_mask": "reclaim_ocarina",
+            "songs/song_of_time": "reclaim_ocarina",
+            "songs/song_of_healing": "reclaim_ocarina",
+            "songs/oath_to_order": "woodfall_temple",
+            # Each temple's Great Fairy takes its 15 fairies; Ikana's sits in the canyon.
+            "stray_fairies/great_fairy_woodfall": "woodfall_sonata",
+            "stray_fairies/great_fairy_snowhead": "snowhead_lullaby",
+            "stray_fairies/great_fairy_great_bay": "great_bay_bossa_nova",
+            "stray_fairies/great_fairy_ikana": "ikana_elegy",
+            "stray_fairies/great_fairy_clock_town_mask": "reclaim_ocarina",
+            "items/magic_beans": "reclaim_ocarina",
+            "items/pictograph_box": "reclaim_ocarina",
+            "items/lens_of_truth": "reclaim_ocarina",
+            "items/bombchus": "reclaim_ocarina",
+            "items/sword": "reclaim_ocarina",
+            "items/quiver": "woodfall_sonata",
+            "items/bomb_bag": "reclaim_ocarina",
+            "items/bottle_kotake": "reclaim_ocarina",
+            "items/bottle_aroma": "reclaim_ocarina",
+            "world/owl_milk_road": "reclaim_ocarina",
+            "world/owl_southern_swamp": "reclaim_ocarina",
+            "world/owl_woodfall": "reclaim_ocarina",
+            "world/owl_mountain_village": "reclaim_ocarina",
+            "world/owl_snowhead": "snowhead_lullaby",
+            "world/owl_great_bay_coast": "reclaim_ocarina",
+            "world/owl_zora_cape": "reclaim_ocarina",
+            "world/map_woodfall": "reclaim_ocarina",
+            "world/map_snowhead": "reclaim_ocarina",
+            "world/map_romani_ranch": "reclaim_ocarina",
+            "world/map_great_bay": "reclaim_ocarina",
+            "world/map_stone_tower": "great_bay_bossa_nova",
+            "bombers_notebook/anju": "reclaim_ocarina",
+            "bombers_notebook/curiosity_shop_man": "reclaim_ocarina",
+            "bombers_notebook/romani": "woodfall_sonata",
+            "bombers_notebook/cremia": "woodfall_sonata",
+            "bombers_notebook/madame_aroma": "reclaim_ocarina",
+            "bombers_notebook/gorman": "woodfall_sonata",
+            "bombers_notebook/postman": "reclaim_ocarina",
+            "bombers_notebook/toilet_hand": "reclaim_ocarina",
+            "bombers_notebook/kamaro": "reclaim_ocarina",
+            "bombers_notebook/shiro": "woodfall_sonata",
+            "bombers_notebook/guru_guru": "reclaim_ocarina",
+            # Lower Ikana Canyon is reached without the Ice Arrows.
+            "heart_pieces/ikana_canyon_scrub": "woodfall_sonata",
+            "heart_pieces/pictograph_contest": "reclaim_ocarina",
+            # The song itself is learned on the way to its step, so it's had from the Ocarina on.
+            "songs/sonata_of_awakening": "reclaim_ocarina",
+            "spider_houses/swamp_sh_reward": "reclaim_ocarina",
+            "spider_houses/ocean_sh_reward": "reclaim_ocarina",
         },
     },
     "oot": {
@@ -656,10 +838,16 @@ def main(args):
         for section in json.loads(path.read_text())["sections"]:
             for item in section.get("items", []):
                 first[item["id"]] = propose(game, path.stem, section["id"], item, depth)[0]
+    known = {f"{path.stem}/{item['id']}" for path in checklists(game)
+             for section in json.loads(path.read_text())["sections"] for item in section.get("items", [])}
+    for key in GAMES[game]["items"]:
+        if key not in known:
+            raise SystemExit(f"override for unknown item '{key}'")
     rows = []
     for path in checklists(game):
         catalog = json.loads(path.read_text())
         text = path.read_text()
+        gates = {}
         for section in catalog["sections"]:
             # In a `sticky` section (floors of a cave, say) an item with nothing of its own is gated like the one before.
             last = None
@@ -677,9 +865,20 @@ def main(args):
                                 step, basis = other, f"ref: {m.group(0)}"
                 if step is not None and any(s not in steps for s in ids(step)):
                     raise SystemExit(f"{path.stem}/{item['id']}: '{step}' isn't a Main Quest step")
-                rows.append((path.stem, item["id"], item["name"], item.get("after") or item.get("area") or "", "+".join(ids(step)) if step else "", basis))
-                if apply and step is not None and "unlockedBy" not in item:
-                    text = insert_link(text, item["id"], list(ids(step)))
+                gates[item["id"]] = [step, basis, item]
+        # Nothing can be had before what it `requires`: take the gate of a requirement that comes later.
+        changed = True
+        while changed:
+            changed = False
+            for gate in gates.values():
+                for needed in gate[2].get("requires", []):
+                    other = gates.get(needed, [None])[0]
+                    if other is not None and (gate[0] is None or depth(other) > depth(gate[0])):
+                        gate[0], gate[1], changed = other, f"requires: {needed}", True
+        for step, basis, item in gates.values():
+            rows.append((path.stem, item["id"], item["name"], item.get("after") or item.get("area") or "", "+".join(ids(step)) if step else "", basis))
+            if apply and step is not None and "unlockedBy" not in item:
+                text = insert_link(text, item["id"], list(ids(step)))
         if apply:
             path.write_text(text)
     print("file\tid\tname\tafter/area\tunlockedBy\tbasis")

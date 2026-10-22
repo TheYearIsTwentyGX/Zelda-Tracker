@@ -35,9 +35,40 @@ class MmChecklistDatasetTest {
     @Test
     fun mainQuestHasFourTemplesAndMajoraNeedsThemAll() = runTest {
         val quest = load("main_quest")
-        assertEquals(mapOf("prologue" to 1, "temples" to 4, "finale" to 1), quest.sizes())
+        assertEquals(mapOf("prologue" to 1, "temple_songs" to 4, "temples" to 4, "finale" to 1), quest.sizes())
         assertEquals(quest.ids("temples"), quest.item("defeat_majora")!!.requires.toSet())
         assertEquals("Remains 0 / 4", quest.evaluate(quest.summaries.single(), ChecklistProgress()).text)
+    }
+
+    /** Each temple opens with a song, which it requires; the Elegy needs the Ice Arrows from Great Bay. */
+    @Test
+    fun eachTempleRequiresItsSong() = runTest {
+        val quest = load("main_quest")
+        assertEquals(
+            mapOf(
+                "woodfall_temple" to "woodfall_sonata", "snowhead_temple" to "snowhead_lullaby",
+                "great_bay_temple" to "great_bay_bossa_nova", "stone_tower_temple" to "ikana_elegy",
+            ),
+            quest.section("temples")!!.items.associate { it.id to it.requires.single() },
+        )
+        assertEquals(listOf("great_bay_temple"), quest.item("ikana_elegy")!!.requires)
+    }
+
+    /**
+     * Story links (docs/mm.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and counts what a Deku has from the start.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepsThatOpenIt() = runTest {
+        val files = listOf("masks", "heart_pieces", "bombers_notebook", "stray_fairies", "spider_houses", "songs", "items", "world")
+        val items = files.flatMap { load(it).items }
+        val links = items.associate { it.id to it.unlockedBy }
+        assertEquals(17, items.count { it.unlockedBy.isEmpty() }, "the first cycle's Deku things in Clock Town")
+        assertEquals(listOf("woodfall_sonata"), links["heros_bow"], "inside Woodfall Temple, which the Sonata opens")
+        assertEquals(listOf("snowhead_lullaby"), links["goht_container"])
+        assertEquals(listOf("snowhead_temple"), links["bottle_goron_race"], "spring, after Goht")
+        assertEquals(listOf("great_bay_bossa_nova"), links["poe_sisters"], "upper Ikana Canyon needs the Ice Arrows")
+        assertEquals(listOf("woodfall_temple", "snowhead_temple", "great_bay_temple", "stone_tower_temple"), links["moon_link_trial"])
     }
 
     @Test
