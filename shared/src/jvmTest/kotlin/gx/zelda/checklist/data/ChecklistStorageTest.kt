@@ -3,7 +3,6 @@ package gx.zelda.checklist.data
 import gx.zelda.checklist.ChecklistFixture
 import gx.zelda.checklist.ChecklistTestGame
 import gx.zelda.checklist.model.ChecklistPrefs
-import gx.zelda.checklist.model.ChecklistProgress
 import gx.zelda.checklist.model.LevelRef
 import gx.zelda.core.CountingDataStore
 import gx.zelda.core.Tracker
