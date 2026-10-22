@@ -176,7 +176,7 @@ private fun ChecklistList(
         if (state.groups.isEmpty()) {
             item(key = "_empty") {
                 Text(
-                    "Nothing matches these filters.",
+                    if (state.filtered || state.lockedOnTab == 0) "Nothing matches these filters." else "The story hasn't unlocked anything here yet.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(24.dp),
@@ -191,8 +191,10 @@ private fun ChecklistList(
                     BulkCompleteCheckbox(state.bulkScope(group), bulk, onApply = { viewModel.setAllDone(group, it == BulkAction.MARK) })
                 })
             }
+            // What story gating leaves out under this heading closes its card, under the rows.
+            val locked = state.lockedCounts[group]
             itemsIndexed(items, key = { _, item -> item.id }, contentType = { _, _ -> "item" }) { i, item ->
-                val last = i == items.lastIndex
+                val last = i == items.lastIndex && locked == null
                 if (state.isHidden(item)) {
                     HiddenRow(
                         state.catalog.hiddenLabelOf(item),
@@ -205,8 +207,28 @@ private fun ChecklistList(
                     ItemRow(state, item, viewModel, onOpen = { onOpenItem(item.id) }, showDivider = !last, modifier = Modifier.groupRow(last))
                 }
             }
+            if (locked != null) {
+                item(key = "l_$group", contentType = "locked") { LockedLine(locked, Modifier.groupRow(last = true).padding(horizontal = 16.dp)) }
+            }
+        }
+        // Headings whose every item is locked have no card, so their count goes at the end.
+        if (state.lockedWithoutRows > 0 && !state.filtered) {
+            item(key = "_locked") {
+                LockedLine(state.lockedWithoutRows, Modifier.padding(horizontal = 16.dp, vertical = 8.dp), more = state.groups.isNotEmpty())
+            }
         }
     }
+}
+
+/** "3 more unlock later in the story": what story gating leaves out under a heading, unnamed. */
+@Composable
+private fun LockedLine(count: Int, modifier: Modifier = Modifier, more: Boolean = true) {
+    Text(
+        "${if (more) "$count more" else "$count"} unlock${if (count == 1) "s" else ""} later in the story",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = modifier.fillMaxWidth().padding(vertical = 10.dp),
+    )
 }
 
 /** Steps done on this tab, and the file's summaries (e.g. hearts). */

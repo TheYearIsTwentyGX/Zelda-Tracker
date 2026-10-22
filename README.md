@@ -39,6 +39,14 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
+- **Hide what the story hasn't unlocked yet** (Settings → Progress, off by default): checklists
+  leave out what the game's Main Quest hasn't reached on the active save file, such as a heart
+  piece behind a dungeon you haven't finished. This works only where the data links items to Main
+  Quest steps (`unlockedBy`, see `docs/checklist-trackers.md`); no game's data has those links yet.
+  - Anything you've ticked always shows, even if you ticked it ahead of the story.
+  - Counts keep their true totals, and each region card says how many more unlock later in the
+    story, without naming them.
+  - Search, the *Missable* chip, mark-all and the overview's *Next* leave out locked items.
 - **Game themes**: inside a game (its trackers, overview, detail pages, scans and map) the screens
   take on that game's look: colours from its menus, header lettering in the style of its era, and
   a small ornament under each region's header. Every game has one: the 8- and 16-bit games and Four Swords

@@ -15,6 +15,7 @@ The code is in `shared/src/commonMain/kotlin/gx/zelda/checklist/`:
 | `model/Formula.kt` | The summary formula parser, and `formatAmount` ("5¼") |
 | `data/ChecklistStorage.kt` | DataStore keys, per save file |
 | `data/ChecklistProgressProvider.kt` | The overview row |
+| `model/StoryGate.kt`, `data/StoryProgress.kt` | [Story gating](#story-gating): what the game's Main Quest has unlocked on a save file |
 | `ui/` | The list, tabs and filters (`ChecklistViewModel`/`ChecklistScreen`) and the item page |
 
 ## Adding a checklist to a game
@@ -118,6 +119,7 @@ Leave out an optional field rather than writing `null` or `""`.
 | `howTo` | no | How to get it, precise enough to find it. The row shows two lines; the page shows it all. |
 | `requires` | no | Ids of items **in the same file** to do first. The row says *Needs …* until they're ticked. Must not loop. |
 | `after` | no | A story point, as text: "After Jabul Ruins". Use `requires` instead when the story point is an item in the file. |
+| `unlockedBy` | no | Ids of steps in the game's Main Quest (its story file), all of which must be done before this can be had. While *Hide what the story hasn't unlocked yet* is on, the item is hidden until then; see [Story gating](#story-gating). Leave it out for anything available from the start. |
 | `missable` | no | `true` if it can be missed for good. It gets a tag, and the *Missable* filter chip appears for the file. |
 | `value` | no | What one step is worth to `<section>.value` in formulas. Default 1. Use it for e.g. a chest of 5 Might Crystals. |
 | `reward` | no | What it gives. |
@@ -179,16 +181,52 @@ two decimals. Dividing by zero gives 0. Examples:
     DataStore edit through `ChecklistStorage.setLevels`, which returns a `MapSnapshot` of the levels
     it replaced. `undoBulkChange` restores that snapshot, on the file it was made on, again in one edit.
 - **Counts.** Tabs and region headers count every item on that tab, whatever the filters leave
-  showing. The file's total, and the *All* tab, leave out `separate` sections.
+  showing. The file's total, and the *All* tab, leave out `separate` sections. Story gating
+  never changes a count either.
 - **Overview row** (`ChecklistProgressProvider`):
   - the bar is steps done of all, less `separate` sections;
   - the detail line lists each summary, then each section's count (when there's more than one
     section);
   - *Next* is the first item, in file order, that isn't done and whose `requires` are all done.
-    Items in `separate` sections are never suggested. So **order items in the order you'd suggest
-    doing them**. With *Hide unchecked* on and that
+    Items in `separate` sections are never suggested, nor ones story gating hides. So **order
+    items in the order you'd suggest doing them**. With *Hide unchecked* on and that
     item not started, it says only how many are left there ("2 pieces still to do in Hyrule
     Field").
+
+## Story gating
+
+*Hide what the story hasn't unlocked yet*, in Settings → Progress, is one switch for every game,
+off by default. It makes a checklist follow the game's Main Quest on the active save file.
+
+- **The story file** is the game's `<game id>/main_quest.json`, when the game lists it
+  (`storyFileOf` in `data/StoryProgress.kt`). A game without one, such as LoZ, AoL, the
+  stage-select games or the bespoke trackers, gates nothing. The Main Quest itself is never gated.
+- **Locked** (`StoryGate.isLocked`): the switch is on, a step in the item's `unlockedBy` isn't done
+  on the save file, and nothing on the item is done. So anything ticked, or partly done, is never
+  hidden, even when it was ticked ahead of the story. A step id the story file doesn't have gates
+  nothing.
+- **A locked item** has no row:
+  - search and the *Missable* chip can't find it, even by its heading;
+  - mark-all leaves it alone, and its dialog says how many it left;
+  - *Next* never suggests it;
+  - an item that `requires` it names it by its `hiddenLabel`.
+- **Counts keep their true totals.** Each region card ends with "3 more unlock later in the story".
+  The list ends with the same line for headings with nothing unlocked. The overview's detail line
+  adds "· 3 unlock later", and once everything unlocked is done, *Next* says so.
+- **Spoilers.** *Hide unchecked* works as before on the unlocked rows, and nothing locked is ever
+  named.
+- **The item page** shows its steps' names as "After …" when it has no `after` text.
+
+Writing links:
+
+- Point `unlockedBy` at the step that **opens** the item. When it's opened by optional content (a
+  side quest, a shop), use the step that opens that content, and keep the finer prerequisite in
+  `after` or `requires`.
+- Several ids mean all of them. There's no "either of". **When in doubt, gate earlier**: hiding
+  something that's already available is the mistake to avoid.
+- Steps must be untiered. `StoryLinksDatasetTest` checks every link in every game, and that no
+  item unlocks before something it `requires` (by `storyOrder`). The game's own dataset test
+  spot-checks a few links.
 
 ## Mark all complete in another tracker
 

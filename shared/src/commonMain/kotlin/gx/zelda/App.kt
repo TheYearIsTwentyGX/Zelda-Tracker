@@ -37,6 +37,7 @@ import gx.zelda.adventure.data.AdventureStorage
 import gx.zelda.adventure.ui.AdventureMapScreen
 import gx.zelda.adventure.ui.AdventureMapViewModel
 import gx.zelda.checklist.data.ChecklistStorage
+import gx.zelda.checklist.data.StoryProgress
 import gx.zelda.checklist.ui.ChecklistDetailScreen
 import gx.zelda.checklist.ui.ChecklistScreen
 import gx.zelda.checklist.ui.ChecklistViewModel
@@ -622,7 +623,7 @@ private fun checklistViewModel(
     game: Game,
     dataFile: String,
 ): ChecklistViewModel = viewModel(owner, key = "checklist_${game.id}_$dataFile") {
-    ChecklistViewModel(ChecklistStorage(dataStore, game, dataFile))
+    ChecklistViewModel(ChecklistStorage(dataStore, game, dataFile), storyGate = StoryProgress(dataStore, game, dataFile)::gate)
 }
 
 /**

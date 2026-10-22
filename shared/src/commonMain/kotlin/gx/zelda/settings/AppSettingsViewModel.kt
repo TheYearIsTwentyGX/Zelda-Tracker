@@ -25,4 +25,6 @@ class AppSettingsViewModel(private val storage: AppSettingsStorage) : ViewModel(
     fun setThemeMode(mode: ThemeMode): Job = viewModelScope.launch { storage.setThemeMode(mode) }
 
     fun setGameThemes(on: Boolean): Job = viewModelScope.launch { storage.setGameThemes(on) }
+
+    fun setStoryGating(on: Boolean): Job = viewModelScope.launch { storage.setStoryGating(on) }
 }

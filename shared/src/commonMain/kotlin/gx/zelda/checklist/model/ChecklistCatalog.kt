@@ -104,9 +104,10 @@ data class ChecklistCatalog(
     /**
      * What to do next: the first item not yet done whose [ChecklistItem.requires] are all done, in
      * the file's order and outside [ChecklistSection.separate] sections; null when those are all done.
+     * Items [isLocked] says the story hasn't reached are never suggested.
      */
-    fun next(progress: ChecklistProgress): ChecklistItem? {
-        val left = counted.filterNot(progress::isDone)
+    fun next(progress: ChecklistProgress, isLocked: (ChecklistItem) -> Boolean = { false }): ChecklistItem? {
+        val left = counted.filterNot { progress.isDone(it) || isLocked(it) }
         return left.firstOrNull { isUnlocked(it, progress) } ?: left.firstOrNull()
     }
 
@@ -133,6 +134,8 @@ data class ChecklistCatalog(
             if (item.name.isBlank()) add("$at has no name")
             if (item.region != null && item.region !in regions) add("$at: unknown region '${item.region}'")
             item.requires.forEach { if (it !in itemsById) add("$at requires unknown item '$it'") else if (it == item.id) add("$at requires itself") }
+            item.unlockedBy.forEach { if (!ID.matches(it)) add("$at: bad unlockedBy id '$it'") }
+            if (item.unlockedBy.size != item.unlockedBy.toSet().size) add("$at lists an unlockedBy step twice")
             if (item.value < 0) add("$at has a negative value")
             item.tiers.forEach { if (it.name.isBlank()) add("$at has a tier with no name") }
         }
@@ -203,6 +206,11 @@ data class ChecklistItem(
     val requires: List<String> = emptyList(),
     /** A story point to reach first, as text, e.g. "After Jabul Ruins". */
     val after: String? = null,
+    /**
+     * Steps of the game's Main Quest (its story file, see [gx.zelda.checklist.data.storyFileOf]) that
+     * must all be done before this can be had. Hidden until then while story gating is on; see [StoryGate].
+     */
+    val unlockedBy: List<String> = emptyList(),
     /** Can be missed for good on a save file. */
     val missable: Boolean = false,
     /** What one step is worth in a summary formula's `<section>.value`. */

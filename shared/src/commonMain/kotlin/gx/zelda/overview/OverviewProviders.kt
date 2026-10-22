@@ -12,6 +12,7 @@ import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumStorage
 import gx.zelda.checklist.data.ChecklistProgressProvider
 import gx.zelda.checklist.data.ChecklistStorage
+import gx.zelda.checklist.data.StoryProgress
 import gx.zelda.core.Game
 import gx.zelda.core.ProgressProvider
 import gx.zelda.core.TrackerKind
@@ -72,7 +73,11 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.FIGURINES -> listOf(FigurineProgressProvider(FigurineStorage(dataStore, game)))
             // One generic row per checklist, so a game made of checklists gets its overview for free.
             TrackerKind.CHECKLIST -> listOf(
-                ChecklistProgressProvider(ChecklistStorage(dataStore, game, tracker.dataFile!!), tracker.title),
+                ChecklistProgressProvider(
+                    ChecklistStorage(dataStore, game, tracker.dataFile!!),
+                    tracker.title,
+                    storyGate = StoryProgress(dataStore, game, tracker.dataFile)::gate,
+                ),
             )
             TrackerKind.ADVENTURE_MAP -> listOf(
                 AdventureProgressProvider(AdventureStorage(dataStore, game, tracker.dataFile!!), tracker.title),
