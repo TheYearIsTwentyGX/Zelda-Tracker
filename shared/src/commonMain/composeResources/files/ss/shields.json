@@ -71,6 +71,7 @@
         {
           "id": "hylian_shield",
           "name": "Hylian Shield",
+          "sameAs": "side_quests:thunder_dragon_boss_rush@2",
           "unlockedBy": ["hero_song_lanayru"],
           "area": "Lanayru Gorge",
           "howTo": "Once you've cured Lanayru with the Life Tree Fruit, talk to him in Lanayru Gorge to play the Thunder Dragon's Lightning Round. Win eight boss battles in a row, then stop to take your prize.",

@@ -8,7 +8,6 @@ import gx.zelda.armor.ui.OwnershipFilter
 import gx.zelda.core.BulkAction
 import gx.zelda.core.BulkChange
 import gx.zelda.core.BulkScope
-import gx.zelda.core.MapSnapshot
 import gx.zelda.core.SaveFile
 import gx.zelda.core.groupByRegion
 import gx.zelda.upgrades.data.UpgradeRepository
@@ -177,7 +176,7 @@ class UpgradeViewModel(
         return edit { it.withCopyRemoved(item, number) }
     }
 
-    private val _bulkChange = MutableStateFlow<BulkChange<MapSnapshot<String, PieceProgress>>?>(null)
+    private val _bulkChange = MutableStateFlow<BulkChange<UpgradeStorage.UpgradeSnapshot>?>(null)
 
     /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
     val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange

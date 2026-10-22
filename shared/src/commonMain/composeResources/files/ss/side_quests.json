@@ -74,6 +74,7 @@
         {
           "id": "harp_performance",
           "name": "Harp performance with Kina",
+          "sameAs": "pumm_chandelier_debt@3",
           "unlockedBy": ["temple_of_time"],
           "region": "The Sky",
           "area": "Lumpy Pumpkin, Pumpkin Landing",
@@ -92,6 +93,7 @@
         {
           "id": "dodohs_high_dive",
           "name": "Dodoh's High Dive",
+          "sameAs": "heart_pieces:fun_fun_island_dive",
           "unlockedBy": ["farores_courage"],
           "region": "The Sky",
           "area": "Fun Fun Island",
@@ -229,6 +231,7 @@
         {
           "id": "gorko_goddess_wall",
           "name": "Gorko's Goddess Wall riddles",
+          "sameAs": "heart_pieces:gorko_wall_riddle",
           "unlockedBy": ["imprisoned_first"],
           "region": "Sealed Grounds",
           "area": "Behind the Sealed Temple",

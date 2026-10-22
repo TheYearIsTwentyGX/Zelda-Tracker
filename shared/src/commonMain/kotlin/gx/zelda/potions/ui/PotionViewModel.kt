@@ -6,7 +6,6 @@ import gx.zelda.armor.model.PieceProgress
 import gx.zelda.core.BulkAction
 import gx.zelda.core.BulkChange
 import gx.zelda.core.BulkScope
-import gx.zelda.core.MapSnapshot
 import gx.zelda.core.SaveFile
 import gx.zelda.potions.model.PotionBook
 import gx.zelda.potions.model.RecipeNeeds
@@ -126,7 +125,7 @@ class PotionViewModel(
         }
     }
 
-    private val _bulkChange = MutableStateFlow<BulkChange<MapSnapshot<String, PieceProgress>>?>(null)
+    private val _bulkChange = MutableStateFlow<BulkChange<UpgradeStorage.UpgradeSnapshot>?>(null)
 
     /** The last mark-all or clear-all, until its snackbar goes or its Undo is tapped. */
     val bulkChange: StateFlow<BulkChange<*>?> = _bulkChange

@@ -6,8 +6,9 @@ after a Progress Overview. After them come the [Potion Infusions](#potion-infusi
 (`TrackerKind.POTIONS`) and [Item Upgrades](#item-upgrades) (`TrackerKind.ITEM_UPGRADES`, modelled on
 BotW's armor tracker), both from `upgrades.json` and [sharing progress](#shared-progress) with the
 checklists, and one tool, the
-[Thrill Digger Solver](#thrill-digger-solver) (`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files, and
-`ChecklistDatasetsTest` checks the format. No engine change was needed.
+[Thrill Digger Solver](#thrill-digger-solver) (`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files,
+`ChecklistDatasetsTest` checks the format, and `ChecklistLinksDatasetTest` the [linked items](#linked-items),
+which share one progress between files.
 
 The data is for the **Wii original (2011)**. Where **Skyward Sword HD** (Switch, 2021) differs for an
 item, its `notes` say so, starting `HD:`: button controls (swing and aim with the right stick, the
@@ -65,7 +66,65 @@ its place in `area`, and bugs and treasures, found in several places, carry thei
 
 A few things are in two trackers on purpose, because a player looks for them in both: the wallets
 (Items, and Batreaux's rewards), the Hylian Shield (Shields, and the Lightning Round), and the Pieces
-of Heart above.
+of Heart above. Since October 2026 each is one progress: see [Linked items](#linked-items).
+
+### Linked items
+
+Each row below is the same real thing as a row, or one tier of a row, in another tracker, so they
+share one progress (`sameAs`, see docs/checklist-trackers.md, *Linked items*): tick either and both
+show it, on every screen and the overview. Until October 2026 they were ticked separately, which
+the user found with the wallets ("some of them are rewards from Batreaux"). Saves from before were
+merged once: ticked on either side is ticked, at the higher tier. The **canonical** item holds the
+progress; the linked row reads and writes it. `ChecklistLinksDatasetTest` pins every link.
+
+| Linked row | Is the same as (canonical) | Why |
+|---|---|---|
+| Gratitude Crystals: Batreaux's 5 / 30 / 50 / 80 crystals | Items & Equipment: Wallet, tiers 1 / 2 / 3 / 4 (Medium, Big, Giant, Tycoon) | His wallet rewards are the Wallet's upgrades; nothing else gives them |
+| Gratitude Crystals: Batreaux's 10 crystals | Heart Pieces: *Batreaux: 10 Gratitude Crystals* | The same Piece of Heart |
+| Heart Pieces: the 6 *Goddess Chest* pieces (Faron pillar, Beedle's Island, the locked shed, the volcanic island, atop the waterfall, Bug Rock) | Goddess Cubes: their cubes' tier 2, *Chest opened* (Skyview entrance, Temple of Time mine cart, the sand slide, the Great Tree's south-east ledge, the Pirate Stronghold, the Volcano Summit waterfall) | The piece is the chest's prize; opening the chest means the cube was struck, so tier 1 comes with it |
+| Heart Pieces: Rickety Coaster, Pumpkin Pull, Lightning Round 4 wins, Pumm's chores | Side Quests & Minigames: Rickety Coaster tier 2, Pumpkin Pull tier 3, Lightning Round tier 1, Pumm's chandelier debt tier 3 | The tier whose prize is the piece |
+| Side Quests & Minigames: Dodoh's High Dive, Gorko's Goddess Wall riddles | Heart Pieces: *Dodoh's High Dive*, *Gorko's Goddess Wall riddle* | Each row is won by its piece |
+| Side Quests & Minigames: Harp performance with Kina | Pumm's chandelier debt tier 3, on the same list | The first performance is Pumm's last chore |
+| Shields: Hylian Shield | Side Quests & Minigames: Lightning Round tier 2 (8 wins) | Its only source; Item Upgrades' Hylian Shield follows (below) |
+| Items & Equipment: Pouch expansion (Pumpkin Landing), Thunderhead Bottle | Goddess Cubes: Gorko's cube and the cube by Eldin's lair, tier 2 | The chest's prize |
+| Items & Equipment: Sailcloth, Goddess's Harp, Water Dragon's Scale, Clawshots, Fireshield Earrings | Main Quest: The Wing Ceremony, The Temple of Time, Farore's, Nayru's and Din's Silent Realms | The step ends with the item; it comes from nowhere else |
+| Main Quest: The Kikwis | Items & Equipment: Slingshot tier 1 | Bucha gives the Slingshot for finding them |
+| Main Quest: The Goddess Sword, Farore's / Nayru's / Din's Flame, The Temple of Hylia | Main Quest: the Sword row's tiers 1–5 (Goddess Sword to True Master Sword) | Each is the sword's form |
+
+32 links. Ticking a tier link raises the canonical item to that tier, so its earlier tiers come
+too; unticking it lowers the item below that tier, so the later ones go. That follows the tier rows
+as the data already modelled them, so:
+- ticking the Hylian Shield also ticks the Lightning Round's 4-win Piece of Heart, and unticking that
+  piece unticks the Hylian Shield and the 11 wins;
+- the Rickety Coaster's Heart Stopping! piece ticks its Scary! tier;
+- unticking the Goddess Sword step clears the whole Sword row, the flames and the Temple of Hylia.
+
+**Counts.** Each tracker still counts every row it lists, linked or not, so its total means what it
+did: Heart Pieces 24 pieces and 6 containers, Goddess Cubes 54 steps, Gratitude Crystals' Batreaux
+tab 7 rewards, Items & Equipment's wallets 4 tiers. A linked thing ticked shows in both trackers'
+counts, as it's in both lists; no number adds the trackers up, so nothing is counted twice in one
+total. The Main Quest counts both its flames and the sword's forms, as it always did (46 steps).
+
+**Main Quest steps** that are linked rows (the Kikwis, the Goddess Sword, the flames, the Temple of
+Hylia) count as done from the item they're linked to, so [story gating](#story-links) unlocks what
+they gate when either is ticked.
+
+**Not linked, and why.** These look alike but aren't the same event, so a link would tick one for
+the other:
+- **Extra Wallets** come only from Beedle's Airshop (100 Rupees each; Zelda Wiki, *Extra Wallet*),
+  not Batreaux, so they have no other row. The four Wallet tiers are Batreaux's.
+- **Parrow's Bottle** comes partway through Orielle's Gratitude Crystal quest, before her crystals,
+  so the bottle doesn't mean the quest is done.
+- **The Small Seed Satchel, Small Bomb Bag and Small Quiver** chests are one way to get the first
+  tier; the Gear Shop sells each too.
+- **A dungeon and its Heart Container** (Main Quest and Heart Pieces): the boss's container is
+  picked up separately.
+- **The Digging Mitts and the Key Pieces, the Hook Beetle and the Power Generator**, and each
+  dungeon's item: the item comes early in the step, which goes on after it.
+- **Luv's Bottle, Fledge's Adventure Pouch and Owlan's Wooden Shield** are given after the Goddess
+  Sword is drawn, not by drawing it, and that step is already the sword's first tier.
+- **The Sealed Temple Bottle's Revitalizing Potion** isn't one bought from Luv, so Potion Infusions
+  doesn't count it.
 
 ### What's tracked, and why
 
@@ -338,7 +397,8 @@ Now they share one. `UpgradeLinks.SS` pairs each upgrade item with its checklist
 | Item Upgrades | Checklist row | Checklist level |
 |---|---|---|
 | `slingshot`, `beetle`, `bug_net`, `bow` | Items & Equipment's same ids (`equipment`) | 0 without the item, then 1 + its upgrade level |
-| `wooden_shield`, `iron_shield`, `sacred_shield`, `hylian_shield` | Shields' same ids | the same |
+| `wooden_shield`, `iron_shield`, `sacred_shield` | Shields' same ids | the same |
+| `hylian_shield` | Shields' `hylian_shield`, a [linked row](#linked-items) stored as the Lightning Round's tier 2 in Side Quests & Minigames (`ChecklistLink.via`) | owned while the Lightning Round is at 8 wins or more; collecting it raises it to 8 wins, uncollecting lowers it to 4 wins |
 | `seed_satchel`, `quiver` | Items & Equipment's same ids (`capacity`) | the same, for copy 1 |
 | `bomb_bag` | Items & Equipment's `extra_bomb_bag` (`capacity`) | the same, for copy 1; the checklist's `bomb_bag` is the Earth Temple's, which takes no slot and can't be upgraded |
 
@@ -376,6 +436,15 @@ It moves rather than copies, so it's idempotent: nothing writes those places any
 file is merged there's nothing left to merge. `SharedProgressMigrationTest` runs it on saves in the old
 formats (both stores, differing levels both ways, extra copies, potions, one store only, an unreadable
 one) and end to end through a store written by the old app.
+
+**The Hylian Shield's chain.** The Shields row is linked to the Lightning Round's 8-win tier (see
+[Linked items](#linked-items)), so it keeps no level of its own and Item Upgrades reads and writes
+that tier directly: collecting it in Item Upgrades, ticking it in Shields and winning the 8th fight in
+Side Quests & Minigames are one tick. An old save's Item Upgrades Hylian Shield is moved to the
+Shields row by `SharedProgressMigration`, then to the Lightning Round by the link migration, which
+runs after it. Item Upgrades' *Mark all* undo puts the Lightning Round's level back exactly
+(`UpgradeStorage.UpgradeSnapshot.stored`), since owning the shield or not can't say whether the
+4-win tier was ticked. `SsUpgradeDatasetTest` checks `UpgradeLinks.SS` follows the row's `sameAs`.
 
 **Overview rows.** Items & Equipment, Shields and Item Upgrades count the same things from the same
 place, so they always agree, each in its own terms (tiers for a 100% run; items obtained, upgrades

@@ -416,6 +416,7 @@
         {
           "id": "batreaux_5",
           "name": "5 Gratitude Crystals",
+          "sameAs": "items:wallet@1",
           "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
@@ -427,6 +428,7 @@
         {
           "id": "batreaux_10",
           "name": "10 Gratitude Crystals",
+          "sameAs": "heart_pieces:batreaux_heart_piece",
           "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
@@ -444,6 +446,7 @@
         {
           "id": "batreaux_30",
           "name": "30 Gratitude Crystals",
+          "sameAs": "items:wallet@2",
           "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
@@ -472,6 +475,7 @@
         {
           "id": "batreaux_50",
           "name": "50 Gratitude Crystals",
+          "sameAs": "items:wallet@3",
           "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",
@@ -500,6 +504,7 @@
         {
           "id": "batreaux_80",
           "name": "80 Gratitude Crystals",
+          "sameAs": "items:wallet@4",
           "unlockedBy": ["skyview_temple"],
           "region": "Skyloft",
           "area": "Batreaux's House, below the graveyard",

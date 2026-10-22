@@ -32,6 +32,7 @@
         {
           "id": "statue_of_the_goddess",
           "name": "The Goddess Sword",
+          "sameAs": "goddess_sword@1",
           "area": "Statue of the Goddess",
           "howTo": "That night, follow Fi into the Statue of the Goddess and draw the sword. Gaepora then gives you the knight's uniform, Fledge the Adventure Pouch and Owlan a Wooden Shield; Luv in the Bazaar gives you an Empty Bottle.",
           "value": 0,
@@ -47,6 +48,7 @@
         {
           "id": "faron_woods",
           "name": "The Kikwis",
+          "sameAs": "items:slingshot@1",
           "area": "Faron Woods",
           "howTo": "Dive into the green light to the Sealed Grounds and meet the old woman in the Sealed Temple. In Faron Woods, find Bucha, the Kikwi elder, then the three Kikwis hiding from the Bokoblins: Lopsa (roll into his tree), Erla and Oolo.",
           "value": 0,
@@ -317,6 +319,7 @@
         {
           "id": "temple_of_hylia",
           "name": "The Temple of Hylia",
+          "sameAs": "goddess_sword@5",
           "area": "Sealed Temple",
           "howTo": "Skyward Strike the Gate of Time in the Sealed Temple and go through to the Temple of Hylia in the past.",
           "value": 0,
@@ -590,6 +593,7 @@
         {
           "id": "farores_flame",
           "name": "Farore's Flame",
+          "sameAs": "goddess_sword@2",
           "area": "Ancient Cistern",
           "howTo": "At the end of the Ancient Cistern, after Koloktos.",
           "requires": [
@@ -600,6 +604,7 @@
         {
           "id": "nayrus_flame",
           "name": "Nayru's Flame",
+          "sameAs": "goddess_sword@3",
           "area": "Sandship",
           "howTo": "At the end of the Sandship, after Tentalus.",
           "requires": [
@@ -610,6 +615,7 @@
         {
           "id": "dins_flame",
           "name": "Din's Flame",
+          "sameAs": "goddess_sword@4",
           "area": "Fire Sanctuary",
           "howTo": "At the end of the Fire Sanctuary, after Ghirahim.",
           "requires": [

@@ -1,6 +1,7 @@
 package gx.zelda.upgrades.data
 
 import gx.zelda.armor.model.PieceProgress
+import gx.zelda.checklist.model.SameAs
 import gx.zelda.core.Game
 import gx.zelda.core.Games
 
@@ -16,7 +17,28 @@ data class ChecklistLink(
     /** The checklist's `dataFile`, e.g. `ss/items.json`. */
     val dataFile: String,
     val checklistItemId: String,
+    /**
+     * Set when the checklist row is itself the same as another item (its `sameAs`), as the Shields'
+     * Hylian Shield is the Lightning Round's 8-win tier in Side Quests & Minigames: that item's file
+     * and the link, whose level is the one stored. The row's level is then 0 or 1. Null for a row
+     * that keeps its own level. `SsUpgradeDatasetTest` checks it matches the row's `sameAs`.
+     */
+    val via: Via? = null,
 ) {
+    data class Via(val dataFile: String, val link: SameAs)
+
+    /** The checklist whose levels hold this item: the row's, or the one [via] names. */
+    val storedFile: String get() = via?.dataFile ?: dataFile
+
+    /** The item there whose level holds it. */
+    val storedItemId: String get() = via?.link?.itemId ?: checklistItemId
+
+    /** The checklist row's level when [storedItemId] is at [stored]. */
+    fun rowLevel(stored: Int): Int = via?.link?.levelFrom(stored) ?: stored
+
+    /** What to store at [storedItemId], now at [stored], for the row to be at [rowLevel]. */
+    fun storedLevel(rowLevel: Int, stored: Int): Int = via?.link?.canonicalFor(rowLevel >= 1, stored) ?: rowLevel
+
     /** The copy's state for a checklist level: none at 0, else owned at one level fewer. */
     fun pieceOf(checklistLevel: Int): PieceProgress? =
         if (checklistLevel > 0) PieceProgress(owned = true, level = checklistLevel - 1) else null
@@ -32,7 +54,8 @@ object UpgradeLinks {
      * Every Skyward Sword upgrade item outside the potions: the Items & Equipment checklist's items
      * and capacity rows, and the Shields checklist. The pouch Bomb Bag is the checklist's
      * `extra_bomb_bag`: its `bomb_bag` is the Earth Temple's, which takes no slot and can't be
-     * upgraded. `SsUpgradeDatasetTest` checks each pair has the same forms.
+     * upgraded. `SsUpgradeDatasetTest` checks each pair has the same forms. The Hylian Shield's row
+     * is the Lightning Round's 8-win tier (a `sameAs` link), so its progress is kept there.
      */
     val SS: List<ChecklistLink> = listOf(
         ChecklistLink("slingshot", "ss/items.json", "slingshot"),
@@ -42,7 +65,10 @@ object UpgradeLinks {
         ChecklistLink("wooden_shield", "ss/shields.json", "wooden_shield"),
         ChecklistLink("iron_shield", "ss/shields.json", "iron_shield"),
         ChecklistLink("sacred_shield", "ss/shields.json", "sacred_shield"),
-        ChecklistLink("hylian_shield", "ss/shields.json", "hylian_shield"),
+        ChecklistLink(
+            "hylian_shield", "ss/shields.json", "hylian_shield",
+            via = ChecklistLink.Via("ss/side_quests.json", SameAs("side_quests", "thunder_dragon_boss_rush", 2)),
+        ),
         ChecklistLink("seed_satchel", "ss/items.json", "seed_satchel"),
         ChecklistLink("quiver", "ss/items.json", "quiver"),
         ChecklistLink("bomb_bag", "ss/items.json", "extra_bomb_bag"),

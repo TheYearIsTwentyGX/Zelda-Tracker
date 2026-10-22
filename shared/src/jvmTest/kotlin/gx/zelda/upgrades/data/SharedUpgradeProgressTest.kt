@@ -23,6 +23,7 @@ class SharedUpgradeProgressTest {
     private val upgrades = UpgradeStorage(dataStore, Games.SS)
     private val items = ChecklistStorage(dataStore, Games.SS, "ss/items.json")
     private val shields = ChecklistStorage(dataStore, Games.SS, "ss/shields.json")
+    private val sideQuests = ChecklistStorage(dataStore, Games.SS, "ss/side_quests.json")
 
     private suspend fun itemsCatalog(): ChecklistCatalog = ChecklistRepository.load("ss/items.json")
 
@@ -107,13 +108,31 @@ class SharedUpgradeProgressTest {
         assertEquals(mapOf("bow" to PieceProgress(true, 1), "beetle" to null, "hylian_shield" to null, "heart_potion" to null), snapshot.before)
         assertEquals(2, checklistLevel(items, "bow"), "levels stay")
         assertEquals(1, checklistLevel(items, "beetle"))
-        assertEquals(1, checklistLevel(shields, "hylian_shield"))
+        // The Shields row is the same as the Lightning Round's 8-win tier, which holds its progress.
+        assertEquals(0, checklistLevel(shields, "hylian_shield"))
+        assertEquals(2, checklistLevel(sideQuests, "thunder_dragon_boss_rush"))
 
         upgrades.restore("file_1", snapshot)
         assertEquals(2, checklistLevel(items, "bow"))
         assertEquals(0, checklistLevel(items, "beetle"))
-        assertEquals(0, checklistLevel(shields, "hylian_shield"))
+        assertEquals(0, checklistLevel(sideQuests, "thunder_dragon_boss_rush"), "not left at the 4-win tier the mark brought with it")
         assertEquals(PieceProgress(), upgrade("heart_potion"))
+    }
+
+    /** The Lightning Round's level behind the Hylian Shield comes back exactly, whatever tiers were around it. */
+    @Test
+    fun undoingTheHylianShieldPutsTheLightningRoundBack() = runTest {
+        val bossRush = ChecklistRepository.load("ss/side_quests.json").item("thunder_dragon_boss_rush")!!
+        sideQuests.setLevel("file_1", bossRush, 1)
+        val snapshot = upgrades.setAllOwned("file_1", listOf("hylian_shield"), owned = true)
+        assertEquals(mapOf("hylian_shield" to 1), snapshot.stored)
+        assertEquals(2, checklistLevel(sideQuests, "thunder_dragon_boss_rush"))
+
+        val before = dataStore.writes
+        upgrades.restore("file_1", snapshot)
+        assertEquals(1, dataStore.writes - before)
+        assertEquals(1, checklistLevel(sideQuests, "thunder_dragon_boss_rush"), "the 4-win Piece of Heart stays")
+        assertEquals(PieceProgress(), upgrade("hylian_shield"))
     }
 
     /** The checklist's mark-all, the other way. */
