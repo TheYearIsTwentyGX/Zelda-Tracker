@@ -140,4 +140,18 @@ class AlbwDatasetTest {
             c.items.filter { it.tiers.isEmpty() }.forEach { assertTrue(!it.howTo.isNullOrBlank(), "${it.id} in $name") }
         }
     }
+    /**
+     * Story links (docs/albw.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand, and that every item has one.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepsThatOpenIt() = withCatalogs { all ->
+        val links = all.filterKeys { it != "main_quest" }.values.flatMap { it.items }.associate { it.id to it.unlockedBy }
+        assertEquals(emptyMap(), links.filterValues { it.isEmpty() })
+        assertEquals(listOf("captains_sword"), links["hookshot"], "rented from Ravio once he moves in")
+        assertEquals(listOf("eastern_palace"), links["poh_blacksmith_back"], "Wall Merge, from the Eastern Palace")
+        assertEquals(listOf("hyrule_castle"), links["poh_fortunes_choice"], "Lorule, after Hyrule Castle")
+        assertEquals(listOf("desert_palace"), links["ore_lorule_graveyard"], "a large rock: the Titan's Mitt")
+        assertEquals(listOf("pendant_of_courage", "house_of_gales", "tower_of_hera"), links["lost_woods_master_sword_bushes"])
+    }
 }
