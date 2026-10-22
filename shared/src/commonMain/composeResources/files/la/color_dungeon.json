@@ -17,6 +17,7 @@
         {
           "id": "color_dungeon_entrance",
           "name": "Open the Color Dungeon",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Cemetery, Koholint Prairie",
           "howTo": "Push the five gravestones in the Cemetery's south-east corner in order: 1 down, 2 left, 3 up, 4 right, 5 up. The stairs appear under the last.",
           "requires": [
@@ -28,6 +29,7 @@
         {
           "id": "giant_buzz_blob",
           "name": "Giant Buzz Blob",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Color Dungeon",
           "howTo": "Sprinkle Magic Powder on it, then hit it.",
           "requires": [
@@ -40,6 +42,7 @@
         {
           "id": "avalaunch",
           "name": "Avalaunch",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Color Dungeon",
           "howTo": "The dungeon's second mini-boss.",
           "requires": [
@@ -52,6 +55,7 @@
         {
           "id": "hardhit_beetle",
           "name": "Hardhit Beetle",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Color Dungeon",
           "howTo": "The dungeon's boss.",
           "requires": [
@@ -64,6 +68,7 @@
         {
           "id": "color_tunic",
           "name": "The Fairy's gift",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Color Dungeon",
           "howTo": "Choose a tunic from the Great Fairy behind the boss: red or blue.",
           "requires": [

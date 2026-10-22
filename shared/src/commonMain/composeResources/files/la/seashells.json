@@ -30,6 +30,7 @@
         {
           "id": "mabe_trendy_bushes",
           "name": "Bush north of the Trendy Game",
+          "unlockedBy": ["find_sword"],
           "region": "Mabe Village",
           "area": "Bush patch one screen north of the Trendy Game",
           "howTo": "Cut the bush four rows across and four rows up in the patch north of the Trendy Game.",
@@ -41,6 +42,7 @@
         {
           "id": "forest_rock_chest",
           "name": "Chest behind a rock",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Mysterious Forest",
           "area": "South-west part of the forest",
           "howTo": "Lift the rock in front of the chest.",
@@ -64,6 +66,7 @@
         {
           "id": "tail_cave_chest",
           "name": "Tail Cave chest",
+          "unlockedBy": ["tail_key"],
           "region": "South of the Village",
           "area": "Tail Cave (Level 1)",
           "howTo": "From the entrance go up, left and up, bomb the cracked west wall and open the chest.",
@@ -76,6 +79,7 @@
         {
           "id": "key_cavern_roof",
           "name": "Key Cavern roof",
+          "unlockedBy": ["slime_key"],
           "region": "Ukuku Prairie",
           "area": "On top of Key Cavern",
           "howTo": "Climb the stairs one screen right of Key Cavern's entrance, go one screen left and dig the bare square between four tufts of grass.",
@@ -87,6 +91,7 @@
         {
           "id": "mansion_bonus_five",
           "name": "Seashell Mansion: exactly 5",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Walk into the Seashell Mansion carrying exactly 5 seashells and the sensor gives you one more.",
@@ -99,6 +104,7 @@
         {
           "id": "mansion_east_bushes",
           "name": "Bushes east of the Mansion",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "One screen right of the Seashell Mansion",
           "howTo": "It's under the second of the top two bushes.",
@@ -110,6 +116,7 @@
         {
           "id": "villa_tunnel_chest",
           "name": "Tunnel under Richard's Villa",
+          "unlockedBy": ["bottle_grotto"],
           "region": "Pothole Field",
           "area": "Tunnel from Richard's Villa, left path",
           "howTo": "Give Richard the five Golden Leaves to open the tunnel. Take the left path, push the boulder into the pit, jump across and open the chest.",
@@ -122,6 +129,7 @@
         {
           "id": "witch_hut_stairs_bush",
           "name": "Bush below the Witch's Hut",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Koholint Prairie",
           "area": "South-west of the Witch's Hut",
           "howTo": "Lift the rock blocking the stairs, go down one screen, cut the lone bush and dig where it was.",
@@ -134,6 +142,7 @@
         {
           "id": "phone_booth_tree",
           "name": "Tree by the phone booth",
+          "unlockedBy": ["slime_key"],
           "region": "Ukuku Prairie",
           "area": "Telephone booth just east of Mabe Village",
           "howTo": "Dash into the tree by the phone booth with the Pegasus Boots.",
@@ -146,6 +155,7 @@
         {
           "id": "mansion_bonus_ten",
           "name": "Seashell Mansion: exactly 10",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Walk into the Seashell Mansion carrying exactly 10 seashells and the sensor gives you one more.",
@@ -158,6 +168,7 @@
         {
           "id": "tail_cave_tree",
           "name": "Tree by Tail Cave",
+          "unlockedBy": ["slime_key"],
           "region": "South of the Village",
           "area": "West of Tail Cave's entrance",
           "howTo": "Dash into the left side of the lone tree west of Tail Cave's entrance.",
@@ -169,6 +180,7 @@
         {
           "id": "marthas_bay_phone_booth_bush",
           "name": "Bush by the Martha's Bay phone booth",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "South-west corner, by the phone booth",
           "howTo": "Cut the small bush in the corner by the phone booth.",
@@ -180,6 +192,7 @@
         {
           "id": "mansion_cave_owl_statue",
           "name": "Owl Statue past the cave",
+          "unlockedBy": ["tail_key"],
           "region": "Ukuku Prairie",
           "area": "Cave south-west of the Seashell Mansion",
           "howTo": "Bomb the cave's west wall, jump the pit and go out the far side, then dig one square down and one left of the Owl Statue.",
@@ -193,6 +206,7 @@
         {
           "id": "ukuku_rock_ring",
           "name": "Odd rock among the stones",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Ukuku Prairie",
           "area": "North of Catfish's Maw, by the Moblins",
           "howTo": "Lift the one liftable rock among the ring-shaped stones.",
@@ -204,6 +218,7 @@
         {
           "id": "yarna_boulder",
           "name": "Desert boulder",
+          "unlockedBy": ["walrus"],
           "region": "Yarna Desert",
           "area": "Far south-east path",
           "howTo": "Lift the lower of the two boulders.",
@@ -215,6 +230,7 @@
         {
           "id": "house_by_the_bay_pots",
           "name": "House by the Bay pots",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "House by the Bay",
           "howTo": "Lift the bottom-right pot inside the house.",
@@ -226,6 +242,7 @@
         {
           "id": "marthas_bay_islet_bush",
           "name": "Martha's Bay islet",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "Islet west of the House by the Bay",
           "howTo": "Swim to the islet and cut its bush.",
@@ -239,6 +256,7 @@
         {
           "id": "key_cavern_islet_bush",
           "name": "Islet by Key Cavern",
+          "unlockedBy": ["angler_key"],
           "region": "Ukuku Prairie",
           "area": "Lake by Key Cavern",
           "howTo": "Swim to the islet and slash its bush from the north side.",
@@ -251,6 +269,7 @@
         {
           "id": "marthas_bay_owl_statue",
           "name": "Owl Statue across the bridge",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "Two screens south and one west of Animal Village's entrance",
           "howTo": "Cross the bridge and dig just left of the Owl Statue.",
@@ -262,6 +281,7 @@
         {
           "id": "ancient_ruins_armos_chest",
           "name": "Armos stairs",
+          "unlockedBy": ["face_key"],
           "region": "Ancient Ruins",
           "area": "Southern Face Shrine",
           "howTo": "Touch the lower-right of the four Armos statues to reveal stairs, and open the chest below.",
@@ -273,6 +293,7 @@
         {
           "id": "face_shrine_island_chest",
           "name": "Face Shrine island",
+          "unlockedBy": ["face_key"],
           "region": "Rapids Ride",
           "area": "Face Shrine (Level 6), north-west room",
           "howTo": "Take the stairs in Face Shrine's north-west room out to an island in the rapids and open the chest.",
@@ -286,6 +307,7 @@
         {
           "id": "kanalet_potholes_chest",
           "name": "Over the potholes west of Kanalet",
+          "unlockedBy": ["flying_rooster"],
           "region": "Kanalet Castle",
           "area": "West of the castle gate",
           "howTo": "Carry the Flying Rooster and fly west from the gate across the potholes, then take the stairs to the chest.",
@@ -300,6 +322,7 @@
         {
           "id": "hen_house_rock",
           "name": "Rock east of the Hen House",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "East of the Hen House",
           "howTo": "Cross the bridge east of the Hen House and lift the corner rock.",
@@ -312,6 +335,7 @@
         {
           "id": "taltal_shallow_cave_chest",
           "name": "Shallow-water cave",
+          "unlockedBy": ["bird_key"],
           "region": "Tal Tal Mountain Range",
           "area": "Cave on the way to Eagle's Tower",
           "howTo": "Bomb your way in, push the blocks past the Rupee chests, come out the far side and open the chest outside.",
@@ -324,6 +348,7 @@
         {
           "id": "eagles_tower_chest",
           "name": "Eagle's Tower walkway",
+          "unlockedBy": ["bird_key"],
           "region": "Tal Tal Mountain Range",
           "area": "Eagle's Tower (Level 7)",
           "howTo": "Go left one, up one, take the stairs, down one, drop into the top-left pit onto the walkway, then up two screens to the chest.",
@@ -343,6 +368,7 @@
         {
           "id": "koholint_sword",
           "name": "Koholint Sword",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring 20 or more seashells to the Seashell Mansion.",
@@ -364,6 +390,7 @@
         {
           "id": "switch_mabe_trendy_bushes",
           "name": "Bush north of the Trendy Game",
+          "unlockedBy": ["find_sword"],
           "region": "Mabe Village",
           "area": "6×6 bush patch north of the Trendy Game",
           "howTo": "Cut the bushes in the patch.",
@@ -385,6 +412,7 @@
         {
           "id": "switch_forest_rock_chest",
           "name": "Chest behind a rock",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Mysterious Forest",
           "area": "West of the forest",
           "howTo": "Lift the boulder in front of the chest.",
@@ -407,6 +435,7 @@
         {
           "id": "switch_tail_cave_chest",
           "name": "Tail Cave chest",
+          "unlockedBy": ["tail_key"],
           "region": "South of the Village",
           "area": "Tail Cave (Level 1)",
           "howTo": "Go up, left and up, bomb the west wall and open the chest.",
@@ -419,6 +448,7 @@
         {
           "id": "switch_witch_hut_stairs_bush",
           "name": "Bush below the Witch's Hut",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Koholint Prairie",
           "area": "South-west of the Witch's Hut",
           "howTo": "Lift the stone, cut the lone bush and dig where it was.",
@@ -431,6 +461,7 @@
         {
           "id": "switch_mansion_east_bushes",
           "name": "Bushes east of the Mansion",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "North-east of the Mansion's hill",
           "howTo": "Cut the bushes east of the Seashell Mansion.",
@@ -442,6 +473,7 @@
         {
           "id": "switch_ukuku_rock_ring",
           "name": "Odd rock among the stones",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Ukuku Prairie",
           "area": "Boarblin area",
           "howTo": "Lift the lone liftable rock among the fixed stones.",
@@ -453,6 +485,7 @@
         {
           "id": "switch_mansion_cave_owl_statue",
           "name": "Owl Statue past the cave",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Cave south-west of the Seashell Mansion",
           "howTo": "Bomb the cave's west wall, go out the far side and dig south-west of the Owl Statue.",
@@ -465,6 +498,7 @@
         {
           "id": "switch_marthas_bay_phone_booth_bush",
           "name": "Bush by the Martha's Bay phone booth",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "Corner just east of the phone booth",
           "howTo": "Cut the bush in the corner.",
@@ -476,6 +510,7 @@
         {
           "id": "switch_ukuku_skull_dig",
           "name": "Under the big skull",
+          "unlockedBy": ["bottle_grotto"],
           "region": "Ukuku Prairie",
           "area": "South-west of Kanalet Castle, east of Mabe",
           "howTo": "Bomb the big skull and dig where it stood.",
@@ -487,6 +522,7 @@
         {
           "id": "switch_forest_flower_ring",
           "name": "Ring of blue flowers",
+          "unlockedBy": ["find_sword"],
           "region": "Mysterious Forest",
           "area": "Ring of eight blue flowers",
           "howTo": "Dig in the middle of the ring.",
@@ -497,6 +533,7 @@
         {
           "id": "switch_forest_northwest_dig",
           "name": "North-west of the forest",
+          "unlockedBy": ["find_sword"],
           "region": "Mysterious Forest",
           "area": "By the north exit",
           "howTo": "Dig along the west wall by the trees.",
@@ -508,6 +545,7 @@
         {
           "id": "switch_goponga_phone_booth_dig",
           "name": "By Mr. Write's phone booth",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Goponga Swamp",
           "area": "West end, by the phone booth near Mr. Write's House",
           "howTo": "Cut the bush and dig.",
@@ -519,6 +557,7 @@
         {
           "id": "switch_goponga_sign_rock",
           "name": "Rock by the sign",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Goponga Swamp",
           "area": "East of Bottle Grotto, north of the Moblin Hideout",
           "howTo": "Lift the right-hand rock by the sign.",
@@ -529,6 +568,7 @@
         {
           "id": "switch_tabahl_east_dig",
           "name": "Tabahl Wasteland east edge",
+          "unlockedBy": ["tail_key"],
           "region": "Tabahl Wasteland",
           "area": "North-east, south of Dampé's Shack",
           "howTo": "Dig along the east edge.",
@@ -540,6 +580,7 @@
         {
           "id": "switch_taltal_warp_hole_bomb",
           "name": "Hole by the warp point",
+          "unlockedBy": ["angler_key"],
           "region": "Tal Tal Heights",
           "area": "East of Dampé's Shack",
           "howTo": "Throw a bomb into the hole next to the warp point.",
@@ -561,6 +602,7 @@
         {
           "id": "switch_villa_tunnel_chest",
           "name": "Tunnel under Richard's Villa",
+          "unlockedBy": ["bottle_grotto"],
           "region": "Pothole Field",
           "area": "Tunnel from Richard's Villa, left path",
           "howTo": "Take the left path, push the block, jump across and open the chest.",
@@ -573,6 +615,7 @@
         {
           "id": "switch_key_cavern_roof",
           "name": "Key Cavern roof",
+          "unlockedBy": ["slime_key"],
           "region": "Ukuku Prairie",
           "area": "On top of Key Cavern",
           "howTo": "Dig between the four tufts of grass.",
@@ -584,6 +627,7 @@
         {
           "id": "switch_yarna_owl_statue_dig",
           "name": "Desert Owl Statue",
+          "unlockedBy": ["walrus"],
           "region": "Yarna Desert",
           "area": "North-east Owl Statue",
           "howTo": "Dig just south of the statue, by the cactus.",
@@ -594,6 +638,7 @@
         {
           "id": "switch_yarna_boulder",
           "name": "Desert boulder",
+          "unlockedBy": ["walrus"],
           "region": "Yarna Desert",
           "area": "Far south-east",
           "howTo": "Lift the lower of the two rocks.",
@@ -605,6 +650,7 @@
         {
           "id": "switch_yarna_walrus_ballad",
           "name": "Where the Walrus lay",
+          "unlockedBy": ["walrus"],
           "region": "Yarna Desert",
           "area": "The Walrus's spot",
           "howTo": "Play the Ballad of the Wind Fish where the Walrus was.",
@@ -615,6 +661,7 @@
         {
           "id": "switch_marthas_bay_owl_statue",
           "name": "Owl Statue across the bridge",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Martha's Bay",
           "area": "Bridge east of Catfish's Maw",
           "howTo": "Dig just west of the Owl Statue.",
@@ -626,6 +673,7 @@
         {
           "id": "switch_ancient_ruins_armos_chest",
           "name": "Armos stairs",
+          "unlockedBy": ["face_key"],
           "region": "Ancient Ruins",
           "area": "Southern Face Shrine",
           "howTo": "Touch the bottom-right of the four Armos to reveal stairs, and open the chest.",
@@ -637,6 +685,7 @@
         {
           "id": "switch_ancient_ruins_northeast_boulder",
           "name": "Lone boulder north of the ruins",
+          "unlockedBy": ["face_key"],
           "region": "Ancient Ruins",
           "area": "North of the Ancient Ruins, east of the Face Shrine",
           "howTo": "Lift the lone north-east boulder.",
@@ -648,6 +697,7 @@
         {
           "id": "switch_dampe_four_challenges",
           "name": "Dampé: four challenges",
+          "unlockedBy": ["angler_key"],
           "region": "Tal Tal Heights",
           "area": "Dampé's Shack",
           "howTo": "Complete four of Dampé's Chamber Dungeon challenges.",
@@ -659,6 +709,7 @@
         {
           "id": "switch_phone_booth_tree",
           "name": "Tree by the phone booth",
+          "unlockedBy": ["slime_key"],
           "region": "Ukuku Prairie",
           "area": "Phone booth east of Mabe Village",
           "howTo": "Dash into the tree with the Pegasus Boots.",
@@ -670,6 +721,7 @@
         {
           "id": "switch_tail_cave_tree",
           "name": "Tree by Tail Cave",
+          "unlockedBy": ["slime_key"],
           "region": "South of the Village",
           "area": "West of Tail Cave's entrance",
           "howTo": "Dash into the lone tree.",
@@ -681,6 +733,7 @@
         {
           "id": "switch_toronbo_palm_tree",
           "name": "Palm tree on the beach",
+          "unlockedBy": ["slime_key"],
           "region": "Toronbo Shores",
           "area": "South-west of the beach",
           "howTo": "Dash into the lower of the four palm trees.",
@@ -691,6 +744,7 @@
         {
           "id": "switch_kanalet_moat_waterfall",
           "name": "Kanalet moat waterfall",
+          "unlockedBy": ["angler_key"],
           "region": "Kanalet Castle",
           "area": "Moat, at the foot of the waterfall",
           "howTo": "Dive at the foot of the moat's waterfall.",
@@ -701,6 +755,7 @@
         {
           "id": "switch_house_by_the_bay_pots",
           "name": "House by the Bay pots",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "House by the Bay",
           "howTo": "Lift the pots at the bottom right.",
@@ -712,6 +767,7 @@
         {
           "id": "switch_trendy_game_after_anglers_tunnel",
           "name": "Trendy Game: second seashell",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Mabe Village",
           "area": "Trendy Game",
           "howTo": "Win it from the crane game.",
@@ -723,6 +779,7 @@
         {
           "id": "switch_marthas_bay_islet_bush",
           "name": "Martha's Bay islet",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "Islet at the south end",
           "howTo": "Swim out and cut its bush.",
@@ -734,6 +791,7 @@
         {
           "id": "switch_christine_letter",
           "name": "Christine's thanks",
+          "unlockedBy": ["dream_shrine"],
           "region": "Animal Village",
           "area": "Christine's house",
           "howTo": "Talk to Christine after delivering her letter to Mr. Write in the trading sequence.",
@@ -744,6 +802,7 @@
         {
           "id": "switch_key_cavern_islet_bush",
           "name": "Islet by Key Cavern",
+          "unlockedBy": ["angler_key"],
           "region": "Ukuku Prairie",
           "area": "Islet north-east of Key Cavern",
           "howTo": "Swim out and cut its bush.",
@@ -755,6 +814,7 @@
         {
           "id": "switch_secret_zora",
           "name": "The Secret Zora",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Animal Village",
           "area": "North-east house",
           "howTo": "Look at the Zora in the north-east house through the Magnifying Lens.",
@@ -765,6 +825,7 @@
         {
           "id": "switch_kanalet_potholes_chest",
           "name": "Over the potholes west of Kanalet",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Kanalet Castle",
           "area": "West of the castle gate",
           "howTo": "Hookshot over the potholes and take the stairs to the chest.",
@@ -776,6 +837,7 @@
         {
           "id": "switch_rapids_empty_islet_dig",
           "name": "Rapids Ride: empty islet",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Rapids Ride",
           "area": "Islet far west and south",
           "howTo": "On a free ride, go far west then south, Hookshot to the vines on the empty islet and dig its top-right corner.",
@@ -788,6 +850,7 @@
         {
           "id": "switch_rapids_race_under_35",
           "name": "Rapids Race",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Rapids Ride",
           "area": "Rapids Ride",
           "howTo": "Finish the Rapids Race in 35 seconds or less.",
@@ -800,6 +863,7 @@
         {
           "id": "switch_face_shrine_island_chest",
           "name": "Face Shrine island",
+          "unlockedBy": ["face_key"],
           "region": "Rapids Ride",
           "area": "Face Shrine (Level 6), north-west room",
           "howTo": "Take the stairs out to an island in the rapids and open the chest.",
@@ -812,6 +876,7 @@
         {
           "id": "switch_fishing_cheep_cheep",
           "name": "Fishing Pond: a Cheep Cheep",
+          "unlockedBy": ["catfishs_maw"],
           "region": "Mabe Village",
           "area": "Fishing Pond",
           "howTo": "Catch a Cheep Cheep.",
@@ -823,6 +888,7 @@
         {
           "id": "switch_fishing_blooper",
           "name": "Fishing Pond: a Blooper or a big fish",
+          "unlockedBy": ["catfishs_maw"],
           "region": "Mabe Village",
           "area": "Fishing Pond",
           "howTo": "Catch a Blooper, or any fish of 100–150 cm (Ol' Baron counts).",
@@ -835,6 +901,7 @@
         {
           "id": "switch_taltal_ladder_waterfall",
           "name": "Waterfall by the big ladder",
+          "unlockedBy": ["angler_key"],
           "region": "Tal Tal Heights",
           "area": "Where the waterfall to Angler's Tunnel was",
           "howTo": "Dive by the waterfall beside the big ladder.",
@@ -845,6 +912,7 @@
         {
           "id": "switch_henhouse_bridge_hole_bomb",
           "name": "Hole under the bridge",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "Bridge west of the Hen House",
           "howTo": "Throw a bomb into the hole under the bridge.",
@@ -856,6 +924,7 @@
         {
           "id": "switch_hen_house_rock",
           "name": "Rock east of the Hen House",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "East across the bridge from the Hen House",
           "howTo": "Lift the rightmost of the three rocks.",
@@ -868,6 +937,7 @@
         {
           "id": "switch_taltal_shallow_cave_chest",
           "name": "Shallow-water cave",
+          "unlockedBy": ["bird_key"],
           "region": "Tal Tal Mountain Range",
           "area": "Cave toward Eagle's Tower",
           "howTo": "Bomb the north wall, push the blocks, go out and open the chest.",
@@ -880,6 +950,7 @@
         {
           "id": "switch_eagles_tower_chest",
           "name": "Eagle's Tower walkway",
+          "unlockedBy": ["bird_key"],
           "region": "Tal Tal Mountain Range",
           "area": "Eagle's Tower (Level 7), Hinox room",
           "howTo": "Drop down a left hole in the Hinox room to the raised walkway and open the chest.",
@@ -891,6 +962,7 @@
         {
           "id": "switch_mountain_rockfall_rock",
           "name": "Rock past the rockfall",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "West of the Wind Fish's Egg, past the rockfall",
           "howTo": "Lift the north-east rock.",
@@ -902,6 +974,7 @@
         {
           "id": "switch_turtle_rock_stone_cross",
           "name": "Cross of stones by Turtle Rock",
+          "unlockedBy": ["turtle_rock_head"],
           "region": "Tal Tal Mountain Range",
           "area": "Just east of Turtle Rock's entrance",
           "howTo": "Dig in the middle of the cross of small stones.",
@@ -923,6 +996,7 @@
         {
           "id": "switch_mansion_piece_of_heart",
           "name": "5 seashells",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring 5 seashells.",
@@ -935,6 +1009,7 @@
         {
           "id": "switch_mansion_seashell_sensor",
           "name": "15 seashells",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring 15 seashells.",
@@ -949,6 +1024,7 @@
         {
           "id": "switch_mansion_chamber_stone",
           "name": "30 seashells",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring 30 seashells.",
@@ -963,6 +1039,7 @@
         {
           "id": "switch_mansion_koholint_sword",
           "name": "40 seashells",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring 40 seashells.",
@@ -977,6 +1054,7 @@
         {
           "id": "switch_mansion_fifty",
           "name": "50 seashells",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring all 50 seashells.",

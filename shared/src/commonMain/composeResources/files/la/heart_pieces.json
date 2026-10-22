@@ -34,6 +34,7 @@
         {
           "id": "mabe_well",
           "name": "Mabe Village well",
+          "unlockedBy": ["find_sword"],
           "region": "Mabe Village",
           "area": "Well, west of Marin and Tarin's house",
           "howTo": "Go two screens west of Marin and Tarin's house, cut the middle of the three bushes above the cliff and jump into the well. The piece is in the cave below.",
@@ -55,6 +56,7 @@
         {
           "id": "prairie_pit_ring",
           "name": "Ring of pits",
+          "unlockedBy": ["tail_key"],
           "region": "Koholint Prairie",
           "area": "East of the Mysterious Forest",
           "howTo": "Leave the Mysterious Forest to the east: the piece sits inside a ring of pits. Jump over them.",
@@ -66,6 +68,7 @@
         {
           "id": "forest_skull_cave",
           "name": "Toadstool cave skulls",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Mysterious Forest",
           "area": "Cave on the way to the Toadstool",
           "howTo": "In the cave you pass through to reach the Toadstool, lift the two skulls that block the piece.",
@@ -77,6 +80,7 @@
         {
           "id": "ukuku_crystal_cave",
           "name": "Crystal cave",
+          "unlockedBy": ["slime_key"],
           "region": "Ukuku Prairie",
           "area": "East of Mabe Village, near the Pincer pits",
           "howTo": "Bomb the cracked wall at the upper left. Inside, dash through the crystals with the Pegasus Boots, then bomb the hidden east wall.",
@@ -89,6 +93,7 @@
         {
           "id": "taltal_flooded_cave",
           "name": "Flooded cave east of Angler's Tunnel",
+          "unlockedBy": ["angler_key"],
           "region": "Tal Tal Heights",
           "area": "Three screens east of Angler's Tunnel",
           "howTo": "Swim three screens east of Angler's Tunnel into a cave and dive.",
@@ -100,6 +105,7 @@
         {
           "id": "kanalet_moat",
           "name": "Kanalet Castle moat",
+          "unlockedBy": ["angler_key"],
           "region": "Kanalet Castle",
           "area": "Moat, just west of the front gate",
           "howTo": "Get into the moat by the stairs at the north-east corner, swim round to just west of the front gate and dive.",
@@ -111,6 +117,7 @@
         {
           "id": "yarna_lanmola_cave",
           "name": "Lanmola's quicksand cave",
+          "unlockedBy": ["walrus"],
           "region": "Yarna Desert",
           "area": "Under the quicksand",
           "howTo": "Beat the Desert Lanmola and let the quicksand swallow you (or bomb the entrance one screen east), then bomb the cave's north wall.",
@@ -122,6 +129,7 @@
         {
           "id": "cemetery_cave",
           "name": "Cemetery cave",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Koholint Prairie",
           "area": "Cave under the Cemetery",
           "howTo": "Push the bottom-right of the four graves in the south-west of the Cemetery, or take the stairs south of the Witch's Hut. Cross the platforms with a diagonal jump, or bomb the block and Hookshot over.",
@@ -133,6 +141,7 @@
         {
           "id": "animal_village_cave",
           "name": "Cave north-east of Animal Village",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Animal Village",
           "area": "North of the Walrus's screen",
           "howTo": "Bomb the cracked wall, then the cave's north wall. Throw a bomb over the fence at the cracked block (or fire a Bomb Arrow), go round and Hookshot across.",
@@ -146,6 +155,7 @@
         {
           "id": "taltal_broken_bridge",
           "name": "Broken bridge west of the Hen House",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "West of the Hen House",
           "howTo": "Hookshot across the broken bridge, cut the bush to find stairs, bomb the south wall and go one room right.",
@@ -159,6 +169,7 @@
         {
           "id": "turtle_rock_ledge",
           "name": "Turtle Rock ledge",
+          "unlockedBy": ["turtle_rock"],
           "region": "Tal Tal Mountain Range",
           "area": "Turtle Rock (Level 8), the north-west \"left arm\" room",
           "howTo": "In Turtle Rock's north-west room, take the stairs outside onto a ledge of the mountain. The piece is there.",
@@ -179,6 +190,7 @@
         {
           "id": "moldorm",
           "name": "Moldorm",
+          "unlockedBy": ["tail_key"],
           "area": "Tail Cave (Level 1)",
           "howTo": "Beat the boss of Tail Cave.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -186,6 +198,7 @@
         {
           "id": "genie",
           "name": "Genie",
+          "unlockedBy": ["rescue_bowwow"],
           "area": "Bottle Grotto (Level 2)",
           "howTo": "Beat the boss of Bottle Grotto.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -193,6 +206,7 @@
         {
           "id": "slime_eye",
           "name": "Slime Eye",
+          "unlockedBy": ["slime_key"],
           "area": "Key Cavern (Level 3)",
           "howTo": "Beat the boss of Key Cavern.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -200,6 +214,7 @@
         {
           "id": "angler_fish",
           "name": "Angler Fish",
+          "unlockedBy": ["angler_key"],
           "area": "Angler's Tunnel (Level 4)",
           "howTo": "Beat the boss of Angler's Tunnel.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -207,6 +222,7 @@
         {
           "id": "slime_eel",
           "name": "Slime Eel",
+          "unlockedBy": ["anglers_tunnel"],
           "area": "Catfish's Maw (Level 5)",
           "howTo": "Beat the boss of Catfish's Maw.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -214,6 +230,7 @@
         {
           "id": "facade",
           "name": "Facade",
+          "unlockedBy": ["face_key"],
           "area": "Face Shrine (Level 6)",
           "howTo": "Beat the boss of Face Shrine.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -221,6 +238,7 @@
         {
           "id": "evil_eagle",
           "name": "Evil Eagle",
+          "unlockedBy": ["bird_key"],
           "area": "Eagle's Tower (Level 7)",
           "howTo": "Beat the boss of Eagle's Tower.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -228,6 +246,7 @@
         {
           "id": "hot_head",
           "name": "Hot Head",
+          "unlockedBy": ["turtle_rock_head"],
           "area": "Turtle Rock (Level 8)",
           "howTo": "Beat the boss of Turtle Rock.",
           "notes": "In the original you can't leave the boss room without it; on Switch it can be left behind."
@@ -249,6 +268,7 @@
         {
           "id": "switch_mabe_well",
           "name": "Mabe Village well",
+          "unlockedBy": ["find_sword"],
           "region": "Mabe Village",
           "area": "Well, west of Marin and Tarin's house",
           "howTo": "Cut the bushes above the well on the west side of the village and jump in.",
@@ -292,6 +312,7 @@
         {
           "id": "switch_prairie_pit_ring",
           "name": "Ring of pits",
+          "unlockedBy": ["tail_key"],
           "region": "Koholint Prairie",
           "area": "East of the Mysterious Forest",
           "howTo": "Jump into the ring of pits just east of the Mysterious Forest.",
@@ -303,6 +324,7 @@
         {
           "id": "switch_tabahl_pit_line",
           "name": "Line of pits",
+          "unlockedBy": ["find_sword"],
           "region": "Tabahl Wasteland",
           "area": "North-east corner, south of Dampé's Shack",
           "howTo": "Jump the line of pits in the north-east corner, north of the Cemetery."
@@ -310,6 +332,7 @@
         {
           "id": "switch_forest_skull_cave",
           "name": "Toadstool cave skulls",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Mysterious Forest",
           "area": "Cave on the way to the Toadstool",
           "howTo": "In the third room of the Toadstool cave, push the blocks and lift the skulls.",
@@ -331,6 +354,7 @@
         {
           "id": "switch_ukuku_skull_cave",
           "name": "Skull cave east of Mabe",
+          "unlockedBy": ["rescue_bowwow"],
           "region": "Ukuku Prairie",
           "area": "North-west cave, just east of Mabe Village",
           "howTo": "Solve the push-block puzzle and lift the skull.",
@@ -341,6 +365,7 @@
         {
           "id": "switch_seashell_mansion",
           "name": "Seashell Mansion: 5 seashells",
+          "unlockedBy": ["find_sword"],
           "region": "Ukuku Prairie",
           "area": "Seashell Mansion",
           "howTo": "Bring 5 Secret Seashells to the Seashell Mansion.",
@@ -352,6 +377,7 @@
         {
           "id": "switch_taltal_crystal_cave",
           "name": "Crystal cave north of Dampé's",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "Cave behind rocks, north of Dampé's Shack",
           "howTo": "Break the crystal and push the blocks.",
@@ -363,6 +389,7 @@
         {
           "id": "switch_pothole_field_gap",
           "name": "Pothole Field gap",
+          "unlockedBy": ["bottle_grotto"],
           "region": "Pothole Field",
           "area": "North-east corner, behind Richard's Villa",
           "howTo": "Give Richard the five Golden Leaves to open the way, then jump the two-hole gap in the north-east corner.",
@@ -375,6 +402,7 @@
         {
           "id": "switch_ukuku_crystal_cave",
           "name": "Crystal cave",
+          "unlockedBy": ["slime_key"],
           "region": "Ukuku Prairie",
           "area": "North-east of the warp point",
           "howTo": "Bomb the wall north-east of the warp point, dash through the black barriers and bomb the cracked east wall.",
@@ -387,6 +415,7 @@
         {
           "id": "switch_animal_village_northwest",
           "name": "Behind Animal Village",
+          "unlockedBy": ["dream_shrine"],
           "region": "Animal Village",
           "area": "North-west of the village",
           "howTo": "The piece is in plain sight. Walk north from where the Walrus lay and round behind the houses."
@@ -394,6 +423,7 @@
         {
           "id": "switch_yarna_lanmola_cave",
           "name": "Lanmola's quicksand cave",
+          "unlockedBy": ["walrus"],
           "region": "Yarna Desert",
           "area": "Under the quicksand",
           "howTo": "Sink into the quicksand after the Lanmola fight and bomb the cave's north wall.",
@@ -405,6 +435,7 @@
         {
           "id": "switch_dampe_fill_up_your_hearts",
           "name": "Dampé: Fill Up Your Hearts",
+          "unlockedBy": ["angler_key"],
           "region": "Tal Tal Heights",
           "area": "Dampé's Shack",
           "howTo": "Clear Dampé's \"Fill Up Your Hearts\" Chamber Dungeon challenge (Tier 1).",
@@ -417,6 +448,7 @@
         {
           "id": "switch_trendy_game_second",
           "name": "Trendy Game: second piece",
+          "unlockedBy": ["key_cavern"],
           "region": "Mabe Village",
           "area": "Trendy Game, upper moving platform",
           "howTo": "Win it from the upper platform once the Yoshi Doll, the first Piece of Heart, the seashell and the Chamber Stone are gone.",
@@ -428,6 +460,7 @@
         {
           "id": "switch_taltal_flooded_cave",
           "name": "Flooded cave east of Angler's Tunnel",
+          "unlockedBy": ["angler_key"],
           "region": "Tal Tal Heights",
           "area": "East of Angler's Tunnel",
           "howTo": "Swim east from Angler's Tunnel into the flooded cave and dive.",
@@ -439,6 +472,7 @@
         {
           "id": "switch_kanalet_moat",
           "name": "Kanalet Castle moat",
+          "unlockedBy": ["angler_key"],
           "region": "Kanalet Castle",
           "area": "Moat, just west of the front gate",
           "howTo": "Dive in the moat just west of the front gate.",
@@ -450,6 +484,7 @@
         {
           "id": "switch_marthas_bay_channel",
           "name": "Martha's Bay channel",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "Narrow channel at the south end",
           "howTo": "Dive in the narrow water channel at the south end of the bay.",
@@ -460,6 +495,7 @@
         {
           "id": "switch_marthas_bay_stair_cave",
           "name": "Martha's Bay stair cave",
+          "unlockedBy": ["angler_key"],
           "region": "Martha's Bay",
           "area": "Stairs ringed by bushes at the south end",
           "howTo": "Past a two-hole gap, cut into the bushes round the stairs and dive in the flooded cave below.",
@@ -471,6 +507,7 @@
         {
           "id": "switch_ukuku_tunnel_dive",
           "name": "Tunnel south of the Mansion",
+          "unlockedBy": ["angler_key"],
           "region": "Ukuku Prairie",
           "area": "Underground tunnel toward Animal Village",
           "howTo": "In the tunnel south of the Seashell Mansion toward Animal Village, dive.",
@@ -481,6 +518,7 @@
         {
           "id": "switch_animal_village_cave",
           "name": "Cave north-east of Animal Village",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Animal Village",
           "area": "North of the Walrus's screen",
           "howTo": "Bomb into the cave, bomb the block over the fence and Hookshot across.",
@@ -493,6 +531,7 @@
         {
           "id": "switch_forest_hookshot_cave",
           "name": "Cave behind three rocks",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Mysterious Forest",
           "area": "North-central cave",
           "howTo": "Hookshot to the rock and push it.",
@@ -504,6 +543,7 @@
         {
           "id": "switch_cemetery_cave",
           "name": "Cemetery cave",
+          "unlockedBy": ["tail_key"],
           "region": "Koholint Prairie",
           "area": "Cave under the Cemetery",
           "howTo": "Take the stairs south of the Witch's Hut, or push the grave, and cross the platforms.",
@@ -515,6 +555,7 @@
         {
           "id": "switch_dampe_tier_two",
           "name": "Dampé: Tier 2 challenges",
+          "unlockedBy": ["catfishs_maw"],
           "region": "Tal Tal Heights",
           "area": "Dampé's Shack",
           "howTo": "Clear all of Dampé's Tier 2 challenges: Key Hunter, Bombs Away!, Treasure Vault and Passageway Central.",
@@ -526,6 +567,7 @@
         {
           "id": "switch_rapids_cave",
           "name": "Rapids Ride cave",
+          "unlockedBy": ["face_key"],
           "region": "Rapids Ride",
           "area": "Cave by the raft shop, north-east of the Face Shrine",
           "howTo": "Follow the cave by the raft owner's hut and Hookshot across.",
@@ -536,6 +578,7 @@
         {
           "id": "switch_rapids_free_ride_islet",
           "name": "Rapids Ride: west islet",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Rapids Ride",
           "area": "Island on the far west of the rapids",
           "howTo": "On a free ride (100 Rupees), go far west, drop down and hug the west wall to an island; Hookshot to the vines.",
@@ -547,6 +590,7 @@
         {
           "id": "switch_rapids_race",
           "name": "Rapids Race",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Rapids Ride",
           "area": "Rapids Ride",
           "howTo": "Finish the Rapids Race in under 40 seconds.",
@@ -559,6 +603,7 @@
         {
           "id": "switch_taltal_broken_bridge",
           "name": "Broken bridge west of the Hen House",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "West of the Hen House",
           "howTo": "Hookshot over the broken bridge, cut the bush hiding the stairs, bomb the south wall and go right.",
@@ -571,6 +616,7 @@
         {
           "id": "switch_mountain_ledge_west",
           "name": "Ledge past the rockfall",
+          "unlockedBy": ["anglers_tunnel"],
           "region": "Tal Tal Mountain Range",
           "area": "West of the rockfall field",
           "howTo": "Past the rockfall field with the Like Like and Shrouded Stalfos, take the narrow south-west ledge west.",
@@ -581,6 +627,7 @@
         {
           "id": "switch_turtle_rock_ledge",
           "name": "Turtle Rock ledge",
+          "unlockedBy": ["turtle_rock_head"],
           "region": "Tal Tal Mountain Range",
           "area": "Turtle Rock (Level 8), north-west room",
           "howTo": "In the north-west Vire room of Turtle Rock, take the stairs outside to a ledge.",
@@ -602,6 +649,7 @@
         {
           "id": "switch_dampe_heart_container",
           "name": "Dampé: Ticking Clock",
+          "unlockedBy": ["turtle_rock"],
           "region": "Tal Tal Heights",
           "area": "Dampé's Shack",
           "howTo": "Clear Dampé's twelfth and last challenge, \"Ticking Clock\" (Tier 3), after the other eleven.",

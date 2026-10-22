@@ -10,6 +10,7 @@
         {
           "id": "ballad_of_the_wind_fish",
           "name": "Ballad of the Wind Fish",
+          "unlockedBy": ["dream_shrine"],
           "area": "Mabe Village",
           "howTo": "Once you have the Ocarina, talk to Marin in Mabe Village and she teaches it to you.",
           "notes": "Zelda Wiki: from Marin in Mabe Village or Animal Village, wherever she is. Opens the Wind Fish's Egg with all eight instruments and wakes the Wind Fish at the end. On Switch, playing it where the Walrus lay gives a seashell.",
@@ -20,6 +21,7 @@
         {
           "id": "manbos_mambo",
           "name": "Manbo's Mambo",
+          "unlockedBy": ["angler_key"],
           "area": "Tal Tal Heights",
           "howTo": "Swim to the cave west of Angler's Tunnel and dive in: Manbo the sunfish teaches it.",
           "after": "Angler's Tunnel (Flippers)",
@@ -31,6 +33,7 @@
         {
           "id": "frogs_song_of_soul",
           "name": "Frog's Song of Soul",
+          "unlockedBy": ["find_sword"],
           "area": "Signpost Maze",
           "howTo": "Find Mamu the frog at the end of the Signpost Maze and pay 300 Rupees for his concert.",
           "notes": "Brings the Flying Rooster back to life and wakes the Turtle Rock head. Zelda's Palace says the Pegasus Boots get you there on Game Boy and the Hookshot on Switch; Zelda Wiki says after the Hookshot.",

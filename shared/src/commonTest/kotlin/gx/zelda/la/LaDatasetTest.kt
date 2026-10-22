@@ -158,4 +158,19 @@ class LaDatasetTest {
             "Roc's Feather", "Power Bracelet", "Pegasus Boots", "Flippers", "Hookshot", "Power Bracelet L-2", "Mirror Shield", "Magic Rod",
         )
     }
+    /**
+     * Story links (docs/la.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and counts what Mabe Village has from the start.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = runTest {
+        val files = listOf("items", "heart_pieces", "seashells", "songs", "trading", "photographs", "color_dungeon")
+        val items = files.flatMap { load(it).items }
+        val links = items.associate { it.id to it.unlockedBy }
+        assertEquals(23, items.count { it.unlockedBy.isEmpty() }, "Mabe Village and Toronbo Shores, from the start")
+        assertEquals(emptyList(), links["shovel"])
+        assertEquals(listOf("angler_key"), links["flippers"], "Angler's Tunnel's item, by the step that opens it")
+        assertEquals(listOf("anglers_tunnel"), links["boomerang"], "the Magnifying Lens, at the end of the trading sequence")
+        assertEquals(listOf("dream_shrine"), links["heads_up"], "Marin follows Link only after the Dream Shrine")
+    }
 }

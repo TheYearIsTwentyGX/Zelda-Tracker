@@ -43,6 +43,7 @@
         {
           "id": "magic_powder",
           "name": "Magic Powder",
+          "unlockedBy": ["find_sword"],
           "area": "Witch's Hut",
           "howTo": "Take the Sleepy Toadstool from the west of the Mysterious Forest to Syrup at the Witch's Hut.",
           "notes": "She makes more each time you bring a Toadstool. Also a Trendy Game prize."
@@ -50,6 +51,7 @@
         {
           "id": "rocs_feather",
           "name": "Roc's Feather",
+          "unlockedBy": ["tail_key"],
           "area": "Tail Cave",
           "howTo": "The dungeon item of Tail Cave (Level 1)."
         },
@@ -70,6 +72,7 @@
         {
           "id": "power_bracelet",
           "name": "Power Bracelet",
+          "unlockedBy": ["rescue_bowwow"],
           "notes": "L-2 is the Powerful Bracelet on Switch.",
           "tiers": [
             {
@@ -85,24 +88,28 @@
         {
           "id": "pegasus_boots",
           "name": "Pegasus Boots",
+          "unlockedBy": ["slime_key"],
           "area": "Key Cavern",
           "howTo": "The dungeon item of Key Cavern (Level 3)."
         },
         {
           "id": "ocarina",
           "name": "Ocarina",
+          "unlockedBy": ["dream_shrine"],
           "area": "Mabe Village",
           "howTo": "In the Dream Shrine in Mabe Village: sleep in the bed and cross the dream room with the Power Bracelet and Pegasus Boots."
         },
         {
           "id": "flippers",
           "name": "Flippers",
+          "unlockedBy": ["angler_key"],
           "area": "Angler's Tunnel",
           "howTo": "The dungeon item of Angler's Tunnel (Level 4)."
         },
         {
           "id": "hookshot",
           "name": "Hookshot",
+          "unlockedBy": ["anglers_tunnel"],
           "area": "Catfish's Maw",
           "howTo": "The dungeon item of Catfish's Maw (Level 5), won from Master Stalfos at the end of four fights."
         },
@@ -116,12 +123,14 @@
         {
           "id": "magic_rod",
           "name": "Magic Rod",
+          "unlockedBy": ["turtle_rock_head"],
           "area": "Turtle Rock",
           "howTo": "The dungeon item of Turtle Rock (Level 8)."
         },
         {
           "id": "boomerang",
           "name": "Boomerang",
+          "unlockedBy": ["anglers_tunnel"],
           "area": "Toronbo Shores",
           "howTo": "With the Magnifying Lens, bomb the cave on the east of Toronbo Shores. The Goriya inside swaps it for the item on your B button (the Shovel is the usual choice).",
           "notes": "Not every item can be swapped. On Game Boy and DX you can swap back; on Switch you buy your item back for 300 Rupees. The Magnifying Lens ends the Trading Sequence."
@@ -129,6 +138,7 @@
         {
           "id": "secret_medicine",
           "name": "Secret Medicine",
+          "unlockedBy": ["find_sword"],
           "area": "Crazy Tracy's Health Spa",
           "howTo": "Buy it from Crazy Tracy at her Health Spa.",
           "notes": "Refills your hearts when you fall. Only one can be carried. DX and Switch also hide it in chests in the last dungeons."
@@ -144,6 +154,7 @@
         {
           "id": "magic_powder_capacity",
           "name": "Magic Powder capacity",
+          "unlockedBy": ["find_sword"],
           "howTo": "Choose it from a Mad Batter: sprinkle Magic Powder on one of his three altars.",
           "reward": "Carry 40 Magic Powder (from 20)",
           "notes": "The three Mad Batters are under a rock near the middle of the Mysterious Forest (Power Bracelet), down stairs ringed by bushes in the south-west of Martha's Bay, and under a rock on the west of the Tal Tal Mountain Range on the way to Turtle Rock (Hookshot). Each gives one upgrade, and you choose: his first offer is Magic Powder, and saying you're not ready moves on to Bombs, then Arrows. On Game Boy and DX he offers only what you already carry."
@@ -175,6 +186,7 @@
         {
           "id": "golden_leaf_crow",
           "name": "The Crow",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Outside, west of the castle",
           "howTo": "Throw a rock at the Crow on the castle's west side and beat it.",
           "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
@@ -183,6 +195,7 @@
         {
           "id": "golden_leaf_mad_bomber",
           "name": "The Mad Bomber",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Outside, east of the castle",
           "howTo": "Hit the Mad Bomber who pops out of the holes on the castle's east side.",
           "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
@@ -191,6 +204,7 @@
         {
           "id": "golden_leaf_zol",
           "name": "The Zol and Darknuts",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Inside the castle",
           "howTo": "Beat the enemies in the room with a Zol and two Darknuts.",
           "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
@@ -199,6 +213,7 @@
         {
           "id": "golden_leaf_bombed_wall",
           "name": "Behind the marked wall",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Inside the castle",
           "howTo": "Bomb the wall marked with a symbol and beat the Darknut behind it.",
           "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
@@ -207,6 +222,7 @@
         {
           "id": "golden_leaf_ball_and_chain",
           "name": "The Ball and Chain Trooper",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Inside the castle",
           "howTo": "Beat the Ball and Chain Trooper.",
           "after": "Kiki's bridge to Kanalet Castle (trade the Bananas)",
@@ -225,6 +241,7 @@
         {
           "id": "switch_bottle_ghost",
           "name": "The Ghost's thanks",
+          "unlockedBy": ["anglers_tunnel"],
           "area": "Cemetery",
           "howTo": "Take the Ghost to the House by the Bay and then to his grave; he leaves a bottle."
         },

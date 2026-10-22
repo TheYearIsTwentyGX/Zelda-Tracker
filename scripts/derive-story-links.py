@@ -420,6 +420,69 @@ GAMES = {
             "linked_secrets/secret_to_labrynna": "onoxs_castle",
         },
     },
+    "la": {
+        # Mabe Village and its shore are open from the start; each further part of Koholint opens with
+        # the dungeon item that reaches it. A dungeon is gated by the step before it (the one that
+        # gives its key); a dungeon named alone in `after` means after it.
+        "places": {
+            r"Mysterious Forest|Ukuku Prairie|Koholint Prairie|Pothole Field|Tabahl Wasteland|Color Dungeon": "find_sword",
+            r"Tail Cave": "tail_key",
+            r"Goponga Swamp|Bottle Grotto": "rescue_bowwow",
+            r"Kanalet Castle": "bottle_grotto",
+            r"Key Cavern": "slime_key",
+            r"Animal Village": "dream_shrine",
+            r"Yarna Desert": "walrus",
+            r"Tal Tal Heights|Martha's Bay|Rapids Ride|Angler's Tunnel": "angler_key",
+            r"Tal Tal Mountain Range|Catfish's Maw": "anglers_tunnel",
+            r"Ancient Ruins": "catfishs_maw",
+            r"Face Shrine": "face_key",
+            r"Eagle's Tower": "bird_key",
+            r"Turtle Rock": "turtle_rock_head",
+        },
+        # Each dungeon's item, by the step before that dungeon.
+        "tags": {
+            "Sword": "find_sword",
+            "Roc's Feather": "tail_key",
+            "Power Bracelet": "rescue_bowwow",
+            "Golden Leaves": "bottle_grotto",
+            "Pegasus Boots": "slime_key",
+            "Ocarina": "dream_shrine",
+            "Flippers": "angler_key",
+            "Hookshot": "anglers_tunnel",
+            "Power Bracelet L-2": "face_key",
+            "Flying Rooster": "flying_rooster",
+            "Mirror Shield": "bird_key",
+        },
+        "after": {
+            "Tail Cave (Roc's Feather)": "tail_key",
+            "Bottle Grotto (Power Bracelet)": "rescue_bowwow",
+            "BowWow back home (Zelda Wiki)": "bottle_grotto",
+            "Kiki's bridge to Kanalet Castle (trade the Bananas)": "bottle_grotto",
+            "Key Cavern (Pegasus Boots)": "slime_key",
+            "Key Cavern": "key_cavern",
+            "Angler's Tunnel (Flippers)": "angler_key",
+            "Angler's Tunnel": "anglers_tunnel",
+            "Catfish's Maw (Hookshot)": "anglers_tunnel",
+            "Catfish's Maw": "catfishs_maw",
+            "Face Shrine (the Flying Rooster)": "face_shrine",
+            "Turtle Rock": "turtle_rock",
+        },
+        "needs": {
+            r"Magic Powder": "find_sword",
+            r"Marin follows you|with Marin": "dream_shrine",
+            r"Hookshot|Magnifying Lens": "anglers_tunnel",
+        },
+        # The Camera Shop is outside Mabe Village.
+        "sections": {"photographs/photos": "find_sword"},
+        "items": {
+            "items/ocarina": "dream_shrine",
+            "items/secret_medicine": "find_sword",
+            "songs/frogs_song_of_soul": "find_sword",
+            # The Ghost follows Link out of Angler's Tunnel.
+            "items/switch_bottle_ghost": "anglers_tunnel",
+            "photographs/ghost_grave": "anglers_tunnel",
+        },
+    },
     "ooa": {
         # Lynna is open from the start, the past from the first time portal (`nayru_possessed`), and the
         # rest of Labrynna with the dungeon item, animal or tune that reaches it. A dungeon is gated by
