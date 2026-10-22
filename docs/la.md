@@ -89,6 +89,52 @@ Dungeon.
 - **Photos 2–4 (Marin)** can only be taken while Marin follows you, before the Walrus wakes.
   **Photo 10 (Richard at the gate)** is gone once Kanalet Castle's gate is open.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds LA's table.
+
+**Counts.** 173 of the 196 items outside the Main Quest are linked. The other 23 can be had in Mabe
+Village and on Toronbo Shores from the start: the Tool Shop, the Trendy Game, the Fishing Pond and
+the first trades.
+
+**How a step was chosen.** An item is gated by the **latest** of the following.
+
+- *Places*, by the step that opens them. A dungeon is gated by the step before it, the one that
+  gives its key.
+
+  | Places | Step |
+  |---|---|
+  | The Mysterious Forest, the prairies, Pothole Field, the Cemetery and Tabahl Wasteland | `find_sword` |
+  | Goponga Swamp | `rescue_bowwow` |
+  | Kanalet Castle | `bottle_grotto` |
+  | Animal Village | `dream_shrine` |
+  | Yarna Desert | `walrus` |
+  | Tal Tal Heights, Martha's Bay, the Rapids Ride | `angler_key` |
+  | The mountain range | `anglers_tunnel` |
+  | The Ancient Ruins | `catfishs_maw` |
+- *Gear* (tags and text), by the step before the dungeon that gives it:
+
+  | Gear | Step |
+  |---|---|
+  | Roc's Feather | `tail_key` |
+  | Power Bracelet | `rescue_bowwow` |
+  | Pegasus Boots | `slime_key` |
+  | Flippers | `angler_key` |
+  | Hookshot, the Magnifying Lens | `anglers_tunnel` |
+  | Bracelet L-2 | `face_key` |
+  | Mirror Shield | `bird_key` |
+  | The Ocarina | `dream_shrine` |
+- *Others.*
+  - Marin follows Link only after the Dream Shrine, so her photos are gated by `dream_shrine`.
+  - The Ghost's bottle and photo come after Angler's Tunnel.
+  - The Camera Shop is outside Mabe, so photos are gated by `find_sword`.
+- *`after`.* A dungeon named alone means after it.
+
+`LaDatasetTest` spot-checks the links and counts the start items.
+
 ## Sources
 
 - **Zelda Wiki** (zeldawiki.wiki, read as wikitext through its API): Secret Seashell, Seashell

@@ -47,6 +47,7 @@
         {
           "id": "stick",
           "name": "Stick",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Kiki's spot by the castle, Kanalet Castle",
           "howTo": "Give the Bananas to Kiki the monkey outside Kanalet Castle. The monkeys build a bridge to the castle and leave a Stick.",
           "requires": [
@@ -57,6 +58,7 @@
         {
           "id": "honeycomb",
           "name": "Honeycomb",
+          "unlockedBy": ["bottle_grotto"],
           "area": "Beehive tree, Ukuku Prairie",
           "howTo": "Give the Stick to Tarin by the beehive tree; he knocks it down and runs from the bees.",
           "requires": [
@@ -67,6 +69,7 @@
         {
           "id": "pineapple",
           "name": "Pineapple",
+          "unlockedBy": ["dream_shrine"],
           "area": "Chef Bear's house, Animal Village",
           "howTo": "Give the Honeycomb to Chef Bear in Animal Village.",
           "requires": [
@@ -76,6 +79,7 @@
         {
           "id": "hibiscus",
           "name": "Hibiscus",
+          "unlockedBy": ["angler_key"],
           "area": "On the mountain paths, Tal Tal Heights",
           "howTo": "Give the Pineapple to Papahl, the Quadruplets' father, who's lost in the mountains.",
           "requires": [
@@ -85,6 +89,7 @@
         {
           "id": "letter",
           "name": "Letter",
+          "unlockedBy": ["angler_key"],
           "area": "Christine's house, Animal Village",
           "howTo": "Give the Hibiscus to Christine the goat in Animal Village.",
           "requires": [
@@ -95,6 +100,7 @@
         {
           "id": "broom",
           "name": "Broom",
+          "unlockedBy": ["angler_key"],
           "area": "Mr. Write's House, north-west of the forest, Mysterious Forest",
           "howTo": "Give the Letter to Mr. Write.",
           "requires": [
@@ -105,6 +111,7 @@
         {
           "id": "fishing_hook",
           "name": "Fishing Hook",
+          "unlockedBy": ["angler_key"],
           "area": "Grandma Yahoo's yard, Mabe Village",
           "howTo": "Give the Broom to Grandma Yahoo in Mabe Village.",
           "requires": [
@@ -115,6 +122,7 @@
         {
           "id": "necklace",
           "name": "Necklace",
+          "unlockedBy": ["angler_key"],
           "area": "Under the bridge, Martha's Bay",
           "howTo": "Swim under the Martha's Bay bridge and give the Fishing Hook to the fisherman there.",
           "requires": [
@@ -125,6 +133,7 @@
         {
           "id": "scale",
           "name": "Scale",
+          "unlockedBy": ["angler_key"],
           "area": "Martha's Bay",
           "howTo": "Give the Necklace back to Martha the mermaid.",
           "requires": [
@@ -134,6 +143,7 @@
         {
           "id": "magnifying_lens",
           "name": "Magnifying Lens",
+          "unlockedBy": ["anglers_tunnel"],
           "area": "The Mourning Mermaid statue, Martha's Bay",
           "howTo": "Put the Scale back in the Mermaid Statue at the south of the bay, and Hookshot across to the cave that opens.",
           "requires": [
