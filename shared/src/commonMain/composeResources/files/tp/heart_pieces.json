@@ -35,6 +35,7 @@
         {
           "id": "faron_woods_cave",
           "name": "Faron Woods cave",
+          "unlockedBy": ["faron_twilight"],
           "region": "Faron Province",
           "area": "Cave in the north-east of Faron Woods (where the Small Key is)",
           "howTo": "In the cave at the north-east of Faron Woods, light the two torches at the dead end with the Lantern to make a chest appear. Get it on your first visit, or later by waving the Lantern to push through the purple fog.",
@@ -45,6 +46,7 @@
         {
           "id": "forest_temple_deku_like",
           "name": "Forest Temple: Deku Like alcove",
+          "unlockedBy": ["faron_twilight"],
           "region": "Forest Temple",
           "area": "Room with the Bomblings and Deku Likes, north-west of the entrance",
           "howTo": "A big Deku Like blocks an alcove with a chest. Drop a Bombling into its mouth from the platform above (or use a Bomb later) to clear the way.",
@@ -53,6 +55,7 @@
         {
           "id": "forest_temple_tile_worms",
           "name": "Forest Temple: Tile Worm room",
+          "unlockedBy": ["faron_twilight"],
           "region": "Forest Temple",
           "area": "Far west room with the Tile Worms and four torches",
           "howTo": "Blow out all the torches with the Gale Boomerang to lower the wooden platforms, then climb to the chest in the alcove.",
@@ -64,6 +67,7 @@
         {
           "id": "faron_field_tree",
           "name": "Tree by the Faron Field bridge",
+          "unlockedBy": ["faron_twilight"],
           "region": "Faron Province",
           "area": "Hyrule Field (Faron), south end of the central bridge",
           "howTo": "Go north from Faron Woods to the rise just south of the bridge (two Bulblins guard it). The piece is in the branches of the tree there: grab it with the Gale Boomerang.",
@@ -74,6 +78,7 @@
         {
           "id": "kakariko_gorge_spire",
           "name": "Kakariko Gorge rock spire",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Eldin Province",
           "area": "Kakariko Gorge, the tall rock formation out over the gorge",
           "howTo": "South of Kakariko Village, look out over the gorge for the taller of two rock spires. The piece spins on top of it: lock on and fetch it with the Gale Boomerang.",
@@ -84,6 +89,7 @@
         {
           "id": "ordon_goat_herding",
           "name": "Goat herding for Fado",
+          "unlockedBy": ["eldin_twilight"],
           "region": "Ordona Province",
           "area": "Ordon Ranch",
           "howTo": "Back in Ordon by day, talk to Fado at the ranch and offer to herd the goats on Epona. Herd all 20 into the barn in under 3 minutes (the record he sets).",
@@ -96,6 +102,7 @@
         {
           "id": "goron_mines_magnet_ceiling",
           "name": "Goron Mines: magnetic ceiling",
+          "unlockedBy": ["wrestle_bo"],
           "region": "Goron Mines",
           "area": "The big room where you walk on the ceiling",
           "howTo": "In the room where the Iron Boots let you walk on the magnetic ceiling, walk to the far north-east corner to find a hidden platform with a chest.",
@@ -106,6 +113,7 @@
         {
           "id": "goron_mines_beamos",
           "name": "Goron Mines: Beamos room",
+          "unlockedBy": ["wrestle_bo"],
           "region": "Goron Mines",
           "area": "Second-floor room with two Beamos and a drawbridge, north of the main chamber",
           "howTo": "Walk up the magnetic track on the west wall with the Iron Boots and follow its southern branch to a ledge with a chest.",
@@ -116,6 +124,7 @@
         {
           "id": "talo_archery",
           "name": "Talo's archery lesson",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Kakariko Village, the lookout tower",
           "howTo": "By day, get a Goron to boost you onto the roofs and climb to Talo at the top of the lookout. Show him how to use the bow: after two easy targets, hit the pole on the corner of the high building without the Hawkeye. Malo hands over the piece.",
@@ -128,6 +137,7 @@
         {
           "id": "eldin_spring_cliff_rocks",
           "name": "Rocks above Eldin Spring",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Kakariko Village, the cliff above Eldin Spring",
           "howTo": "Shoot a Bomb Arrow at the three rocks on the cliff top above the spring to uncover the piece, then pull it down with the Gale Boomerang.",
@@ -141,6 +151,7 @@
         {
           "id": "eldin_spring_underwater",
           "name": "Under the Eldin Spring pool",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Kakariko Village, the cave behind the boulder east of Eldin Spring",
           "howTo": "Bomb the big boulder east of Eldin Spring and follow the path into the pool. Sink with the Iron Boots and open the chest on the bottom, then surface quickly.",
@@ -153,6 +164,7 @@
         {
           "id": "death_mountain_ledge_cave",
           "name": "Death Mountain ledge cave",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Death Mountain Trail",
           "howTo": "Ask the second Goron on the trail for a boost, but aim west and grab the ledge. Follow that upper path north and drop into the cave on the west side for the chest.",
@@ -161,6 +173,7 @@
         {
           "id": "kakariko_gorge_cavern",
           "name": "Kakariko Gorge lantern cavern",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Cave south-east of the Kakariko Gorge bridge",
           "howTo": "Bomb the boulder south-east of the gorge bridge and go in with a full Lantern. At the forks go right, right, left, right; kill the Skulltula at the dead end and light the two torches for the chest.",
@@ -173,6 +186,7 @@
         {
           "id": "eldin_field_vine_ledge",
           "name": "Vine ledge north of Kakariko",
+          "unlockedBy": ["goron_mines"],
           "region": "Eldin Province",
           "area": "Hyrule Field (Eldin), rocky area just north of Kakariko Village",
           "howTo": "Leave Kakariko to the north and bomb the boulder on the east side at the end of the wall. Follow the path, Bomb-Arrow the rocks above the vines across the gap, jump to the vines and climb up to the chest on the ledge.",
@@ -185,6 +199,7 @@
         {
           "id": "charlo_donation",
           "name": "Charlo's donation box",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Castle Town, West Road (by Purlo's tent)",
           "howTo": "Talk to Charlo, the man in the green robe, and donate in 30, 50 or 100 Rupee lots. Once he has had 1,000 Rupees in all he gives you the piece.",
@@ -197,6 +212,7 @@
         {
           "id": "fishing_hole_rock",
           "name": "Hena's Fishing Hole rock",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hena's Fishing Hole, Upper Zora's River",
           "howTo": "Rent Hena's canoe, paddle out to the rock arch in the middle of the pond and hook the piece on top of it with the Fishing Rod (or lock on from the shore with the Gale Boomerang or Clawshot).",
@@ -208,6 +224,7 @@
         {
           "id": "flight_by_fowl_isle",
           "name": "Flight-by-Fowl: Isle of Riches",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Lake Hylia, Isle of Riches",
           "howTo": "Get Fyer to fire you up to Falbi's Flight-by-Fowl (20 Rupees). Glide a Cucco to the floating Isle of Riches: the chest is on the highest tier that doesn't spin, just under the rotating top.",
@@ -220,6 +237,7 @@
         {
           "id": "lake_hylia_cavern",
           "name": "Lake Hylia lantern cavern",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Cave in the south of Lake Hylia, up the ladder",
           "howTo": "Climb the ladder in the south of the lake and bomb the boulder to open a long, dark cavern. Work through it with a full Lantern and Bombs; light the two torches in the last chamber for the chest.",
@@ -232,6 +250,7 @@
         {
           "id": "lakebed_chandelier",
           "name": "Lakebed Temple: chandelier",
+          "unlockedBy": ["rutela_gift"],
           "region": "Lakebed Temple",
           "area": "Central chamber with the spinning staircase",
           "howTo": "With the Clawshot, grapple from target to target up to the giant chandelier in the middle of the ceiling. The chest is on top.",
@@ -242,6 +261,7 @@
         {
           "id": "lakebed_east_bridge",
           "name": "Lakebed Temple: east bridge room",
+          "unlockedBy": ["rutela_gift"],
           "region": "Lakebed Temple",
           "area": "Lower east room with rotating platforms and stalactites",
           "howTo": "Turn the staircase so water flows east and floods the room: the bridge rises. Cross it south, stand on the switch and Clawshot to the far side before the gate shuts.",
@@ -252,6 +272,7 @@
         {
           "id": "sacred_grove_baba_grotto",
           "name": "Sacred Grove grotto",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Faron Province",
           "area": "Sacred Grove, the clearing where you first fight Skull Kid",
           "howTo": "Bomb the boulder by the pillar in the middle of the clearing, then dig at the glowing spot as a wolf. Kill every Baba Serpent below (the hanging ones fall to the Gale Boomerang) to make the chest appear.",
@@ -265,6 +286,7 @@
         {
           "id": "goron_springwater_rush",
           "name": "Goron Springwater Rush",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Eldin Province",
           "area": "From Kakariko's Malo Mart to the Goron at Castle Town's east bridge",
           "howTo": "Talk to the Goron elder outside Kakariko's Malo Mart and carry a barrel of hot spring water across the field without dropping it or letting it cool. Throw it on the Goron at Castle Town's east gate.",
@@ -277,6 +299,7 @@
         {
           "id": "lanayru_spring_room",
           "name": "Lanayru Spring back room",
+          "unlockedBy": ["lakebed_temple"],
           "region": "Lanayru Province",
           "area": "Lanayru Spring, Lake Hylia",
           "howTo": "Inside the spring, Clawshot to the vines on either side and follow the ledge to a hidden room at the back. Light the two torches for the chest.",
@@ -289,6 +312,7 @@
         {
           "id": "plumm_fruit_pop",
           "name": "Plumm's Fruit Pop",
+          "unlockedBy": ["draw_master_sword"],
           "region": "Lanayru Province",
           "area": "Lake Hylia, by Hawk Grass",
           "howTo": "As a wolf, howl at the Hawk Grass on the east side of the lake (by the bridge to Falbi's house, or on the strip of land further south) to meet Plumm, and ride the Kargarok popping fruit balloons. Score 10,000 points: chaining one fruit type, oranges or strawberries, gets there.",
@@ -301,6 +325,7 @@
         {
           "id": "bridge_of_eldin_cavern",
           "name": "Bridge of Eldin magnet cavern",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Eldin Province",
           "area": "Cave up the east cliff, north of the Bridge of Eldin",
           "howTo": "Clawshot to the ledge on the cliff north of the bridge, go south and east into the cavern. Drop down and stick to the magnetic walls with the Iron Boots; the chest is at the very bottom.",
@@ -313,6 +338,7 @@
         {
           "id": "bulblin_camp_roast",
           "name": "Bulblin Camp roast",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Bulblin Camp, north-east corner",
           "howTo": "In the north-east corner of the Bulblin Camp a boar is roasting on a spit. Slash it (a Spin Attack clears the embers) until it bursts and drops the piece.",
@@ -321,6 +347,7 @@
         {
           "id": "arbiters_central_chamber",
           "name": "Arbiter's Grounds: central chamber",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Arbiter's Grounds",
           "area": "North-east corner of the central chamber (where the Poes steal the flames)",
           "howTo": "Clawshot over the sinking sand to the chest beside the stairs, then roll back along the platforms rather than walk through the sand.",
@@ -331,6 +358,7 @@
         {
           "id": "arbiters_spinner_room",
           "name": "Arbiter's Grounds: Spinner rails",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Arbiter's Grounds",
           "area": "Basement room with Spinner rails on several levels (north-west)",
           "howTo": "Ride the wall rails with the Spinner to the middle level and on to the east side's upper platform. Beat the Stalfos guarding the chest.",
@@ -341,6 +369,7 @@
         {
           "id": "great_bridge_spinner_rails",
           "name": "Spinner rails north of the Great Bridge",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Lanayru Province",
           "area": "Back road between the Great Bridge of Hylia and the field north of Castle Town",
           "howTo": "Bomb the boulders blocking the back road, then ride the rail at the foot of the wall with the Spinner and jump between the zigzag rails up to the hilltop chest.",
@@ -352,6 +381,7 @@
         {
           "id": "eldin_north_stalfos_grotto",
           "name": "Stalfos grotto north of the Bridge of Eldin",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Eldin Province",
           "area": "Small bridge over the gulch, by the Hidden Village path",
           "howTo": "Ride the Spinner rail on the north wall by the small bridge down to a grassy ledge and dig in the middle as a wolf. Kill the three Stalfos below (finish them with Bombs) to make the chest appear.",
@@ -364,6 +394,7 @@
         {
           "id": "snowpeak_ruins_cracked_floor",
           "name": "Snowpeak Ruins: cracked floor",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Snowpeak Ruins",
           "area": "Second floor, south-west room with caged Freezards and a cannon",
           "howTo": "Break the cracked floor in the corner with Bombs or the Ball and Chain and drop into a hidden first-floor room with the chest. A Clawshot target takes you back up.",
@@ -374,6 +405,7 @@
         {
           "id": "snowpeak_ruins_chandeliers",
           "name": "Snowpeak Ruins: chandeliers",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Snowpeak Ruins",
           "area": "Second floor of the entrance hall",
           "howTo": "Hit the north chandelier with the Ball and Chain to swing it, hop on, and keep hitting and jumping to the next two to reach the chest on the south ledge.",
@@ -384,6 +416,7 @@
         {
           "id": "lanayru_ice_block_cave",
           "name": "Ice block puzzle cave",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Lanayru Province",
           "area": "Hyrule Field north of Castle Town, rocky area to the far north",
           "howTo": "Blow open the cave (east-facing, by a Tektite and Lizalfos), smash the ice with the Ball and Chain and solve three rooms of sliding block puzzles. The chest is in the last room.",
@@ -396,6 +429,7 @@
         {
           "id": "snowboard_race_yeta",
           "name": "Snowboard race with Yeta",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Snowpeak",
           "area": "Snowpeak Top, the slope down to the ruins",
           "howTo": "Warp to Snowpeak Top and beat Yeto in a snowboard race, then race Yeta. She takes a shortcut jump halfway down (shown on the map): take it too and beat her for the piece.",
@@ -407,6 +441,7 @@
         {
           "id": "tot_electric_barrier",
           "name": "Temple of Time: electric barrier",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Temple of Time",
           "area": "Room with sliding walls and Lizalfos/Dynalfos",
           "howTo": "On the way back down with the statue, guide the giant statue or a small one onto the switch behind the electric barrier to switch it off, then open the chest in the corner.",
@@ -417,6 +452,7 @@
         {
           "id": "tot_fifth_floor_statues",
           "name": "Temple of Time: south room switches",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Temple of Time",
           "area": "Fifth floor, far south room",
           "howTo": "Clear the room, then with the Dominion Rod walk the small statue on the upper platform down onto one floor switch and another statue onto the other. A chest appears in the east alcove.",
@@ -427,6 +463,7 @@
         {
           "id": "hidden_village_cats",
           "name": "Hidden Village cats",
+          "unlockedBy": ["ilia_memory"],
           "region": "Eldin Province",
           "area": "Hidden Village",
           "howTo": "As a wolf, find the Cucco leader behind the glass in the large east building and agree to talk to all 20 cats around the village (some need the Clawshot or crashing through a window). Pick up the piece in front of Impaz's house.",
@@ -440,6 +477,7 @@
         {
           "id": "tot_entrance_owl",
           "name": "Temple of Time: owl statue",
+          "unlockedBy": ["ilia_memory"],
           "region": "Temple of Time",
           "area": "Entrance hall, south-east corner",
           "howTo": "Move the Owl Statue in the south-east corner of the temple's entrance hall (left at the foot of the stairs) with the Dominion Rod to open a passage to the chest.",
@@ -451,6 +489,7 @@
         {
           "id": "bridge_of_eldin_owl",
           "name": "Bridge of Eldin owl statue",
+          "unlockedBy": ["ilia_memory"],
           "region": "Eldin Province",
           "area": "Bridge of Eldin",
           "howTo": "Pull the Owl Statue down from its ledge at the north end of the bridge, walk it to the south end and drop it into the low area to the west. Use it as a step to jump to the ladder, then beat the Bulblin Archer on the wall for the chest.",
@@ -462,6 +501,7 @@
         {
           "id": "faron_owl_statue",
           "name": "Faron Woods owl statue",
+          "unlockedBy": ["ilia_memory"],
           "region": "Faron Province",
           "area": "South Faron Woods, north of Coro's hut",
           "howTo": "Move the Owl Statue (the Sky Character one) into the round hole on the far side of the tree. As a wolf, stand on the nearby rock and use Midna's jumps to climb to the hidden chest above the woods.",
@@ -475,6 +515,7 @@
         {
           "id": "city_big_baba_room",
           "name": "City in the Sky: Big Baba room",
+          "unlockedBy": ["sky_characters"],
           "region": "City in the Sky",
           "area": "West wing, the cylinder room with the Big Baba",
           "howTo": "After the Big Baba, Clawshot up to the second floor of the room and go round to the far side. Shoot the Keese in the alcove, grab the ledge and shimmy across to drop onto the chest.",
@@ -485,6 +526,7 @@
         {
           "id": "city_peahat_balcony",
           "name": "City in the Sky: Peahat balcony",
+          "unlockedBy": ["sky_characters"],
           "region": "City in the Sky",
           "area": "West wing, third floor, outdoor room full of Peahats",
           "howTo": "Leave by the north-east exit and Clawshot from Peahat to Peahat along the 'V' to the southern balcony with the chest.",
@@ -495,6 +537,7 @@
         {
           "id": "kakariko_gorge_clawshot_pillar",
           "name": "Kakariko Gorge Clawshot pillar",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Eldin Province",
           "area": "Kakariko Gorge, rock formation out in the gorge",
           "howTo": "Clawshot the target on the rock formation out in the gorge, then the cliff wall, then the vines on the small formation. Climb round the vines to the ledge with the chest.",
@@ -507,6 +550,7 @@
         {
           "id": "palace_fogfall",
           "name": "Palace of Twilight: behind the fog",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Palace of Twilight",
           "area": "Wing with four falls of black fog",
           "howTo": "Clear the fog fall that hides an alcove (marked on the map) by carrying a Sol near it or with the light-filled Master Sword, then Clawshot up to the chest.",
@@ -518,6 +562,7 @@
         {
           "id": "palace_dark_orb_platform",
           "name": "Palace of Twilight: dark orb platform",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Palace of Twilight",
           "area": "First room of the other wing",
           "howTo": "Light the dark orb at the north of the lower level with a Sol (or the light-filled Master Sword). Two platforms start moving: ride the one to the alcove with the chest.",
@@ -537,6 +582,7 @@
         {
           "id": "diababa",
           "name": "Diababa",
+          "unlockedBy": ["faron_twilight"],
           "region": "Forest Temple",
           "area": "Forest Temple",
           "howTo": "Defeat Diababa, the Forest Temple's boss, and take the Heart Container it leaves.",
@@ -545,6 +591,7 @@
         {
           "id": "fyrus",
           "name": "Fyrus",
+          "unlockedBy": ["wrestle_bo"],
           "region": "Goron Mines",
           "area": "Goron Mines",
           "howTo": "Defeat Fyrus, the Goron Mines' boss, and take the Heart Container it leaves.",
@@ -553,6 +600,7 @@
         {
           "id": "morpheel",
           "name": "Morpheel",
+          "unlockedBy": ["rutela_gift"],
           "region": "Lakebed Temple",
           "area": "Lakebed Temple",
           "howTo": "Defeat Morpheel, the Lakebed Temple's boss, and take the Heart Container it leaves.",
@@ -561,6 +609,7 @@
         {
           "id": "stallord",
           "name": "Stallord",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Arbiter's Grounds",
           "area": "Arbiter's Grounds",
           "howTo": "Defeat Stallord, the Arbiter's Grounds' boss, and take the Heart Container it leaves.",
@@ -569,6 +618,7 @@
         {
           "id": "blizzeta",
           "name": "Blizzeta",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Snowpeak Ruins",
           "area": "Snowpeak Ruins",
           "howTo": "Defeat Blizzeta, the Snowpeak Ruins' boss. The Heart Container appears when Yeto and Yeta embrace afterwards.",
@@ -577,6 +627,7 @@
         {
           "id": "armogohma",
           "name": "Armogohma",
+          "unlockedBy": ["snowpeak_ruins"],
           "region": "Temple of Time",
           "area": "Temple of Time",
           "howTo": "Defeat Armogohma, the Temple of Time's boss, and take the Heart Container it leaves.",
@@ -585,6 +636,7 @@
         {
           "id": "argorok",
           "name": "Argorok",
+          "unlockedBy": ["sky_characters"],
           "region": "City in the Sky",
           "area": "City in the Sky",
           "howTo": "Defeat Argorok, the City in the Sky's boss, and take the Heart Container it leaves.",
@@ -593,6 +645,7 @@
         {
           "id": "zant",
           "name": "Zant",
+          "unlockedBy": ["city_in_the_sky"],
           "region": "Palace of Twilight",
           "area": "Palace of Twilight",
           "howTo": "Defeat Zant, the Palace of Twilight's boss, and take the Heart Container he leaves.",

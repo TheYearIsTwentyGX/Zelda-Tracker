@@ -168,7 +168,25 @@ class TpDatasetTest {
         DUNGEON_ITEMS.forEach { name -> assertTrue(items.items.any { i -> i.name == name || i.tiers.any { it.name == name } }, name) }
     }
 
+    /**
+     * Story links (docs/tp.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand, and that every item was given a link or chosen to have none.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensItOrIsAvailableFromTheStart() = runTest {
+        val links = FILES.drop(1).flatMap { f -> load(f).items }.associate { it.id to it.unlockedBy }
+        assertEquals(START.toSet(), links.filterValues { it.isEmpty() }.keys)
+        assertEquals(listOf("rutela_gift"), links["lakebed_chandelier"], "inside the Lakebed Temple: the Zora Armor opens it")
+        assertEquals(listOf("lakebed_temple"), links["stamp_u"], "in the Goron Mines, but needs the Clawshot")
+        assertEquals(listOf("lanayru_twilight"), links["male_ladybug"], "Hyrule Field once Lanayru is light again")
+        assertEquals(listOf("draw_master_sword"), links["jovani_20_souls"], "Poes need Wolf Link at will")
+        assertEquals(listOf("ilia_memory"), links["floor_35"], "floors inherit the gate of the floor that names it (31)")
+        assertEquals(listOf("temple_of_time"), links["great_spin"], "a Hidden Skill follows its Howling Stone")
+    }
+
     private companion object {
+        /** Ordon from the first day: the rod, the Slingshot, Sera's Bottle and Ordon's two fish. */
+        val START = listOf("fishing_rod", "slingshot", "bottle_sera", "fish_greengill", "fish_ordon_catfish")
         val FILES = listOf("main_quest", "items", "heart_pieces", "poe_souls", "golden_bugs", "hidden_skills", "cave_of_ordeals", "sidequests")
         val DUNGEONS = listOf(
             "forest_temple", "goron_mines", "lakebed_temple", "arbiters_grounds", "snowpeak_ruins",
