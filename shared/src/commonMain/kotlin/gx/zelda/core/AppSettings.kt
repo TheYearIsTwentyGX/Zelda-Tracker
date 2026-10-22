@@ -11,6 +11,8 @@ data class AppSettings(
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
     /** Screens inside a game wear that game's theme; off keeps the app's own look everywhere. */
     val gameThemes: Boolean = true,
+    /** Checklists hide what the game's Main Quest hasn't unlocked yet on the active save file. */
+    val storyGating: Boolean = false,
 ) {
     fun isShown(game: Game): Boolean = gameChoices[game.id] ?: game.shownByDefault
 

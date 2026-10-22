@@ -29,4 +29,6 @@ class AppSettingsStorage(dataStore: DataStore<Preferences>, private val games: L
     suspend fun setThemeMode(mode: ThemeMode) = store.update { it.copy(themeMode = mode) }
 
     suspend fun setGameThemes(on: Boolean) = store.update { it.copy(gameThemes = on) }
+
+    suspend fun setStoryGating(on: Boolean) = store.update { it.copy(storyGating = on) }
 }

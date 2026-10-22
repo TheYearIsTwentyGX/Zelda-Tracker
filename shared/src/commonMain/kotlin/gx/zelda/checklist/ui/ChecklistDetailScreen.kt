@@ -112,9 +112,10 @@ fun ChecklistDetailScreen(state: ChecklistUiState, itemId: String, viewModel: Ch
             item.howTo?.let { Section("How") { Text(it, style = MaterialTheme.typography.bodyLarge) } }
 
             val requirements = state.requirements(item)
-            if (requirements.isNotEmpty() || item.after != null) {
+            val after = state.after(item)
+            if (requirements.isNotEmpty() || after != null) {
                 Section("First") {
-                    item.after?.let { Text(it, style = MaterialTheme.typography.bodyLarge) }
+                    after?.let { Text(it, style = MaterialTheme.typography.bodyLarge) }
                     requirements.forEach { (name, met) ->
                         Text(
                             (if (met) "✓ " else "• ") + name,

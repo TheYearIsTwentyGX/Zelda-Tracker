@@ -34,7 +34,7 @@ import gx.zelda.core.ui.AccentDot
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SpinOffsHeading
 
-/** App-wide settings: light or dark, game themes, and which games the home screen and the menu show. */
+/** App-wide settings: light or dark, game themes, story gating, and which games the home screen and the menu show. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(settings: AppSettings?, viewModel: AppSettingsViewModel, onBack: () -> Unit) {
@@ -49,6 +49,7 @@ fun SettingsScreen(settings: AppSettings?, viewModel: AppSettingsViewModel, onBa
         if (settings == null) return@Scaffold
         LazyColumn(Modifier.fillMaxSize().padding(padding)) {
             item(key = "appearance") { AppearanceSettings(settings, viewModel) }
+            item(key = "progress") { ProgressSettings(settings, viewModel) }
             item(key = "games_header") {
                 Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
                     Text(
@@ -136,3 +137,31 @@ private fun AppearanceSettings(settings: AppSettings, viewModel: AppSettingsView
     }
 }
 
+/** Whether checklists follow the Main Quest, hiding what the story hasn't unlocked yet. */
+@Composable
+private fun ProgressSettings(settings: AppSettings, viewModel: AppSettingsViewModel) {
+    Column {
+        Text(
+            "Progress",
+            style = MaterialTheme.typography.titleSmall,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp).semantics { heading() },
+        )
+        ListItem(
+            headlineContent = { Text("Hide what the story hasn't unlocked yet") },
+            supportingContent = {
+                Text(
+                    "In games that know when things unlock, lists leave out what your Main Quest hasn't reached " +
+                        "on the active save file. Anything you've ticked always shows.",
+                )
+            },
+            trailingContent = { Switch(checked = settings.storyGating, onCheckedChange = null) },
+            modifier = Modifier.toggleable(
+                value = settings.storyGating,
+                role = Role.Switch,
+                onValueChange = { viewModel.setStoryGating(it) },
+            ),
+        )
+        HorizontalDivider(Modifier.padding(vertical = 8.dp))
+    }
+}

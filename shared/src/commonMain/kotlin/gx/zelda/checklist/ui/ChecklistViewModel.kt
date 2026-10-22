@@ -10,12 +10,14 @@ import gx.zelda.checklist.model.ChecklistItem
 import gx.zelda.checklist.model.ChecklistPrefs
 import gx.zelda.checklist.model.ChecklistProgress
 import gx.zelda.checklist.model.ChecklistSection
+import gx.zelda.checklist.model.StoryGate
 import gx.zelda.checklist.model.SummaryValue
 import gx.zelda.core.BulkAction
 import gx.zelda.core.BulkChange
 import gx.zelda.core.BulkScope
 import gx.zelda.core.MapSnapshot
 import gx.zelda.core.SaveFile
+import gx.zelda.core.countOf
 import gx.zelda.core.isSpoilerHidden
 import gx.zelda.core.matchesQuery
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -27,6 +29,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -54,6 +57,8 @@ data class ChecklistUiState(
     val saveFile: SaveFile,
     val saveFiles: List<ChecklistSaveSummary>,
     val filters: ChecklistFilters,
+    /** What the story has unlocked on [saveFile]; [StoryGate.OFF] gates nothing. */
+    val gate: StoryGate = StoryGate.OFF,
 ) {
     /** The section on screen; null for "All". A stale id (the file changed) falls back to "All". */
     val section: ChecklistSection? = filters.section?.let(catalog::section)
@@ -77,12 +82,19 @@ data class ChecklistUiState(
     fun isHidden(item: ChecklistItem): Boolean =
         isSpoilerHidden(prefs.hideUnchecked, progress.isStarted(item), item.id in filters.revealed)
 
-    /** What the filters leave showing, by heading. */
+    /**
+     * True when the story hasn't unlocked [item] on this file and story gating is on: its row isn't
+     * shown at all, though it still counts. A ticked item is never locked.
+     */
+    fun isLocked(item: ChecklistItem): Boolean = gate.isLocked(item, progress)
+
+    /** What the filters leave showing, by heading. Locked items are left out before search, so it can't find them. */
     val groups: List<Pair<String, List<ChecklistItem>>> = catalog.grouped(
         sectionItems.filter { item ->
             val hidden = isHidden(item)
             // A hidden row never matches the missable chip, so the chip can't give away which ones are.
-            (!filters.incompleteOnly || !progress.isDone(item)) &&
+            !isLocked(item) &&
+                (!filters.incompleteOnly || !progress.isDone(item)) &&
                 (!filters.missableOnly || (!hidden && item.missable)) &&
                 matchesQuery(filters.query, hidden, catalog.groupOf(item)) { searchText(item) }
         },
@@ -94,10 +106,23 @@ data class ChecklistUiState(
 
     fun sectionCount(section: ChecklistSection): ChecklistCount = catalog.count(progress, section.items)
 
-    /** The names of [item]'s requirements, as its row and page show them; a hidden one isn't named. */
+    /** How many items under each heading on this tab are locked; headings with none are left out. */
+    val lockedCounts: Map<String, Int> = sectionItems.filter(::isLocked).groupingBy(catalog::groupOf).eachCount()
+
+    /** Locked items on this tab. */
+    val lockedOnTab: Int get() = lockedCounts.values.sum()
+
+    /** Locked items under headings with no rows showing, which have no card to say so. */
+    val lockedWithoutRows: Int get() = groups.map { it.first }.toSet().let { shown -> lockedCounts.filterKeys { it !in shown }.values.sum() }
+
+    /** The names of [item]'s requirements, as its row and page show them; a hidden or locked one isn't named. */
     fun requirements(item: ChecklistItem): List<Pair<String, Boolean>> = item.requires.mapNotNull(catalog::item).map {
-        (if (isHidden(it)) catalog.hiddenLabelOf(it) else it.name) to progress.isDone(it)
+        (if (isHidden(it) || isLocked(it)) catalog.hiddenLabelOf(it) else it.name) to progress.isDone(it)
     }
+
+    /** The story point to reach first, as the page shows it: [ChecklistItem.after], else its Main Quest steps. */
+    fun after(item: ChecklistItem): String? =
+        item.after ?: gate.stepsFor(item).takeIf { it.isNotEmpty() }?.let { "After ${it.joinToString(" and ")}" }
 
     /** True when a search or filter chip is on, so a bulk toggle acts on the rows shown only. */
     val filtered: Boolean get() = filters.query.isNotBlank() || filters.incompleteOnly || filters.missableOnly
@@ -105,7 +130,7 @@ data class ChecklistUiState(
     /**
      * What a "mark all complete" toggle acts on: the rows the filters leave on this tab (hidden ones
      * included), or only those under [group]. "All" leaves out separate sections, as its count does,
-     * so they change only from their own tab.
+     * so they change only from their own tab. Locked items aren't rows, so they're never changed.
      */
     fun bulkItems(group: String? = null): List<ChecklistItem> =
         if (group == null) groups.flatMap { it.second } else groups.firstOrNull { it.first == group }?.second.orEmpty()
@@ -124,6 +149,8 @@ data class ChecklistUiState(
             isStarted = progress::isStarted,
         )
         val left = catalog.sections.filter { it.separate }.map { it.title }.takeIf { section == null }.orEmpty()
+        val locked = sectionItems.filter { isLocked(it) && (group == null || catalog.groupOf(it) == group) }
+        val (lockedNoun, lockedPlural) = catalog.nounsOf(locked)
         val note = listOfNotNull(
             when (left.size) {
                 0 -> null
@@ -134,6 +161,11 @@ data class ChecklistUiState(
                 items.none { it.tiers.isNotEmpty() } -> null
                 scope.action == BulkAction.MARK -> "Anything with levels goes to its top level."
                 else -> "Anything with levels goes back to none."
+            },
+            when (locked.size) {
+                0 -> null
+                1 -> "1 $lockedNoun the story hasn't unlocked yet isn't changed."
+                else -> "${countOf(locked.size, lockedNoun, lockedPlural)} the story hasn't unlocked yet aren't changed."
             },
         )
         return scope.copy(note = note.joinToString(" ").ifEmpty { null })
@@ -148,6 +180,8 @@ data class ChecklistUiState(
 @OptIn(ExperimentalCoroutinesApi::class)
 class ChecklistViewModel(
     private val storage: ChecklistStorage,
+    /** What the story has unlocked on a save file, by its id; see [gx.zelda.checklist.data.StoryProgress]. */
+    private val storyGate: (String) -> Flow<StoryGate> = { flowOf(StoryGate.OFF) },
     private val loadCatalog: suspend () -> ChecklistCatalog = { ChecklistRepository.load(storage.dataFile) },
 ) : ViewModel() {
     private val catalog = MutableStateFlow<ChecklistCatalog?>(null)
@@ -159,9 +193,14 @@ class ChecklistViewModel(
 
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
 
-    /** The file and its progress together, so a switch never pairs the new file with the old file's ticks. */
-    private val activeProgress: Flow<Pair<SaveFile, ChecklistProgress>> =
-        activeFile.flatMapLatest { file -> storage.progress(file.id).map { file to it } }
+    /**
+     * The file, its progress and its story gate together, so a switch never pairs the new file with
+     * the old file's ticks or Main Quest.
+     */
+    private val activeProgress: Flow<Triple<SaveFile, ChecklistProgress, StoryGate>> =
+        activeFile.flatMapLatest { file ->
+            combine(storage.progress(file.id), storyGate(file.id)) { progress, gate -> Triple(file, progress, gate) }
+        }
 
     private val progressByFile: Flow<List<Pair<SaveFile, ChecklistProgress>>> = combine(
         storage.game.saveFiles.map { file -> storage.progress(file.id).map { file to it } },
@@ -173,7 +212,7 @@ class ChecklistViewModel(
         storage.prefs,
         progressByFile,
         filters,
-    ) { catalog, (file, progress), prefs, byFile, filters ->
+    ) { catalog, (file, progress, gate), prefs, byFile, filters ->
         ChecklistUiState(
             catalog = catalog,
             progress = progress,
@@ -181,6 +220,7 @@ class ChecklistViewModel(
             saveFile = file,
             saveFiles = byFile.map { (f, p) -> ChecklistSaveSummary(f, catalog.count(p)) },
             filters = filters,
+            gate = gate,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
