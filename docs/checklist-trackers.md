@@ -224,6 +224,9 @@ Writing links:
   `after` or `requires`.
 - Several ids mean all of them. There's no "either of". **When in doubt, gate earlier**: hiding
   something that's already available is the mistake to avoid.
+- `scripts/derive-story-links.py <game>` proposes a link for every item from its `after`, `area`
+  and `region`, using that game's table in the script, and prints a table to review. With
+  `--apply`, it writes the links into the files as text, so hand-made layouts survive.
 - Steps must be untiered. `StoryLinksDatasetTest` checks every link in every game, and that no
   item unlocks before something it `requires` (by `storyOrder`). The game's own dataset test
   spot-checks a few links.

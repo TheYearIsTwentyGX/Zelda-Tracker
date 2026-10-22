@@ -184,7 +184,28 @@ class SsDatasetTest {
         assertTrue(found.section("treasures")!!.items.all { it.id.startsWith("treasure_") })
     }
 
+    /**
+     * Story links (docs/ss.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand, and that every item was given a link or chosen to have none.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensItOrIsAvailableFromTheStart() = runTest {
+        val links = FILES.drop(1).flatMap { f -> load(f).items }.associate { it.id to it.unlockedBy }
+        assertEquals(START.toSet(), links.filterValues { it.isEmpty() }.keys)
+        assertEquals(listOf("power_generator"), links["gust_bellows"], "inside the Lanayru Mining Facility")
+        assertEquals(listOf("power_generator"), links["container_moldarach"], "its boss, inside too")
+        assertEquals(listOf("lanayru_mining_facility"), links["cube_temple_of_time_minecart"], "outside it, after it")
+        assertEquals(listOf("temple_of_time"), links["goddess_harp"], "the step's reward")
+        assertEquals(listOf("trial_nayru"), links["zeldas_room_wardrobe"], "needs the Clawshots, from Nayru's Silent Realm")
+        assertEquals(listOf("hero_song_lanayru"), links["hylian_shield"], "the Thunder Dragon, once cured")
+    }
+
     private companion object {
+        /** What can be had from the start of the game: Skyloft's bugs and drops, its shops, and Fledge's barrels. */
+        val START = listOf(
+            "bug_skyloft_mantis", "bug_sky_stag_beetle", "bug_starry_firefly", "bug_blessed_butterfly", "treasure_amber_relic",
+            "treasure_monster_claw", "iron_shield", "sacred_shield", "fledge_barrels",
+        )
         val FILES = listOf(
             "main_quest", "items", "heart_pieces", "goddess_cubes", "gratitude_crystals", "side_quests", "shields", "bugs_treasures",
         )

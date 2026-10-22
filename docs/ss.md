@@ -181,6 +181,77 @@ among seven Heart Container sources for six containers; Bilocyte gives none.
 | Woodland Rhino Beetle | Skyloft and Faron Woods (Zelda Wiki), the Deep Woods (Zelda Dungeon, Samurai Gamers) | Faron Woods, tagged Skyloft too |
 | Golden Skull, Monster Horn, Goddess Plume | Different lists of where to get them (Zelda Wiki, Zelda Dungeon) | Both, in notes |
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules.
+
+**Counts.** 154 of the 163 items outside the Main Quest are linked. The other 9 can be had from the
+start, before the Wing Ceremony:
+- Skyloft's four bugs (the Skyloft Mantis, Sky Stag Beetle, Starry Firefly and Blessed Butterfly);
+- the Amber Relic and the Monster Claw, which Keese drop over Skyloft at night;
+- the Iron and Sacred Shields from the Bazaar;
+- Fledge's barrels.
+
+**How a step was chosen**, following the convention in `scripts/derive-story-links.py`:
+
+- *Inside a dungeon*, items, chests and the boss's Heart Container are gated by the step that opens
+  the dungeon:
+
+  | Dungeon | Step that opens it |
+  |---|---|
+  | Skyview Temple | `faron_woods` (the Kikwis) |
+  | Earth Temple | `key_pieces` |
+  | LMF | `power_generator` |
+  | Ancient Cistern | `lake_floria` |
+  | Sandship | `lanayru_sand_sea` |
+  | Fire Sanctuary | `volcano_summit` |
+
+  So the Gust Bellows and Moldarach's container show once the generator is set, before the LMF is
+  finished.
+- *Areas* are gated by the step that first takes you there:
+
+  | Area | Step |
+  |---|---|
+  | Faron Woods and the Sealed Grounds | `statue_of_the_goddess` |
+  | The Deep Woods | `faron_woods` |
+  | Eldin Volcano | `skyview_temple` |
+  | Lanayru | `earth_temple` |
+  | The Thunderhead | `ballad_of_the_goddess` |
+  | Lake Floria and the Great Tree's top | `trial_farore` (the Water Dragon's Scale) |
+  | The Sand Sea and everything behind a Clawshot target | `trial_nayru` |
+  | The Volcano Summit | `trial_din` (the Fireshield Earrings) |
+  | Lanayru Gorge and the Song of the Hero's areas | `levias` |
+- *Rewards* are gated by their step:
+  - the Sailcloth by `wing_ceremony`;
+  - the Slingshot by `faron_woods`;
+  - the Goddess's Harp by `temple_of_time`;
+  - each Silent Realm's item by its trial.
+- *After a dungeon, outside it*: things whose `after` names a dungeon but which are found outside it
+  are gated by that dungeon's step. Examples are the Temple of Time cube and its Goddess Chest,
+  the Sand Oasis cube, Peatrice's quest and Fledge's push-ups, all gated by
+  `lanayru_mining_facility`.
+- *Optional content* is gated by the step that opens it:
+  - Batreaux, Kukiel and the night-time crystals by `skyview_temple` (the Ruby Tablet);
+  - Dodoh's Party Wheel, its High Dive and the Fun Fun Island piece by `farores_courage` (Scrapper
+    and the Isle of Songs);
+  - the Lightning Round and the Hylian Shield by `hero_song_lanayru` (the Life Tree Fruit);
+  - Beedle's Airshop by `wing_ceremony` (the Sailcloth).
+- *Judgement calls*, all gated as early as the sources allow:
+  - Pumm's chandelier debt is tiered, and its first job needs only flight, so it's gated by
+    `statue_of_the_goddess`. The Piece of Heart for finishing it needs the harp, so it's gated by
+    `temple_of_time`.
+  - The Evil Crystal is gated by `skyview_temple` (Dark Keese on Eldin), and the Dusk Relic by
+    `farores_courage` (the first Silent Realm).
+  - Bombs come from the Earth Temple, so the bombable rocks in Faron and Lanayru are gated by
+    `key_pieces` and `earth_temple`.
+
+**Sources** are the same as the data's (above): Zelda Wiki's item, area and quest pages, the Zelda
+Dungeon walkthrough's chapter order, and the randomizer's requirement files for what each check
+needs. `SsDatasetTest` spot-checks the links and lists the nine start items, so a new item can't
+go unreviewed.
+
 ## Item Upgrades
 
 `TrackerKind.ITEM_UPGRADES`, in `upgrades/`, listed after the checklists. It's the BotW Armor

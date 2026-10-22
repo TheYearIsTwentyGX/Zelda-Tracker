@@ -21,6 +21,7 @@
         {
           "id": "clean_cut",
           "name": "Clean Cut",
+          "unlockedBy": ["statue_of_the_goddess"],
           "region": "The Sky",
           "area": "Bamboo Island",
           "howTo": "Pay Peater 10 Rupees and slice the giant bamboo as many times as you can before its top touches the ground.",
@@ -44,6 +45,7 @@
         {
           "id": "thrill_digger",
           "name": "Thrill Digger",
+          "unlockedBy": ["skyview_temple"],
           "region": "Eldin Volcano",
           "area": "Thrill Digger cave",
           "howTo": "Bomb the rubble blocking the cave near the Bokoblin camp (a rolled Bomb Flower works). Pay Tubert and dig the grid with the Digging Mitts like Minesweeper: the colour of each Rupee hints at how many bombs are next to it. Digging up every Rupee without hitting a bomb also wins a rare treasure.",
@@ -72,6 +74,7 @@
         {
           "id": "harp_performance",
           "name": "Harp performance with Kina",
+          "unlockedBy": ["temple_of_time"],
           "region": "The Sky",
           "area": "Lumpy Pumpkin, Pumpkin Landing",
           "howTo": "At night, play the Goddess's Harp in time with the swaying customers while Kina sings. The better you keep time, the more Rupees.",
@@ -89,6 +92,7 @@
         {
           "id": "dodohs_high_dive",
           "name": "Dodoh's High Dive",
+          "unlockedBy": ["farores_courage"],
           "region": "The Sky",
           "area": "Fun Fun Island",
           "howTo": "Pay Dodoh 20 Rupees and get fired up from the cannon. Steer through the rings to raise the multiplier (and slow the wheel), dodge the Dodoh balls that reset it, and land on a coloured space. Landing on 50 with ×10 wins 500 Rupees and, the first time, a Piece of Heart.",
@@ -102,6 +106,7 @@
         {
           "id": "rickety_coaster",
           "name": "Rickety Coaster",
+          "unlockedBy": ["trial_nayru"],
           "region": "Lanayru Sand Sea",
           "area": "Shipyard",
           "howTo": "Pay Gortram 20 Rupees and ride the mine cart round the Scary! or the Heart Stopping! track. Lean into the curves to keep speed without falling off.",
@@ -124,6 +129,7 @@
         {
           "id": "pumpkin_pull",
           "name": "Pumpkin Pull",
+          "unlockedBy": ["lanayru_sand_sea"],
           "region": "Skyloft",
           "area": "Outside the Sparring Hall",
           "howTo": "Pay Fledge 20 Rupees. For 90 seconds he throws pumpkins; shoot them with the Bow. Hits in a row score 10, 20, 30, 40, then 50 points each, and sparkling pumpkins double. A pumpkin can't be hit while Fledge is holding it.",
@@ -151,6 +157,7 @@
         {
           "id": "bug_heaven",
           "name": "Bug Heaven",
+          "unlockedBy": ["levias"],
           "region": "Thunderhead",
           "area": "Bug Rock",
           "howTo": "Pay Strich and catch the bugs he shows you with the Bug Net within five minutes: five different ones on Bug Beginner (20 Rupees), ten on Bug Wrangler (50 Rupees). The faster, the better the prize.",
@@ -191,6 +198,7 @@
         {
           "id": "pumm_chandelier_debt",
           "name": "Pumm's chandelier debt",
+          "unlockedBy": ["statue_of_the_goddess"],
           "region": "The Sky",
           "area": "Lumpy Pumpkin, Pumpkin Landing",
           "howTo": "Break the Lumpy Pumpkin's chandelier (roll into the upstairs railing twice) and Pumm makes you work off the damage with three jobs.",
@@ -221,6 +229,7 @@
         {
           "id": "gorko_goddess_wall",
           "name": "Gorko's Goddess Wall riddles",
+          "unlockedBy": ["imprisoned_first"],
           "region": "Sealed Grounds",
           "area": "Behind the Sealed Temple",
           "howTo": "Near the Behind the Temple Bird Statue, play the Goddess's Harp by the Blessed Butterflies to reveal a Goddess Wall. Gorko reads a riddle from his ancient texts; charge a Skyward Strike and draw the shape in one stroke.",
@@ -243,6 +252,7 @@
         {
           "id": "thunder_dragon_boss_rush",
           "name": "Lightning Round: boss battles",
+          "unlockedBy": ["hero_song_lanayru"],
           "region": "Lanayru Gorge",
           "area": "Thunder Dragon's lair",
           "howTo": "Talk to the Thunder Dragon and choose the boss battles. Pick the first boss; the dragon picks the rest. Prizes depend on how many you beat in a row, and only the last battle's prize is given, so stop after the win you want. Lose and you get nothing but record bonuses.",
@@ -271,6 +281,7 @@
         {
           "id": "thunder_dragon_silent_realms",
           "name": "Lightning Round: Silent Realm trials",
+          "unlockedBy": ["hero_song_lanayru"],
           "region": "Lanayru Gorge",
           "area": "Thunder Dragon's lair",
           "howTo": "Choose the Silent Realm trials and beat the Thunder Dragon's time in each. Slower times earn 5 to 100 Rupees.",
