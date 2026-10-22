@@ -79,7 +79,8 @@ OOT_TEMPLES = ("forest_temple", "fire_temple", "water_temple", "shadow_temple", 
 # `needs`, `places` and `photo`, for a game whose items say in their text what they need (see propose),
 # `tags`, an item's tags to a step, `sections`, a step every item of a "<file stem>/<section id>"
 # needs at least, and `refs`, a regex whose groups name another item (by an id
-# template) whose gate it shares. A step may be a tuple of steps that must all be done.
+# template) whose gate it shares. A step may be a tuple of steps that must all be done. `linear`
+# orders the steps by their place in the file, for a Main Quest whose steps don't `require` each other.
 GAMES = {
     "ss": {
         "after": {
@@ -418,6 +419,48 @@ GAMES = {
             "items/gnarled_key": "maku_tree",
             "items/huge_maku_seed": OOS_DUNGEONS,
             "linked_secrets/secret_to_labrynna": "onoxs_castle",
+        },
+    },
+    "alttp": {
+        "linear": True,
+        # The Light World is open once Zelda is safe in the Sanctuary, the Dark World after Agahnim.
+        # A dungeon is gated by the step before it; gear named in an item's text by the step before
+        # the dungeon (or the person) that gives it.
+        "region": {"Light World": "sanctuary", "Dark World": "agahnim"},
+        "places": {
+            r"Kakariko|Lost Woods|Lake Hylia|Great Swamp|Sanctuary|Graveyard|Zora's Waterfall|Eastern Palace": "sanctuary",
+            r"Desert of Mystery|Desert Palace|Death Mountain|Spectacle Rock": "eastern_palace",
+            r"Tower of Hera": "desert_palace",
+            r"Dark World|Palace of Darkness|Swamp Palace|Skull Woods|Thieves' Town|Village of Outcasts|Pyramid|Lake of Ill Omen": "agahnim",
+            r"Ice Palace|Misery Mire|Swamp of Evil": "thieves_town",
+            r"Turtle Rock": "misery_mire",
+        },
+        "needs": {
+            r"Bow\b": "sahasrahla",
+            r"Pegasus Shoes|Power Glove|Magic Mirror|Book of Mudora|Pendant of Courage": "eastern_palace",
+            r"Moon Pearl": "desert_palace",
+            r"Master Sword": "master_sword",
+            r"Magic Hammer|Hookshot|Fire Rod|Flute": "agahnim",
+            r"Titan's Mitt": "thieves_town",
+            r"Cane of Somaria": "misery_mire",
+        },
+        "after": {
+            "After Agahnim at Hyrule Castle Tower": "agahnim",
+            # The frog smith is behind a dark rock only the Titan's Mitt lifts.
+            "After the swordsmiths are reunited": "thieves_town",
+        },
+        "items": {
+            "items/sword": "uncle",
+            "items/shield": "uncle",
+            "items/lamp": None,
+            "items/boomerang": "uncle",
+            "items/gloves": "eastern_palace",
+            "items/mail": "thieves_town",
+            "items/moon_pearl": "desert_palace",
+            "items/bow": "sahasrahla",
+            "items/mushroom_powder": "sanctuary",
+            "items/shovel_flute": "agahnim",
+            "items/bug_catching_net": "sanctuary",
         },
     },
     "la": {
@@ -1359,6 +1402,9 @@ def main(args):
     story = json.loads((FILES / game / "main_quest.json").read_text())
     steps = {it["id"] for s in story["sections"] for it in s["items"]}
     by_step = story_depth(story)
+    if GAMES[game].get("linear"):
+        # A Main Quest whose steps don't `require` each other: its file order is the story's order.
+        by_step = {it["id"]: i for i, it in enumerate(it for s in story["sections"] for it in s["items"])}
 
     def depth(gate):
         """How far into the story a gate comes: its latest step's depth."""
