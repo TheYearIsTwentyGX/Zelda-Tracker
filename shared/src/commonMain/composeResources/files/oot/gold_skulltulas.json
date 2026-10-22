@@ -72,6 +72,7 @@
         {
           "id": "kokiri_forest_house_of_twins",
           "name": "On the House of Twins",
+          "unlockedBy": ["master_sword"],
           "region": "Kokiri Forest",
           "area": "Top/back of the House of Twins",
           "howTo": "As an adult at night, hit the Gold Skulltula on the House of Twins with the Hookshot and pull in the token.",
@@ -106,6 +107,7 @@
         {
           "id": "lost_woods_above_theater",
           "name": "Ledge above the Deku Theater",
+          "unlockedBy": ["master_sword"],
           "region": "Lost Woods",
           "area": "High ledge in the Deku Theater clearing",
           "howTo": "Plant a Magic Bean in the theater clearing's soft soil as a child; as an adult at night, ride the bean plant up to the ledge and kill the Gold Skulltula there.",
@@ -118,6 +120,7 @@
         {
           "id": "sacred_forest_meadow_maze_wall",
           "name": "On the east wall of the maze",
+          "unlockedBy": ["master_sword"],
           "region": "Sacred Forest Meadow",
           "area": "Upper level of the maze, east wall",
           "howTo": "As an adult at night, climb the ladder in the maze to the upper ledge, look at the wall to the left (east) and Hookshot the Gold Skulltula.",
@@ -130,6 +133,7 @@
         {
           "id": "hyrule_field_grotto_near_kakariko",
           "name": "Grotto by the tree near Kakariko",
+          "unlockedBy": ["meet_zelda"],
           "region": "Hyrule Field",
           "area": "Secret grotto under the lone tree between the Castle Town bridge and Kakariko Village",
           "howTo": "Bomb the base of the lone tree north of the Castle Town–Kakariko bridge to open a grotto; kill the Gold Skulltula high on the web wall (past the Big Skulltula) and fetch the token with the Boomerang or Hookshot.",
@@ -143,6 +147,7 @@
         {
           "id": "hyrule_field_cow_grotto",
           "name": "Cow grotto near Gerudo Valley",
+          "unlockedBy": ["meet_zelda"],
           "region": "Hyrule Field",
           "area": "Secret grotto under the ring of stones near the Gerudo Valley entrance",
           "howTo": "Bomb the centre of the ring of stones near Gerudo Valley to open a grotto, burn the webs with Din's Fire (or Fire Arrows), and get the Gold Skulltula high on the wall behind the cow with the Boomerang or Hookshot.",
@@ -177,6 +182,7 @@
         {
           "id": "hyrule_castle_storms_grotto",
           "name": "Song of Storms grotto",
+          "unlockedBy": ["master_sword"],
           "region": "Hyrule Castle",
           "area": "Grotto under the tree in the corner by the castle moat/gate",
           "howTo": "Play the Song of Storms by the lone tree in the corner near the castle gate to open a grotto, bomb the cracked walls inside until the Gold Skulltula is revealed, and grab the token with the Boomerang.",
@@ -191,6 +197,7 @@
         {
           "id": "outside_ganons_castle_ruined_gate",
           "name": "Behind the ruined castle gate",
+          "unlockedBy": ["master_sword"],
           "region": "Outside Ganon's Castle",
           "area": "Back of the broken stone archway to the right (east) of Ganon's Castle",
           "howTo": "As an adult, follow the path to the right of Ganon's Castle past the ruined archway, turn around, and Hookshot the Gold Skulltula on its back side.",
@@ -224,6 +231,7 @@
         {
           "id": "lon_lon_ranch_house_window",
           "name": "Ranch house window",
+          "unlockedBy": ["meet_zelda"],
           "region": "Lon Lon Ranch",
           "area": "Upper window of Talon's ranch house",
           "howTo": "At night, kill the Gold Skulltula on the ranch house's upper window and fetch the token with the Boomerang.",
@@ -236,6 +244,7 @@
         {
           "id": "lon_lon_ranch_back_wall",
           "name": "High on the back wall",
+          "unlockedBy": ["meet_zelda"],
           "region": "Lon Lon Ranch",
           "area": "Outer wall to the right of the silo, south-west of the ranch",
           "howTo": "At night, look high on the ranch's outer wall to the right of the silo, kill the Gold Skulltula and fetch the token with the Boomerang.",
@@ -306,6 +315,7 @@
         {
           "id": "kakariko_village_above_impas_house",
           "name": "On top of Impa's house",
+          "unlockedBy": ["master_sword"],
           "region": "Kakariko Village",
           "area": "Roof of Impa's house / cliff behind it",
           "howTo": "As an adult at night, stand by Impa's house door, Hookshot onto the House of Skulltula roof, then Hookshot over to Impa's roof and kill the Gold Skulltula.",
@@ -330,6 +340,7 @@
         {
           "id": "kakariko_graveyard_wall",
           "name": "Wall near the Royal Family's Tomb",
+          "unlockedBy": ["meet_zelda"],
           "region": "Kakariko Graveyard",
           "area": "Wall at the end of the upper row of graves (south-east corner)",
           "howTo": "At night, kill the Gold Skulltula on the wall at the end of the upper row of graves and fetch the token with the Boomerang.",
@@ -342,6 +353,7 @@
         {
           "id": "death_mountain_trail_bean_patch",
           "name": "Soft soil by Dodongo's Cavern",
+          "unlockedBy": ["meet_zelda"],
           "region": "Death Mountain Trail",
           "area": "Soft soil outside the entrance to Dodongo's Cavern",
           "howTo": "Once the boulder in front of Dodongo's Cavern is gone, release a bottled Bug on the soft soil next to the entrance.",
@@ -353,6 +365,7 @@
         {
           "id": "death_mountain_trail_bombable_wall",
           "name": "Behind the cracked wall near Kakariko",
+          "unlockedBy": ["meet_zelda"],
           "region": "Death Mountain Trail",
           "area": "Cracked wall on the right of the trail, near the Kakariko end",
           "howTo": "Bomb the cracked wall on the trail before Dodongo's Cavern, kill the Gold Skulltula behind it, then climb the wall (or use the Boomerang) to get the token.",
@@ -365,6 +378,7 @@
         {
           "id": "death_mountain_trail_above_dodongos_cavern",
           "name": "Red rock above Dodongo's Cavern",
+          "unlockedBy": ["light_medallion"],
           "region": "Death Mountain Trail",
           "area": "Red boulder where the Bomb Flower was, just above Dodongo's Cavern",
           "howTo": "As an adult at night, smash the red boulder at the Bomb Flower spot above Dodongo's Cavern with the Megaton Hammer and kill the Gold Skulltula behind it.",
@@ -377,6 +391,7 @@
         {
           "id": "death_mountain_trail_falling_rocks_path",
           "name": "Red rock near the summit",
+          "unlockedBy": ["light_medallion"],
           "region": "Death Mountain Trail",
           "area": "Red boulder at the base of the climbable wall below the summit",
           "howTo": "As an adult at night, smash the red boulder at the foot of the climbable cliff near the summit (the one closest to the top) with the Megaton Hammer to reveal a Gold Skulltula.",
@@ -390,6 +405,7 @@
         {
           "id": "goron_city_boulder_maze_crate",
           "name": "Crate in the boulder maze",
+          "unlockedBy": ["meet_zelda"],
           "region": "Goron City",
           "area": "Back of the top-floor boulder maze room",
           "howTo": "On the top floor, bomb your way through the boulder maze room to the far end (two chests, a Gossip Stone) and roll into the crate there.",
@@ -401,6 +417,7 @@
         {
           "id": "goron_city_center_platform",
           "name": "Back of the central pedestal",
+          "unlockedBy": ["master_sword"],
           "region": "Goron City",
           "area": "Back of the pedestal at the top of the city's centre",
           "howTo": "As an adult, walk out on one of the ropes until you can see the back of the central pedestal where the Goron's Ruby rested and Hookshot the Gold Skulltula.",
@@ -413,6 +430,7 @@
         {
           "id": "death_mountain_crater_crate",
           "name": "Crate at the summit entrance",
+          "unlockedBy": ["meet_zelda"],
           "region": "Death Mountain Crater",
           "area": "Crate just inside the crater from the Death Mountain summit",
           "howTo": "Enter the crater from the summit of Death Mountain and roll into the crate near the entrance.",
@@ -423,6 +441,7 @@
         {
           "id": "death_mountain_crater_bean_patch",
           "name": "Soft soil by the warp pad",
+          "unlockedBy": ["master_sword"],
           "region": "Death Mountain Crater",
           "area": "Soft soil next to the Bolero of Fire warp pad",
           "howTo": "After learning the Bolero of Fire as an adult, go back to the past and warp to the crater as a child, then release a bottled Bug on the soft soil near the warp pad.",
@@ -458,6 +477,7 @@
         {
           "id": "zoras_river_near_raised_grottos",
           "name": "High on the south wall",
+          "unlockedBy": ["master_sword"],
           "region": "Zora's River",
           "area": "South wall above the central plateau (by the raised grottos)",
           "howTo": "As an adult at night, get onto the tall central plateau (bean plant or the ladder from the narrow stream) and Hookshot the Gold Skulltula high on the south wall.",
@@ -471,6 +491,7 @@
         {
           "id": "zoras_river_above_bridge",
           "name": "Above the bridge to Zora's Domain",
+          "unlockedBy": ["master_sword"],
           "region": "Zora's River",
           "area": "Wall at the bend before the Zora's Domain entrance",
           "howTo": "As an adult at night, stand on the last bridge/fence before the Zora's Domain entrance, turn around and Hookshot the Gold Skulltula high on the wall.",
@@ -483,6 +504,7 @@
         {
           "id": "zoras_domain_frozen_waterfall",
           "name": "Top of the frozen waterfall",
+          "unlockedBy": ["master_sword"],
           "region": "Zora's Domain",
           "area": "Ledge at the top of the frozen waterfall, reached from King Zora's chamber",
           "howTo": "As an adult at night, go through King Zora's chamber to the edge above the frozen waterfall, look left and Hookshot the Gold Skulltula.",
@@ -495,6 +517,7 @@
         {
           "id": "zoras_fountain_tree",
           "name": "Tree near the Great Fairy",
+          "unlockedBy": ["meet_zelda"],
           "region": "Zora's Fountain",
           "area": "Lone tree on the south-east shore",
           "howTo": "Roll into the lone tree near the Great Fairy's Fountain to knock down the Gold Skulltula.",
@@ -505,6 +528,7 @@
         {
           "id": "zoras_fountain_above_log",
           "name": "Wall above the log",
+          "unlockedBy": ["meet_zelda"],
           "region": "Zora's Fountain",
           "area": "Wall behind the big floating log south of Lord Jabu-Jabu",
           "howTo": "At night, stand on the large log near Lord Jabu-Jabu, turn around and get the Gold Skulltula on the wall with the Boomerang.",
@@ -517,6 +541,7 @@
         {
           "id": "zoras_fountain_hidden_cave",
           "name": "Hidden cave under the silver rock",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Zora's Fountain",
           "area": "Cave beneath the silver boulder near the Great Fairy's Fountain",
           "howTo": "As an adult at night, lift the silver boulder with the Silver Gauntlets, bomb the rock underneath, drop in, pass the invisible Skulltulas (Lens of Truth helps) and climb to the end, then Hookshot the Gold Skulltula on the wall.",
@@ -543,6 +568,7 @@
         {
           "id": "lake_hylia_lab_wall",
           "name": "Laboratory back wall",
+          "unlockedBy": ["meet_zelda"],
           "region": "Lake Hylia",
           "area": "Back wall of the Lakeside Laboratory, seen from the bridge",
           "howTo": "At night, step onto the bridge behind the Lakeside Laboratory, look left at the lab wall and get the Gold Skulltula with the Boomerang.",
@@ -566,6 +592,7 @@
         {
           "id": "lake_hylia_lab_crate",
           "name": "Crate in the lab pool",
+          "unlockedBy": ["light_medallion"],
           "region": "Lake Hylia",
           "area": "Crate at the bottom of the Lakeside Laboratory pool",
           "howTo": "Inside the Lakeside Laboratory, sink to the bottom of the pool with the Iron Boots, roll into the crate and kill the Gold Skulltula with the Hookshot.",
@@ -579,6 +606,7 @@
         {
           "id": "lake_hylia_tree",
           "name": "Top of the dead tree",
+          "unlockedBy": ["ice_cavern"],
           "region": "Lake Hylia",
           "area": "Dead tree on the island with the warp pad (above the Water Temple)",
           "howTo": "As an adult at night, Longshot to the top of the dead tree on the warp-pad island and kill the Gold Skulltula there.",
@@ -591,6 +619,7 @@
         {
           "id": "gerudo_valley_small_bridge",
           "name": "Above the small waterfall",
+          "unlockedBy": ["meet_zelda"],
           "region": "Gerudo Valley",
           "area": "Water spout on the cliff by the small wooden bridge at the valley entrance",
           "howTo": "At night, at the small wooden bridge near the entrance, look right at the water pouring from the cliff and get the Gold Skulltula there with the Boomerang.",
@@ -614,6 +643,7 @@
         {
           "id": "gerudo_valley_behind_tent",
           "name": "Behind the carpenters' tent",
+          "unlockedBy": ["master_sword"],
           "region": "Gerudo Valley",
           "area": "Rock wall behind the carpenters' tent",
           "howTo": "As an adult at night, go behind the carpenters' tent and Hookshot the Gold Skulltula on the rock wall.",
@@ -627,6 +657,7 @@
         {
           "id": "gerudo_valley_pillar",
           "name": "Under the rock arch",
+          "unlockedBy": ["master_sword"],
           "region": "Gerudo Valley",
           "area": "Stone archway left of the path to Gerudo's Fortress, in front of the tent",
           "howTo": "As an adult at night, look at the underside of the stone arch near the carpenters' tent and Hookshot the Gold Skulltula.",
@@ -639,6 +670,7 @@
         {
           "id": "gerudo_fortress_archery_range",
           "name": "On the far archery target",
+          "unlockedBy": ["master_sword"],
           "region": "Gerudo's Fortress",
           "area": "Last target of the Horseback Archery range",
           "howTo": "As an adult at night, walk to the far target of the horseback archery range and Hookshot the Gold Skulltula on its face.",
@@ -652,6 +684,7 @@
         {
           "id": "gerudo_fortress_top_floor",
           "name": "Top of the fortress",
+          "unlockedBy": ["master_sword"],
           "region": "Gerudo's Fortress",
           "area": "Rock wall in the gap near the Piece of Heart chest on the fortress roof",
           "howTo": "As an adult at night, climb to the top of the fortress and look in the gap before the chest platform; Hookshot the Gold Skulltula on the rock wall (or jump to it).",
@@ -665,6 +698,7 @@
         {
           "id": "haunted_wasteland_structure",
           "name": "Inside the stone structure",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Haunted Wasteland",
           "area": "Basement of the stone shelter where the Poe guide waits",
           "howTo": "Cross the River of Sand with the Longshot, follow the flags to the stone structure, drop into its basement and kill the Gold Skulltula on the wall between the torches.",
@@ -677,6 +711,7 @@
         {
           "id": "desert_colossus_bean_patch",
           "name": "Soft soil by the Spirit Temple",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Desert Colossus",
           "area": "Soft soil left of the Spirit Temple entrance",
           "howTo": "As a child (warp in with the Requiem of Spirit), release a bottled Bug on the soft soil near the Spirit Temple entrance.",
@@ -689,6 +724,7 @@
         {
           "id": "desert_colossus_tree",
           "name": "Palm tree by the oasis",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Desert Colossus",
           "area": "Top of a palm tree beside the dried-up oasis",
           "howTo": "As an adult at night, Longshot the Gold Skulltula on the crown of the palm tree next to the dried-up oasis.",
@@ -701,6 +737,7 @@
         {
           "id": "desert_colossus_hill",
           "name": "Plateau on the bean ride",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Desert Colossus",
           "area": "Rock plateau on the Magic Bean platform's route",
           "howTo": "Plant a Magic Bean in the soft soil near the Spirit Temple as a child; as an adult at night, ride the bean platform and jump off at its second stop to kill the Gold Skulltula.",
@@ -745,6 +782,7 @@
         {
           "id": "deku_tree_basement_back_room",
           "name": "Basement back room",
+          "unlockedBy": ["meet_zelda"],
           "region": "Inside the Deku Tree",
           "area": "Hidden B1 room past the room with three Gohma Larvae",
           "howTo": "Return with Bombs and the Boomerang: in the basement room with the Gohma Larvae, burn the web, bomb the cracked wall, and use the Boomerang on the Gold Skulltula in the room beyond.",
@@ -758,6 +796,7 @@
         {
           "id": "dodongos_cavern_side_room_near_lower_lizalfos",
           "name": "Side room off the Baby Dodongo corridor",
+          "unlockedBy": ["meet_zelda"],
           "region": "Dodongo's Cavern",
           "area": "Room behind a weak wall in the south-east corridor",
           "howTo": "From the main hall take the south-east door into the winding Baby Dodongo corridor, blow open the weak wall (bomb or a Baby Dodongo's explosion) and kill the Gold Skulltula among the Keese.",
@@ -770,6 +809,7 @@
         {
           "id": "dodongos_cavern_vines_above_stairs",
           "name": "Vines by the big staircase",
+          "unlockedBy": ["meet_zelda"],
           "region": "Dodongo's Cavern",
           "area": "Vine wall near the top of the large staircase room",
           "howTo": "In the room with the big staircase, climb up and shoot the Gold Skulltula on the vines with the Slingshot, then climb up to the token.",
@@ -782,6 +822,7 @@
         {
           "id": "dodongos_cavern_back_room",
           "name": "Behind the Armos",
+          "unlockedBy": ["meet_zelda"],
           "region": "Dodongo's Cavern",
           "area": "Hidden room behind a bombable wall, beyond the Armos",
           "howTo": "Inside the giant Dodongo skull area, go right into the room with low walls and Fire Keese, bomb the fake wall at the far (north) end and kill the Gold Skulltula behind the Armos statue.",
@@ -793,6 +834,7 @@
         {
           "id": "dodongos_cavern_alcove_above_stairs",
           "name": "Alcove above the staircase",
+          "unlockedBy": ["meet_zelda"],
           "region": "Dodongo's Cavern",
           "area": "Cubby at the top of the large staircase",
           "howTo": "Come back to the staircase room via the second floor, climb the side wall/vines to reach the alcove above the stairs and fetch the token with the Boomerang.",
@@ -805,6 +847,7 @@
         {
           "id": "dodongos_cavern_scarecrow",
           "name": "Scarecrow ledge in the corridor",
+          "unlockedBy": ["master_sword"],
           "region": "Dodongo's Cavern",
           "area": "High alcove in the corridor before the first Lizalfos fight",
           "howTo": "As an adult who knows the Scarecrow's Song, play it at the high alcove Navi flies to in the corridor before the first Lizalfos fight, Hookshot to Pierre and kill the Gold Skulltula.",
@@ -818,6 +861,7 @@
         {
           "id": "jabu_jabu_water_switch_room",
           "name": "Vines in the water-switch room",
+          "unlockedBy": ["meet_zelda"],
           "region": "Inside Jabu-Jabu's Belly",
           "area": "Vine wall in the room with the water-raising switch",
           "howTo": "While carrying Ruto, go to the room with the floor switch, shoot the Gold Skulltula on the vine wall with the Slingshot, then raise the water and climb the vines for the token.",
@@ -829,6 +873,7 @@
         {
           "id": "jabu_jabu_lobby_basement_lower",
           "name": "Basement wall (near Bigocto)",
+          "unlockedBy": ["meet_zelda"],
           "region": "Inside Jabu-Jabu's Belly",
           "area": "Wall by the door to Bigocto's room, after dropping through the hole",
           "howTo": "After dropping through the hole where the green tentacle was, kill the Gold Skulltula closer to Bigocto's door and grab its token with the Boomerang.",
@@ -840,6 +885,7 @@
         {
           "id": "jabu_jabu_lobby_basement_upper",
           "name": "Basement wall (far from Bigocto)",
+          "unlockedBy": ["meet_zelda"],
           "region": "Inside Jabu-Jabu's Belly",
           "area": "Same wall, further from Bigocto's door",
           "howTo": "In the same room, kill the second Gold Skulltula further from Bigocto's door and grab its token with the Boomerang.",
@@ -852,6 +898,7 @@
         {
           "id": "jabu_jabu_near_boss",
           "name": "Vines before Barinade",
+          "unlockedBy": ["meet_zelda"],
           "region": "Inside Jabu-Jabu's Belly",
           "area": "Vine wall in the room before the boss",
           "howTo": "In the room before Barinade, shoot the Gold Skulltula on the vine wall with the Slingshot or Boomerang and climb up to the token.",
@@ -864,6 +911,7 @@
         {
           "id": "forest_temple_first_room",
           "name": "Entrance vines",
+          "unlockedBy": ["light_medallion"],
           "region": "Forest Temple",
           "area": "Top of the vines on the right in the first room",
           "howTo": "In the first room, climb the vines on the right and Hookshot the Gold Skulltula at the top.",
@@ -875,6 +923,7 @@
         {
           "id": "forest_temple_lobby",
           "name": "Lobby wall by the north door",
+          "unlockedBy": ["light_medallion"],
           "region": "Forest Temple",
           "area": "Wall to the right of the north door in the main hall",
           "howTo": "In the main hall, go up to the north door, turn right and Hookshot the Gold Skulltula on the dark wall.",
@@ -886,6 +935,7 @@
         {
           "id": "forest_temple_east_courtyard",
           "name": "East courtyard",
+          "unlockedBy": ["light_medallion"],
           "region": "Forest Temple",
           "area": "Wall near the raised island with a chest in the east courtyard",
           "howTo": "In the east (raised-island) courtyard, Hookshot the chest to get onto the island, then Hookshot the Gold Skulltula on the nearby wall.",
@@ -897,6 +947,7 @@
         {
           "id": "forest_temple_west_courtyard",
           "name": "West courtyard",
+          "unlockedBy": ["light_medallion"],
           "region": "Forest Temple",
           "area": "High wall above the narrow ledge with recovery hearts",
           "howTo": "In the west courtyard, get onto the narrow ledge with two hearts (from the room above) and Hookshot the Gold Skulltula on the wall in front.",
@@ -909,6 +960,7 @@
         {
           "id": "forest_temple_basement",
           "name": "Basement rotating walls",
+          "unlockedBy": ["light_medallion"],
           "region": "Forest Temple",
           "area": "Alcove behind the rotating wall in the basement before the boss",
           "howTo": "In the basement with the rotating walls, push the wall around until the alcove with the Gold Skulltula opens and Hookshot it.",
@@ -920,6 +972,7 @@
         {
           "id": "fire_temple_song_of_time_room",
           "name": "Song of Time room",
+          "unlockedBy": ["light_medallion"],
           "region": "Fire Temple",
           "area": "Room above the Time Block on the left of the big lava (broken bridge) room",
           "howTo": "In the lava room with the broken bridge, play the Song of Time to move the Time Block, climb to the door above and kill the Gold Skulltula on the back wall past the Flare tiles and Like Like.",
@@ -931,6 +984,7 @@
         {
           "id": "fire_temple_boulder_maze",
           "name": "Bombable wall in the boulder maze",
+          "unlockedBy": ["light_medallion"],
           "region": "Fire Temple",
           "area": "Hidden alcove behind a bombable wall on the boulder maze's ground floor",
           "howTo": "In the boulder maze, find the hollow-sounding wall (left, left, right, then straight on from the entrance) and bomb it to reveal the Gold Skulltula.",
@@ -942,6 +996,7 @@
         {
           "id": "fire_temple_scarecrow_climb",
           "name": "Scarecrow route: climbing fence",
+          "unlockedBy": ["light_medallion"],
           "region": "Fire Temple",
           "area": "Chain fence in the hidden area above the boulder maze",
           "howTo": "On top of the boulder maze walls, play the Scarecrow's Song where Navi turns green, Hookshot to Pierre, then to the platform that lifts you to a hidden area; the Gold Skulltula is on the climbing fence.",
@@ -954,6 +1009,7 @@
         {
           "id": "fire_temple_scarecrow_top",
           "name": "Scarecrow route: top room",
+          "unlockedBy": ["light_medallion"],
           "region": "Fire Temple",
           "area": "Wall of the round room with the fire-ringed chest at the top of the hidden area",
           "howTo": "Keep climbing past the previous one to the round room with the chest in flames and Hookshot the Gold Skulltula on the wall.",
@@ -966,6 +1022,7 @@
         {
           "id": "fire_temple_boss_key_loop",
           "name": "Boss Key loop tile room",
+          "unlockedBy": ["light_medallion"],
           "region": "Fire Temple",
           "area": "Flare-tile and Like Like room after the Fire Keese and Torch Slug room",
           "howTo": "On the Boss Key loop, enter the room after the one with Fire Keese and Torch Slugs; beat the Flare tiles and Like Like to find the Gold Skulltula on the back wall.",
@@ -978,6 +1035,7 @@
         {
           "id": "ice_cavern_spinning_scythe_room",
           "name": "Spinning blade room",
+          "unlockedBy": ["light_medallion"],
           "region": "Ice Cavern",
           "area": "High wall in the first spinning-blade room with Silver Rupees",
           "howTo": "In the first spinning-blade room, Hookshot the Gold Skulltula high on the wall between the ice sheets, above one of the Silver Rupees.",
@@ -989,6 +1047,7 @@
         {
           "id": "ice_cavern_heart_piece_room",
           "name": "Compass room",
+          "unlockedBy": ["light_medallion"],
           "region": "Ice Cavern",
           "area": "High pillar in the room with the Compass and the Piece of Heart in red ice",
           "howTo": "Melt the red ice with Blue Fire to reach the Compass room, then Hookshot the Gold Skulltula on the high ice pillar.",
@@ -1001,6 +1060,7 @@
         {
           "id": "ice_cavern_push_block_room",
           "name": "Ice block room",
+          "unlockedBy": ["light_medallion"],
           "region": "Ice Cavern",
           "area": "Wall of the sliding ice block room",
           "howTo": "In the large sliding-ice-block room, Hookshot the Gold Skulltula on the upper wall.",
@@ -1014,6 +1074,7 @@
         {
           "id": "water_temple_behind_gate",
           "name": "Behind the gate (south corridor)",
+          "unlockedBy": ["ice_cavern"],
           "region": "Water Temple",
           "area": "Behind the gate at the end of the south corridor on the lowest level",
           "howTo": "With the water fully drained, bomb the floor in the south passage, cross with the Hookshot, then hit the crystal switch behind the bars with a spin attack and kill the Gold Skulltula behind the gate.",
@@ -1027,6 +1088,7 @@
         {
           "id": "water_temple_river",
           "name": "Underground river",
+          "unlockedBy": ["ice_cavern"],
           "region": "Water Temple",
           "area": "Wall above a whirlpool in the river with vortexes",
           "howTo": "After getting the Longshot, sink in the whirlpool river with the Iron Boots and Longshot the Gold Skulltula on the left wall.",
@@ -1039,6 +1101,7 @@
         {
           "id": "water_temple_central_pillar",
           "name": "Inside the central pillar",
+          "unlockedBy": ["ice_cavern"],
           "region": "Water Temple",
           "area": "Top wall inside the central pillar",
           "howTo": "Go inside the central pillar, climb to the upper floor, and Longshot the Gold Skulltula at the top of the room.",
@@ -1050,6 +1113,7 @@
         {
           "id": "water_temple_falling_platform_room",
           "name": "Falling-platform waterfall room",
+          "unlockedBy": ["ice_cavern"],
           "region": "Water Temple",
           "area": "Wall in the top-floor west room with platforms falling down the waterfall",
           "howTo": "On the top floor, in the room where Hookshot platforms descend the waterfall, look right and Longshot the Gold Skulltula.",
@@ -1061,6 +1125,7 @@
         {
           "id": "water_temple_near_boss_key_chest",
           "name": "Rolling-boulder waterfall",
+          "unlockedBy": ["ice_cavern"],
           "region": "Water Temple",
           "area": "Wall beside the small waterfall in the rolling-boulder corridor before the Boss Key",
           "howTo": "In the corridor with rolling boulders before the Boss Key, inch to the ledge by the small waterfall, look right and Longshot the Gold Skulltula.",
@@ -1072,6 +1137,7 @@
         {
           "id": "bottom_of_the_well_like_like_cage",
           "name": "Like Like room",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Bottom of the Well",
           "area": "Wall of the north-east room with a Like Like and a small chest",
           "howTo": "From the centre take the north-east route (crawlspace and locked door, past the invisible pits) to the Like Like room, kill the Gold Skulltula on the wall and get the token with the Boomerang.",
@@ -1085,6 +1151,7 @@
         {
           "id": "bottom_of_the_well_west_inner_room",
           "name": "Left locked room",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Bottom of the Well",
           "area": "Left locked room of the central area (Deku Baba and flying pots)",
           "howTo": "Open the left locked door in the central area with a Small Key, then kill the Gold Skulltula on the back wall and get the token with the Boomerang.",
@@ -1098,6 +1165,7 @@
         {
           "id": "bottom_of_the_well_east_inner_room",
           "name": "Right locked room",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Bottom of the Well",
           "area": "Right locked room of the central area (Keese around a pit)",
           "howTo": "Open the right locked door in the central area, follow the invisible path around the pit with the Lens of Truth, then kill the Gold Skulltula and get the token with the Boomerang.",
@@ -1111,6 +1179,7 @@
         {
           "id": "shadow_temple_like_like_room",
           "name": "Invisible blades / Like Like room",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Shadow Temple",
           "area": "Room reached by invisible platforms to the left of the Stalfos platform room",
           "howTo": "After the guillotine path and the Stalfos, follow the invisible path on the left with the Lens of Truth; defeat the Like Like and Keese to open the gate and kill the Gold Skulltula on the wall.",
@@ -1124,6 +1193,7 @@
         {
           "id": "shadow_temple_falling_spikes_room",
           "name": "Falling spikes room cage",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Shadow Temple",
           "area": "Inside a cell on the left in the falling-spike ceiling room",
           "howTo": "In the falling-spike room, push the hidden block (Lens of Truth) under the spikes, then check the cage on the left for the Gold Skulltula.",
@@ -1137,6 +1207,7 @@
         {
           "id": "shadow_temple_single_giant_pot",
           "name": "Behind the giant skull pot",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Shadow Temple",
           "area": "Wall behind the large burning skull pot",
           "howTo": "In the room with the big skull pot (bomb it for a Small Key), kill the Gold Skulltula on the wall behind the skull.",
@@ -1149,6 +1220,7 @@
         {
           "id": "shadow_temple_near_ship",
           "name": "Scarecrow ledge by the boat",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Shadow Temple",
           "area": "High ledge in the boat room",
           "howTo": "In the boat room, play the Scarecrow's Song from the platform by the boat, Longshot to Pierre and kill the Gold Skulltula on the wall.",
@@ -1162,6 +1234,7 @@
         {
           "id": "shadow_temple_triple_giant_pot",
           "name": "Behind the three skull pots",
+          "unlockedBy": ["bottom_of_the_well"],
           "region": "Shadow Temple",
           "area": "Wall behind three spinning skull pots, west of the invisible-wall maze",
           "howTo": "In the room with three spinning skull pots (near the Boss Key area), kill the Gold Skulltula on the wall behind them.",
@@ -1174,6 +1247,7 @@
         {
           "id": "spirit_temple_metal_fence",
           "name": "Chain-link fence (child side)",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Spirit Temple",
           "area": "Fence in the Silver Rupee room past the child crawlspace (on the right)",
           "howTo": "As a child, go through the crawlspace and the door on the right; collect the Silver Rupees to lower the bridge and get the Gold Skulltula on the fence with the Boomerang.",
@@ -1185,6 +1259,7 @@
         {
           "id": "spirit_temple_sun_on_floor_room",
           "name": "Child climbing room",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Spirit Temple",
           "area": "Climbable wall in the vertical shaft after the Lizalfos (Bombchu-puzzle room)",
           "howTo": "After the Lizalfos fight, climb the wall (with two normal Skulltulas) to the next floor, turn round and get the Gold Skulltula with the Boomerang.",
@@ -1197,6 +1272,7 @@
         {
           "id": "spirit_temple_hall_after_sun_block_room",
           "name": "Above the door before the Iron Knuckle",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Spirit Temple",
           "area": "Narrow hall leading to the first Iron Knuckle fight",
           "howTo": "In the hall before the first Iron Knuckle, turn back to the door you came through; the Gold Skulltula is above it. Get the token with the Boomerang.",
@@ -1209,6 +1285,7 @@
         {
           "id": "spirit_temple_boulder_room",
           "name": "Behind the Time Block (boulder room)",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Spirit Temple",
           "area": "Behind the blue Time Block in the rolling-boulder Silver Rupee room",
           "howTo": "As an adult, play the Song of Time at the blue block in the rolling-boulder room and kill the Gold Skulltula behind where it stood.",
@@ -1222,6 +1299,7 @@
         {
           "id": "spirit_temple_lobby",
           "name": "Scarecrow ledge in the statue room",
+          "unlockedBy": ["gerudo_fortress"],
           "region": "Spirit Temple",
           "area": "Ledge on the west wall of the giant statue room",
           "howTo": "As an adult, play the Scarecrow's Song at the top of the west staircase in the statue room, Longshot to Pierre and kill the Gold Skulltula there.",

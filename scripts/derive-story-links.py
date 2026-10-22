@@ -31,11 +31,35 @@ from pathlib import Path
 
 FILES = Path(__file__).resolve().parent.parent / "shared/src/commonMain/composeResources/files"
 
+# Ocarina of Time's places, by the step that opens them; the dungeons by the step before them.
+OOT_PLACES = {
+    **{place: None for place in (
+        "Kokiri Forest", "Lost Woods", "Sacred Forest Meadow", "Hyrule Field", "Hyrule Market", "Hyrule Castle",
+        "Lon Lon Ranch", "Kakariko Village", "Kakariko Graveyard", "Zora's River", "Lake Hylia", "Gerudo Valley",
+        "Inside the Deku Tree",
+    )},
+    # Zelda's Letter opens the trail; her Lullaby opens Zora's Domain.
+    **{place: "meet_zelda" for place in (
+        "Death Mountain Trail", "Goron City", "Death Mountain Crater", "Zora's Domain", "Zora's Fountain",
+        "Dodongo's Cavern", "Inside Jabu-Jabu's Belly",
+    )},
+    **{place: "master_sword" for place in ("Gerudo's Fortress", "Outside Ganon's Castle", "Temple of Time")},
+    **{place: "light_medallion" for place in ("Forest Temple", "Fire Temple", "Ice Cavern", "Bottom of the Well")},
+    "Water Temple": "ice_cavern",
+    "Shadow Temple": "bottom_of_the_well",
+    **{place: "gerudo_fortress" for place in ("Spirit Temple", "Haunted Wasteland", "Desert Colossus", "Gerudo Training Ground")},
+}
+
+# The five temples after the Light Medallion, in any order: what opens Ganon's Castle.
+OOT_TEMPLES = ("forest_temple", "fire_temple", "water_temple", "shadow_temple", "spirit_temple")
+
 # Each game: `after`, `area` and `region` texts to a step id (None: available from the start);
 # `items`, overrides by "<file stem>/<item id>"; optionally `inside`, a dungeon's region to the step
 # that opens it, `sticky`, "<file stem>/<section id>"s whose items inherit the gate above them, and
 # `needs`, `places` and `photo`, for a game whose items say in their text what they need (see propose),
-# and `refs`, a regex whose groups name another item (by an id template) whose gate it shares.
+# `tags`, an item's tags to a step, `sections`, a step every item of a "<file stem>/<section id>"
+# needs at least, and `refs`, a regex whose groups name another item (by an id
+# template) whose gate it shares. A step may be a tuple of steps that must all be done.
 GAMES = {
     "ss": {
         "after": {
@@ -302,6 +326,87 @@ GAMES = {
             "figurines/link_and_the_king_of_red_lions": "triforce_of_courage",
         },
     },
+    "oot": {
+        # Childhood is open from the start, and Link can go back to it after the Master Sword. A
+        # place is gated by the step that opens it, a dungeon by the step before it; tags name what
+        # an item needs (Adult, the Hookshot, Bombs…). The latest wins.
+        "region": OOT_PLACES,
+        "area": OOT_PLACES,
+        "after": {"Waking Talon at Hyrule Castle": "meet_zelda"},
+        "tags": {
+            "Adult": "master_sword",
+            "Hookshot": "master_sword",
+            "Epona": "master_sword",
+            "Scarecrow's Song": "master_sword",
+            "Song of Storms": "master_sword",
+            "Bolero of Fire": "master_sword",
+            "Boomerang": "meet_zelda",
+            "Bombs": "meet_zelda",
+            "Bomb Bag": "meet_zelda",
+            "Saria's Song": "meet_zelda",
+            "Sun's Song": "meet_zelda",
+            "Silver Scale": "meet_zelda",
+            "Zelda's Lullaby": "meet_zelda",
+            "Goron's Bracelet": "meet_zelda",
+            "Din's Fire": "meet_zelda",
+            "Song of Time": "ocarina_of_time",
+            "Megaton Hammer": "light_medallion",
+            "Blue Fire": "light_medallion",
+            "Zora Tunic": "light_medallion",
+            "Fairy Bow": "light_medallion",
+            "Iron Boots": "light_medallion",
+            "Longshot": "ice_cavern",
+            "Lens of Truth": "bottom_of_the_well",
+            "Requiem of Spirit": "gerudo_fortress",
+            "Silver Gauntlets": "gerudo_fortress",
+            "Gerudo's Card": "gerudo_fortress",
+            "Golden Gauntlets": OOT_TEMPLES,
+        },
+        # Big Poes are shot from Epona with the Fairy Bow.
+        "sections": {"big_poes/big_poes": "light_medallion"},
+        "items": {
+            "items/ocarina": None,
+            "items/bombchus": "meet_zelda",
+            "items/dins_fire": "meet_zelda",
+            "items/fire_arrows": "water_temple",
+            "items/ice_arrows": "gerudo_fortress",
+            "items/light_arrows": OOT_TEMPLES,
+            "items/zora_tunic": "light_medallion",
+            "items/biggorons_sword": "light_medallion",
+            "items/strength": "meet_zelda",
+            "items/scale": "meet_zelda",
+            "items/bomb_bag": "meet_zelda",
+            "items/quiver": "light_medallion",
+            "items/gerudos_card": "gerudo_fortress",
+            "songs/zeldas_lullaby": "meet_zelda",
+            "songs/sarias_song": "meet_zelda",
+            "songs/suns_song": "meet_zelda",
+            "songs/song_of_time": "ocarina_of_time",
+            "songs/prelude_of_light": "forest_temple",
+            "songs/nocturne_of_shadow": ("forest_temple", "fire_temple", "water_temple"),
+            "trading/zeldas_letter": "meet_zelda",
+            # The Happy Mask Shop opens once Zelda's Letter has been shown to the Kakariko guard.
+            "trading/keaton_mask": "meet_zelda",
+            "trading/skull_mask": "meet_zelda",
+            "trading/spooky_mask": "meet_zelda",
+            # The Running Man appears once Link has all three Spiritual Stones.
+            "trading/bunny_hood": ("deku_tree", "dodongos_cavern", "jabu_jabu"),
+            "trading/mask_of_truth": ("deku_tree", "dodongos_cavern", "jabu_jabu"),
+            "trading/pocket_egg": "master_sword",
+            "trading/pocket_cucco": "master_sword",
+            "trading/cojiro": "master_sword",
+            "trading/odd_mushroom": "master_sword",
+            "trading/odd_potion": "master_sword",
+            "trading/poachers_saw": "master_sword",
+            "trading/broken_gorons_sword": "master_sword",
+            "trading/prescription": "master_sword",
+            # King Zora is thawed with Blue Fire from the Ice Cavern.
+            "trading/eyeball_frog": "light_medallion",
+            "trading/eye_drops": "light_medallion",
+            "trading/claim_check": "light_medallion",
+            "trading/biggorons_sword": "light_medallion",
+        },
+    },
     "tp": {
         # Each dungeon's region: the step that opens it.
         "inside": {
@@ -460,6 +565,11 @@ def story_depth(story):
     return depth
 
 
+def ids(gate):
+    """A gate's step ids: one step, or a tuple of steps that must all be done."""
+    return (gate,) if isinstance(gate, str) else tuple(gate)
+
+
 def text_of(item):
     """What an item says it needs: its area and how-to, or its first tier's how-to when it has tiers."""
     how = item["tiers"][0].get("howTo") if item.get("tiers") else item.get("howTo")
@@ -488,8 +598,8 @@ def propose(game, stem, section, item, depth):
         places = [m for m in matches(table.get("places", {}), item.get("howTo") or "") if m[0] is not None]
         if not places:
             return floor, "photo floor"
-        step, pattern = min(places, key=lambda m: depth[m[0]])
-        return (step, f"photo: {pattern}") if depth[step] > depth[floor] else (floor, "photo floor")
+        step, pattern = min(places, key=lambda m: depth(m[0]))
+        return (step, f"photo: {pattern}") if depth(step) > depth(floor) else (floor, "photo floor")
     found = None, "none"
     for field in ("after", "area", "region"):
         text = item.get(field)
@@ -502,12 +612,15 @@ def propose(game, stem, section, item, depth):
         candidates.append((inside, "inside"))
     text = text_of(item)
     candidates += [(step, f"needs: {pattern}") for step, pattern in matches(table.get("needs", {}), text) if step is not None]
+    candidates += [(table["tags"][t], f"tag: {t}") for t in item.get("tags", []) if table.get("tags", {}).get(t) is not None]
+    if table.get("sections", {}).get(f"{stem}/{section}") is not None:
+        candidates.append((table["sections"][f"{stem}/{section}"], "section"))
     where = " ".join(t for t in (text, item.get("region")) if t)
     candidates += [(step, f"place: {pattern}") for step, pattern in matches(table.get("places", {}), where) if step is not None]
     if not candidates:
         return found
     # The latest wins; on a tie, the first found (after, then inside, then the text).
-    return max(candidates, key=lambda c: depth[c[0]])
+    return max(candidates, key=lambda c: depth(c[0]))
 
 
 def insert_link(text, item_id, steps):
@@ -529,7 +642,12 @@ def main(args):
     apply = "--apply" in args
     story = json.loads((FILES / game / "main_quest.json").read_text())
     steps = {it["id"] for s in story["sections"] for it in s["items"]}
-    depth = story_depth(story)
+    by_step = story_depth(story)
+
+    def depth(gate):
+        """How far into the story a gate comes: its latest step's depth."""
+        return max(by_step[s] for s in ids(gate))
+
     sticky = GAMES[game].get("sticky", set())
     refs = GAMES[game].get("refs", {})
     # A first pass, so an item that names another (`refs`: "Treasure Chart 33") can take its gate.
@@ -555,13 +673,13 @@ def main(args):
                     for pattern, template in refs.items():
                         for m in re.finditer(pattern, text_of(item)):
                             other = first.get(template.format(*m.groups()))
-                            if other is not None and (step is None or depth[other] > depth[step]):
+                            if other is not None and (step is None or depth(other) > depth(step)):
                                 step, basis = other, f"ref: {m.group(0)}"
-                if step is not None and step not in steps:
+                if step is not None and any(s not in steps for s in ids(step)):
                     raise SystemExit(f"{path.stem}/{item['id']}: '{step}' isn't a Main Quest step")
-                rows.append((path.stem, item["id"], item["name"], item.get("after") or item.get("area") or "", step or "", basis))
+                rows.append((path.stem, item["id"], item["name"], item.get("after") or item.get("area") or "", "+".join(ids(step)) if step else "", basis))
                 if apply and step is not None and "unlockedBy" not in item:
-                    text = insert_link(text, item["id"], [step])
+                    text = insert_link(text, item["id"], list(ids(step)))
         if apply:
             path.write_text(text)
     print("file\tid\tname\tafter/area\tunlockedBy\tbasis")

@@ -103,6 +103,25 @@ class OotDatasetTest {
         assertEquals("biggorons_sword", trading.section("adult")!!.items.last().id)
     }
 
+    /**
+     * Story links (docs/oot.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand, that nothing adult is open from the start, and how many are.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepsThatOpenIt() = runTest {
+        val files = listOf("items", "heart_pieces", "gold_skulltulas", "songs", "great_fairies", "bottles", "big_poes", "trading")
+        val items = files.flatMap { load(it).items }
+        val links = items.associate { it.id to it.unlockedBy }
+        assertEquals(emptyList(), items.filter { "Adult" in it.tags && it.unlockedBy.isEmpty() }.map { it.id }, "adult Link needs the Master Sword")
+        assertEquals(58, items.count { it.unlockedBy.isEmpty() }, "childhood's open places, from the start")
+        assertEquals(emptyList(), links["kokiri_sword"])
+        assertEquals(listOf("light_medallion"), links["forest_temple_lobby"], "inside a temple: the step before it")
+        assertEquals(listOf("ice_cavern"), links["water_temple_river"], "the Water Temple needs the Ice Cavern's Iron Boots")
+        assertEquals(listOf("deku_tree", "dodongos_cavern", "jabu_jabu"), links["bunny_hood"], "the Running Man waits for all three Spiritual Stones")
+        assertEquals(listOf("forest_temple", "fire_temple", "water_temple", "shadow_temple", "spirit_temple"), links["light_arrows"], "every Sage awake")
+        assertEquals(listOf("light_medallion"), links["castle_town_entrance_sign"], "Big Poes are shot from Epona with the Fairy Bow")
+    }
+
     private companion object {
         val AGES = setOf("Child", "Adult", "Either")
     }

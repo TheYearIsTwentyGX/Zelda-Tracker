@@ -26,6 +26,7 @@
         {
           "id": "zeldas_letter",
           "name": "Zelda's Letter",
+          "unlockedBy": ["meet_zelda"],
           "area": "Hyrule Castle",
           "howTo": "Zelda gives it to you in the castle courtyard.",
           "requires": ["child_cucco"],
@@ -34,6 +35,7 @@
         {
           "id": "keaton_mask",
           "name": "Keaton Mask",
+          "unlockedBy": ["meet_zelda"],
           "area": "Kakariko Village",
           "howTo": "Borrow it from the Happy Mask Shop in Hyrule Market and sell it to the guard at Kakariko's Death Mountain gate.",
           "requires": ["zeldas_letter"],
@@ -42,6 +44,7 @@
         {
           "id": "skull_mask",
           "name": "Skull Mask",
+          "unlockedBy": ["meet_zelda"],
           "area": "Lost Woods",
           "howTo": "Sell it to the Skull Kid on the stump left of the Lost Woods entrance, after playing him Saria's Song.",
           "requires": ["keaton_mask"],
@@ -51,6 +54,7 @@
         {
           "id": "spooky_mask",
           "name": "Spooky Mask",
+          "unlockedBy": ["meet_zelda"],
           "area": "Kakariko Graveyard",
           "howTo": "Sell it to the boy in Kakariko Graveyard, by day.",
           "requires": ["skull_mask"],
@@ -59,6 +63,7 @@
         {
           "id": "bunny_hood",
           "name": "Bunny Hood",
+          "unlockedBy": ["deku_tree", "dodongos_cavern", "jabu_jabu"],
           "area": "Hyrule Field",
           "howTo": "Sell it to the Running Man in Hyrule Field. He appears once you have all three Spiritual Stones, and only stops to talk at night.",
           "requires": ["spooky_mask"],
@@ -68,6 +73,7 @@
         {
           "id": "mask_of_truth",
           "name": "Mask of Truth",
+          "unlockedBy": ["deku_tree", "dodongos_cavern", "jabu_jabu"],
           "area": "Hyrule Market",
           "howTo": "The Happy Mask Shop lends it to you once you've sold all four masks.",
           "requires": ["bunny_hood"],
@@ -84,6 +90,7 @@
         {
           "id": "pocket_egg",
           "name": "Pocket Egg",
+          "unlockedBy": ["master_sword"],
           "area": "Kakariko Village",
           "howTo": "Talk to the Cucco Lady in Kakariko Village as adult Link.",
           "notes": "It hatches into the Pocket Cucco the next morning (play the Sun's Song to hurry it)."
@@ -91,6 +98,7 @@
         {
           "id": "pocket_cucco",
           "name": "Pocket Cucco",
+          "unlockedBy": ["master_sword"],
           "area": "Kakariko Village",
           "howTo": "Let the Pocket Egg hatch, then use it to wake Talon, asleep in a house in Kakariko Village.",
           "requires": ["pocket_egg"]
@@ -98,6 +106,7 @@
         {
           "id": "cojiro",
           "name": "Cojiro",
+          "unlockedBy": ["master_sword"],
           "area": "Kakariko Village",
           "howTo": "Give the Pocket Cucco back to the Cucco Lady once it has woken Talon; she trades it for her brother's blue Cucco.",
           "requires": ["pocket_cucco"]
@@ -105,6 +114,7 @@
         {
           "id": "odd_mushroom",
           "name": "Odd Mushroom",
+          "unlockedBy": ["master_sword"],
           "area": "Lost Woods",
           "howTo": "Take Cojiro to the man slumped against a tree in the Lost Woods, left from the Kokiri Forest entrance.",
           "requires": ["cojiro"],
@@ -113,6 +123,7 @@
         {
           "id": "odd_potion",
           "name": "Odd Potion",
+          "unlockedBy": ["master_sword"],
           "area": "Kakariko Village",
           "howTo": "Within three minutes, give the Odd Mushroom to Granny in the potion shop behind Kakariko's main potion shop.",
           "requires": ["odd_mushroom"],
@@ -121,6 +132,7 @@
         {
           "id": "poachers_saw",
           "name": "Poacher's Saw",
+          "unlockedBy": ["master_sword"],
           "area": "Lost Woods",
           "howTo": "Take the Odd Potion back to the same spot in the Lost Woods; Fado is there now and swaps it for the saw.",
           "requires": ["odd_potion"],
@@ -130,6 +142,7 @@
         {
           "id": "broken_gorons_sword",
           "name": "Broken Goron's Sword",
+          "unlockedBy": ["master_sword"],
           "area": "Gerudo Valley",
           "howTo": "Give the saw to the head carpenter in his tent in Gerudo Valley. Cross the broken bridge with Epona or the Longshot, or after rescuing the carpenters.",
           "requires": ["poachers_saw"]
@@ -137,6 +150,7 @@
         {
           "id": "prescription",
           "name": "Prescription",
+          "unlockedBy": ["master_sword"],
           "area": "Death Mountain Trail",
           "howTo": "Give the broken sword to Biggoron at the summit of Death Mountain Trail.",
           "requires": ["broken_gorons_sword"]
@@ -144,6 +158,7 @@
         {
           "id": "eyeball_frog",
           "name": "Eyeball Frog",
+          "unlockedBy": ["light_medallion"],
           "area": "Zora's Domain",
           "howTo": "Thaw King Zora with Blue Fire (Ice Cavern) and show him the Prescription.",
           "requires": ["prescription"],
@@ -152,6 +167,7 @@
         {
           "id": "eye_drops",
           "name": "World's Finest Eye Drops",
+          "unlockedBy": ["light_medallion"],
           "area": "Lake Hylia",
           "howTo": "Within three minutes, give the Eyeball Frog to the scientist in the Lakeside Laboratory.",
           "requires": ["eyeball_frog"],
@@ -160,6 +176,7 @@
         {
           "id": "claim_check",
           "name": "Claim Check",
+          "unlockedBy": ["light_medallion"],
           "area": "Death Mountain Trail",
           "howTo": "Within four minutes, give the eye drops to Biggoron.",
           "requires": ["eye_drops"]
@@ -167,6 +184,7 @@
         {
           "id": "biggorons_sword",
           "name": "Biggoron's Sword",
+          "unlockedBy": ["light_medallion"],
           "area": "Death Mountain Trail",
           "howTo": "Wait three days (or play the Sun's Song six times), then show Biggoron the Claim Check.",
           "requires": ["claim_check"],

@@ -10,6 +10,7 @@
         {
           "id": "zeldas_lullaby",
           "name": "Zelda's Lullaby",
+          "unlockedBy": ["meet_zelda"],
           "area": "Hyrule Castle",
           "howTo": "Impa teaches it as she escorts young Link out of the castle courtyard after he meets Zelda.",
           "notes": "◀ ▲ ▶ ◀ ▲ ▶. Played on Triforce symbols, and to prove you're the Royal Family's messenger.",
@@ -18,6 +19,7 @@
         {
           "id": "sarias_song",
           "name": "Saria's Song",
+          "unlockedBy": ["meet_zelda"],
           "area": "Sacred Forest Meadow",
           "howTo": "Saria teaches it to young Link at the end of the meadow's maze, once he's met Zelda.",
           "notes": "▼ ▶ ◀ ▼ ▶ ◀. Talks to Saria from anywhere, and cheers up Darunia and the Lost Woods Skull Kid.",
@@ -34,6 +36,7 @@
         {
           "id": "suns_song",
           "name": "Sun's Song",
+          "unlockedBy": ["meet_zelda"],
           "area": "Kakariko Graveyard",
           "howTo": "Play Zelda's Lullaby on the Triforce on the Royal Family's Tomb at the back of the graveyard, then read the inscription at the end of the tomb.",
           "requires": ["zeldas_lullaby"],
@@ -43,6 +46,7 @@
         {
           "id": "song_of_time",
           "name": "Song of Time",
+          "unlockedBy": ["ocarina_of_time"],
           "area": "Hyrule Field",
           "howTo": "Dive for the Ocarina of Time in the moat by the castle town drawbridge after Zelda flees; she teaches it in a vision.",
           "notes": "▶ A ▼ ▶ A ▼. Opens the Door of Time and moves blue Song of Time blocks.",
@@ -51,6 +55,7 @@
         {
           "id": "song_of_storms",
           "name": "Song of Storms",
+          "unlockedBy": ["master_sword"],
           "area": "Kakariko Village",
           "howTo": "As adult Link, talk to the man with the music box in the windmill, then play it back to him.",
           "notes": "A ▼ ▲ A ▼ ▲. Young Link plays it in the windmill to drain the well, and it opens some grottos.",
@@ -67,6 +72,7 @@
         {
           "id": "minuet_of_forest",
           "name": "Minuet of Forest",
+          "unlockedBy": ["master_sword"],
           "area": "Sacred Forest Meadow",
           "howTo": "Sheik teaches it at the top of the meadow, by the Forest Temple, the first time adult Link goes there.",
           "notes": "A ▲ ◀ ▶ ◀ ▶. Warps to Sacred Forest Meadow.",
@@ -75,6 +81,7 @@
         {
           "id": "bolero_of_fire",
           "name": "Bolero of Fire",
+          "unlockedBy": ["master_sword"],
           "area": "Death Mountain Crater",
           "howTo": "Sheik teaches it as adult Link enters the crater from the top of Death Mountain Trail.",
           "notes": "▼ A ▼ A ▶ ▼ ▶ ▼. Warps to Death Mountain Crater.",
@@ -83,6 +90,7 @@
         {
           "id": "prelude_of_light",
           "name": "Prelude of Light",
+          "unlockedBy": ["forest_temple"],
           "area": "Temple of Time",
           "howTo": "Sheik teaches it when adult Link enters the Temple of Time after the Forest Temple.",
           "notes": "▲ ▶ ▲ ▶ ◀ ▲. Warps to the Temple of Time.",
@@ -91,6 +99,7 @@
         {
           "id": "serenade_of_water",
           "name": "Serenade of Water",
+          "unlockedBy": ["light_medallion"],
           "area": "Ice Cavern",
           "howTo": "Sheik teaches it at the end of the Ice Cavern, where you find the Iron Boots.",
           "notes": "A ▼ ▶ ▶ ◀. Warps to Lake Hylia.",
@@ -99,6 +108,7 @@
         {
           "id": "nocturne_of_shadow",
           "name": "Nocturne of Shadow",
+          "unlockedBy": ["forest_temple", "fire_temple", "water_temple"],
           "area": "Kakariko Village",
           "howTo": "Sheik teaches it in burning Kakariko Village when adult Link returns there with the Forest, Fire and Water Medallions.",
           "notes": "◀ ▶ ▶ A ◀ ▶ ▼. Warps to the Shadow Temple's entrance in the graveyard.",
@@ -107,6 +117,7 @@
         {
           "id": "requiem_of_spirit",
           "name": "Requiem of Spirit",
+          "unlockedBy": ["gerudo_fortress"],
           "area": "Desert Colossus",
           "howTo": "Sheik teaches it when adult Link first reaches the Desert Colossus across the Haunted Wasteland.",
           "notes": "A ▼ A ▶ ▼ A. Warps to the Desert Colossus, which is how young Link gets there for his half of the Spirit Temple.",

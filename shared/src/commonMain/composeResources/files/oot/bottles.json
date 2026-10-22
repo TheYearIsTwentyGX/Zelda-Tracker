@@ -18,6 +18,7 @@
         {
           "id": "talons_chicken_game",
           "name": "Talon's Chicken Game",
+          "unlockedBy": ["meet_zelda"],
           "area": "Lon Lon Ranch",
           "howTo": "As young Link, pay Talon in the ranch house to play, and find his three Super Cuccos among the others before time runs out.",
           "reward": "Bottle of Lon Lon Milk",
@@ -28,6 +29,7 @@
         {
           "id": "rutos_letter",
           "name": "Ruto's Letter",
+          "unlockedBy": ["meet_zelda"],
           "area": "Lake Hylia",
           "howTo": "With the Silver Scale, dive for the bottle on the lake bed near the underwater passage to Zora's Domain.",
           "reward": "Bottle (holding Ruto's Letter)",
@@ -37,6 +39,7 @@
         {
           "id": "poe_collector",
           "name": "Poe Collector",
+          "unlockedBy": ["master_sword"],
           "area": "Hyrule Market",
           "howTo": "As adult Link, sell 10 Big Poes to the Poe Collector in the Ghost Shop, the old guardhouse by the Market entrance.",
           "notes": "Each Big Poe pays 50 Rupees and 100 points; the bottle comes at 1,000 points. The Big Poes tracker lists all ten.",
