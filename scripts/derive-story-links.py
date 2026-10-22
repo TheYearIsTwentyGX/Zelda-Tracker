@@ -33,7 +33,9 @@ FILES = Path(__file__).resolve().parent.parent / "shared/src/commonMain/composeR
 
 # Each game: `after`, `area` and `region` texts to a step id (None: available from the start);
 # `items`, overrides by "<file stem>/<item id>"; optionally `inside`, a dungeon's region to the step
-# that opens it, and `sticky`, "<file stem>/<section id>"s whose items inherit the gate above them.
+# that opens it, `sticky`, "<file stem>/<section id>"s whose items inherit the gate above them, and
+# `needs`, `places` and `photo`, for a game whose items say in their text what they need (see propose),
+# and `refs`, a regex whose groups name another item (by an id template) whose gate it shares.
 GAMES = {
     "ss": {
         "after": {
@@ -179,6 +181,125 @@ GAMES = {
             "bugs_treasures/treasure_evil_crystal": "skyview_temple",
             "bugs_treasures/treasure_monster_horn": "statue_of_the_goddess",
             "bugs_treasures/treasure_goddess_plume": "statue_of_the_goddess",
+        },
+    },
+    "ww": {
+        # The sea opens with the Wind Waker (`dragon_roost_island`); after that, what an item needs is
+        # mostly gear, which its text names. Outset Island is reached again only by sailing.
+        "after": {
+            "After getting the Wind Waker": "dragon_roost_island",
+            "After Dragon Roost Cavern": "dragon_roost_cavern",
+            "After Farore's Pearl": "farores_pearl",
+            "After the Forbidden Woods": "forbidden_woods",
+            "After the second visit to the Forsaken Fortress": "forsaken_fortress_second",
+        },
+        "region": {
+            "Windfall Island": "windfall_sail",
+            "Forest Haven": "dins_pearl",
+            "Tower of the Gods": "nayrus_pearl",
+            "Forsaken Fortress": "hyrule_castle",
+        },
+        # Where something is: a dungeon by the step that opens it, any other island by the sea.
+        "places": {
+            r"Windfall": "windfall_sail",
+            r"Dragon Roost|Flight Control Platform": "dragon_roost_island",
+            r"Forest Haven": "dins_pearl",
+            r"Forbidden Woods": "forest_haven",
+            r"Tower of the Gods|Temple of the Gods": "nayrus_pearl",
+            r"Hyrule Castle": "tower_of_the_gods",
+            r"Forsaken Fortress": "hyrule_castle",
+            r"Earth Temple|Wind Temple": "forsaken_fortress_second",
+            r"Ganon's Tower": "triforce_of_courage",
+            r"Great Sea|(?<!Windfall )Island|Isles?\b|Reef|Archipelago|Boating Course|Bird's Peak Rock": "dragon_roost_island",
+        },
+        "needs": {
+            r"Grappling Hook|Wind's Requiem|Wind Waker|Song of Passing": "dragon_roost_island",
+            r"Hyoi Pear|seagull|All-Purpose Bait|Bait Bag|Beedle": "dragon_roost_island",
+            r"Deku Leaf|[Gg]lide|Boomerang|Magic Meter": "forest_haven",
+            r"\bBombs?\b(?! Shop| Island)|[Bb]low up|[Bb]omb (it|the)|cannon|[Ss]ink the|warships?": "windfall_bombs",
+            r"\barrows?\b|Hero's Bow|Cyclos|Ballad of Gales|Command Melody|Darknuts?|Knight's Crest": "nayrus_pearl",
+            r"Skull Hammer|Master Sword": "hyrule_castle",
+            r"Fire Arrow|Ice Arrow|Hookshot|Power Bracelets|stone head|Iron Boots|Mirror Shield": "forsaken_fortress_second",
+            r"Ghost Ship Chart|Aryll is rescued|Skull Necklace": "forsaken_fortress_second",
+            r"Light Arrow": "triforce_of_courage",
+            r"colour pictograph|Deluxe Picto Box": "dins_pearl",
+            r"Picto Box|Tingle(?! Island)": "windfall_sail",
+        },
+        "refs": {r"Treasure Chart (\d+)": "treasure_chart_{}"},
+        # A figurine needs a colour pictograph (the Deluxe Picto Box, with a Forest Firefly) shown to
+        # Carlov in the Nintendo Gallery by Forest Haven (opened with a Hyoi Pear): `dins_pearl` at the
+        # earliest, then the first place its subject can be photographed.
+        "photo": {"figurines/figurines": "dins_pearl"},
+        "items": {
+            # Had on Outset and Tetra's ship, before the sea opens.
+            "items/sword": "outset_island",
+            "items/shield": "outset_island",
+            "items/telescope": "outset_island",
+            "items/pirates_charm": "outset_island",
+            "items/spoils_bag": "outset_island",
+            "items/sail": "windfall_sail",
+            # Charted already when the King of Red Lions hands over the Sea Chart.
+            "sea_chart/a1_forsaken_fortress": "windfall_sail",
+            "sea_chart/b4_windfall_island": "windfall_sail",
+            "sea_chart/g2_outset_island": "windfall_sail",
+            "items/wind_waker": "dragon_roost_island",
+            "items/delivery_bag": "dragon_roost_island",
+            "items/bottle_medli": "dragon_roost_island",
+            "items/deku_leaf": "forest_haven",
+            "items/bombs": "windfall_bombs",
+            "items/magic_armor": "dragon_roost_island",
+            "items/heros_charm": "windfall_sail",
+            # Each upgrade is from either of two Great Fairies: the earlier one counts.
+            "items/wallet": "dragon_roost_island",
+            "items/bomb_bag": "windfall_bombs",
+            "items/quiver": "hyrule_castle",
+            "great_fairies/southern_fairy_island": "windfall_bombs",
+            # The FF1 jail cell is open to a swordless Link too.
+            "heart_pieces/forsaken_fortress_jail": "outset_island",
+            "heart_pieces/withered_trees": "forbidden_woods",
+            # The islet's chest opens once the lighthouse is lit, with a Fire Arrow from the windmill.
+            "heart_pieces/windfall_islet_chest": "forsaken_fortress_second",
+            "heart_pieces/pawprint_chuchu_cave": "dragon_roost_island",
+            "sea_secrets/pawprint_chuchu_cave": "dragon_roost_island",
+            # A Big Octo's eyes fall to the Boomerang as well as to arrows or the cannon.
+            "heart_pieces/tingle_island_big_octo": "forest_haven",
+            "heart_pieces/seven_star_big_octo": "forest_haven",
+            "great_fairies/two_eye_reef": "forest_haven",
+            "sea_secrets/seven_star_isles_big_octo": "forest_haven",
+            "sea_secrets/tingle_island_big_octo": "forest_haven",
+            "sea_secrets/fire_mountain_big_octo": "forest_haven",
+            "sea_secrets/private_oasis_big_octo": "forest_haven",
+            "sea_secrets/diamond_steppe_island_big_octo": "forest_haven",
+            "sea_secrets/two_eye_reef_big_octo": "forest_haven",
+            "sea_secrets/rock_spire_isle_cave": "windfall_bombs",
+            "sea_secrets/horseshoe_island_cave": "forest_haven",
+            "sea_secrets/boating_course_cave": "forest_haven",
+            "charts/submarine_chart": "forest_haven",
+            "charts/platform_chart": "dragon_roost_island",
+            "side_quests/tingle_statues_reward": "forsaken_fortress_second",
+            # Legendary Pictographs are sold once Aryll is rescued; Zelda comes with the King's.
+            "figurines/fado": "forsaken_fortress_second",
+            "figurines/laruto": "forsaken_fortress_second",
+            "figurines/ganondorf": "forsaken_fortress_second",
+            "figurines/jabun": "forsaken_fortress_second",
+            "figurines/great_fairy": "forsaken_fortress_second",
+            "figurines/king_of_hyrule": "forsaken_fortress_second",
+            "figurines/princess_zelda": "forsaken_fortress_second",
+            "figurines/queen_of_fairies": "forsaken_fortress_second",
+            # Gohma is met before the Deluxe Picto Box; only her rematch in Ganon's Tower can be photographed.
+            # Tetra's crew come with her figurine; she can be photographed in Hyrule Castle. Niko also on
+            # her ship, when Link sneaks aboard for the Bombs.
+            "figurines/gonzo": "tower_of_the_gods",
+            "figurines/mako": "tower_of_the_gods",
+            "figurines/nudge": "tower_of_the_gods",
+            "figurines/senza": "tower_of_the_gods",
+            "figurines/zuko": "tower_of_the_gods",
+            "figurines/niko": "windfall_bombs",
+            # The sea around a dungeon is open like the rest of it.
+            "sea_chart/d5_tower_of_the_gods": "dragon_roost_cavern",
+            "sea_chart/f6_forest_haven": "dragon_roost_cavern",
+            "figurines/gohma": "triforce_of_courage",
+            "figurines/link_and_the_king_of_red_lions": "triforce_of_courage",
         },
     },
     "tp": {
@@ -339,25 +460,54 @@ def story_depth(story):
     return depth
 
 
-def propose(game, stem, item, depth):
+def text_of(item):
+    """What an item says it needs: its area and how-to, or its first tier's how-to when it has tiers."""
+    how = item["tiers"][0].get("howTo") if item.get("tiers") else item.get("howTo")
+    return " ".join(t for t in (item.get("area"), how) if t)
+
+
+def matches(table, text):
+    """The steps of every pattern in `table` (regex to step) that `text` contains, with the pattern."""
+    return [(step, pattern) for pattern, step in table.items() if re.search(pattern, text)]
+
+
+def propose(game, stem, section, item, depth):
     """
     (step or None, basis) for one item. An item in a dungeon's region (the table's `inside`) is
-    gated by the step that opens the dungeon, unless its `after` needs something later.
+    gated by the step that opens the dungeon, unless its `after` needs something later. A game
+    with `needs` (regex to step) also gates on every item or place its text mentions, the latest
+    winning; a `photo` section instead takes the earliest of the places its text lists, but never
+    earlier than that section's floor.
     """
     table = GAMES[game]
     key = f"{stem}/{item['id']}"
     if key in table["items"]:
         return table["items"][key], "override"
+    if f"{stem}/{section}" in table.get("photo", {}):
+        floor = table["photo"][f"{stem}/{section}"]
+        places = [m for m in matches(table.get("places", {}), item.get("howTo") or "") if m[0] is not None]
+        if not places:
+            return floor, "photo floor"
+        step, pattern = min(places, key=lambda m: depth[m[0]])
+        return (step, f"photo: {pattern}") if depth[step] > depth[floor] else (floor, "photo floor")
     found = None, "none"
     for field in ("after", "area", "region"):
         text = item.get(field)
         if text is not None and text in table.get(field, {}):
             found = table[field][text], field
             break
+    candidates = [found] if found[0] is not None else []
     inside = table.get("inside", {}).get(item.get("region"))
-    if inside is not None and (found[0] is None or depth[inside] >= depth[found[0]]):
-        return inside, "inside"
-    return found
+    if inside is not None:
+        candidates.append((inside, "inside"))
+    text = text_of(item)
+    candidates += [(step, f"needs: {pattern}") for step, pattern in matches(table.get("needs", {}), text) if step is not None]
+    where = " ".join(t for t in (text, item.get("region")) if t)
+    candidates += [(step, f"place: {pattern}") for step, pattern in matches(table.get("places", {}), where) if step is not None]
+    if not candidates:
+        return found
+    # The latest wins; on a tie, the first found (after, then inside, then the text).
+    return max(candidates, key=lambda c: depth[c[0]])
 
 
 def insert_link(text, item_id, steps):
@@ -381,6 +531,13 @@ def main(args):
     steps = {it["id"] for s in story["sections"] for it in s["items"]}
     depth = story_depth(story)
     sticky = GAMES[game].get("sticky", set())
+    refs = GAMES[game].get("refs", {})
+    # A first pass, so an item that names another (`refs`: "Treasure Chart 33") can take its gate.
+    first = {}
+    for path in checklists(game):
+        for section in json.loads(path.read_text())["sections"]:
+            for item in section.get("items", []):
+                first[item["id"]] = propose(game, path.stem, section["id"], item, depth)[0]
     rows = []
     for path in checklists(game):
         catalog = json.loads(path.read_text())
@@ -389,11 +546,17 @@ def main(args):
             # In a `sticky` section (floors of a cave, say) an item with nothing of its own is gated like the one before.
             last = None
             for item in section.get("items", []):
-                step, basis = propose(game, path.stem, item, depth)
+                step, basis = propose(game, path.stem, section["id"], item, depth)
                 if f"{path.stem}/{section['id']}" in sticky:
                     if basis == "none" and last is not None:
                         step, basis = last, "sticky"
                     last = step
+                if basis != "override":
+                    for pattern, template in refs.items():
+                        for m in re.finditer(pattern, text_of(item)):
+                            other = first.get(template.format(*m.groups()))
+                            if other is not None and (step is None or depth[other] > depth[step]):
+                                step, basis = other, f"ref: {m.group(0)}"
                 if step is not None and step not in steps:
                     raise SystemExit(f"{path.stem}/{item['id']}: '{step}' isn't a Main Quest step")
                 rows.append((path.stem, item["id"], item["name"], item.get("after") or item.get("area") or "", step or "", basis))

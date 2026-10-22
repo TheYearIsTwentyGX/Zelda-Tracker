@@ -9,11 +9,11 @@
       "noun": "item",
       "note": "Swords and shields are one row each; tap the row for the next one.",
       "items": [
-        {"id": "sword", "name": "Sword", "notes": "The Master Sword gains half its power when either sage is awake, and all of it with both.", "tiers": [{"name": "Hero's Sword", "howTo": "From Orca on Outset Island, after his sword lesson."}, {"name": "Master Sword", "howTo": "Draw it in the basement of Hyrule Castle, after the Tower of the Gods."}, {"name": "Master Sword (half power)", "howTo": "Wake one sage: Medli in the Earth Temple or Makar in the Wind Temple."}, {"name": "Master Sword (full power)", "howTo": "Wake both sages; the sword's power returns in Hyrule Castle."}]},
-        {"id": "shield", "name": "Shield", "tiers": [{"name": "Hero's Shield", "howTo": "From Grandma on Outset Island, before leaving with Tetra's pirates."}, {"name": "Mirror Shield", "howTo": "In the Earth Temple's big chest."}]},
-        {"id": "power_bracelets", "name": "Power Bracelets", "area": "Fire Mountain", "howTo": "Freeze Fire Mountain with an Ice Arrow, climb in through the top and defeat the Magtails before the time runs out.", "notes": "Lift the big stone heads."},
-        {"id": "pirates_charm", "name": "Pirate's Charm", "area": "Tetra's ship", "howTo": "Tetra slips it to Link before firing him into the Forsaken Fortress."},
-        {"id": "heros_charm", "name": "Hero's Charm", "area": "Mrs. Marie's School of Joy, Windfall Island", "howTo": "Give Mrs. Marie 40 Joy Pendants in all: 20 for the Cabana Deed, then 20 more.", "notes": "Shows enemies' health. In Wind Waker HD it's in the chest on floor 50 of the Savage Labyrinth, and the 40 pendants give Treasure Chart 45."}
+        {"id": "sword", "name": "Sword", "unlockedBy": ["outset_island"], "notes": "The Master Sword gains half its power when either sage is awake, and all of it with both.", "tiers": [{"name": "Hero's Sword", "howTo": "From Orca on Outset Island, after his sword lesson."}, {"name": "Master Sword", "howTo": "Draw it in the basement of Hyrule Castle, after the Tower of the Gods."}, {"name": "Master Sword (half power)", "howTo": "Wake one sage: Medli in the Earth Temple or Makar in the Wind Temple."}, {"name": "Master Sword (full power)", "howTo": "Wake both sages; the sword's power returns in Hyrule Castle."}]},
+        {"id": "shield", "name": "Shield", "unlockedBy": ["outset_island"], "tiers": [{"name": "Hero's Shield", "howTo": "From Grandma on Outset Island, before leaving with Tetra's pirates."}, {"name": "Mirror Shield", "howTo": "In the Earth Temple's big chest."}]},
+        {"id": "power_bracelets", "name": "Power Bracelets", "unlockedBy": ["forsaken_fortress_second"], "area": "Fire Mountain", "howTo": "Freeze Fire Mountain with an Ice Arrow, climb in through the top and defeat the Magtails before the time runs out.", "notes": "Lift the big stone heads."},
+        {"id": "pirates_charm", "name": "Pirate's Charm", "unlockedBy": ["outset_island"], "area": "Tetra's ship", "howTo": "Tetra slips it to Link before firing him into the Forsaken Fortress."},
+        {"id": "heros_charm", "name": "Hero's Charm", "unlockedBy": ["windfall_sail"], "area": "Mrs. Marie's School of Joy, Windfall Island", "howTo": "Give Mrs. Marie 40 Joy Pendants in all: 20 for the Cabana Deed, then 20 more.", "notes": "Shows enemies' health. In Wind Waker HD it's in the chest on floor 50 of the Savage Labyrinth, and the 40 pendants give Treasure Chart 45."}
       ]
     },
     {
@@ -21,23 +21,23 @@
       "title": "Items",
       "noun": "item",
       "items": [
-        {"id": "telescope", "name": "Telescope", "area": "Outset Island", "howTo": "Aryll's birthday present, on her lookout."},
-        {"id": "sail", "name": "Sail", "area": "Windfall Island", "howTo": "Buy it from Zunari for 80 Rupees.", "notes": "Wind Waker HD adds the Swift Sail, won at the Windfall Auction; it sails faster and turns the wind for you. It isn't in the GameCube game, so it isn't tracked."},
-        {"id": "wind_waker", "name": "Wind Waker", "area": "Dragon Roost Island", "howTo": "The King of Red Lions gives it to Link on arriving at Dragon Roost Island."},
-        {"id": "grappling_hook", "name": "Grappling Hook", "area": "Dragon Roost Cavern", "howTo": "Medli gives it to Link inside Dragon Roost Cavern."},
-        {"id": "spoils_bag", "name": "Spoils Bag", "area": "Tetra's ship", "howTo": "Pass Niko's rope-swinging test below deck on the way to the Forsaken Fortress."},
-        {"id": "boomerang", "name": "Boomerang", "area": "Forbidden Woods", "howTo": "In the Forbidden Woods, after its Mothula."},
-        {"id": "deku_leaf", "name": "Deku Leaf", "area": "Forest Haven", "howTo": "At the top of the Great Deku Tree, after clearing it of ChuChus.", "notes": "Comes with the Magic Meter."},
-        {"id": "tingle_tuner", "name": "Tingle Tuner", "area": "Windfall Island", "howTo": "Tingle gives it to Link for letting him out of the jail behind Lenzo's house.", "notes": "Needs a Game Boy Advance link cable on the GameCube. Wind Waker HD replaces it with the Tingle Bottle, which sent messages over Miiverse (closed in 2017)."},
-        {"id": "picto_box", "name": "Picto Box", "tiers": [{"name": "Picto Box", "howTo": "In the chest at the end of the crawlspace maze behind Tingle's jail cell on Windfall Island."}, {"name": "Deluxe Picto Box", "howTo": "Bring Lenzo a Forest Firefly (caught in a Bottle in Forest Haven) after his three pictograph tasks."}], "notes": "The GameCube box holds 3 pictographs, Wind Waker HD's 12. In HD Lenzo gives the Deluxe Picto Box for the three tasks alone."},
-        {"id": "iron_boots", "name": "Iron Boots", "area": "Ice Ring Isle", "howTo": "Thaw Ice Ring Isle with a Fire Arrow and find them in the cave inside."},
-        {"id": "magic_armor", "name": "Magic Armor", "area": "Zunari's shop, Windfall Island", "howTo": "Zunari gives it to Link partway through the Traveling Merchants' trading chain.", "notes": "Drains magic on the GameCube; in Wind Waker HD it costs Rupees when Link is hit."},
-        {"id": "bait_bag", "name": "Bait Bag", "area": "Beedle's Shop Ship", "howTo": "Buy it from Beedle for 20 Rupees."},
-        {"id": "heros_bow", "name": "Hero's Bow", "tiers": [{"name": "Hero's Bow", "howTo": "In the Tower of the Gods, after its Darknut."}, {"name": "Fire & Ice Arrows", "howTo": "From the Queen of Fairies on Mother and Child Isles; warp there with the Ballad of Gales."}, {"name": "Light Arrows", "howTo": "In Ganon's Tower, at the end of Phantom Ganon's maze."}]},
-        {"id": "bombs", "name": "Bombs", "area": "Tetra's ship, Windfall Island", "howTo": "Sneak aboard Tetra's ship at Windfall and pass Niko's second test."},
-        {"id": "delivery_bag", "name": "Delivery Bag", "area": "Dragon Roost Island", "howTo": "Quill gives it to Link on Dragon Roost Island."},
-        {"id": "hookshot", "name": "Hookshot", "area": "Wind Temple", "howTo": "In the Wind Temple, after its Wizzrobe."},
-        {"id": "skull_hammer", "name": "Skull Hammer", "area": "Forsaken Fortress", "howTo": "On the second visit, after Phantom Ganon's ambush."}
+        {"id": "telescope", "name": "Telescope", "unlockedBy": ["outset_island"], "area": "Outset Island", "howTo": "Aryll's birthday present, on her lookout."},
+        {"id": "sail", "name": "Sail", "unlockedBy": ["windfall_sail"], "area": "Windfall Island", "howTo": "Buy it from Zunari for 80 Rupees.", "notes": "Wind Waker HD adds the Swift Sail, won at the Windfall Auction; it sails faster and turns the wind for you. It isn't in the GameCube game, so it isn't tracked."},
+        {"id": "wind_waker", "name": "Wind Waker", "unlockedBy": ["dragon_roost_island"], "area": "Dragon Roost Island", "howTo": "The King of Red Lions gives it to Link on arriving at Dragon Roost Island."},
+        {"id": "grappling_hook", "name": "Grappling Hook", "unlockedBy": ["dragon_roost_island"], "area": "Dragon Roost Cavern", "howTo": "Medli gives it to Link inside Dragon Roost Cavern."},
+        {"id": "spoils_bag", "name": "Spoils Bag", "unlockedBy": ["outset_island"], "area": "Tetra's ship", "howTo": "Pass Niko's rope-swinging test below deck on the way to the Forsaken Fortress."},
+        {"id": "boomerang", "name": "Boomerang", "unlockedBy": ["forest_haven"], "area": "Forbidden Woods", "howTo": "In the Forbidden Woods, after its Mothula."},
+        {"id": "deku_leaf", "name": "Deku Leaf", "unlockedBy": ["forest_haven"], "area": "Forest Haven", "howTo": "At the top of the Great Deku Tree, after clearing it of ChuChus.", "notes": "Comes with the Magic Meter."},
+        {"id": "tingle_tuner", "name": "Tingle Tuner", "unlockedBy": ["windfall_sail"], "area": "Windfall Island", "howTo": "Tingle gives it to Link for letting him out of the jail behind Lenzo's house.", "notes": "Needs a Game Boy Advance link cable on the GameCube. Wind Waker HD replaces it with the Tingle Bottle, which sent messages over Miiverse (closed in 2017)."},
+        {"id": "picto_box", "name": "Picto Box", "unlockedBy": ["windfall_sail"], "tiers": [{"name": "Picto Box", "howTo": "In the chest at the end of the crawlspace maze behind Tingle's jail cell on Windfall Island."}, {"name": "Deluxe Picto Box", "howTo": "Bring Lenzo a Forest Firefly (caught in a Bottle in Forest Haven) after his three pictograph tasks."}], "notes": "The GameCube box holds 3 pictographs, Wind Waker HD's 12. In HD Lenzo gives the Deluxe Picto Box for the three tasks alone."},
+        {"id": "iron_boots", "name": "Iron Boots", "unlockedBy": ["forsaken_fortress_second"], "area": "Ice Ring Isle", "howTo": "Thaw Ice Ring Isle with a Fire Arrow and find them in the cave inside."},
+        {"id": "magic_armor", "name": "Magic Armor", "unlockedBy": ["dragon_roost_island"], "area": "Zunari's shop, Windfall Island", "howTo": "Zunari gives it to Link partway through the Traveling Merchants' trading chain.", "notes": "Drains magic on the GameCube; in Wind Waker HD it costs Rupees when Link is hit."},
+        {"id": "bait_bag", "name": "Bait Bag", "unlockedBy": ["dragon_roost_island"], "area": "Beedle's Shop Ship", "howTo": "Buy it from Beedle for 20 Rupees."},
+        {"id": "heros_bow", "name": "Hero's Bow", "unlockedBy": ["nayrus_pearl"], "tiers": [{"name": "Hero's Bow", "howTo": "In the Tower of the Gods, after its Darknut."}, {"name": "Fire & Ice Arrows", "howTo": "From the Queen of Fairies on Mother and Child Isles; warp there with the Ballad of Gales."}, {"name": "Light Arrows", "howTo": "In Ganon's Tower, at the end of Phantom Ganon's maze."}]},
+        {"id": "bombs", "name": "Bombs", "unlockedBy": ["windfall_bombs"], "area": "Tetra's ship, Windfall Island", "howTo": "Sneak aboard Tetra's ship at Windfall and pass Niko's second test."},
+        {"id": "delivery_bag", "name": "Delivery Bag", "unlockedBy": ["dragon_roost_island"], "area": "Dragon Roost Island", "howTo": "Quill gives it to Link on Dragon Roost Island."},
+        {"id": "hookshot", "name": "Hookshot", "unlockedBy": ["forsaken_fortress_second"], "area": "Wind Temple", "howTo": "In the Wind Temple, after its Wizzrobe."},
+        {"id": "skull_hammer", "name": "Skull Hammer", "unlockedBy": ["hyrule_castle"], "area": "Forsaken Fortress", "howTo": "On the second visit, after Phantom Ganon's ambush."}
       ]
     },
     {
@@ -46,10 +46,10 @@
       "noun": "bottle",
       "hiddenLabel": "Unfound Bottle",
       "items": [
-        {"id": "bottle_medli", "name": "Bottle (Medli)", "area": "Dragon Roost Island", "howTo": "Medli gives it to Link after he helps her up the mountain to Dragon Roost Cavern."},
-        {"id": "bottle_mila", "name": "Bottle (Mila)", "area": "Windfall Island", "howTo": "At night, follow Mila from the potion shop without being seen and catch her at Zunari's safe.", "after": "After the second visit to the Forsaken Fortress"},
-        {"id": "bottle_submarine", "name": "Bottle (Bomb Island submarine)", "area": "Bomb Island", "howTo": "Defeat the Bokoblins in the submarine near Bomb Island to make the chest appear."},
-        {"id": "bottle_beedle", "name": "Bottle (Beedle's special shop)", "area": "Rock Spire Isle", "howTo": "Buy it for 500 Rupees at the masked Beedle's shop ship by Rock Spire Isle.", "notes": "Zelda Wiki says it's on sale once you have Beedle's Chart (sent by post after you get the Bombs)."}
+        {"id": "bottle_medli", "name": "Bottle (Medli)", "unlockedBy": ["dragon_roost_island"], "area": "Dragon Roost Island", "howTo": "Medli gives it to Link after he helps her up the mountain to Dragon Roost Cavern."},
+        {"id": "bottle_mila", "name": "Bottle (Mila)", "unlockedBy": ["forsaken_fortress_second"], "area": "Windfall Island", "howTo": "At night, follow Mila from the potion shop without being seen and catch her at Zunari's safe.", "after": "After the second visit to the Forsaken Fortress"},
+        {"id": "bottle_submarine", "name": "Bottle (Bomb Island submarine)", "unlockedBy": ["dragon_roost_island"], "area": "Bomb Island", "howTo": "Defeat the Bokoblins in the submarine near Bomb Island to make the chest appear."},
+        {"id": "bottle_beedle", "name": "Bottle (Beedle's special shop)", "unlockedBy": ["dragon_roost_island"], "area": "Rock Spire Isle", "howTo": "Buy it for 500 Rupees at the masked Beedle's shop ship by Rock Spire Isle.", "notes": "Zelda Wiki says it's on sale once you have Beedle's Chart (sent by post after you get the Bombs)."}
       ]
     },
     {
@@ -58,11 +58,11 @@
       "noun": "upgrade",
       "note": "Great Fairies give the wallet, bomb and quiver upgrades and double magic (see Great Fairies).",
       "items": [
-        {"id": "wallet", "name": "Wallet", "value": 800, "notes": "Either fairy can be first: the first one visited gives 1,000 and the second 5,000. Wind Waker HD's wallet starts at 500.", "tiers": [{"name": "1,000 Rupees", "howTo": "A Great Fairy: Outset Island's Forest of Fairies (bomb the rock) or Northern Fairy Island."}, {"name": "5,000 Rupees", "value": 4000, "howTo": "The other of those two Great Fairies."}]},
-        {"id": "bomb_bag", "name": "Bomb Bag", "value": 30, "notes": "Either fairy can be first; the second gives 99.", "tiers": [{"name": "60 Bombs", "howTo": "A Great Fairy: Southern Fairy Island (break the wooden wall) or Eastern Fairy Island (bomb the rock)."}, {"name": "99 Bombs", "value": 39, "howTo": "The other of those two Great Fairies."}]},
-        {"id": "quiver", "name": "Quiver", "value": 30, "notes": "Either fairy can be first; the second gives 99.", "tiers": [{"name": "60 Arrows", "howTo": "A Great Fairy: Western Fairy Island or Thorned Fairy Island; pound the stakes by each with the Skull Hammer."}, {"name": "99 Arrows", "value": 39, "howTo": "The other of those two Great Fairies."}]},
-        {"id": "magic_meter", "name": "Magic Meter", "tiers": [{"name": "Magic Meter", "howTo": "With the Deku Leaf, from the Great Deku Tree."}, {"name": "Double magic", "howTo": "From the Great Fairy freed by defeating the four-eyed Big Octo at Two-Eye Reef."}]},
-        {"id": "hurricane_spin", "name": "Hurricane Spin", "area": "Orca's house, Outset Island", "howTo": "Bring Orca 10 Knight's Crests, dropped by Darknuts; he teaches the Hurricane Spin.", "notes": "Orca's letter about the crests arrives once Link has the Bombs."}
+        {"id": "wallet", "name": "Wallet", "unlockedBy": ["dragon_roost_island"], "value": 800, "notes": "Either fairy can be first: the first one visited gives 1,000 and the second 5,000. Wind Waker HD's wallet starts at 500.", "tiers": [{"name": "1,000 Rupees", "howTo": "A Great Fairy: Outset Island's Forest of Fairies (bomb the rock) or Northern Fairy Island."}, {"name": "5,000 Rupees", "value": 4000, "howTo": "The other of those two Great Fairies."}]},
+        {"id": "bomb_bag", "name": "Bomb Bag", "unlockedBy": ["windfall_bombs"], "value": 30, "notes": "Either fairy can be first; the second gives 99.", "tiers": [{"name": "60 Bombs", "howTo": "A Great Fairy: Southern Fairy Island (break the wooden wall) or Eastern Fairy Island (bomb the rock)."}, {"name": "99 Bombs", "value": 39, "howTo": "The other of those two Great Fairies."}]},
+        {"id": "quiver", "name": "Quiver", "unlockedBy": ["hyrule_castle"], "value": 30, "notes": "Either fairy can be first; the second gives 99.", "tiers": [{"name": "60 Arrows", "howTo": "A Great Fairy: Western Fairy Island or Thorned Fairy Island; pound the stakes by each with the Skull Hammer."}, {"name": "99 Arrows", "value": 39, "howTo": "The other of those two Great Fairies."}]},
+        {"id": "magic_meter", "name": "Magic Meter", "unlockedBy": ["forest_haven"], "tiers": [{"name": "Magic Meter", "howTo": "With the Deku Leaf, from the Great Deku Tree."}, {"name": "Double magic", "howTo": "From the Great Fairy freed by defeating the four-eyed Big Octo at Two-Eye Reef."}]},
+        {"id": "hurricane_spin", "name": "Hurricane Spin", "unlockedBy": ["nayrus_pearl"], "area": "Orca's house, Outset Island", "howTo": "Bring Orca 10 Knight's Crests, dropped by Darknuts; he teaches the Hurricane Spin.", "notes": "Orca's letter about the crests arrives once Link has the Bombs."}
       ]
     }
   ]

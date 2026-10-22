@@ -200,4 +200,19 @@ class WwDatasetTest {
             c.items.filter { it.tiers.isEmpty() }.forEach { assertTrue(!it.howTo.isNullOrBlank(), "${it.id} in $name") }
         }
     }
+    /**
+     * Story links (docs/ww.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand, and that every item has one: nothing is had before Outset.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = withCatalogs { catalogs ->
+        val links = catalogs.filterKeys { it != "main_quest" }.values.flatMap { it.items }.associate { it.id to it.unlockedBy }
+        assertEquals(emptyMap(), links.filterValues { it.isEmpty() })
+        assertEquals(listOf("outset_island"), links["sword"], "Orca's, on Outset")
+        assertEquals(listOf("dragon_roost_island"), links["bottle_submarine"], "the open sea, once Link has the Wind Waker")
+        assertEquals(listOf("forsaken_fortress_second"), links["ice_ring_isle_cave"], "needs a Fire Arrow")
+        assertEquals(listOf("forsaken_fortress_second"), links["rock_spire_sunken"], "Treasure Chart 2's, from Maggie's Father")
+        assertEquals(listOf("dins_pearl"), links["komali"], "a figurine needs the Deluxe Picto Box and the Nintendo Gallery")
+        assertEquals(listOf("triforce_of_courage"), links["gohma"], "only her rematch in Ganon's Tower can be photographed in colour")
+    }
 }
