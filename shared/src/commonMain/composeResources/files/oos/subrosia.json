@@ -11,6 +11,7 @@
         {
           "id": "follow_rosa",
           "name": "Follow Rosa to Subrosia",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Eastern Suburbs",
           "howTo": "After the Gnarled Root Dungeon, a hooded girl panics about a falling temple east of Horon Village. Follow her north without being seen, then cut the grass where she vanishes to find the portal.",
           "after": "Gnarled Root Dungeon",
@@ -19,6 +20,7 @@
         {
           "id": "temple_of_seasons",
           "name": "Temple of Seasons",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Temple of Seasons",
           "howTo": "From the first portal, head southeast to the sunken temple. The Season Spirits greet you; stand on the pedestal at the central altar.",
           "requires": ["follow_rosa"],
@@ -28,6 +30,7 @@
         {
           "id": "date_with_rosa",
           "name": "Date with Rosa",
+          "unlockedBy": ["snakes_remains"],
           "area": "Subrosia Seaside",
           "howTo": "Give Rosa her Ribbon by the trees on the east of the seaside. She tags along and her key opens Subrosia's locked doors, including the Tower of Summer's.",
           "requires": ["ribbon"],
@@ -36,6 +39,7 @@
         {
           "id": "strange_brothers",
           "name": "The Strange Brothers",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Treasure Grove",
           "howTo": "Arriving through the Mt. Cucco portal, the Strange Brothers swap your Roc's Feather for Fool's Ore. Follow them through the Treasure Grove without being seen and dig up the feather where they bury it.",
           "after": "Poison Moth's Lair",
@@ -44,6 +48,7 @@
         {
           "id": "bomb_flower_for_smelter",
           "name": "Bomb Flower for the Smelter",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Lava Lake",
           "howTo": "From the Eyeglass Lake portal, cross Lava Lake with Roc's Feather, pull up the lone Bomb Flower with the Power Bracelet and carry it to the Subrosian Smelter at the Tower of Autumn.",
           "requires": ["strange_brothers"],
@@ -53,6 +58,7 @@
         {
           "id": "pirates_depart",
           "name": "The Piratians set sail",
+          "unlockedBy": ["ancient_ruins"],
           "area": "House of Pirates, Subrosia Cemetery",
           "howTo": "Bring the Cap'n the polished Pirate's Bell. The crew digs out and sails to Holodrum's Western Coast.",
           "requires": ["pirates_bell"],
@@ -62,6 +68,7 @@
         {
           "id": "volcano_eruption",
           "name": "Wake the volcanoes",
+          "unlockedBy": ["explorers_crypt"],
           "area": "Subrosian Volcanoes",
           "howTo": "Through the winter portal in the Temple Remains, find the Subrosian throwing things into a pit and throw in a bomb. The eruption fills the Temple Remains with lava and burns away the trees in your way.",
           "after": "Explorer's Crypt",
@@ -77,6 +84,7 @@
         {
           "id": "ribbon",
           "name": "Ribbon",
+          "unlockedBy": ["snakes_remains"],
           "area": "Subrosia Market",
           "howTo": "Trade the Star-Shaped Ore for it.",
           "requires": ["star_shaped_ore"],
@@ -85,6 +93,7 @@
         {
           "id": "members_card",
           "name": "Member's Card",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosia Market",
           "howTo": "Buy it for 5 Ore Chunks.",
           "notes": "Opens the Horon Village Shop's basement. Also a Quest Item."
@@ -92,6 +101,7 @@
         {
           "id": "rare_peach_stone",
           "name": "Rare Peach Stone",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosia Market",
           "howTo": "Buy it for 20 Ore Chunks and 10 Ember Seeds.",
           "reward": "Piece of Heart",
@@ -101,6 +111,7 @@
         {
           "id": "market_wooden_shield",
           "name": "Wooden Shield",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosia Market",
           "howTo": "Trade 5 Ember Seeds for the 'cutting board'. There's only one.",
           "notes": "The cheapest Wooden Shield in the game. Pegasus Seeds take its place once it's gone."
@@ -108,6 +119,7 @@
         {
           "id": "big_bomb_bag",
           "name": "Big Bomb Bag",
+          "unlockedBy": ["snakes_remains"],
           "area": "Subrosia Market",
           "howTo": "On sale once the Ribbon is gone: 50 Ore Chunks and 10 Bombs. Lift the red bomb and it explodes harmlessly.",
           "requires": ["ribbon"],
@@ -117,6 +129,7 @@
         {
           "id": "market_rings",
           "name": "Magic Rings",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosia Market",
           "tiers": [
             {"name": "First ring", "howTo": "On sale once the Rare Peach Stone is gone: 30 Ore Chunks."},
@@ -137,6 +150,7 @@
         {
           "id": "star_shaped_ore",
           "name": "Star-Shaped Ore",
+          "unlockedBy": ["snakes_remains"],
           "area": "Subrosia Seaside",
           "howTo": "Dig in the sand with the Shovel until you find it.",
           "after": "Snake's Remains",
@@ -145,6 +159,7 @@
         {
           "id": "red_ore",
           "name": "Red Ore",
+          "unlockedBy": ["unicorns_cave"],
           "area": "Subrosia Village",
           "howTo": "Cross the pits in southeastern Subrosia Village with the Magnetic Gloves to the cave under the cliff, and climb to the chest on top.",
           "after": "Unicorn's Cave",
@@ -153,6 +168,7 @@
         {
           "id": "blue_ore",
           "name": "Blue Ore",
+          "unlockedBy": ["unicorns_cave"],
           "area": "Subrosian Wilds",
           "howTo": "In a chest just inside the Subrosian Wilds in the far west, past boulders and pits you cross with the Magnetic Gloves and S stones.",
           "after": "Unicorn's Cave",
@@ -161,6 +177,7 @@
         {
           "id": "hard_ore",
           "name": "Hard Ore",
+          "unlockedBy": ["unicorns_cave"],
           "area": "Great Furnace",
           "howTo": "Bring the Red Ore and Blue Ore to the Subrosian Smelter at the Great Furnace.",
           "requires": ["red_ore", "blue_ore"],
@@ -169,6 +186,7 @@
         {
           "id": "iron_shield",
           "name": "Iron Shield",
+          "unlockedBy": ["unicorns_cave"],
           "area": "Subrosian Smithy",
           "howTo": "Bring the Hard Ore and your Wooden Shield to the Subrosian Smithy.",
           "requires": ["hard_ore"],
@@ -177,6 +195,7 @@
         {
           "id": "pirates_bell",
           "name": "Pirate's Bell",
+          "unlockedBy": ["ancient_ruins"],
           "area": "Subrosian Smithy",
           "tiers": [
             {"name": "Rusty Bell", "howTo": "In the Samasa Desert, carry the pirate's skull from the oasis with the Power Bracelet and jump into the quicksand pit where it starts to shatter."},
@@ -195,6 +214,7 @@
         {
           "id": "dance_boomerang",
           "name": "Dance Hall: Boomerang",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosian Dance Hall",
           "howTo": "Talk to the leader in red and follow the dancers for a whole round without bumping into anyone.",
           "requires": ["follow_rosa"],
@@ -204,6 +224,7 @@
         {
           "id": "dance_strange_flute",
           "name": "Dance Hall: Strange Flute",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosian Dance Hall",
           "howTo": "Keep winning rounds after the Boomerang, between Snake's Remains and helping Ricky.",
           "requires": ["dance_boomerang"],
@@ -214,6 +235,7 @@
         {
           "id": "strange_brothers_treasure",
           "name": "Strange Brothers' buried treasure",
+          "unlockedBy": ["poison_moths_lair"],
           "area": "Treasure Grove",
           "howTo": "Go back into the Strange Brothers' house and follow them unseen again; dig where they bury their treasure.",
           "requires": ["strange_brothers"],
@@ -222,6 +244,7 @@
         {
           "id": "sign_loving_subrosian",
           "name": "Sign-Loving Subrosian",
+          "unlockedBy": ["gnarled_root_dungeon"],
           "area": "Subrosia Village",
           "howTo": "Break 100 signs, then visit the Subrosian who loves signs, in the little house on the plateau by the Great Furnace.",
           "reward": "Sign Ring",
