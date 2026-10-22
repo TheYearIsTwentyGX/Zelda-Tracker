@@ -828,6 +828,13 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   Hylian Shield, with costs and durability.
 - **Bugs & Treasures:** one of each of the 12 bugs and 16 treasures, with where to find it and which
   upgrades and potions use it.
+- **Linked items:** a thing listed in two trackers is one tick. Batreaux's wallet rewards are the
+  Wallet's tiers (tick the 30-crystal reward and Items & Equipment shows the Big Wallet, and the
+  other way round), the Goddess Chest pieces are their cubes' chests, the minigame and side-quest
+  pieces are those prizes' tiers, the Hylian Shield is the Lightning Round's 8 wins, the Silent
+  Realms' items are the trials, and the Sacred Flames are the sword's forms: 32 links, listed in
+  `docs/ss.md` (*Linked items*). Each tracker still counts all its own rows. Saves from before were
+  merged once, ticked on either side counting as ticked.
 - **Potion Infusions:** a recipe book. The cover shows Luv's five potions (Heart, Stamina, Air,
   Revitalizing, Guardian) as cards with the game's icons and how much of each recipe you've made.
   - Pick one for its recipe, top to bottom: the base potion (Luv's Potion Shop, and its price), then

@@ -3,6 +3,7 @@ package gx.zelda.core
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.checklist.data.ChecklistLinkMigration
 import gx.zelda.upgrades.data.SharedProgressMigration
 import kotlinx.coroutines.flow.Flow
 import okio.Path.Companion.toPath
@@ -11,11 +12,12 @@ const val DATA_STORE_FILE = "zeldagx.preferences_pb"
 
 /**
  * Each platform supplies the directory; [DATA_STORE_FILE] is created inside it. The migrations run
- * once the store is first read, before anything sees its data.
+ * once the store is first read, before anything sees its data, in order: Skyward Sword's Item
+ * Upgrades move into its checklists first, so the link merge then sees them there.
  */
 fun createDataStore(directory: String): DataStore<Preferences> =
     PreferenceDataStoreFactory.createWithPath(
-        migrations = listOf(SharedProgressMigration()),
+        migrations = listOf(SharedProgressMigration(), ChecklistLinkMigration()),
         produceFile = { "$directory/$DATA_STORE_FILE".toPath() },
     )
 

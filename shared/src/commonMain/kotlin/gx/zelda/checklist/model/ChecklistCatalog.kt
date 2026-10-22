@@ -94,8 +94,8 @@ data class ChecklistCatalog(
         )
     }
 
-    /** Every item done: what a formula's maximum is worked out from. */
-    private val complete: ChecklistProgress by lazy { ChecklistProgress(items.associate { it.id to it.steps }) }
+    /** Every item done, linked ones too: what a formula's maximum is worked out from. */
+    private val complete: ChecklistProgress by lazy { ChecklistProgress().withLevels(items.associateWith { it.steps }) }
 
     /** True when every item in [ChecklistItem.requires] is done. */
     fun isUnlocked(item: ChecklistItem, progress: ChecklistProgress): Boolean =
@@ -138,6 +138,7 @@ data class ChecklistCatalog(
             if (item.unlockedBy.size != item.unlockedBy.toSet().size) add("$at lists an unlockedBy step twice")
             if (item.value < 0) add("$at has a negative value")
             item.tiers.forEach { if (it.name.isBlank()) add("$at has a tier with no name") }
+            item.sameAs?.let { addAll(linkProblems(item, it)) }
         }
         (summaries + sections.mapNotNull { it.summary }).forEach { summary ->
             val formula = runCatching { Formula.parse(summary.formula) }
@@ -147,6 +148,22 @@ data class ChecklistCatalog(
                 .forEach { add("summary '${summary.label}' reads unknown section or item '$it'") }
         }
         requireCycle()?.let { add("requires loop: ${it.joinToString(" → ")}") }
+    }
+
+    /**
+     * What's wrong with [item]'s [ChecklistItem.sameAs] link [text]. One into another file is
+     * checked against that file by `gx.zelda.checklist.data.ChecklistLinks.problems`, since a
+     * catalog can't see the game's other files.
+     */
+    private fun linkProblems(item: ChecklistItem, text: String): List<String> {
+        val at = "item '${item.id}'"
+        val link = item.link ?: return listOf("$at: bad sameAs '$text': write it as [file:]item[@tier]")
+        val tiered = listOfNotNull("$at has tiers and a sameAs link: only an item without tiers can be linked".takeIf { item.tiers.isNotEmpty() })
+        if (link.file != null) return tiered
+        val target = itemsById[link.itemId] ?: return tiered + "$at is the same as unknown item '${link.itemId}'"
+        if (target == item) return tiered + "$at is the same as itself"
+        val order = "$at is the same as '${target.id}', which comes after it: link the later of two items without tiers to the earlier"
+        return tiered + linkTargetProblems(at, link, target) + listOfNotNull(order.takeIf { target.tiers.isEmpty() && items.indexOf(target) > items.indexOf(item) })
     }
 
     /** A chain of [ChecklistItem.requires] that leads back to its start, if there is one. */
@@ -162,6 +179,19 @@ data class ChecklistCatalog(
 }
 
 private val ID = Regex("[a-z0-9_]+")
+
+/**
+ * What's wrong with a link [at] (an item, as problems name it) to [target]: a link to a link (which
+ * also rules out loops), or a tier that the target doesn't have, or that's missing.
+ */
+fun linkTargetProblems(at: String, link: SameAs, target: ChecklistItem): List<String> = buildList {
+    if (target.link != null) add("$at is the same as '$link', which is itself linked: link to what that names instead")
+    when {
+        target.tiers.isEmpty() && link.tier != null -> add("$at names tier ${link.tier} of '${target.id}', which has no tiers")
+        target.tiers.isNotEmpty() && link.tier == null -> add("$at is the same as '${target.id}', which has tiers: name one, as '${target.id}@1'")
+        link.tier != null && link.tier > target.steps -> add("$at names tier ${link.tier} of '${target.id}', which has ${target.steps}")
+    }
+}
 
 /** "entry" → "entries", "box" → "boxes", "quest" → "quests". */
 private fun regularPlural(noun: String): String = when {
@@ -221,7 +251,17 @@ data class ChecklistItem(
     val tags: List<String> = emptyList(),
     /** Stages of one thing tracked on one row, e.g. upgrade levels; done when every tier is. */
     val tiers: List<ChecklistTier> = emptyList(),
+    /**
+     * The same real thing as another item of the game, so the two share one progress:
+     * `[file:]item[@tier]`, e.g. `items:wallet@2` for tier 2 of `wallet` in the game's `items.json`,
+     * or `goddess_sword@2` in this file. Only an item without tiers can have one; its level is the
+     * other's. See [SameAs].
+     */
+    val sameAs: String? = null,
 ) {
+    /** [sameAs], parsed; null when there's none or it's malformed (which [ChecklistCatalog.problems] reports). */
+    val link: SameAs? by lazy { sameAs?.let(SameAs::parse) }
+
     /** One step, or one per tier. */
     val steps: Int get() = if (tiers.isEmpty()) 1 else tiers.size
 
