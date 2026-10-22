@@ -48,6 +48,7 @@
         {
           "id": "lantern",
           "name": "Lantern",
+          "unlockedBy": ["faron_twilight"],
           "area": "Faron Woods",
           "howTo": "Coro gives it to you outside his hut after the Faron Twilight. If the monkey steals it, chase her through the woods to get it back.",
           "notes": "Coro sells Lantern Oil; his Bottle is in the Bottles tab."
@@ -55,6 +56,7 @@
         {
           "id": "gale_boomerang",
           "name": "Gale Boomerang",
+          "unlockedBy": ["faron_twilight"],
           "area": "Forest Temple",
           "howTo": "Defeat Ook, the temple's mini-boss.",
           "tags": [
@@ -64,12 +66,14 @@
         {
           "id": "iron_boots",
           "name": "Iron Boots",
+          "unlockedBy": ["wrestle_bo"],
           "area": "Mayor Bo's house, Ordon Village",
           "howTo": "Beat Bo at sumo after the Gorons stop you on Death Mountain."
         },
         {
           "id": "heros_bow",
           "name": "Hero's Bow",
+          "unlockedBy": ["wrestle_bo"],
           "area": "Goron Mines",
           "howTo": "In the chest after Dangoro, the mini-boss. It comes with a quiver of 30 arrows.",
           "notes": "With a Bomb Bag you can fire Bomb Arrows; with the Hawkeye, zoom in.",
@@ -80,6 +84,7 @@
         {
           "id": "hawkeye",
           "name": "Hawkeye",
+          "unlockedBy": ["goron_mines"],
           "area": "Malo Mart, Kakariko Village",
           "howTo": "Goes on sale for 100 Rupees after you finish Talo's target practice on the Kakariko lookout tower.",
           "notes": "Talo's practice is in Sidequests & Collections and its Piece of Heart in Heart Pieces."
@@ -87,6 +92,7 @@
         {
           "id": "bombs",
           "name": "Bombs",
+          "unlockedBy": ["goron_mines"],
           "area": "Barnes Bombs, Kakariko Village",
           "howTo": "Barnes sells his first Bomb Bag, full of 30 Bombs, for 120 Rupees after the Goron Mines.",
           "tiers": [
@@ -108,6 +114,7 @@
         {
           "id": "clawshot",
           "name": "Clawshot",
+          "unlockedBy": ["rutela_gift"],
           "tiers": [
             {
               "name": "Clawshot",
@@ -125,6 +132,7 @@
         {
           "id": "spinner",
           "name": "Spinner",
+          "unlockedBy": ["gerudo_desert"],
           "area": "Arbiter's Grounds",
           "howTo": "Defeat the Death Sword, the mini-boss.",
           "tags": [
@@ -134,6 +142,7 @@
         {
           "id": "ball_and_chain",
           "name": "Ball and Chain",
+          "unlockedBy": ["reekfish_scent"],
           "area": "Snowpeak Ruins",
           "howTo": "Defeat Darkhammer, the mini-boss.",
           "tags": [
@@ -143,6 +152,7 @@
         {
           "id": "dominion_rod",
           "name": "Dominion Rod",
+          "unlockedBy": ["snowpeak_ruins"],
           "tiers": [
             {
               "name": "Dominion Rod",
@@ -160,12 +170,14 @@
         {
           "id": "horse_call",
           "name": "Horse Call",
+          "unlockedBy": ["ilia_memory"],
           "area": "Kakariko Village",
           "howTo": "Ilia gives it to you once her memory comes back (Main Quest, Ilia's memory). Blow it in Hyrule Field to call Epona."
         },
         {
           "id": "sky_book",
           "name": "Ancient Sky Book",
+          "unlockedBy": ["ilia_memory"],
           "tiers": [
             {
               "name": "Ancient Sky Book",
@@ -180,6 +192,7 @@
         {
           "id": "ooccoo",
           "name": "Ooccoo",
+          "unlockedBy": ["faron_twilight"],
           "area": "Forest Temple",
           "howTo": "Ooccoo sits in a pot in the Forest Temple (and in each dungeon after). Use her to warp out of a dungeon and her son, Ooccoo Jr., to warp back.",
           "notes": "Her letters, two of which can be missed, are in Sidequests & Collections."
@@ -194,6 +207,7 @@
         {
           "id": "ordon_sword",
           "name": "Ordon Sword",
+          "unlockedBy": ["ordon_sword_shield"],
           "area": "Rusl's house, Ordon Village",
           "howTo": "As a wolf, after escaping Hyrule Castle, take it from Rusl's house. Midna carries it until Link is human again.",
           "notes": "The Wooden Sword you deliver to Talo before this isn't kept."
@@ -201,6 +215,7 @@
         {
           "id": "master_sword",
           "name": "Master Sword",
+          "unlockedBy": ["draw_master_sword"],
           "tiers": [
             {
               "name": "Master Sword",
@@ -215,6 +230,7 @@
         {
           "id": "ordon_shield",
           "name": "Ordon Shield",
+          "unlockedBy": ["ordon_sword_shield"],
           "area": "Jaggle's house, Ordon Village",
           "howTo": "As a wolf, knock it down from the window of Jaggle and Pergie's loft.",
           "notes": "It can burn, and there's no other Ordon Shield after that; replace it with a Wooden Shield."
@@ -222,6 +238,7 @@
         {
           "id": "wooden_shield",
           "name": "Wooden Shield",
+          "unlockedBy": ["eldin_twilight"],
           "area": "Malo Mart, Kakariko Village",
           "howTo": "Buy it for 50 Rupees (also sold at the Goron shop on Death Mountain). It can burn.",
           "notes": "You can't buy one while you hold a Wooden or Ordon Shield."
@@ -229,24 +246,28 @@
         {
           "id": "hylian_shield",
           "name": "Hylian Shield",
+          "unlockedBy": ["king_bulblin_bridge"],
           "area": "Malo Mart, Kakariko Village",
           "howTo": "Buy it for 200 Rupees once Malo opens the shop, after Colin is rescued. It never burns."
         },
         {
           "id": "heros_clothes",
           "name": "Hero's Clothes",
+          "unlockedBy": ["faron_twilight"],
           "area": "Faron Spring",
           "howTo": "The Light Spirit Faron gives them to you when the Faron Twilight lifts."
         },
         {
           "id": "zora_armor",
           "name": "Zora Armor",
+          "unlockedBy": ["rutela_gift"],
           "area": "Kakariko Graveyard",
           "howTo": "Queen Rutela's ghost gives it to you at King Zora's grave, after you escort Prince Ralis to Kakariko. Breathe underwater and swim freely."
         },
         {
           "id": "magic_armor",
           "name": "Magic Armor",
+          "unlockedBy": ["draw_master_sword"],
           "area": "Malo Mart, Castle Town",
           "howTo": "Buy it for 598 Rupees once the Malo Mart donations open the Castle Town branch. It drains Rupees instead of hearts.",
           "notes": "The donations are in Sidequests & Collections. Chudley's price for it was 100,000 Rupees."
@@ -263,6 +284,7 @@
         {
           "id": "wallet",
           "name": "Wallet",
+          "unlockedBy": ["lanayru_twilight"],
           "notes": "The Wallet you start with holds 300 Rupees. HD: 500, 1,000 and 2,000, and the Cave of Shadows adds the 9,999-Rupee Colossal Wallet (HD tab).",
           "tiers": [
             {
@@ -280,6 +302,7 @@
         {
           "id": "quiver",
           "name": "Quiver",
+          "unlockedBy": ["rutela_gift"],
           "notes": "The quiver that comes with the Hero's Bow holds 30 arrows.",
           "tiers": [
             {
@@ -297,12 +320,14 @@
         {
           "id": "bomb_bag_barnes",
           "name": "Bomb Bag: Barnes",
+          "unlockedBy": ["goron_mines"],
           "area": "Barnes Bombs, Kakariko Village",
           "howTo": "Buy it, full of Bombs, for 120 Rupees after the Goron Mines."
         },
         {
           "id": "bomb_bag_iza",
           "name": "Bomb Bag: Iza",
+          "unlockedBy": ["lanayru_twilight"],
           "area": "Iza's Boat Rental, Upper Zora's River",
           "howTo": "Iza lends you a Bomb Bag to clear the rocks from the river with Bomb Arrows from her canoe; it's yours to keep.",
           "after": "Lanayru Twilight",
@@ -313,6 +338,7 @@
         {
           "id": "bomb_bag_goron",
           "name": "Bomb Bag: Zora's Domain Goron",
+          "unlockedBy": ["rutela_gift"],
           "area": "Throne room, Zora's Domain",
           "howTo": "In the Zora Armor and Iron Boots, sink to the bottom of the throne room pool and blow up the old molten rock with a Water Bomb. The Goron trapped inside gives you a Bomb Bag.",
           "tags": [
@@ -324,6 +350,7 @@
         {
           "id": "giant_bomb_bag",
           "name": "Giant Bomb Bag",
+          "unlockedBy": ["lanayru_twilight"],
           "area": "Iza's Boat Rental, Upper Zora's River",
           "howTo": "Score 25 or more points in Iza's Rapid Ride (20 Rupees). It doubles every bag: 60 Bombs, 30 Water Bombs or 20 Bomblings.",
           "requires": [
@@ -352,6 +379,7 @@
         {
           "id": "bottle_coro",
           "name": "Coro's Bottle",
+          "unlockedBy": ["faron_twilight"],
           "area": "Faron Woods",
           "howTo": "Coro sells a Bottle of Lantern Oil for 100 Rupees after the Faron Twilight.",
           "reward": "Bottle (Lantern Oil)"
@@ -359,6 +387,7 @@
         {
           "id": "bottle_fishing_hole",
           "name": "Fishing Hole Bottle",
+          "unlockedBy": ["lanayru_twilight"],
           "area": "Hena's Fishing Hole, Upper Zora's River",
           "howTo": "Don't rent a canoe: walk round to the closed-off pool by the bridge on the east side (the DON'T LITTER sign) and cast your own Fishing Rod there until you reel in the Bottle.",
           "reward": "Bottle",
@@ -370,6 +399,7 @@
         {
           "id": "bottle_jovani",
           "name": "Jovani's Bottle",
+          "unlockedBy": ["draw_master_sword"],
           "area": "Jovani's house, Castle Town",
           "howTo": "Bring Jovani 20 Poe Souls.",
           "reward": "Bottle (Great Fairy's Tears)",
@@ -386,12 +416,14 @@
         {
           "id": "ghost_lantern",
           "name": "Ghost Lantern",
+          "unlockedBy": ["draw_master_sword"],
           "area": "Jovani's house, Castle Town",
           "howTo": "HD only: Jovani gives it with his Bottle for 20 Poe Souls. It glows while an Imp Poe is in the area, day or night, and needs no oil."
         },
         {
           "id": "colossal_wallet",
           "name": "Colossal Wallet",
+          "unlockedBy": ["palace_of_twilight"],
           "area": "Cave of Shadows",
           "howTo": "HD only: clear the Cave of Shadows (Wolf Link amiibo) with the Giant Wallet. Holds 9,999 Rupees.",
           "notes": "Cleared with a smaller wallet, the cave gives the next size up instead. The floors are in the Cave of Ordeals tracker."

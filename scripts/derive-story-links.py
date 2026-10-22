@@ -31,8 +31,9 @@ from pathlib import Path
 
 FILES = Path(__file__).resolve().parent.parent / "shared/src/commonMain/composeResources/files"
 
-# Each game: `after`, `area` and `region` texts to a step id (None: available from the start),
-# and `items`, overrides by "<file stem>/<item id>".
+# Each game: `after`, `area` and `region` texts to a step id (None: available from the start);
+# `items`, overrides by "<file stem>/<item id>"; optionally `inside`, a dungeon's region to the step
+# that opens it, and `sticky`, "<file stem>/<section id>"s whose items inherit the gate above them.
 GAMES = {
     "ss": {
         "after": {
@@ -180,6 +181,140 @@ GAMES = {
             "bugs_treasures/treasure_goddess_plume": "statue_of_the_goddess",
         },
     },
+    "tp": {
+        # Each dungeon's region: the step that opens it.
+        "inside": {
+            "Forest Temple": "faron_twilight",
+            "Goron Mines": "wrestle_bo",
+            "Lakebed Temple": "rutela_gift",
+            "Arbiter's Grounds": "gerudo_desert",
+            "Snowpeak Ruins": "reekfish_scent",
+            "Temple of Time": "snowpeak_ruins",
+            "City in the Sky": "sky_characters",
+            "Palace of Twilight": "city_in_the_sky",
+            "Hyrule Castle": "palace_of_twilight",
+        },
+        # A dungeon named alone means after it; with an item, once you can get that item (inside it).
+        "after": {
+            "Faron Province restored": "faron_twilight",
+            "Forest Temple": "forest_temple",
+            "Eldin Twilight": "eldin_twilight",
+            "Eldin Province's light restored (Epona back)": "eldin_twilight",
+            "Goron Mines": "goron_mines",
+            "After Goron Mines": "goron_mines",
+            "After Goron Mines (Bombs from Barnes)": "goron_mines",
+            "Lanayru Twilight": "lanayru_twilight",
+            "Lanayru Province's light restored": "lanayru_twilight",
+            "Lakebed Temple (Clawshot)": "rutela_gift",
+            "Lakebed Temple": "lakebed_temple",
+            "After Lakebed Temple": "lakebed_temple",
+            "After Lakebed Temple, on your way to Zelda as a wolf": "lakebed_temple",
+            "Master Sword": "draw_master_sword",
+            "After the Master Sword": "draw_master_sword",
+            "Lakebed Temple (Master Sword)": "draw_master_sword",
+            # The Rupees for Kakariko's bridge are asked for after the Master Sword (Malo Mart's plan).
+            "After paying 1,000 Rupees at Kakariko's Malo Mart to rebuild the east bridge": "draw_master_sword",
+            "After the Goron Springwater Rush": "draw_master_sword",
+            "After all 60 Poe Souls": "draw_master_sword",
+            # Fyer's cannon flies you to the desert; the Bridge of Eldin's piece is warped home from it.
+            "Lakebed Temple (Oasis Flight)": "gerudo_desert",
+            "After reaching Gerudo Desert": "gerudo_desert",
+            "After beating King Bulblin at the Bulblin Camp": "gerudo_desert",
+            "After the Bridge of Eldin is restored": "gerudo_desert",
+            "After the Bridge of Eldin is restored (from Gerudo Desert)": "gerudo_desert",
+            "Gerudo Desert (Bridge of Eldin piece warped back)": "gerudo_desert",
+            "Arbiter's Grounds (Spinner)": "gerudo_desert",
+            "Arbiter's Grounds": "arbiters_grounds",
+            "After Arbiter's Grounds": "arbiters_grounds",
+            "Arbiter's Grounds (Ganondorf's execution scene)": "arbiters_grounds",
+            "Arbiter's Grounds (Coral Earring)": "arbiters_grounds",
+            "After getting the Reekfish Scent": "reekfish_scent",
+            "Snowpeak Ruins (Ball and Chain)": "reekfish_scent",
+            "Snowpeak Ruins": "snowpeak_ruins",
+            "After Snowpeak Ruins": "snowpeak_ruins",
+            "Snowpeak Ruins (Temple of Time opened)": "snowpeak_ruins",
+            "Temple of Time": "temple_of_time",
+            "After clearing the Hidden Village": "temple_of_time",
+            "After restoring Ilia's memory": "ilia_memory",
+            # Impaz hands over the Ancient Sky Book at the end of Ilia's memory; Shad restores the rod with it.
+            "Once the Dominion Rod's power is restored": "ilia_memory",
+            "Dominion Rod restored (Ancient Sky Book)": "ilia_memory",
+            "All six Sky Characters": "sky_characters",
+            "City in the Sky (Double Clawshots)": "sky_characters",
+            "City in the Sky": "city_in_the_sky",
+            "After City in the Sky": "city_in_the_sky",
+            "Palace of Twilight (light-filled Master Sword)": "palace_of_twilight",
+        },
+        "area": {
+            "Faron Woods": "faron_twilight",
+            "Forest Temple": "faron_twilight",
+            "Goron Mines": "wrestle_bo",
+            "Arbiter's Grounds": "gerudo_desert",
+            "Snowpeak Ruins": "reekfish_scent",
+        },
+        # Link is human in a province once its Twilight lifts.
+        "region": {
+            "Ordona Province": None,
+            "Faron Province": "faron_twilight",
+            "Eldin Province": "eldin_twilight",
+            "Lanayru Province": "lanayru_twilight",
+            "Gerudo Desert": "gerudo_desert",
+            "Snowpeak": "reekfish_scent",
+        },
+        "sticky": {"cave_of_ordeals/floors", "cave_of_ordeals/cave_of_shadows"},
+        "items": {
+            "items/fishing_rod": None,
+            "items/slingshot": None,
+            "items/iron_boots": "wrestle_bo",
+            "items/hawkeye": "goron_mines",
+            "items/bombs": "goron_mines",
+            "items/clawshot": "rutela_gift",
+            "items/dominion_rod": "snowpeak_ruins",
+            "items/horse_call": "ilia_memory",
+            "items/sky_book": "ilia_memory",
+            "items/ordon_sword": "ordon_sword_shield",
+            "items/ordon_shield": "ordon_sword_shield",
+            "items/master_sword": "draw_master_sword",
+            # Malo Mart opens in Kakariko once Eldin is light again; the Hylian Shield once Colin is back.
+            "items/wooden_shield": "eldin_twilight",
+            "items/hylian_shield": "king_bulblin_bridge",
+            "items/heros_clothes": "faron_twilight",
+            "items/zora_armor": "rutela_gift",
+            "items/magic_armor": "draw_master_sword",
+            "items/wallet": "lanayru_twilight",
+            "items/quiver": "rutela_gift",
+            "items/bomb_bag_barnes": "goron_mines",
+            "items/bomb_bag_goron": "rutela_gift",
+            "items/bottle_sera": None,
+            "items/bottle_jovani": "draw_master_sword",
+            "items/ghost_lantern": "draw_master_sword",
+            "items/colossal_wallet": "palace_of_twilight",
+            # Wolf Link at will comes with the Master Sword's Shadow Crystal; before it only Jovani's own Poe.
+            "poe_souls/jovani_20_souls": "draw_master_sword",
+            "poe_souls/jovani_60_souls": "draw_master_sword",
+            "poe_souls/gengle_rupees": "draw_master_sword",
+            "poe_souls/cave_of_ordeals_33_poe": "reekfish_scent",
+            "poe_souls/cave_of_ordeals_44_poe": "sky_characters",
+            "heart_pieces/kakariko_gorge_cavern": "goron_mines",
+            "heart_pieces/great_bridge_spinner_rails": "gerudo_desert",
+            # Hidden Skills follow their Howling Stones; the trail's stone is past the Gorons.
+            "hidden_skills/stone_death_mountain": "wrestle_bo",
+            "hidden_skills/stone_snowpeak": "reekfish_scent",
+            "hidden_skills/shield_attack": "wrestle_bo",
+            "hidden_skills/helm_splitter": "lakebed_temple",
+            "hidden_skills/jump_strike": "reekfish_scent",
+            "hidden_skills/great_spin": "temple_of_time",
+            "sidequests/hot_springwater": "draw_master_sword",
+            "sidequests/castle_town_malo_mart": "draw_master_sword",
+            "sidequests/letter_malo_mart": "draw_master_sword",
+            "sidequests/letter_ooccoo_dear_adventurer_2": "forest_temple",
+            "items/giant_bomb_bag": "lanayru_twilight",
+            # Given once the other 49 are found; the last are in Hyrule Castle.
+            "sidequests/stamp_twili_midna": "palace_of_twilight",
+            "sidequests/fish_greengill": None,
+            "sidequests/fish_ordon_catfish": None,
+        },
+    },
 }
 
 
@@ -188,17 +323,41 @@ def checklists(game):
     return sorted(p for p in (FILES / game).glob("*.json") if p.stem != "main_quest" and "sections" in json.loads(p.read_text()))
 
 
-def propose(game, stem, item):
-    """(step or None, basis) for one item."""
+def story_depth(story):
+    """Each step by how far into the story it comes, as `storyOrder` in StoryGate.kt works it out."""
+    by_id = {it["id"]: it for s in story["sections"] for it in s["items"]}
+    depth = {}
+
+    def visit(step_id):
+        if step_id not in depth:
+            depth[step_id] = 0
+            depth[step_id] = max((visit(r) + 1 for r in by_id[step_id].get("requires", []) if r in by_id), default=0)
+        return depth[step_id]
+
+    for step_id in by_id:
+        visit(step_id)
+    return depth
+
+
+def propose(game, stem, item, depth):
+    """
+    (step or None, basis) for one item. An item in a dungeon's region (the table's `inside`) is
+    gated by the step that opens the dungeon, unless its `after` needs something later.
+    """
     table = GAMES[game]
     key = f"{stem}/{item['id']}"
     if key in table["items"]:
         return table["items"][key], "override"
+    found = None, "none"
     for field in ("after", "area", "region"):
         text = item.get(field)
-        if text is not None and text in table[field]:
-            return table[field][text], field
-    return None, "none"
+        if text is not None and text in table.get(field, {}):
+            found = table[field][text], field
+            break
+    inside = table.get("inside", {}).get(item.get("region"))
+    if inside is not None and (found[0] is None or depth[inside] >= depth[found[0]]):
+        return inside, "inside"
+    return found
 
 
 def insert_link(text, item_id, steps):
@@ -220,13 +379,21 @@ def main(args):
     apply = "--apply" in args
     story = json.loads((FILES / game / "main_quest.json").read_text())
     steps = {it["id"] for s in story["sections"] for it in s["items"]}
+    depth = story_depth(story)
+    sticky = GAMES[game].get("sticky", set())
     rows = []
     for path in checklists(game):
         catalog = json.loads(path.read_text())
         text = path.read_text()
         for section in catalog["sections"]:
+            # In a `sticky` section (floors of a cave, say) an item with nothing of its own is gated like the one before.
+            last = None
             for item in section.get("items", []):
-                step, basis = propose(game, path.stem, item)
+                step, basis = propose(game, path.stem, item, depth)
+                if f"{path.stem}/{section['id']}" in sticky:
+                    if basis == "none" and last is not None:
+                        step, basis = last, "sticky"
+                    last = step
                 if step is not None and step not in steps:
                     raise SystemExit(f"{path.stem}/{item['id']}: '{step}' isn't a Main Quest step")
                 rows.append((path.stem, item["id"], item["name"], item.get("after") or item.get("area") or "", step or "", basis))

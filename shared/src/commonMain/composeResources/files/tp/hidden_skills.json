@@ -18,6 +18,7 @@
         {
           "id": "ending_blow",
           "name": "Ending Blow",
+          "unlockedBy": ["faron_twilight"],
           "region": "Faron Province",
           "area": "North Faron Woods, path to the Forest Temple",
           "howTo": "Perform: knock an enemy down, keep it targeted with L and press A to leap onto it for an instant kill. Learn: the Golden Wolf blocks the path to the Forest Temple; no stone needed.",
@@ -27,6 +28,7 @@
         {
           "id": "shield_attack",
           "name": "Shield Attack",
+          "unlockedBy": ["wrestle_bo"],
           "region": "Ordona Province",
           "area": "Ordon Spring",
           "howTo": "Perform: while targeting with L, press R to bash with the shield, stunning foes and knocking projectiles back. Learn: howl at the Death Mountain stone, then meet the Golden Wolf at Ordon Spring.",
@@ -40,6 +42,7 @@
         {
           "id": "back_slice",
           "name": "Back Slice",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Hyrule Field, platform west of Castle Town",
           "howTo": "Perform: target with L, hold left or right and press A to side-hop, press A again to roll behind, then B to slash. Learn: after the Upper Zora's River stone, find the wolf on a raised platform outside Castle Town's west gate.",
@@ -53,6 +56,7 @@
         {
           "id": "helm_splitter",
           "name": "Helm Splitter",
+          "unlockedBy": ["lakebed_temple"],
           "region": "Lanayru Province",
           "area": "Hyrule Field south of Castle Town",
           "howTo": "Perform: Shield Attack an enemy and, while it's stunned, press A to vault over its head and strike from behind. Learn: after the North Faron Woods stone, find the wolf south of Castle Town, west of the stairway.",
@@ -65,6 +69,7 @@
         {
           "id": "mortal_draw",
           "name": "Mortal Draw",
+          "unlockedBy": ["gerudo_desert"],
           "region": "Gerudo Desert",
           "area": "Gerudo Desert, northeast, before the Bulblin camp",
           "howTo": "Perform: with the sword sheathed and nothing targeted, let an enemy come close and press A when Link grips the hilt for an instant kill. Learn: after the Lake Hylia stone, find the wolf in the northeast desert just before the Bulblin camp.",
@@ -77,6 +82,7 @@
         {
           "id": "jump_strike",
           "name": "Jump Strike",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Eldin Province",
           "area": "Kakariko Graveyard",
           "howTo": "Perform: target with L and hold A until the blade glints, then release to leap and slam the ground with a shockwave that hits everything around. Learn: after the Snowpeak stone, meet the wolf in Kakariko Graveyard.",
@@ -89,6 +95,7 @@
         {
           "id": "great_spin",
           "name": "Great Spin",
+          "unlockedBy": ["temple_of_time"],
           "region": "Lanayru Province",
           "area": "Castle Town, road to Hyrule Castle",
           "howTo": "Perform: at full health, hold B until the light runs up the blade and release for a much larger spin attack. Learn: after the Hidden Village stone, find the wolf on the path from Castle Town's central square up to Hyrule Castle.",
@@ -111,6 +118,7 @@
         {
           "id": "stone_death_mountain",
           "name": "Death Mountain Howling Stone",
+          "unlockedBy": ["wrestle_bo"],
           "region": "Eldin Province",
           "area": "Death Mountain Trail",
           "howTo": "On the trail up Death Mountain, in the first wide area of rocky platforms and steam geysers.",
@@ -123,6 +131,7 @@
         {
           "id": "stone_upper_zoras_river",
           "name": "Upper Zora's River Howling Stone",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Upper Zora's River, northwest of Iza's Boat Rental",
           "howTo": "On a small cliff overlooking the river, northwest of Iza's cabin.",
@@ -136,6 +145,7 @@
         {
           "id": "stone_north_faron_woods",
           "name": "North Faron Woods Howling Stone",
+          "unlockedBy": ["lakebed_temple"],
           "region": "Faron Province",
           "area": "North Faron Woods, by the way to the Sacred Grove",
           "howTo": "Past the Forest Temple area, just after the gap with the swinging logs that leads to the Sacred Grove.",
@@ -148,6 +158,7 @@
         {
           "id": "stone_sacred_grove",
           "name": "Sacred Grove Howling Stone",
+          "unlockedBy": ["lakebed_temple"],
           "region": "Faron Province",
           "area": "Sacred Grove",
           "howTo": "The stone marked with the Triforce instead of the Sheikah eye. Howling Zelda's Lullaby here opens the way deeper into the grove, toward the Master Sword.",
@@ -161,6 +172,7 @@
         {
           "id": "stone_lake_hylia",
           "name": "Lake Hylia Howling Stone",
+          "unlockedBy": ["lanayru_twilight"],
           "region": "Lanayru Province",
           "area": "Lake Hylia, cliff south of the warp point",
           "howTo": "On a cliff south of the Lake Hylia warp point near Auru's tower: climb the ladder as a human, then change to a wolf to howl.",
@@ -175,6 +187,7 @@
         {
           "id": "stone_snowpeak",
           "name": "Snowpeak Howling Stone",
+          "unlockedBy": ["reekfish_scent"],
           "region": "Snowpeak",
           "area": "Snowpeak, near the summit",
           "howTo": "Near the top of the mountain on a ledge overhanging the slope, south of the digging spot that leads into the cave.",
@@ -188,6 +201,7 @@
         {
           "id": "stone_hidden_village",
           "name": "Hidden Village Howling Stone",
+          "unlockedBy": ["temple_of_time"],
           "region": "Eldin Province",
           "area": "Hidden Village, west side",
           "howTo": "Behind the building on the west side of the Hidden Village, by the Cucco leader. Don't howl while clearing the Bulblins or during the cat game, or you'll have to start them over.",
