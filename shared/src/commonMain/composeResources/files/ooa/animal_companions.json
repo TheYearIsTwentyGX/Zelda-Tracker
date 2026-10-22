@@ -10,6 +10,7 @@
         {
           "id": "moosh",
           "name": "Moosh",
+          "unlockedBy": ["wing_dungeon"],
           "area": "Yoll Graveyard",
           "howTo": "In the present, beat the monsters attacking Moosh at Yoll Graveyard. He flies you to Cheval's tomb in the northwest corner.",
           "after": "Wing Dungeon",
@@ -18,6 +19,7 @@
         {
           "id": "ricky_gloves",
           "name": "Find Ricky's Gloves",
+          "unlockedBy": ["wing_dungeon"],
           "area": "South of Lynna City",
           "howTo": "Ricky, by the entrance to Yoll Graveyard in the present, has lost his boxing gloves. Dig them up with the Shovel by the tree on the beach south of Lynna City.",
           "after": "Wing Dungeon",
@@ -26,6 +28,7 @@
         {
           "id": "ricky",
           "name": "Ricky",
+          "unlockedBy": ["wing_dungeon"],
           "area": "South of Lynna City",
           "howTo": "Return Ricky's gloves and ride in his pouch up the cliffs to Tingle, who gives you the Island Chart.",
           "requires": ["ricky_gloves"],
@@ -34,6 +37,7 @@
         {
           "id": "dimitri",
           "name": "Dimitri",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Crescent Island",
           "howTo": "After the Moonlit Grotto, two Tokay plan to eat Dimitri, washed up on the shore. Give them Ember Seeds instead, and he swims you back to the mainland.",
           "after": "Moonlit Grotto",
@@ -42,6 +46,7 @@
         {
           "id": "companion_flute",
           "name": "Choose a partner",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Fairies' Woods",
           "howTo": "On the way to Symmetry City the fairies ask you to find an animal lost in the Fairies' Woods. It's Dimitri if you bought the Strange Flute at the Lynna City shop (150 Rupees, present), Ricky if you won it at the Shooting Gallery in the past (50 points or more), and Moosh otherwise.",
           "requires": ["moosh", "ricky", "dimitri"],
@@ -51,6 +56,7 @@
         {
           "id": "nuun_highlands",
           "name": "Nuun Highlands",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Nuun Highlands",
           "howTo": "Call your partner and find the three carpenters on break around the Nuun Highlands, so they finish the bridge to Symmetry City.",
           "requires": ["companion_flute"],

@@ -13,6 +13,7 @@
         {
           "id": "harp_of_ages",
           "name": "Harp of Ages",
+          "unlockedBy": ["spirits_grave"],
           "area": "Nayru's House, Lynna City",
           "howTo": "After the Wing Dungeon's entrance collapses, go to Nayru's house in the northeast of Lynna City, talk to Impa, push the statue aside and take the stairs to the hidden cellar.",
           "after": "Spirit's Grave",
@@ -23,6 +24,7 @@
         {
           "id": "tune_of_echoes",
           "name": "Tune of Echoes",
+          "unlockedBy": ["spirits_grave"],
           "area": "Nayru's House, Lynna City",
           "howTo": "Nayru's image teaches it when you take the Harp of Ages.",
           "requires": ["harp_of_ages"],
@@ -31,6 +33,7 @@
         {
           "id": "tune_of_currents",
           "name": "Tune of Currents",
+          "unlockedBy": ["moonlit_grotto"],
           "area": "Talus Peaks (past)",
           "howTo": "On the way to Restoration Wall, swim and dive to Tokkey's home atop Talus Peaks, west of Symmetry Village, and play the Harp for him.",
           "requires": ["tune_of_echoes"],
@@ -40,6 +43,7 @@
         {
           "id": "tune_of_ages",
           "name": "Tune of Ages",
+          "unlockedBy": ["mermaids_cave"],
           "area": "Ambi's Palace (past)",
           "howTo": "Nayru teaches it when you free her from Veran at Ambi's Palace, after Mermaid's Cave.",
           "requires": ["tune_of_currents"],

@@ -24,6 +24,7 @@
         {
           "id": "lynna_village_toilet",
           "name": "Behind the Toilet in Lynna Village",
+          "unlockedBy": ["nayru_possessed"],
           "region": "Lynna Village",
           "area": "Just above the Toilet (Past)",
           "howTo": "Behind (just above) the Toilet building in Lynna Village. Bipin gives you a Gasha Seed in his house in the northwest of town.",
@@ -36,6 +37,7 @@
         {
           "id": "yoll_graveyard_west",
           "name": "Yoll Graveyard, west side",
+          "unlockedBy": ["maku_tree_rescue"],
           "region": "Yoll Graveyard",
           "area": "West side, after the stairs down (Present)",
           "howTo": "On the western side of Yoll Graveyard after you descend the staircase (StrategyWiki: the southwest area).",
@@ -48,6 +50,7 @@
         {
           "id": "south_shore_west",
           "name": "South Shore, west of the river",
+          "unlockedBy": ["wing_dungeon"],
           "region": "South Shore",
           "area": "West side of the shore south of the Black Tower (Past)",
           "howTo": "From Rafton's house go north, then west, and swim across the river (StrategyWiki); the soil is at the far left of the shore south of the Black Tower.",
@@ -61,6 +64,7 @@
         {
           "id": "crescent_island_southern_plateau",
           "name": "Crescent Island, southern plateau",
+          "unlockedBy": ["wing_dungeon"],
           "region": "Crescent Island",
           "area": "High ledge on the south end (Present)",
           "howTo": "Climb the vines on a wall at the south end of Crescent Island; on the high ledge, lift the rocks to uncover the soil.",
@@ -73,6 +77,7 @@
         {
           "id": "crescent_island_northeast_islet",
           "name": "Crescent Island, northeast islet",
+          "unlockedBy": ["moonlit_grotto"],
           "region": "Crescent Island",
           "area": "Islet off the northeast corner (Present)",
           "howTo": "An islet off Crescent Island's northeast corner. Swim there with Dimitri or the Mermaid Suit and cut the bushes to find the soil.",
@@ -86,6 +91,7 @@
         {
           "id": "crescent_island_south_of_tokay_statue",
           "name": "Crescent Island, south of the Tokay statue",
+          "unlockedBy": ["wing_dungeon"],
           "region": "Crescent Island",
           "area": "Central sandbar (Past)",
           "howTo": "On the platform just south of the one-eyed Tokay statue in the past, dig to uncover the soil. Get there on Rafton's raft, or later with the Mermaid Suit.",
@@ -100,6 +106,7 @@
         {
           "id": "talus_peaks_restoration_wall",
           "name": "East of the Restoration Wall",
+          "unlockedBy": ["wing_dungeon"],
           "region": "Talus Peaks",
           "area": "Just east of the Restoration Wall (Past)",
           "howTo": "Leave Lynna Village to the west and go north to the rock formation east of the Restoration Wall; dig in its middle.",
@@ -114,6 +121,7 @@
         {
           "id": "nuun_highlands_northwest",
           "name": "Nuun Highlands, northwest",
+          "unlockedBy": ["moonlit_grotto"],
           "region": "Nuun Highlands",
           "area": "High ledge in the northwest (Present)",
           "howTo": "In the northwest of the Nuun Highlands, drop to a high ledge and dig with the Shovel. Zelda Wiki says you need your animal companion to get there.",
@@ -128,6 +136,7 @@
         {
           "id": "rolling_ridge_base_southwest",
           "name": "Rolling Ridge Base, southwest",
+          "unlockedBy": ["skull_dungeon"],
           "region": "Rolling Ridge",
           "area": "Southwest edge, before the first cave (Past)",
           "howTo": "At the southwestern edge of Rolling Ridge Base, before you enter the first cave. StrategyWiki: one screen west after crossing the large pit; cut the bushes to reveal the soil.",
@@ -140,6 +149,7 @@
         {
           "id": "rolling_ridge_central_peak",
           "name": "Rolling Ridge, central peak",
+          "unlockedBy": ["skull_dungeon"],
           "region": "Rolling Ridge",
           "area": "Central peak, past the Crown Dungeon (Past)",
           "howTo": "On the central peak of Rolling Ridge in the past, reached from the Crown Dungeon. StrategyWiki: dig in the middle of three bushes on a ledge.",
@@ -153,6 +163,7 @@
         {
           "id": "rolling_ridge_target_carts",
           "name": "Rolling Ridge, by Target Carts",
+          "unlockedBy": ["skull_dungeon"],
           "region": "Rolling Ridge",
           "area": "Southwest of Target Carts (Present)",
           "howTo": "Southwest of the Target Carts on Rolling Ridge; StrategyWiki: lift the rocks in a formation near the vine wall.",
@@ -165,6 +176,7 @@
         {
           "id": "fairies_woods_southwest",
           "name": "Fairies' Woods, southwest corner",
+          "unlockedBy": ["moonlit_grotto"],
           "region": "Fairies' Woods",
           "area": "Southwest corner (Present)",
           "howTo": "The southwest corner of Fairies' Woods is walled off by trees. Get in from the past and travel to the present with the Tune of Currents or Tune of Ages, then cut the bush in the corner.",
@@ -178,6 +190,7 @@
         {
           "id": "talus_peaks_northern_peak",
           "name": "Talus Peaks, northernmost peak",
+          "unlockedBy": ["mermaids_cave"],
           "region": "Talus Peaks",
           "area": "High ledge with a single rock (Past)",
           "howTo": "On the northernmost peak of Talus Peaks, a high ledge with a single rock. Warp up there with the Tune of Ages and lift the rock.",
@@ -191,6 +204,7 @@
         {
           "id": "talus_peaks_west_platform",
           "name": "Talus Peaks, western platform",
+          "unlockedBy": ["mermaids_cave"],
           "region": "Talus Peaks",
           "area": "Small platform on the western edge (Present)",
           "howTo": "On the west side of Talus Peaks, stand below the rock formation in the past and warp to the present with the Tune of Ages, then cut the bushes on the high ledge.",
@@ -204,6 +218,7 @@
         {
           "id": "zora_village_southwest",
           "name": "Zora Village, southwest corner",
+          "unlockedBy": ["rescue_nayru"],
           "region": "Zora Village",
           "area": "Southwest corner (Past)",
           "howTo": "In the southwest corner of Zora Village in the past, surface and cut the bushes to find the soil.",
@@ -216,6 +231,7 @@
         {
           "id": "sea_of_storms",
           "name": "Sea of Storms (linked game)",
+          "unlockedBy": ["jabu_jabus_belly"],
           "region": "Sea of Storms",
           "area": "Southernmost land inside the whirlpools (Present)",
           "howTo": "Linked game only: the Piratians' Sea of Storms area is in the present. With the Mermaid Suit and Zora Scale, go inside the ring of whirlpools and dig on the southernmost piece of land.",

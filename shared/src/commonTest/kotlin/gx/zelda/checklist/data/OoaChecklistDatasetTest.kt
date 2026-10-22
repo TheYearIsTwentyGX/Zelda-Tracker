@@ -113,4 +113,19 @@ class OoaChecklistDatasetTest {
         assertEquals(mapOf("linking" to 4, "tell" to 10, "give" to 10), secrets.sizes())
         assertTrue((secrets.section("tell")!!.items + secrets.section("give")!!.items).all { it.steps == 2 })
     }
+    /**
+     * Story links (docs/ooa.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and counts what's had from the start.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = runTest {
+        val files = listOf("items", "harp_songs", "heart_pieces", "rings", "gasha", "trading", "animal_companions", "linked_secrets")
+        val items = files.flatMap { load(it).items }
+        val links = items.associate { it.id to it.unlockedBy }
+        assertEquals(53, items.count { it.unlockedBy.isEmpty() }, "random rings, Vasu's, Seasons-side secrets")
+        assertEquals(listOf("nayru_possessed"), links["maku_road_block_puzzle"], "the past, through the first time portal")
+        assertEquals(listOf("spirits_grave"), links["roc_feather"], "the Wing Dungeon's item, by the step before it")
+        assertEquals(listOf("mermaids_cave"), links["crescent_island_underwater_cave"], "after Mermaid's Cave, later than the Mermaid Suit")
+        assertEquals(emptyList(), links["troy_secret"], "heard in the linked Seasons game")
+    }
 }
