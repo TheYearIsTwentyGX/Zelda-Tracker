@@ -51,13 +51,13 @@ class AppSettingsTest {
     /** The home screen, menu and Settings list the spin-offs after the mainline games, each part in order. */
     @Test
     fun spinOffsAreListedAfterTheMainlineGames() {
-        val (mainline, spinOffs) = splitSpinOffs(AppSettings().gameMenu(games)) { it.game }
+        val (mainline, spinOffs) = splitSpinOffs(AppSettings().gameMenu(emptySet(), games)) { it.game }
         assertEquals(listOf("hwde"), spinOffs.map { it.game.id })
         assertTrue(mainline.none { it.game.spinOff })
         assertEquals(gamesWithTrackers - "hwde", mainline.map { it.game.id })
         // Hidden in Settings, it leaves no empty heading behind.
         val hidden = AppSettings().withShown(Games.HWDE, false, games)
-        assertTrue(splitSpinOffs(hidden.gameMenu(games)) { it.game }.second.isEmpty())
+        assertTrue(splitSpinOffs(hidden.gameMenu(emptySet(), games)) { it.game }.second.isEmpty())
     }
 
     /** Stored choices that somehow hide everything fall back to the defaults rather than an empty app. */
@@ -71,13 +71,13 @@ class AppSettingsTest {
 
     @Test
     fun menuListsShownGamesWithTrackersUnderOpenSections() {
-        val settings = AppSettings(expandedGames = setOf("botw", soon.id)).withShown(soon, true, games)
-        val menu = settings.gameMenu(games)
+        val settings = AppSettings().withShown(soon, true, games)
+        val menu = settings.gameMenu(setOf("botw", soon.id), games)
         assertEquals(games.filter { !it.comingSoon || it == soon }.map { it.id }, menu.map { it.game.id })
 
         val coming = menu.first { it.game == soon }
         assertFalse(coming.expandable)
-        assertFalse(coming.expanded, "a coming-soon game never opens, even if stored as open")
+        assertFalse(coming.expanded, "a coming-soon game never opens")
         assertTrue(coming.rows.isEmpty())
 
         val botw = menu.first { it.game.id == "botw" }
@@ -92,16 +92,30 @@ class AppSettingsTest {
 
     @Test
     fun hiddenGamesLeaveTheMenu() {
-        val settings = AppSettings(expandedGames = setOf("totk")).withShown(Games.TOTK, false)
-        assertEquals(gamesWithTrackers - "totk", settings.gameMenu().map { it.game.id })
-        // The open state is kept for when it's shown again.
-        assertTrue(settings.withShown(Games.TOTK, true).gameMenu().first { it.game.id == "totk" }.expanded)
+        val settings = AppSettings().withShown(Games.TOTK, false)
+        assertEquals(gamesWithTrackers - "totk", settings.gameMenu(menuOpenedIn("totk")).map { it.game.id })
     }
 
+    /** Each open of the menu shows only the current game's section open. */
     @Test
-    fun expandingAndCollapsing() {
-        val open = AppSettings().withExpanded("mc", true)
-        assertEquals(setOf("mc"), open.expandedGames)
-        assertEquals(emptySet(), open.withExpanded("mc", false).expandedGames)
+    fun theMenuOpensWithOnlyTheCurrentGameOpen() {
+        val menu = AppSettings().gameMenu(menuOpenedIn("mc"))
+        assertEquals(listOf("mc"), menu.filter { it.expanded }.map { it.game.id })
+        assertEquals(gamesWithTrackers - "mc", menu.filter { !it.expanded }.map { it.game.id })
+    }
+
+    /** On Home and Settings there's no current game, so every section starts closed. */
+    @Test
+    fun withNoCurrentGameEverySectionStartsClosed() {
+        assertTrue(AppSettings().gameMenu(menuOpenedIn(null)).none { it.expanded })
+    }
+
+    /** Sections opened and closed by hand while the menu is open; the next open starts over. */
+    @Test
+    fun expandingAndCollapsingWithinOneOpen() {
+        val opened = menuOpenedIn("mc").withExpanded("botw", true).withExpanded("mc", false)
+        val menu = AppSettings().gameMenu(opened)
+        assertEquals(listOf("botw"), menu.filter { it.expanded }.map { it.game.id })
+        assertEquals(setOf("mc"), menuOpenedIn("mc"))
     }
 }

@@ -22,8 +22,6 @@ class AppSettingsViewModel(private val storage: AppSettingsStorage) : ViewModel(
     /** Each write returns its job, so a test can wait for it. Hiding the last game shown is ignored. */
     fun setShown(gameId: String, shown: Boolean): Job = viewModelScope.launch { storage.setShown(gameId, shown) }
 
-    fun setExpanded(gameId: String, expanded: Boolean): Job = viewModelScope.launch { storage.setExpanded(gameId, expanded) }
-
     fun setThemeMode(mode: ThemeMode): Job = viewModelScope.launch { storage.setThemeMode(mode) }
 
     fun setGameThemes(on: Boolean): Job = viewModelScope.launch { storage.setGameThemes(on) }

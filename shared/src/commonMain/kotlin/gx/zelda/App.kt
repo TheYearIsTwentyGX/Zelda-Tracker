@@ -98,10 +98,16 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.navigation.NavDestination.Companion.hasRoute
 import gx.zelda.core.AppSettings
 import gx.zelda.core.AppSettingsStorage
+import gx.zelda.core.menuOpenedIn
+import gx.zelda.core.withExpanded
 import gx.zelda.core.ui.AppDrawerSheet
 import gx.zelda.core.ui.AppMenu
 import gx.zelda.core.ui.LocalAppMenu
@@ -158,7 +164,7 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
     AppTheme(settings, onDarkTheme) {
         val nav = rememberNavController()
         // The NavHost keeps its old indent inside the drawer, so wrapping it didn't touch every route.
-        AppMenuDrawer(nav, settings, settingsVm) {
+        AppMenuDrawer(nav, settings) {
         // Edge-to-edge (forced from targetSdk 35) means adjustResize no longer shrinks the window
         // for the keyboard, so lift every screen above it here. imePadding consumes the IME
         // insets, so each Scaffold drops its own navigation-bar padding while the keyboard is up.
@@ -679,13 +685,12 @@ private fun kinstoneViewModel(
 /**
  * The navigation drawer around [content] (the NavHost). The menu button on the home screen and on
  * trackers opened from it or from the menu opens it; it lists the shown games in release order,
- * each opening to its trackers, and opens the current game's section when that game changes.
+ * each opening to its trackers. Each time it opens, only the current game's section is open.
  */
 @Composable
 private fun AppMenuDrawer(
     nav: NavController,
     settings: AppSettings?,
-    settingsVm: AppSettingsViewModel,
     content: @Composable () -> Unit,
 ) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
@@ -697,10 +702,11 @@ private fun AppMenuDrawer(
     val selection = topLevel?.menuSelection() ?: MenuSelection.None
     val currentGameId = (selection as? MenuSelection.Tracker)?.gameId
 
-    LaunchedEffect(currentGameId) {
-        if (currentGameId != null && currentGameId !in settingsVm.settings.value?.expandedGames.orEmpty()) {
-            settingsVm.setExpanded(currentGameId, true)
-        }
+    var expanded by remember { mutableStateOf(menuOpenedIn(currentGameId)) }
+    val currentGame by rememberUpdatedState(currentGameId)
+    LaunchedEffect(drawerState) {
+        // Reset as the drawer starts to open, so it never slides in showing the last open's sections.
+        snapshotFlow { drawerState.targetValue }.collect { if (it == DrawerValue.Open) expanded = menuOpenedIn(currentGame) }
     }
     val menu = remember(nav, drawerState) {
         AppMenu(
@@ -729,14 +735,14 @@ private fun AppMenuDrawer(
         drawerContent = {
             AppDrawerSheet(
                 drawerState = drawerState,
-                sections = settings?.gameMenu().orEmpty(),
+                sections = settings?.gameMenu(expanded).orEmpty(),
                 selection = selection,
                 onHome = {
                     scope.launch { drawerState.close() }
                     nav.popBackStack<Home>(inclusive = false)
                 },
                 onSettings = { openFromMenu(Settings) },
-                onToggleGame = { gameId, expanded -> settingsVm.setExpanded(gameId, expanded) },
+                onToggleGame = { gameId, open -> expanded = expanded.withExpanded(gameId, open) },
                 onOpenTracker = { game, tracker -> openFromMenu(trackerRoute(game.id, tracker)) },
             )
         },

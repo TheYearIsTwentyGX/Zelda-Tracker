@@ -28,7 +28,8 @@ iOS port is mostly a matter of adding the iOS targets.
     game is a single row.
   - A game's **tools**, helpers for playing that keep no progress (so far Skyward Sword's Thrill
     Digger Solver), come after its trackers under a *Tools* heading, in the menu and on its home card.
-  - Which sections are open is remembered. The game you're in opens by itself when you switch to it.
+  - Each time the menu opens, only the game you're in is open (none on Home and Settings). Sections
+    opened or closed by hand stay that way until the menu closes.
   - Trackers opened from inside another screen (the Overview, the map's sheet, a quest's page, a
     page's *Show on map*) and detail pages keep a Back arrow.
 - **Settings** (gear on the home screen, or the menu): a switch per game for whether it appears on
