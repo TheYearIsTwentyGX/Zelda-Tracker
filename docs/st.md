@@ -92,6 +92,53 @@ Nothing is missable for good. Zelda Wiki's *Permanently Missable Items* has no S
 section, and no guide flags anything. The Song of Healing can be learned at later temple entrances
 and the Song of Discovery at the Trading Post if skipped.
 
+## Story links
+
+With *Hide what the story hasn't unlocked yet* on (Settings → Progress), each checklist leaves out
+what the Main Quest hasn't reached on the save file. It uses each item's `unlockedBy`, a step of
+`main_quest.json`; docs/checklist-trackers.md, *Story gating*, explains the rules, and
+`scripts/derive-story-links.py` holds ST's table.
+
+**Counts.** 234 of the 237 items outside the Main Quest are linked. The other 3 are had from the
+start: the Shield from Castle Town's shop, and the Aboda Village and Castle Town stations.
+
+**How a step was chosen.** An item is gated by the **latest** of the following.
+
+- *The realm and the line.* Aboda and Castle Town are open from the start. The rest of the Forest
+  Realm needs the Spirit Train and its map.
+
+  | Where | Step |
+  |---|---|
+  | The rest of the Forest Realm | `tower_forest_rail_map` |
+  | The Snow Realm, Rabbitland Rescue | `tower_snow_rail_map` |
+  | The Ocean Realm | `trading_post_bridge` |
+  | The Fire Realm | `tower_fire_rail_map` |
+  | The Sand Realm | `tower_byrne` (Anjean's Force Gem) |
+- *Each temple* is gated by the step that opens it: the Forest Temple by `gage_duet`, the Ocean
+  Temple by `carben_duet`, the Fire Temple by `fire_temple_keys`, and so on.
+- *Gear, by tag.*
+
+  | Gear | Step |
+  |---|---|
+  | Whirlwind | `gage_duet` |
+  | Boomerang | `steem_duet` |
+  | Whip | `carben_duet` |
+  | Bow | `fire_temple_keys` |
+  | Sand Wand | `three_trials` |
+  | Bombs | `snow_temple` (Beedle's balloon) |
+  | The Cannon ("with the Cannon") | `alfonzo_cannon` |
+- *A Force Gem in `after`* ("Yeko's Force Gem") is gated as that gem is in `force_gems.json`, for
+  example by `kagoron_mega_ice` once the freight car is needed.
+- *Sections.*
+  - Rabbits and Bunnio's rewards are gated by `alfonzo_cannon`: their rock is shot with the
+    Cannon.
+  - Stamps and Niko's rewards are gated by `alfonzo_cannon`, since the Stamp Book comes after
+    Alfonzo gets home.
+  - Linebeck III's train sets are gated by `trading_post_bridge`.
+  - All 20 stamps and all 50 rabbits include the Sand Realm's, so they're gated by `tower_byrne`.
+
+`StDatasetTest` spot-checks the links and lists the three start items.
+
 ## Sources
 
 - **Zelda Wiki** (zeldawiki.wiki, read as wikitext through its API): the game page, Locations in

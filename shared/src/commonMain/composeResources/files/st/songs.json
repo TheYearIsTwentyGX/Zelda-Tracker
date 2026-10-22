@@ -10,6 +10,7 @@
         {
           "id": "song_of_awakening",
           "name": "Song of Awakening",
+          "unlockedBy": ["gage_duet"],
           "area": "Forest Sanctuary",
           "howTo": "From the humming Air Stone on the path in the Forest Sanctuary, after Gage's duet.",
           "notes": "Notes: turquoise, orange. Wakes Gossip Stones, which tell you about treasure and secrets.",
@@ -20,6 +21,7 @@
         {
           "id": "song_of_healing",
           "name": "Song of Healing",
+          "unlockedBy": ["gage_duet"],
           "area": "Forest Temple",
           "howTo": "From the Air Stone at the Forest Temple's entrance.",
           "notes": "Notes: green, white, green. Inside a dungeon the Spirit of Healing refills your hearts once per visit. If you skip it, other temple entrances have it too (Zelda Wiki). Called the Song of Recovery in the European version.",
@@ -30,6 +32,7 @@
         {
           "id": "song_of_discovery",
           "name": "Song of Discovery",
+          "unlockedBy": ["recruits_sword"],
           "area": "Anouki Village",
           "howTo": "From the Air Stone in the middle of Anouki Village; a chest with a Red Potion appears in its place.",
           "notes": "Notes: orange, yellow, orange, turquoise. Reveals hidden chests and stairs. A second stone at the Trading Post teaches it if you missed it (Zelda Dungeon).",
@@ -40,6 +43,7 @@
         {
           "id": "song_of_light",
           "name": "Song of Light",
+          "unlockedBy": ["tower_ocean_rail_map"],
           "area": "Trading Post",
           "howTo": "From the Air Stone by Linebeck's grave, through the Like Like cave north of the Trading Post.",
           "notes": "Notes: purple, yellow, orange, turquoise, silver. Makes the floating diamond beacons shine a beam towards something hidden. Part of the Main Quest (the Regal Ring for the bridge).",
@@ -50,6 +54,7 @@
         {
           "id": "song_of_birds",
           "name": "Song of Birds",
+          "unlockedBy": ["recruits_sword"],
           "area": "Papuchia Village",
           "howTo": "In Papuchia Village, play the Song of Discovery at the lone palm tree south across the bridge (the Wise One's hint); learn the song from the stone that rises.",
           "notes": "Notes: purple, yellow, purple. Calls birds to hang from with the Whip, and Cuccos. Part of the Main Quest (it brings Carben down).",

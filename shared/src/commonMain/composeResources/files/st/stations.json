@@ -36,6 +36,7 @@
         {
           "id": "station_whittleton",
           "name": "Whittleton",
+          "unlockedBy": ["tower_forest_rail_map"],
           "region": "Forest Realm",
           "howTo": "Shown as ??? in the middle of the Forest Realm until you stop there, after the first climb of the tower.",
           "tags": [
@@ -45,6 +46,7 @@
         {
           "id": "station_forest_sanctuary",
           "name": "Forest Sanctuary",
+          "unlockedBy": ["tower_forest_rail_map"],
           "region": "Forest Realm",
           "howTo": "Through the Lost Woods west of Whittleton: follow the trees at the first three forks and go against the fourth.",
           "tags": [
@@ -54,6 +56,7 @@
         {
           "id": "station_rabbitland_rescue",
           "name": "Rabbitland Rescue",
+          "unlockedBy": ["tower_snow_rail_map"],
           "region": "Forest Realm",
           "howTo": "An unmarked stop on the north-west line towards the Snow Realm, opened by the Snow Rail Map.",
           "tags": [
@@ -63,6 +66,7 @@
         {
           "id": "station_anouki_village",
           "name": "Anouki Village",
+          "unlockedBy": ["tower_snow_rail_map"],
           "region": "Snow Realm",
           "howTo": "The first stop in the Snow Realm.",
           "tags": [
@@ -72,6 +76,7 @@
         {
           "id": "station_snow_sanctuary",
           "name": "Snow Sanctuary",
+          "unlockedBy": ["tower_snow_rail_map"],
           "region": "Snow Realm",
           "howTo": "Through the Rocktite's tunnel north of Anouki Village.",
           "tags": [
@@ -81,6 +86,7 @@
         {
           "id": "station_wellspring_station",
           "name": "Wellspring Station",
+          "unlockedBy": ["tower_snow_rail_map"],
           "region": "Snow Realm",
           "howTo": "East of Anouki Village, on the tracks Steem's duet restores; it isn't on the map until you stop.",
           "tags": [
@@ -90,6 +96,7 @@
         {
           "id": "station_bridge_workers_home",
           "name": "Bridge Worker's Home",
+          "unlockedBy": ["steem_duet"],
           "region": "Snow Realm",
           "howTo": "The first stop entering the Snow Realm from the Tower of Spirits, open after the Snow Temple.",
           "tags": [
@@ -99,6 +106,7 @@
         {
           "id": "station_trading_post",
           "name": "Trading Post",
+          "unlockedBy": ["tower_forest_rail_map"],
           "region": "Forest Realm",
           "howTo": "At the south-east of the Forest Realm, by the broken bridge to the Ocean Realm.",
           "tags": [
@@ -108,6 +116,7 @@
         {
           "id": "station_papuchia_village",
           "name": "Papuchia Village",
+          "unlockedBy": ["trading_post_bridge"],
           "region": "Ocean Realm",
           "howTo": "The first stop over the rebuilt bridge.",
           "tags": [
@@ -117,6 +126,7 @@
         {
           "id": "station_ocean_sanctuary",
           "name": "Ocean Sanctuary",
+          "unlockedBy": ["trading_post_bridge"],
           "region": "Ocean Realm",
           "howTo": "East of Papuchia Village.",
           "tags": [
@@ -126,6 +136,7 @@
         {
           "id": "station_goron_village",
           "name": "Goron Village",
+          "unlockedBy": ["tower_fire_rail_map"],
           "region": "Fire Realm",
           "howTo": "In the Fire Realm, opened by the Fire Rail Map; reached via the Snow Realm.",
           "tags": [
@@ -135,6 +146,7 @@
         {
           "id": "station_goron_target_range",
           "name": "Goron Target Range",
+          "unlockedBy": ["fire_temple"],
           "region": "Fire Realm",
           "howTo": "The first stop in the Fire Realm; closed for the eruption until the Fire Temple is cleared.",
           "tags": [
@@ -144,6 +156,7 @@
         {
           "id": "station_snowdrift_station",
           "name": "Snowdrift Station",
+          "unlockedBy": ["kagoron_mega_ice"],
           "region": "Snow Realm",
           "howTo": "At the end of the tracks Yeko's Force Gem adds in the north-west of the Snow Realm.",
           "tags": [
@@ -155,6 +168,7 @@
         {
           "id": "station_slippery_station",
           "name": "Slippery Station",
+          "unlockedBy": ["kagoron_mega_ice"],
           "region": "Snow Realm",
           "howTo": "At the end of the tracks Steem's vessel gem adds in the north of the Snow Realm.",
           "tags": [
@@ -166,6 +180,7 @@
         {
           "id": "station_disorientation_station",
           "name": "Disorientation Station",
+          "unlockedBy": ["fire_temple"],
           "region": "Fire Realm",
           "howTo": "In the north-west of the Fire Realm, on the tracks the Goron child's gem adds.",
           "tags": [
@@ -177,6 +192,7 @@
         {
           "id": "station_pirate_hideout",
           "name": "Pirate Hideout",
+          "unlockedBy": ["fire_temple"],
           "region": "Ocean Realm",
           "howTo": "North of Papuchia Village, on the tracks Niboshi's gem adds.",
           "tags": [
@@ -188,6 +204,7 @@
         {
           "id": "station_sand_sanctuary",
           "name": "Sand Sanctuary",
+          "unlockedBy": ["tower_byrne"],
           "region": "Sand Realm",
           "howTo": "Where the Sand Realm track ends in the middle of the desert, after Anjean's Force Gem.",
           "tags": [
@@ -199,6 +216,7 @@
         {
           "id": "station_ends_of_the_earth_station",
           "name": "Ends of the Earth Station",
+          "unlockedBy": ["sand_temple"],
           "region": "Fire Realm",
           "howTo": "In the far north-east of the Fire Realm, on Rael's new tracks.",
           "tags": [
@@ -210,6 +228,7 @@
         {
           "id": "station_dark_ore_mine",
           "name": "Dark Ore Mine",
+          "unlockedBy": ["sand_temple"],
           "region": "Fire Realm",
           "howTo": "On the east edge of the Fire Realm, on the tracks Ferrus's Ocean Temple gem adds.",
           "tags": [
@@ -221,6 +240,7 @@
         {
           "id": "station_lost_at_sea_station",
           "name": "Lost at Sea Station",
+          "unlockedBy": ["sand_temple"],
           "region": "Ocean Realm",
           "howTo": "In the south-east corner of the Ocean Realm, on the tracks Linebeck's gem adds.",
           "tags": [
@@ -240,6 +260,7 @@
         {
           "id": "warp_gate_a",
           "name": "Warp Gate A",
+          "unlockedBy": ["alfonzo_cannon"],
           "region": "Snow Realm",
           "howTo": "Shoot the gem on top of the triangle gate south of Anouki Village (take the right turn at the first fork) with the Cannon. It links to the middle of the Forest Realm, north of Whittleton.",
           "after": "Snow Rail Map",
@@ -251,6 +272,7 @@
         {
           "id": "warp_gate_b",
           "name": "Warp Gate B",
+          "unlockedBy": ["trading_post_bridge"],
           "region": "Forest Realm",
           "howTo": "Shoot the gem on top of the triangle gate south of the Trading Post with the Cannon. It links to east of Wellspring Station in the Snow Realm.",
           "after": "Carben's Force Gem",
@@ -261,6 +283,7 @@
         {
           "id": "warp_gate_c",
           "name": "Warp Gate C",
+          "unlockedBy": ["alfonzo_cannon"],
           "region": "Snow Realm",
           "howTo": "Shoot the gem on top of the triangle gate east of Anouki Village, near the Bridge Worker's Home with the Cannon. It links to east of the Ocean Sanctuary.",
           "after": "Noko's Force Gem",
@@ -271,6 +294,7 @@
         {
           "id": "warp_gate_f",
           "name": "Warp Gate F",
+          "unlockedBy": ["kagoron_mega_ice"],
           "region": "Fire Realm",
           "howTo": "Shoot the gem on top of the triangle gate south of the Goron Target Range with the Cannon. It links to the Ocean Realm, near the way down to the Ocean Floor.",
           "after": "Force Gem: Goron's lava-blocked house",
@@ -282,6 +306,7 @@
         {
           "id": "warp_gate_e",
           "name": "Warp Gate E",
+          "unlockedBy": ["kagoron_mega_ice"],
           "region": "Forest Realm",
           "howTo": "Shoot the gem on top of the triangle gate north of Aboda Village with the Cannon. It links to Goron Village in the Fire Realm.",
           "after": "Harry's Force Gem",
@@ -292,6 +317,7 @@
         {
           "id": "warp_gate_d",
           "name": "Warp Gate D",
+          "unlockedBy": ["fire_temple"],
           "region": "Snow Realm",
           "howTo": "Shoot the gem on top of the triangle gate north of Wellspring Station with the Cannon. It links to the Fire Realm.",
           "after": "Force Gem: Goron visits Anouki Village",
@@ -303,6 +329,7 @@
         {
           "id": "warp_gate_g",
           "name": "Warp Gate G",
+          "unlockedBy": ["fire_temple"],
           "region": "Ocean Realm",
           "howTo": "Shoot the gem on top of the triangle gate near the Pirate Hideout with the Cannon. It links to the Forest Realm near the Trading Post.",
           "after": "Wadatsumi's Force Gem",
@@ -313,6 +340,7 @@
         {
           "id": "warp_gate_h",
           "name": "Warp Gate H",
+          "unlockedBy": ["three_trials"],
           "region": "Sand Realm",
           "howTo": "Shoot the gem on top of the triangle gate near the Sand Temple with the Cannon. It links to south of the Sand Sanctuary.",
           "after": "Rael's duet",

@@ -153,4 +153,19 @@ class StDatasetTest {
         )
         val REALMS = listOf("Forest Realm", "Tower of Spirits", "Snow Realm", "Ocean Realm", "Fire Realm", "Sand Realm", "Dark Realm")
     }
+    /**
+     * Story links (docs/st.md, *Story links*). `StoryLinksDatasetTest` checks every link is a real
+     * step; this checks a few by hand and lists what's had from the start in Aboda and Castle Town.
+     */
+    @Test
+    fun everyItemIsLinkedToTheStepThatOpensIt() = runTest {
+        val files = listOf("items", "heart_containers", "force_gems", "deliveries", "rabbits", "stamps", "stations", "train_parts", "minigames", "songs")
+        val links = files.flatMap { load(it).items }.associate { it.id to it.unlockedBy }
+        assertEquals(setOf("shield", "station_aboda_village", "station_castle_town"), links.filterValues { it.isEmpty() }.keys)
+        assertEquals(listOf("trading_post_bridge"), links["station_papuchia_village"], "the Ocean Realm, over the rebuilt bridge")
+        assertEquals(listOf("carben_duet"), links["whip"], "inside the Ocean Temple, which Carben's duet opens")
+        assertEquals(listOf("kagoron_mega_ice"), links["slippery_station_rink"], "Steem's Force Gem, which needs the freight car")
+        assertEquals(listOf("trading_post_bridge"), links["wooden_engine"], "Linebeck III trades once the bridge is rebuilt")
+        assertEquals(listOf("sand_temple"), links["cargo_dark_ore_linebeck"], "after Ferrus's ride, which follows the Sand Temple")
+    }
 }
