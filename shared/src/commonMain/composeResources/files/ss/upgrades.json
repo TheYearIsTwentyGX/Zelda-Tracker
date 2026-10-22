@@ -3,23 +3,23 @@
     {
       "id": "items",
       "title": "Items",
-      "note": "Gondo upgrades these at his Scrap Shop in the Bazaar; he offers only what you're carrying."
+      "note": "Gondo upgrades these at his Scrap Shop in the Bazaar; he offers only what you're carrying. Items & Equipment shares this progress."
     },
     {
       "id": "shields",
       "title": "Shields",
-      "note": "Gondo upgrades and repairs them. The Hylian Shield can't be upgraded."
+      "note": "Gondo upgrades and repairs them. The Hylian Shield can't be upgraded. The Shields checklist shares this progress."
     },
     {
       "id": "pouch",
       "title": "Pouch Items",
-      "note": "You can carry several of each in Adventure Pouch slots. Track each one; the totals count one of each."
+      "note": "You can carry several of each in Adventure Pouch slots. Track each one; the totals count one of each. Your first of each shares its progress with Items & Equipment."
     },
     {
       "id": "potions",
       "title": "Potions",
       "optional": "Potions",
-      "note": "Luv sells them at the Potion Shop in the Bazaar and Bertie infuses them with bugs."
+      "note": "Luv sells them at the Potion Shop in the Bazaar and Bertie infuses them with bugs. The Potion Infusions recipe book shares this progress."
     }
   ],
   "materials": [
@@ -1107,7 +1107,8 @@
               "qty": 1
             }
           ],
-          "by": "Bertie's Infusion Shop"
+          "by": "Bertie's Infusion Shop",
+          "note": "Zelda Dungeon's Upgrades page lists 1 Deku Hornet; Zelda Wiki and Zelda Dungeon's own Potion Shop page say 3."
         }
       ],
       "acquire": [
@@ -1338,7 +1339,8 @@
             "rupees": 200
           }
         }
-      ]
+      ],
+      "notes": "Zelda Dungeon's shop page prices it at 60 Rupees; Zelda Wiki, quoting the game, says 200."
     }
   ]
 }

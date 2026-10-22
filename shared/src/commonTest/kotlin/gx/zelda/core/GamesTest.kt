@@ -129,15 +129,15 @@ class GamesTest {
 
     /**
      * Three files on the Wii and in HD (docs/ss.md); after the overview come the checklists, then
-     * Item Upgrades, and the Thrill Digger solver comes last, as a tool.
+     * the Potion Infusions recipe book and Item Upgrades, and the Thrill Digger solver comes last, as a tool.
      */
     @Test
     fun skywardSwordHasThreeSaveFilesAndAnOverviewFirst() {
         assertEquals(listOf("file_1", "file_2", "file_3"), Games.SS.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.SS.trackers.first().kind)
         assertEquals(TrackerKind.THRILL_DIGGER, Games.SS.trackers.last().kind)
-        assertEquals(TrackerKind.ITEM_UPGRADES, Games.SS.trackers.dropLast(1).last().kind)
-        assertTrue(Games.SS.trackers.drop(1).dropLast(2).all { it.kind == TrackerKind.CHECKLIST })
+        assertEquals(listOf(TrackerKind.POTIONS, TrackerKind.ITEM_UPGRADES), Games.SS.trackers.dropLast(1).takeLast(2).map { it.kind })
+        assertTrue(Games.SS.trackers.drop(1).dropLast(3).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     /** Tools keep no progress; only the Thrill Digger solver is one, and only Skyward Sword has it. */

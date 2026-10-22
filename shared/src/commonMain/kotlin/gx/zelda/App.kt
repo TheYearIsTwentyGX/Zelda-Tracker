@@ -87,6 +87,9 @@ import gx.zelda.sidequests.ui.SideQuestDetailScreen
 import gx.zelda.sidequests.ui.SideQuestTrackerScreen
 import gx.zelda.sidequests.ui.SideQuestViewModel
 import gx.zelda.theme.GameThemes
+import gx.zelda.potions.ui.PotionBookScreen
+import gx.zelda.potions.ui.PotionRecipeScreen
+import gx.zelda.potions.ui.PotionViewModel
 import gx.zelda.thrilldigger.data.ThrillDiggerStorage
 import gx.zelda.thrilldigger.ui.ThrillDiggerScreen
 import gx.zelda.thrilldigger.ui.ThrillDiggerViewModel
@@ -151,6 +154,8 @@ import kotlinx.serialization.Serializable
 @Serializable private data class AdventureMap(val gameId: String, val dataFile: String)
 @Serializable private data class ThrillDigger(val gameId: String)
 @Serializable private data class ItemUpgrades(val gameId: String)
+@Serializable private data class Potions(val gameId: String)
+@Serializable private data class PotionRecipe(val gameId: String, val potionId: String)
 /** One copy of an item: [copy] is 1, or 2 and up for extra Seed Satchels, Quivers and Bomb Bags. */
 @Serializable private data class ItemUpgradeDetail(val gameId: String, val itemId: String, val copy: Int)
 @Serializable private data object Settings
@@ -515,6 +520,22 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                     onBack = { nav.popBackStack() },
                 )
             }
+            composable<Potions> { entry ->
+                val game = Games.byId(entry.toRoute<Potions>().gameId)
+                val vm = potionViewModel(entry, dataStore, game)
+                PotionBookScreen(
+                    vm,
+                    title = game.trackers.first { it.kind == TrackerKind.POTIONS }.title,
+                    onOpenPotion = { nav.navigate(PotionRecipe(game.id, it)) },
+                    onBack = { nav.popBackStack() },
+                )
+            }
+            composable<PotionRecipe> { entry ->
+                val route = entry.toRoute<PotionRecipe>()
+                val bookEntry = remember(entry) { nav.getBackStackEntry<Potions>() }
+                val vm = potionViewModel(bookEntry, dataStore, Games.byId(route.gameId))
+                PotionRecipeScreen(vm, route.potionId, onBack = { nav.popBackStack() })
+            }
             composable<ItemUpgradeDetail> { entry ->
                 val route = entry.toRoute<ItemUpgradeDetail>()
                 val trackerEntry = remember(entry) { nav.getBackStackEntry<ItemUpgrades>() }
@@ -584,6 +605,14 @@ private fun upgradeViewModel(
     game: Game,
 ): UpgradeViewModel = viewModel(owner, key = "upgrades_${game.id}") { UpgradeViewModel(UpgradeStorage(dataStore, game)) }
 
+/** The [PotionViewModel] for [game], owned by the recipe book's back stack entry so each recipe page shares it. */
+@Composable
+private fun potionViewModel(
+    owner: NavBackStackEntry,
+    dataStore: DataStore<Preferences>,
+    game: Game,
+): PotionViewModel = viewModel(owner, key = "potions_${game.id}") { PotionViewModel(UpgradeStorage(dataStore, game)) }
+
 /** The [CompendiumViewModel] for [game], owned by the Compendium list's back stack entry so its detail screen shares it. */
 @Composable
 private fun compendiumViewModel(
@@ -649,6 +678,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind,
         TrackerKind.ADVENTURE_MAP -> if (dataFile != null) navigate(AdventureMap(game.id, dataFile))
         TrackerKind.THRILL_DIGGER -> navigate(ThrillDigger(game.id))
         TrackerKind.ITEM_UPGRADES -> navigate(ItemUpgrades(game.id))
+        TrackerKind.POTIONS -> navigate(Potions(game.id))
     }
 }
 
@@ -771,6 +801,7 @@ private fun trackerRoute(gameId: String, tracker: Tracker): Any = when (tracker.
     TrackerKind.ADVENTURE_MAP -> AdventureMap(gameId, tracker.dataFile!!)
     TrackerKind.THRILL_DIGGER -> ThrillDigger(gameId)
     TrackerKind.ITEM_UPGRADES -> ItemUpgrades(gameId)
+    TrackerKind.POTIONS -> Potions(gameId)
 }
 
 /** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
@@ -796,6 +827,7 @@ private fun NavBackStackEntry.menuSelection(): MenuSelection {
         d.hasRoute<AdventureMap>() -> toRoute<AdventureMap>().let { MenuSelection.Tracker(it.gameId, TrackerKind.ADVENTURE_MAP, it.dataFile) }
         d.hasRoute<ThrillDigger>() -> MenuSelection.Tracker(toRoute<ThrillDigger>().gameId, TrackerKind.THRILL_DIGGER)
         d.hasRoute<ItemUpgrades>() -> MenuSelection.Tracker(toRoute<ItemUpgrades>().gameId, TrackerKind.ITEM_UPGRADES)
+        d.hasRoute<Potions>() -> MenuSelection.Tracker(toRoute<Potions>().gameId, TrackerKind.POTIONS)
         else -> MenuSelection.None
     }
 }

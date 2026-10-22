@@ -32,6 +32,7 @@ import gx.zelda.shrines.data.ShrineProgressProvider
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.data.SpiritOrbProgressProvider
 import gx.zelda.shrines.data.shrineCatalogLoad
+import gx.zelda.potions.data.PotionProgressProvider
 import gx.zelda.sidequests.data.SideQuestProgressProvider
 import gx.zelda.sidequests.data.SideQuestStorage
 import gx.zelda.upgrades.data.UpgradeProgressProvider
@@ -85,6 +86,7 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             // A tool keeps no progress.
             TrackerKind.THRILL_DIGGER -> emptyList()
             TrackerKind.ITEM_UPGRADES -> listOf(UpgradeProgressProvider(UpgradeStorage(dataStore, game), tracker.title))
+            TrackerKind.POTIONS -> listOf(PotionProgressProvider(UpgradeStorage(dataStore, game), tracker.title))
         }
     }
 }

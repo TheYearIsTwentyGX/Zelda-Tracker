@@ -22,7 +22,7 @@ class ChecklistStorage(dataStore: DataStore<Preferences>, val game: Game, val da
     val stem: String = dataFile.substringAfterLast('/').removeSuffix(".json")
 
     private val progressStores = game.saveFiles.associate { file ->
-        file.id to JsonStore(dataStore, "${game.id}_checklist_$stem@${file.id}", ChecklistProgress.serializer(), ChecklistProgress())
+        file.id to JsonStore(dataStore, progressKey(game.id, dataFile, file.id), ChecklistProgress.serializer(), ChecklistProgress())
     }
     private val prefsStore = JsonStore(dataStore, "${game.id}_checklist_${stem}_prefs", ChecklistPrefs.serializer(), ChecklistPrefs())
     private val activeStore = activeSaveFileStore(dataStore, game)
@@ -56,4 +56,13 @@ class ChecklistStorage(dataStore: DataStore<Preferences>, val game: Game, val da
     suspend fun updatePrefs(transform: (ChecklistPrefs) -> ChecklistPrefs) = prefsStore.update(transform)
 
     private fun store(saveFileId: String): JsonStore<ChecklistProgress> = progressStores.getValue(game.saveFile(saveFileId).id)
+
+    companion object {
+        /**
+         * The key [dataFile]'s progress on one save file is stored under, e.g. `ss_checklist_items@file_1`,
+         * for another tracker that reads or migrates it (Skyward Sword's Item Upgrades).
+         */
+        fun progressKey(gameId: String, dataFile: String, saveFileId: String): String =
+            "${gameId}_checklist_${dataFile.substringAfterLast('/').removeSuffix(".json")}@$saveFileId"
+    }
 }

@@ -153,6 +153,8 @@ class SsDatasetTest {
     @Test
     fun itemsPouchBottlesAndWallets() = runTest {
         val items = load("items")
+        // The potion infusions moved to their own recipe book (docs/ss.md, Potion Infusions).
+        assertEquals(listOf("equipment", "capacity", "pouch", "bottles", "wallets"), items.sections.map { it.id })
         assertEquals(13, items.sectionSize("equipment"))
         assertEquals(3, items.sectionSize("capacity"))
         assertEquals(5, items.sectionSize("bottles"))

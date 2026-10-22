@@ -12,6 +12,7 @@ import gx.zelda.upgrades.model.UpgradeProgress
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 /** Skyward Sword's `files/ss/upgrades.json`, against the counts and prices in docs/ss.md. */
@@ -151,7 +152,10 @@ class SsUpgradeDatasetTest {
         assertTrue(noPotions.lines.none { it.material.kind == MaterialKind.BUG }, "only potions take bugs")
     }
 
-    /** The Rupee prices match the Items & Equipment and Shields checklists' "Upgrade … and N Rupees" lines. */
+    /**
+     * The Rupee prices match the Items & Equipment and Shields checklists' "Upgrade … and N Rupees"
+     * lines. The potions' are below: their checklist tab became the recipe book, read from this file.
+     */
     @Test
     fun thePricesMatchTheChecklists() = runTest {
         val c = catalog()
@@ -160,9 +164,49 @@ class SsUpgradeDatasetTest {
             .flatMap { item -> item.tiers.ifEmpty { null }?.map { it.name to it.howTo } ?: listOf(item.name to item.howTo) }
             .mapNotNull { (name, howTo) -> price.find(howTo.orEmpty())?.let { name to it.groupValues[1].toInt() } }
             .toMap()
-        val ours = c.items.flatMap { item -> item.upgrades.mapIndexedNotNull { i, s -> if (s.free) null else item.levels[i + 1].name to s.rupees } }.toMap()
+        val ours = c.items.filter { it.section != "potions" }
+            .flatMap { item -> item.upgrades.mapIndexedNotNull { i, s -> if (s.free) null else item.levels[i + 1].name to s.rupees } }.toMap()
         assertEquals(tiers.size, ours.size)
-        // The checklist names infused potions' rows by the potion (Stamina Potion+), which is the form too.
         assertEquals(tiers, ours)
+    }
+
+    /** Luv's prices and Bertie's, as the removed Potion Infusions checklist tab had them too. */
+    @Test
+    fun thePotionPrices() = runTest {
+        val potions = catalog().items.filter { it.section == "potions" }
+        assertEquals(
+            mapOf("heart_potion" to 20, "stamina_potion" to 50, "air_potion" to 20, "revitalizing_potion" to 30, "guardian_potion" to 200),
+            potions.associate { it.id to it.price },
+        )
+        assertEquals(
+            mapOf(
+                "Heart Potion+" to 20, "Heart Potion++" to 30, "Stamina Potion+" to 20, "Air Potion+" to 20,
+                "Revitalizing Potion+" to 20, "Revitalizing Potion++" to 30, "Guardian Potion+" to 40,
+            ),
+            potions.flatMap { p -> p.upgrades.mapIndexed { i, s -> p.levels[i + 1].name to s.rupees } }.toMap(),
+        )
+        potions.forEach { assertEquals(listOf("Luv's Potion Shop"), it.acquire.map { a -> a.title }, it.id) }
+        val bugs = catalog().materials.filter { it.kind == MaterialKind.BUG }.map { it.id }.toSet()
+        assertTrue(potions.flatMap { p -> p.upgrades.flatMap { s -> s.materials.map { it.material } } }.all { it in bugs }, "potions take only bugs")
+    }
+
+    /**
+     * Every upgrade item but the potions shares its progress with exactly one checklist item, whose
+     * tiers are its forms (the base item, then each upgrade), so a checklist level is 1 + the upgrade level.
+     */
+    @Test
+    fun everyLinkedItemHasTheSameFormsAsItsChecklistItem() = runTest {
+        val c = catalog()
+        assertEquals(c.items.filter { it.section != "potions" }.map { it.id }, UpgradeLinks.SS.map { it.itemId })
+        assertEquals(UpgradeLinks.SS.size, UpgradeLinks.SS.map { it.dataFile to it.checklistItemId }.toSet().size)
+        for (link in UpgradeLinks.SS) {
+            val item = c.item(link.itemId)!!
+            val checklistItem = assertNotNull(ChecklistRepository.load(link.dataFile).item(link.checklistItemId), "${link.dataFile} has ${link.checklistItemId}")
+            assertEquals(item.maxLevel + 1, checklistItem.steps, link.itemId)
+            val forms = checklistItem.tiers.map { it.name }.ifEmpty { listOf(checklistItem.name) }
+            assertEquals(item.levels.map { it.name }, forms, link.itemId)
+        }
+        // The checklist's Bomb Bag is the Earth Temple's; the pouch one is its capacity row.
+        assertEquals("extra_bomb_bag", UpgradeLinks.SS.single { it.itemId == "bomb_bag" }.checklistItemId)
     }
 }

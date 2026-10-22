@@ -85,7 +85,8 @@ data class UpgradeUiState(
         val note = listOfNotNull(
             "${hidden.joinToString(" and ")} the filters hide ${if (hidden.size == 1) "isn't" else "aren't"} changed."
                 .takeIf { section == null && hidden.isNotEmpty() },
-            "Upgrade levels aren't changed.",
+            "Marking leaves upgrade levels as they are. Clearing an item Items & Equipment or Shields also lists clears its " +
+                "upgrades there too, since the two share its progress.",
         )
         return BulkScope.of(
             label = section?.let { id -> catalog.section(id)?.title } ?: "Item Upgrades",

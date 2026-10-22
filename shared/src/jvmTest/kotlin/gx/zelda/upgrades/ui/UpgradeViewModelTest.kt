@@ -55,10 +55,16 @@ class UpgradeViewModelTest {
         assertEquals(1, dataStore.writes - before)
         assertEquals(PieceProgress(owned = true, level = 2), progress().of("beetle"))
 
+        // The Beetle's progress is Items & Equipment's, which has no level without the item.
         vm.setOwned("beetle", false)!!.join()
-        assertEquals(PieceProgress(owned = false, level = 2), progress().of("beetle"), "unticking keeps the level, as armor does")
+        assertEquals(PieceProgress(), progress().of("beetle"), "unticking a shared item clears its upgrades")
         val state = vm.state.filterNotNull().first { !it.progress.of("beetle").owned }
         assertEquals(0, state.progress.level(state.visible.first()), "an item you don't have counts at its base level")
+
+        // An item only this tracker has keeps its level, as armor does.
+        vm.setLevel("heart_potion", 1)!!.join()
+        vm.setOwned("heart_potion", false)!!.join()
+        assertEquals(PieceProgress(owned = false, level = 1), progress().of("heart_potion"))
     }
 
     @Test
