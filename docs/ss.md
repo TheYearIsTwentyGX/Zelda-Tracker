@@ -5,7 +5,8 @@ eight JSON files in `shared/src/commonMain/composeResources/files/ss/`, listed i
 after a Progress Overview. After them come the [Potion Infusions](#potion-infusions) recipe book
 (`TrackerKind.POTIONS`) and [Item Upgrades](#item-upgrades) (`TrackerKind.ITEM_UPGRADES`, modelled on
 BotW's armor tracker), both from `upgrades.json` and [sharing progress](#shared-progress) with the
-checklists, and one tool, the
+checklists, then the [Lightning Round Records](#lightning-round-records) board
+(`TrackerKind.BOSS_RUSH`, from `boss_rush.json`), and one tool, the
 [Thrill Digger Solver](#thrill-digger-solver) (`TrackerKind.THRILL_DIGGER`). `SsDatasetTest` checks the counts below and the links between files,
 `ChecklistDatasetsTest` checks the format, and `ChecklistLinksDatasetTest` the [linked items](#linked-items),
 which share one progress between files.
@@ -29,6 +30,14 @@ HD. HD adds an autosave slot above the three on the file select. It holds the au
 you're playing, so it isn't a fourth file to track. On the Wii, Hero Mode is saved over the cleared
 file; HD lets it go in a slot of its own. The placeholder in `Games.kt` was already three, so the ids
 `file_1`–`file_3` are unchanged.
+
+**Hero Mode is per file, and the user says which.** A file's mode can't change in the game (Hero
+Mode is a new file started from a cleared one), but the app can't know it, so unlike BotW's fixed
+`SaveFile.masterMode` it's user data: `SaveFileSettings.heroMode` in `core/SaveFileSettings.kt`,
+stored under `ss_file_settings@file_N` and set by the *Hero Mode* switch on the
+[Lightning Round Records](#lightning-round-records) board. Only that board reads it so far; other
+trackers can use it for their own Hero Mode differences (none are wired in yet). It's
+`SaveFileSettingsStorage`, generic over games, so another game's Hero Mode file could use it too.
 
 ## Files and counts
 
@@ -184,7 +193,12 @@ Cawlin's letter and Peatrice's admirer each have two endings, but both give 5 cr
   `logic/requirements/*.yaml`), read from the game's files: which item is at every check, which cube
   opens which chest, and the tools each needs. It settles the guides' disagreements about where
   things are.
-- **zeldaret/ss**, the decompilation, for the save-file count.
+- **zeldaret/ss**, the decompilation, for the save-file count, and for the Lightning Round's records
+  (`storyflag_map.h`, `d_lyt_mini_game.cpp`, the Thunder Dragon's symbols).
+- **Lightning Round Records** also used Zelda Wiki (*Thunder Dragon's Lightning Round*, *Hero Mode*,
+  *Lanayru (Dragon)*), Fandom (zelda.fandom.com, the same page), Game8 and Nintendo Life (HD
+  guides to the prizes). Zelda Dungeon's page was blocked to fetches and the Wayback Machine was
+  down, so only search extracts of it were read; they list the same 12 bosses in the same order.
 
 ## Discrepancies
 
@@ -556,6 +570,166 @@ potions are fully infused, and the next step with who does it ("Heart Potion (Lu
 scopes, Luv's prices, the cross-check with Item Upgrades' totals) and `PotionViewModelTest` (the
 cards, one write per tick, the progress shared with Item Upgrades both ways, mark all and undo, save
 files, the totals following ticks in either screen and the save-file switch).
+
+## Lightning Round Records
+
+`TrackerKind.BOSS_RUSH`, in `bossrush/`, listed after Item Upgrades and before the Thrill Digger
+solver. After you give the Thunder Dragon the Life Tree Fruit in Lanayru Gorge, he offers the
+Lightning Round: rematches against the bosses you've beaten, one after another. The user asked for
+a records board. It's a **tracker, not a tool**: it keeps per-file progress and has a Progress
+Overview row, which tools don't.
+
+### What the game keeps
+
+**One best time per boss, per save file.** That's all.
+- The zeldaret/ss decompilation (Wii, SOUE01) stores each boss's record as three story flags,
+  `STORYFLAG_<BOSS>_TIME_MIN`, `_SEC` and `_MS` (`include/d/flag/storyflag_map.h`). There are 12
+  bosses, so 36 flags.
+- The Thunder Dragon's actor has a `setBest<Boss>Time` for each, plus `isNewBestTime` and
+  `storeNewBestTime`.
+- There is **no** run-total time, no best per run length and no longest-streak record. The only run
+  state is the current time, the boss index and how many have been beaten in this run.
+- During a fight the HUD shows the running timer and that boss's best (`setShowBestTime`). After a
+  win the Dragon shows the result. Neither the code nor any guide has a separate records list.
+- Story flags live in the save file, so records are per file. A Hero Mode file has its own,
+  because it's a different file.
+
+**The board mirrors that.**
+- Each boss has one slot, with the best time on it. The board adds a short history (the last 20
+  times, the best always kept) so improvements show.
+- It also shows two totals the game doesn't: the records set, and the sum of the bests.
+- **Time format:** `m:ss.cc`, in hundredths. The timer keeps milliseconds and shows six digits,
+  `mm ss cc`; `updateLongTimer` in `src/d/lyt/d_lyt_mini_game.cpp` divides by 10 for the hundredths.
+  Times cap at **59:59.99** (`TIME_CONVERT(59, 59, 99)`).
+- **The 50-Rupee bonus.** The Side Quests item's notes already say that each first win, and each new
+  record on a boss, pays 50 Rupees (Zelda Wiki, Fandom, Game8).
+
+### The bosses
+
+`files/ss/boss_rush.json`, in the decompilation's order (its `getBossHighscore` switch), which is
+also the story's. The ids are stable, since records are kept under them.
+
+| # | id | Boss | Where first fought |
+|---|---|---|---|
+| 1 | `ghirahim_1` | Ghirahim (1st battle) | Skyview Temple |
+| 2 | `scaldera` | Scaldera | Earth Temple |
+| 3 | `moldarach` | Moldarach | Lanayru Mining Facility |
+| 4 | `imprisoned_1` | The Imprisoned (1st battle) | Sealed Grounds |
+| 5 | `koloktos` | Koloktos | Ancient Cistern |
+| 6 | `tentalus` | Tentalus | Sandship |
+| 7 | `ghirahim_2` | Ghirahim (2nd battle) | Fire Sanctuary |
+| 8 | `imprisoned_2` | The Imprisoned (2nd battle) | Sealed Grounds |
+| 9 | `imprisoned_3` | The Imprisoned (3rd battle) | Sealed Grounds |
+| 10 | `horde` | Horde Battle | Sealed Grounds, in the past |
+| 11 | `ghirahim_3` | Ghirahim (3rd battle) | Sealed Grounds, in the past |
+| 12 | `demise` | Demise (Hero Mode only) | Demise's realm |
+
+- Levias and Bilocyte aren't in it (Zelda Wiki, *Lanayru (Dragon)*). Each entry's `flag` names its
+  story flags, and `BossRushDatasetTest` pins both orders.
+- **Normal is 11 slots, Hero Mode 12.** That's the user's count, and Zelda Wiki's upper bound.
+- The Dragon offers only bosses already beaten on the file, so how many a Normal file actually
+  offers is disputed:
+  - Zelda Wiki: "between nine and 11";
+  - Fandom and Game8: 9, with the Horde Battle, Ghirahim's third battle and Demise for Hero Mode.
+    A cleared Normal save resumes before the final battles.
+- The board keeps the decompilation's 11 non-Demise slots on a Normal file. A slot the file can't
+  fight just stays empty. The Horde Battle and Ghirahim 3 carry a note.
+- **Hero Mode** puts all 12 in the round from the start, at Hero Mode's double damage (Zelda Wiki,
+  Fandom).
+- **Skyward Sword HD:** no Lightning Round difference was found in any source.
+- **The first boss is yours and the Dragon picks the rest.** Game8 and Nintendo Life say at random.
+  Zelda Wiki and Fandom say "depending on how well Link performed", uncited. The selection code
+  isn't decompiled yet. Either way, it doesn't affect the board.
+
+**Pictures.**
+- Zelda Wiki has no in-game icon for these bosses (only The Imprisoned's map icons). So
+  `scripts/fetch-boss-rush-icons.py` bundles each boss's render as `drawable/ss_boss_<icon>.png`,
+  fitted in 128 px.
+- A boss fought more than once shares one picture through its `icon`, except Ghirahim's third
+  battle, which has its own (*SS Ghirahim Render 3*).
+- The Horde Battle uses *SSHD Bokoblin Icon*.
+
+### Prizes, not copied
+
+**Prizes.**
+- The prizes for wins in a row live in Side Quests & Minigames' `thunder_dragon_boss_rush` item
+  (`sideQuest` in `boss_rush.json`), where they're ticked. The board reads that item at runtime
+  (`BossRushData.sideQuest`) and shows its tiers and notes.
+- The research agreed with what was already there:
+  - 1 win: 20 Rupees; 2: a small treasure; 3: 100; 4: a Piece of Heart (later 200);
+  - 5: 300; 6: a rare treasure; 7: 500; 8: the Hylian Shield (later 1,000);
+  - 9: 2,000; 10: three rare treasures; 11: 3,000; Hero Mode's 12th: a full wallet (9,900).
+  - Dying forfeits the prize; record bonuses stay.
+- Nothing about prizes changed.
+
+**Story gating.**
+- The same item's `unlockedBy` (`hero_song_lanayru`, Lanayru's part of the Song of the Hero, after
+  which the Dragon runs the round) gates the board. `bossRushStoryGate` reads it through
+  `StoryProgress` on `ss/side_quests.json`.
+- With gating on, a file before that step shows a *Not open yet* card, and the overview's *Next*
+  says "Opens after Lanayru's part".
+- Nothing is hidden: times entered always show and count.
+
+### The board
+
+`BossRushScreen`, landscape first like the Thrill Digger.
+- **Landscape:** the boss cards (picture, name, fight, best time) fill the left, under the totals.
+  The right-hand panel holds the chosen boss's personal best, in big type, with its date and how much
+  it beat the previous best by, then the time entry, its history, and the prizes card.
+- **Short landscape** (a phone on its side) hides the bars as HW:DE's map does. The panel then
+  carries the menu or Back button, the save file picker and the Hero Mode switch.
+- **Portrait:** the panel sits above the cards.
+
+**Entry.** `RecordTime.parse` accepts:
+- `m:ss.cc` and `m:ss`;
+- `s.cc` in seconds alone;
+- `1.45.32`, for a decimal keypad with no colon;
+- a comma decimal point;
+- bare digits, which fill from the right like a stopwatch (`14532` is 1:45.32).
+
+Seconds after minutes must be under 60, and zero and anything past 59:59.99 are refused. The parsed
+time shows under the field as you type. Enter adds it, dated today on the device's calendar
+(`todayEpochDay`, a `java.time` actual), and clears the field.
+
+**Editing.** Each history row can be edited (the time; its date stays) or deleted.
+- Every add, edit and delete is **one write** to the file's `ss_boss_rush@file_N`, read and changed
+  inside the same DataStore edit.
+- Each change gives a snackbar with **Undo**, which puts back the boss's whole list from before, on
+  the file it was made on.
+
+**Hero Mode switch.**
+- One write to `ss_file_settings@file_N`. It never touches records.
+- Switching a file to Normal hides Demise's record and says so ("kept but hidden"); switching back
+  shows it again.
+
+**Mark-all** doesn't apply, so there's none.
+
+### Storage and the overview
+
+**Storage.**
+- `BossRushRecords` maps each boss id to its entries, oldest first. An entry has an `id`, unique
+  within the boss, the `time` in hundredths, and the `day` as an epoch day.
+- The best is the fastest time, the earlier entry on a tie.
+- History is capped at `HISTORY` = 20. The oldest entry goes first, but never the best.
+- The view model reads the active file, its records, its settings and its story gate inside one
+  `flatMapLatest`, so a switch never pairs one file's records with another's mode (see the
+  lost-update notes on save-file switches in other trackers' tests).
+
+**Overview row** (`BossRushProgressProvider`):
+- It counts the bosses with a record against the file's slots, in that file's mode: "Records set
+  7/11" or "Records set 3/12 (Hero Mode)", then "· bests total 12:34.56".
+- *Next* names the first boss without a record, or "Every boss has a record".
+- A Normal file doesn't count Demise's hidden record.
+
+**Tests:**
+- `RecordTimeTest`: formats and parse edge cases.
+- `BossRushDatasetTest`: the order, the flags, 11 against 12, the pictures, and the Side Quests
+  item and its step.
+- `BossRushRecordsTest`: the best and ties, history trimming, edits and deletes, hidden records,
+  and the row and the gate.
+- `BossRushViewModelTest`: one write per add, edit and delete; undo, also across a file switch;
+  each file's mode; the switch keeping Demise; the gate; a broken dataset.
+- `SaveFileSettingsTest`, and `BossRushOverviewTest` (the row following each file's mode).
 
 ## Thrill Digger Solver
 

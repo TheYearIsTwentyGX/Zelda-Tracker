@@ -1,0 +1,17 @@
+{
+  "sideQuest": {"dataFile": "ss/side_quests.json", "itemId": "thunder_dragon_boss_rush"},
+  "bosses": [
+    {"id": "ghirahim_1", "name": "Ghirahim", "fight": "1st battle", "place": "Skyview Temple", "icon": "ghirahim", "flag": "GHIRAHIM1"},
+    {"id": "scaldera", "name": "Scaldera", "place": "Earth Temple", "icon": "scaldera", "flag": "SCALDERA"},
+    {"id": "moldarach", "name": "Moldarach", "place": "Lanayru Mining Facility", "icon": "moldarach", "flag": "MOLDERACH"},
+    {"id": "imprisoned_1", "name": "The Imprisoned", "fight": "1st battle", "place": "Sealed Grounds", "icon": "imprisoned", "flag": "IMP1"},
+    {"id": "koloktos", "name": "Koloktos", "place": "Ancient Cistern", "icon": "koloktos", "flag": "KOLOKTOS"},
+    {"id": "tentalus", "name": "Tentalus", "place": "Sandship", "icon": "tentalus", "flag": "TENTALUS"},
+    {"id": "ghirahim_2", "name": "Ghirahim", "fight": "2nd battle", "place": "Fire Sanctuary", "icon": "ghirahim", "flag": "GHIRAHIM2"},
+    {"id": "imprisoned_2", "name": "The Imprisoned", "fight": "2nd battle", "place": "Sealed Grounds", "icon": "imprisoned", "flag": "IMP2"},
+    {"id": "imprisoned_3", "name": "The Imprisoned", "fight": "3rd battle", "place": "Sealed Grounds", "icon": "imprisoned", "flag": "IMP3"},
+    {"id": "horde", "name": "Horde Battle", "place": "Sealed Grounds, in the past", "icon": "horde", "flag": "HORDE", "notes": "Fought in the final battles; some guides say a Normal Mode file can't offer it."},
+    {"id": "ghirahim_3", "name": "Ghirahim", "fight": "3rd battle", "place": "Sealed Grounds, in the past", "icon": "ghirahim_3", "flag": "GHIRAHIM3", "notes": "Fought in the final battles; some guides say a Normal Mode file can't offer it."},
+    {"id": "demise", "name": "Demise", "place": "Demise's realm", "icon": "demise", "flag": "DEMISE", "heroOnly": true, "notes": "Hero Mode only."}
+  ]
+}

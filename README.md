@@ -48,6 +48,8 @@ iOS port is mostly a matter of adding the iOS targets.
   - Counts keep their true totals, and each region card says how many more unlock later in the
     story, without naming them.
   - Search, the *Missable* chip, mark-all and the overview's *Next* leave out locked items.
+  - Skyward Sword's Lightning Round Records board isn't a list to hide, so it shows a *Not open
+    yet* note instead until Lanayru's part of the Song of the Hero, from the same `unlockedBy`.
 - **Game themes**: inside a game (its trackers, overview, detail pages, scans and map) the screens
   take on that game's look: colours from its menus, header lettering in the style of its era, and
   a small ornament under each region's header. Every game has one: the 8- and 16-bit games and Four Swords
@@ -71,7 +73,7 @@ iOS port is mostly a matter of adding the iOS targets.
     checked by a test for every theme, light and dark. Body text stays in the system font; only
     headers use a theme's lettering.
 - **Mark all complete** (every checklist tracker, each HW:DE Adventure map, Skyward Sword's Item
-  Upgrades and Potion Infusions, and every BotW, TotK and Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
+  Upgrades and Potion Infusions (not its Lightning Round times), and every BotW, TotK and Minish Cap tracker except the map and the overviews): a row under the filters marks everything on the tab complete, and a box on each region
   card marks that region. Once everything there is complete, the same control reads *Clear all*;
   the box shows a dash when some are done. Upgrades go to their top level, or back to none.
   - It acts on the active save file, and on the rows the search and filter chips leave showing
@@ -795,7 +797,7 @@ guides number them differently. Sources and disagreements are in `docs/st.md`.
 
 **Skyward Sword**
 
-Every SS tracker but Potion Infusions and Item Upgrades is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
+Every SS tracker but Potion Infusions, Item Upgrades and Lightning Round Records is a [checklist](docs/checklist-trackers.md), built for the Wii original. Where
 Skyward Sword HD differs (button controls, autosave, the amiibo's fast travel), the item's notes say
 so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
 - **Progress Overview** (first): a row per tracker with its count, totals and next step. Item
@@ -803,6 +805,8 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
   Rupees still to go, and suggests the next upgrade on something you have. Potion Infusions' row
   counts recipe steps made (of 12) and names the next one. Rows that share progress (below) always
   agree: a Quick Beetle counts in Items & Equipment and Item Upgrades alike.
+  Lightning Round Records' row counts the bosses with a record of the file's slots: *Records set
+  7/11* on a Normal file, *3/12 (Hero Mode)* on a Hero Mode one, with the best times' total.
 - **Main Quest:** the story as one chain in play order: the seven dungeons with each boss and
   dungeon item, the Goddess's Harp and the songs, the three battles with the Imprisoned, Levias, the
   Stone of Trials, Sky Keep and Demise. Tabs for the four Silent Realms (and what each gives), the
@@ -877,6 +881,24 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
     Only extra pouch copies (*Seed Satchel #2*…) are Item Upgrades' alone. Unticking a shared item
     clears its upgrades, as unticking its checklist row does. Saves from before this were merged once,
     at the higher level of the two; `docs/ss.md` has the details.
+- **Lightning Round Records:** the Thunder Dragon's boss battles in Lanayru Gorge, as the game
+  keeps them: **one best time per boss**, per save file (the game has no run-total or streak record).
+  - **Hero Mode file** (a switch by the save file picker): Skyward Sword locks the mode to the file,
+    so each file is marked once. A Normal file shows 11 bosses, Ghirahim's first battle to his third;
+    a Hero Mode file adds Demise, for 12. Switching a file back to Normal never deletes Demise's
+    record: it's kept, hidden, and the board says so.
+  - Landscape first, like the Thrill Digger: the bosses as cards with their pictures and best times
+    on the left; on the right the chosen boss's **personal best**, big, with its date and what it
+    beat, the time entry and the times entered before. Portrait puts the boss above the cards.
+  - **Times** are the game's `m:ss.cc` (hundredths, up to 59:59.99). Type digits and they fill from
+    the right like a stopwatch (`14532` is 1:45.32), or `1:45.32`, `1.45.32` or `105.32`; Enter adds
+    it, dated today, and clears the field for the next. The last 20 times per boss are kept, the best
+    always among them. Edit or delete any entry; the snackbar's *Undo* puts the boss's times back.
+  - Totals: records set of the file's slots, and the sum of the best times.
+  - The round's prizes are shown from Side Quests & Minigames' Lightning Round item, where they're
+    ticked; nothing is copied. With story gating on, a file before Lanayru's part of the Song of the
+    Hero shows the board as locked; times already entered always show and count.
+  - No mark-all: times aren't something to mark.
 - **Thrill Digger Solver** (a tool, last): enter what each hole showed and every undug hole gets its
   exact Bomb and Rupoor chance, as a heat colour, with the safest hole to dig next starred.
   - It counts every board the game can deal, its re-deal of a 2×2 block of hazards included, on
