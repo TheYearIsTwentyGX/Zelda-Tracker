@@ -89,6 +89,13 @@ enum class TrackerKind {
      * the bugs, Rupees and where to catch them. Its progress is [ITEM_UPGRADES]' potions; see docs/ss.md.
      */
     POTIONS,
+
+    /**
+     * Skyward Sword's Lightning Round Records board: the Thunder Dragon's best time per boss, per save
+     * file, with a short history; 11 bosses on a Normal file and 12 on a Hero Mode one
+     * ([SaveFileSettings.heroMode]). Its data is `files/<game id>/boss_rush.json`; see docs/ss.md.
+     */
+    BOSS_RUSH,
     ;
 
     /** True for the kinds that read their data from a [Tracker.dataFile], so a game can list several. */
@@ -451,8 +458,8 @@ object Games {
 
     /**
      * Three files on the Wii and in Skyward Sword HD, whose extra autosave slot isn't a file of its own.
-     * Every tracker but Item Upgrades is a checklist for the Wii original, with HD's differences in
-     * item notes, plus the Thrill Digger solver as a tool. The data and its sources are in docs/ss.md.
+     * Every tracker but Potion Infusions, Item Upgrades and the Lightning Round Records is a checklist
+     * for the Wii original, with HD's differences in item notes, plus the Thrill Digger solver as a tool. The data and its sources are in docs/ss.md.
      */
     val SS = Game(
         id = "ss",
@@ -472,6 +479,7 @@ object Games {
             ssChecklist("Bugs & Treasures", "All 12 bugs and 16 treasures: where to find them and what they upgrade", "bugs_treasures"),
             Tracker(TrackerKind.POTIONS, "Potion Infusions", "A recipe book of Luv's five potions and Bertie's infusions: the bugs and Rupees for each, and where to catch them"),
             Tracker(TrackerKind.ITEM_UPGRADES, "Item Upgrades", "Every Scrap Shop upgrade and potion infusion, with the treasures, bugs and Rupees still needed"),
+            Tracker(TrackerKind.BOSS_RUSH, "Lightning Round Records", "The Thunder Dragon's boss battles: your best time on each boss, and the times before it"),
             Tracker(TrackerKind.THRILL_DIGGER, "Thrill Digger Solver", "Every undug hole's Bomb and Rupoor odds, and the safest hole to dig next"),
         ),
     )

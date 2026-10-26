@@ -8,6 +8,9 @@ import gx.zelda.armor.data.ArmorProgressProvider
 import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.bosses.data.BossProgressProvider
 import gx.zelda.bosses.data.BossStorage
+import gx.zelda.bossrush.data.BossRushProgressProvider
+import gx.zelda.bossrush.data.BossRushStorage
+import gx.zelda.bossrush.data.bossRushStoryGate
 import gx.zelda.compendium.data.CompendiumProgressProvider
 import gx.zelda.compendium.data.CompendiumStorage
 import gx.zelda.checklist.data.ChecklistProgressProvider
@@ -15,6 +18,7 @@ import gx.zelda.checklist.data.ChecklistStorage
 import gx.zelda.checklist.data.StoryProgress
 import gx.zelda.core.Game
 import gx.zelda.core.ProgressProvider
+import gx.zelda.core.SaveFileSettingsStorage
 import gx.zelda.core.TrackerKind
 import gx.zelda.fairies.data.FairyProgressProvider
 import gx.zelda.fairies.data.FairyStorage
@@ -87,6 +91,14 @@ fun overviewProviders(dataStore: DataStore<Preferences>, game: Game): List<Progr
             TrackerKind.THRILL_DIGGER -> emptyList()
             TrackerKind.ITEM_UPGRADES -> listOf(UpgradeProgressProvider(UpgradeStorage(dataStore, game), tracker.title))
             TrackerKind.POTIONS -> listOf(PotionProgressProvider(UpgradeStorage(dataStore, game), tracker.title))
+            TrackerKind.BOSS_RUSH -> listOf(
+                BossRushProgressProvider(
+                    BossRushStorage(dataStore, game),
+                    SaveFileSettingsStorage(dataStore, game),
+                    tracker.title,
+                    storyGate = bossRushStoryGate(dataStore, game),
+                ),
+            )
         }
     }
 }

@@ -91,6 +91,11 @@ import gx.zelda.potions.ui.PotionBookScreen
 import gx.zelda.potions.ui.PotionRecipeScreen
 import gx.zelda.potions.ui.PotionTotalsScreen
 import gx.zelda.potions.ui.PotionViewModel
+import gx.zelda.bossrush.data.BossRushStorage
+import gx.zelda.bossrush.data.bossRushStoryGate
+import gx.zelda.bossrush.ui.BossRushScreen
+import gx.zelda.bossrush.ui.BossRushViewModel
+import gx.zelda.core.SaveFileSettingsStorage
 import gx.zelda.thrilldigger.data.ThrillDiggerStorage
 import gx.zelda.thrilldigger.ui.ThrillDiggerScreen
 import gx.zelda.thrilldigger.ui.ThrillDiggerViewModel
@@ -154,6 +159,7 @@ import kotlinx.serialization.Serializable
 /** A Hyrule Warriors Adventure Mode map, named by its dataset since a game has several. */
 @Serializable private data class AdventureMap(val gameId: String, val dataFile: String)
 @Serializable private data class ThrillDigger(val gameId: String)
+@Serializable private data class BossRush(val gameId: String)
 @Serializable private data class ItemUpgrades(val gameId: String)
 @Serializable private data class Potions(val gameId: String)
 @Serializable private data class PotionRecipe(val gameId: String, val potionId: String)
@@ -508,6 +514,17 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                     onBack = { nav.popBackStack() },
                 )
             }
+            composable<BossRush> { entry ->
+                val game = Games.byId(entry.toRoute<BossRush>().gameId)
+                val vm = viewModel(key = "boss_rush_${game.id}") {
+                    BossRushViewModel(BossRushStorage(dataStore, game), SaveFileSettingsStorage(dataStore, game), bossRushStoryGate(dataStore, game))
+                }
+                BossRushScreen(
+                    vm,
+                    title = game.trackers.first { it.kind == TrackerKind.BOSS_RUSH }.title,
+                    onBack = { nav.popBackStack() },
+                )
+            }
             composable<ItemUpgrades> { entry ->
                 val game = Games.byId(entry.toRoute<ItemUpgrades>().gameId)
                 val vm = upgradeViewModel(entry, dataStore, game)
@@ -692,6 +709,7 @@ private fun NavController.openTrackerFromOverview(game: Game, kind: TrackerKind,
         TrackerKind.THRILL_DIGGER -> navigate(ThrillDigger(game.id))
         TrackerKind.ITEM_UPGRADES -> navigate(ItemUpgrades(game.id))
         TrackerKind.POTIONS -> navigate(Potions(game.id))
+        TrackerKind.BOSS_RUSH -> navigate(BossRush(game.id))
     }
 }
 
@@ -815,6 +833,7 @@ private fun trackerRoute(gameId: String, tracker: Tracker): Any = when (tracker.
     TrackerKind.THRILL_DIGGER -> ThrillDigger(gameId)
     TrackerKind.ITEM_UPGRADES -> ItemUpgrades(gameId)
     TrackerKind.POTIONS -> Potions(gameId)
+    TrackerKind.BOSS_RUSH -> BossRush(gameId)
 }
 
 /** What the menu highlights for this entry: a tracker's list screen, Home or Settings. */
@@ -841,6 +860,7 @@ private fun NavBackStackEntry.menuSelection(): MenuSelection {
         d.hasRoute<ThrillDigger>() -> MenuSelection.Tracker(toRoute<ThrillDigger>().gameId, TrackerKind.THRILL_DIGGER)
         d.hasRoute<ItemUpgrades>() -> MenuSelection.Tracker(toRoute<ItemUpgrades>().gameId, TrackerKind.ITEM_UPGRADES)
         d.hasRoute<Potions>() -> MenuSelection.Tracker(toRoute<Potions>().gameId, TrackerKind.POTIONS)
+        d.hasRoute<BossRush>() -> MenuSelection.Tracker(toRoute<BossRush>().gameId, TrackerKind.BOSS_RUSH)
         else -> MenuSelection.None
     }
 }
