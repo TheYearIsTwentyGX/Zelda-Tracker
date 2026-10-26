@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -58,23 +59,9 @@ fun UpgradeMaterialsScreen(
     LazyColumn(contentPadding = contentPadding, modifier = Modifier.fillMaxWidth()) {
         item(key = "_controls") {
             Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
-                    UpgradeTotalsMode.entries.forEachIndexed { i, mode ->
-                        SegmentedButton(
-                            selected = state.totalsMode == mode,
-                            onClick = { viewModel.setTotalsMode(mode) },
-                            shape = SegmentedButtonDefaults.itemShape(i, UpgradeTotalsMode.entries.size),
-                            icon = {},
-                        ) { Text(mode.label, textAlign = TextAlign.Center, style = MaterialTheme.typography.labelMedium, minLines = 2) }
-                    }
-                }
+                TotalsModeSwitch(state.totalsMode, viewModel::setTotalsMode)
                 SectionFilterChips(state.catalog, state.prefs, viewModel)
-                Text(
-                    "${thousands(totals.rupees)} Rupees",
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.secondary,
-                )
+                RupeeTotal(totals.rupees)
                 val pouchItems = state.catalog.items.filter { it.multiple }.map { it.name }
                 if (pouchItems.isNotEmpty()) {
                     Text(
@@ -83,15 +70,11 @@ fun UpgradeMaterialsScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "${countOf(totals.stepsRemaining, "upgrade")} on ${countOf(totals.itemsCounted, "item")}",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.weight(1f),
-                    )
-                    SortMenu(materialSort, MaterialSort.entries, { it.label }, viewModel::setMaterialSort)
-                }
+                TotalsCountRow(
+                    "${countOf(totals.stepsRemaining, "upgrade")} on ${countOf(totals.itemsCounted, "item")}",
+                    materialSort,
+                    viewModel::setMaterialSort,
+                )
             }
         }
         if (lines.isEmpty()) {
@@ -109,19 +92,77 @@ fun UpgradeMaterialsScreen(
                 )
             }
         }
-        items(lines, key = { it.material.id }) { line ->
-            MaterialRow(
-                line = line,
-                expanded = expanded == line.material.id,
-                onToggle = { expanded = if (expanded == line.material.id) null else line.material.id },
-                onOpenItem = onOpenItem,
-            )
+        materialTotalRows(lines, expanded, onToggle = { id -> expanded = if (expanded == id) null else id }, onOpenItem = onOpenItem)
+    }
+}
+
+/** The totals' scope: what you have, or everything. Potion Infusions names them its own way. */
+@Composable
+internal fun TotalsModeSwitch(
+    selected: UpgradeTotalsMode,
+    onSelect: (UpgradeTotalsMode) -> Unit,
+    label: (UpgradeTotalsMode) -> String = { it.label },
+) {
+    SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+        UpgradeTotalsMode.entries.forEachIndexed { i, mode ->
+            SegmentedButton(
+                selected = selected == mode,
+                onClick = { onSelect(mode) },
+                shape = SegmentedButtonDefaults.itemShape(i, UpgradeTotalsMode.entries.size),
+                icon = {},
+            ) { Text(label(mode), textAlign = TextAlign.Center, style = MaterialTheme.typography.labelMedium, minLines = 2) }
         }
     }
 }
 
 @Composable
-private fun MaterialRow(line: MaterialTotal, expanded: Boolean, onToggle: () -> Unit, onOpenItem: (String, Int) -> Unit) {
+internal fun RupeeTotal(rupees: Int) {
+    Text(
+        "${thousands(rupees)} Rupees",
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.SemiBold,
+        color = MaterialTheme.colorScheme.secondary,
+    )
+}
+
+/** "12 upgrades on 7 items", and the material sort beside it. */
+@Composable
+internal fun TotalsCountRow(text: String, sort: MaterialSort, onSort: (MaterialSort) -> Unit) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text,
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f),
+        )
+        SortMenu(sort, MaterialSort.entries, { it.label }, onSort)
+    }
+}
+
+/**
+ * One row per material, [expanded] (a material id) showing where to get it and what needs it;
+ * tapping a use opens [onOpenItem] with its item and copy. [usesNoun] names those uses for the arrow.
+ */
+internal fun LazyListScope.materialTotalRows(
+    lines: List<MaterialTotal>,
+    expanded: String?,
+    onToggle: (materialId: String) -> Unit,
+    onOpenItem: (itemId: String, copy: Int) -> Unit,
+    usesNoun: String = "upgrades",
+) {
+    items(lines, key = { it.material.id }) { line ->
+        MaterialRow(
+            line = line,
+            expanded = expanded == line.material.id,
+            onToggle = { onToggle(line.material.id) },
+            onOpenItem = onOpenItem,
+            usesNoun = usesNoun,
+        )
+    }
+}
+
+@Composable
+private fun MaterialRow(line: MaterialTotal, expanded: Boolean, onToggle: () -> Unit, onOpenItem: (String, Int) -> Unit, usesNoun: String) {
     val material = line.material
     Column(Modifier.fillMaxWidth().animateContentSize()) {
         Row(
@@ -145,7 +186,7 @@ private fun MaterialRow(line: MaterialTotal, expanded: Boolean, onToggle: () -> 
             )
             Icon(
                 if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                contentDescription = if (expanded) "Hide upgrades" else "Show upgrades",
+                contentDescription = if (expanded) "Hide $usesNoun" else "Show $usesNoun",
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(start = 8.dp),
             )

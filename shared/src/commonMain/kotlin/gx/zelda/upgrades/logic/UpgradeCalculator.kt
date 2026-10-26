@@ -81,12 +81,16 @@ object UpgradeCalculator {
     fun isCounted(copy: ItemCopy, progress: UpgradeProgress): Boolean =
         countedCopy(copy.item, progress, UpgradeTotalsMode.ALL) == copy
 
-    fun totals(catalog: UpgradeCatalog, progress: UpgradeProgress, prefs: UpgradePrefs, mode: UpgradeTotalsMode): UpgradeTotals {
+    fun totals(catalog: UpgradeCatalog, progress: UpgradeProgress, prefs: UpgradePrefs, mode: UpgradeTotalsMode): UpgradeTotals =
+        totals(catalog, visibleItems(catalog, prefs), progress, mode)
+
+    /** The totals over [items] only, whatever the chips say: the Potion Infusions book's, over the potions. */
+    fun totals(catalog: UpgradeCatalog, items: List<UpgradeItem>, progress: UpgradeProgress, mode: UpgradeTotalsMode): UpgradeTotals {
         val uses = mutableMapOf<String, MutableList<MaterialUse>>()
         var rupees = 0
         var itemsCounted = 0
         var steps = 0
-        for (item in visibleItems(catalog, prefs)) {
+        for (item in items) {
             val copy = countedCopy(item, progress, mode) ?: continue
             val remaining = remaining(copy, progress)
             if (remaining.isEmpty()) continue

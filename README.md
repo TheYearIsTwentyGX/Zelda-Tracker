@@ -843,8 +843,14 @@ so; no count or price changes. Sources and disagreements are in `docs/ss.md`.
     clears those after.
   - *Still needed* adds up the bugs and Rupees left for that potion, and *Where to catch them* lists
     each bug with its regions and how to farm it, from the same data as Item Upgrades.
+  - **Total Materials Required** (the card on the cover): every bug the potion steps left take,
+    and the Rupees for Luv's base potions and Bertie's infusions, for *Potions you've bought* or
+    *All potions* (the default). Tap a bug for where to catch it and which infusions need how many,
+    then one to open its recipe. All potions comes to 50 bugs and 500 Rupees (180 for the
+    infusions, exactly what the potions add to Item Upgrades' totals, and 320 for the potions).
   - Per save file, with *Mark all complete* (every potion bought and fully infused) and Undo. It's
-    the same progress as Item Upgrades' Potions section, so a tick in one shows in the other.
+    the same progress as Item Upgrades' Potions section, so a tick in one shows in the other, and in
+    both screens' totals.
 - **Item Upgrades:** the BotW Armor tracker's layout for Gondo's Scrap Shop and Bertie's potion
   infusions, with the game's own icons.
   - Four sections: Items (Slingshot, Beetle, Bug Net, Bow), Shields (Wooden, Iron and Sacred, and the

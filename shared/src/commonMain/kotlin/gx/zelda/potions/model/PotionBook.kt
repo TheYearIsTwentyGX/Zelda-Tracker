@@ -2,6 +2,9 @@ package gx.zelda.potions.model
 
 import gx.zelda.armor.model.MaterialCost
 import gx.zelda.armor.model.PieceProgress
+import gx.zelda.upgrades.logic.UpgradeCalculator
+import gx.zelda.upgrades.logic.UpgradeTotals
+import gx.zelda.upgrades.logic.UpgradeTotalsMode
 import gx.zelda.upgrades.model.ItemCopy
 import gx.zelda.upgrades.model.UpgradeCatalog
 import gx.zelda.upgrades.model.UpgradeItem
@@ -31,6 +34,23 @@ data class RecipeStep(
 data class RecipeNeeds(val materials: List<MaterialCost>, val rupees: Int) {
     val materialCount: Int get() = materials.sumOf { it.qty }
     val isEmpty: Boolean get() = materials.isEmpty() && rupees == 0
+}
+
+/**
+ * What every potion step left costs: Bertie's infusions as Item Upgrades counts them ([infusions],
+ * its bugs and Rupees), plus the base potions still to buy from Luv.
+ */
+data class PotionTotals(
+    val infusions: UpgradeTotals,
+    /** The base potions the scope counts and you haven't bought, which Luv sells. */
+    val basesToBuy: List<UpgradeItem>,
+    /** Potions the scope counts with a step left. */
+    val potionsCounted: Int,
+) {
+    val baseRupees: Int get() = basesToBuy.sumOf { it.price ?: 0 }
+    val rupees: Int get() = infusions.rupees + baseRupees
+    val materialCount: Int get() = infusions.materialCount
+    val stepsRemaining: Int get() = infusions.stepsRemaining + basesToBuy.size
 }
 
 /**
@@ -82,6 +102,19 @@ object PotionBook {
         val now = if (current.owned) current.level.coerceIn(0, potion.maxLevel) + 1 else 0
         val steps = if (made) maxOf(now, index + 1) else minOf(now, index)
         return if (steps == 0) PieceProgress() else PieceProgress(owned = true, level = steps - 1)
+    }
+
+    /**
+     * The book's totals: [UpgradeCalculator] over the potions only, so its bugs and Bertie's Rupees
+     * are exactly what the potions add to Item Upgrades' totals; plus Luv's price for each potion the
+     * scope counts that isn't bought yet ([UpgradeTotalsMode.ALL] only, since
+     * [UpgradeTotalsMode.COLLECTED] counts the bought ones).
+     */
+    fun totals(catalog: UpgradeCatalog, progress: UpgradeProgress, mode: UpgradeTotalsMode): PotionTotals {
+        val potions = potions(catalog)
+        val counted = potions.filter { UpgradeCalculator.countedCopy(it, progress, mode) != null && !isDone(it, progress) }
+        val toBuy = counted.filter { made(it, progress) == 0 && it.purchasable }
+        return PotionTotals(UpgradeCalculator.totals(catalog, potions, progress, mode), toBuy, counted.size)
     }
 
     /** Every step of [potion] made, or none. */

@@ -4,6 +4,7 @@ import gx.zelda.armor.model.MaterialSort
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.upgrades.UpgradeFixture.beetle
 import gx.zelda.upgrades.UpgradeFixture.catalog
+import gx.zelda.upgrades.UpgradeFixture.potion
 import gx.zelda.upgrades.UpgradeFixture.satchel
 import gx.zelda.upgrades.data.UpgradeProgressProvider
 import gx.zelda.upgrades.model.ItemCopy
@@ -35,6 +36,22 @@ class UpgradeCalculatorTest {
         assertEquals(50 + 150 + 20, all.rupees)
         assertEquals(3, all.itemsCounted, "the Hylian Shield has nothing to upgrade")
         assertEquals(5, all.stepsRemaining, "the free Hook Beetle counts as a step, at no cost")
+    }
+
+    /** The potion book's totals: the same rule over the items given, whatever the chips hide. */
+    @Test
+    fun totalsOverChosenItemsOnly() {
+        val potionOnly = UpgradeCalculator.totals(catalog, listOf(potion), UpgradeProgress(), UpgradeTotalsMode.ALL)
+        assertEquals(mapOf("butterfly" to 3), potionOnly.qty())
+        assertEquals(20 to 1, potionOnly.rupees to potionOnly.stepsRemaining)
+        assertEquals(emptyList(), UpgradeCalculator.totals(catalog, listOf(potion), UpgradeProgress(), UpgradeTotalsMode.COLLECTED).lines)
+        val owned = progress("heart_potion" to PieceProgress(owned = true))
+        assertEquals(20, UpgradeCalculator.totals(catalog, listOf(potion), owned, UpgradeTotalsMode.COLLECTED).rupees)
+        val hidden = UpgradePrefs(hiddenSections = setOf("potions"))
+        assertEquals(
+            totals(owned, UpgradeTotalsMode.ALL).rupees - totals(owned, UpgradeTotalsMode.ALL, hidden).rupees,
+            UpgradeCalculator.totals(catalog, listOf(potion), owned, UpgradeTotalsMode.ALL).rupees,
+        )
     }
 
     @Test

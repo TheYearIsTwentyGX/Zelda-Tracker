@@ -525,6 +525,20 @@ Bertie's potions, which the user asked for in place of Items & Equipment's Potio
 - **Who does what**, from `upgrades.json` and checked by `SsUpgradeDatasetTest`: Luv sells the five
   base potions at her Potion Shop in the Bazaar (20, 50, 20, 30 and 200 Rupees), and Bertie does every
   infusion at the Infusion Shop on the same counter, for bugs only.
+- **Total Materials Required** (`PotionTotalsScreen`, from a card on the cover; its route is
+  `PotionBookTotals`, sharing the book's view model): Item Upgrades' Materials tab over the potions.
+  `PotionBook.totals` runs `UpgradeCalculator.totals` on the potions only (an overload that takes the
+  items instead of the chips), so its bugs and Bertie's Rupees are by construction Item Upgrades'
+  with potions minus without, in either scope, which `PotionTotalsTest` pins (50 bugs, 180 Rupees
+  with nothing collected). On top it adds Luv's price for each potion counted that isn't bought:
+  - *Potions you've bought* is `UpgradeTotalsMode.COLLECTED`: the infusions left on bought potions,
+    so no base prices;
+  - *All potions* is `ALL`, the default here (Item Upgrades defaults to Collected), since the book
+    plans every recipe and Luv sells all five from the start: 50 bugs and 500 Rupees in all
+    (180 + 320). The scope lives in the view model, so it survives the save-file switch.
+  The rows, scope switch, Rupee total and sort row are Item Upgrades' composables
+  (`materialTotalRows`, `TotalsModeSwitch`, `RupeeTotal`, `TotalsCountRow`), and the sort is Item
+  Upgrades' `materialSort` pref, shared by both screens. A use opens that potion's recipe.
 - **Steps tick like a checklist's tiers**: making Heart Potion++ makes the Heart Potion and Heart
   Potion+ too; unticking the Heart Potion clears its infusions.
 
@@ -538,9 +552,10 @@ Heart Potion++'s Deku Hornets and the Guardian Potion's price) moved to `upgrade
 **Overview row** (`PotionProgressProvider`): steps made of 12 (5 potions, 7 infusions), how many
 potions are fully infused, and the next step with who does it ("Heart Potion (Luv's Potion Shop)").
 
-**Tests:** `PotionBookTest` (the recipes, the tick rules, the row) and `PotionViewModelTest` (the
+**Tests:** `PotionBookTest` (the recipes, the tick rules, the row), `PotionTotalsTest` (both
+scopes, Luv's prices, the cross-check with Item Upgrades' totals) and `PotionViewModelTest` (the
 cards, one write per tick, the progress shared with Item Upgrades both ways, mark all and undo, save
-files).
+files, the totals following ticks in either screen and the save-file switch).
 
 ## Thrill Digger Solver
 

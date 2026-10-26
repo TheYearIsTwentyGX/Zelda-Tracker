@@ -2,16 +2,19 @@ package gx.zelda.potions.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import gx.zelda.armor.model.MaterialSort
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.core.BulkAction
 import gx.zelda.core.BulkChange
 import gx.zelda.core.BulkScope
 import gx.zelda.core.SaveFile
 import gx.zelda.potions.model.PotionBook
+import gx.zelda.potions.model.PotionTotals
 import gx.zelda.potions.model.RecipeNeeds
 import gx.zelda.potions.model.RecipeStep
 import gx.zelda.upgrades.data.UpgradeRepository
 import gx.zelda.upgrades.data.UpgradeStorage
+import gx.zelda.upgrades.logic.UpgradeTotalsMode
 import gx.zelda.upgrades.model.UpgradeCatalog
 import gx.zelda.upgrades.model.UpgradeItem
 import gx.zelda.upgrades.model.UpgradeProgress
@@ -45,6 +48,9 @@ data class PotionUiState(
     val progress: UpgradeProgress,
     val saveFile: SaveFile,
     val saveFiles: List<PotionFileSummary>,
+    val totalsMode: UpgradeTotalsMode = UpgradeTotalsMode.ALL,
+    /** Item Upgrades' material sort, which the two totals screens share. */
+    val materialSort: MaterialSort = MaterialSort.MOST_NEEDED,
 ) {
     val potions: List<UpgradeItem> = PotionBook.potions(catalog)
 
@@ -53,6 +59,9 @@ data class PotionUiState(
     /** Steps made of all, over every potion. */
     val made: Int get() = cards.sumOf { it.made }
     val steps: Int get() = cards.sumOf { it.steps }
+
+    /** The Totals screen's bugs and Rupees, in [totalsMode]. */
+    val totals: PotionTotals by lazy { PotionBook.totals(catalog, progress, totalsMode) }
 
     fun potion(id: String): UpgradeItem? = potions.firstOrNull { it.id == id }
 
@@ -86,6 +95,9 @@ class PotionViewModel(
     /** True when the bundled dataset is missing or unreadable; [state] then stays null. */
     val loadFailed: StateFlow<Boolean> = _loadFailed
 
+    /** All potions to start with: the book is a plan for every recipe, and Luv sells each one from the start. */
+    private val totalsMode = MutableStateFlow(UpgradeTotalsMode.ALL)
+
     /** The file and its progress together, so a switch never pairs the new file with the old file's progress. */
     private val activeProgress: Flow<Pair<SaveFile, UpgradeProgress>> = storage.activeSaveFile
         .map(storage.game::saveFile)
@@ -98,13 +110,17 @@ class PotionViewModel(
         catalog.filterNotNull(),
         activeProgress,
         summaries,
-    ) { catalog, (file, progress), all ->
+        totalsMode,
+        storage.prefs,
+    ) { catalog, (file, progress), all, mode, prefs ->
         val potions = PotionBook.potions(catalog)
         PotionUiState(
             catalog = catalog,
             progress = progress,
             saveFile = file,
             saveFiles = storage.game.saveFiles.zip(all) { f, p -> PotionFileSummary(f, potions.sumOf { PotionBook.made(it, p) }) },
+            totalsMode = mode,
+            materialSort = prefs.materialSort,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
@@ -159,4 +175,9 @@ class PotionViewModel(
     }
 
     fun setSaveFile(id: String): Job = viewModelScope.launch { storage.setActiveSaveFile(id) }
+
+    fun setTotalsMode(mode: UpgradeTotalsMode) { totalsMode.value = mode }
+
+    /** Sorts both totals screens' materials, this and Item Upgrades'. */
+    fun setMaterialSort(sort: MaterialSort): Job = viewModelScope.launch { storage.updatePrefs { it.copy(materialSort = sort) } }
 }

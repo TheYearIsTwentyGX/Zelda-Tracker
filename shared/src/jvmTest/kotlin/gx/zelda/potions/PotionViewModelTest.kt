@@ -1,5 +1,6 @@
 package gx.zelda.potions
 
+import gx.zelda.armor.model.MaterialSort
 import gx.zelda.armor.model.PieceProgress
 import gx.zelda.core.CountingDataStore
 import gx.zelda.core.Games
@@ -144,6 +145,66 @@ class PotionViewModelTest {
         assertEquals(PieceProgress(owned = true, level = 1), potion("stamina_potion", "file_2"))
         assertEquals(PieceProgress(), potion("stamina_potion", "file_1"))
         assertEquals(PieceProgress(owned = true), potion("heart_potion", "file_1"))
+    }
+
+    /** The Totals screen's sums follow ticks made here or in Item Upgrades, in either scope. */
+    @Test
+    fun totalsFollowTicksInEitherScreen() = runTest {
+        val book = viewModel()
+        val upgrades = main.track(UpgradeViewModel(storage))
+        backgroundScope.launch { upgrades.state.collect {} }
+        upgrades.state.filterNotNull().first()
+
+        val start = book.state.filterNotNull().first()
+        assertEquals(UpgradeTotalsMode.ALL, start.totalsMode, "the book plans every potion to start with")
+        assertEquals(50 to 500, start.totals.materialCount to start.totals.rupees)
+
+        book.setStepMade("heart_potion", 1, made = true)!!.join()
+        val heartPlus = book.state.filterNotNull().first { it.totals.rupees == 460 }
+        assertEquals(45, heartPlus.totals.materialCount, "the Heart Potion+'s five bugs are done")
+
+        book.setTotalsMode(UpgradeTotalsMode.COLLECTED)
+        val bought = book.state.filterNotNull().first { it.totalsMode == UpgradeTotalsMode.COLLECTED }
+        assertEquals(8 to 30, bought.totals.materialCount to bought.totals.rupees, "just the Heart Potion++")
+        // Item Upgrades' Collected totals hold the same potion steps.
+        val upgradeState = upgrades.state.filterNotNull().first { it.progress.of("heart_potion").level == 1 }
+        assertEquals(30, UpgradeCalculator.totals(upgradeState.catalog, upgradeState.progress, upgradeState.prefs, UpgradeTotalsMode.COLLECTED).rupees)
+
+        // Collecting the Air Potion in Item Upgrades adds its infusion here.
+        upgrades.setOwned("air_potion", true)!!.join()
+        val withAir = book.state.filterNotNull().first { it.totals.rupees == 50 }
+        assertEquals(14, withAir.totals.materialCount)
+        assertEquals(2, withAir.totals.potionsCounted)
+    }
+
+    @Test
+    fun eachSaveFileHasItsOwnTotals() = runTest {
+        // Only File 2 has the Guardian Potion, so the switch can be waited for by its progress.
+        storage.update("file_2") { it.withCopy("guardian_potion") { p -> p.copy(owned = true) } }
+        val vm = viewModel()
+        vm.setTotalsMode(UpgradeTotalsMode.COLLECTED)
+        vm.setStepMade("heart_potion", 0, made = true)!!.join()
+        val one = vm.state.filterNotNull().first { it.totalsMode == UpgradeTotalsMode.COLLECTED && it.totals.rupees == 50 }
+        assertEquals(13, one.totals.materialCount)
+
+        vm.setSaveFile("file_2").join()
+        val two = vm.state.filterNotNull().first { it.saveFile.id == "file_2" && it.progress.of("guardian_potion").owned }
+        assertEquals(UpgradeTotalsMode.COLLECTED, two.totalsMode, "the scope stays as picked")
+        assertEquals(9 to 40, two.totals.materialCount to two.totals.rupees, "the Guardian Potion+ only")
+
+        vm.setStepMade("guardian_potion", 1, made = true)!!.join()
+        vm.state.filterNotNull().first { it.saveFile.id == "file_2" && it.totals.rupees == 0 }
+        assertEquals(PieceProgress(owned = true), potion("heart_potion", "file_1"), "File 1 is untouched")
+    }
+
+    @Test
+    fun theMaterialSortIsItemUpgradesToo() = runTest {
+        val vm = viewModel()
+        vm.setMaterialSort(MaterialSort.ALPHABETICAL).join()
+        assertEquals(MaterialSort.ALPHABETICAL, storage.prefs.first().materialSort)
+        val state = vm.state.filterNotNull().first { it.materialSort == MaterialSort.ALPHABETICAL }
+        val names = state.totals.infusions.sorted(state.materialSort).map { it.material.name }
+        assertEquals(names.sorted(), names)
     }
 
     @Test
