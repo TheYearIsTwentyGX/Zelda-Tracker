@@ -89,6 +89,7 @@ import gx.zelda.sidequests.ui.SideQuestViewModel
 import gx.zelda.theme.GameThemes
 import gx.zelda.potions.ui.PotionBookScreen
 import gx.zelda.potions.ui.PotionRecipeScreen
+import gx.zelda.potions.ui.PotionTotalsScreen
 import gx.zelda.potions.ui.PotionViewModel
 import gx.zelda.thrilldigger.data.ThrillDiggerStorage
 import gx.zelda.thrilldigger.ui.ThrillDiggerScreen
@@ -156,6 +157,7 @@ import kotlinx.serialization.Serializable
 @Serializable private data class ItemUpgrades(val gameId: String)
 @Serializable private data class Potions(val gameId: String)
 @Serializable private data class PotionRecipe(val gameId: String, val potionId: String)
+@Serializable private data class PotionBookTotals(val gameId: String)
 /** One copy of an item: [copy] is 1, or 2 and up for extra Seed Satchels, Quivers and Bomb Bags. */
 @Serializable private data class ItemUpgradeDetail(val gameId: String, val itemId: String, val copy: Int)
 @Serializable private data object Settings
@@ -527,6 +529,7 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                     vm,
                     title = game.trackers.first { it.kind == TrackerKind.POTIONS }.title,
                     onOpenPotion = { nav.navigate(PotionRecipe(game.id, it)) },
+                    onOpenTotals = { nav.navigate(PotionBookTotals(game.id)) },
                     onBack = { nav.popBackStack() },
                 )
             }
@@ -535,6 +538,16 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                 val bookEntry = remember(entry) { nav.getBackStackEntry<Potions>() }
                 val vm = potionViewModel(bookEntry, dataStore, Games.byId(route.gameId))
                 PotionRecipeScreen(vm, route.potionId, onBack = { nav.popBackStack() })
+            }
+            composable<PotionBookTotals> { entry ->
+                val route = entry.toRoute<PotionBookTotals>()
+                val bookEntry = remember(entry) { nav.getBackStackEntry<Potions>() }
+                val vm = potionViewModel(bookEntry, dataStore, Games.byId(route.gameId))
+                PotionTotalsScreen(
+                    vm,
+                    onOpenPotion = { nav.navigate(PotionRecipe(route.gameId, it)) },
+                    onBack = { nav.popBackStack() },
+                )
             }
             composable<ItemUpgradeDetail> { entry ->
                 val route = entry.toRoute<ItemUpgradeDetail>()
