@@ -305,6 +305,13 @@ iOS port is mostly a matter of adding the iOS targets.
     it to zoom in.
 - Tap a marker for its sheet: name, region, state, and buttons to mark it found or done, or to
   open it in its tracker. Changes go to the active save file, the same one the trackers use.
+- **Landscape on a phone** works as on the HW:DE Adventure Maps:
+  - the top bar and system bars hide, and the chip row carries back, the save file, About and the menu;
+  - a marker's details open in a panel down the right, with the map still in use beside it;
+  - a marker tapped under the panel is panned into view;
+  - tapping another marker swaps the panel, and ✕, back or the same marker closes it.
+
+  EoW's map does the same.
 - **Spoilers:** each layer follows its tracker's own setting. With *Hide undiscovered shrines*,
   *Hide undiscovered Koroks* or *Hide unfound bosses* on, undiscovered ones are left off the map, the
   way the game's map leaves off what you haven't found.
