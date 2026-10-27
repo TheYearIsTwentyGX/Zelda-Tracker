@@ -38,8 +38,8 @@ object MapSpecs {
         background = 0xFF261A10,
         about = "Map art © Nintendo: Echoes of Wisdom's map of Hyrule, as Zelda Wiki hosts it. " +
             "It is bundled with the app, so the map works offline.\n\n" +
-            "Each place is where the game's own map pins it (datamined, and the same on Zelda Dungeon's " +
-            "interactive map). Things inside caves, rifts and dungeons are pinned at their entrance; a " +
+            "Each place is where the game's own map pins it, as datamined by MrCheeze's eow-tools (the same as " +
+            "on Zelda Dungeon's interactive map). Things inside caves, rifts and dungeons are pinned at their entrance; a " +
             "Heart Container is at its dungeon. The icons are the game's map icons, on an orange disc until " +
             "you tick the place and a blue one after; a badge counts the Might Crystals a place holds. " +
             "Ticking a marker ticks the same row in its checklist, and the story setting and \"Hide " +
