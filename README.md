@@ -1347,6 +1347,10 @@ test with `REGENERATE_KOROK_MARKER=1` to fold its markers into the template.
 
 ## Data sources
 
+`docs/licensing-audit.md` classifies everything the app bundles, art and data, by owner and licence, and lists
+what must change before a store release. `scripts/licence-inventory.py --check` fails if a bundled file isn't
+classified there.
+
 Armor data was compiled from Zelda Wiki and cross-checked against Zelda Fandom and Game8.
 Where sources disagreed, the majority value was used.
 
