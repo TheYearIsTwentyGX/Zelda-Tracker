@@ -21,7 +21,10 @@ import gx.zelda.map.data.KorokLayer
 import gx.zelda.map.data.MapStorage
 import gx.zelda.map.data.ShrineLayer
 import gx.zelda.map.data.TowerLayer
+import gx.zelda.map.data.MapSpecs
 import gx.zelda.map.data.botwMapLayers
+import gx.zelda.map.data.mapLayersFor
+import gx.zelda.map.data.mapSpecFor
 import gx.zelda.map.model.MapMarker
 import gx.zelda.shrines.data.ShrineStorage
 import gx.zelda.shrines.model.Shrine
@@ -216,6 +219,23 @@ class MapViewModelTest {
         val vm = main.track(MapViewModel(MapStorage(dataStore, game), botwMapLayers(dataStore, game)))
         val state = await(vm) { true }
         assertEquals(listOf(136, 900, 15, 108), state.layers.map { it.total })
+        assertFalse(vm.loadFailed.value)
+    }
+
+    @Test
+    fun eowsChecklistsLoadOnItsOwnMap() = runTest {
+        val eow = Games.EOW
+        val focus = "might_crystals:mc_suthorn_ruins"
+        val vm = main.track(MapViewModel(MapStorage(dataStore, eow), mapLayersFor(dataStore, eow), focus, mapSpecFor(eow)))
+        val state = await(vm) { true }
+        assertEquals(MapSpecs.EOW, vm.spec)
+        assertEquals(listOf("heart_pieces", "stamp_stands", "might_crystals"), state.layers.map { it.layer.id })
+        assertEquals(listOf(47, 25, 85), state.layers.map { it.total })
+        val boss = state.all.getValue(focus).entry
+        assertEquals("Suthorn Prairie", boss.region)
+        assertEquals(5, boss.count)
+        // "Show on map" from the crystal's page opens its sheet.
+        assertEquals(focus, vm.selected.filterNotNull().first().key)
         assertFalse(vm.loadFailed.value)
     }
 }

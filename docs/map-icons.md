@@ -1,6 +1,7 @@
-# BotW map marker icons
+# Map marker icons
 
-The map's markers use Breath of the Wild's own map icons. `scripts/build-map-icons.py` writes them to
+The BotW map's markers use Breath of the Wild's own map icons, and EoW's use Echoes of Wisdom's (see *Echoes of
+Wisdom* below). `scripts/build-map-icons.py` writes them to
 `shared/src/commonMain/composeResources/drawable/map_*`, and `MarkerIcon` (`map/model/MarkerLook.kt`) names
 each one. `markerLook()` picks a marker's icon from its layer, state and DLC flag, or for a boss from its kind.
 
@@ -37,6 +38,24 @@ each one. `markerLook()` picks a marker's icon from its layer, state and DLC fla
 - **Bitmap sizes:** the bitmap icons are the wiki's own 64 px thumbnails of its 144 px files (MediaWiki
   `iiurlwidth`), so the script needs nothing beyond Python. `map_korok.png` was scaled locally with Pillow before
   this; it's only re-fetched with `--force`.
+
+## Echoes of Wisdom
+
+| File | Marker | Source |
+| --- | --- | --- |
+| `map_eow_heart_piece.png` | Piece of Heart | Zelda Wiki `File:EoW Piece of Heart Map Icon.png`, 64 px |
+| `map_eow_heart_container.png` | Heart Container | Zelda Wiki `File:EoW Heart Container Icon.png`, scaled from 134 to 64 px |
+| `map_eow_stamp.png` | Stamp Stand | Zelda Wiki `File:EoW Stamp Map Icon.png`, 64 px |
+| `map_eow_might_crystal.png` | Might Crystal | Zelda Wiki `File:EoW Might Crystal Map Icon.png`, 64 px |
+
+- **Map icons:** the game's own map icons are white glyphs, 64 px files on the wiki, fetched as they are.
+- **Heart Container:** the game's map has no icon for one, since containers are inside dungeons, so its item icon
+  is used.
+- **On the marker:** each glyph is drawn at 72 % of the marker on the Korok's state disc: orange until ticked,
+  blue after, grey when a spoiler setting hides it.
+  - A hidden Heart Container shows the Piece of Heart glyph, so it doesn't give itself away.
+  - A Might Crystal place holding several crystals has a ×2, ×3 or ×5 badge.
+- **Markers:** `MarkerKind.CHECKLIST`. `markerLook()` takes the entry's icon or the layer's.
 
 ## States
 
@@ -75,7 +94,7 @@ objmap's icon.
 ## Rebuilding
 
 ```bash
-python3 scripts/build-map-icons.py           # rewrite the vectors; fetch any missing bitmap icon
+python3 scripts/build-map-icons.py           # rewrite the vectors; fetch any missing bitmap icon (BotW and EoW)
 python3 scripts/build-map-icons.py --force   # re-download the bitmap icons too
 ```
 
@@ -87,7 +106,7 @@ The script carries objmap's path data inline, so rewriting the vectors needs no 
 The icon designs are Nintendo's.
 
 - **objmap's tracings** are in its repository, which is GPL-3.0.
-- **The Korok and boss icons** are the game's own, as hosted by Zelda Wiki.
+- **The Korok and boss icons**, and all of EoW's, are the games' own, as hosted by Zelda Wiki.
 
 The map art has the same status (see `tools/map-tiles/README.md`): fine for a personal, sideloaded build, but
 the icons would need replacing, or the app would need to meet the GPL's terms, before any store release.

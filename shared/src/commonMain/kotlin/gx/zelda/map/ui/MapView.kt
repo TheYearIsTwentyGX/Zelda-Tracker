@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -24,11 +25,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import gx.zelda.core.DiscoveryState
-import gx.zelda.map.data.MapTiles
+import gx.zelda.map.data.MapSpec
+import gx.zelda.map.data.MapSpecs
 import gx.zelda.map.model.ClusterSummary
 import gx.zelda.map.model.MapLayer
 import gx.zelda.map.model.MapMarker
-import gx.zelda.map.model.MapProjection
 import gx.zelda.map.model.MarkerIcon
 import gx.zelda.map.model.MarkerKind
 import gx.zelda.map.model.clusterSummary
@@ -47,21 +48,21 @@ import ovh.plrapps.mapcompose.ui.layout.Fit
 import ovh.plrapps.mapcompose.ui.state.MapState
 import ovh.plrapps.mapcompose.ui.state.markers.model.RenderingStrategy
 
-/** Sea colour behind and around the map art, matching the padding of the edge tiles. */
-internal val MapBackground = Color(0xFF283C46)
+/** The colour behind and around [spec]'s art, matching the padding of its edge tiles. */
+internal fun mapBackground(spec: MapSpec): Color = Color(spec.background)
 
 /**
- * The MapCompose state for the bundled map, and the markers on it. [sync] brings the markers in
- * line with a new list: only added and removed markers touch MapCompose, and a marker whose state
- * changed just recomposes, since each one draws whatever [shown] holds for its key.
+ * The MapCompose state for a game's bundled map ([spec]), and the markers on it. [sync] brings the
+ * markers in line with a new list: only added and removed markers touch MapCompose, and a marker
+ * whose state changed just recomposes, since each one draws whatever [shown] holds for its key.
  */
-internal class MapView {
-    val state = MapState(MapTiles.LEVELS, MapTiles.FULL_WIDTH, MapTiles.FULL_HEIGHT, MapTiles.TILE_SIZE) {
+internal class MapView(val spec: MapSpec = MapSpecs.BOTW) {
+    val state = MapState(spec.tiles.levels, spec.tiles.fullWidth, spec.tiles.fullHeight, spec.tiles.tileSize) {
         minimumScaleMode(Fit)
         maxScale(MAX_SCALE)
         scale(0.0)
     }.apply {
-        addLayer(MapTiles.provider)
+        addLayer(spec.tiles.provider)
         onMarkerClick { id, _, _ -> onMarkerTap(id) }
     }
 
@@ -100,7 +101,7 @@ internal class MapView {
                 scaleThreshold = ClusterScaleThreshold.FixedScale(CLUSTER_UNTIL_SCALE),
             ) { ids -> { ClusterBadge(layer, clusterSummary(ids.mapNotNull { shown[it] })) } }
         }
-        val at = MapProjection.toMap(marker.entry.world)
+        val at = spec.world.toMap(marker.entry.world)
         state.addMarker(
             key,
             at.x,
@@ -117,7 +118,7 @@ internal class MapView {
     fun shutdown() = state.shutdown()
 
     companion object {
-        /** Zoom past the top level, one pixel per world unit, by this much. */
+        /** Zoom past the top level (for BotW, one pixel per world unit) by this much. */
         const val MAX_SCALE = 2.5
 
         /** Above this scale Koroks are drawn one by one. */
@@ -128,24 +129,27 @@ internal class MapView {
 
         private fun zIndex(kind: MarkerKind): Float = when (kind) {
             MarkerKind.KOROK -> 0f
-            MarkerKind.BOSS -> 0.5f
+            MarkerKind.BOSS, MarkerKind.CHECKLIST -> 0.5f
             MarkerKind.SHRINE -> 1f
             MarkerKind.TOWER -> 2f
         }
     }
 }
 
-/** A state's colour: blue done, orange found, grey undiscovered. In a layer with no "found" (towers), not done is orange. */
+/** A state's colour: blue done, orange found, grey undiscovered. In a layer with no "found" (towers, checklists), not done is orange. */
 internal fun stateColor(layer: MapLayer, state: DiscoveryState): Color = when {
     state == DiscoveryState.COMPLETED -> Color(0xFF3BB4F0)
     state == DiscoveryState.FOUND || DiscoveryState.FOUND !in layer.stateLabels -> Color(0xFFF5A524)
-    else -> Color(0xFFB0B0B0)
+    else -> Undiscovered
 }
+
+private val Undiscovered = Color(0xFFB0B0B0)
 
 /** Each icon's size at [iconScale] 1. */
 private fun fullSize(icon: MarkerIcon): Dp = when (icon) {
     MarkerIcon.KOROK -> 20.dp
     MarkerIcon.HINOX, MarkerIcon.TALUS, MarkerIcon.MOLDUGA, MarkerIcon.LYNEL -> 24.dp
+    MarkerIcon.EOW_HEART_PIECE, MarkerIcon.EOW_HEART_CONTAINER, MarkerIcon.EOW_STAMP, MarkerIcon.EOW_MIGHT_CRYSTAL -> 24.dp
     MarkerIcon.TOWER, MarkerIcon.TOWER_ACTIVE -> 30.dp
     else -> 26.dp
 }
@@ -154,7 +158,8 @@ private val GreyedOut = ColorFilter.colorMatrix(ColorMatrix().apply { setToSatur
 
 /**
  * A marker's in-game icon at [scale] of its full size (see [markerLook]): greyed out when
- * undiscovered, on a state-coloured disc for Koroks and bosses, and in a white ring when [selected].
+ * undiscovered, on a state-coloured disc for Koroks, bosses and checklists (grey while greyed), with
+ * a "×3" badge for a place holding several, and in a white ring when [selected].
  */
 @Composable
 internal fun MapMarkerIcon(marker: MapMarker, selected: Boolean, modifier: Modifier = Modifier, scale: Float = 1f) {
@@ -166,19 +171,34 @@ internal fun MapMarkerIcon(marker: MapMarker, selected: Boolean, modifier: Modif
             .then(if (selected) Modifier.background(Color(0x66FFFFFF), CircleShape).border(2.dp, Color.White, CircleShape) else Modifier),
         contentAlignment = Alignment.Center,
     ) {
+        val color = if (look.greyed) Undiscovered else stateColor(marker.layer, look.state)
         if (look.disc) {
-            Box(Modifier.size(size).background(stateColor(marker.layer, look.state), CircleShape).border(1.dp, Color(0xCC000000), CircleShape))
+            Box(Modifier.size(size).background(color, CircleShape).border(1.dp, Color(0xCC000000), CircleShape))
         }
         val drawable = markerDrawable(look.icon)
         if (drawable == null) {
-            Box(Modifier.size(size * 0.6f).background(stateColor(marker.layer, look.state), CircleShape))
+            Box(Modifier.size(size * 0.6f).background(color, CircleShape))
         } else {
             Image(
                 painterResource(drawable),
                 contentDescription = null,
-                modifier = Modifier.size(size),
+                // A white map glyph on a disc would touch its rim at full size.
+                modifier = Modifier.size(if (look.disc && marker.layer.kind == MarkerKind.CHECKLIST) size * 0.72f else size),
                 alpha = if (look.greyed) 0.8f else 1f,
                 colorFilter = if (look.greyed) GreyedOut else null,
+            )
+        }
+        if (marker.entry.count > 1 && !marker.anonymous) {
+            Text(
+                "×${marker.entry.count}",
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .background(Color(0xE6000000), CircleShape)
+                    .padding(horizontal = 3.dp),
+                color = Color.White,
+                fontSize = (9 * scale).coerceAtLeast(7f).sp,
+                fontWeight = FontWeight.Bold,
+                lineHeight = (10 * scale).coerceAtLeast(8f).sp,
             )
         }
     }

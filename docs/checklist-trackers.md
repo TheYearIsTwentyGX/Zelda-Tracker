@@ -195,6 +195,18 @@ two decimals. Dividing by zero gives 0. Examples:
     item not started, it says only how many are left there ("2 pieces still to do in Hyrule
     Field").
 
+## On a map
+
+A game's map can show checklist sections as marker layers (`map/data/ChecklistMapLayer.kt`). Echoes of Wisdom's map
+is the example (`docs/eow-map.md`).
+- **The layer.** A `ChecklistMapSource` names the file, the sections that are places, and each one's icon.
+- **Positions.** They live beside the map art, in `files/<game>/map/markers.json`, not in the checklist file.
+- **Reading and writing.** The layer reads and writes the checklist's own storage, so a marker and its row are
+  one tick, links included.
+- **What it leaves out.** Story gating leaves out what the list leaves out, and *Hide unchecked* is the layer's
+  spoiler setting.
+- **Show on map.** An item page in a mapped section offers it.
+
 ## Story gating
 
 *Hide what the story hasn't unlocked yet*, in Settings → Progress, is one switch for every game,

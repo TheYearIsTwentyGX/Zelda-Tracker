@@ -16,3 +16,6 @@ tools/map-tiles/.cache/
 
 # HW:DE map builder cache (tools/hwde/build_maps.py)
 tools/hwde/.cache/
+
+# EoW map pin cache (tools/eow-map/build_markers.py)
+tools/eow-map/.cache/

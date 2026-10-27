@@ -12,6 +12,9 @@ enum class MarkerKind {
 
     /** Overworld bosses: each entry names its kind's icon in [MapEntry.icon]. */
     BOSS,
+
+    /** A checklist's items: the layer's [MapLayer.icon], or an entry's own, on a state-coloured disc. */
+    CHECKLIST,
 }
 
 /** One toggleable set of markers on the map, such as every shrine. */
@@ -29,6 +32,10 @@ data class MapLayer(
     val clustered: Boolean = false,
     /** The tracker setting that hides undiscovered entries, as its menu names it; null if the layer has none. */
     val spoilerSetting: String? = null,
+    /** The icon a [MarkerKind.CHECKLIST] layer's markers draw, unless an entry names its own. */
+    val icon: MarkerIcon? = null,
+    /** What an anonymous marker's sheet calls it, as its tracker's hidden rows do; null says "Undiscovered <noun>". */
+    val hiddenLabel: String? = null,
 ) {
     val states: List<DiscoveryState> get() = stateLabels.keys.toList()
 
@@ -52,6 +59,8 @@ data class MapEntry(
     val dlc: Boolean = false,
     /** The entry's own icon, in a layer whose entries differ in kind (bosses); null uses the layer's. */
     val icon: MarkerIcon? = null,
+    /** How many things the place holds, shown as a "×3" badge when more than one (a chest of Might Crystals). */
+    val count: Int = 1,
 )
 
 /** A marker the map draws: an entry, its layer, and whether its tracker's spoiler setting hides its name. */
@@ -71,8 +80,11 @@ data class MapPrefs(
     val undiscoveredAsDots: Boolean = false,
 )
 
-/** A layer's entries on the active save file, with its tracker's "Hide undiscovered" setting. */
-data class LayerData(val layer: MapLayer, val entries: List<MapEntry>, val hideUndiscovered: Boolean)
+/**
+ * A layer's entries on the active save file, with its tracker's "Hide undiscovered" setting, and
+ * how many more the story hasn't unlocked yet (left out of [entries], as their tracker leaves them out).
+ */
+data class LayerData(val layer: MapLayer, val entries: List<MapEntry>, val hideUndiscovered: Boolean, val locked: Int = 0)
 
 /**
  * Whether [entry]'s name is a spoiler: its tracker hides undiscovered entries, it is undiscovered,
@@ -124,8 +136,15 @@ fun clusterSummary(markers: List<MapMarker>): ClusterSummary {
 /** A point on the map image, as a fraction of its width and height from the top-left corner. */
 data class MapPoint(val x: Double, val y: Double)
 
+/** The part of a game's world its map art covers, in the game's units: x west to east, z north to south. */
+data class WorldBounds(val minX: Double, val maxX: Double, val minZ: Double, val maxZ: Double) {
+    fun toMap(p: WorldPoint): MapPoint = MapPoint((p.x - minX) / (maxX - minX), (p.z - minZ) / (maxZ - minZ))
+
+    fun toWorld(p: MapPoint): WorldPoint = WorldPoint(minX + p.x * (maxX - minX), minZ + p.y * (maxZ - minZ))
+}
+
 /**
- * Converts game world positions to the bundled map. The map covers the playable area, x −5000…5000
+ * Converts BotW world positions to its bundled map. The map covers the playable area, x −5000…5000
  * (west to east) and z −4000…4000 (north to south); see docs/korok-puzzle-types.md.
  */
 object MapProjection {
@@ -134,7 +153,9 @@ object MapProjection {
     const val MIN_Z = -4000.0
     const val MAX_Z = 4000.0
 
-    fun toMap(p: WorldPoint): MapPoint = MapPoint((p.x - MIN_X) / (MAX_X - MIN_X), (p.z - MIN_Z) / (MAX_Z - MIN_Z))
+    val bounds = WorldBounds(MIN_X, MAX_X, MIN_Z, MAX_Z)
 
-    fun toWorld(p: MapPoint): WorldPoint = WorldPoint(MIN_X + p.x * (MAX_X - MIN_X), MIN_Z + p.y * (MAX_Z - MIN_Z))
+    fun toMap(p: WorldPoint): MapPoint = bounds.toMap(p)
+
+    fun toWorld(p: MapPoint): WorldPoint = bounds.toWorld(p)
 }
