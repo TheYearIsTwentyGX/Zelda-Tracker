@@ -90,4 +90,5 @@ The icon designs are Nintendo's.
 - **The Korok and boss icons** are the game's own, as hosted by Zelda Wiki.
 
 The map art has the same status (see `tools/map-tiles/README.md`): fine for a personal, sideloaded build, but
-the icons would need replacing, or the app would need to meet the GPL's terms, before any store release.
+the icons would need replacing before any store release. Meeting the GPL wouldn't be enough, since the designs are
+Nintendo's. `docs/licensing-audit.md` classifies them as art-pack assets.
