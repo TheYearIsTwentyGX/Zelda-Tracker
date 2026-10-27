@@ -3,6 +3,7 @@ package gx.zelda.art
 import gx.zelda.adventure.data.AdventureRepository
 import gx.zelda.core.Games
 import gx.zelda.core.TrackerKind
+import gx.zelda.map.data.EowMap
 import gx.zelda.map.data.MapTiles
 import gx.zelda.map.data.TileManifest
 import kotlinx.coroutines.test.runTest
@@ -61,16 +62,22 @@ class ArtCatalogTest {
     }
 
     @Test
-    fun theWorldTilesetMatchesTheBundledPyramid() {
-        val manifest = TileManifest.parse(File(resources, "${MapTiles.DIR}/tiles.json").readText())
-        val geometry = ArtIds.TILESETS.getValue(ArtIds.BOTW_WORLD)
-        assertEquals(manifest.levels.size, geometry.levels)
-        for (level in manifest.levels) {
-            assertEquals(level.cols, geometry.cols(level.level), "level ${level.level} columns")
-            assertEquals(level.rows, geometry.rows(level.level), "level ${level.level} rows")
+    fun everyTilesetMatchesItsBundledPyramid() = runTest {
+        val pyramids = listOf(MapTiles.pyramid, EowMap.tiles)
+        assertEquals(pyramids.map { it.artId }.toSet(), ArtIds.TILESETS.keys)
+        for (pyramid in pyramids) {
+            val manifest = TileManifest.parse(File(resources, "${pyramid.dir}/tiles.json").readText())
+            val geometry = ArtIds.TILESETS.getValue(pyramid.artId)
+            assertEquals(manifest.levels.size, geometry.levels, pyramid.artId)
+            for (level in manifest.levels) {
+                assertEquals(level.cols, geometry.cols(level.level), "${pyramid.artId} level ${level.level} columns")
+                assertEquals(level.rows, geometry.rows(level.level), "${pyramid.artId} level ${level.level} rows")
+            }
+            val files = geometry.tiles().map { File(resources, "${pyramid.dir}/$it.webp") }
+            assertEquals(emptyList(), files.filterNot { it.isFile }, pyramid.artId)
+            assertNotNull(GameArt.tile(pyramid.artId, 0, 0, 0, pyramid.path(0, 0, 0)), pyramid.artId)
         }
-        val files = geometry.tiles().map { File(resources, "${MapTiles.DIR}/$it.webp") }
-        assertEquals(emptyList(), files.filterNot { it.isFile })
+        assertTrue(ArtIds.EOW_HYRULE in ArtCatalog.ids(Games.byId("eow")))
     }
 
     @Test

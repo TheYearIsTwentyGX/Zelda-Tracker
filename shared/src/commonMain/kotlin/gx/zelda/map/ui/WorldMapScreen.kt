@@ -49,7 +49,6 @@ import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
 import gx.zelda.map.model.MapMarker
-import gx.zelda.map.model.MapProjection
 import ovh.plrapps.mapcompose.api.scrollTo
 import ovh.plrapps.mapcompose.ui.MapUI
 
@@ -117,7 +116,7 @@ fun WorldMapScreen(
             onOpenInTracker = { onOpenInTracker(marker.layer.id, marker.entry.id) },
         )
     }
-    if (showAbout) AboutDialog(onDismiss = { showAbout = false })
+    if (showAbout) AboutDialog(viewModel.spec.about, onDismiss = { showAbout = false })
 }
 
 @Composable
@@ -135,10 +134,10 @@ private fun MapPane(state: MapUiState, viewModel: MapViewModel, modifier: Modifi
     LaunchedEffect(pendingFocus, state.all) {
         val marker = pendingFocus?.let { state.all[it] } ?: return@LaunchedEffect
         viewModel.focusShown()
-        val at = MapProjection.toMap(marker.entry.world)
+        val at = view.spec.world.toMap(marker.entry.world)
         view.state.scrollTo(at.x, at.y, destScale = MapView.FOCUS_SCALE)
     }
-    MapUI(modifier.background(MapBackground), state = view.state)
+    MapUI(modifier.background(mapBackground(view.spec)), state = view.state)
 }
 
 @Composable
@@ -151,7 +150,12 @@ private fun LayerChips(state: MapUiState, viewModel: MapViewModel) {
             FilterChip(
                 selected = summary.on,
                 onClick = { viewModel.setLayerOn(summary.layer.id, !summary.on) },
-                label = { Text("${summary.layer.title} ${summary.done} / ${summary.total}") },
+                label = {
+                    Text(
+                        "${summary.layer.title} ${summary.done} / ${summary.total}" +
+                            if (summary.locked > 0) " · ${summary.locked} later" else "",
+                    )
+                },
             )
         }
     }
@@ -177,7 +181,7 @@ private fun MapMenu(state: MapUiState, viewModel: MapViewModel) {
                 Column {
                     Text("Show hidden places")
                     Text(
-                        "Places a tracker's \"Hide undiscovered\" hides appear as unnamed grey markers",
+                        "Places a tracker's spoiler setting hides appear as unnamed grey markers",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -212,11 +216,11 @@ private fun MarkerSheet(
                 MapMarkerIcon(marker, selected = false, scale = 1.25f)
                 Column(Modifier.weight(1f)) {
                     Text(
-                        if (marker.anonymous) "Undiscovered ${layer.noun}" else entry.name,
+                        if (marker.anonymous) layer.hiddenLabel ?: "Undiscovered ${layer.noun}" else entry.name,
                         style = MaterialTheme.typography.titleLarge,
                     )
                     Text(
-                        "${entry.region} · ${layer.label(entry.state)}",
+                        "${entry.region} · ${layer.label(entry.state)}" + if (entry.count > 1) " · ×${entry.count}" else "",
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -248,22 +252,11 @@ private fun MarkerSheet(
 }
 
 @Composable
-private fun AboutDialog(onDismiss: () -> Unit) {
+private fun AboutDialog(text: String, onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = onDismiss,
         confirmButton = { TextButton(onClick = onDismiss) { Text("OK") } },
         title = { Text("About the map") },
-        text = {
-            Text(
-                "Map art © Nintendo, from Breath of the Wild's game files, via objmap.zeldamods.org. " +
-                    "It is bundled with the app, so the map works offline.\n\n" +
-                    "Shrine, tower, Korok and boss positions are objmap's too, and so are the shrine and tower " +
-                    "icons, traced from the game's. As in the game, a shrine's glyph is orange until it's completed " +
-                    "and a tower is orange until it's activated; both turn blue when done. Korok seeds and bosses " +
-                    "sit on a blue disc once collected or defeated and an orange one when found. Bosses show " +
-                    "Kilton's Medal of Honor for their kind, or the Lynel Mask for Lynels. Undiscovered places " +
-                    "are grey. Numbers on Korok clusters count the seeds not yet collected.",
-            )
-        },
+        text = { Text(text) },
     )
 }

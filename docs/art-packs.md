@@ -19,8 +19,8 @@ anything it links to.
 Screens use it through:
 - **`ArtImage(id, …)`, a composable:** armor, SS upgrades and materials, Lightning Round bosses,
   Thrill Digger, HW:DE cards and rewards, and the BotW map markers.
-- **`GameArt.tile(id, level, row, col, bundledPath)`:** the BotW map (`MapTiles.provider`) and the
-  live Korok scan (`BundledTiles`).
+- **`GameArt.tile(id, level, row, col, bundledPath)`:** every map's `TilePyramid.provider` (BotW, EoW)
+  and the live Korok scan (`BundledTiles`).
 - **`GameArt.square(id, square, bundledPath)`:** the HW:DE squares and previews (`SquareImages`).
 
 **Storage and performance:**
@@ -44,6 +44,7 @@ Screens use it through:
 | Kind | Ids | What | Was bundled as |
 |---|---|---|---|
 | `marker` | `botw/marker/{shrine,shrine_done,shrine_dlc,shrine_dlc_done,tower,tower_active,korok,boss_hinox,boss_talus,boss_molduga,boss_lynel}` | BotW map markers | `drawable/map_*` |
+| `marker` | `eow/marker/{heart_piece,heart_container,stamp,might_crystal}` | EoW map markers | `drawable/map_eow_*` |
 | `armor` | `botw/armor/<piece id>`, `totk/armor/<piece id>` | Armor icons, per game | `drawable/armor_*` (shared) |
 | `upgrade` | `ss/upgrade/<level id>` | SS item upgrade icons | `drawable/ss_up_*` |
 | `material` | `ss/material/<material id>` | SS treasures and bugs | `drawable/ss_mat_*` |
@@ -52,6 +53,7 @@ Screens use it through:
 | `card` | `hwde/card/<card id>` | HW:DE item cards | `drawable/hwde_card_*` |
 | `reward` | `hwde/reward/{heart_container,heart_piece,skulltula}` | HW:DE rewards | `drawable/hwde_reward_*` |
 | `map` | `botw/map/world` | BotW's world map: a tileset | `files/botw/map/` |
+| `map` | `eow/map/hyrule` | EoW's map of Hyrule: a tileset | `files/eow/map/` |
 | `map` | `hwde/map/<map id>` | An Adventure Map's squares: a squareset | `files/hwde/<map id>/` |
 | `data` | `hwde/data/<map id>` | An Adventure Map's JSON (reserved for HW:DE moving into packs) | `files/hwde/<map id>.json` |
 

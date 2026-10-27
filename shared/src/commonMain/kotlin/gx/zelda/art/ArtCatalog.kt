@@ -23,9 +23,10 @@ object ArtCatalog {
 
     /** The ids [game] uses; empty for a game that draws no art. */
     suspend fun ids(game: Game): List<String> = when (game.id) {
-        "botw" -> MarkerIcon.entries.map { it.artId } +
+        "botw" -> markers(game) +
             ArmorRepository.load(game).pieces.map { ArtIds.armor(game.id, it.id) } +
             ArtIds.BOTW_WORLD
+        "eow" -> markers(game) + ArtIds.EOW_HYRULE
         "totk" -> ArmorRepository.load(game).pieces.map { ArtIds.armor(game.id, it.id) }
         "ss" -> {
             val upgrades = UpgradeRepository.load(game)
@@ -42,4 +43,6 @@ object ArtCatalog {
         }
         else -> emptyList()
     }
+
+    private fun markers(game: Game) = MarkerIcon.entries.map { it.artId }.filter { ArtIds.game(it) == game.id }
 }

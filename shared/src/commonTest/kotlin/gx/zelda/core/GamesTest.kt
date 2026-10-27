@@ -176,7 +176,9 @@ class GamesTest {
     fun echoesOfWisdomHasTwoSaveFilesAndAnOverviewFirst() {
         assertEquals(listOf("file_1", "file_2"), Games.EOW.saveFiles.map { it.id })
         assertEquals(TrackerKind.OVERVIEW, Games.EOW.trackers.first().kind)
-        assertTrue(Games.EOW.trackers.drop(1).all { it.kind == TrackerKind.CHECKLIST })
+        // Then the map, then a checklist per tracker.
+        assertEquals(TrackerKind.MAP, Games.EOW.trackers[1].kind)
+        assertTrue(Games.EOW.trackers.drop(2).all { it.kind == TrackerKind.CHECKLIST })
     }
 
     /**

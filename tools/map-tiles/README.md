@@ -1,7 +1,7 @@
 # Map tiles
 
-`build_tiles.py` builds the tile pyramid behind the BotW map screen. It is a one-off prep script,
-and the app never fetches anything at runtime.
+`build_tiles.py` builds the tile pyramid behind the BotW map screen, and `build_eow_tiles.py` Echoes of Wisdom's
+(see *Echoes of Wisdom* below). They are one-off prep scripts, and the app never fetches anything at runtime.
 
 ## What it does
 
@@ -34,8 +34,24 @@ python3 tools/map-tiles/build_tiles.py --debug-overlay /tmp/overlay.png
 - **After a rebuild**, run `./gradlew :shared:jvmTest`. `MapTilePyramidTest` checks that every tile is there,
   that each one is a 256 px WebP, and the size budget: 48 KB per tile and 15 MB in total.
 
+## Echoes of Wisdom
+
+`build_eow_tiles.py` tiles Zelda Wiki's `File:EoW Map of Hyrule.png` (3600×2442, the explored in-game map).
+- **Fetch:** it downloads the image once through the wiki's API into `.cache/eow/`.
+- **Background:** it lays the image on dark parchment (`#261A10`), since the torn edges are transparent.
+- **Tiles:** four levels, 450 to 3600 px wide, written to `shared/src/commonMain/composeResources/files/eow/map/`.
+  That's 206 WebP tiles, about 0.8 MB; `EowMapTilePyramidTest` allows 3 MB.
+- **Untouched:** it leaves `markers.json` in that folder alone.
+- **`tiles.json`:** records the world bounds the art covers. They come from Zelda Dungeon's transform for the
+  game's map pins, `docs/eow-map.md` explains how, and `EowMap.world` must match them.
+
+```bash
+python3 tools/map-tiles/build_eow_tiles.py             # fetch if missing, rebuild
+python3 tools/map-tiles/build_eow_tiles.py --offline --debug-overlay /tmp/eow.png   # every marker drawn with its id
+```
+
 ## Licence
 
-- **Map art:** Nintendo's, extracted from the game by the zeldamods project. objmap grants no licence for it.
-  It's bundled here for a personal, sideloaded app only.
+- **Map art:** Nintendo's. BotW's was extracted from the game by the zeldamods project, and objmap grants no licence
+  for it. EoW's is Zelda Wiki's copy, marked *Copyright* there. Both are bundled for a personal, sideloaded app only.
 - **objmap's code:** GPL-3.0. None of it is copied. The projection above is reimplemented arithmetic.

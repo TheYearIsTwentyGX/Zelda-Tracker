@@ -1,6 +1,7 @@
 package gx.zelda.art
 
 import gx.zelda.core.Games
+import gx.zelda.map.data.EowMap
 import gx.zelda.map.data.MapTiles
 
 /**
@@ -36,12 +37,16 @@ object ArtIds {
     /** BotW's world map, as tiles. */
     const val BOTW_WORLD = "botw/map/world"
 
+    /** Echoes of Wisdom's map of Hyrule, as tiles. */
+    const val EOW_HYRULE = "eow/map/hyrule"
+
     /**
      * Where each icon kind lived as a bundled drawable: `botw/armor/x` was `armor_x`. Pack 0 (the
      * art built into a personal build) is read through this table, and tools/artpack mirrors it.
      */
     val BUNDLED_PREFIXES = listOf(
         "botw/marker/" to "map_",
+        "eow/marker/" to "map_eow_",
         "botw/armor/" to "armor_",
         "totk/armor/" to "armor_",
         "ss/upgrade/" to "ss_up_",
@@ -57,9 +62,9 @@ object ArtIds {
         BUNDLED_PREFIXES.firstOrNull { id.startsWith(it.first) }?.let { (prefix, name) -> name + id.removePrefix(prefix) }
 
     /** Tile pyramids the app can draw, by id. A pack's tileset must match its geometry exactly. */
-    val TILESETS: Map<String, TilesetGeometry> = mapOf(
-        BOTW_WORLD to TilesetGeometry(MapTiles.LEVELS, MapTiles.TILE_SIZE, MapTiles.FULL_WIDTH, MapTiles.FULL_HEIGHT),
-    )
+    val TILESETS: Map<String, TilesetGeometry> by lazy {
+        listOf(MapTiles.pyramid, EowMap.tiles).associate { it.artId to TilesetGeometry(it.levels, it.tileSize, it.fullWidth, it.fullHeight) }
+    }
 }
 
 /**

@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""Builds the bundled Echoes of Wisdom map tile pyramid from Zelda Wiki's map of Hyrule.
+
+One-off prep script; the app never fetches tiles. It downloads `File:EoW Map of Hyrule.png`
+(3600x2442, the explored in-game map) once through Zelda Wiki's API into
+tools/map-tiles/.cache/eow/ (gitignored), lays it on the parchment-brown background its torn
+edges are transparent over, builds four levels (450, 900, 1800 and 3600 px wide) and writes 256 px
+WebP tiles plus a tiles.json manifest into the app's compose resources.
+
+    python3 tools/map-tiles/build_eow_tiles.py                 # fetch if missing, rebuild
+    python3 tools/map-tiles/build_eow_tiles.py --offline       # rebuild from the cache only
+    python3 tools/map-tiles/build_eow_tiles.py --debug-overlay overlay.png
+
+World positions are the game's own (x east, z south), as the datamine's map pins give them; see
+docs/eow-map.md. Needs Pillow with WebP support (pip install Pillow).
+"""
+
+import argparse
+import datetime
+import io
+import json
+import math
+import shutil
+import sys
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+from PIL import Image, ImageDraw
+
+ROOT = Path(__file__).resolve().parents[2]
+CACHE = Path(__file__).resolve().parent / ".cache" / "eow"
+RES = ROOT / "shared/src/commonMain/composeResources/files/eow"
+OUT = RES / "map"
+
+API = "https://zeldawiki.wiki/w/api.php"
+FILE = "File:EoW Map of Hyrule.png"
+USER_AGENT = "ZeldaGX-map-tiles/1.0 (one-off fetch for a personal offline tracker app)"
+
+TILE = 256
+LEVELS = 4
+QUALITY = 80
+PAD = (38, 26, 16)  # dark parchment behind the torn edges; the app's EoW map background matches it
+
+# World (x, z) to pixels of the 3600 px image. Zelda Dungeon's interactive map stores the game's
+# pins as lng = 1.67 x - 554, lat = -1.67 z + 399 (exactly, for all 40 Pieces of Heart), and draws
+# them on a 7200 px Leaflet CRS of 1272 units: px = (lng + 636) * 7200 / 1272, py = (636 - lat) * 7200 / 1272.
+# Its art is this image at twice the size, 576 px lower (found by registering the two images).
+PX_PER_UNIT = 1.67 * 3600 / 1272
+OFFSET_X = (636 - 554) * 3600 / 1272
+OFFSET_Z = (636 - 399) * 3600 / 1272 - 576
+
+
+def fetch(offline):
+    path = CACHE / "EoW_Map_of_Hyrule.png"
+    if path.exists():
+        return path
+    if offline:
+        sys.exit("--offline but the map image isn't cached")
+    CACHE.mkdir(parents=True, exist_ok=True)
+    query = urllib.parse.urlencode({"action": "query", "prop": "imageinfo", "iiprop": "url|size", "titles": FILE, "format": "json"})
+    info = json.load(urllib.request.urlopen(urllib.request.Request(f"{API}?{query}", headers={"User-Agent": USER_AGENT})))
+    image = next(iter(info["query"]["pages"].values()))["imageinfo"][0]
+    print(f"{FILE}: {image['width']}x{image['height']}, {image['url']}")
+    data = urllib.request.urlopen(urllib.request.Request(image["url"], headers={"User-Agent": USER_AGENT})).read()
+    path.write_bytes(data)
+    return path
+
+
+def load(path):
+    src = Image.open(path).convert("RGBA")
+    full = Image.new("RGBA", src.size, PAD + (255,))
+    full.alpha_composite(src)
+    return full.convert("RGB")
+
+
+def world_bounds(width, height):
+    min_x, min_z = -OFFSET_X / PX_PER_UNIT, -OFFSET_Z / PX_PER_UNIT
+    return {
+        "minX": round(min_x, 4),
+        "maxX": round(min_x + width / PX_PER_UNIT, 4),
+        "minZ": round(min_z, 4),
+        "maxZ": round(min_z + height / PX_PER_UNIT, 4),
+    }
+
+
+def build_levels(full):
+    levels = []
+    for level in range(LEVELS):
+        div = 2 ** (LEVELS - 1 - level)
+        w, h = math.ceil(full.width / div), math.ceil(full.height / div)
+        levels.append(full if div == 1 else full.resize((w, h), Image.LANCZOS))
+    return levels
+
+
+def write_tiles(levels, quality):
+    # Only the level folders: markers.json (tools/eow-map/build_markers.py) lives here too.
+    for level in range(LEVELS):
+        if (OUT / str(level)).exists():
+            shutil.rmtree(OUT / str(level))
+    meta, total = [], 0
+    for level, img in enumerate(levels):
+        cols, rows = math.ceil(img.width / TILE), math.ceil(img.height / TILE)
+        for row in range(rows):
+            for col in range(cols):
+                box = (col * TILE, row * TILE, min((col + 1) * TILE, img.width), min((row + 1) * TILE, img.height))
+                tile = Image.new("RGB", (TILE, TILE), PAD)
+                tile.paste(img.crop(box), (0, 0))
+                buf = io.BytesIO()
+                tile.save(buf, "WEBP", quality=quality, method=6)
+                path = OUT / str(level) / str(row) / f"{col}.webp"
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(buf.getvalue())
+                total += len(buf.getvalue())
+        meta.append({"level": level, "width": img.width, "height": img.height, "cols": cols, "rows": rows})
+        print(f"level {level}: {img.width}x{img.height}, {cols}x{rows} tiles")
+    top = levels[-1]
+    manifest = {
+        "_comment": "Generated by tools/map-tiles/build_eow_tiles.py. Map art (c) Nintendo, via Zelda Wiki's " + FILE + ".",
+        "tileSize": TILE,
+        "format": "webp",
+        "fullWidth": top.width,
+        "fullHeight": top.height,
+        "world": world_bounds(top.width, top.height),
+        "levels": meta,
+        "source": "https://zeldawiki.wiki/wiki/" + FILE.replace(" ", "_"),
+        "generated": datetime.date.today().isoformat(),
+    }
+    (OUT / "tiles.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    print(f"{sum(m['cols'] * m['rows'] for m in meta)} tiles, {total / 1e6:.2f} MB")
+
+
+def debug_overlay(full, path):
+    """The top level with every bundled marker drawn on and labelled with its item id."""
+    img = full.copy()
+    draw = ImageDraw.Draw(img)
+    colours = {"heart_pieces": (255, 40, 40), "stamp_stands": (255, 0, 255), "might_crystals": (0, 230, 255)}
+    markers = json.loads((RES / "map/markers.json").read_text())["markers"]
+    for m in markers:
+        px, py = m["x"] * PX_PER_UNIT + OFFSET_X, m["z"] * PX_PER_UNIT + OFFSET_Z
+        draw.ellipse((px - 6, py - 6, px + 6, py + 6), fill=colours.get(m["file"], (255, 255, 0)), outline=(0, 0, 0))
+        draw.text((px + 8, py - 6), m["item"], fill=(255, 255, 255), stroke_width=2, stroke_fill=(0, 0, 0))
+    img.save(path)
+    print(f"debug overlay: {path} ({len(markers)} markers)")
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--offline", action="store_true", help="use only the cached image")
+    ap.add_argument("--quality", type=int, default=QUALITY, help="WebP quality (default 80)")
+    ap.add_argument("--debug-overlay", type=Path, help="also write the full-size map with every marker drawn on")
+    args = ap.parse_args()
+
+    full = load(fetch(args.offline))
+    write_tiles(build_levels(full), args.quality)
+    if args.debug_overlay:
+        debug_overlay(full, args.debug_overlay)
+
+
+if __name__ == "__main__":
+    main()

@@ -2,6 +2,7 @@ package gx.zelda.map.model
 
 import gx.zelda.core.Games
 import gx.zelda.koroks.data.KorokRepository
+import gx.zelda.map.data.EowMap
 import gx.zelda.map.data.MapTiles
 import gx.zelda.shrines.scan.ShrineMapRepository
 import gx.zelda.shrines.scan.WorldPoint
@@ -50,6 +51,22 @@ class MapProjectionTest {
             val at = MapProjection.toMap(p)
             assertTrue(at.x in 0.0..1.0 && at.y in 0.0..1.0, "off the map: $p")
         }
+    }
+
+    @Test
+    fun eowPinsLandOnTheWikiMapsPixels() {
+        // The Suthorn Beach Piece of Heart's pin, (216, 482.25), is at pixel (1253, 2374) of Zelda
+        // Wiki's 3600 × 2442 map: Zelda Dungeon's transform, and its art registered onto the wiki's.
+        val at = EowMap.world.toMap(WorldPoint(216.0, 482.25))
+        assertEquals(1253.0, at.x * EowMap.tiles.fullWidth, 1.0)
+        assertEquals(2374.1, at.y * EowMap.tiles.fullHeight, 1.0)
+        // The world's origin is 232 px in and 95 px down, both axes at 4.726 px per unit.
+        val origin = EowMap.world.toMap(WorldPoint(0.0, 0.0))
+        assertEquals(232.08, origin.x * EowMap.tiles.fullWidth, 0.05)
+        assertEquals(94.75, origin.y * EowMap.tiles.fullHeight, 0.05)
+        val unit = EowMap.world.toMap(WorldPoint(100.0, 100.0))
+        assertEquals(472.64, (unit.x - origin.x) * EowMap.tiles.fullWidth, 0.05)
+        assertEquals(472.64, (unit.y - origin.y) * EowMap.tiles.fullHeight, 0.05)
     }
 
     @Test

@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import gx.zelda.core.DiscoveryState
 import gx.zelda.core.SaveFile
 import gx.zelda.map.data.MapLayerProvider
+import gx.zelda.map.data.MapSpec
+import gx.zelda.map.data.MapSpecs
 import gx.zelda.map.data.MapStorage
 import gx.zelda.map.model.LayerData
 import gx.zelda.map.model.MapLayer
@@ -27,8 +29,11 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-/** A layer's chip: whether it's on, and how much of it the active save file has done. */
-data class LayerSummary(val layer: MapLayer, val on: Boolean, val done: Int, val total: Int)
+/**
+ * A layer's chip: whether it's on, and how much of it the active save file has done. [total]
+ * counts what the story hasn't unlocked too, as its tracker's counts do; [locked] is how many that is.
+ */
+data class LayerSummary(val layer: MapLayer, val on: Boolean, val done: Int, val total: Int, val locked: Int = 0)
 
 /** A save file as the picker shows it: what it has done in each layer. */
 data class MapSaveSummary(val file: SaveFile, val done: List<Pair<MapLayer, Int>>)
@@ -49,13 +54,14 @@ data class MapUiState(
  * each tracker's spoiler setting, plus the marker whose sheet is open.
  *
  * [focus] is the marker key "Show on map" opened the map for: it is shown and named whatever the
- * filters say, and its sheet opens once the map has loaded.
+ * filters say, and its sheet opens once the map has loaded. [spec] is the game's map art.
  */
 @OptIn(ExperimentalCoroutinesApi::class)
 class MapViewModel(
     private val storage: MapStorage,
     private val providers: List<MapLayerProvider>,
     focus: String? = null,
+    val spec: MapSpec = MapSpecs.BOTW,
 ) : ViewModel() {
     private val _loadFailed = MutableStateFlow(false)
 
@@ -74,7 +80,9 @@ class MapViewModel(
     private val activeFile: Flow<SaveFile> = storage.activeSaveFile.map(storage.game::saveFile)
 
     private fun layerData(saveFileId: String): Flow<List<LayerData>> = combine(
-        providers.map { p -> combine(p.entries(saveFileId), p.hideUndiscovered) { e, h -> LayerData(p.layer, e, h) } },
+        providers.map { p ->
+            combine(p.entries(saveFileId), p.hideUndiscovered, p.locked(saveFileId)) { e, h, l -> LayerData(p.layer, e, h, l) }
+        },
     ) { it.toList() }
 
     private val activeLayers: Flow<Pair<SaveFile, List<LayerData>>> =
@@ -103,7 +111,8 @@ class MapViewModel(
                     layer = d.layer,
                     on = d.layer.id !in prefs.hiddenLayers,
                     done = d.entries.count { it.state == DiscoveryState.COMPLETED },
-                    total = d.entries.size,
+                    total = d.entries.size + d.locked,
+                    locked = d.locked,
                 )
             },
             markers = visibleMarkers(layers, prefs, revealed, pinned),
@@ -156,7 +165,7 @@ class MapViewModel(
     private var mapView: MapView? = null
 
     /** The map view, kept here so it keeps its position while a tracker is opened on top of it. */
-    internal val view: MapView get() = mapView ?: MapView().also { mapView = it }
+    internal val view: MapView get() = mapView ?: MapView(spec).also { mapView = it }
 
     override fun onCleared() {
         mapView?.shutdown()

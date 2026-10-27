@@ -1,0 +1,158 @@
+key	file	item	confidence	evidence	at
+HeartPiece 0	heart_pieces	poh_suthorn_beach	high	IGN 'Heart Piece 1 (Suthorn Beach)'; on the beach by ZD label Suthorn Beach
+HeartPiece 1	heart_pieces	poh_beach_cave	high	IGN 'Heart Piece 2 (Suthorn Beach - Beach Cave)'; placed in S_Dungeon002 = ZD Beach Cave
+HeartPiece 3	heart_pieces	poh_suthorn_village_shop	high	IGN 'Heart Piece 3 (Suthorn Village - General Store)'; ZD Suthorn Village Shop 2 u; ZD desc poh04 shop 80 Rupees
+HeartPiece 2	heart_pieces	poh_suthorn_forest_cave	high	IGN 'Heart Piece 4 (Suthorn Forest - Cave 2)'; S_Dungeon004 cave; ZD desc poh03 Caromadillo cave
+HeartPiece 24	heart_pieces	poh_suthorn_prairie_pillar	high	IGN 'Heart Piece 5 (Suthorn Prairie)'; on the pillar in the pond north of Suthorn Village
+HeartPiece 25	heart_pieces	poh_hyrule_field_stump	high	IGN 'Heart Piece 9 (Hyrule Field)'; in the round grove east of Hyrule Ranch
+HeartPiece 26	heart_pieces	poh_hyrule_field_ruins_pillar	high	IGN 'Heart Piece 18 (Hyrule Field)'; ruins west-northwest of Castle Town
+HeartPiece 27	heart_pieces	poh_hyrule_field_west_lake	high	IGN 'Heart Piece 24 (West Hyrule)'; island in the westernmost lake
+HeartPiece 39	heart_pieces	poh_hyrule_field_giant_boulder	high	Field.json BigRock 1.5 u away; IGN 'Heart Piece 23 (West Hyrule)'; 20 u from the S_Dungeon061 cave
+HeartPiece 29	heart_pieces	poh_hyrule_field_holmill_cave_west	high	IGN 'Heart Piece 22 (West Hyrule - Cave 1)'; placed in S_Dungeon061 (ZD cave20)
+HeartPiece 31	heart_pieces	poh_hyrule_field_spiked_roller_cave	high	IGN 'Heart Piece 26 (West Hyrule - Cave 2)'; S_Dungeon024 (ZD cave18) east of Kakariko
+HeartPiece 33	heart_pieces	poh_acorn_gathering	high	IGN 'Heart Piece 31 (Hyrule Field - Acorn Game)'; zeldamaps Minigame_Acorn2 at same spot rewards HeartPiece
+HeartPiece 35	heart_pieces	poh_slumber_dojo_two	medium	IGN 'Heart Piece 25 (Kakariko - Slumber Dojo)'; ZD Slumber Dojo 1 u; ids 35/36 share one spot, lower id taken as the 2-challenge reward
+HeartPiece 36	heart_pieces	poh_slumber_dojo_eleven	medium	same spot as HeartPiece 35 (Slumber Dojo); higher id taken as the 11-challenge reward
+HeartPiece 32	heart_pieces	poh_flag_race_medium	high	IGN 'Heart Piece 34 (Hyrule Ranch)'; zeldamaps Minigame_HorseRacing here rewards HeartPiece for M 00:20
+HeartPiece 28	heart_pieces	poh_eastern_temple_smog	high	IGN 'Heart Piece 27 (Central Hyrule Field)'; placed in S_Dungeon110 = ZD Eastern Temple
+HeartPiece 30	heart_pieces	poh_castle_town_moat	high	IGN 'Heart Piece 14 (Hyrule Castle Town)'; in the moat northeast of the town walls
+HeartPiece 38	heart_pieces	poh_out_there_zol	high	IGN 'Heart Piece 38 (Hyrule Castle Town)'; southwest Castle Town, same spot as Euca's other quest reward Piece068
+HeartPiece 8	heart_pieces	poh_gerudo_quicksand	high	in the quicksand lake north of the Oasis; ItemHeartPiece in Field.json
+HeartPiece 9	heart_pieces	poh_gerudo_southwest_sand	high	IGN 'Heart Piece 8 (Gerudo Desert)'; Field.json Sandpile at the pin; far southwest corner
+HeartPiece 10	heart_pieces	poh_gerudo_palace_cave	high	IGN 'Heart Piece 7 (Gerudo Desert Cave 2)'; S_Dungeon015 (ZD cave14) north of Gerudo Palace
+HeartPiece 11	heart_pieces	poh_wild_sandstorms	high	IGN 'Heart Piece 36 (Wild Sandstorms Side Quest)'; east desert entrance
+HeartPiece 34	heart_pieces	poh_mango_rush_ultimate	high	IGN 'Heart Piece 37 (Gerudo Desert Oasis)'; ZD Tough Mango Plant Lab 2 u
+HeartPiece 4	heart_pieces	poh_zora_river_waterfall	high	IGN 'Heart Piece 13 (Zora River)'; north end of River Zora Village
+HeartPiece 37	heart_pieces	poh_cave_along_the_beach	high	IGN 'Heart Piece 11 (Zora Cove - Cave 1)'; S_Dungeon010 (ZD cave10) north of the Wrecked Ship
+HeartPiece 5	heart_pieces	poh_jabu_pillar	high	IGN 'Heart Piece 12 (Zora River - Lord Jabu-Jabu's Den)'; ZD desc poh06 pillar outside the Den
+HeartPiece 6	heart_pieces	poh_zora_cove_bombfish_rock	high	IGN 'Heart Piece 10 (Zora Cove)'; southeast Zora Cove seafloor, south of ZD cave09
+HeartPiece 7	heart_pieces	poh_zappy_shipwreck	high	IGN 'Heart Piece 35 (Zora Cove)'; placed in S_Dungeon102 = ZD Wrecked Ship
+HeartPiece 13	heart_pieces	poh_eldin_west_ledge	high	Field.json TorchSlug 0.75 u away; IGN 'Heart Piece 21 (West Hyrule)'; far west edge at Eldin Volcano Trail latitude
+HeartPiece 14	heart_pieces	poh_eldin_lava_lake	high	IGN 'Heart Piece 29 (Eldin Volcano)'; in the lava lake northeast of ZD Lizalfos Burrow
+HeartPiece 15	heart_pieces	poh_eldin_goron_west_ledge	high	IGN 'Heart Piece 28 (Eldin Volcano)'; next to the waypoint due west of Goron City
+HeartPiece 12	heart_pieces	poh_volcanic_talus	high	IGN 'Heart Piece 40 (Eldin Volcano)'; placed in S_Dungeon022 = ZD Summit Cave
+HeartPiece 21	heart_pieces	poh_hebra_lake	high	IGN 'Heart Piece 19 (Hebra Mountain)'; small island in the southwest of the icy lake
+HeartPiece 20	heart_pieces	poh_hebra_ledge	high	IGN 'Heart Piece 30 (Hebra Mountain)'; ledge east of the waypoint north-northeast of Conde's House
+HeartPiece 23	heart_pieces	poh_hebra_pillar	high	IGN 'Heart Piece 20 (Hebra Mountain)'; lone pillar in northwest Hebra
+HeartPiece 22	heart_pieces	poh_snowball_magic	high	IGN 'Heart Piece 33 (Hebra Mountain - Conde's House)'; ZD Conde's House 2 u
+HeartPiece 18	heart_pieces	poh_faron_heart_lake_north_cave	high	IGN 'Heart Piece 15 (Faron Wetlands)'; S_Dungeon031 (ZD cave25a) north of Heart Lake
+HeartPiece 17	heart_pieces	poh_faron_underwater_cave	high	IGN 'Heart Piece 16 (Faron Wetlands - Cave 2)'; S_Dungeon033 (ZD cave26a) by the lake east of Heart Lake
+HeartPiece 19	heart_pieces	poh_deku_scrub_lockup	high	IGN 'Heart Piece 17 (Faron Wetlands - Deku Scrub Lockup)'; placed in S_Dungeon109
+HeartPiece 16	heart_pieces	poh_cotton_candy_hunt	high	IGN 'Heart Piece 32 (Faron Wetlands)'; placed in S_Dungeon104 = ZD Hidden Ruins
+HeartContainer Suthorn Ruins	heart_pieces	hc_suthorn_ruins	high	Seismic Talus; reuses the Suthorn Ruins x5 crystal pin	Piece075
+HeartContainer Gerudo Sanctum	heart_pieces	hc_gerudo_sanctum	high	Mogryph; reuses the Gerudo Sanctum x5 crystal pin	Piece085
+HeartContainer Jabul Ruins	heart_pieces	hc_jabul_ruins	high	Vocavor; reuses the Jabul Ruins x5 crystal pin	Piece080
+HeartContainer Hyrule Castle	heart_pieces	hc_hyrule_castle	high	Ganon; reuses the Hyrule Castle x5 crystal pin (ZD desc might5_04 'Complete Hyrule Castle dungeon'), 1.7 u from the ZD Hyrule Castle landmark	Piece090
+HeartContainer Eldin Temple	heart_pieces	hc_eldin_temple	high	Volvagia; reuses the Eldin Temple x5 crystal pin	Piece095
+HeartContainer Lanayru Temple	heart_pieces	hc_lanayru_temple	high	Skorchill; reuses the Lanayru Temple x5 crystal pin	Piece105
+HeartContainer Faron Temple	heart_pieces	hc_faron_temple	high	Gohma; reuses the Faron Temple x5 crystal pin	Piece100
+Stamp_09	stamp_stands	stamp_hyrule_ranch	high	just south of the Hyrule Ranch gate (ZD Hyrule Ranch 19 u)
+Stamp_24	stamp_stands	stamp_west_hyrule_field	high	on the plateau by ZD cave20, far west of Kakariko
+Stamp_21	stamp_stands	stamp_kakariko	high	at the southeast road entrance of Kakariko Village
+Stamp_20	stamp_stands	stamp_eastern_temple	high	at the foot of the stairs into the ruins southwest of the Eastern Temple
+Stamp_03	stamp_stands	stamp_river_island	high	on the small island in the lake south of Hebra Mountain
+Stamp_23	stamp_stands	stamp_lake_hylia	medium	only pin east of the Suthorn Ruins / southeast of Lake Hylia; IGN titles it 'Stamp Stand'
+Stamp_12	stamp_stands	stamp_gerudo_southeast	high	on the ledge east of the Gerudo Sanctum, southeast of the Oasis
+Stamp_11	stamp_stands	stamp_oasis_northwest	high	just northwest of the Oasis
+Stamp_19	stamp_stands	stamp_gerudo_town_west	high	on the cliff west of Gerudo Town
+Stamp_22	stamp_stands	stamp_gerudo_northwest	high	beside the Stilled Northern Gerudo Desert rift (Piece124), southeast of ZD cave13
+Stamp_01	stamp_stands	stamp_seesyde	high	north entrance of Seesyde Village
+Stamp_17	stamp_stands	stamp_zora_cove_east	high	far east edge of Zora Cove, east of Sea Zora Village
+Stamp_06	stamp_stands	stamp_zora_river_lake	high	lake west of Lord Jabu-Jabu's Den, south of River Zora Village
+Stamp_00	stamp_stands	stamp_river_zora_high	high	high ledge northwest of River Zora Village
+Stamp_02	stamp_stands	stamp_goron_hot_spring	high	by the hot spring southeast of Goron City
+Stamp_10	stamp_stands	stamp_eldin_lava_island	high	in the lava lake south of ZD Rock-Roast Quarry
+Stamp_16	stamp_stands	stamp_eldin_summit	high	highest northwest platform beside the Eldin Temple
+Stamp_05	stamp_stands	stamp_eldin_far_east	high	eastern edge of Eldin Volcano above the Eternal Forest
+Stamp_14	stamp_stands	stamp_hebra_entrance	medium	west Hebra slope just south of ZD cave32a/b (the passage exit); only other candidate is the river-island stand
+Stamp_15	stamp_stands	stamp_hebra_northeast_conde	high	north-northeast of Conde's House
+Stamp_08	stamp_stands	stamp_hebra_swallowed	high	beside the Stilled Hebra Mountain Passage rift (Piece128) in north Hebra
+Stamp_07	stamp_stands	stamp_faron_northeast	high	pond in the far northeast corner of Faron Wetlands
+Stamp_13	stamp_stands	stamp_scrubton_south	high	south exit of Scrubton, south of the Deku Scrub Lockup
+Stamp_04	stamp_stands	stamp_heart_lake	high	ledge north of Heart Lake
+Stamp_18	stamp_stands	stamp_hidden_ruins	high	northwest of the Hidden Ruins entrance
+Piece075	might_crystals	mc_suthorn_ruins	high	x5; ZD Suthorn Ruins 2 u
+Piece126	might_crystals	mc_stilled_lower_suthorn_forest	high	x2 rift; southernmost of the Suthorn Forest
+Piece035	might_crystals	mc_suthorn_prairie_pond	high	Field.json LawnWater (seaweed) at the pin; pond in northwest Suthorn Prairie
+Piece049	might_crystals	mc_suthorn_forest_ledge	high	Field.json Grass at the pin; raised strip at the southeast end of Suthorn Forest
+Piece069	might_crystals	mc_finding_the_flying_plant	high	condition Pehat_HyrulePlains010; in Suthorn Village
+Piece044	might_crystals	mc_hf_rock_south_of_castle_town	high	Field.json RockSolid among Lawn patches; ledge south of Castle Town
+Piece038	might_crystals	mc_hf_grass_west_of_south_waypoint	high	Field.json Grass at the pin; west of Castle Town's south waypoint
+Piece000	might_crystals	mc_hf_holmill_grove	high	Field.json SensorBuriedItem (dig spot); northwest part of the grove east of Hyrule Ranch
+Piece039	might_crystals	mc_hf_grass_south_of_ranch	high	Field.json Grass at the pin; southwest of Hyrule Ranch
+Piece036	might_crystals	mc_hf_ignizol_pit	high	Field.json Grass at the pin; plateau in a pit west/southwest of Castle Town
+Piece056	might_crystals	mc_hf_plus_rocks	high	Field.json RockSolid with RockSolid neighbours 1.5 u away (plus sign); west of Castle Town
+Piece043	might_crystals	mc_hf_boulder_river_north	medium	Field.json RockCave (boulder); the eastern of two boulders, directly north of Lake Hylia
+Piece040	might_crystals	mc_hf_boulder_lake_hylia_road	medium	Field.json RockCave (boulder); the western of two boulders, just across the river from Castle Town
+Piece041	might_crystals	mc_hf_stone_circle_kakariko	high	Field.json RockSolid; hill southwest of Kakariko
+Piece037	might_crystals	mc_hf_cave_west_of_ranch	high	x3; cave S_Dungeon063 (zeldamaps reward WorldGlobePiece), southeast of the Piece of Heart lake
+Piece055	might_crystals	mc_hf_arrow_grass	high	Field.json Grass at the pin; west of Hyrule Ranch
+Piece052	might_crystals	mc_hf_far_west_rock	high	Field.json RockSolid; western map edge
+Piece062	might_crystals	mc_acorn_gathering_west	high	x3; zeldamaps Minigame_Acorn3 (rewards WorldGlobePiece); ZD desc might3_08
+Piece001	might_crystals	mc_royal_family_shortcut	high	beacon on the HyruleWaterway entrance west of Castle Town; condition EvE_GanonPasteDead
+Piece059	might_crystals	mc_flag_race_short	high	x3; condition GetHorse_Forest010; zeldamaps HorseRacing S 00:17 rewards WorldGlobePiece; ZD desc might3_06
+Piece118	might_crystals	mc_stilled_carrot_patch	high	x2 rift; northwest of Hyrule Castle (the other north rift is at the Northern Sanctuary)
+Piece120	might_crystals	mc_stilled_northern_sanctuary	high	x2 rift; ZD Northern Sanctuary 5 u
+Piece116	might_crystals	mc_stilled_southern_hyrule_field	high	x2 rift; southern Hyrule Field
+Piece003	might_crystals	mc_ehf_rock_south_of_temple	medium	Field.json RockSolid on the hill south of the Eastern Temple (ZW 'Hill south of the Eastern Temple')
+Piece050	might_crystals	mc_ehf_rock_east_of_temple	medium	Field.json RockSolid on high ground east of the Eastern Temple (ZW 'East of the Eastern Temple')
+Piece051	might_crystals	mc_ehf_holmill_dampe	high	Field.json SensorBuriedItem; south(east) of Dampe Studio; ZD desc might_37
+Piece045	might_crystals	mc_ehf_rock_north_of_dampe	high	Field.json RockSolid; ZD desc might_32 'rock in the middle of four immovable stones'
+Piece047	might_crystals	mc_ehf_cave_north_of_dampe	high	x3; cave S_Dungeon064 (zeldamaps reward WorldGlobePiece) north of Dampe Studio
+Piece002	might_crystals	mc_lake_hylia_boulder	high	southern Lake Hylia, southwest of the Great Fairy Shrine (no Field beacon: under a boulder)
+Piece010	might_crystals	mc_great_fairy_shrine_chest	high	ZD Great Fairy Shrine 2 u
+Piece114	might_crystals	mc_stilled_lake_hylia	high	x2 rift; west side of Lake Hylia
+Piece042	might_crystals	mc_kakariko_graveyard_holmill	high	Field.json SensorBuriedItem; ZD desc might_29 'next to the graves'
+Piece068	might_crystals	mc_a_curious_child	high	condition Bring_Forest040; southwest Castle Town (Euca, same spot as the Out-There Zol heart)
+Piece058	might_crystals	mc_weather_vane_chest	high	x2; cave S_Dungeon046 under the WeatherVane (zeldamaps reward WorldGlobePiece)
+Piece090	might_crystals	mc_hyrule_castle_dungeon	high	x5; ZD desc might5_04 'Complete Hyrule Castle dungeon'
+Piece004	might_crystals	mc_hyrule_castle_roof	high	on Hyrule Castle (no Field beacon), 10 u north of the castle landmark
+Piece046	might_crystals	mc_gerudo_entrance_ledge_rock	medium	Field.json RockSolid at cliff height (y 10.5); first ledge on entering the canyon from Suthorn Prairie
+Piece019	might_crystals	mc_gerudo_entrance_tree_rock	medium	Field.json RockSolid 3 u above the canyon floor (on the dead tree); further into the canyon
+Piece054	might_crystals	mc_gerudo_southeast_sand	high	Field.json SandpileLarge (Loose-Sand Mound); east of the southern ruins
+Piece009	might_crystals	mc_gerudo_southern_ruins_chest	high	x2; cave S_Dungeon012 (zeldamaps reward WorldGlobePiece)
+Piece016	might_crystals	mc_gerudo_oasis_east_rock	high	Field.json RockSolid; east of the Oasis
+Piece006	might_crystals	mc_gerudo_northwest_cave_chest	high	zeldamaps TreasureBox_044 (WorldGlobePiece) by ZD cave12a, near the Ancestor's Cave of Rest
+Piece005	might_crystals	mc_gerudo_northwest_cliff_rock	high	Field.json RockSolid; cliff northwest of the Oasis
+Piece008	might_crystals	mc_gerudo_outpost_holmill	high	Field.json SensorBuriedItem; far northwest desert
+Piece085	might_crystals	mc_gerudo_sanctum	high	x5; ZD Gerudo Sanctum 2 u
+Piece072	might_crystals	mc_elusive_tumbleweeds	high	x2; condition Carry_Desert010; west edge of Gerudo Town
+Piece132	might_crystals	mc_stilled_desert_temple_ruins	medium	x2 rift; northeast of the Oasis (the other desert rift is in the far north)
+Piece124	might_crystals	mc_stilled_northern_gerudo_desert	high	x2 rift; far north of Gerudo Town, beside the stamp stand
+Piece061	might_crystals	mc_mango_rush_vibrant	high	x3; beacon at the OasisTent entrance; ZD desc might3_07
+Piece080	might_crystals	mc_jabul_ruins	high	x5; ZD Lord Jabu-Jabu's Den 1 u
+Piece130	might_crystals	mc_stilled_upper_zora_river	medium	x2 rift; north-central Zora River, east of River Zora Village
+Piece122	might_crystals	mc_stilled_eastern_zora_river	medium	x2 rift; the more easterly Zora River rift
+Piece048	might_crystals	mc_seesyde_holmill	high	Field.json SensorBuriedItem + LawnFlowerRiver; ZD desc might_34
+Piece063	might_crystals	mc_seesyde_dock	high	south dock of Seesyde Village (underwater, no Field beacon)
+Piece070	might_crystals	mc_a_treat_for_my_person	high	condition Animal_Coast010; ZD desc might_48
+Piece064	might_crystals	mc_zora_cove_bombable_rock	high	ZD desc might_44 'Destroy the cracked rock'; west of Sea Zora Village
+Piece065	might_crystals	mc_zora_cove_seaweed_ring	high	Field.json LawnSea (seaweed); northeast of Sea Zora Village
+Piece015	might_crystals	mc_zora_river_chest	high	x3; zeldamaps TreasureBox_036 (WorldGlobePiece); ZD desc might3_02
+Piece017	might_crystals	mc_zora_river_outpost	high	x3; west Zora River, southwest of River Zora Village
+Piece095	might_crystals	mc_eldin_temple	high	x5; northwest Eldin, beside the summit stamp stand
+Piece134	might_crystals	mc_stilled_goron_city	high	x2 rift; ZD desc might2_19
+Piece138	might_crystals	mc_stilled_western_eldin_volcano	high	x2 rift; west Eldin
+Piece013	might_crystals	mc_eldin_trail_outpost	high	x3; by the southwest Eldin Volcano Trail waypoint
+Piece012	might_crystals	mc_eldin_east_ledge_chest	high	x2; zeldamaps TreasureBox_008 (WorldGlobePiece) east of Goron City
+Piece007	might_crystals	mc_eldin_northwest_chest	high	zeldamaps TreasureBox_001 (WorldGlobePiece); far northwest Eldin
+Piece053	might_crystals	mc_eldin_northeast_rock	high	Field.json RockSolid; northeast ledge above the Eternal Forest
+Piece067	might_crystals	mc_flames_of_fortune	high	x2; condition Carry_Valcano010; ZD desc might2_05
+Piece066	might_crystals	mc_glide_path_trailblazer	high	x2; condition Gliding_Valcano070
+Piece105	might_crystals	mc_lanayru_temple	high	x5; northern edge of Hebra
+Piece136	might_crystals	mc_stilled_hebra_mountain_cave	high	x2 rift; ZD desc might2_20 (Hebra Mountain Cave)
+Piece128	might_crystals	mc_stilled_hebra_mountain_passage	high	x2 rift; north Hebra, beside the Stamp Stand Swallowed stand
+Piece027	might_crystals	mc_hebra_icicle_above_ice_block_cave	high	Field.json Snowpile (ice); northwest Hebra above ZD cave33
+Piece025	might_crystals	mc_hebra_southern_rock	high	Field.json RockSolid among LawnHebra; ZD desc might_14
+Piece028	might_crystals	mc_hebra_behind_conde	high	Field.json Snowpile (ice); cliff behind Conde's House
+Piece026	might_crystals	mc_hebra_east_of_smoothie_shop	high	Field.json SnowpileLarge (ice); 13 u east of the Hebra Smoothie Shop
+Piece029	might_crystals	mc_hebra_snowball_slope	high	Field.json SnowpileLarge at height 117 (highest); on the path to the peak
+Piece100	might_crystals	mc_faron_temple	high	x5; ZD The Sweet Spot 2 u
+Piece112	might_crystals	mc_stilled_heart_lake	high	x2 rift; ZD desc might2_08
+Piece110	might_crystals	mc_stilled_blossus_house	high	x2 rift; far southeast Faron Wetlands
+Piece071	might_crystals	mc_mobbing_mothulas	high	condition Enemy_Jungle050; ZD desc might_49
+Piece033	might_crystals	mc_faron_northeast_web	high	far northeast Faron Wetlands (no Field beacon: behind the web)
+Piece032	might_crystals	mc_faron_flowerbed_blossu	high	Field.json GrassJungle; ZD desc might_20 'plant in the center of the circle of plants'
+Piece034	might_crystals	mc_faron_flowerbed_west	high	Field.json GrassJungle; north(west) of Heart Lake
+Piece031	might_crystals	mc_deku_scrub_lockup	high	beacon at the S_Dungeon109 (Deku Scrub Lockup) entrance
+Piece020	might_crystals	mc_eternal_forest_grass	high	Field.json Grass; clearing in north Eternal Forest by the waypoint

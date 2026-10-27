@@ -526,6 +526,7 @@ object Games {
     /**
      * Two save files per Switch user, each with its own autosaves (Zelda Wiki, Saving; Game8). Every
      * tracker is a checklist (docs/checklist-trackers.md); the data and its sources are in docs/eow.md.
+     * The map shows three of them at the game's own map pins (docs/eow-map.md).
      */
     val EOW = Game(
         id = "eow",
@@ -535,6 +536,7 @@ object Games {
         saveFiles = listOf(SaveFile("file_1", "File 1"), SaveFile("file_2", "File 2")),
         trackers = listOf(
             Tracker(TrackerKind.OVERVIEW, "Progress Overview", "Every tracker at a glance for the active save file"),
+            Tracker(TrackerKind.MAP, "Map", "Pieces of Heart, Stamp Stands and Might Crystals on the map of Hyrule"),
             eowChecklist("Main Quest", "Rifts, dungeons and bosses, Tri's Power and the Swordfighter weapons", "main_quest"),
             eowChecklist("Echoes", "All 127 echoes: where each is first learned and what it costs", "echoes"),
             eowChecklist("Heart Pieces", "All 40 Pieces of Heart and 7 Heart Containers by region, with your hearts total", "heart_pieces"),
