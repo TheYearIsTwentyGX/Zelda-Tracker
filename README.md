@@ -981,6 +981,13 @@ counts, region cards, search, *Not done*, *Hide unchecked* and a page per item. 
 disagreements are in `docs/eow.md`.
 - **Progress Overview** (first): a row per tracker with its count, its totals (hearts, crystals)
   and the next thing to do. With *Hide unchecked* on, a row only says how many are left where.
+- **Map:** the in-game map of Hyrule with every Piece of Heart, Heart Container, Stamp Stand and Might Crystal
+  place at the game's own map pins, under a chip each.
+  - A marker shows the game's map icon, orange until ticked and blue after; a crystal place shows how many it holds.
+  - Tapping it opens a sheet to tick it or open its row. Ticking either side ticks both, mark-all included.
+  - The story setting and *Hide unchecked* hide the same places as in the lists.
+  - Each item page in those lists has **Show on map**, and each list has a map button.
+  - `docs/eow-map.md` has the sources.
 - **Main Quest:** the rifts, dungeons and bosses in story order, through Null. It also has Tri Rod,
   Bind and Reverse Bond, Tri's Power Lv. 2–11 (one row, a tier per level) and the Swordfighter
   weapons.
@@ -1448,6 +1455,11 @@ The BotW map art is Nintendo's, from the game's `MapTex` files as objmap.zeldamo
 see `tools/map-tiles/README.md` to rebuild it. objmap grants no licence for the art, so the map is
 fine for a personal, sideloaded build but would need replacing before any store release. Shrine,
 tower and Korok positions are objmap's (see above).
+
+The EoW map art is Zelda Wiki's copy of the game's map of Hyrule, tiled by `tools/map-tiles/build_eow_tiles.py`.
+Its markers are at the game's own map pins, datamined by MrCheeze/eow-tools and matched to the checklists by hand
+(`tools/eow-map/`). The art and the game's map icons have the same personal-build caveat; `docs/eow-map.md` covers
+the sources and how each pin was matched.
 
 The map's shrine and tower markers are objmap's vector tracings of the game's map icons, split by
 `scripts/build-map-icons.py` so a shrine's glyph can turn from orange to blue as it does in the game.

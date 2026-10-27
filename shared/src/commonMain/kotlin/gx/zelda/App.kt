@@ -72,7 +72,9 @@ import gx.zelda.overview.OverviewScreen
 import gx.zelda.overview.OverviewViewModel
 import gx.zelda.map.data.MapLayers
 import gx.zelda.map.data.MapStorage
-import gx.zelda.map.data.botwMapLayers
+import gx.zelda.map.data.checklistMapSources
+import gx.zelda.map.data.mapLayersFor
+import gx.zelda.map.data.mapSpecFor
 import gx.zelda.map.model.markerKey
 import gx.zelda.map.ui.MapViewModel
 import gx.zelda.map.ui.WorldMapScreen
@@ -398,7 +400,7 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                 val game = Games.byId(route.gameId)
                 val focus = route.focusId?.let { markerKey(route.focusLayer ?: return@let null, it) }
                 val vm = viewModel(key = "map_${game.id}") {
-                    MapViewModel(MapStorage(dataStore, game), botwMapLayers(dataStore, game), focus)
+                    MapViewModel(MapStorage(dataStore, game), mapLayersFor(dataStore, game), focus, mapSpecFor(game))
                 }
                 val state by vm.state.collectAsStateWithLifecycle()
                 val loadFailed by vm.loadFailed.collectAsStateWithLifecycle()
@@ -418,6 +420,10 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                             MapLayers.BOSSES -> {
                                 nav.navigate(Bosses(game.id))
                                 nav.navigate(BossDetail(game.id, entryId))
+                            }
+                            else -> checklistMapSources(game).firstOrNull { it.layerId == layerId }?.let { source ->
+                                nav.navigate(Checklist(game.id, source.dataFile))
+                                nav.navigate(ChecklistDetail(game.id, source.dataFile, entryId))
                             }
                         }
                     },
@@ -479,6 +485,8 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                     title = game.trackers.firstOrNull { it.dataFile == route.dataFile }?.title ?: "Checklist",
                     onOpenItem = { nav.navigate(ChecklistDetail(game.id, route.dataFile, it)) },
                     onBack = { nav.popBackStack() },
+                    onOpenMap = { nav.navigate(WorldMap(game.id)) }
+                        .takeIf { game.has(TrackerKind.MAP) && checklistMapSources(game).any { it.dataFile == route.dataFile } },
                 )
             }
             composable<ChecklistDetail> { entry ->
@@ -487,10 +495,19 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                 val listEntry = remember(entry) {
                     nav.currentBackStack.value.last { it.destination.hasRoute<Checklist>() && it.toRoute<Checklist>().dataFile == route.dataFile }
                 }
-                val vm = checklistViewModel(listEntry, dataStore, Games.byId(route.gameId), route.dataFile)
+                val game = Games.byId(route.gameId)
+                val vm = checklistViewModel(listEntry, dataStore, game, route.dataFile)
                 val state by vm.state.collectAsStateWithLifecycle()
+                val mapSource = checklistMapSources(game).firstOrNull { it.dataFile == route.dataFile }.takeIf { game.has(TrackerKind.MAP) }
                 state?.let {
-                    ChecklistDetailScreen(it, route.itemId, vm, onBack = { nav.popBackStack() })
+                    ChecklistDetailScreen(
+                        it,
+                        route.itemId,
+                        vm,
+                        onBack = { nav.popBackStack() },
+                        mapSections = mapSource?.sections?.keys.orEmpty(),
+                        onShowOnMap = { mapSource?.let { source -> nav.navigate(WorldMap(game.id, source.layerId, route.itemId)) } },
+                    )
                 }
             }
             composable<AdventureMap> { entry ->

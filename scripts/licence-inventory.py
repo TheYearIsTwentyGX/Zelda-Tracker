@@ -40,6 +40,7 @@ RULES = [
     # --- drawables
     ("BotW map icons (shrine, tower)", f"{RES}/drawable/map_shrine*.xml", "objmap `public/icons/*.svg`, split by `scripts/build-map-icons.py`", "Nintendo design; objmap tracing", "GPL-3.0 (tracing)", "pack"),
     ("BotW map icons (shrine, tower)", f"{RES}/drawable/map_tower*.xml", "objmap `public/icons/*.svg`, split by `scripts/build-map-icons.py`", "Nintendo design; objmap tracing", "GPL-3.0 (tracing)", "pack"),
+    ("EoW map icons", f"{RES}/drawable/map_eow_*.png", "Zelda Wiki file uploads (`scripts/build-map-icons.py`)", "Nintendo", "none granted", "pack"),
     ("BotW map icons (Korok, bosses)", f"{RES}/drawable/map_*.png", "Zelda Wiki file uploads (`scripts/build-map-icons.py`)", "Nintendo", "none granted", "pack"),
     ("Armor icons (BotW, TotK)", f"{RES}/drawable/armor_*.png", "Zelda Wiki file uploads (`scripts/fetch-armor-icons.py`)", "Nintendo", "none granted", "pack"),
     ("HW:DE item card icons", f"{RES}/drawable/hwde_card_instrument.png", "Hyrule Warriors Helper `public/item-cards/` (Zelda Wiki has no file)", "Fabian-F, after Nintendo/Koei Tecmo", "none (no licence)", "pack"),
@@ -52,6 +53,8 @@ RULES = [
     # --- map art
     ("BotW map tiles", f"{RES}/files/botw/map/*.webp", "objmap.zeldamods.org MapTex tiles (`tools/map-tiles/build_tiles.py`)", "Nintendo", "none granted", "pack"),
     ("BotW map tile manifest", f"{RES}/files/botw/map/tiles.json", "`tools/map-tiles/build_tiles.py`", "ours", "-", "safe"),
+    ("EoW map tiles", f"{RES}/files/eow/map/*.webp", "Zelda Wiki `File:EoW Map of Hyrule.png` (`tools/map-tiles/build_eow_tiles.py`)", "Nintendo", "none granted", "pack"),
+    ("EoW map tile manifest", f"{RES}/files/eow/map/tiles.json", "`tools/map-tiles/build_eow_tiles.py`", "ours", "-", "safe"),
     ("HW:DE Adventure Map squares and previews", f"{RES}/files/hwde/*.webp", "Hyrule Warriors Helper `public/map-tiles/`, `public/map-previews/`", "Fabian-F, after Nintendo/Koei Tecmo layouts", "none (no licence)", "pack"),
     # --- scanner references
     ("Zelda Notes droplet template", f"{RES}/files/botw/notes_korok.png", "crop of the Switch App's Zelda Notes map, from the owner's phone", "Nintendo", "none granted", "pack"),
@@ -62,6 +65,7 @@ RULES = [
     ("HW:DE Adventure Map data", f"{RES}/files/hwde/*.json", "Hyrule Warriors Helper `v2` data (`tools/hwde/build_maps.py`)", "Fabian-F; card text Zelda Wiki", "none (no licence); CC BY-SA text", "risky"),
     ("BotW Korok positions", f"{RES}/files/botw/koroks.json", "objmap `korok_ids.json` and radar.zeldamods.org", "datamined from the game", "not stated", "risky"),
     ("BotW overworld boss positions", f"{RES}/files/botw/bosses.json", "radar.zeldamods.org (`scripts/build-botw-bosses.py`)", "datamined from the game", "not stated", "risky"),
+    ("EoW map pin positions", f"{RES}/files/eow/map/markers.json", "MrCheeze/eow-tools map pins, matched to our ids in `tools/eow-map/matches.tsv`", "datamined from the game", "none (no licence)", "risky"),
     ("TotK shrine and Lightroot positions", f"{RES}/files/totk/shrines.json", "radar-totk.zeldamods.org, objmap-totk", "datamined from the game", "not stated", "risky"),
     ("MC figurine gallery", f"{RES}/files/mc/figurines.json", "Zelda Wiki (game text); zeldaret/tmc (`scripts/build-mc-figurines.py`)", "Nintendo text", "none granted", "risky"),
     ("Tracker data", f"{RES}/files/*/*.json", "compiled from the sources in the data table", "facts; our wording", "-", "data"),

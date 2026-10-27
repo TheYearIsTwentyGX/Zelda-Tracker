@@ -29,6 +29,12 @@ enum class MarkerIcon(val resourceName: String) {
     MOLDUGA("map_boss_molduga"),
     /** The Lynel Mask: there's no Lynel medal. */
     LYNEL("map_boss_lynel"),
+    /** Echoes of Wisdom's map icon for a Piece of Heart; the game's map icons are white, so they sit on a state disc. */
+    EOW_HEART_PIECE("map_eow_heart_piece"),
+    /** EoW's Heart Container item icon: the game's map has none, as containers are in dungeons. */
+    EOW_HEART_CONTAINER("map_eow_heart_container"),
+    EOW_STAMP("map_eow_stamp"),
+    EOW_MIGHT_CRYSTAL("map_eow_might_crystal"),
 }
 
 /** The icon for an overworld boss of kind [kindId] (`hinox`, `talus`, `molduga` or `lynel`). */
@@ -58,6 +64,8 @@ data class MarkerLook(
  * yet activated isn't, since the layer has no "found". An anonymous marker never gives away more
  * than its tracker's hidden rows do: it uses the layer's plain icon (never the DLC one) and shows
  * as undiscovered. A boss keeps its kind's icon, as the boss tracker's hidden rows say "Unfound Hinox".
+ * A checklist's markers keep their layer's icon on a state disc, and are greyed only while anonymous:
+ * not done is the orange of a tower not yet activated.
  */
 fun markerLook(marker: MapMarker): MarkerLook {
     val state = if (marker.anonymous) DiscoveryState.UNDISCOVERED else marker.entry.state
@@ -71,12 +79,13 @@ fun markerLook(marker: MapMarker): MarkerLook {
         MarkerKind.TOWER -> if (done) MarkerIcon.TOWER_ACTIVE else MarkerIcon.TOWER
         MarkerKind.KOROK -> MarkerIcon.KOROK
         MarkerKind.BOSS -> marker.entry.icon ?: MarkerIcon.HINOX
+        MarkerKind.CHECKLIST -> marker.entry.icon?.takeUnless { marker.anonymous } ?: marker.layer.icon ?: MarkerIcon.KOROK
     }
     return MarkerLook(
         icon = icon,
         state = state,
-        greyed = state == DiscoveryState.UNDISCOVERED && DiscoveryState.FOUND in marker.layer.stateLabels,
-        disc = marker.layer.kind == MarkerKind.KOROK || marker.layer.kind == MarkerKind.BOSS,
+        greyed = state == DiscoveryState.UNDISCOVERED && (DiscoveryState.FOUND in marker.layer.stateLabels || marker.anonymous),
+        disc = marker.layer.kind == MarkerKind.KOROK || marker.layer.kind == MarkerKind.BOSS || marker.layer.kind == MarkerKind.CHECKLIST,
     )
 }
 

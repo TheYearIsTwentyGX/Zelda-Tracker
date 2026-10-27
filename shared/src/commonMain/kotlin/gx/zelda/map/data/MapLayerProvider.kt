@@ -6,20 +6,24 @@ import gx.zelda.map.model.MapLayer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
 /**
  * What a tracker gives the map: one layer of markers and a way to update them. A new tracker adds
- * a layer by implementing this and listing it in [botwMapLayers]; the map handles drawing,
- * filtering, spoilers and the marker sheet.
+ * a layer by implementing this and listing it in its game's layers ([mapLayersFor]); the map
+ * handles drawing, filtering, spoilers and the marker sheet.
  */
 interface MapLayerProvider {
     val layer: MapLayer
 
     /** Every entry with a position, including undiscovered ones, in its state on [saveFileId]. */
     fun entries(saveFileId: String): Flow<List<MapEntry>>
+
+    /** How many entries the story hasn't unlocked on [saveFileId] yet, left out of [entries]; none for most layers. */
+    fun locked(saveFileId: String): Flow<Int> = flowOf(0)
 
     /** The tracker's own "Hide undiscovered" setting; a layer without one emits false. */
     val hideUndiscovered: Flow<Boolean>

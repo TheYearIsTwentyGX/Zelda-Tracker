@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -40,7 +41,15 @@ import gx.zelda.core.ui.Tag
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ChecklistDetailScreen(state: ChecklistUiState, itemId: String, viewModel: ChecklistViewModel, onBack: () -> Unit) {
+fun ChecklistDetailScreen(
+    state: ChecklistUiState,
+    itemId: String,
+    viewModel: ChecklistViewModel,
+    onBack: () -> Unit,
+    /** The sections the game's map shows; an item in one gets "Show on map". */
+    mapSections: Set<String> = emptySet(),
+    onShowOnMap: () -> Unit = {},
+) {
     val item = state.catalog.item(itemId) ?: return
     val section = state.catalog.sectionOf(item)
     val hidden = state.isHidden(item)
@@ -106,6 +115,13 @@ fun ChecklistDetailScreen(state: ChecklistUiState, itemId: String, viewModel: Ch
                     item.region?.let {
                         Text(it, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
+                }
+            }
+
+            if (section.id in mapSections) {
+                OutlinedButton(onClick = onShowOnMap) {
+                    Icon(Icons.Filled.Place, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
+                    Text("Show on map")
                 }
             }
 

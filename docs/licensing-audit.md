@@ -32,6 +32,7 @@ if a file matches no rule or the table is stale. A new asset therefore can't joi
 | Group | Files | Size | Source | Owner | Licence | Class |
 |---|---:|---:|---|---|---|---|
 | BotW map icons (shrine, tower) | 6 | 7.1 KB | objmap `public/icons/*.svg`, split by `scripts/build-map-icons.py` | Nintendo design; objmap tracing | GPL-3.0 (tracing) | **pack** |
+| EoW map icons | 4 | 11.3 KB | Zelda Wiki file uploads (`scripts/build-map-icons.py`) | Nintendo | none granted | **pack** |
 | BotW map icons (Korok, bosses) | 5 | 33.7 KB | Zelda Wiki file uploads (`scripts/build-map-icons.py`) | Nintendo | none granted | **pack** |
 | Armor icons (BotW, TotK) | 153 | 4.4 MB | Zelda Wiki file uploads (`scripts/fetch-armor-icons.py`) | Nintendo | none granted | **pack** |
 | HW:DE item card icons | 70 | 275.5 KB | Zelda Wiki file uploads (`tools/hwde/build_maps.py`) | Nintendo/Koei Tecmo | none granted | **pack** |
@@ -42,6 +43,8 @@ if a file matches no rule or the table is stale. A new asset therefore can't joi
 | SS material icons | 28 | 88.1 KB | Zelda Wiki file uploads (`scripts/fetch-ss-upgrade-icons.py`) | Nintendo | none granted | **pack** |
 | BotW map tiles | 1700 | 9.8 MB | objmap.zeldamods.org MapTex tiles (`tools/map-tiles/build_tiles.py`) | Nintendo | none granted | **pack** |
 | BotW map tile manifest | 1 | 850 B | `tools/map-tiles/build_tiles.py` | ours | - | **safe** |
+| EoW map tiles | 206 | 779.7 KB | Zelda Wiki `File:EoW Map of Hyrule.png` (`tools/map-tiles/build_eow_tiles.py`) | Nintendo | none granted | **pack** |
+| EoW map tile manifest | 1 | 866 B | `tools/map-tiles/build_eow_tiles.py` | ours | - | **safe** |
 | HW:DE Adventure Map squares and previews | 979 | 2.4 MB | Hyrule Warriors Helper `public/map-tiles/`, `public/map-previews/` | Fabian-F, after Nintendo/Koei Tecmo layouts | none (no licence) | **pack** |
 | Zelda Notes droplet template | 1 | 9.2 KB | crop of the Switch App's Zelda Notes map, from the owner's phone | Nintendo | none granted | **pack** |
 | Map-screen chrome references (live scan) | 2 | 98.8 KB | grey thumbnails of the owner's photos of the map screen (`ScreenChromeReferenceTest`) | derived from Nintendo's screen | - | **derived** |
@@ -50,6 +53,7 @@ if a file matches no rule or the table is stale. A new asset therefore can't joi
 | HW:DE Adventure Map data | 10 | 806.1 KB | Hyrule Warriors Helper `v2` data (`tools/hwde/build_maps.py`) | Fabian-F; card text Zelda Wiki | none (no licence); CC BY-SA text | **risky** |
 | BotW Korok positions | 1 | 259.0 KB | objmap `korok_ids.json` and radar.zeldamods.org | datamined from the game | not stated | **risky** |
 | BotW overworld boss positions | 1 | 61.8 KB | radar.zeldamods.org (`scripts/build-botw-bosses.py`) | datamined from the game | not stated | **risky** |
+| EoW map pin positions | 1 | 17.4 KB | MrCheeze/eow-tools map pins, matched to our ids in `tools/eow-map/matches.tsv` | datamined from the game | none (no licence) | **risky** |
 | TotK shrine and Lightroot positions | 1 | 57.5 KB | radar-totk.zeldamods.org, objmap-totk | datamined from the game | not stated | **risky** |
 | MC figurine gallery | 1 | 39.8 KB | Zelda Wiki (game text); zeldaret/tmc (`scripts/build-mc-figurines.py`) | Nintendo text | none granted | **risky** |
 | Tracker data | 136 | 2.5 MB | compiled from the sources in the data table | facts; our wording | - | **data** |
@@ -59,7 +63,7 @@ if a file matches no rule or the table is stale. A new asset therefore can't joi
 | Test photos of Nintendo screens | 188 | 11.5 MB | the owner's photos, videos and Switch App screenshots | Nintendo screens | - | **repo** |
 | Map alignment overlay | 1 | 354.0 KB | `build_tiles.py --debug-overlay` | Nintendo map art | none granted | **repo** |
 
-Shipped today, by class: data 136 files (2.5 MB), derived 4 files (113.4 KB), pack 3003 files (17.6 MB), replace 1 files (548 B), risky 14 files (1.2 MB), safe 9 files (312.2 KB).
+Shipped today, by class: data 136 files (2.5 MB), derived 4 files (113.4 KB), pack 3213 files (18.4 MB), replace 1 files (548 B), risky 15 files (1.2 MB), safe 10 files (313.0 KB).
 
 <!-- inventory:end -->
 
@@ -89,8 +93,9 @@ Shipped today, by class: data 136 files (2.5 MB), derived 4 files (113.4 KB), pa
 - **UI icons** come from `material-icons-core` (Apache-2.0): **attribute** (a notice in the credits).
 - **Repo-only images** are the owner's photos and screenshots of Nintendo screens, used as test fixtures, and
   the map alignment overlay. They're fine while the repo stays private, and must not be published with it.
-- **Echoes of Wisdom** (*pending*): the map tiles come from Zelda Wiki's map, which is Nintendo's art, so
-  **pack**. The map icons are **pack** unless they're drawn for the app.
+- **Echoes of Wisdom's map tiles** are Zelda Wiki's copy of the game's map of Hyrule
+  (`File:EoW Map of Hyrule.png`, marked *Copyright* there), so **pack**. Its four map icons are the game's own, also
+  from Zelda Wiki, so **pack** too (`docs/eow-map.md`).
 
 ## Scanner references
 
@@ -134,7 +139,7 @@ the sources.
 | OoS, OoA | rings, secrets, items and the rest | Zelda Wiki, Zelda Dungeon, TourianTourist's GameFAQs ring guide, StrategyWiki | Facts; ring notes summarise TourianTourist's findings, with credit | **facts** | Credit (already inline) |
 | LoZ | 3 datasets | Zelda Wiki, Zelda Dungeon, StrategyWiki | Facts; a few short Old Man quotes | **facts** | Short quotes are de minimis |
 | AoL, ALttP, LA, OoT, MM, FS, FSA, WW, TP, PH, ST, ALBW, TFH, EoW | 3–11 datasets each | Zelda Wiki, Zelda Dungeon (Wayback), StrategyWiki, IGN, Zelda's Palace, decompilations, manuals (`docs/<game>.md`) | Facts in our own words (WW's methods "rewritten more plainly"; TFH challenge names in Zelda Wiki's wording); one FSA manual quote | **facts** | Credit |
-| EoW (*pending*) | map marker positions | MrCheeze's eow-tools datamine (**no licence**) | Datamined coordinates | **wholesale** | As for objmap: keep, and credit MrCheeze |
+| EoW | `map/markers.json` (157 positions) | MrCheeze's eow-tools datamine (**no licence**), matched to our ids by hand in `tools/eow-map/matches.tsv`; Zelda Dungeon's map as a cross-check | Datamined coordinates | **wholesale** | As for objmap: keep, and credit MrCheeze |
 
 **Short in-game text** (item, place and mission names, and the odd quoted hint or line) is the game's own.
 In these amounts it's de minimis or nominative, so it stays.
@@ -146,7 +151,7 @@ In these amounts it's de minimis or nominative, so it stays.
 | Zelda Wiki (zeldawiki.wiki) | Most datasets' facts; HW:DE card text; every bitmap icon | Text **CC BY-SA 4.0**; files are Nintendo's | Text: **attribute**. Files: **pack** |
 | objmap (zeldamods/objmap) | BotW positions; shrine and tower icon tracings; map tiles | Code **GPL-3.0** (none copied; the projection is reimplemented arithmetic); map art: none granted | Positions: **data**. Icons and tiles: **pack** |
 | radar.zeldamods.org, radar-totk, objmap-totk | BotW and TotK positions and actor parameters | Not stated | **data**, credit |
-| MrCheeze/eow-tools (*pending*) | EoW marker positions | No licence file | **data**, credit |
+| MrCheeze/eow-tools | EoW marker positions | No licence file | **data**, credit |
 | Hyrule Warriors Helper (Fabian-F) | HW:DE maps, rewards, searches, art | **None** | **pack** (data and art) |
 | SBAllen's GameFAQs guide | HW:DE cross-check | © SBAllen, GameFAQs-only hosting | Checked against only. Its wording survives only in the Gold Skulltula conditions, which go to the pack |
 | MetroWind's SBAllen extraction | Consulted while researching | WTFPL | Not bundled |
@@ -203,7 +208,8 @@ nothing suggests Nintendo endorses the app.
 
 ## Attribution in the app today
 
-- **Map About dialog:** "Map art © Nintendo … via objmap.zeldamods.org", plus objmap's positions and icons.
+- **Map About dialog:** "Map art © Nintendo … via objmap.zeldamods.org", plus objmap's positions and icons. EoW's
+  says "Map art © Nintendo … as Zelda Wiki hosts it" and credits the positions to MrCheeze's datamine.
 - **HW:DE About sheet:** the Helper, SBAllen, Nintendo Life, RPG Site and Zelda Wiki. It has no CC BY-SA
   notice and no licence link.
 - **Missing:** a credits screen, the OFL texts, Apache-2.0 notices, Zelda Wiki's CC BY-SA notice, and the
@@ -218,7 +224,7 @@ In priority order. P0 blocks a store release. The phase is the PR that does it (
 
 | # | Priority | Action | Phase |
 |---|---|---|---|
-| 1 | P0 | Remove every **pack** file from the store build: all drawables, BotW map tiles, HW:DE art, `notes_korok.png` (converted to a template first) | 2, 5 |
+| 1 | P0 | Remove every **pack** file from the store build: all drawables, BotW and EoW map tiles, HW:DE art, `notes_korok.png` (converted to a template first) | 2, 5 |
 | 2 | P0 | HW:DE is pack-only: its map JSON moves to the pack as `hwde/data/*`; the store build lists HW:DE as needing a pack | 2, 5 |
 | 3 | P0 | Default art for every screen, so the store build works with no pack: generic markers, glyphs, map without tiles | 3 |
 | 4 | P0 | Store name "Hero's Ledger GX", applicationId `gx.herosledger`, a new launcher icon, no Triforce ornaments, after a trademark search | 5 |
@@ -230,7 +236,7 @@ In priority order. P0 blocks a store release. The phase is the PR that does it (
 | 10 | P2 | A LICENSE for our own code (owner deciding) | 6 (on hold) |
 | 11 | P2 | Store listing text with the disclaimer, and a generic support link | 6 (on hold) |
 | 12 | P3 | Keep the repo private while it holds test photos, pack-0 art and the map overlay. If it's ever opened, move those out | – |
-| 13 | – | Classify Echoes of Wisdom's map tiles, icons and positions when that PR lands (`scripts/licence-inventory.py --check` fails until it does) | with that PR |
+| 13 | – | Done: Echoes of Wisdom's map tiles and icons are **pack**, and its positions **risky** like BotW's (rules added with the EoW map) | EoW map PR |
 
 ## The phases
 

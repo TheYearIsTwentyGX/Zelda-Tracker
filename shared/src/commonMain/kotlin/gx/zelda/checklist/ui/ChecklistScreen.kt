@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
@@ -77,6 +78,8 @@ fun ChecklistScreen(
     title: String,
     onOpenItem: (String) -> Unit,
     onBack: () -> Unit,
+    /** Opens the game's map, for a checklist it shows; null hides the button. */
+    onOpenMap: (() -> Unit)? = null,
 ) {
     val bulk = rememberBulkCompleteState()
     val snackbar = remember { SnackbarHostState() }
@@ -100,6 +103,9 @@ fun ChecklistScreen(
                 },
                 navigationIcon = { MenuOrBackButton(onBack) },
                 actions = {
+                    if (onOpenMap != null) {
+                        IconButton(onClick = onOpenMap) { Icon(Icons.Filled.Place, contentDescription = "Show on map") }
+                    }
                     if (state != null) ChecklistMenu(state, viewModel)
                 },
             )

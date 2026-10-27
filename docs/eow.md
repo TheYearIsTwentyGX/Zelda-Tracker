@@ -23,6 +23,7 @@ and Game8's title-screen screenshot. Hero Mode is a setting, not a separate file
 | Tracker | File | Contents |
 |---|---|---|
 | Progress Overview | — | A row per checklist below (`ChecklistProgressProvider`) |
+| Map | `map/markers.json` | Heart Pieces, Stamp Stands and Might Crystals at the game's map pins; see *Map* below |
 | Main Quest | `main_quest.json` | 35 story steps covering the 18 Main Quests and 8 dungeons; Tri Rod, Bind, Reverse Bond and Tri's Power Lv. 2–11 (tiers); the 3 Swordfighter weapons |
 | Echoes | `echoes.json` | 127 echoes (34 Object, 93 Monster) in Notebook order |
 | Heart Pieces | `heart_pieces.json` | 40 Pieces of Heart and 7 Heart Containers. Hearts = `3 + floor(pieces / 4) + containers`, 3 to 20 |
@@ -134,6 +135,33 @@ Sources: the data's own `after` notes, and region access from
 and [Siliconera](https://www.siliconera.com/best-legend-of-zelda-echoes-of-wisdom-dungeons-rifts-order/),
 which agree the three Goddess regions can be visited early but their rifts open only with the
 story. `EowDatasetTest` spot-checks the links.
+
+## Map
+
+The **Map** tracker shows the Pieces of Heart, Heart Containers, Stamp Stands and Might Crystals at the game's
+own map pins: datamined, and the same as Zelda Dungeon's interactive map. A marker ticks the same row as the
+list. `docs/eow-map.md` covers the art, the sources, how pins were matched to items, and rebuilding.
+
+The game's pin ids aren't ours, so each item was matched to a pin by hand (`tools/eow-map/matches.tsv`).
+The medium-confidence matches, each with the item it could be swapped with:
+
+| Item | Pin | Could be swapped with | Why it's this way round |
+|---|---|---|---|
+| `poh_slumber_dojo_two` / `poh_slumber_dojo_eleven` | HeartPiece 35 / 36 | each other | Both pins are on the dojo, so a swap changes nothing on the map. The lower id was given to the first reward. |
+| `mc_gerudo_entrance_ledge_rock` / `mc_gerudo_entrance_tree_rock` | Piece046 / Piece019 | each other | Piece046's rock is at cliff height. Piece019's is 3 units above the canyon floor: on the dead tree. |
+| `mc_hf_boulder_river_north` / `mc_hf_boulder_lake_hylia_road` | Piece043 / Piece040 | each other | Two boulders across the river, told apart by west and east. |
+| `mc_ehf_rock_south_of_temple` / `mc_ehf_rock_east_of_temple` | Piece003 / Piece050 | each other | Rocks south and east of the Eastern Temple, as Zelda Wiki's table describes them. |
+| `mc_stilled_upper_zora_river` / `mc_stilled_eastern_zora_river` | Piece130 / Piece122 | each other | Two ×2 Zora River rifts; the more easterly is the eastern one. |
+| `mc_stilled_desert_temple_ruins` | Piece132 | `mc_stilled_northern_gerudo_desert` (Piece124) | Piece132 is north-east of the Oasis. Piece124 is beside the north-west stamp stand, so it fits the northern rift better. |
+| `stamp_hebra_entrance` | Stamp_14 | `stamp_river_island` (Stamp_03) | Stamp_03 is clearly on an island, so this one is fairly safe. |
+| `stamp_lake_hylia` | Stamp_23 | none | The only pin left, east of the Suthorn Ruins and south-east of the lake. |
+
+Two items' pins sit nearer a neighbouring region than the one our data gives:
+- `mc_gerudo_entrance_ledge_rock` is at the Suthorn Prairie end of the canyon, which agrees with Game8's region
+  for it (already in its `notes`);
+- `stamp_lake_hylia` is nearer the Suthorn Ruins than the lake.
+
+The checklists keep Zelda Wiki's regions.
 
 ## Sources
 

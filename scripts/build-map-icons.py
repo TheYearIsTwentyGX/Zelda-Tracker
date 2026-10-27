@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Write the BotW map's marker icons into shared/src/commonMain/composeResources/drawable.
+Write the map marker icons into shared/src/commonMain/composeResources/drawable.
 
     scripts/build-map-icons.py            write the vectors; fetch the bitmap icons that are missing
     scripts/build-map-icons.py --force    also re-download the bitmap icons
@@ -14,7 +14,9 @@ below objmap's head curve, minus the keyhole). Path data is objmap's, in its 106
 
 The Korok and boss markers are the game's inventory icons from Zelda Wiki, as the wiki's own
 64 px thumbnails: the Korok Seed, Kilton's three Medals of Honor (Hinox, Talus, Molduga) and,
-as there's no Lynel medal, the Lynel Mask. See docs/map-icons.md.
+as there's no Lynel medal, the Lynel Mask. Echoes of Wisdom's markers are the game's own map icons
+for a Piece of Heart, a Stamp and a Might Crystal, and the Heart Container's item icon, from Zelda
+Wiki too. See docs/map-icons.md.
 """
 
 import json
@@ -131,6 +133,11 @@ BITMAPS = {
     "map_boss_talus": "File:BotW Medal of Honor： Talus Icon.png",
     "map_boss_molduga": "File:BotW Medal of Honor： Molduga Icon.png",
     "map_boss_lynel": "File:BotW Lynel Mask Icon.png",
+    # Echoes of Wisdom: the game's own map icons (64 px files), and the Heart Container's item icon.
+    "map_eow_heart_piece": "File:EoW Piece of Heart Map Icon.png",
+    "map_eow_heart_container": "File:EoW Heart Container Icon.png",
+    "map_eow_stamp": "File:EoW Stamp Map Icon.png",
+    "map_eow_might_crystal": "File:EoW Might Crystal Map Icon.png",
 }
 BITMAP_PX = 64
 
@@ -141,7 +148,7 @@ def get(url: str) -> bytes:
 
 
 def fetch_bitmap(title: str, out: Path) -> None:
-    """Saves Zelda Wiki's BITMAP_PX-wide thumbnail of [title] (the icons are 144 px squares)."""
+    """Saves Zelda Wiki's BITMAP_PX-wide thumbnail of [title], or the file itself when it's no wider."""
     query = urllib.parse.urlencode({
         "action": "query", "titles": title, "prop": "imageinfo", "iiprop": "url",
         "iiurlwidth": BITMAP_PX, "format": "json",
@@ -150,7 +157,7 @@ def fetch_bitmap(title: str, out: Path) -> None:
     info = next(iter(pages)).get("imageinfo")
     if not info:
         raise SystemExit(f"{title} isn't on Zelda Wiki")
-    data = get(info[0]["thumburl"])
+    data = get(info[0].get("thumburl") or info[0]["url"])
     if not data.startswith(b"\x89PNG"):
         raise SystemExit(f"{title}: the thumbnail isn't a PNG")
     out.write_bytes(data)

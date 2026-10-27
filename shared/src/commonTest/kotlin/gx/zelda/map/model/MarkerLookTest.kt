@@ -6,6 +6,8 @@ import gx.zelda.core.DiscoveryState.FOUND
 import gx.zelda.core.DiscoveryState.UNDISCOVERED
 import gx.zelda.map.model.MarkerIcon.DLC_SHRINE
 import gx.zelda.map.model.MarkerIcon.DLC_SHRINE_DONE
+import gx.zelda.map.model.MarkerIcon.EOW_HEART_CONTAINER
+import gx.zelda.map.model.MarkerIcon.EOW_HEART_PIECE
 import gx.zelda.map.model.MarkerIcon.HINOX
 import gx.zelda.map.model.MarkerIcon.KOROK
 import gx.zelda.map.model.MarkerIcon.LYNEL
@@ -33,6 +35,11 @@ class MarkerLookTest {
     private val bosses = MapLayer(
         "bosses", "Bosses", "boss", linkedMapOf(UNDISCOVERED to "Not found", FOUND to "Found", COMPLETED to "Defeated"),
         MarkerKind.BOSS,
+    )
+
+    private val hearts = MapLayer(
+        "heart_pieces", "Hearts", "heart", linkedMapOf(UNDISCOVERED to "Not collected", COMPLETED to "Collected"),
+        MarkerKind.CHECKLIST, spoilerSetting = "Hide unchecked", icon = EOW_HEART_PIECE, hiddenLabel = "Uncollected heart",
     )
 
     private fun marker(
@@ -118,8 +125,21 @@ class MarkerLookTest {
     }
 
     @Test
+    fun checklistsShowTheirStateOnTheDiscAndGreyOnlyWhenHidden() {
+        // Not done is orange, like a tower not yet activated: there's no "found" to grey out against.
+        assertEquals(MarkerLook(EOW_HEART_PIECE, UNDISCOVERED, greyed = false, disc = true), look(hearts, UNDISCOVERED))
+        assertEquals(MarkerLook(EOW_HEART_PIECE, COMPLETED, greyed = false, disc = true), look(hearts, COMPLETED))
+        assertEquals(MarkerLook(EOW_HEART_CONTAINER, COMPLETED, greyed = false, disc = true), look(hearts, COMPLETED, icon = EOW_HEART_CONTAINER))
+        // A hidden row's marker is grey, and a container doesn't give itself away by its icon.
+        assertEquals(
+            MarkerLook(EOW_HEART_PIECE, UNDISCOVERED, greyed = true, disc = true),
+            look(hearts, UNDISCOVERED, anonymous = true, icon = EOW_HEART_CONTAINER),
+        )
+    }
+
+    @Test
     fun everyStateLooksDifferentWithinALayer() {
-        for (layer in listOf(shrines, koroks, towers, bosses)) {
+        for (layer in listOf(shrines, koroks, towers, bosses, hearts)) {
             val looks = layer.states.map { look(layer, it) }
             assertEquals(looks.size, looks.toSet().size, "${layer.id}: $looks")
         }

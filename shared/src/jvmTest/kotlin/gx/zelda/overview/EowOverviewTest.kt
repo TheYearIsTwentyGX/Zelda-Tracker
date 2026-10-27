@@ -5,6 +5,7 @@ import gx.zelda.checklist.data.ChecklistStorage
 import gx.zelda.core.Games
 import gx.zelda.core.ProgressSummary
 import gx.zelda.core.TestMain
+import gx.zelda.core.TrackerKind
 import gx.zelda.core.createDataStore
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -37,8 +38,10 @@ class EowOverviewTest {
     fun everyChecklistLoadsIntoARow() = runTest {
         val vm = main.track(OverviewViewModel(dataStore, game, loadDispatcher = dispatcher))
         val state = vm.state.first { s -> s != null && s.rows.none { it.status == RowStatus.Loading } }!!
-        assertEquals(game.trackers.drop(1).map { it.title }, state.rows.map { it.title })
-        assertEquals(game.trackers.drop(1).map { it.dataFile }, state.rows.map { it.dataFile })
+        // A row per checklist; the map's places are those checklists', so it has none of its own.
+        val checklists = game.trackers.filter { it.kind == TrackerKind.CHECKLIST }
+        assertEquals(checklists.map { it.title }, state.rows.map { it.title })
+        assertEquals(checklists.map { it.dataFile }, state.rows.map { it.dataFile })
         state.rows.forEach { assertFalse(it.status == RowStatus.Unavailable, it.title) }
 
         val hearts = state.summary("Heart Pieces")
