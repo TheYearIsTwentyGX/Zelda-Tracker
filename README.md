@@ -39,6 +39,9 @@ iOS port is mostly a matter of adding the iOS targets.
     tracker in an update appears without you turning it on.
   - At least one game stays shown: the last one's switch is locked.
   - Hiding a game keeps all its progress; turn it back on to pick up where you left off.
+- **Art packs** (Settings → Art packs): import a zip of pictures that replaces the app's icons, map tiles and
+  Adventure Map squares, for one game or several. Each pack lists what it covers per game, and can be removed.
+  `docs/art-packs.md` has the format and the rules an import is checked against.
 - **Hide what the story hasn't unlocked yet** (Settings → Progress, off by default): checklists
   leave out what the game's Main Quest hasn't reached on the active save file, such as a heart
   piece behind a dungeon you haven't finished. This works only where the data links items to Main
@@ -1102,6 +1105,7 @@ shared/       Kotlin Multiplatform module: models, logic, Compose UI, datasets
   src/commonMain/kotlin/gx/zelda/potions/   ← Skyward Sword's Potion Infusions recipe book, on Item Upgrades' data and progress (docs/ss.md)
   src/commonMain/kotlin/gx/zelda/core/ui/  ← shared UI, incl. the region-card pieces, the menu (AppDrawer.kt) and Mark all complete (BulkCompleteControl.kt)
   src/commonMain/kotlin/gx/zelda/settings/  ← Settings screen and the app-wide settings view model
+  src/commonMain/kotlin/gx/zelda/art/  ← art packs: asset ids, the GameArt lookup every picture goes through, import and Settings → Art packs (docs/art-packs.md)
   src/commonMain/kotlin/gx/zelda/overview/  ← Progress Overview screen and its provider list
   src/commonMain/composeResources/files/<game>/armor.json    ← per-game armor data
   src/commonMain/composeResources/files/<game>/fairies.json  ← per-game Great Fairies

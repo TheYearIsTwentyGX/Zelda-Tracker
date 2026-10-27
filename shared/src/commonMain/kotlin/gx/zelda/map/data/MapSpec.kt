@@ -2,6 +2,7 @@ package gx.zelda.map.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import gx.zelda.art.ArtIds
 import gx.zelda.checklist.data.ChecklistStorage
 import gx.zelda.checklist.data.StoryProgress
 import gx.zelda.core.CachedLoad
@@ -53,7 +54,7 @@ object MapSpecs {
  * (`files/eow/map/markers.json`, docs/eow-map.md).
  */
 object EowMap {
-    val tiles = TilePyramid("files/eow/map", levels = 4, fullWidth = 3600, fullHeight = 2442)
+    val tiles = TilePyramid("files/eow/map", levels = 4, fullWidth = 3600, fullHeight = 2442, artId = ArtIds.EOW_HYRULE)
 
     /** The world area the 3600 px art covers, from the build script's transform; its tiles.json records the same. */
     val world = WorldBounds(minX = -49.1018, maxX = 712.5749, minZ = -20.0479, maxZ = 496.6228)

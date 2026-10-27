@@ -1,7 +1,6 @@
 package gx.zelda.adventure.ui
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -72,10 +71,9 @@ import gx.zelda.adventure.model.RewardType
 import gx.zelda.adventure.model.Search
 import gx.zelda.adventure.model.Square
 import gx.zelda.adventure.model.SquareStatus
+import gx.zelda.art.ArtIds
+import gx.zelda.art.ArtImage
 import gx.zelda.core.ui.Tag
-import gx.zelda.resources.Res
-import gx.zelda.resources.allDrawableResources
-import org.jetbrains.compose.resources.painterResource
 
 /** A square's details in a bottom sheet, opened all the way so nothing needs dragging up. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -459,10 +457,11 @@ private fun Section(title: String) {
     Text(title, style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 4.dp))
 }
 
-enum class RewardIconKind(val resourceName: String) {
-    HEART_CONTAINER("hwde_reward_heart_container"),
-    HEART_PIECE("hwde_reward_heart_piece"),
-    SKULLTULA("hwde_reward_skulltula"),
+/** The reward icons, `hwde/reward/<artName>`. */
+enum class RewardIconKind(val artName: String) {
+    HEART_CONTAINER("heart_container"),
+    HEART_PIECE("heart_piece"),
+    SKULLTULA("skulltula"),
 }
 
 /** The game's Adventure Mode icon for hearts and Skulltulas; other rewards keep the same space. */
@@ -475,13 +474,11 @@ fun RewardIcon(type: RewardType, size: Dp) = when (type) {
 
 @Composable
 fun RewardIcon(kind: RewardIconKind, size: Dp) {
-    val icon = Res.allDrawableResources[kind.resourceName]
-    if (icon == null) Box(Modifier.size(size)) else Image(painterResource(icon), contentDescription = null, modifier = Modifier.size(size))
+    ArtImage(ArtIds.hwdeReward(kind.artName), contentDescription = null, modifier = Modifier.size(size))
 }
 
-/** An item card's icon, bundled as `drawable/hwde_card_<id>.png` by tools/hwde/build_maps.py. */
+/** An item card's icon (`hwde/card/<id>`), bundled as `drawable/hwde_card_<id>.png` by tools/hwde/build_maps.py. */
 @Composable
 fun CardIcon(cardId: String, size: Dp) {
-    val icon = Res.allDrawableResources["hwde_card_$cardId"]
-    if (icon == null) Box(Modifier.size(size)) else Image(painterResource(icon), contentDescription = null, modifier = Modifier.size(size))
+    ArtImage(ArtIds.hwdeCard(cardId), contentDescription = null, modifier = Modifier.size(size))
 }

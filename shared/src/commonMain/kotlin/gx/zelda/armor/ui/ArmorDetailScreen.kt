@@ -96,7 +96,7 @@ private fun PieceDetail(state: ArmorUiState, piece: ArmorPiece, viewModel: Armor
     val level = ArmorCalculator.level(piece, progress)
 
     Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-        ArmorIcon(piece, size = 96.dp)
+        ArmorIcon(piece, viewModel.gameId, size = 96.dp)
     }
 
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {

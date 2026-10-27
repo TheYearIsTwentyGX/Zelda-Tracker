@@ -73,6 +73,7 @@ RULES = [
     ("Theme fonts", f"{RES}/font/*.ttf", "Google Fonts (`docs/fonts.md`)", "their authors", "SIL OFL 1.1", "safe"),
     # --- launcher icon
     ("Launcher icon (Triforce)", "androidApp/src/main/res/drawable/ic_launcher_foreground.xml", "drawn for this app", "ours; depicts the Triforce", "Nintendo trademark", "replace"),
+    ("Android backup rules", "androidApp/src/main/res/xml/*", "written for this app", "ours", "-", "safe"),
     ("Launcher icon background and wrappers", "androidApp/src/main/res/*", "drawn for this app", "ours", "-", "safe"),
     # --- repo only
     ("Test photos of Nintendo screens", "shared/src/jvmTest/resources/*", "the owner's photos, videos and Switch App screenshots", "Nintendo screens", "-", "repo"),

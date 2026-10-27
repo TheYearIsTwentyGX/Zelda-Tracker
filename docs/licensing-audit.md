@@ -59,11 +59,12 @@ if a file matches no rule or the table is stale. A new asset therefore can't joi
 | Tracker data | 136 | 2.5 MB | compiled from the sources in the data table | facts; our wording | - | **data** |
 | Theme fonts | 5 | 310.2 KB | Google Fonts (`docs/fonts.md`) | their authors | SIL OFL 1.1 | **safe** |
 | Launcher icon (Triforce) | 1 | 548 B | drawn for this app | ours; depicts the Triforce | Nintendo trademark | **replace** |
+| Android backup rules | 2 | 623 B | written for this app | ours | - | **safe** |
 | Launcher icon background and wrappers | 3 | 1.2 KB | drawn for this app | ours | - | **safe** |
 | Test photos of Nintendo screens | 188 | 11.5 MB | the owner's photos, videos and Switch App screenshots | Nintendo screens | - | **repo** |
 | Map alignment overlay | 1 | 354.0 KB | `build_tiles.py --debug-overlay` | Nintendo map art | none granted | **repo** |
 
-Shipped today, by class: data 136 files (2.5 MB), derived 4 files (113.4 KB), pack 3213 files (18.4 MB), replace 1 files (548 B), risky 15 files (1.2 MB), safe 10 files (313.0 KB).
+Shipped today, by class: data 136 files (2.5 MB), derived 4 files (113.4 KB), pack 3213 files (18.4 MB), replace 1 files (548 B), risky 15 files (1.2 MB), safe 12 files (313.7 KB).
 
 <!-- inventory:end -->
 

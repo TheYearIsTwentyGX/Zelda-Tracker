@@ -5,7 +5,8 @@ import gx.zelda.armor.model.ArmorCatalog
 import gx.zelda.armor.model.MaterialCost
 import gx.zelda.armor.model.Slot
 import gx.zelda.armor.model.Source
-import gx.zelda.armor.ui.armorIcon
+import gx.zelda.art.ArtIds
+import gx.zelda.art.GameArt
 import gx.zelda.core.Games
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
@@ -55,7 +56,7 @@ class TotkArmorDatasetTest {
     @Test
     fun everyPieceHasAnIcon() = withCatalog { c ->
         // Pieces shared with BotW (same id) reuse its icon; the rest are TotK's own.
-        val missing = c.pieces.filter { armorIcon(it.id) == null }.map { it.id }
+        val missing = c.pieces.filter { GameArt.icon(ArtIds.armor("totk", it.id)) == null }.map { it.id }
         assertTrue(missing.isEmpty(), "no icon for $missing; run scripts/fetch-armor-icons.py")
     }
 

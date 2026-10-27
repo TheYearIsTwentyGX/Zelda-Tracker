@@ -6,7 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.ImageBitmap
 import gx.zelda.adventure.model.AdventureMap
 import gx.zelda.adventure.model.Square
-import gx.zelda.resources.Res
+import gx.zelda.art.ArtIds
+import gx.zelda.art.GameArt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jetbrains.compose.resources.decodeToImageBitmap
@@ -34,8 +35,8 @@ class SquareImages(private val map: AdventureMap, private val capacity: Int = 48
     /** Decodes the preview, if the map has one and it isn't loaded. */
     suspend fun loadPreview() {
         if (preview != null) return
-        val path = map.art?.previewPath ?: return
-        preview = decode(path) ?: return
+        val art = map.art ?: return
+        preview = decode(null, art.previewPath ?: return) ?: return
         version++
     }
 
@@ -44,7 +45,7 @@ class SquareImages(private val map: AdventureMap, private val capacity: Int = 48
         val art = map.art ?: return
         for (square in wanted) {
             if (square.id in squares || square.id in failed) continue
-            val bitmap = decode(art.squarePath(square))
+            val bitmap = decode(square.id, art.squarePath(square))
             if (bitmap == null) {
                 failed += square.id
                 continue
@@ -55,7 +56,9 @@ class SquareImages(private val map: AdventureMap, private val capacity: Int = 48
         }
     }
 
-    private suspend fun decode(path: String): ImageBitmap? = withContext(Dispatchers.Default) {
-        runCatching { Res.readBytes(path).decodeToImageBitmap() }.getOrNull()
+    /** [square]'s picture, or the preview's when it's null, from an art pack or the app ([GameArt]). */
+    private suspend fun decode(square: String?, bundledPath: String): ImageBitmap? {
+        val bytes = GameArt.square(ArtIds.hwdeMap(map.id), square, bundledPath) ?: return null
+        return withContext(Dispatchers.Default) { runCatching { bytes.decodeToImageBitmap() }.getOrNull() }
     }
 }

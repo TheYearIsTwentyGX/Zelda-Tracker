@@ -1,7 +1,6 @@
 package gx.zelda.bossrush.ui
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -68,6 +67,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import gx.zelda.adventure.model.AdventureChrome
 import gx.zelda.adventure.ui.HideSystemBars
+import gx.zelda.art.ArtIds
+import gx.zelda.art.ArtImage
 import gx.zelda.bossrush.model.BossRow
 import gx.zelda.bossrush.model.BossRushBoss
 import gx.zelda.bossrush.model.RecordEntry
@@ -77,11 +78,8 @@ import gx.zelda.core.ui.LoadingOrError
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SaveFileOption
 import gx.zelda.core.ui.SaveFilePicker
-import gx.zelda.resources.Res
-import gx.zelda.resources.allDrawableResources
 import gx.zelda.theme.GameProgressBar
 import gx.zelda.theme.LocalGameDecor
-import org.jetbrains.compose.resources.painterResource
 
 /**
  * The Lightning Round Records board. Landscape first, like the Thrill Digger solver: the bosses fill
@@ -278,17 +276,14 @@ private fun BossCard(row: BossRow, selected: Boolean, onClick: () -> Unit) {
 /** A boss's picture; decorative, the name is always beside it. A missing picture keeps its space. */
 @Composable
 private fun BossIcon(boss: BossRushBoss, size: Dp, dimmed: Boolean = false) {
-    val icon = Res.allDrawableResources["ss_boss_${boss.icon}"]
     Box(Modifier.size(size), contentAlignment = Alignment.Center) {
-        if (icon != null) {
-            Image(
-                painterResource(icon),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                alpha = if (dimmed) 0.45f else 1f,
-                modifier = Modifier.fillMaxSize(),
-            )
-        }
+        ArtImage(
+            ArtIds.ssBoss(boss.icon),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            alpha = if (dimmed) 0.45f else 1f,
+            modifier = Modifier.fillMaxSize(),
+        )
     }
 }
 

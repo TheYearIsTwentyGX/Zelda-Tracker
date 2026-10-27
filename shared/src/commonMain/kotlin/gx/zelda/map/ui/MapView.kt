@@ -1,6 +1,5 @@
 package gx.zelda.map.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -24,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import gx.zelda.art.ArtImage
 import gx.zelda.core.DiscoveryState
 import gx.zelda.map.data.MapSpec
 import gx.zelda.map.data.MapSpecs
@@ -36,7 +36,6 @@ import gx.zelda.map.model.clusterSummary
 import gx.zelda.map.model.iconScale
 import gx.zelda.map.model.layerIconScale
 import gx.zelda.map.model.markerLook
-import org.jetbrains.compose.resources.painterResource
 import ovh.plrapps.mapcompose.api.ClusterScaleThreshold
 import ovh.plrapps.mapcompose.api.addClusterer
 import ovh.plrapps.mapcompose.api.addLayer
@@ -175,19 +174,15 @@ internal fun MapMarkerIcon(marker: MapMarker, selected: Boolean, modifier: Modif
         if (look.disc) {
             Box(Modifier.size(size).background(color, CircleShape).border(1.dp, Color(0xCC000000), CircleShape))
         }
-        val drawable = markerDrawable(look.icon)
-        if (drawable == null) {
-            Box(Modifier.size(size * 0.6f).background(color, CircleShape))
-        } else {
-            Image(
-                painterResource(drawable),
-                contentDescription = null,
-                // A white map glyph on a disc would touch its rim at full size.
-                modifier = Modifier.size(if (look.disc && marker.layer.kind == MarkerKind.CHECKLIST) size * 0.72f else size),
-                alpha = if (look.greyed) 0.8f else 1f,
-                colorFilter = if (look.greyed) GreyedOut else null,
-            )
-        }
+        ArtImage(
+            look.icon.artId,
+            contentDescription = null,
+            // A white map glyph on a disc would touch its rim at full size.
+            modifier = Modifier.size(if (look.disc && marker.layer.kind == MarkerKind.CHECKLIST) size * 0.72f else size),
+            alpha = if (look.greyed) 0.8f else 1f,
+            colorFilter = if (look.greyed) GreyedOut else null,
+            missing = { Box(Modifier.size(size * 0.6f).background(color, CircleShape)) },
+        )
         if (marker.entry.count > 1 && !marker.anonymous) {
             Text(
                 "×${marker.entry.count}",

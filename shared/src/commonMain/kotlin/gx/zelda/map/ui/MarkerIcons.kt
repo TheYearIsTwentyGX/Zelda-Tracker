@@ -1,9 +1,12 @@
 package gx.zelda.map.ui
 
+import gx.zelda.art.ArtIds
 import gx.zelda.map.model.MarkerIcon
-import gx.zelda.resources.Res
-import gx.zelda.resources.allDrawableResources
-import org.jetbrains.compose.resources.DrawableResource
 
-/** The icon's drawable, bundled as `drawable/<resourceName>` by scripts/build-map-icons.py. */
-internal fun markerDrawable(icon: MarkerIcon): DrawableResource? = Res.allDrawableResources[icon.resourceName]
+/**
+ * The icon's asset id. Bundled by scripts/build-map-icons.py as `map_<name>` (`botw/marker/<name>`)
+ * or `map_eow_<name>` (`eow/marker/<name>`).
+ */
+val MarkerIcon.artId: String
+    get() = if (resourceName.startsWith("map_eow_")) ArtIds.marker("eow", resourceName.removePrefix("map_eow_"))
+    else ArtIds.marker("botw", resourceName.removePrefix("map_"))

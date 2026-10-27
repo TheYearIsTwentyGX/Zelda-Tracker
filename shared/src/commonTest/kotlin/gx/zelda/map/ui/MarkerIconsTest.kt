@@ -1,5 +1,6 @@
 package gx.zelda.map.ui
 
+import gx.zelda.art.GameArt
 import gx.zelda.map.model.MarkerIcon
 import kotlin.test.Test
 import kotlin.test.assertTrue
@@ -7,7 +8,7 @@ import kotlin.test.assertTrue
 class MarkerIconsTest {
     @Test
     fun everyMarkerIconIsBundled() {
-        val missing = MarkerIcon.entries.filter { markerDrawable(it) == null }
+        val missing = MarkerIcon.entries.filter { GameArt.icon(it.artId) == null }
         assertTrue(missing.isEmpty(), "no drawable for $missing; run scripts/build-map-icons.py")
     }
 }

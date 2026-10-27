@@ -23,6 +23,8 @@ import gx.zelda.armor.data.ArmorStorage
 import gx.zelda.armor.ui.ArmorDetailScreen
 import gx.zelda.armor.ui.ArmorTrackerScreen
 import gx.zelda.armor.ui.ArmorViewModel
+import gx.zelda.art.ui.ArtPacksScreen
+import gx.zelda.art.ui.ArtPacksViewModel
 import gx.zelda.bosses.data.BossStorage
 import gx.zelda.bosses.ui.BossDetailScreen
 import gx.zelda.bosses.ui.BossTrackerScreen
@@ -169,6 +171,7 @@ import kotlinx.serialization.Serializable
 /** One copy of an item: [copy] is 1, or 2 and up for extra Seed Satchels, Quivers and Bomb Bags. */
 @Serializable private data class ItemUpgradeDetail(val gameId: String, val itemId: String, val copy: Int)
 @Serializable private data object Settings
+@Serializable private data object ArtPacks
 /** [focusLayer] and [focusId] name the entry "Show on map" centres on, if any. */
 @Serializable private data class WorldMap(val gameId: String, val focusLayer: String? = null, val focusId: String? = null)
 
@@ -195,7 +198,10 @@ fun App(dataStore: DataStore<Preferences>, onDarkTheme: (Boolean) -> Unit = {}) 
                 )
             }
             composable<Settings> {
-                SettingsScreen(settings, settingsVm, onBack = { nav.popBackStack() })
+                SettingsScreen(settings, settingsVm, onBack = { nav.popBackStack() }, onOpenArtPacks = { nav.navigate(ArtPacks) })
+            }
+            composable<ArtPacks> {
+                ArtPacksScreen(viewModel { ArtPacksViewModel() }, onBack = { nav.popBackStack() })
             }
             composable<Overview> { entry ->
                 val game = Games.byId(entry.toRoute<Overview>().gameId)

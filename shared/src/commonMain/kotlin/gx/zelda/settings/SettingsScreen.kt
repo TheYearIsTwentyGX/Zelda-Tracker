@@ -1,5 +1,6 @@
 package gx.zelda.settings
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,10 +35,10 @@ import gx.zelda.core.ui.AccentDot
 import gx.zelda.core.ui.MenuOrBackButton
 import gx.zelda.core.ui.SpinOffsHeading
 
-/** App-wide settings: light or dark, game themes, story gating, and which games the home screen and the menu show. */
+/** App-wide settings: light or dark, game themes, story gating, art packs, and which games the home screen and the menu show. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(settings: AppSettings?, viewModel: AppSettingsViewModel, onBack: () -> Unit) {
+fun SettingsScreen(settings: AppSettings?, viewModel: AppSettingsViewModel, onBack: () -> Unit, onOpenArtPacks: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -50,6 +51,14 @@ fun SettingsScreen(settings: AppSettings?, viewModel: AppSettingsViewModel, onBa
         LazyColumn(Modifier.fillMaxSize().padding(padding)) {
             item(key = "appearance") { AppearanceSettings(settings, viewModel) }
             item(key = "progress") { ProgressSettings(settings, viewModel) }
+            item(key = "art_packs") {
+                ListItem(
+                    headlineContent = { Text("Art packs") },
+                    supportingContent = { Text("Icons and maps from art you supply") },
+                    modifier = Modifier.clickable(onClick = onOpenArtPacks),
+                )
+                HorizontalDivider(Modifier.padding(vertical = 8.dp))
+            }
             item(key = "games_header") {
                 Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
                     Text(

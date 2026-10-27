@@ -1,7 +1,6 @@
 package gx.zelda.thrilldigger.ui
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,32 +17,24 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.Text
-import gx.zelda.resources.Res
-import gx.zelda.resources.thrill_blue
-import gx.zelda.resources.thrill_bomb
-import gx.zelda.resources.thrill_gold
-import gx.zelda.resources.thrill_green
-import gx.zelda.resources.thrill_red
-import gx.zelda.resources.thrill_rupoor
-import gx.zelda.resources.thrill_silver
+import gx.zelda.art.ArtIds
+import gx.zelda.art.ArtImage
 import gx.zelda.thrilldigger.model.Hole
-import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
 
 /**
- * Skyward Sword's own render of what a hole can hold (scripts/fetch-thrill-digger-icons.py), or null
- * for an undug hole. A skipped hole borrows the Green Rupee's shape, greyed by [HoleIcon].
+ * Skyward Sword's own render of what a hole can hold (`ss/thrill/<name>`, bundled by
+ * scripts/fetch-thrill-digger-icons.py), or null for an undug hole. A skipped hole borrows the
+ * Green Rupee's shape, greyed by [HoleIcon].
  */
-fun holeDrawable(hole: Hole): DrawableResource? = when (hole) {
+fun holeArtId(hole: Hole): String? = when (hole) {
     Hole.UNKNOWN -> null
-    Hole.GREEN -> Res.drawable.thrill_green
-    Hole.BLUE -> Res.drawable.thrill_blue
-    Hole.RED -> Res.drawable.thrill_red
-    Hole.SILVER -> Res.drawable.thrill_silver
-    Hole.GOLD -> Res.drawable.thrill_gold
-    Hole.RUPOOR -> Res.drawable.thrill_rupoor
-    Hole.BOMB -> Res.drawable.thrill_bomb
-    Hole.SKIPPED -> Res.drawable.thrill_green
+    Hole.GREEN, Hole.SKIPPED -> ArtIds.thrill("green")
+    Hole.BLUE -> ArtIds.thrill("blue")
+    Hole.RED -> ArtIds.thrill("red")
+    Hole.SILVER -> ArtIds.thrill("silver")
+    Hole.GOLD -> ArtIds.thrill("gold")
+    Hole.RUPOOR -> ArtIds.thrill("rupoor")
+    Hole.BOMB -> ArtIds.thrill("bomb")
 }
 
 /** What a screen reader calls each kind of hole. */
@@ -68,10 +59,10 @@ private val MinusPurple = Color(0xFF3A0B5C)
  */
 @Composable
 fun HoleIcon(hole: Hole, modifier: Modifier = Modifier, alpha: Float = 1f) {
-    val drawable = holeDrawable(hole) ?: return
+    val id = holeArtId(hole) ?: return
     Box(modifier) {
-        Image(
-            painterResource(drawable),
+        ArtImage(
+            id,
             contentDescription = holeName(hole),
             contentScale = ContentScale.Fit,
             alpha = alpha,

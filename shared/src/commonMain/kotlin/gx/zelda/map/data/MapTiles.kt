@@ -1,7 +1,8 @@
 package gx.zelda.map.data
 
 import gx.zelda.map.model.MapProjection
-import gx.zelda.resources.Res
+import gx.zelda.art.ArtIds
+import gx.zelda.art.GameArt
 import kotlinx.io.Buffer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -13,12 +14,23 @@ import ovh.plrapps.mapcompose.core.TileStreamProvider
  * before, up to [fullWidth] × [fullHeight] px. `tiles.json` beside them records the same numbers,
  * and a test keeps the two in step.
  */
-class TilePyramid(val dir: String, val levels: Int, val fullWidth: Int, val fullHeight: Int, val tileSize: Int = 256) {
+class TilePyramid(
+    val dir: String,
+    val levels: Int,
+    val fullWidth: Int,
+    val fullHeight: Int,
+    val tileSize: Int = 256,
+    /** The art pack id of the same tiles ([ArtIds]), e.g. `botw/map/world`. */
+    val artId: String,
+) {
     fun path(level: Int, row: Int, col: Int): String = "$dir/$level/$row/$col.webp"
 
-    /** Serves tiles from the app's resources; a tile outside the pyramid is simply not drawn. */
+    /**
+     * Serves tiles from an art pack's [artId], else the app's resources ([GameArt]); a tile outside
+     * the pyramid is simply not drawn.
+     */
     val provider = TileStreamProvider { row, col, zoomLvl ->
-        runCatching { Res.readBytes(path(zoomLvl, row, col)) }.getOrNull()?.let { bytes -> Buffer().apply { write(bytes) } }
+        GameArt.tile(artId, zoomLvl, row, col, path(zoomLvl, row, col))?.let { bytes -> Buffer().apply { write(bytes) } }
     }
 }
 
@@ -33,7 +45,7 @@ object MapTiles {
     val FULL_WIDTH = (MapProjection.MAX_X - MapProjection.MIN_X).toInt()
     val FULL_HEIGHT = (MapProjection.MAX_Z - MapProjection.MIN_Z).toInt()
 
-    val pyramid = TilePyramid(DIR, LEVELS, FULL_WIDTH, FULL_HEIGHT, TILE_SIZE)
+    val pyramid = TilePyramid(DIR, LEVELS, FULL_WIDTH, FULL_HEIGHT, TILE_SIZE, ArtIds.BOTW_WORLD)
 
     fun path(level: Int, row: Int, col: Int): String = pyramid.path(level, row, col)
 
