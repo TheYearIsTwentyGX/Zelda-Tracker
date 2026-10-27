@@ -114,6 +114,9 @@ class ArmorViewModel(
     private val storage: ArmorStorage,
     private val loadCatalog: suspend () -> ArmorCatalog = { ArmorRepository.load(storage.game) },
 ) : ViewModel() {
+    /** The game whose armor this is; its icons are `<game id>/armor/<piece id>`. */
+    val gameId: String get() = storage.game.id
+
     private val catalog = MutableStateFlow<ArmorCatalog?>(null)
     private val _loadFailed = MutableStateFlow(false)
 

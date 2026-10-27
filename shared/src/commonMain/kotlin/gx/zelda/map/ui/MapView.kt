@@ -1,6 +1,5 @@
 package gx.zelda.map.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -23,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import gx.zelda.art.ArtImage
 import gx.zelda.core.DiscoveryState
 import gx.zelda.map.data.MapTiles
 import gx.zelda.map.model.ClusterSummary
@@ -35,7 +35,6 @@ import gx.zelda.map.model.clusterSummary
 import gx.zelda.map.model.iconScale
 import gx.zelda.map.model.layerIconScale
 import gx.zelda.map.model.markerLook
-import org.jetbrains.compose.resources.painterResource
 import ovh.plrapps.mapcompose.api.ClusterScaleThreshold
 import ovh.plrapps.mapcompose.api.addClusterer
 import ovh.plrapps.mapcompose.api.addLayer
@@ -169,18 +168,14 @@ internal fun MapMarkerIcon(marker: MapMarker, selected: Boolean, modifier: Modif
         if (look.disc) {
             Box(Modifier.size(size).background(stateColor(marker.layer, look.state), CircleShape).border(1.dp, Color(0xCC000000), CircleShape))
         }
-        val drawable = markerDrawable(look.icon)
-        if (drawable == null) {
-            Box(Modifier.size(size * 0.6f).background(stateColor(marker.layer, look.state), CircleShape))
-        } else {
-            Image(
-                painterResource(drawable),
-                contentDescription = null,
-                modifier = Modifier.size(size),
-                alpha = if (look.greyed) 0.8f else 1f,
-                colorFilter = if (look.greyed) GreyedOut else null,
-            )
-        }
+        ArtImage(
+            look.icon.artId,
+            contentDescription = null,
+            modifier = Modifier.size(size),
+            alpha = if (look.greyed) 0.8f else 1f,
+            colorFilter = if (look.greyed) GreyedOut else null,
+            missing = { Box(Modifier.size(size * 0.6f).background(stateColor(marker.layer, look.state), CircleShape)) },
+        )
     }
 }
 

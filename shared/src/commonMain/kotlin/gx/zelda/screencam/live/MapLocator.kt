@@ -1,7 +1,8 @@
 package gx.zelda.screencam.live
 
+import gx.zelda.art.ArtIds
+import gx.zelda.art.GameArt
 import gx.zelda.map.data.MapTiles
-import gx.zelda.resources.Res
 import gx.zelda.screencam.Homography
 import gx.zelda.screencam.Point
 import kotlin.math.abs
@@ -15,9 +16,9 @@ fun interface TileSource {
     suspend fun tile(level: Int, row: Int, col: Int): GrayImage?
 }
 
-/** The app's bundled tiles. */
+/** The map's tiles, from an art pack or the app ([GameArt]). */
 val BundledTiles = TileSource { level, row, col ->
-    runCatching { Res.readBytes(MapTiles.path(level, row, col)) }.getOrNull()?.let(::decodeGrayImage)
+    GameArt.tile(ArtIds.BOTW_WORLD, level, row, col, MapTiles.path(level, row, col))?.let(::decodeGrayImage)
 }
 
 /** Assembles regions of the tile pyramid, keeping recently used tiles decoded. */

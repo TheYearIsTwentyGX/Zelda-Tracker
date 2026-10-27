@@ -317,7 +317,7 @@ private fun PieceRow(
             modifier = Modifier.fillMaxWidth().clickable(onClick = onClick).padding(start = 4.dp, end = 16.dp, top = 4.dp, bottom = 4.dp),
         ) {
             Checkbox(checked = owned, onCheckedChange = { viewModel.setOwned(piece.id, it) })
-            ArmorIcon(piece, size = 40.dp, dimmed = !owned, modifier = Modifier.padding(end = 8.dp))
+            ArmorIcon(piece, viewModel.gameId, size = 40.dp, dimmed = !owned, modifier = Modifier.padding(end = 8.dp))
             Column(Modifier.weight(1f)) {
                 Text(
                     piece.name,

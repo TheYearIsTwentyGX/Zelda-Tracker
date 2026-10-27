@@ -1,7 +1,8 @@
 package gx.zelda.map.data
 
+import gx.zelda.art.ArtIds
+import gx.zelda.art.GameArt
 import gx.zelda.map.model.MapProjection
-import gx.zelda.resources.Res
 import kotlinx.io.Buffer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -22,9 +23,12 @@ object MapTiles {
 
     fun path(level: Int, row: Int, col: Int): String = "$DIR/$level/$row/$col.webp"
 
-    /** Serves tiles from the app's resources; a tile outside the pyramid is simply not drawn. */
+    /**
+     * Serves tiles from an art pack's `botw/map/world`, else the app's resources ([GameArt]); a tile
+     * outside the pyramid is simply not drawn.
+     */
     val provider = TileStreamProvider { row, col, zoomLvl ->
-        runCatching { Res.readBytes(path(zoomLvl, row, col)) }.getOrNull()?.let { bytes -> Buffer().apply { write(bytes) } }
+        GameArt.tile(ArtIds.BOTW_WORLD, zoomLvl, row, col, path(zoomLvl, row, col))?.let { bytes -> Buffer().apply { write(bytes) } }
     }
 }
 
